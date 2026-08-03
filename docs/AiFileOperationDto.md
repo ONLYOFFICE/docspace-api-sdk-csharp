@@ -1,0 +1,20 @@
+# DocSpace.API.SDK.Model.AiFileOperationDto
+The file operation information.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **string** | The file operation ID. | 
+**Operation** | **AiFileOperationType** |  | 
+**Progress** | **int** | The file operation progress in percentage. | 
+**Error** | **string** | The file operation error message. | 
+**Processed** | **string** | The file operation processing status. | 
+**Finished** | **bool** | Specifies if the file operation is finished or not. | 
+**Url** | **string** | The file operation URL. | [optional] 
+**Files** | [**List&lt;AiFileEntryBaseDto&gt;**](AiFileEntryBaseDto.md) | The list of files of the file operation. | [optional] 
+**Folders** | [**List&lt;AiFileEntryBaseDto&gt;**](AiFileEntryBaseDto.md) | The list of folders of the file operation. | [optional] 
+**Status** | **AiDistributedTaskStatus** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

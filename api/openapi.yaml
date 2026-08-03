@@ -55,37 +55,37 @@ tags:
   name: Rooms / Groups
   x-displayName: Groups
 - description: Chat completions and tool-call approval.
-  name: New AI / AI
+  name: AI / AI
   x-displayName: AI
 - description: Profile-to-entity assignment resolution.
-  name: New AI / Assignments
+  name: AI / Assignments
   x-displayName: Assignments
 - description: Message file and image attachments.
-  name: New AI / Attachments
+  name: AI / Attachments
   x-displayName: Attachments
 - description: Per-entity chat preferences (e.g. deep mode).
-  name: New AI / Preferences
+  name: AI / Preferences
   x-displayName: Preferences
 - description: AI provider profiles and model discovery.
-  name: New AI / Profiles
+  name: AI / Profiles
   x-displayName: Profiles
 - description: Saved prompts and prompt folders.
-  name: New AI / Prompts
+  name: AI / Prompts
   x-displayName: Prompts
 - description: Chat threads and their messages.
-  name: New AI / Threads
+  name: AI / Threads
   x-displayName: Threads
 - description: MCP custom servers and system tool preferences.
-  name: New AI / Tools
+  name: AI / Tools
   x-displayName: Tools
 - description: Web-search provider configuration.
-  name: New AI / Web search
+  name: AI / Web search
   x-displayName: Web search
 - description: AI agent rooms (delegated to the .NET AI service).
-  name: New AI / Agents
+  name: AI / Agents
   x-displayName: Agents
 - description: Markdown → docx export.
-  name: New AI / Export
+  name: AI / Export
   x-displayName: Export
 - description: "APIs for managing OAuth2 authorization, including authorization and\
     \ consent."
@@ -20573,187 +20573,187 @@ paths:
       - Rooms / Groups
   /api/2.0/ai/ai/send:
     post:
-      operationId: newAiAiSend
+      operationId: aiAiSend
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAiSend_request"
+              $ref: "#/components/schemas/aiAiSend_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiThreadMessageLike"
+                $ref: "#/components/schemas/AiThreadMessageLike"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Send
       tags:
-      - New AI / AI
+      - AI / AI
   /api/2.0/ai/ai/send-custom:
     post:
-      operationId: newAiAiSendCustom
+      operationId: aiAiSendCustom
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAiSendCustom_request"
+              $ref: "#/components/schemas/aiAiSendCustom_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiThreadMessageLike"
+                $ref: "#/components/schemas/AiThreadMessageLike"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Send custom
       tags:
-      - New AI / AI
+      - AI / AI
   /api/2.0/ai/ai/send-with-stream:
     post:
-      operationId: newAiAiSendWithStream
+      operationId: aiAiSendWithStream
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiAiSendStreamBody"
+              $ref: "#/components/schemas/AiAiSendStreamBody"
         required: true
       responses:
         "200":
           content:
             application/x-ndjson:
               schema:
-                $ref: "#/components/schemas/NewAiChatEvent"
+                $ref: "#/components/schemas/AiChatEvent"
           description: Newline-delimited stream of chat events — one JSON `ChatEvent`
             object per line.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Send with stream
       tags:
-      - New AI / AI
+      - AI / AI
   /api/2.0/ai/ai/send-with-stream-openai:
     post:
-      operationId: newAiAiSendWithStreamOpenAI
+      operationId: aiAiSendWithStreamOpenAI
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiAiSendStreamBody"
+              $ref: "#/components/schemas/AiAiSendStreamBody"
         required: true
       responses:
         "200":
           content:
             text/event-stream:
               schema:
-                $ref: "#/components/schemas/NewAiOpenAIStreamChunk"
+                $ref: "#/components/schemas/AiOpenAIStreamChunk"
           description: "Server-sent events stream of OpenAI `chat.completion.chunk`\
             \ objects, terminated by a `[DONE]` sentinel."
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Send with stream open ai
       tags:
-      - New AI / AI
+      - AI / AI
   /api/2.0/ai/ai/regenerate-stream:
     post:
-      operationId: newAiAiRegenerateStream
+      operationId: aiAiRegenerateStream
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAiRegenerateStream_request"
+              $ref: "#/components/schemas/aiAiRegenerateStream_request"
         required: true
       responses:
         "200":
           content:
             application/x-ndjson:
               schema:
-                $ref: "#/components/schemas/NewAiChatEvent"
+                $ref: "#/components/schemas/AiChatEvent"
           description: Newline-delimited stream of chat events — one JSON `ChatEvent`
             object per line.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Regenerate stream
       tags:
-      - New AI / AI
+      - AI / AI
   /api/2.0/ai/ai/approve-tool-call:
     post:
-      operationId: newAiAiApproveToolCall
+      operationId: aiAiApproveToolCall
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAiApproveToolCall_request"
+              $ref: "#/components/schemas/aiAiApproveToolCall_request"
         required: true
       responses:
         "200":
           content:
             application/x-ndjson:
               schema:
-                $ref: "#/components/schemas/NewAiChatEvent"
+                $ref: "#/components/schemas/AiChatEvent"
           description: Newline-delimited stream of chat events — one JSON `ChatEvent`
             object per line.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Approve tool call
       tags:
-      - New AI / AI
+      - AI / AI
   /api/2.0/ai/ai/deny-tool-call:
     post:
-      operationId: newAiAiDenyToolCall
+      operationId: aiAiDenyToolCall
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiAiToolCallData"
+              $ref: "#/components/schemas/AiAiToolCallData"
         required: true
       responses:
         "200":
           content:
             application/x-ndjson:
               schema:
-                $ref: "#/components/schemas/NewAiChatEvent"
+                $ref: "#/components/schemas/AiChatEvent"
           description: Newline-delimited stream of chat events — one JSON `ChatEvent`
             object per line.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Deny tool call
       tags:
-      - New AI / AI
+      - AI / AI
   /api/2.0/ai/assignments/resolve-for-action:
     get:
-      operationId: newAiAssignmentsResolveForAction
+      operationId: aiAssignmentsResolveForAction
       parameters:
       - explode: true
         in: query
@@ -20774,20 +20774,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiResolvedAssignment"
+                $ref: "#/components/schemas/AiResolvedAssignment"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Resolve for action
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/assignments/try-resolve-for-action:
     get:
-      operationId: newAiAssignmentsTryResolveForAction
+      operationId: aiAssignmentsTryResolveForAction
       parameters:
       - explode: true
         in: query
@@ -20809,71 +20809,71 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiResolvedAssignment"
+                - $ref: "#/components/schemas/AiResolvedAssignment"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Try resolve for action
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/assignments/assign:
     put:
-      operationId: newAiAssignmentsAssign
+      operationId: aiAssignmentsAssign
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAssignmentsAssign_request"
+              $ref: "#/components/schemas/aiAssignmentsAssign_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiAssignmentMutationResult"
+                $ref: "#/components/schemas/AiAssignmentMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Assign
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/assignments/unassign:
     delete:
-      operationId: newAiAssignmentsUnassign
+      operationId: aiAssignmentsUnassign
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiActionType"
+              $ref: "#/components/schemas/AiActionType"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Unassign
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/assignments/bulk-assign:
     put:
-      operationId: newAiAssignmentsBulkAssign
+      operationId: aiAssignmentsBulkAssign
       requestBody:
         content:
           application/json:
@@ -20887,20 +20887,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiBulkAssignmentResult"
+                $ref: "#/components/schemas/AiBulkAssignmentResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Bulk assign
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/assignments/get-assignment:
     get:
-      operationId: newAiAssignmentsGetAssignment
+      operationId: aiAssignmentsGetAssignment
       parameters:
       - explode: true
         in: query
@@ -20921,14 +20921,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get assignment
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/assignments/get-all-assignments:
     get:
-      operationId: newAiAssignmentsGetAllAssignments
+      operationId: aiAssignmentsGetAllAssignments
       parameters:
       - explode: true
         in: query
@@ -20950,14 +20950,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get all assignments
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/assignments/cascade-profile-delete:
     delete:
-      operationId: newAiAssignmentsCascadeProfileDelete
+      operationId: aiAssignmentsCascadeProfileDelete
       requestBody:
         content:
           application/json:
@@ -20969,50 +20969,50 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Cascade profile delete
       tags:
-      - New AI / Assignments
+      - AI / Assignments
   /api/2.0/ai/attachments/save-file:
     post:
-      operationId: newAiAttachmentsSaveFile
+      operationId: aiAttachmentsSaveFile
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAttachmentsSaveFile_request"
+              $ref: "#/components/schemas/aiAttachmentsSaveFile_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiAttachment"
+                $ref: "#/components/schemas/AiAttachment"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Save file
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/save-files-many:
     post:
-      operationId: newAiAttachmentsSaveFilesMany
+      operationId: aiAttachmentsSaveFilesMany
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAttachmentsSaveFilesMany_request"
+              $ref: "#/components/schemas/aiAttachmentsSaveFilesMany_request"
         required: true
       responses:
         "200":
@@ -21020,51 +21020,51 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiAttachment"
+                  $ref: "#/components/schemas/AiAttachment"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Save files many
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/save-image:
     post:
-      operationId: newAiAttachmentsSaveImage
+      operationId: aiAttachmentsSaveImage
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAttachmentsSaveImage_request"
+              $ref: "#/components/schemas/aiAttachmentsSaveImage_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiAttachment"
+                $ref: "#/components/schemas/AiAttachment"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Save image
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/save-images-many:
     post:
-      operationId: newAiAttachmentsSaveImagesMany
+      operationId: aiAttachmentsSaveImagesMany
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAttachmentsSaveImagesMany_request"
+              $ref: "#/components/schemas/aiAttachmentsSaveImagesMany_request"
         required: true
       responses:
         "200":
@@ -21072,21 +21072,21 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiAttachment"
+                  $ref: "#/components/schemas/AiAttachment"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Save images many
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/get:
     post:
-      operationId: newAiAttachmentsGet
+      operationId: aiAttachmentsGet
       requestBody:
         content:
           application/json:
@@ -21099,21 +21099,21 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiAttachment"
+                - $ref: "#/components/schemas/AiAttachment"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/get-many:
     post:
-      operationId: newAiAttachmentsGetMany
+      operationId: aiAttachmentsGetMany
       requestBody:
         content:
           application/json:
@@ -21129,7 +21129,7 @@ paths:
               schema:
                 items:
                   allOf:
-                  - $ref: "#/components/schemas/NewAiAttachment"
+                  - $ref: "#/components/schemas/AiAttachment"
                   nullable: true
                 type: array
           description: Success.
@@ -21137,14 +21137,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get many
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/delete:
     delete:
-      operationId: newAiAttachmentsDelete
+      operationId: aiAttachmentsDelete
       requestBody:
         content:
           application/json:
@@ -21156,20 +21156,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/delete-many:
     delete:
-      operationId: newAiAttachmentsDeleteMany
+      operationId: aiAttachmentsDeleteMany
       requestBody:
         content:
           application/json:
@@ -21183,45 +21183,45 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete many
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/attachments/link-to-message:
     post:
-      operationId: newAiAttachmentsLinkToMessage
+      operationId: aiAttachmentsLinkToMessage
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAttachmentsLinkToMessage_request"
+              $ref: "#/components/schemas/aiAttachmentsLinkToMessage_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Link to message
       tags:
-      - New AI / Attachments
+      - AI / Attachments
   /api/2.0/ai/preferences/get-deep-mode:
     get:
-      operationId: newAiPreferencesGetDeepMode
+      operationId: aiPreferencesGetDeepMode
       parameters:
       - explode: true
         in: query
@@ -21241,39 +21241,39 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get deep mode
       tags:
-      - New AI / Preferences
+      - AI / Preferences
   /api/2.0/ai/preferences/set-deep-mode:
     put:
-      operationId: newAiPreferencesSetDeepMode
+      operationId: aiPreferencesSetDeepMode
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiPreferencesSetDeepMode_request"
+              $ref: "#/components/schemas/aiPreferencesSetDeepMode_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Set deep mode
       tags:
-      - New AI / Preferences
+      - AI / Preferences
   /api/2.0/ai/preferences/clear-deep-mode:
     delete:
-      operationId: newAiPreferencesClearDeepMode
+      operationId: aiPreferencesClearDeepMode
       requestBody:
         content:
           application/json:
@@ -21285,20 +21285,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Clear deep mode
       tags:
-      - New AI / Preferences
+      - AI / Preferences
   /api/2.0/ai/preferences/is-deep-mode-set:
     get:
-      operationId: newAiPreferencesIsDeepModeSet
+      operationId: aiPreferencesIsDeepModeSet
       parameters:
       - explode: true
         in: query
@@ -21318,64 +21318,64 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Is deep mode set
       tags:
-      - New AI / Preferences
+      - AI / Preferences
   /api/2.0/ai/profiles/create:
     post:
-      operationId: newAiProfilesCreate
+      operationId: aiProfilesCreate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiCreateProfileInput"
+              $ref: "#/components/schemas/AiCreateProfileInput"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiProfileMutationResult"
+                $ref: "#/components/schemas/AiProfileMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Create
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/profiles/update:
     put:
-      operationId: newAiProfilesUpdate
+      operationId: aiProfilesUpdate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiProfile"
+              $ref: "#/components/schemas/AiProfile"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiProfileMutationResult"
+                $ref: "#/components/schemas/AiProfileMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/profiles/delete:
     delete:
-      operationId: newAiProfilesDelete
+      operationId: aiProfilesDelete
       requestBody:
         content:
           application/json:
@@ -21387,20 +21387,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/profiles/list-models:
     get:
-      operationId: newAiProfilesListModels
+      operationId: aiProfilesListModels
       parameters:
       - explode: true
         in: query
@@ -21415,26 +21415,26 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiModel"
+                  $ref: "#/components/schemas/AiModel"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List models
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/profiles/list-provider-models:
     post:
-      operationId: newAiProfilesListProviderModels
+      operationId: aiProfilesListProviderModels
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiProfilesListProviderModels_request"
+              $ref: "#/components/schemas/aiProfilesListProviderModels_request"
         required: true
       responses:
         "200":
@@ -21442,21 +21442,21 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiModel"
+                  $ref: "#/components/schemas/AiModel"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List provider models
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/profiles/test-connection:
     post:
-      operationId: newAiProfilesTestConnection
+      operationId: aiProfilesTestConnection
       requestBody:
         content:
           application/json:
@@ -21468,20 +21468,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/newAiProfilesTestConnection_200_response"
+                $ref: "#/components/schemas/aiProfilesTestConnection_200_response"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Test connection
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/profiles/get-by-id:
     get:
-      operationId: newAiProfilesGetById
+      operationId: aiProfilesGetById
       parameters:
       - explode: true
         in: query
@@ -21495,116 +21495,116 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiProfile"
+                $ref: "#/components/schemas/AiProfile"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get by id
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/profiles/list:
     get:
-      operationId: newAiProfilesList
+      operationId: aiProfilesList
       responses:
         "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiProfile"
+                  $ref: "#/components/schemas/AiProfile"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List
       tags:
-      - New AI / Profiles
+      - AI / Profiles
   /api/2.0/ai/prompts/create:
     post:
-      operationId: newAiPromptsCreate
+      operationId: aiPromptsCreate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiCreatePromptInput"
+              $ref: "#/components/schemas/AiCreatePromptInput"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiPromptMutationResult"
+                $ref: "#/components/schemas/AiPromptMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Create
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/update:
     put:
-      operationId: newAiPromptsUpdate
+      operationId: aiPromptsUpdate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiPromptsUpdate_request"
+              $ref: "#/components/schemas/aiPromptsUpdate_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiPromptMutationResult"
+                $ref: "#/components/schemas/AiPromptMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/move:
     put:
-      operationId: newAiPromptsMove
+      operationId: aiPromptsMove
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiPromptsMove_request"
+              $ref: "#/components/schemas/aiPromptsMove_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiPromptMutationResult"
+                $ref: "#/components/schemas/AiPromptMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Move
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/delete:
     delete:
-      operationId: newAiPromptsDelete
+      operationId: aiPromptsDelete
       requestBody:
         content:
           application/json:
@@ -21616,20 +21616,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/list:
     get:
-      operationId: newAiPromptsList
+      operationId: aiPromptsList
       parameters:
       - explode: true
         in: query
@@ -21644,21 +21644,21 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiPrompt"
+                  $ref: "#/components/schemas/AiPrompt"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/create-folder:
     post:
-      operationId: newAiPromptsCreateFolder
+      operationId: aiPromptsCreateFolder
       requestBody:
         content:
           application/json:
@@ -21670,45 +21670,45 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderMutationResult"
+                $ref: "#/components/schemas/AiFolderMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Create folder
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/rename-folder:
     put:
-      operationId: newAiPromptsRenameFolder
+      operationId: aiPromptsRenameFolder
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiPromptsRenameFolder_request"
+              $ref: "#/components/schemas/aiPromptsRenameFolder_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderMutationResult"
+                $ref: "#/components/schemas/AiFolderMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Rename folder
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/delete-folder:
     delete:
-      operationId: newAiPromptsDeleteFolder
+      operationId: aiPromptsDeleteFolder
       requestBody:
         content:
           application/json:
@@ -21720,85 +21720,85 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete folder
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/list-folders:
     get:
-      operationId: newAiPromptsListFolders
+      operationId: aiPromptsListFolders
       responses:
         "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiPromptFolder"
+                  $ref: "#/components/schemas/AiPromptFolder"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List folders
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/export:
     get:
-      operationId: newAiPromptsExport
+      operationId: aiPromptsExport
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiPromptBundle"
+                $ref: "#/components/schemas/AiPromptBundle"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Export
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/import-bundle:
     post:
-      operationId: newAiPromptsImportBundle
+      operationId: aiPromptsImportBundle
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiPromptsImportBundle_request"
+              $ref: "#/components/schemas/aiPromptsImportBundle_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiImportResult"
+                $ref: "#/components/schemas/AiImportResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Import bundle
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/get-by-id:
     get:
-      operationId: newAiPromptsGetById
+      operationId: aiPromptsGetById
       parameters:
       - explode: true
         in: query
@@ -21813,21 +21813,21 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiPrompt"
+                - $ref: "#/components/schemas/AiPrompt"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get by id
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/prompts/get-folder-by-id:
     get:
-      operationId: newAiPromptsGetFolderById
+      operationId: aiPromptsGetFolderById
       parameters:
       - explode: true
         in: query
@@ -21842,146 +21842,146 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiPromptFolder"
+                - $ref: "#/components/schemas/AiPromptFolder"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get folder by id
       tags:
-      - New AI / Prompts
+      - AI / Prompts
   /api/2.0/ai/threads/create:
     post:
-      operationId: newAiThreadsCreate
+      operationId: aiThreadsCreate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiThreadsCreate_request"
+              $ref: "#/components/schemas/aiThreadsCreate_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiThread"
+                $ref: "#/components/schemas/AiThread"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Create
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/open-or-create:
     post:
-      operationId: newAiThreadsOpenOrCreate
+      operationId: aiThreadsOpenOrCreate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiOpenOrCreateInput"
+              $ref: "#/components/schemas/AiOpenOrCreateInput"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiOpenOrCreateResult"
+                $ref: "#/components/schemas/AiOpenOrCreateResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Open or create
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/append-user-message:
     post:
-      operationId: newAiThreadsAppendUserMessage
+      operationId: aiThreadsAppendUserMessage
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiThreadsAppendUserMessage_request"
+              $ref: "#/components/schemas/aiThreadsAppendUserMessage_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiThreadMessageLike"
+                $ref: "#/components/schemas/AiThreadMessageLike"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Append user message
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/touch:
     post:
-      operationId: newAiThreadsTouch
+      operationId: aiThreadsTouch
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiThreadsTouch_request"
+              $ref: "#/components/schemas/aiThreadsTouch_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Touch
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/rename:
     put:
-      operationId: newAiThreadsRename
+      operationId: aiThreadsRename
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiThreadsRename_request"
+              $ref: "#/components/schemas/aiThreadsRename_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Rename
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/delete:
     delete:
-      operationId: newAiThreadsDelete
+      operationId: aiThreadsDelete
       requestBody:
         content:
           application/json:
@@ -21993,20 +21993,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/clear-messages:
     delete:
-      operationId: newAiThreadsClearMessages
+      operationId: aiThreadsClearMessages
       requestBody:
         content:
           application/json:
@@ -22018,25 +22018,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Clear messages
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/regenerate-title:
     post:
-      operationId: newAiThreadsRegenerateTitle
+      operationId: aiThreadsRegenerateTitle
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiThreadsRegenerateTitle_request"
+              $ref: "#/components/schemas/aiThreadsRegenerateTitle_request"
         required: true
       responses:
         "200":
@@ -22049,14 +22049,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Regenerate title
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/list:
     get:
-      operationId: newAiThreadsList
+      operationId: aiThreadsList
       parameters:
       - explode: true
         in: query
@@ -22092,21 +22092,21 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiThread"
+                  $ref: "#/components/schemas/AiThread"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/read-messages:
     get:
-      operationId: newAiThreadsReadMessages
+      operationId: aiThreadsReadMessages
       parameters:
       - explode: true
         in: query
@@ -22135,21 +22135,21 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/NewAiThreadMessageLike"
+                  $ref: "#/components/schemas/AiThreadMessageLike"
                 type: array
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Read messages
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/get-by-id:
     get:
-      operationId: newAiThreadsGetById
+      operationId: aiThreadsGetById
       parameters:
       - explode: true
         in: query
@@ -22164,21 +22164,21 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiThread"
+                - $ref: "#/components/schemas/AiThread"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get by id
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/get-message-by-id:
     get:
-      operationId: newAiThreadsGetMessageById
+      operationId: aiThreadsGetMessageById
       parameters:
       - explode: true
         in: query
@@ -22193,46 +22193,46 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiThreadMessageLike"
+                - $ref: "#/components/schemas/AiThreadMessageLike"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get message by id
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/update-message:
     put:
-      operationId: newAiThreadsUpdateMessage
+      operationId: aiThreadsUpdateMessage
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiThreadsUpdateMessage_request"
+              $ref: "#/components/schemas/aiThreadsUpdateMessage_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update message
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/threads/delete-message:
     delete:
-      operationId: newAiThreadsDeleteMessage
+      operationId: aiThreadsDeleteMessage
       requestBody:
         content:
           application/json:
@@ -22244,95 +22244,95 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete message
       tags:
-      - New AI / Threads
+      - AI / Threads
   /api/2.0/ai/tools/add-custom-server:
     post:
-      operationId: newAiToolsAddCustomServer
+      operationId: aiToolsAddCustomServer
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiToolsAddCustomServer_request"
+              $ref: "#/components/schemas/aiToolsAddCustomServer_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiToolsMutationResult"
+                $ref: "#/components/schemas/AiToolsMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Add custom server
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/update-custom-server:
     put:
-      operationId: newAiToolsUpdateCustomServer
+      operationId: aiToolsUpdateCustomServer
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiToolsUpdateCustomServer_request"
+              $ref: "#/components/schemas/aiToolsUpdateCustomServer_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiToolsMutationResult"
+                $ref: "#/components/schemas/AiToolsMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update custom server
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/remove-custom-server:
     delete:
-      operationId: newAiToolsRemoveCustomServer
+      operationId: aiToolsRemoveCustomServer
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiToolsRemoveCustomServer_request"
+              $ref: "#/components/schemas/aiToolsRemoveCustomServer_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Remove custom server
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/get-custom-server:
     get:
-      operationId: newAiToolsGetCustomServer
+      operationId: aiToolsGetCustomServer
       parameters:
       - explode: true
         in: query
@@ -22354,21 +22354,21 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiMcpServerConfig"
+                - $ref: "#/components/schemas/AiMcpServerConfig"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get custom server
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/list-custom-servers:
     get:
-      operationId: newAiToolsListCustomServers
+      operationId: aiToolsListCustomServers
       parameters:
       - explode: true
         in: query
@@ -22383,21 +22383,21 @@ paths:
             application/json:
               schema:
                 additionalProperties:
-                  $ref: "#/components/schemas/NewAiMcpServerConfig"
+                  $ref: "#/components/schemas/AiMcpServerConfig"
                 type: object
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List custom servers
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/list-system-tools:
     get:
-      operationId: newAiToolsListSystemTools
+      operationId: aiToolsListSystemTools
       parameters:
       - explode: true
         in: query
@@ -22413,7 +22413,7 @@ paths:
               schema:
                 additionalProperties:
                   items:
-                    $ref: "#/components/schemas/NewAiTMCPItem"
+                    $ref: "#/components/schemas/AiTMCPItem"
                   type: array
                 type: object
           description: Success.
@@ -22421,64 +22421,64 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List system tools
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/replace-all-custom-servers:
     put:
-      operationId: newAiToolsReplaceAllCustomServers
+      operationId: aiToolsReplaceAllCustomServers
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiToolsReplaceAllCustomServers_request"
+              $ref: "#/components/schemas/aiToolsReplaceAllCustomServers_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiToolsBulkResult"
+                $ref: "#/components/schemas/AiToolsBulkResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Replace all custom servers
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/set-disabled:
     put:
-      operationId: newAiToolsSetDisabled
+      operationId: aiToolsSetDisabled
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiToolsSetDisabled_request"
+              $ref: "#/components/schemas/aiToolsSetDisabled_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Set disabled
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/get-disabled:
     get:
-      operationId: newAiToolsGetDisabled
+      operationId: aiToolsGetDisabled
       parameters:
       - explode: true
         in: query
@@ -22502,14 +22502,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get disabled
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/is-tool-disabled:
     get:
-      operationId: newAiToolsIsToolDisabled
+      operationId: aiToolsIsToolDisabled
       parameters:
       - explode: true
         in: query
@@ -22543,39 +22543,39 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Is tool disabled
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/set-allow-always:
     put:
-      operationId: newAiToolsSetAllowAlways
+      operationId: aiToolsSetAllowAlways
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiToolsSetAllowAlways_request"
+              $ref: "#/components/schemas/aiToolsSetAllowAlways_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Set allow always
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/get-allow-always:
     get:
-      operationId: newAiToolsGetAllowAlways
+      operationId: aiToolsGetAllowAlways
       parameters:
       - explode: true
         in: query
@@ -22597,14 +22597,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get allow always
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/tools/is-allow-always:
     get:
-      operationId: newAiToolsIsAllowAlways
+      operationId: aiToolsIsAllowAlways
       parameters:
       - explode: true
         in: query
@@ -22638,14 +22638,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Is allow always
       tags:
-      - New AI / Tools
+      - AI / Tools
   /api/2.0/ai/web-search/get-active-config:
     get:
-      operationId: newAiWebSearchGetActiveConfig
+      operationId: aiWebSearchGetActiveConfig
       parameters:
       - explode: true
         in: query
@@ -22660,21 +22660,21 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: "#/components/schemas/NewAiWebSearchConfig"
+                - $ref: "#/components/schemas/AiWebSearchConfig"
                 nullable: true
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get active config
       tags:
-      - New AI / Web search
+      - AI / Web search
   /api/2.0/ai/web-search/is-configured:
     get:
-      operationId: newAiWebSearchIsConfigured
+      operationId: aiWebSearchIsConfigured
       parameters:
       - explode: true
         in: query
@@ -22694,89 +22694,89 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Is configured
       tags:
-      - New AI / Web search
+      - AI / Web search
   /api/2.0/ai/web-search/test-connection:
     post:
-      operationId: newAiWebSearchTestConnection
+      operationId: aiWebSearchTestConnection
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewAiWebSearchConfig"
+              $ref: "#/components/schemas/AiWebSearchConfig"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/newAiProfilesTestConnection_200_response"
+                $ref: "#/components/schemas/aiProfilesTestConnection_200_response"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Test connection
       tags:
-      - New AI / Web search
+      - AI / Web search
   /api/2.0/ai/web-search/configure:
     put:
-      operationId: newAiWebSearchConfigure
+      operationId: aiWebSearchConfigure
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiWebSearchConfigure_request"
+              $ref: "#/components/schemas/aiWebSearchConfigure_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiWebSearchMutationResult"
+                $ref: "#/components/schemas/AiWebSearchMutationResult"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Configure
       tags:
-      - New AI / Web search
+      - AI / Web search
   /api/2.0/ai/web-search/set-active-config:
     put:
-      operationId: newAiWebSearchSetActiveConfig
+      operationId: aiWebSearchSetActiveConfig
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiWebSearchConfigure_request"
+              $ref: "#/components/schemas/aiWebSearchConfigure_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Set active config
       tags:
-      - New AI / Web search
+      - AI / Web search
   /api/2.0/ai/web-search/clear:
     delete:
-      operationId: newAiWebSearchClear
+      operationId: aiWebSearchClear
       requestBody:
         content:
           application/json:
@@ -22788,107 +22788,107 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Clear
       tags:
-      - New AI / Web search
+      - AI / Web search
   /api/2.0/ai/text-to-docx:
     post:
-      operationId: newAiExportTextToDocx
+      operationId: aiExportTextToDocx
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiExportTextToDocx_request"
+              $ref: "#/components/schemas/aiExportTextToDocx_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/newAiExportTextToDocx_200_response"
+                $ref: "#/components/schemas/aiExportTextToDocx_200_response"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Start markdown → docx export
       tags:
-      - New AI / Export
+      - AI / Export
   /api/2.0/ai/agents:
     get:
-      operationId: newAiAgentsList
+      operationId: aiAgentsList
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderContentIntegerWrapper"
+                $ref: "#/components/schemas/AiFolderContentIntegerWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List agents
       tags:
-      - New AI / Agents
+      - AI / Agents
     post:
-      operationId: newAiAgentsCreate
+      operationId: aiAgentsCreate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAgentsCreate_request"
+              $ref: "#/components/schemas/aiAgentsCreate_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderIntegerWrapper"
+                $ref: "#/components/schemas/AiFolderIntegerWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Create an agent
       tags:
-      - New AI / Agents
+      - AI / Agents
   /api/2.0/ai/agents/news:
     get:
-      operationId: newAiAgentsNews
+      operationId: aiAgentsNews
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiNewItemsAgentNewItemsArrayWrapper"
+                $ref: "#/components/schemas/AiNewItemsAgentNewItemsArrayWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: List agent news items
       tags:
-      - New AI / Agents
+      - AI / Agents
   /api/2.0/ai/agents/{id}:
     delete:
-      operationId: newAiAgentsDelete
+      operationId: aiAgentsDelete
       parameters:
       - explode: false
         in: path
@@ -22901,26 +22901,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAgentsDelete_request"
+              $ref: "#/components/schemas/aiAgentsDelete_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFileOperationWrapper"
+                $ref: "#/components/schemas/AiFileOperationWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Delete an agent
       tags:
-      - New AI / Agents
+      - AI / Agents
     get:
-      operationId: newAiAgentsGet
+      operationId: aiAgentsGet
       parameters:
       - explode: false
         in: path
@@ -22934,19 +22934,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderIntegerWrapper"
+                $ref: "#/components/schemas/AiFolderIntegerWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get an agent
       tags:
-      - New AI / Agents
+      - AI / Agents
     put:
-      operationId: newAiAgentsUpdate
+      operationId: aiAgentsUpdate
       parameters:
       - explode: false
         in: path
@@ -22959,114 +22959,114 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAgentsUpdate_request"
+              $ref: "#/components/schemas/aiAgentsUpdate_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderIntegerWrapper"
+                $ref: "#/components/schemas/AiFolderIntegerWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update an agent
       tags:
-      - New AI / Agents
+      - AI / Agents
   /api/2.0/ai/agents/agentquota:
     put:
-      operationId: newAiAgentsUpdateQuota
+      operationId: aiAgentsUpdateQuota
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAgentsUpdateQuota_request"
+              $ref: "#/components/schemas/aiAgentsUpdateQuota_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderIntegerArrayWrapper"
+                $ref: "#/components/schemas/AiFolderIntegerArrayWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update agents' quota
       tags:
-      - New AI / Agents
+      - AI / Agents
   /api/2.0/ai/agents/resetquota:
     put:
-      operationId: newAiAgentsResetQuota
+      operationId: aiAgentsResetQuota
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/newAiAgentsResetQuota_request"
+              $ref: "#/components/schemas/aiAgentsResetQuota_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiFolderIntegerArrayWrapper"
+                $ref: "#/components/schemas/AiFolderIntegerArrayWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Reset agents' quota
       tags:
-      - New AI / Agents
+      - AI / Agents
   /api/2.0/ai/config:
     get:
-      operationId: newAiSettingsGet
+      operationId: aiSettingsGet
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiAiSettingsWrapper"
+                $ref: "#/components/schemas/AiAiSettingsWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get AI settings
       tags:
-      - New AI / Settings
+      - AI / Settings
   /api/2.0/ai/config/vectorization:
     get:
-      operationId: newAiSettingsGetVectorization
+      operationId: aiSettingsGetVectorization
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiVectorizationSettingsWrapper"
+                $ref: "#/components/schemas/AiVectorizationSettingsWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get vectorization settings
       tags:
-      - New AI / Settings
+      - AI / Settings
     put:
-      operationId: newAiSettingsSetVectorization
+      operationId: aiSettingsSetVectorization
       requestBody:
         content:
           application/json:
@@ -23079,38 +23079,38 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiVectorizationSettingsWrapper"
+                $ref: "#/components/schemas/AiVectorizationSettingsWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update vectorization settings
       tags:
-      - New AI / Settings
+      - AI / Settings
   /api/2.0/ai/config/user:
     get:
-      operationId: newAiSettingsGetUser
+      operationId: aiSettingsGetUser
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiAiUserSettingsWrapper"
+                $ref: "#/components/schemas/AiAiUserSettingsWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Get user AI settings
       tags:
-      - New AI / Settings
+      - AI / Settings
     put:
-      operationId: newAiSettingsSetUser
+      operationId: aiSettingsSetUser
       requestBody:
         content:
           application/json:
@@ -23123,20 +23123,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiAiUserSettingsWrapper"
+                $ref: "#/components/schemas/AiAiUserSettingsWrapper"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Update user AI settings
       tags:
-      - New AI / Settings
+      - AI / Settings
   /api/2.0/ai/vectorization/tasks:
     post:
-      operationId: newAiVectorizationStartTask
+      operationId: aiVectorizationStartTask
       requestBody:
         content:
           application/json:
@@ -23149,17 +23149,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiSuccessResponse"
+                $ref: "#/components/schemas/AiSuccessResponse"
           description: Success.
         "401":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NewAiErrorResponse"
+                $ref: "#/components/schemas/AiErrorResponse"
           description: Missing `asc_auth_key` cookie or `Authorization` header.
       summary: Start a vectorization task
       tags:
-      - New AI / Vectorization
+      - AI / Vectorization
   /oauth2/authorize:
     get:
       description: Initiates the OAuth2 authorization flow.
@@ -72929,7 +72929,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiSuccessResponse:
+    AiSuccessResponse:
       additionalProperties: false
       description: Generic success acknowledgement for mutations that return no data.
       example:
@@ -72940,7 +72940,7 @@ components:
       required:
       - success
       type: object
-    NewAiErrorResponse:
+    AiErrorResponse:
       additionalProperties: false
       description: Error body — a single human-readable message.
       example:
@@ -72951,7 +72951,7 @@ components:
       required:
       - error
       type: object
-    NewAiAiActionArgs:
+    AiAiActionArgs:
       additionalProperties: false
       example:
         isReasoning: true
@@ -72973,15 +72973,15 @@ components:
         tools:
           description: Extra tools offered to the model for this request.
           items:
-            $ref: "#/components/schemas/NewAiTMCPItem"
+            $ref: "#/components/schemas/AiTMCPItem"
           type: array
         isReasoning:
           description: Enable extended thinking / reasoning for this request.
           type: boolean
         prompt:
-          $ref: "#/components/schemas/NewAiAiActionArgs_prompt"
+          $ref: "#/components/schemas/AiAiActionArgs_prompt"
       type: object
-    NewAiTMCPItem:
+    AiTMCPItem:
       additionalProperties: false
       description: Descriptor for a tool exposed by an MCP server.
       example:
@@ -73021,7 +73021,7 @@ components:
       - inputSchema
       - name
       type: object
-    NewAiActionType:
+    AiActionType:
       enum:
       - Default
       - Chat
@@ -73033,7 +73033,7 @@ components:
       - OCR
       - Vision
       type: string
-    NewAiThreadMessageLike:
+    AiThreadMessageLike:
       additionalProperties: false
       example:
         createdAt: createdAt
@@ -73043,7 +73043,7 @@ components:
         - "{}"
         - "{}"
         id: id
-        content: NewAiThreadMessageLike_content
+        content: AiThreadMessageLike_content
         status:
           type: type
       properties:
@@ -73058,12 +73058,12 @@ components:
           - system
           type: string
         content:
-          $ref: "#/components/schemas/NewAiThreadMessageLike_content"
+          $ref: "#/components/schemas/AiThreadMessageLike_content"
         createdAt:
           description: "Creation timestamp, ISO-8601 on the wire."
           type: string
         status:
-          $ref: "#/components/schemas/NewAiThreadMessageLike_status"
+          $ref: "#/components/schemas/AiThreadMessageLike_status"
         metadata:
           description: Arbitrary per-message metadata.
           type: object
@@ -73076,7 +73076,7 @@ components:
       - content
       - role
       type: object
-    NewAiAiSendStreamBody:
+    AiAiSendStreamBody:
       additionalProperties: false
       example:
         threadId: threadId
@@ -73088,7 +73088,7 @@ components:
           - "{}"
           - "{}"
           id: id
-          content: NewAiThreadMessageLike_content
+          content: AiThreadMessageLike_content
           status:
             type: type
         profileId: profileId
@@ -73115,9 +73115,9 @@ components:
             omitted.
           type: string
         userMessage:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         actionArgs:
-          $ref: "#/components/schemas/NewAiAiActionArgs"
+          $ref: "#/components/schemas/AiAiActionArgs"
         entityId:
           description: Optional entity (room) scope for profile resolution.
           type: string
@@ -73127,7 +73127,7 @@ components:
       required:
       - userMessage
       type: object
-    NewAiChatEvent:
+    AiChatEvent:
       description: |-
         Discriminated event emitted by the streaming methods of  {@link  AIEngine } . The engine never invokes user-supplied middleware or callbacks directly — every observable side-effect is encoded as a  {@link  ChatEvent }  so the same stream can be replayed over SSE, WebSocket, or in-process.
 
@@ -73156,7 +73156,7 @@ components:
           - thread-title
           type: string
         message:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         messageId:
           type: string
         idx:
@@ -73184,12 +73184,12 @@ components:
       required:
       - type
       type: object
-    NewAiOpenAIStreamChunk:
+    AiOpenAIStreamChunk:
       anyOf:
-      - $ref: "#/components/schemas/NewAiOpenAIChatCompletionChunk"
-      - $ref: "#/components/schemas/NewAiOpenAIStreamError"
+      - $ref: "#/components/schemas/AiOpenAIChatCompletionChunk"
+      - $ref: "#/components/schemas/AiOpenAIStreamError"
       description: A chunk or the terminal error envelope emitted on a failed stream.
-    NewAiOpenAIChatCompletionChunk:
+    AiOpenAIChatCompletionChunk:
       additionalProperties: false
       properties:
         id:
@@ -73204,7 +73204,7 @@ components:
           type: string
         choices:
           items:
-            $ref: "#/components/schemas/NewAiOpenAIChunkChoice"
+            $ref: "#/components/schemas/AiOpenAIChunkChoice"
           type: array
       required:
       - choices
@@ -73213,21 +73213,21 @@ components:
       - model
       - object
       type: object
-    NewAiOpenAIChunkChoice:
+    AiOpenAIChunkChoice:
       additionalProperties: false
       properties:
         index:
           type: number
         delta:
-          $ref: "#/components/schemas/NewAiOpenAIChoiceDelta"
+          $ref: "#/components/schemas/AiOpenAIChoiceDelta"
         finish_reason:
-          $ref: "#/components/schemas/NewAiOpenAIFinishReason"
+          $ref: "#/components/schemas/AiOpenAIFinishReason"
       required:
       - delta
       - finish_reason
       - index
       type: object
-    NewAiOpenAIChoiceDelta:
+    AiOpenAIChoiceDelta:
       additionalProperties: false
       properties:
         role:
@@ -73239,10 +73239,10 @@ components:
           type: string
         tool_calls:
           items:
-            $ref: "#/components/schemas/NewAiOpenAIToolCallDelta"
+            $ref: "#/components/schemas/AiOpenAIToolCallDelta"
           type: array
       type: object
-    NewAiOpenAIToolCallDelta:
+    AiOpenAIToolCallDelta:
       additionalProperties: false
       properties:
         index:
@@ -73254,11 +73254,11 @@ components:
           - function
           type: string
         function:
-          $ref: "#/components/schemas/NewAiOpenAIToolCallDelta_function"
+          $ref: "#/components/schemas/AiOpenAIToolCallDelta_function"
       required:
       - index
       type: object
-    NewAiOpenAIFinishReason:
+    AiOpenAIFinishReason:
       description: |-
         OpenAI Chat Completions streaming shapes.
 
@@ -73271,7 +73271,7 @@ components:
       - null
       nullable: true
       type: string
-    NewAiOpenAIStreamError:
+    AiOpenAIStreamError:
       additionalProperties: false
       description: "OpenAI streaming error envelope. When the upstream request fails\
         \ mid-stream the OpenAI API emits a single `data:` line carrying an `error`\
@@ -73280,11 +73280,11 @@ components:
         \ endpoint stays wire-compatible."
       properties:
         error:
-          $ref: "#/components/schemas/NewAiOpenAIStreamError_error"
+          $ref: "#/components/schemas/AiOpenAIStreamError_error"
       required:
       - error
       type: object
-    NewAiAiToolCallData:
+    AiAiToolCallData:
       additionalProperties: false
       example:
         threadId: threadId
@@ -73316,7 +73316,7 @@ components:
           - "{}"
           - "{}"
           id: id
-          content: NewAiThreadMessageLike_content
+          content: AiThreadMessageLike_content
           status:
             type: type
       properties:
@@ -73330,9 +73330,9 @@ components:
           description: Index of the tool-call content part inside `message.content`.
           type: number
         message:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         actionArgs:
-          $ref: "#/components/schemas/NewAiAiActionArgs"
+          $ref: "#/components/schemas/AiAiActionArgs"
         entityId:
           type: string
         profileId:
@@ -73343,7 +73343,7 @@ components:
       - messageId
       - threadId
       type: object
-    NewAiResolvedAssignment:
+    AiResolvedAssignment:
       additionalProperties: false
       description: Resolved profile for an action — both the storage row and its ID.
       example:
@@ -73369,12 +73369,12 @@ components:
         profileId:
           type: string
         profile:
-          $ref: "#/components/schemas/NewAiProfile"
+          $ref: "#/components/schemas/AiProfile"
       required:
       - profile
       - profileId
       type: object
-    NewAiProfile:
+    AiProfile:
       additionalProperties: false
       description: Complete AI provider + model configuration saved by the user. Profiles
         are the primary way users save and reuse provider configurations.
@@ -73403,9 +73403,9 @@ components:
           description: User-defined profile display name.
           type: string
         providerType:
-          $ref: "#/components/schemas/NewAiProviderType"
+          $ref: "#/components/schemas/AiProviderType"
         basedOn:
-          $ref: "#/components/schemas/NewAiBuiltinProviderType"
+          $ref: "#/components/schemas/AiBuiltinProviderType"
         baseUrl:
           description: Base URL of the provider API.
           type: string
@@ -73465,13 +73465,13 @@ components:
       - name
       - providerType
       type: object
-    NewAiProviderType:
+    AiProviderType:
       anyOf:
-      - $ref: "#/components/schemas/NewAiBuiltinProviderType"
+      - $ref: "#/components/schemas/AiBuiltinProviderType"
       - type: string
       description: "Provider type identifier. Accepts all 17 built-in types with autocomplete,\
         \ plus any custom `string` for dynamically registered providers."
-    NewAiBuiltinProviderType:
+    AiBuiltinProviderType:
       description: |-
         Union of all 17 built-in AI provider type identifiers.
 
@@ -73495,7 +73495,7 @@ components:
       - onlyoffice
       - external
       type: string
-    NewAiAssignmentMutationResult:
+    AiAssignmentMutationResult:
       description: "Outcome of  {@link  AssignmentsEngine.assign }  /  {@link  AssignmentsEngine.unassign\
         \ } . Either a success or a field-scoped error suitable for displaying in\
         \ the profile editor."
@@ -73508,11 +73508,11 @@ components:
         success:
           type: boolean
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - success
       type: object
-    NewAiTErrorData:
+    AiTErrorData:
       additionalProperties: false
       example:
         field: key
@@ -73530,7 +73530,7 @@ components:
       - field
       - message
       type: object
-    NewAiBulkAssignmentResult:
+    AiBulkAssignmentResult:
       description: "Outcome of  {@link  AssignmentsEngine.bulkAssign } . Either every\
         \ entry persisted, or no entries persisted and a per-key error report. The\
         \ engine validates first and writes second so a single bad entry never leaves\
@@ -73551,12 +73551,12 @@ components:
           type: boolean
         errors:
           items:
-            $ref: "#/components/schemas/NewAiBulkAssignmentResult_errors_inner"
+            $ref: "#/components/schemas/AiBulkAssignmentResult_errors_inner"
           type: array
       required:
       - success
       type: object
-    NewAiAttachment:
+    AiAttachment:
       additionalProperties: false
       description: "Persistent record for a single attachment (file or image) referenced\
         \ from a user message. Files carry extracted text in `content`; images carry\
@@ -73633,7 +73633,7 @@ components:
       - kind
       - title
       type: object
-    NewAiCreateProfileInput:
+    AiCreateProfileInput:
       additionalProperties: false
       description: "Input for creating a new profile — the same shape as  {@link \
         \ Profile }  without the engine-generated fields (`id`, `createdAt`)."
@@ -73657,9 +73657,9 @@ components:
           description: User-defined profile display name.
           type: string
         providerType:
-          $ref: "#/components/schemas/NewAiProviderType"
+          $ref: "#/components/schemas/AiProviderType"
         basedOn:
-          $ref: "#/components/schemas/NewAiBuiltinProviderType"
+          $ref: "#/components/schemas/AiBuiltinProviderType"
         baseUrl:
           description: Base URL of the provider API.
           type: string
@@ -73714,7 +73714,7 @@ components:
       - name
       - providerType
       type: object
-    NewAiProfileMutationResult:
+    AiProfileMutationResult:
       description: "Outcome of `create` / `update` — either a success carrying the\
         \ persisted profile, or a failure with a field-level error description from\
         \ the name check or the provider credential check."
@@ -73744,13 +73744,13 @@ components:
         success:
           type: boolean
         profile:
-          $ref: "#/components/schemas/NewAiProfile"
+          $ref: "#/components/schemas/AiProfile"
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - success
       type: object
-    NewAiModel:
+    AiModel:
       additionalProperties: false
       description: AI model metadata. Describes a single model available from a provider.
       example:
@@ -73768,7 +73768,7 @@ components:
           description: Human-readable model name for display in the UI.
           type: string
         provider:
-          $ref: "#/components/schemas/NewAiProviderType"
+          $ref: "#/components/schemas/AiProviderType"
         reasoning:
           description: Whether this model supports extended thinking / chain-of-thought
             reasoning.
@@ -73782,7 +73782,7 @@ components:
       - name
       - provider
       type: object
-    NewAiCreatePromptInput:
+    AiCreatePromptInput:
       additionalProperties: false
       description: Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.
       example:
@@ -73801,7 +73801,7 @@ components:
       - name
       - text
       type: object
-    NewAiPromptMutationResult:
+    AiPromptMutationResult:
       description: Outcome of `create` / `update` / `move` on a prompt — either the
         persisted prompt or a field-scoped error.
       example:
@@ -73820,13 +73820,13 @@ components:
         success:
           type: boolean
         prompt:
-          $ref: "#/components/schemas/NewAiPrompt"
+          $ref: "#/components/schemas/AiPrompt"
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - success
       type: object
-    NewAiPrompt:
+    AiPrompt:
       additionalProperties: false
       description: Saved prompt template that users can quickly insert into the chat.
       example:
@@ -73863,7 +73863,7 @@ components:
       - text
       - updatedAt
       type: object
-    NewAiFolderMutationResult:
+    AiFolderMutationResult:
       description: Outcome of `createFolder` / `renameFolder` — either the persisted
         folder or a field-scoped error.
       example:
@@ -73880,13 +73880,13 @@ components:
         success:
           type: boolean
         folder:
-          $ref: "#/components/schemas/NewAiPromptFolder"
+          $ref: "#/components/schemas/AiPromptFolder"
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - success
       type: object
-    NewAiPromptFolder:
+    AiPromptFolder:
       additionalProperties: false
       description: Folder for organizing saved prompts.
       example:
@@ -73913,7 +73913,7 @@ components:
       - name
       - updatedAt
       type: object
-    NewAiPromptBundle:
+    AiPromptBundle:
       additionalProperties: false
       description: "Versioned, self-contained bundle of every saved prompt and folder.\
         \ Stable wire format — `version` lets the import path migrate older shapes\
@@ -73949,24 +73949,24 @@ components:
           type: number
         folders:
           items:
-            $ref: "#/components/schemas/NewAiPromptFolder"
+            $ref: "#/components/schemas/AiPromptFolder"
           type: array
         prompts:
           items:
-            $ref: "#/components/schemas/NewAiPrompt"
+            $ref: "#/components/schemas/AiPrompt"
           type: array
       required:
       - folders
       - prompts
       - version
       type: object
-    NewAiImportMode:
+    AiImportMode:
       description: "Mode passed to  {@link  PromptsEngine.importBundle } ."
       enum:
       - replace
       - merge
       type: string
-    NewAiImportResult:
+    AiImportResult:
       description: "Outcome of  {@link  PromptsEngine.importBundle } . Either every\
         \ entry persisted with counts, or no entries persisted plus a per-entry error\
         \ report."
@@ -73990,15 +73990,15 @@ components:
         success:
           type: boolean
         imported:
-          $ref: "#/components/schemas/NewAiImportResult_imported"
+          $ref: "#/components/schemas/AiImportResult_imported"
         errors:
           items:
-            $ref: "#/components/schemas/NewAiImportError"
+            $ref: "#/components/schemas/AiImportError"
           type: array
       required:
       - success
       type: object
-    NewAiImportError:
+    AiImportError:
       additionalProperties: false
       description: "Per-entry error reported by  {@link  PromptsEngine.importBundle\
         \ } ."
@@ -74018,13 +74018,13 @@ components:
         ref:
           type: string
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - error
       - kind
       - ref
       type: object
-    NewAiThread:
+    AiThread:
       additionalProperties: false
       description: Chat conversation metadata. Represents a single chat session (thread).
       example:
@@ -74056,9 +74056,9 @@ components:
             Used for sorting.
           type: number
         provider:
-          $ref: "#/components/schemas/NewAiTProvider"
+          $ref: "#/components/schemas/AiTProvider"
         model:
-          $ref: "#/components/schemas/NewAiModel"
+          $ref: "#/components/schemas/AiModel"
         profileId:
           description: "ID of the profile used for this thread. Links to  {@link \
             \ Profile.id } ."
@@ -74066,7 +74066,7 @@ components:
       required:
       - threadId
       type: object
-    NewAiTProvider:
+    AiTProvider:
       additionalProperties: false
       description: Minimal provider connection configuration. Used to connect to a
         provider API.
@@ -74077,7 +74077,7 @@ components:
         key: key
       properties:
         type:
-          $ref: "#/components/schemas/NewAiProviderType"
+          $ref: "#/components/schemas/AiProviderType"
         name:
           description: User-defined display name for this provider connection.
           type: string
@@ -74093,7 +74093,7 @@ components:
       - name
       - type
       type: object
-    NewAiOpenOrCreateInput:
+    AiOpenOrCreateInput:
       additionalProperties: false
       description: "Input for  {@link  ThreadsEngine.openOrCreate } : open an existing\
         \ thread if `threadId` is given, otherwise create a new one with an auto-generated\
@@ -74108,7 +74108,7 @@ components:
           - "{}"
           - "{}"
           id: id
-          content: NewAiThreadMessageLike_content
+          content: AiThreadMessageLike_content
           status:
             type: type
         profileId: profileId
@@ -74134,11 +74134,11 @@ components:
         threadId:
           type: string
         profile:
-          $ref: "#/components/schemas/NewAiProfile"
+          $ref: "#/components/schemas/AiProfile"
         profileId:
           type: string
         firstMessage:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         entityId:
           description: Opaque scope token persisted on a freshly created thread. Ignored
             when `threadId` is provided (the existing thread keeps its scope).
@@ -74148,7 +74148,7 @@ components:
       - profile
       - profileId
       type: object
-    NewAiOpenOrCreateResult:
+    AiOpenOrCreateResult:
       additionalProperties: false
       description: "Resolved thread state returned by  {@link  ThreadsEngine.openOrCreate\
         \ } ."
@@ -74162,7 +74162,7 @@ components:
           - "{}"
           - "{}"
           id: id
-          content: NewAiThreadMessageLike_content
+          content: AiThreadMessageLike_content
           status:
             type: type
         - createdAt: createdAt
@@ -74172,7 +74172,7 @@ components:
           - "{}"
           - "{}"
           id: id
-          content: NewAiThreadMessageLike_content
+          content: AiThreadMessageLike_content
           status:
             type: type
         title: title
@@ -74184,20 +74184,20 @@ components:
           type: string
         priorMessages:
           items:
-            $ref: "#/components/schemas/NewAiThreadMessageLike"
+            $ref: "#/components/schemas/AiThreadMessageLike"
           type: array
       required:
       - priorMessages
       - threadId
       - title
       type: object
-    NewAiMcpServerConfig:
+    AiMcpServerConfig:
       description: "One MCP server configuration. The shape is intentionally open\
         \ — MCP allows per-transport fields (`command`/`args` for stdio, `url` for\
         \ HTTP, plus env, headers, etc.) and the storage layer stays agnostic to which\
         \ transport is in use."
       type: object
-    NewAiToolsMutationResult:
+    AiToolsMutationResult:
       description: Outcome of an MCP-server CRUD call. Either success or a field-scoped
         error suitable for the settings form.
       example:
@@ -74209,11 +74209,11 @@ components:
         success:
           type: boolean
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - success
       type: object
-    NewAiToolsBulkResult:
+    AiToolsBulkResult:
       description: "Outcome of  {@link  ToolsEngine.replaceAllCustomServers }  — either\
         \ every entry persisted, or no entries persisted plus a per-key error report."
       example:
@@ -74232,12 +74232,12 @@ components:
           type: boolean
         errors:
           items:
-            $ref: "#/components/schemas/NewAiToolsBulkResult_errors_inner"
+            $ref: "#/components/schemas/AiToolsBulkResult_errors_inner"
           type: array
       required:
       - success
       type: object
-    NewAiWebSearchConfig:
+    AiWebSearchConfig:
       additionalProperties: false
       description: Web-search provider configuration. Credentials and provider selection
         for the built-in web-search tool group.
@@ -74272,7 +74272,7 @@ components:
       required:
       - provider
       type: object
-    NewAiWebSearchMutationResult:
+    AiWebSearchMutationResult:
       description: "Outcome of  {@link  WebSearchEngine.configure }  — either the\
         \ persisted config or a field-scoped error suitable for the settings form."
       example:
@@ -74291,13 +74291,13 @@ components:
         success:
           type: boolean
         config:
-          $ref: "#/components/schemas/NewAiWebSearchConfig"
+          $ref: "#/components/schemas/AiWebSearchConfig"
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - success
       type: object
-    NewAiAiUserSettingsWrapper:
+    AiAiUserSettingsWrapper:
       example:
         response:
           chatRecommendedModelVisible: true
@@ -74311,7 +74311,7 @@ components:
         statusCode: 1
       properties:
         response:
-          $ref: "#/components/schemas/NewAiAiUserSettingsDto"
+          $ref: "#/components/schemas/AiAiUserSettingsDto"
         count:
           description: The total number of items in the response
           format: int32
@@ -74330,7 +74330,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiAiUserSettingsDto:
+    AiAiUserSettingsDto:
       additionalProperties: false
       description: The per-user AI settings.
       example:
@@ -74342,7 +74342,7 @@ components:
           example: true
           type: boolean
       type: object
-    NewAiVectorizationSettingsWrapper:
+    AiVectorizationSettingsWrapper:
       example:
         response:
           needReset: false
@@ -74357,7 +74357,7 @@ components:
         statusCode: 1
       properties:
         response:
-          $ref: "#/components/schemas/NewAiVectorizationSettingsDto"
+          $ref: "#/components/schemas/AiVectorizationSettingsDto"
         count:
           description: The total number of items in the response
           format: int32
@@ -74376,7 +74376,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiVectorizationSettingsDto:
+    AiVectorizationSettingsDto:
       additionalProperties: false
       description: The vectorization settings.
       example:
@@ -74384,14 +74384,14 @@ components:
         type: 0
       properties:
         type:
-          $ref: "#/components/schemas/NewAiEmbeddingProviderType"
+          $ref: "#/components/schemas/AiEmbeddingProviderType"
         needReset:
           description: Indicates whether the embedding provider API key needs to be
             reconfigured.
           example: false
           type: boolean
       type: object
-    NewAiEmbeddingProviderType:
+    AiEmbeddingProviderType:
       description: "[0 - None, 1 - OpenAi, 2 - OpenRouter, 3 - PortalAi]"
       enum:
       - 0
@@ -74405,7 +74405,7 @@ components:
       - OpenAi
       - OpenRouter
       - PortalAi
-    NewAiAiSettingsWrapper:
+    AiAiSettingsWrapper:
       example:
         response:
           recommendedModelForForms: gpt-5.4
@@ -74424,7 +74424,7 @@ components:
         statusCode: 1
       properties:
         response:
-          $ref: "#/components/schemas/NewAiAiSettingsDto"
+          $ref: "#/components/schemas/AiAiSettingsDto"
         count:
           description: The total number of items in the response
           format: int32
@@ -74443,7 +74443,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiAiSettingsDto:
+    AiAiSettingsDto:
       additionalProperties: false
       description: The AI module settings.
       example:
@@ -74485,7 +74485,7 @@ components:
       required:
       - embeddingModel
       type: object
-    NewAiFolderIntegerArrayWrapper:
+    AiFolderIntegerArrayWrapper:
       example:
         response:
         - isLinkExpired: false
@@ -74765,7 +74765,7 @@ components:
       properties:
         response:
           items:
-            $ref: "#/components/schemas/NewAiFolderDtoInteger"
+            $ref: "#/components/schemas/AiFolderDtoInteger"
           type: array
         count:
           description: The total number of items in the response
@@ -74785,10 +74785,10 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiFolderDtoInteger:
+    AiFolderDtoInteger:
       additionalProperties: false
       allOf:
-      - $ref: "#/components/schemas/NewAiFileEntryDtoInteger"
+      - $ref: "#/components/schemas/AiFileEntryDtoInteger"
       - properties:
           parentId:
             description: The parent folder ID of the folder.
@@ -74829,13 +74829,13 @@ components:
             nullable: true
             type: array
           logo:
-            $ref: "#/components/schemas/NewAiLogo"
+            $ref: "#/components/schemas/AiLogo"
           pinned:
             description: Specifies if the folder is pinned or not.
             example: false
             type: boolean
           roomType:
-            $ref: "#/components/schemas/NewAiRoomType"
+            $ref: "#/components/schemas/AiRoomType"
           private:
             description: Specifies if the folder is private or not.
             example: false
@@ -74849,11 +74849,11 @@ components:
             example: false
             type: boolean
           lifetime:
-            $ref: "#/components/schemas/NewAiRoomDataLifetimeDto"
+            $ref: "#/components/schemas/AiRoomDataLifetimeDto"
           watermark:
-            $ref: "#/components/schemas/NewAiWatermarkDto"
+            $ref: "#/components/schemas/AiWatermarkDto"
           type:
-            $ref: "#/components/schemas/NewAiFolderType"
+            $ref: "#/components/schemas/AiFolderType"
           inRoom:
             description: Specifies if the folder is placed in the room or not.
             example: false
@@ -74889,9 +74889,9 @@ components:
             nullable: true
             type: boolean
           chatSettings:
-            $ref: "#/components/schemas/NewAiChatSettingsDto"
+            $ref: "#/components/schemas/AiChatSettingsDto"
           rootRoomType:
-            $ref: "#/components/schemas/NewAiRoomType"
+            $ref: "#/components/schemas/AiRoomType"
           saveFormAsXLSX:
             description: Specifies whether to save form data as XLSX file.
             example: false
@@ -75045,7 +75045,7 @@ components:
           avatar: https://example.com/avatar.jpg
           avatarSmall: https://example.com/avatar_small.jpg
           isAnonim: false
-    NewAiChatSettingsDto:
+    AiChatSettingsDto:
       additionalProperties: false
       description: The chat settings parameters.
       example:
@@ -75057,7 +75057,7 @@ components:
           nullable: true
           type: string
       type: object
-    NewAiFolderType:
+    AiFolderType:
       description: "[0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 -\
         \ Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 -\
         \ Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room,\
@@ -75130,7 +75130,7 @@ components:
       - AiAgents
       - DefaultTemplates
       - Forms
-    NewAiWatermarkDto:
+    AiWatermarkDto:
       additionalProperties: false
       description: The watermark settings.
       example:
@@ -75143,7 +75143,7 @@ components:
         imageScale: 100
       properties:
         additions:
-          $ref: "#/components/schemas/NewAiWatermarkAdditions"
+          $ref: "#/components/schemas/AiWatermarkAdditions"
         text:
           description: The watermark text.
           example: Confidential
@@ -75181,7 +75181,7 @@ components:
       - imageWidth
       - rotate
       type: object
-    NewAiWatermarkAdditions:
+    AiWatermarkAdditions:
       description: "[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current\
         \ date, 16 - Room name]"
       enum:
@@ -75198,7 +75198,7 @@ components:
       - UserIpAdress
       - CurrentDate
       - RoomName
-    NewAiRoomDataLifetimeDto:
+    AiRoomDataLifetimeDto:
       additionalProperties: false
       description: The room data lifetime information.
       example:
@@ -75212,7 +75212,7 @@ components:
           example: true
           type: boolean
         period:
-          $ref: "#/components/schemas/NewAiRoomDataLifetimePeriod"
+          $ref: "#/components/schemas/AiRoomDataLifetimePeriod"
         value:
           description: Specifies the time period value of the room data lifetime.
           example: 33
@@ -75228,7 +75228,7 @@ components:
           nullable: true
           type: boolean
       type: object
-    NewAiRoomDataLifetimePeriod:
+    AiRoomDataLifetimePeriod:
       description: "[0 - Day, 1 - Month, 2 - Year]"
       enum:
       - 0
@@ -75240,7 +75240,7 @@ components:
       - Day
       - Month
       - Year
-    NewAiRoomType:
+    AiRoomType:
       description: "[1 - Form filling room, 2 - Collaboration room, 5 - Custom room,\
         \ 6 - Public room, 8 - Virtual data room, 9 - AI Room]"
       enum:
@@ -75259,7 +75259,7 @@ components:
       - PublicRoom
       - VirtualDataRoom
       - AiRoom
-    NewAiLogo:
+    AiLogo:
       additionalProperties: false
       description: The room logo information.
       example:
@@ -75298,14 +75298,14 @@ components:
           nullable: true
           type: string
         cover:
-          $ref: "#/components/schemas/NewAiLogoCover"
+          $ref: "#/components/schemas/AiLogoCover"
       required:
       - large
       - medium
       - original
       - small
       type: object
-    NewAiLogoCover:
+    AiLogoCover:
       additionalProperties: false
       description: The logo cover information.
       example:
@@ -75326,10 +75326,10 @@ components:
       - data
       - id
       type: object
-    NewAiFileEntryDtoInteger:
+    AiFileEntryDtoInteger:
       additionalProperties: false
       allOf:
-      - $ref: "#/components/schemas/NewAiFileEntryBaseDto"
+      - $ref: "#/components/schemas/AiFileEntryBaseDto"
       - properties:
           id:
             description: The file entry ID.
@@ -75383,7 +75383,7 @@ components:
             nullable: true
             type: boolean
           expirationDate:
-            $ref: "#/components/schemas/NewAiApiDateTime"
+            $ref: "#/components/schemas/AiApiDateTime"
           isLinkExpired:
             description: Indicates whether the shareable link associated with the
               file or folder has expired.
@@ -75392,7 +75392,7 @@ components:
             type: boolean
         type: object
       description: The generic file entry information.
-    NewAiApiDateTime:
+    AiApiDateTime:
       additionalProperties: false
       description: The API date and time parameters.
       example:
@@ -75412,7 +75412,7 @@ components:
           readOnly: true
           type: string
       type: object
-    NewAiFileEntryBaseDto:
+    AiFileEntryBaseDto:
       additionalProperties: false
       description: The file entry information.
       example:
@@ -75491,11 +75491,11 @@ components:
           nullable: true
           type: string
         access:
-          $ref: "#/components/schemas/NewAiFileShare"
+          $ref: "#/components/schemas/AiFileShare"
         sharedBy:
-          $ref: "#/components/schemas/NewAiEmployeeDto"
+          $ref: "#/components/schemas/AiEmployeeDto"
         ownedBy:
-          $ref: "#/components/schemas/NewAiEmployeeDto"
+          $ref: "#/components/schemas/AiEmployeeDto"
         shared:
           description: Specifies if the file entry is shared via link or not.
           example: false
@@ -75520,19 +75520,19 @@ components:
           nullable: true
           type: string
         created:
-          $ref: "#/components/schemas/NewAiApiDateTime"
+          $ref: "#/components/schemas/AiApiDateTime"
         createdBy:
-          $ref: "#/components/schemas/NewAiEmployeeDto"
+          $ref: "#/components/schemas/AiEmployeeDto"
         updated:
-          $ref: "#/components/schemas/NewAiApiDateTime"
+          $ref: "#/components/schemas/AiApiDateTime"
         autoDelete:
-          $ref: "#/components/schemas/NewAiApiDateTime"
+          $ref: "#/components/schemas/AiApiDateTime"
         rootFolderType:
-          $ref: "#/components/schemas/NewAiFolderType"
+          $ref: "#/components/schemas/AiFolderType"
         parentRoomType:
-          $ref: "#/components/schemas/NewAiFolderType"
+          $ref: "#/components/schemas/AiFolderType"
         updatedBy:
-          $ref: "#/components/schemas/NewAiEmployeeDto"
+          $ref: "#/components/schemas/AiEmployeeDto"
         providerItem:
           description: Specifies if the file entry provider is specified or not.
           example: false
@@ -75560,7 +75560,7 @@ components:
           nullable: true
           type: boolean
         fileEntryType:
-          $ref: "#/components/schemas/NewAiFileEntryType"
+          $ref: "#/components/schemas/AiFileEntryType"
       type: object
       x-derived: true
       x-derived-types:
@@ -75568,7 +75568,7 @@ components:
       - FileDtoString
       - FolderDtoInteger
       - FolderDtoString
-    NewAiFileEntryType:
+    AiFileEntryType:
       description: "[1 - Folder, 2 - File]"
       enum:
       - 1
@@ -75578,7 +75578,7 @@ components:
       x-enum-varnames:
       - Folder
       - File
-    NewAiEmployeeDto:
+    AiEmployeeDto:
       additionalProperties: false
       description: The user parameters.
       example:
@@ -75643,7 +75643,7 @@ components:
           example: false
           type: boolean
       type: object
-    NewAiFileShare:
+    AiFileShare:
       description: "[0 - None, 1 - Read and write, 2 - Read, 3 - Restrict, 4 - Varies,\
         \ 5 - Review, 6 - Comment, 7 - Fill forms, 8 - Custom filter, 9 - Room manager,\
         \ 10 - Editing, 11 - Content creator]"
@@ -75675,7 +75675,7 @@ components:
       - RoomManager
       - Editing
       - ContentCreator
-    NewAiFileOperationWrapper:
+    AiFileOperationWrapper:
       example:
         response:
           processed: "1"
@@ -75702,7 +75702,7 @@ components:
         statusCode: 1
       properties:
         response:
-          $ref: "#/components/schemas/NewAiFileOperationDto"
+          $ref: "#/components/schemas/AiFileOperationDto"
         count:
           description: The total number of items in the response
           format: int32
@@ -75721,7 +75721,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiFileOperationDto:
+    AiFileOperationDto:
       additionalProperties: false
       description: The file operation information.
       example:
@@ -75746,7 +75746,7 @@ components:
           nullable: true
           type: string
         Operation:
-          $ref: "#/components/schemas/NewAiFileOperationType"
+          $ref: "#/components/schemas/AiFileOperationType"
         progress:
           description: The file operation progress in percentage.
           example: 100
@@ -75778,7 +75778,7 @@ components:
           - id: 10
             title: document.docx
           items:
-            $ref: "#/components/schemas/NewAiFileEntryBaseDto"
+            $ref: "#/components/schemas/AiFileEntryBaseDto"
           nullable: true
           type: array
         folders:
@@ -75787,11 +75787,11 @@ components:
           - id: 20
             title: My Folder
           items:
-            $ref: "#/components/schemas/NewAiFileEntryBaseDto"
+            $ref: "#/components/schemas/AiFileEntryBaseDto"
           nullable: true
           type: array
         status:
-          $ref: "#/components/schemas/NewAiDistributedTaskStatus"
+          $ref: "#/components/schemas/AiDistributedTaskStatus"
       required:
       - Operation
       - error
@@ -75800,7 +75800,7 @@ components:
       - processed
       - progress
       type: object
-    NewAiDistributedTaskStatus:
+    AiDistributedTaskStatus:
       description: "[0 - Created, 1 - Running, 2 - Completed, 3 - Canceled, 4 - Failted]"
       enum:
       - 0
@@ -75816,7 +75816,7 @@ components:
       - Completed
       - Canceled
       - Failted
-    NewAiFileOperationType:
+    AiFileOperationType:
       description: "[0 - Move, 1 - Copy, 2 - Delete, 3 - Download, 4 - MarkAsRead,\
         \ 5 - Import, 6 - Convert, 7 - Duplicate]"
       enum:
@@ -75839,7 +75839,7 @@ components:
       - Import
       - Convert
       - Duplicate
-    NewAiNewItemsAgentNewItemsArrayWrapper:
+    AiNewItemsAgentNewItemsArrayWrapper:
       example:
         response:
         - date:
@@ -76685,7 +76685,7 @@ components:
       properties:
         response:
           items:
-            $ref: "#/components/schemas/NewAiNewItemsDtoAgentNewItemsDto"
+            $ref: "#/components/schemas/AiNewItemsDtoAgentNewItemsDto"
           type: array
         count:
           description: The total number of items in the response
@@ -76705,7 +76705,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiNewItemsDtoAgentNewItemsDto:
+    AiNewItemsDtoAgentNewItemsDto:
       additionalProperties: false
       description: The new item parameters.
       example:
@@ -77127,18 +77127,18 @@ components:
             isFavorite: false
       properties:
         date:
-          $ref: "#/components/schemas/NewAiApiDateTime"
+          $ref: "#/components/schemas/AiApiDateTime"
         items:
           description: The list of items.
           items:
-            $ref: "#/components/schemas/NewAiAgentNewItemsDto"
+            $ref: "#/components/schemas/AiAgentNewItemsDto"
           nullable: true
           type: array
       required:
       - date
       - items
       type: object
-    NewAiAgentNewItemsDto:
+    AiAgentNewItemsDto:
       additionalProperties: false
       description: The agent new item's information.
       example:
@@ -77350,18 +77350,18 @@ components:
           isFavorite: false
       properties:
         agent:
-          $ref: "#/components/schemas/NewAiFileEntryBaseDto"
+          $ref: "#/components/schemas/AiFileEntryBaseDto"
         items:
           description: The list of file entry items.
           items:
-            $ref: "#/components/schemas/NewAiFileEntryBaseDto"
+            $ref: "#/components/schemas/AiFileEntryBaseDto"
           nullable: true
           type: array
       required:
       - agent
       - items
       type: object
-    NewAiFolderIntegerWrapper:
+    AiFolderIntegerWrapper:
       example:
         response:
           isLinkExpired: false
@@ -77507,7 +77507,7 @@ components:
         statusCode: 1
       properties:
         response:
-          $ref: "#/components/schemas/NewAiFolderDtoInteger"
+          $ref: "#/components/schemas/AiFolderDtoInteger"
         count:
           description: The total number of items in the response
           format: int32
@@ -77526,7 +77526,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiFolderContentIntegerWrapper:
+    AiFolderContentIntegerWrapper:
       example:
         response:
           new: 0
@@ -77684,7 +77684,7 @@ components:
         statusCode: 1
       properties:
         response:
-          $ref: "#/components/schemas/NewAiFolderContentDtoInteger"
+          $ref: "#/components/schemas/AiFolderContentDtoInteger"
         count:
           description: The total number of items in the response
           format: int32
@@ -77703,7 +77703,7 @@ components:
           format: int32
           type: integer
       type: object
-    NewAiFolderContentDtoInteger:
+    AiFolderContentDtoInteger:
       additionalProperties: false
       description: The folder content information.
       example:
@@ -77859,7 +77859,7 @@ components:
           - id: 10
             title: document.docx
           items:
-            $ref: "#/components/schemas/NewAiFileEntryBaseDto"
+            $ref: "#/components/schemas/AiFileEntryBaseDto"
           nullable: true
           type: array
         folders:
@@ -77868,11 +77868,11 @@ components:
           - id: 20
             title: My Folder
           items:
-            $ref: "#/components/schemas/NewAiFileEntryBaseDto"
+            $ref: "#/components/schemas/AiFileEntryBaseDto"
           nullable: true
           type: array
         current:
-          $ref: "#/components/schemas/NewAiFolderDtoInteger"
+          $ref: "#/components/schemas/AiFolderDtoInteger"
         pathParts:
           description: The folder path.
           example: "{key = \"Key\", path = \"//path//to//folder\"}"
@@ -93961,15 +93961,15 @@ components:
           format: binary
           type: string
       type: object
-    newAiAiSend_request:
+    aiAiSend_request:
       additionalProperties: false
       properties:
         actionType:
-          $ref: "#/components/schemas/NewAiActionType"
+          $ref: "#/components/schemas/AiActionType"
         userMessage:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         actionArgs:
-          $ref: "#/components/schemas/NewAiAiActionArgs"
+          $ref: "#/components/schemas/AiAiActionArgs"
         entityId:
           description: Optional entity (room) scope for profile resolution.
           type: string
@@ -93977,7 +93977,7 @@ components:
       - actionType
       - userMessage
       type: object
-    newAiAiSendCustom_request:
+    aiAiSendCustom_request:
       additionalProperties: false
       properties:
         isStream:
@@ -93988,22 +93988,22 @@ components:
           description: Caller-supplied system prompt for this one-turn call.
           type: string
         userMessage:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         actionArgs:
-          $ref: "#/components/schemas/NewAiAiActionArgs"
+          $ref: "#/components/schemas/AiAiActionArgs"
       required:
       - isStream
       - systemPrompt
       - userMessage
       type: object
-    newAiAiRegenerateStream_request:
+    aiAiRegenerateStream_request:
       additionalProperties: false
       properties:
         threadId:
           description: Target thread (must already exist).
           type: string
         actionArgs:
-          $ref: "#/components/schemas/NewAiAiActionArgs"
+          $ref: "#/components/schemas/AiAiActionArgs"
         entityId:
           type: string
         profileId:
@@ -94011,7 +94011,7 @@ components:
       required:
       - threadId
       type: object
-    newAiAiApproveToolCall_request:
+    aiAiApproveToolCall_request:
       additionalProperties: false
       properties:
         result:
@@ -94029,9 +94029,9 @@ components:
           description: Index of the tool-call content part inside `message.content`.
           type: number
         message:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         actionArgs:
-          $ref: "#/components/schemas/NewAiAiActionArgs"
+          $ref: "#/components/schemas/AiAiActionArgs"
         entityId:
           type: string
         profileId:
@@ -94043,11 +94043,11 @@ components:
       - result
       - threadId
       type: object
-    newAiAssignmentsAssign_request:
+    aiAssignmentsAssign_request:
       additionalProperties: false
       properties:
         actionType:
-          $ref: "#/components/schemas/NewAiActionType"
+          $ref: "#/components/schemas/AiActionType"
         profileId:
           description: Profile id to bind.
           type: string
@@ -94055,7 +94055,7 @@ components:
       - actionType
       - profileId
       type: object
-    newAiAttachmentsSaveFile_request_input:
+    aiAttachmentsSaveFile_request_input:
       additionalProperties: false
       description: A file attachment draft to persist.
       properties:
@@ -94076,30 +94076,30 @@ components:
       - path
       - type
       type: object
-    newAiAttachmentsSaveFile_request:
+    aiAttachmentsSaveFile_request:
       additionalProperties: false
       properties:
         input:
-          $ref: "#/components/schemas/newAiAttachmentsSaveFile_request_input"
+          $ref: "#/components/schemas/aiAttachmentsSaveFile_request_input"
         entityId:
           description: Optional entity (room) scope.
           type: string
       required:
       - input
       type: object
-    newAiAttachmentsSaveFilesMany_request:
+    aiAttachmentsSaveFilesMany_request:
       additionalProperties: false
       properties:
         inputs:
           items:
-            $ref: "#/components/schemas/newAiAttachmentsSaveFile_request_input"
+            $ref: "#/components/schemas/aiAttachmentsSaveFile_request_input"
           type: array
         entityId:
           type: string
       required:
       - inputs
       type: object
-    newAiAttachmentsSaveImage_request_input:
+    aiAttachmentsSaveImage_request_input:
       additionalProperties: false
       description: An image attachment draft to persist.
       properties:
@@ -94116,29 +94116,29 @@ components:
       - base64
       - name
       type: object
-    newAiAttachmentsSaveImage_request:
+    aiAttachmentsSaveImage_request:
       additionalProperties: false
       properties:
         input:
-          $ref: "#/components/schemas/newAiAttachmentsSaveImage_request_input"
+          $ref: "#/components/schemas/aiAttachmentsSaveImage_request_input"
         entityId:
           type: string
       required:
       - input
       type: object
-    newAiAttachmentsSaveImagesMany_request:
+    aiAttachmentsSaveImagesMany_request:
       additionalProperties: false
       properties:
         inputs:
           items:
-            $ref: "#/components/schemas/newAiAttachmentsSaveImage_request_input"
+            $ref: "#/components/schemas/aiAttachmentsSaveImage_request_input"
           type: array
         entityId:
           type: string
       required:
       - inputs
       type: object
-    newAiAttachmentsLinkToMessage_request:
+    aiAttachmentsLinkToMessage_request:
       additionalProperties: false
       properties:
         ids:
@@ -94157,7 +94157,7 @@ components:
       - messageId
       - threadId
       type: object
-    newAiPreferencesSetDeepMode_request:
+    aiPreferencesSetDeepMode_request:
       additionalProperties: false
       properties:
         value:
@@ -94168,11 +94168,11 @@ components:
       required:
       - value
       type: object
-    newAiProfilesListProviderModels_request:
+    aiProfilesListProviderModels_request:
       additionalProperties: false
       properties:
         providerType:
-          $ref: "#/components/schemas/NewAiProviderType"
+          $ref: "#/components/schemas/AiProviderType"
         baseUrl:
           description: Provider API base URL.
           type: string
@@ -94184,17 +94184,17 @@ components:
       - baseUrl
       - providerType
       type: object
-    newAiProfilesTestConnection_200_response_anyOf:
+    aiProfilesTestConnection_200_response_anyOf:
       additionalProperties: false
       properties:
         message:
           type: string
       type: object
-    newAiProfilesTestConnection_200_response:
+    aiProfilesTestConnection_200_response:
       anyOf:
       - type: boolean
-      - $ref: "#/components/schemas/newAiProfilesTestConnection_200_response_anyOf"
-    newAiPromptsUpdate_request_updates:
+      - $ref: "#/components/schemas/aiProfilesTestConnection_200_response_anyOf"
+    aiPromptsUpdate_request_updates:
       additionalProperties: false
       description: Fields to change.
       properties:
@@ -94206,19 +94206,19 @@ components:
           nullable: true
           type: string
       type: object
-    newAiPromptsUpdate_request:
+    aiPromptsUpdate_request:
       additionalProperties: false
       properties:
         id:
           description: Prompt id to update.
           type: string
         updates:
-          $ref: "#/components/schemas/newAiPromptsUpdate_request_updates"
+          $ref: "#/components/schemas/aiPromptsUpdate_request_updates"
       required:
       - id
       - updates
       type: object
-    newAiPromptsMove_request:
+    aiPromptsMove_request:
       additionalProperties: false
       properties:
         id:
@@ -94232,7 +94232,7 @@ components:
       - folderId
       - id
       type: object
-    newAiPromptsRenameFolder_request:
+    aiPromptsRenameFolder_request:
       additionalProperties: false
       properties:
         id:
@@ -94245,24 +94245,24 @@ components:
       - id
       - name
       type: object
-    newAiPromptsImportBundle_request_options:
+    aiPromptsImportBundle_request_options:
       additionalProperties: false
       description: Import options.
       properties:
         mode:
-          $ref: "#/components/schemas/NewAiImportMode"
+          $ref: "#/components/schemas/AiImportMode"
       type: object
-    newAiPromptsImportBundle_request:
+    aiPromptsImportBundle_request:
       additionalProperties: false
       properties:
         bundle:
-          $ref: "#/components/schemas/NewAiPromptBundle"
+          $ref: "#/components/schemas/AiPromptBundle"
         options:
-          $ref: "#/components/schemas/newAiPromptsImportBundle_request_options"
+          $ref: "#/components/schemas/aiPromptsImportBundle_request_options"
       required:
       - bundle
       type: object
-    newAiThreadsCreate_request:
+    aiThreadsCreate_request:
       additionalProperties: false
       properties:
         title:
@@ -94277,20 +94277,20 @@ components:
       required:
       - title
       type: object
-    newAiThreadsAppendUserMessage_request:
+    aiThreadsAppendUserMessage_request:
       additionalProperties: false
       properties:
         threadId:
           type: string
         message:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
         profileId:
           type: string
       required:
       - message
       - threadId
       type: object
-    newAiThreadsTouch_request:
+    aiThreadsTouch_request:
       additionalProperties: false
       properties:
         threadId:
@@ -94300,7 +94300,7 @@ components:
       required:
       - threadId
       type: object
-    newAiThreadsRename_request:
+    aiThreadsRename_request:
       additionalProperties: false
       properties:
         threadId:
@@ -94312,29 +94312,29 @@ components:
       - threadId
       - title
       type: object
-    newAiThreadsRegenerateTitle_request:
+    aiThreadsRegenerateTitle_request:
       additionalProperties: false
       properties:
         threadId:
           type: string
         profile:
-          $ref: "#/components/schemas/NewAiProfile"
+          $ref: "#/components/schemas/AiProfile"
       required:
       - profile
       - threadId
       type: object
-    newAiThreadsUpdateMessage_request:
+    aiThreadsUpdateMessage_request:
       additionalProperties: false
       properties:
         messageId:
           type: string
         message:
-          $ref: "#/components/schemas/NewAiThreadMessageLike"
+          $ref: "#/components/schemas/AiThreadMessageLike"
       required:
       - message
       - messageId
       type: object
-    newAiToolsAddCustomServer_request:
+    aiToolsAddCustomServer_request:
       additionalProperties: false
       properties:
         name:
@@ -94352,7 +94352,7 @@ components:
       - config
       - name
       type: object
-    newAiToolsUpdateCustomServer_request:
+    aiToolsUpdateCustomServer_request:
       additionalProperties: false
       properties:
         name:
@@ -94369,7 +94369,7 @@ components:
       - config
       - name
       type: object
-    newAiToolsRemoveCustomServer_request:
+    aiToolsRemoveCustomServer_request:
       additionalProperties: false
       properties:
         name:
@@ -94379,12 +94379,12 @@ components:
       required:
       - name
       type: object
-    newAiToolsReplaceAllCustomServers_request:
+    aiToolsReplaceAllCustomServers_request:
       additionalProperties: false
       properties:
         map:
           additionalProperties:
-            $ref: "#/components/schemas/NewAiMcpServerConfig"
+            $ref: "#/components/schemas/AiMcpServerConfig"
           description: "Full replacement set, keyed by server name."
           type: object
         entityId:
@@ -94392,7 +94392,7 @@ components:
       required:
       - map
       type: object
-    newAiToolsSetDisabled_request:
+    aiToolsSetDisabled_request:
       additionalProperties: false
       properties:
         serverType:
@@ -94408,7 +94408,7 @@ components:
       - serverType
       - toolNames
       type: object
-    newAiToolsSetAllowAlways_request:
+    aiToolsSetAllowAlways_request:
       additionalProperties: false
       properties:
         serverType:
@@ -94425,22 +94425,22 @@ components:
       - toolName
       - value
       type: object
-    newAiWebSearchConfigure_request:
+    aiWebSearchConfigure_request:
       additionalProperties: false
       properties:
         config:
-          $ref: "#/components/schemas/NewAiWebSearchConfig"
+          $ref: "#/components/schemas/AiWebSearchConfig"
         entityId:
           type: string
       required:
       - config
       type: object
-    newAiExportTextToDocx_request_folderId:
+    aiExportTextToDocx_request_folderId:
       description: Target folder id (int or string).
       oneOf:
       - type: string
       - type: number
-    newAiExportTextToDocx_request:
+    aiExportTextToDocx_request:
       additionalProperties: false
       properties:
         title:
@@ -94450,13 +94450,13 @@ components:
           description: Markdown content to convert.
           type: string
         folderId:
-          $ref: "#/components/schemas/newAiExportTextToDocx_request_folderId"
+          $ref: "#/components/schemas/aiExportTextToDocx_request_folderId"
       required:
       - content
       - folderId
       - title
       type: object
-    newAiExportTextToDocx_200_response:
+    aiExportTextToDocx_200_response:
       additionalProperties: false
       description: Accepted-for-processing acknowledgement (conversion is asynchronous).
       example:
@@ -94467,7 +94467,7 @@ components:
       required:
       - success
       type: object
-    newAiAgentsCreate_request:
+    aiAgentsCreate_request:
       additionalProperties: false
       properties:
         profileId:
@@ -94523,7 +94523,7 @@ components:
       - profileId
       - prompt
       type: object
-    newAiAgentsUpdate_request:
+    aiAgentsUpdate_request:
       additionalProperties: false
       properties:
         profileId:
@@ -94571,26 +94571,26 @@ components:
           description: Room cover image id.
           type: string
       type: object
-    newAiAgentsDelete_request:
+    aiAgentsDelete_request:
       additionalProperties: false
       properties:
         deleteAfter:
           description: Delete the room after the editing session finishes.
           type: boolean
       type: object
-    newAiAgentsUpdateQuota_request_roomIds_inner:
+    aiAgentsUpdateQuota_request_roomIds_inner:
       description: "A DocSpace room id: an integer for native rooms, a string for\
         \ third-party-backed ones."
       oneOf:
       - type: number
       - type: string
-    newAiAgentsUpdateQuota_request:
+    aiAgentsUpdateQuota_request:
       additionalProperties: false
       properties:
         roomIds:
           description: Agent (room) ids to update.
           items:
-            $ref: "#/components/schemas/newAiAgentsUpdateQuota_request_roomIds_inner"
+            $ref: "#/components/schemas/aiAgentsUpdateQuota_request_roomIds_inner"
           type: array
         quota:
           description: New quota in bytes; a negative value disables the custom quota.
@@ -94599,13 +94599,13 @@ components:
       - quota
       - roomIds
       type: object
-    newAiAgentsResetQuota_request:
+    aiAgentsResetQuota_request:
       additionalProperties: false
       properties:
         roomIds:
           description: Agent (room) ids to reset to the tenant default quota.
           items:
-            $ref: "#/components/schemas/newAiAgentsUpdateQuota_request_roomIds_inner"
+            $ref: "#/components/schemas/aiAgentsUpdateQuota_request_roomIds_inner"
           type: array
       required:
       - roomIds
@@ -95051,7 +95051,7 @@ components:
         Diagram:
           type: string
       type: object
-    NewAiAiActionArgs_prompt:
+    AiAiActionArgs_prompt:
       additionalProperties: false
       description: Override the action's baked-in system prompt (replace or append).
       example:
@@ -95069,7 +95069,7 @@ components:
       - mode
       - text
       type: object
-    NewAiThreadMessageLike_content_anyOf_inner:
+    AiThreadMessageLike_content_anyOf_inner:
       properties:
         type:
           type: string
@@ -95078,15 +95078,15 @@ components:
       required:
       - type
       type: object
-    NewAiThreadMessageLike_content:
+    AiThreadMessageLike_content:
       anyOf:
       - type: string
       - items:
-          $ref: "#/components/schemas/NewAiThreadMessageLike_content_anyOf_inner"
+          $ref: "#/components/schemas/AiThreadMessageLike_content_anyOf_inner"
         type: array
       description: "Message content: either plain text or a list of typed content\
         \ parts (text, image, tool-call, …). Parts are open-ended by content type."
-    NewAiThreadMessageLike_status:
+    AiThreadMessageLike_status:
       description: Delivery/generation status of the message.
       example:
         type: type
@@ -95096,7 +95096,7 @@ components:
       required:
       - type
       type: object
-    NewAiOpenAIToolCallDelta_function:
+    AiOpenAIToolCallDelta_function:
       additionalProperties: false
       properties:
         name:
@@ -95104,7 +95104,7 @@ components:
         arguments:
           type: string
       type: object
-    NewAiOpenAIStreamError_error:
+    AiOpenAIStreamError_error:
       additionalProperties: false
       properties:
         message:
@@ -95123,7 +95123,7 @@ components:
       - param
       - type
       type: object
-    NewAiBulkAssignmentResult_errors_inner:
+    AiBulkAssignmentResult_errors_inner:
       additionalProperties: false
       example:
         actionType: Default
@@ -95132,14 +95132,14 @@ components:
           message: message
       properties:
         actionType:
-          $ref: "#/components/schemas/NewAiActionType"
+          $ref: "#/components/schemas/AiActionType"
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - actionType
       - error
       type: object
-    NewAiImportResult_imported:
+    AiImportResult_imported:
       additionalProperties: false
       example:
         folders: 0.8008281904610115
@@ -95153,7 +95153,7 @@ components:
       - folders
       - prompts
       type: object
-    NewAiToolsBulkResult_errors_inner:
+    AiToolsBulkResult_errors_inner:
       additionalProperties: false
       example:
         name: name
@@ -95164,7 +95164,7 @@ components:
         name:
           type: string
         error:
-          $ref: "#/components/schemas/NewAiTErrorData"
+          $ref: "#/components/schemas/AiTErrorData"
       required:
       - error
       - name
@@ -95272,19 +95272,19 @@ x-tagGroups:
   tags:
   - Rooms
   - Rooms / Groups
-- name: New AI
+- name: AI
   tags:
-  - New AI / Agents
-  - New AI / AI
-  - New AI / Assignments
-  - New AI / Attachments
-  - New AI / Export
-  - New AI / Preferences
-  - New AI / Profiles
-  - New AI / Prompts
-  - New AI / Threads
-  - New AI / Tools
-  - New AI / Web search
+  - AI / Agents
+  - AI / AI
+  - AI / Assignments
+  - AI / Attachments
+  - AI / Export
+  - AI / Preferences
+  - AI / Profiles
+  - AI / Prompts
+  - AI / Threads
+  - AI / Tools
+  - AI / Web search
 - name: OAuth 2.0
   tags:
   - OAuth 2.0 / Authorization

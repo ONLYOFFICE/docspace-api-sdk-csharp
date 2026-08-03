@@ -1,0 +1,18 @@
+# DocSpace.API.SDK.Model.AiFolderContentDtoInteger
+The folder content information.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Files** | [**List&lt;AiFileEntryBaseDto&gt;**](AiFileEntryBaseDto.md) | The list of files in the folder. | [optional] 
+**Folders** | [**List&lt;AiFileEntryBaseDto&gt;**](AiFileEntryBaseDto.md) | The list of folders in the folder. | [optional] 
+**Current** | [**AiFolderDtoInteger**](AiFolderDtoInteger.md) |  | [optional] 
+**PathParts** | **Object** | The folder path. | 
+**StartIndex** | **int** | The folder start index. | [optional] 
+**Count** | **int** | The number of folder elements. | [optional] 
+**Total** | **int** | The total number of elements in the folder. | 
+**New** | **int** | The new element index in the folder. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

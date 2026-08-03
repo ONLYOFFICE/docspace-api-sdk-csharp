@@ -55,24 +55,21 @@ services.AddHttpClient<RoomsApi>(httpClient =>
 
 Configuration config = new Configuration();
 config.BasePath = "https://your-docspace.onlyoffice.com";
-// Configure Bearer token for authorization: Bearer
-config.AccessToken = "YOUR_BEARER_TOKEN";
-
 // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
-var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
-var createApiKeyRequestDto = new CreateApiKeyRequestDto?(); // CreateApiKeyRequestDto? | The request parameters for creating a new API key. (optional) 
+var apiInstance = new AIAIApi(httpClient, config, httpClientHandler);
+var aiAiApproveToolCallRequest = new AiAiApproveToolCallRequest(); // AiAiApproveToolCallRequest | 
 
 try
 {
-    // Create a user API key
-    ApiKeyResponseWrapper result = apiInstance.CreateApiKey(createApiKeyRequestDto);
+    // Approve tool call
+    AiChatEvent result = apiInstance.AiAiApproveToolCall(aiAiApproveToolCallRequest);
     Debug.WriteLine(result);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ApiKeysApi.CreateApiKey: " + e.Message );
+    Debug.Print("Exception when calling AIAIApi.AiAiApproveToolCall: " + e.Message );
     Debug.Print("Status Code: "+ e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
