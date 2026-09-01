@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets State
+        /// The tariff state.
         /// </summary>
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public TariffState? State { get; set; }
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="Tariff" /> class.
         /// </summary>
         /// <param name="id">The tariff ID..</param>
-        /// <param name="state">state.</param>
+        /// <param name="state">The tariff state..</param>
         /// <param name="dueDate">The tariff due date. (required).</param>
         /// <param name="delayDueDate">The tariff delay due date..</param>
         /// <param name="licenseDate">The tariff license date..</param>
@@ -80,70 +80,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The tariff ID.
         /// </summary>
-        /// <value>The tariff ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The tariff due date.
         /// </summary>
-        /// <value>The tariff due date.</value>
-        /*
-        <example>2026-03-31T00:00Z</example>
-        */
+        /// <example>2026-03-31T00:00:00Z</example>
         [DataMember(Name = "dueDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime DueDate { get; set; }
 
         /// <summary>
         /// The tariff delay due date.
         /// </summary>
-        /// <value>The tariff delay due date.</value>
-        /*
-        <example>2026-04-07T00:00Z</example>
-        */
+        /// <example>2026-04-07T00:00:00Z</example>
         [DataMember(Name = "delayDueDate", EmitDefaultValue = false)]
         public DateTime DelayDueDate { get; set; }
 
         /// <summary>
         /// The tariff license date.
         /// </summary>
-        /// <value>The tariff license date.</value>
-        /*
-        <example>2026-03-01T00:00Z</example>
-        */
+        /// <example>2026-03-01T00:00:00Z</example>
         [DataMember(Name = "licenseDate", EmitDefaultValue = false)]
         public DateTime LicenseDate { get; set; }
 
         /// <summary>
         /// The tariff customer ID.
         /// </summary>
-        /// <value>The tariff customer ID.</value>
-        /*
-        <example>cus_123</example>
-        */
+        /// <example>cus_123</example>
         [DataMember(Name = "customerId", EmitDefaultValue = true)]
         public string CustomerId { get; set; }
 
         /// <summary>
         /// The list of tariff quotas.
         /// </summary>
-        /// <value>The list of tariff quotas.</value>
-        /*
-        <example>{"quotas":[{"id":1,"quantity":50,"wallet":false}]}</example>
-        */
+        /// <example>{"quotas":[{"id":1,"quantity":50,"wallet":false}]}</example>
         [DataMember(Name = "quotas", IsRequired = true, EmitDefaultValue = true)]
         public List<Quota> Quotas { get; set; }
 
         /// <summary>
         /// The list of overdue tariff quotas.
         /// </summary>
-        /// <value>The list of overdue tariff quotas.</value>
-        /*
-        <example>[]</example>
-        */
+        /// <example>[]</example>
         [DataMember(Name = "overdueQuotas", EmitDefaultValue = true)]
         public List<Quota> OverdueQuotas { get; set; }
 

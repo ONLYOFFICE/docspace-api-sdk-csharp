@@ -75,20 +75,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The target format or conversion type for the file download.
         /// </summary>
-        /// <value>The target format or conversion type for the file download.</value>
-        /*
-        <example>pdf</example>
-        */
+        /// <example>pdf</example>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// The optional password for accessing protected files.
         /// </summary>
-        /// <value>The optional password for accessing protected files.</value>
-        /*
-        <example>password123</example>
-        */
+        /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 

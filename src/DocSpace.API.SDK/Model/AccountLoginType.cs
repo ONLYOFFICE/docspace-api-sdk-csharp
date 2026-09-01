@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - SSO, 1 - LDAP, 2 - Standart]
     /// </summary>
-    /// <value>[0 - SSO, 1 - LDAP, 2 - Standart]</value>
     public enum AccountLoginType
     {
         /// <summary>

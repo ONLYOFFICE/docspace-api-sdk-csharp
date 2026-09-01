@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The login history lifetime.
         /// </summary>
-        /// <value>The login history lifetime.</value>
-        /*
-        <example>180</example>
-        */
+        /// <example>180</example>
         [DataMember(Name = "loginHistoryLifeTime", EmitDefaultValue = false)]
         public int LoginHistoryLifeTime { get; set; }
 
         /// <summary>
         /// The audit trail lifetime.
         /// </summary>
-        /// <value>The audit trail lifetime.</value>
-        /*
-        <example>180</example>
-        */
+        /// <example>180</example>
         [DataMember(Name = "auditTrailLifeTime", EmitDefaultValue = false)]
         public int AuditTrailLifeTime { get; set; }
 
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

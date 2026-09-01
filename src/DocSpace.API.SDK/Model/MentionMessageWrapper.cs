@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MentionMessageWrapper" /> class.
         /// </summary>
-        /// <param name="actionLink">actionLink.</param>
+        /// <param name="actionLink">The config parameter which contains the information about the action in the document that will be scrolled to..</param>
         /// <param name="emails">A list of emails that will receive the mention message..</param>
         /// <param name="message">The mention message..</param>
         public MentionMessageWrapper(ActionLinkConfig actionLink = default, List<string> emails = default, string message = default)
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets ActionLink
+        /// The config parameter which contains the information about the action in the document that will be scrolled to.
         /// </summary>
         [DataMember(Name = "actionLink", EmitDefaultValue = false)]
         public ActionLinkConfig ActionLink { get; set; }
@@ -60,20 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// A list of emails that will receive the mention message.
         /// </summary>
-        /// <value>A list of emails that will receive the mention message.</value>
-        /*
-        <example>["user1@example.com","user2@example.com"]</example>
-        */
+        /// <example>["user1@example.com","user2@example.com"]</example>
         [DataMember(Name = "emails", EmitDefaultValue = true)]
         public List<string> Emails { get; set; }
 
         /// <summary>
         /// The mention message.
         /// </summary>
-        /// <value>The mention message.</value>
-        /*
-        <example>Hello</example>
-        */
+        /// <example>Hello</example>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 

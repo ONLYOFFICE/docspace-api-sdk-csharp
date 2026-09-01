@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Theme
+        /// The theme type.
         /// </summary>
         [DataMember(Name = "theme", EmitDefaultValue = false)]
         public DarkThemeSettingsType? Theme { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DarkThemeSettings" /> class.
         /// </summary>
-        /// <param name="theme">theme.</param>
+        /// <param name="theme">The theme type..</param>
         /// <param name="lastModified">The last modified date..</param>
         public DarkThemeSettings(DarkThemeSettingsType? theme = default, DateTime lastModified = default)
         {
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The last modified date.
         /// </summary>
-        /// <value>The last modified date.</value>
-        /*
-        <example>2020-01-15T00:00Z</example>
-        */
+        /// <example>2020-01-15T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

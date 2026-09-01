@@ -106,90 +106,63 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The version of the document service.
         /// </summary>
-        /// <value>The version of the document service.</value>
-        /*
-        <example>8.0.1</example>
-        */
+        /// <example>8.0.1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public string @Version { get; set; }
 
         /// <summary>
         /// The document service URL API.
         /// </summary>
-        /// <value>The document service URL API.</value>
-        /*
-        <example>http://localhost/api</example>
-        */
+        /// <example>http://localhost/api</example>
         [DataMember(Name = "docServiceUrlApi", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrlApi { get; set; }
 
         /// <summary>
         /// The document service URL.
         /// </summary>
-        /// <value>The document service URL.</value>
-        /*
-        <example>http://localhost/docservice</example>
-        */
+        /// <example>http://localhost/docservice</example>
         [DataMember(Name = "docServiceUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrl { get; set; }
 
         /// <summary>
         /// The URL used to preload the document service scripts.
         /// </summary>
-        /// <value>The URL used to preload the document service scripts.</value>
-        /*
-        <example>http://localhost/preload</example>
-        */
+        /// <example>http://localhost/preload</example>
         [DataMember(Name = "docServicePreloadUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServicePreloadUrl { get; set; }
 
         /// <summary>
         /// The internal document service URL.
         /// </summary>
-        /// <value>The internal document service URL.</value>
-        /*
-        <example>http://localhost/internal</example>
-        */
+        /// <example>http://localhost/internal</example>
         [DataMember(Name = "docServiceUrlInternal", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrlInternal { get; set; }
 
         /// <summary>
         /// The document service portal URL.
         /// </summary>
-        /// <value>The document service portal URL.</value>
-        /*
-        <example>http://localhost/portal</example>
-        */
+        /// <example>http://localhost/portal</example>
         [DataMember(Name = "docServicePortalUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServicePortalUrl { get; set; }
 
         /// <summary>
         /// The document service signature header.
         /// </summary>
-        /// <value>The document service signature header.</value>
-        /*
-        <example>Authorization</example>
-        */
+        /// <example>Authorization</example>
         [DataMember(Name = "docServiceSignatureHeader", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceSignatureHeader { get; set; }
 
         /// <summary>
         /// Specifies if the document service SSL verification is enabled.
         /// </summary>
-        /// <value>Specifies if the document service SSL verification is enabled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "docServiceSslVerification", IsRequired = true, EmitDefaultValue = true)]
         public bool DocServiceSslVerification { get; set; }
 
         /// <summary>
         /// Specifies if the document service is default.
         /// </summary>
-        /// <value>Specifies if the document service is default.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 

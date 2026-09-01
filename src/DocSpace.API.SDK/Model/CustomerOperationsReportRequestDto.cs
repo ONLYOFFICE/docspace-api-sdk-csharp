@@ -39,19 +39,19 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The operation type to filter by.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public OperationType? Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The operation status to filter by.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public OperationStatus? Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets OrderType
+        /// Order direction: Ascending or Descending.
         /// </summary>
         [DataMember(Name = "orderType", EmitDefaultValue = false)]
         public OperationOrderType? OrderType { get; set; }
@@ -59,17 +59,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
-        /// <param name="serviceName">The service name..</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility..</param>
         /// <param name="startDate">The report start date..</param>
         /// <param name="endDate">The report end date..</param>
         /// <param name="participantName">The participant name..</param>
         /// <param name="credit">Specifies whether to include credit operations in the report..</param>
         /// <param name="debit">Specifies whether to include debit operations in the report..</param>
-        /// <param name="type">type.</param>
-        /// <param name="status">status.</param>
+        /// <param name="type">The operation type to filter by..</param>
+        /// <param name="status">The operation status to filter by..</param>
         /// <param name="orderBy">The field to order by..</param>
-        /// <param name="orderType">orderType.</param>
-        public CustomerOperationsReportRequestDto(string serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
+        /// <param name="orderType">Order direction: Ascending or Descending..</param>
+        public CustomerOperationsReportRequestDto(List<string> serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
         {
             this.ServiceName = serviceName;
             this.StartDate = startDate;
@@ -84,72 +84,51 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The service name.
+        /// The service name list. A single string is also accepted for backward compatibility.
         /// </summary>
-        /// <value>The service name.</value>
-        /*
-        <example>backup</example>
-        */
+        /// <example>[backup]</example>
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
-        public string ServiceName { get; set; }
+        public List<string> ServiceName { get; set; }
 
         /// <summary>
         /// The report start date.
         /// </summary>
-        /// <value>The report start date.</value>
-        /*
-        <example>2024-01-01T00:00Z</example>
-        */
+        /// <example>2024-01-01T00:00:00Z</example>
         [DataMember(Name = "startDate", EmitDefaultValue = true)]
         public DateTime? StartDate { get; set; }
 
         /// <summary>
         /// The report end date.
         /// </summary>
-        /// <value>The report end date.</value>
-        /*
-        <example>2024-01-31T23:59:59Z</example>
-        */
+        /// <example>2024-01-31T23:59:59Z</example>
         [DataMember(Name = "endDate", EmitDefaultValue = true)]
         public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// The participant name.
         /// </summary>
-        /// <value>The participant name.</value>
-        /*
-        <example>My Own Corporation</example>
-        */
+        /// <example>My Own Corporation</example>
         [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
 
         /// <summary>
         /// Specifies whether to include credit operations in the report.
         /// </summary>
-        /// <value>Specifies whether to include credit operations in the report.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "credit", EmitDefaultValue = true)]
         public bool? Credit { get; set; }
 
         /// <summary>
         /// Specifies whether to include debit operations in the report.
         /// </summary>
-        /// <value>Specifies whether to include debit operations in the report.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "debit", EmitDefaultValue = true)]
         public bool? Debit { get; set; }
 
         /// <summary>
         /// The field to order by.
         /// </summary>
-        /// <value>The field to order by.</value>
-        /*
-        <example>StartDate</example>
-        */
+        /// <example>StartDate</example>
         [DataMember(Name = "orderBy", EmitDefaultValue = true)]
         public string OrderBy { get; set; }
 

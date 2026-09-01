@@ -39,19 +39,19 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The external data status.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public Status Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of the external data.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public FileEntryType? Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets EntityType
+        /// The entry type of the external data.
         /// </summary>
         [DataMember(Name = "entityType", EmitDefaultValue = false)]
         public FileEntryType? EntityType { get; set; }
@@ -64,14 +64,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalShareDto" /> class.
         /// </summary>
-        /// <param name="status">status (required).</param>
+        /// <param name="status">The external data status. (required).</param>
         /// <param name="id">The external data ID..</param>
         /// <param name="title">The external data title..</param>
-        /// <param name="type">type.</param>
+        /// <param name="type">The type of the external data..</param>
         /// <param name="tenantId">The tenant ID. (required).</param>
         /// <param name="entityId">The unique identifier of the shared entity..</param>
         /// <param name="entityTitle">The title of the shared entity..</param>
-        /// <param name="entityType">entityType.</param>
+        /// <param name="entityType">The entry type of the external data..</param>
         /// <param name="isRoom">Indicates whether the entity represents a room..</param>
         /// <param name="shared">Specifies whether to share the external data or not. (required).</param>
         /// <param name="linkId">The link ID of the external data. (required).</param>
@@ -97,100 +97,70 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The external data ID.
         /// </summary>
-        /// <value>The external data ID.</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The external data title.
         /// </summary>
-        /// <value>The external data title.</value>
-        /*
-        <example>Shared Document</example>
-        */
+        /// <example>Shared Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// The unique identifier of the shared entity.
         /// </summary>
-        /// <value>The unique identifier of the shared entity.</value>
-        /*
-        <example>456</example>
-        */
+        /// <example>456</example>
         [DataMember(Name = "entityId", EmitDefaultValue = true)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// The title of the shared entity.
         /// </summary>
-        /// <value>The title of the shared entity.</value>
-        /*
-        <example>Entity Title</example>
-        */
+        /// <example>Entity Title</example>
         [DataMember(Name = "entityTitle", EmitDefaultValue = true)]
         public string EntityTitle { get; set; }
 
         /// <summary>
         /// Indicates whether the entity represents a room.
         /// </summary>
-        /// <value>Indicates whether the entity represents a room.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isRoom", EmitDefaultValue = true)]
         public bool? IsRoom { get; set; }
 
         /// <summary>
         /// Specifies whether to share the external data or not.
         /// </summary>
-        /// <value>Specifies whether to share the external data or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "shared", IsRequired = true, EmitDefaultValue = true)]
         public bool Shared { get; set; }
 
         /// <summary>
         /// The link ID of the external data.
         /// </summary>
-        /// <value>The link ID of the external data.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "linkId", IsRequired = true, EmitDefaultValue = true)]
         public Guid LinkId { get; set; }
 
         /// <summary>
         /// Specifies whether the user is authenticated or not.
         /// </summary>
-        /// <value>Specifies whether the user is authenticated or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isAuthenticated", IsRequired = true, EmitDefaultValue = true)]
         public bool IsAuthenticated { get; set; }
 
         /// <summary>
         /// The room ID of the external data.
         /// </summary>
-        /// <value>The room ID of the external data.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isRoomMember", EmitDefaultValue = true)]
         public bool IsRoomMember { get; set; }
 

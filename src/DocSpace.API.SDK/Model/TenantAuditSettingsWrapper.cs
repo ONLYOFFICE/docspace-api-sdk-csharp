@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantAuditSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="settings">settings.</param>
+        /// <param name="settings">The tenant audit settings parameters..</param>
         public TenantAuditSettingsWrapper(TenantAuditSettings settings = default)
         {
             this.Settings = settings;
         }
 
         /// <summary>
-        /// Gets or Sets Settings
+        /// The tenant audit settings parameters.
         /// </summary>
         [DataMember(Name = "settings", EmitDefaultValue = false)]
         public TenantAuditSettings Settings { get; set; }

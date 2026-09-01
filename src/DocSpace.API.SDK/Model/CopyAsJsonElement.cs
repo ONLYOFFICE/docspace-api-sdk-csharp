@@ -73,10 +73,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The copied file name.
         /// </summary>
-        /// <value>The copied file name.</value>
-        /*
-        <example>Document Copy.docx</example>
-        */
+        /// <example>Document Copy.docx</example>
         [DataMember(Name = "destTitle", IsRequired = true, EmitDefaultValue = true)]
         public string DestTitle { get; set; }
 
@@ -89,30 +86,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to allow creating the copied file of an external extension or not.
         /// </summary>
-        /// <value>Specifies whether to allow creating the copied file of an external extension or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "enableExternalExt", EmitDefaultValue = true)]
         public bool EnableExternalExt { get; set; }
 
         /// <summary>
         /// The copied file password.
         /// </summary>
-        /// <value>The copied file password.</value>
-        /*
-        <example>password123</example>
-        */
+        /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// Specifies whether to convert the file to form or not.
         /// </summary>
-        /// <value>Specifies whether to convert the file to form or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "toForm", EmitDefaultValue = true)]
         public bool ToForm { get; set; }
 

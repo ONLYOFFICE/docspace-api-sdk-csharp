@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether external (public) link creation is allowed.
         /// </summary>
-        /// <value>Specifies whether external (public) link creation is allowed.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "externalShare", EmitDefaultValue = true)]
         public bool ExternalShare { get; set; }
 
         /// <summary>
         /// Specifies the default sharing link type: true &#x3D; DocSpace users only, false &#x3D; Anyone with the link.
         /// </summary>
-        /// <value>Specifies the default sharing link type: true &#x3D; DocSpace users only, false &#x3D; Anyone with the link.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "defaultShareLinkInternal", EmitDefaultValue = true)]
         public bool DefaultShareLinkInternal { get; set; }
 
         /// <summary>
         /// When external sharing is restricted, specifies whether the restriction applies to the My Documents section.
         /// </summary>
-        /// <value>When external sharing is restricted, specifies whether the restriction applies to the My Documents section.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "externalShareApplyToDocuments", EmitDefaultValue = true)]
         public bool ExternalShareApplyToDocuments { get; set; }
 
         /// <summary>
         /// When external sharing is restricted, specifies whether the restriction applies to the Rooms section.
         /// </summary>
-        /// <value>When external sharing is restricted, specifies whether the restriction applies to the Rooms section.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "externalShareApplyToRooms", EmitDefaultValue = true)]
         public bool ExternalShareApplyToRooms { get; set; }
 
         /// <summary>
         /// When external sharing is restricted, specifies whether existing public links are blocked immediately.
         /// </summary>
-        /// <value>When external sharing is restricted, specifies whether existing public links are blocked immediately.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "blockExistingLinksOnRestrict", EmitDefaultValue = true)]
         public bool BlockExistingLinksOnRestrict { get; set; }
 

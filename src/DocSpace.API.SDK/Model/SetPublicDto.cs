@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The room template ID.
         /// </summary>
-        /// <value>The room template ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
         /// Specifies whether the room template is public or not.
         /// </summary>
-        /// <value>Specifies whether the room template is public or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "public", EmitDefaultValue = true)]
         public bool Public { get; set; }
 
@@ -104,6 +98,18 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Id (int) maximum
+            if (this.Id > (int)2147483647)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 2147483647.", new [] { "Id" });
+            }
+
+            // Id (int) minimum
+            if (this.Id < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 1.", new [] { "Id" });
+            }
+
             yield break;
         }
 

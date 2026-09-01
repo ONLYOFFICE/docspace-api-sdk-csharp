@@ -49,10 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The regex string to validate a domain.
         /// </summary>
-        /// <value>The regex string to validate a domain.</value>
-        /*
-        <example>^[a-z0-9]([a-z0-9-]){1,61}[a-z0-9]$</example>
-        */
+        /// <example>^[a-z0-9]([a-z0-9-]){1,61}[a-z0-9]$</example>
         [DataMember(Name = "regex", EmitDefaultValue = true)]
         public string Regex { get; private set; }
 
@@ -67,10 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The minimum length of the valid domain.
         /// </summary>
-        /// <value>The minimum length of the valid domain.</value>
-        /*
-        <example>6</example>
-        */
+        /// <example>6</example>
         [DataMember(Name = "minLength", EmitDefaultValue = false)]
         public int MinLength { get; private set; }
 
@@ -85,10 +79,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The maximum length of the valid domain.
         /// </summary>
-        /// <value>The maximum length of the valid domain.</value>
-        /*
-        <example>63</example>
-        */
+        /// <example>63</example>
         [DataMember(Name = "maxLength", EmitDefaultValue = false)]
         public int MaxLength { get; private set; }
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Service
+        /// The wallet service type.
         /// </summary>
         [DataMember(Name = "service", EmitDefaultValue = false)]
         public TenantWalletService? Service { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeWalletServiceStateRequestDto" /> class.
         /// </summary>
-        /// <param name="service">service.</param>
+        /// <param name="service">The wallet service type..</param>
         /// <param name="enabled">Specifies whether the wallet service is enabled..</param>
         public ChangeWalletServiceStateRequestDto(TenantWalletService? service = default, bool enabled = default)
         {
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the wallet service is enabled.
         /// </summary>
-        /// <value>Specifies whether the wallet service is enabled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 

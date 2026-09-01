@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the license is trial or not.
         /// </summary>
-        /// <value>Specifies whether the license is trial or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "trial", IsRequired = true, EmitDefaultValue = true)]
         public bool Trial { get; set; }
 
         /// <summary>
         /// The date when the license expires.
         /// </summary>
-        /// <value>The date when the license expires.</value>
-        /*
-        <example>2025-06-15T10:30Z</example>
-        */
+        /// <example>2025-06-15T10:30:00.0000000Z</example>
         [DataMember(Name = "dueDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime DueDate { get; set; }
 

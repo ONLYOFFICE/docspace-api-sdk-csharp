@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets EmployeeType
+        /// The user type.
         /// </summary>
         [DataMember(Name = "employeeType", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeType EmployeeType { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationLinkCreateRequestDto" /> class.
         /// </summary>
-        /// <param name="employeeType">employeeType (required).</param>
+        /// <param name="employeeType">The user type. (required).</param>
         /// <param name="expiration">The expiration date of the invitation link..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         public InvitationLinkCreateRequestDto(EmployeeType employeeType = default, DateTime? expiration = default, int? maxUseCount = default)
@@ -65,20 +65,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The expiration date of the invitation link.
         /// </summary>
-        /// <value>The expiration date of the invitation link.</value>
-        /*
-        <example>2025-06-15T10:30Z</example>
-        */
+        /// <example>2025-06-15T10:30:00.0000000Z</example>
         [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public DateTime? Expiration { get; set; }
 
         /// <summary>
         /// The maximum number of times the invitation link can be used.
         /// </summary>
-        /// <value>The maximum number of times the invitation link can be used.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 

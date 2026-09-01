@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets StorageType
+        /// The backup storage type.
         /// </summary>
         [DataMember(Name = "storageType", IsRequired = true, EmitDefaultValue = true)]
         public BackupStorageType StorageType { get; set; }
@@ -52,9 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleDto" /> class.
         /// </summary>
-        /// <param name="storageType">storageType (required).</param>
+        /// <param name="storageType">The backup storage type. (required).</param>
         /// <param name="storageParams">The backup storage parameters. (required).</param>
-        /// <param name="cronParams">cronParams (required).</param>
+        /// <param name="cronParams">The backup cron parameters. (required).</param>
         /// <param name="backupsStored">The maximum number of the stored backup copies..</param>
         /// <param name="lastBackupTime">The date and time when the last backup was reated. (required).</param>
         /// <param name="dump">Specifies if a dump will be created or not. (required).</param>
@@ -81,12 +81,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The backup storage parameters.
         /// </summary>
-        /// <value>The backup storage parameters.</value>
+        /// <example>{}</example>
         [DataMember(Name = "storageParams", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> StorageParams { get; set; }
 
         /// <summary>
-        /// Gets or Sets CronParams
+        /// The backup cron parameters.
         /// </summary>
         [DataMember(Name = "cronParams", IsRequired = true, EmitDefaultValue = true)]
         public CronParams CronParams { get; set; }
@@ -94,30 +94,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The maximum number of the stored backup copies.
         /// </summary>
-        /// <value>The maximum number of the stored backup copies.</value>
-        /*
-        <example>5</example>
-        */
+        /// <example>5</example>
         [DataMember(Name = "backupsStored", EmitDefaultValue = true)]
         public int? BackupsStored { get; set; }
 
         /// <summary>
         /// The date and time when the last backup was reated.
         /// </summary>
-        /// <value>The date and time when the last backup was reated.</value>
-        /*
-        <example>2026-01-01T00:00Z</example>
-        */
+        /// <example>2026-01-01T00:00:00Z</example>
         [DataMember(Name = "lastBackupTime", IsRequired = true, EmitDefaultValue = true)]
         public DateTime LastBackupTime { get; set; }
 
         /// <summary>
         /// Specifies if a dump will be created or not.
         /// </summary>
-        /// <value>Specifies if a dump will be created or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "dump", IsRequired = true, EmitDefaultValue = true)]
         public bool Dump { get; set; }
 

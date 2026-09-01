@@ -87,7 +87,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | The user ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var excludeShared = false;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
@@ -227,7 +227,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | The user ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var excludeShared = false;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
@@ -367,7 +367,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | The user ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var excludeShared = false;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
@@ -781,7 +781,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | The user ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var excludeShared = false;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
@@ -921,7 +921,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | The user ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var excludeShared = false;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
@@ -1061,7 +1061,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | The user ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var excludeShared = false;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 

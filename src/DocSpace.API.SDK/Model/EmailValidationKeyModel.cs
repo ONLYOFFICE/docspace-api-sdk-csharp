@@ -39,13 +39,13 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets EmplType
+        /// The user type.
         /// </summary>
         [DataMember(Name = "emplType", EmitDefaultValue = false)]
         public EmployeeType? EmplType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The confirmation email type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public ConfirmType? Type { get; set; }
@@ -54,11 +54,11 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EmailValidationKeyModel" /> class.
         /// </summary>
         /// <param name="key">The email validation key..</param>
-        /// <param name="emplType">emplType.</param>
+        /// <param name="emplType">The user type..</param>
         /// <param name="email">The email address..</param>
         /// <param name="encEmail">The encrypted email address..</param>
         /// <param name="uiD">The user ID..</param>
-        /// <param name="type">type.</param>
+        /// <param name="type">The confirmation email type..</param>
         /// <param name="first">Specifies whether it is the first time account access or not..</param>
         /// <param name="roomId">The room ID..</param>
         public EmailValidationKeyModel(string key = default, EmployeeType? emplType = default, string email = default, string encEmail = default, Guid? uiD = default, ConfirmType? type = default, string first = default, string roomId = default)
@@ -76,60 +76,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The email validation key.
         /// </summary>
-        /// <value>The email validation key.</value>
-        /*
-        <example>abcdef123456</example>
-        */
+        /// <example>abcdef123456</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The email address.
         /// </summary>
-        /// <value>The email address.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The encrypted email address.
         /// </summary>
-        /// <value>The encrypted email address.</value>
-        /*
-        <example>user%40example.com</example>
-        */
+        /// <example>user%40example.com</example>
         [DataMember(Name = "encEmail", EmitDefaultValue = true)]
         public string EncEmail { get; set; }
 
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "uiD", EmitDefaultValue = true)]
         public Guid? UiD { get; set; }
 
         /// <summary>
         /// Specifies whether it is the first time account access or not.
         /// </summary>
-        /// <value>Specifies whether it is the first time account access or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "first", EmitDefaultValue = true)]
         public string First { get; set; }
 
         /// <summary>
         /// The room ID.
         /// </summary>
-        /// <value>The room ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "roomId", EmitDefaultValue = true)]
         public string RoomId { get; set; }
 

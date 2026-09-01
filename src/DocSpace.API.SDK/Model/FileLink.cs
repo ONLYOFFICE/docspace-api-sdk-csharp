@@ -69,30 +69,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The type of the file for the source viewed or edited document.
         /// </summary>
-        /// <value>The type of the file for the source viewed or edited document.</value>
-        /*
-        <example>docx</example>
-        */
+        /// <example>docx</example>
         [DataMember(Name = "filetype", IsRequired = true, EmitDefaultValue = true)]
         public string Filetype { get; set; }
 
         /// <summary>
         /// The encrypted signature added to the config in the form of a token.
         /// </summary>
-        /// <value>The encrypted signature added to the config in the form of a token.</value>
-        /*
-        <example>token</example>
-        */
+        /// <example>token</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
         /// The absolute URL where the source viewed or edited document is stored.
         /// </summary>
-        /// <value>The absolute URL where the source viewed or edited document is stored.</value>
-        /*
-        <example>https://example.com/file.docx</example>
-        */
+        /// <example>https://example.com/file.docx</example>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 

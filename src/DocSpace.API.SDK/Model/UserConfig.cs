@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>user_0001</example>
-        */
+        /// <example>user_0001</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The full name of the user.
         /// </summary>
-        /// <value>The full name of the user.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The path to the user&#39;s avatar.
         /// </summary>
-        /// <value>The path to the user&#39;s avatar.</value>
-        /*
-        <example>https://portal.example.com/avatar/user_0001.png</example>
-        */
+        /// <example>https://portal.example.com/avatar/user_0001.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
         /// Roles
         /// </summary>
-        /// <value>Roles</value>
-        /*
-        <example>["admin","editor"]</example>
-        */
+        /// <example>["admin","editor"]</example>
         [DataMember(Name = "roles", EmitDefaultValue = true)]
         public List<string> Roles { get; set; }
 
         /// <summary>
         /// Customer identifier associated with the user.
         /// </summary>
-        /// <value>Customer identifier associated with the user.</value>
-        /*
-        <example>cust_001</example>
-        */
+        /// <example>cust_001</example>
         [DataMember(Name = "customerId", EmitDefaultValue = true)]
         public string CustomerId { get; set; }
 

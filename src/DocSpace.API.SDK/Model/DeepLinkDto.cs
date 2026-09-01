@@ -74,30 +74,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The Android package name.
         /// </summary>
-        /// <value>The Android package name.</value>
-        /*
-        <example>com.example.docspace</example>
-        */
+        /// <example>com.example.docspace</example>
         [DataMember(Name = "androidPackageName", IsRequired = true, EmitDefaultValue = true)]
         public string AndroidPackageName { get; set; }
 
         /// <summary>
         /// The deep link URL.
         /// </summary>
-        /// <value>The deep link URL.</value>
-        /*
-        <example>https://example.com/deeplink</example>
-        */
+        /// <example>https://example.com/deeplink</example>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The deep link IOS package ID.
         /// </summary>
-        /// <value>The deep link IOS package ID.</value>
-        /*
-        <example>com.example.docspace</example>
-        */
+        /// <example>com.example.docspace</example>
         [DataMember(Name = "iosPackageId", IsRequired = true, EmitDefaultValue = true)]
         public string IosPackageId { get; set; }
 

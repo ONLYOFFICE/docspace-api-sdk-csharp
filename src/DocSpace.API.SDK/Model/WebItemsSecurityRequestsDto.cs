@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of module security configurations.
         /// </summary>
-        /// <value>The list of module security configurations.</value>
-        /*
-        <example>["item1","item2"]</example>
-        */
+        /// <example>["item1","item2"]</example>
         [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<ItemKeyValuePairStringBoolean> Items { get; set; }
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Error** | **string** | The task progress error message. | [optional] 
 **Percentage** | **int** | The percentage of the task progress. | 
 **IsCompleted** | **bool** | Specifies if the task peogress is completed or not. | 
-**Status** | **DistributedTaskStatus** |  | 
+**Status** | **DistributedTaskStatus** | The status of the distributed task. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

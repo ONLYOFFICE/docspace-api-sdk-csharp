@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object.
         /// </summary>
-        /// <value>Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 
         /// <summary>
         /// Gets or sets the width dimension of an object, typically measured in pixels or other unit.
         /// </summary>
-        /// <value>Gets or sets the width dimension of an object, typically measured in pixels or other unit.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 

@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of user IDs to add to the group.
         /// </summary>
-        /// <value>The list of user IDs to add to the group.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "membersToAdd", EmitDefaultValue = true)]
         public List<Guid> MembersToAdd { get; set; }
 
         /// <summary>
         /// The list of user IDs to remove from the group.
         /// </summary>
-        /// <value>The list of user IDs to remove from the group.</value>
-        /*
-        <example>["11111111-1111-1111-1111-111111111111"]</example>
-        */
+        /// <example>["11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "membersToRemove", EmitDefaultValue = true)]
         public List<Guid> MembersToRemove { get; set; }
 
         /// <summary>
         /// The group manager ID.
         /// </summary>
-        /// <value>The group manager ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "groupManager", EmitDefaultValue = false)]
         public Guid GroupManager { get; set; }
 
         /// <summary>
         /// The group name.
         /// </summary>
-        /// <value>The group name.</value>
-        /*
-        <example>Sales Team</example>
-        */
+        /// <example>Sales Team</example>
         [DataMember(Name = "groupName", EmitDefaultValue = true)]
         public string GroupName { get; set; }
 

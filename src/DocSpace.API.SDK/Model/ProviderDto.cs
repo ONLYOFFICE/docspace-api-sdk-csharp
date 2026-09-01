@@ -62,70 +62,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The provider name.
         /// </summary>
-        /// <value>The provider name.</value>
-        /*
-        <example>GoogleDrive</example>
-        */
+        /// <example>GoogleDrive</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The provider key.
         /// </summary>
-        /// <value>The provider key.</value>
-        /*
-        <example>google-drive</example>
-        */
+        /// <example>google-drive</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// Specifies whether the provider is connected.
         /// </summary>
-        /// <value>Specifies whether the provider is connected.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "connected", EmitDefaultValue = true)]
         public bool Connected { get; set; }
 
         /// <summary>
         /// Specifies if the provider is OAuth.
         /// </summary>
-        /// <value>Specifies if the provider is OAuth.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public bool Oauth { get; set; }
 
         /// <summary>
         /// The provider redirect URL.
         /// </summary>
-        /// <value>The provider redirect URL.</value>
-        /*
-        <example>http://localhost/redirect</example>
-        */
+        /// <example>http://localhost/redirect</example>
         [DataMember(Name = "redirectUrl", EmitDefaultValue = true)]
         public string RedirectUrl { get; set; }
 
         /// <summary>
         /// The required connection URL flag.
         /// </summary>
-        /// <value>The required connection URL flag.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "requiredConnectionUrl", EmitDefaultValue = true)]
         public bool RequiredConnectionUrl { get; set; }
 
         /// <summary>
         /// The provider OAuth client ID.
         /// </summary>
-        /// <value>The provider OAuth client ID.</value>
-        /*
-        <example>client-id-123</example>
-        */
+        /// <example>client-id-123</example>
         [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 

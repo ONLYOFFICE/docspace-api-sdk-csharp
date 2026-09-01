@@ -6,17 +6,17 @@ The wallet service information.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The quota ID. | 
-**Title** | **string** | The quota title. | 
-**Price** | [**PriceDto**](PriceDto.md) |  | 
+**Title** | **string** | The quota title. | [optional] 
+**Price** | [**PriceDto**](PriceDto.md) | The price parameters. | 
 **NonProfit** | **bool** | Specifies if the quota is nonprofit or not. | 
 **Free** | **bool** | Specifies if the quota is free or not. | 
 **Trial** | **bool** | Specifies if the quota is trial or not. | 
 **Features** | [**List&lt;TenantQuotaFeatureDto&gt;**](TenantQuotaFeatureDto.md) | The list of tenant quota features. | 
-**UsersQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) |  | [optional] 
-**RoomsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) |  | [optional] 
-**AiAgentsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) |  | [optional] 
-**TenantCustomQuota** | [**TenantQuotaSettings**](TenantQuotaSettings.md) |  | [optional] 
-**DueDate** | **DateTime?** | The due date. | [optional] 
+**UsersQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The tenant entity quota settings. | [optional] 
+**RoomsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The tenant entity quota settings. | [optional] 
+**AiAgentsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) | The tenant entity quota settings. | [optional] 
+**TenantCustomQuota** | [**TenantQuotaSettings**](TenantQuotaSettings.md) | The tenant quota settings. | [optional] 
+**DueDate** | **DateTime** | The due date. | [optional] 
 **InnerServices** | [**List&lt;WalletServiceDto&gt;**](WalletServiceDto.md) | The list of inner services. | [optional] 
 **ServiceName** | **string** | The service name. | [optional] 
 

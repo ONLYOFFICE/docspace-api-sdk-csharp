@@ -54,21 +54,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The scope name.
         /// </summary>
-        /// <value>The scope name.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// The group the scope belongs to.
         /// </summary>
-        /// <value>The group the scope belongs to.</value>
         [DataMember(Name = "group", EmitDefaultValue = false)]
         public string Group { get; set; }
 
         /// <summary>
         /// The scope type.
         /// </summary>
-        /// <value>The scope type.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 

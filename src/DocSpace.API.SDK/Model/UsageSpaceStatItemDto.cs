@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The item name.
         /// </summary>
-        /// <value>The item name.</value>
-        /*
-        <example>Item name</example>
-        */
+        /// <example>Item name</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The item icon path.
         /// </summary>
-        /// <value>The item icon path.</value>
-        /*
-        <example>Item icon path</example>
-        */
+        /// <example>Item icon path</example>
         [DataMember(Name = "icon", EmitDefaultValue = true)]
         public string Icon { get; set; }
 
         /// <summary>
         /// Specifies if the item is disabled or not.
         /// </summary>
-        /// <value>Specifies if the item is disabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "disabled", EmitDefaultValue = true)]
         public bool Disabled { get; set; }
 
         /// <summary>
         /// The item used space.
         /// </summary>
-        /// <value>The item used space.</value>
-        /*
-        <example>0 Byte</example>
-        */
+        /// <example>0 Byte</example>
         [DataMember(Name = "size", EmitDefaultValue = true)]
         public string Size { get; set; }
 
         /// <summary>
         /// The item URL.
         /// </summary>
-        /// <value>The item URL.</value>
-        /*
-        <example>Item url</example>
-        */
+        /// <example>Item url</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

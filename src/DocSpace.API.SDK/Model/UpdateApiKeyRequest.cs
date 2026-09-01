@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The new name for the API key.
         /// </summary>
-        /// <value>The new name for the API key.</value>
-        /*
-        <example>Updated API Key</example>
-        */
+        /// <example>Updated API Key</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The new list of permissions for the API key.
         /// </summary>
-        /// <value>The new list of permissions for the API key.</value>
-        /*
-        <example>["read","write","delete"]</example>
-        */
+        /// <example>["read","write","delete"]</example>
         [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
         /// Indicates whether the API key should be active or not.
         /// </summary>
-        /// <value>Indicates whether the API key should be active or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isActive", EmitDefaultValue = true)]
         public bool? IsActive { get; set; }
 

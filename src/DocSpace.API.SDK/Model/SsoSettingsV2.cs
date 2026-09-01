@@ -43,13 +43,13 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
         /// <param name="enableSso">Specifies if the SSO settings are enabled or not..</param>
-        /// <param name="idpSettings">idpSettings.</param>
+        /// <param name="idpSettings">The SSO IdP settings..</param>
         /// <param name="idpCertificates">The list of the IdP certificates..</param>
-        /// <param name="idpCertificateAdvanced">idpCertificateAdvanced.</param>
+        /// <param name="idpCertificateAdvanced">The IdP advanced certificate..</param>
         /// <param name="spLoginLabel">The SP login label..</param>
         /// <param name="spCertificates">The list of the SP certificates..</param>
-        /// <param name="spCertificateAdvanced">spCertificateAdvanced.</param>
-        /// <param name="fieldMapping">fieldMapping.</param>
+        /// <param name="spCertificateAdvanced">The SP advanced certificate..</param>
+        /// <param name="fieldMapping">The SSO field mapping..</param>
         /// <param name="hideAuthPage">Specifies if the authentication page will be hidden or not..</param>
         /// <param name="usersType">The user type..</param>
         /// <param name="disableEmailVerification">Specifies if the email verification is disabled or not..</param>
@@ -72,25 +72,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Specifies if the SSO settings are enabled or not.
         /// </summary>
-        /// <value>Specifies if the SSO settings are enabled or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "enableSso", EmitDefaultValue = true)]
         public bool? EnableSso { get; set; }
 
         /// <summary>
-        /// Gets or Sets IdpSettings
+        /// The SSO IdP settings.
         /// </summary>
         [DataMember(Name = "idpSettings", EmitDefaultValue = false)]
         public SsoIdpSettings IdpSettings { get; set; }
@@ -98,15 +92,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of the IdP certificates.
         /// </summary>
-        /// <value>The list of the IdP certificates.</value>
-        /*
-        <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
-        */
+        /// <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
         [DataMember(Name = "idpCertificates", EmitDefaultValue = true)]
         public List<SsoCertificate> IdpCertificates { get; set; }
 
         /// <summary>
-        /// Gets or Sets IdpCertificateAdvanced
+        /// The IdP advanced certificate.
         /// </summary>
         [DataMember(Name = "idpCertificateAdvanced", EmitDefaultValue = false)]
         public SsoIdpCertificateAdvanced IdpCertificateAdvanced { get; set; }
@@ -114,31 +105,25 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The SP login label.
         /// </summary>
-        /// <value>The SP login label.</value>
-        /*
-        <example>Single Sign-on</example>
-        */
+        /// <example>Single Sign-on</example>
         [DataMember(Name = "spLoginLabel", EmitDefaultValue = true)]
         public string SpLoginLabel { get; set; }
 
         /// <summary>
         /// The list of the SP certificates.
         /// </summary>
-        /// <value>The list of the SP certificates.</value>
-        /*
-        <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
-        */
+        /// <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
         [DataMember(Name = "spCertificates", EmitDefaultValue = true)]
         public List<SsoCertificate> SpCertificates { get; set; }
 
         /// <summary>
-        /// Gets or Sets SpCertificateAdvanced
+        /// The SP advanced certificate.
         /// </summary>
         [DataMember(Name = "spCertificateAdvanced", EmitDefaultValue = false)]
         public SsoSpCertificateAdvanced SpCertificateAdvanced { get; set; }
 
         /// <summary>
-        /// Gets or Sets FieldMapping
+        /// The SSO field mapping.
         /// </summary>
         [DataMember(Name = "fieldMapping", EmitDefaultValue = false)]
         public SsoFieldMapping FieldMapping { get; set; }
@@ -146,30 +131,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the authentication page will be hidden or not.
         /// </summary>
-        /// <value>Specifies if the authentication page will be hidden or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "hideAuthPage", EmitDefaultValue = true)]
         public bool HideAuthPage { get; set; }
 
         /// <summary>
         /// The user type.
         /// </summary>
-        /// <value>The user type.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "usersType", EmitDefaultValue = false)]
         public int UsersType { get; set; }
 
         /// <summary>
         /// Specifies if the email verification is disabled or not.
         /// </summary>
-        /// <value>Specifies if the email verification is disabled or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "disableEmailVerification", EmitDefaultValue = true)]
         public bool DisableEmailVerification { get; set; }
 

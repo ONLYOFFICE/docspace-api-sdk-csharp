@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - User, 1 - Room, 2 - Tenant]
     /// </summary>
-    /// <value>[0 - User, 1 - Room, 2 - Tenant]</value>
     public enum QuotaScope
     {
         /// <summary>

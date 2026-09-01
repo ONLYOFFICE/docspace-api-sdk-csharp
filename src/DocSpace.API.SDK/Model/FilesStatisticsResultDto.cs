@@ -41,49 +41,57 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesStatisticsResultDto" /> class.
         /// </summary>
-        /// <param name="myDocumentsUsedSpace">myDocumentsUsedSpace.</param>
-        /// <param name="trashUsedSpace">trashUsedSpace.</param>
-        /// <param name="archiveUsedSpace">archiveUsedSpace.</param>
-        /// <param name="roomsUsedSpace">roomsUsedSpace.</param>
-        /// <param name="aiAgentsUsedSpace">aiAgentsUsedSpace.</param>
-        public FilesStatisticsResultDto(FilesStatisticsFolder myDocumentsUsedSpace = default, FilesStatisticsFolder trashUsedSpace = default, FilesStatisticsFolder archiveUsedSpace = default, FilesStatisticsFolder roomsUsedSpace = default, FilesStatisticsFolder aiAgentsUsedSpace = default)
+        /// <param name="myDocumentsUsedSpace">The used space of files in the \\My Documents\\ section..</param>
+        /// <param name="trashUsedSpace">The used space of files in the \\Trash\\ section..</param>
+        /// <param name="archiveUsedSpace">The used space of files in the \\Archive\\ section..</param>
+        /// <param name="roomsUsedSpace">The used space of files in the \\Rooms\\ section..</param>
+        /// <param name="aiAgentsUsedSpace">The used space of files in the \\AI agents\\ section..</param>
+        /// <param name="formsUsedSpace">The used space of files in the \\Forms\\ section..</param>
+        public FilesStatisticsResultDto(FilesStatisticsFolder myDocumentsUsedSpace = default, FilesStatisticsFolder trashUsedSpace = default, FilesStatisticsFolder archiveUsedSpace = default, FilesStatisticsFolder roomsUsedSpace = default, FilesStatisticsFolder aiAgentsUsedSpace = default, FilesStatisticsFolder formsUsedSpace = default)
         {
             this.MyDocumentsUsedSpace = myDocumentsUsedSpace;
             this.TrashUsedSpace = trashUsedSpace;
             this.ArchiveUsedSpace = archiveUsedSpace;
             this.RoomsUsedSpace = roomsUsedSpace;
             this.AiAgentsUsedSpace = aiAgentsUsedSpace;
+            this.FormsUsedSpace = formsUsedSpace;
         }
 
         /// <summary>
-        /// Gets or Sets MyDocumentsUsedSpace
+        /// The used space of files in the \\My Documents\\ section.
         /// </summary>
         [DataMember(Name = "myDocumentsUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder MyDocumentsUsedSpace { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrashUsedSpace
+        /// The used space of files in the \\Trash\\ section.
         /// </summary>
         [DataMember(Name = "trashUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder TrashUsedSpace { get; set; }
 
         /// <summary>
-        /// Gets or Sets ArchiveUsedSpace
+        /// The used space of files in the \\Archive\\ section.
         /// </summary>
         [DataMember(Name = "archiveUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder ArchiveUsedSpace { get; set; }
 
         /// <summary>
-        /// Gets or Sets RoomsUsedSpace
+        /// The used space of files in the \\Rooms\\ section.
         /// </summary>
         [DataMember(Name = "roomsUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder RoomsUsedSpace { get; set; }
 
         /// <summary>
-        /// Gets or Sets AiAgentsUsedSpace
+        /// The used space of files in the \\AI agents\\ section.
         /// </summary>
         [DataMember(Name = "aiAgentsUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder AiAgentsUsedSpace { get; set; }
+
+        /// <summary>
+        /// The used space of files in the \\Forms\\ section.
+        /// </summary>
+        [DataMember(Name = "formsUsedSpace", EmitDefaultValue = false)]
+        public FilesStatisticsFolder FormsUsedSpace { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,6 +106,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ArchiveUsedSpace: ").Append(ArchiveUsedSpace).Append("\n");
             sb.Append("  RoomsUsedSpace: ").Append(RoomsUsedSpace).Append("\n");
             sb.Append("  AiAgentsUsedSpace: ").Append(AiAgentsUsedSpace).Append("\n");
+            sb.Append("  FormsUsedSpace: ").Append(FormsUsedSpace).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

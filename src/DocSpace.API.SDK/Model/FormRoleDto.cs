@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets RoleStatus
+        /// The role status.
         /// </summary>
         [DataMember(Name = "roleStatus", EmitDefaultValue = false)]
         public FormFillingStatus? RoleStatus { get; set; }
@@ -54,12 +54,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="roleName">The role name. (required).</param>
         /// <param name="roleColor">The role color..</param>
-        /// <param name="user">user.</param>
+        /// <param name="user">The user of the role..</param>
         /// <param name="sequence">The role sequence. (required).</param>
         /// <param name="submitted">Specifies if the role is submitted. (required).</param>
-        /// <param name="stopedBy">stopedBy.</param>
+        /// <param name="stopedBy">The user who stopped the role..</param>
         /// <param name="history">The role history..</param>
-        /// <param name="roleStatus">roleStatus.</param>
+        /// <param name="roleStatus">The role status..</param>
         public FormRoleDto(string roleName = default, string roleColor = default, EmployeeFullDto user = default, int sequence = default, bool submitted = default, EmployeeFullDto stopedBy = default, Dictionary<string, DateTime> history = default, FormFillingStatus? roleStatus = default)
         {
             // to ensure "roleName" is required (not null)
@@ -80,25 +80,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The role name.
         /// </summary>
-        /// <value>The role name.</value>
-        /*
-        <example>Approver</example>
-        */
+        /// <example>Approver</example>
         [DataMember(Name = "roleName", IsRequired = true, EmitDefaultValue = true)]
         public string RoleName { get; set; }
 
         /// <summary>
         /// The role color.
         /// </summary>
-        /// <value>The role color.</value>
-        /*
-        <example>#FF5733</example>
-        */
+        /// <example>#FF5733</example>
         [DataMember(Name = "roleColor", EmitDefaultValue = true)]
         public string RoleColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets User
+        /// The user of the role.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public EmployeeFullDto User { get; set; }
@@ -106,25 +100,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The role sequence.
         /// </summary>
-        /// <value>The role sequence.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "sequence", IsRequired = true, EmitDefaultValue = true)]
         public int Sequence { get; set; }
 
         /// <summary>
         /// Specifies if the role is submitted.
         /// </summary>
-        /// <value>Specifies if the role is submitted.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "submitted", IsRequired = true, EmitDefaultValue = true)]
         public bool Submitted { get; set; }
 
         /// <summary>
-        /// Gets or Sets StopedBy
+        /// The user who stopped the role.
         /// </summary>
         [DataMember(Name = "stopedBy", EmitDefaultValue = false)]
         public EmployeeFullDto StopedBy { get; set; }
@@ -132,11 +120,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The role history.
         /// </summary>
-        /// <value>The role history.</value>
-        /*
-        <example>{"0":"2025-01-15T10:30:00Z"}</example>
-        */
-        [DataMember(Name = "history", EmitDefaultValue = true)]
+        /// <example>{"0":"2025-01-15T10:30:00Z"}</example>
+        [DataMember(Name = "history", EmitDefaultValue = false)]
         public Dictionary<string, DateTime> History { get; set; }
 
         /// <summary>

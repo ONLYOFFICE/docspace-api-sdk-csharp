@@ -39,13 +39,13 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets GroupAccess
+        /// The access rights type.
         /// </summary>
         [DataMember(Name = "groupAccess", IsRequired = true, EmitDefaultValue = true)]
         public FileShare GroupAccess { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserAccess
+        /// The group member access rights to the files.
         /// </summary>
         [DataMember(Name = "userAccess", EmitDefaultValue = false)]
         public FileShare? UserAccess { get; set; }
@@ -58,9 +58,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMemberSecurityRequestDto" /> class.
         /// </summary>
-        /// <param name="user">user (required).</param>
-        /// <param name="groupAccess">groupAccess (required).</param>
-        /// <param name="userAccess">userAccess.</param>
+        /// <param name="user">The full list of user parameters. (required).</param>
+        /// <param name="groupAccess">The access rights type. (required).</param>
+        /// <param name="userAccess">The group member access rights to the files..</param>
         /// <param name="overridden">Specifies if the group access rights are overridden or not. (required).</param>
         /// <param name="canEditAccess">Specifies if the group member can edit the group access rights or not. (required).</param>
         /// <param name="owner">Specifies if the group member is a group owner or not. (required).</param>
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets User
+        /// The full list of user parameters.
         /// </summary>
         [DataMember(Name = "user", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeFullDto User { get; set; }
@@ -88,30 +88,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the group access rights are overridden or not.
         /// </summary>
-        /// <value>Specifies if the group access rights are overridden or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "overridden", IsRequired = true, EmitDefaultValue = true)]
         public bool Overridden { get; set; }
 
         /// <summary>
         /// Specifies if the group member can edit the group access rights or not.
         /// </summary>
-        /// <value>Specifies if the group member can edit the group access rights or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canEditAccess", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditAccess { get; set; }
 
         /// <summary>
         /// Specifies if the group member is a group owner or not.
         /// </summary>
-        /// <value>Specifies if the group member is a group owner or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "owner", IsRequired = true, EmitDefaultValue = true)]
         public bool Owner { get; set; }
 

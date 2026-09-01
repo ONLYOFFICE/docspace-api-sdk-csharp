@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Provide choice, 1 - Web, 2 - App]
     /// </summary>
-    /// <value>[0 - Provide choice, 1 - Web, 2 - App]</value>
     public enum DeepLinkHandlingMode
     {
         /// <summary>

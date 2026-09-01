@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="totalQuantity">The total quantity of operations in the report..</param>
         /// <param name="totalPage">The total number of pages in the report..</param>
         /// <param name="currentPage">The current page number of the report..</param>
-        public ReportDto(List<OperationDto> collection = default, int offset = default, int limit = default, int totalQuantity = default, int totalPage = default, int currentPage = default)
+        public ReportDto(List<OperationDto> collection = default, int offset = default, int limit = default, long totalQuantity = default, int totalPage = default, int currentPage = default)
         {
             this.Collection = collection;
             this.Offset = offset;
@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// A collection of operations.
         /// </summary>
-        /// <value>A collection of operations.</value>
-        /*
-        <example>[{"id":"op1","type":"payment"}]</example>
-        */
+        /// <example>[{"id":"op1","type":"payment"}]</example>
         [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<OperationDto> Collection { get; set; }
 
         /// <summary>
         /// The report data offset.
         /// </summary>
-        /// <value>The report data offset.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "offset", EmitDefaultValue = false)]
         public int Offset { get; set; }
 
         /// <summary>
         /// The report data limit.
         /// </summary>
-        /// <value>The report data limit.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
         /// <summary>
         /// The total quantity of operations in the report.
         /// </summary>
-        /// <value>The total quantity of operations in the report.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "totalQuantity", EmitDefaultValue = false)]
-        public int TotalQuantity { get; set; }
+        public long TotalQuantity { get; set; }
 
         /// <summary>
         /// The total number of pages in the report.
         /// </summary>
-        /// <value>The total number of pages in the report.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "totalPage", EmitDefaultValue = false)]
         public int TotalPage { get; set; }
 
         /// <summary>
         /// The current page number of the report.
         /// </summary>
-        /// <value>The current page number of the report.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "currentPage", EmitDefaultValue = false)]
         public int CurrentPage { get; set; }
 

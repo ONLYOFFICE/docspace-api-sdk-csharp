@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]
     /// </summary>
-    /// <value>[0 - Default, 1 - AndroidV2, 2 - iOSV2, 3 - hCaptcha]</value>
     public enum RecaptchaType
     {
         /// <summary>

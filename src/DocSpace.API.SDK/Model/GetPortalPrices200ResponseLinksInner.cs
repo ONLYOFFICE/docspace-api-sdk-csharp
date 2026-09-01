@@ -52,14 +52,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// URL of the link
         /// </summary>
-        /// <value>URL of the link</value>
         [DataMember(Name = "href", EmitDefaultValue = false)]
         public string Href { get; set; }
 
         /// <summary>
         /// Action associated with the link
         /// </summary>
-        /// <value>Action associated with the link</value>
         [DataMember(Name = "action", EmitDefaultValue = false)]
         public string Action { get; set; }
 

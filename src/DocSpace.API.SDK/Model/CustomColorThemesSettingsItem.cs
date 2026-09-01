@@ -43,8 +43,8 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">The custom color theme ID..</param>
         /// <param name="name">The custom color theme name..</param>
-        /// <param name="main">main.</param>
-        /// <param name="text">text.</param>
+        /// <param name="main">The custom color theme main colors..</param>
+        /// <param name="text">The custom color theme text colors..</param>
         public CustomColorThemesSettingsItem(int id = default, string name = default, CustomColorThemesSettingsColorItem main = default, CustomColorThemesSettingsColorItem text = default)
         {
             this.Id = id;
@@ -56,31 +56,25 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The custom color theme ID.
         /// </summary>
-        /// <value>The custom color theme ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The custom color theme name.
         /// </summary>
-        /// <value>The custom color theme name.</value>
-        /*
-        <example>blue</example>
-        */
+        /// <example>blue</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Main
+        /// The custom color theme main colors.
         /// </summary>
         [DataMember(Name = "main", EmitDefaultValue = false)]
         public CustomColorThemesSettingsColorItem Main { get; set; }
 
         /// <summary>
-        /// Gets or Sets Text
+        /// The custom color theme text colors.
         /// </summary>
         [DataMember(Name = "text", EmitDefaultValue = false)]
         public CustomColorThemesSettingsColorItem Text { get; set; }

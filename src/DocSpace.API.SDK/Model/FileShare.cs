@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - Read and write, 2 - Read, 3 - Restrict, 4 - Varies, 5 - Review, 6 - Comment, 7 - Fill forms, 8 - Custom filter, 9 - Room manager, 10 - Editing, 11 - Content creator]
     /// </summary>
-    /// <value>[0 - None, 1 - Read and write, 2 - Read, 3 - Restrict, 4 - Varies, 5 - Review, 6 - Comment, 7 - Fill forms, 8 - Custom filter, 9 - Room manager, 10 - Editing, 11 - Content creator]</value>
     public enum FileShare
     {
         /// <summary>

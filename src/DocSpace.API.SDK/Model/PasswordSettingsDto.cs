@@ -89,80 +89,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The minimum number of characters required for valid passwords.
         /// </summary>
-        /// <value>The minimum number of characters required for valid passwords.</value>
-        /*
-        <example>8</example>
-        */
+        /// <example>8</example>
         [DataMember(Name = "minLength", IsRequired = true, EmitDefaultValue = true)]
         public int MinLength { get; set; }
 
         /// <summary>
         /// Specifies whether the password should contain the uppercase letters or not.
         /// </summary>
-        /// <value>Specifies whether the password should contain the uppercase letters or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "upperCase", IsRequired = true, EmitDefaultValue = true)]
         public bool UpperCase { get; set; }
 
         /// <summary>
         /// Specifies whether the password should contain the digits or not.
         /// </summary>
-        /// <value>Specifies whether the password should contain the digits or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "digits", IsRequired = true, EmitDefaultValue = true)]
         public bool Digits { get; set; }
 
         /// <summary>
         /// Specifies whether the password should contain the special symbols or not.
         /// </summary>
-        /// <value>Specifies whether the password should contain the special symbols or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "specSymbols", IsRequired = true, EmitDefaultValue = true)]
         public bool SpecSymbols { get; set; }
 
         /// <summary>
         /// The allowed password characters in the regex string format.
         /// </summary>
-        /// <value>The allowed password characters in the regex string format.</value>
-        /*
-        <example>^[a-zA-Z0-9!@#$%^&*()]+$</example>
-        */
+        /// <example>^[a-zA-Z0-9!@#$%^&amp;*()]+$</example>
         [DataMember(Name = "allowedCharactersRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string AllowedCharactersRegexStr { get; set; }
 
         /// <summary>
         /// The password digits in the regex string format.
         /// </summary>
-        /// <value>The password digits in the regex string format.</value>
-        /*
-        <example>(?=.*\\d)</example>
-        */
+        /// <example>(?=.*\\d)</example>
         [DataMember(Name = "digitsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string DigitsRegexStr { get; set; }
 
         /// <summary>
         /// The password uppercase letters in the regex string format.
         /// </summary>
-        /// <value>The password uppercase letters in the regex string format.</value>
-        /*
-        <example>(?=.*[A-Z])</example>
-        */
+        /// <example>(?=.*[A-Z])</example>
         [DataMember(Name = "upperCaseRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string UpperCaseRegexStr { get; set; }
 
         /// <summary>
         /// The passaword special symbols in the regex string format.
         /// </summary>
-        /// <value>The passaword special symbols in the regex string format.</value>
-        /*
-        <example>(?=.*[!@#$%^&*()])</example>
-        */
+        /// <example>(?=.*[!@#$%^&amp;*()])</example>
         [DataMember(Name = "specSymbolsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string SpecSymbolsRegexStr { get; set; }
 

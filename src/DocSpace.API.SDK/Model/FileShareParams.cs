@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Access
+        /// The sharing access rights.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FileShareParams" /> class.
         /// </summary>
         /// <param name="shareTo">The ID of the user to whom the file will be shared..</param>
-        /// <param name="access">access.</param>
+        /// <param name="access">The sharing access rights..</param>
         public FileShareParams(Guid shareTo = default, FileShare? access = default)
         {
             this.ShareTo = shareTo;
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the user to whom the file will be shared.
         /// </summary>
-        /// <value>The ID of the user to whom the file will be shared.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "shareTo", EmitDefaultValue = false)]
         public Guid ShareTo { get; set; }
 
@@ -106,4 +103,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

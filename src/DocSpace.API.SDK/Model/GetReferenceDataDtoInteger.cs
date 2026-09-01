@@ -73,50 +73,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The unique document identifier used by the service to get a link to the file.
         /// </summary>
-        /// <value>The unique document identifier used by the service to get a link to the file.</value>
-        /*
-        <example>doc_key_123</example>
-        */
+        /// <example>doc_key_123</example>
         [DataMember(Name = "fileKey", IsRequired = true, EmitDefaultValue = true)]
         public string FileKey { get; set; }
 
         /// <summary>
         /// The unique system identifier.
         /// </summary>
-        /// <value>The unique system identifier.</value>
-        /*
-        <example>doc_key_123</example>
-        */
+        /// <example>doc_key_123</example>
         [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
         /// <summary>
         /// The source file ID.
         /// </summary>
-        /// <value>The source file ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "sourceFileId", EmitDefaultValue = false)]
         public int SourceFileId { get; set; }
 
         /// <summary>
         /// The file name or relative path for the formula editor.
         /// </summary>
-        /// <value>The file name or relative path for the formula editor.</value>
-        /*
-        <example>My Document</example>
-        */
+        /// <example>My Document</example>
         [DataMember(Name = "path", EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
         /// The file link.
         /// </summary>
-        /// <value>The file link.</value>
-        /*
-        <example>https://example.com</example>
-        */
+        /// <example>https://example.com</example>
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 

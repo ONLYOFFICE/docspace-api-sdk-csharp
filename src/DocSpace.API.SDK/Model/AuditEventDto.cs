@@ -39,25 +39,25 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets ActionId
+        /// The event action ID.
         /// </summary>
         [DataMember(Name = "actionId", EmitDefaultValue = false)]
         public MessageAction? ActionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActionType
+        /// The type of action performed in the audit event (e.g., Create, Update, Delete).
         /// </summary>
         [DataMember(Name = "actionType", EmitDefaultValue = false)]
         public ActionType? ActionType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Product
+        /// The type of product related to the audit event.
         /// </summary>
         [DataMember(Name = "product", EmitDefaultValue = false)]
         public ProductType? Product { get; set; }
 
         /// <summary>
-        /// Gets or Sets Location
+        /// The location where the audit event occurred.
         /// </summary>
         [DataMember(Name = "location", EmitDefaultValue = false)]
         public LocationType? Location { get; set; }
@@ -66,20 +66,20 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AuditEventDto" /> class.
         /// </summary>
         /// <param name="id">The audit event ID..</param>
-        /// <param name="date">date.</param>
+        /// <param name="date">The API date and time parameters..</param>
         /// <param name="user">The name of the user who triggered the audit event..</param>
         /// <param name="userId">The ID of the user who triggered the audit event..</param>
         /// <param name="action">The audit event action..</param>
-        /// <param name="actionId">actionId.</param>
+        /// <param name="actionId">The event action ID..</param>
         /// <param name="ip">The audit event IP..</param>
         /// <param name="country">The audit event country..</param>
         /// <param name="city">The audit event city..</param>
         /// <param name="browser">The audit event browser..</param>
         /// <param name="platform">The audit event platform..</param>
         /// <param name="page">The audit event page..</param>
-        /// <param name="actionType">actionType.</param>
-        /// <param name="product">product.</param>
-        /// <param name="location">location.</param>
+        /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete)..</param>
+        /// <param name="product">The type of product related to the audit event..</param>
+        /// <param name="location">The location where the audit event occurred..</param>
         /// <param name="target">The list of target objects affected by the audit event (e.g., document ID, user account)..</param>
         /// <param name="entries">The list of audit entry types (e.g., Folder, User, File)..</param>
         /// <param name="context">The audit event context..</param>
@@ -108,15 +108,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The audit event ID.
         /// </summary>
-        /// <value>The audit event ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
@@ -124,120 +121,84 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The name of the user who triggered the audit event.
         /// </summary>
-        /// <value>The name of the user who triggered the audit event.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
         /// The ID of the user who triggered the audit event.
         /// </summary>
-        /// <value>The ID of the user who triggered the audit event.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000001</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// The audit event action.
         /// </summary>
-        /// <value>The audit event action.</value>
-        /*
-        <example>User logged in</example>
-        */
+        /// <example>User logged in</example>
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
         /// The audit event IP.
         /// </summary>
-        /// <value>The audit event IP.</value>
-        /*
-        <example>192.0.2.1</example>
-        */
+        /// <example>192.0.2.1</example>
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
         /// The audit event country.
         /// </summary>
-        /// <value>The audit event country.</value>
-        /*
-        <example>United States</example>
-        */
+        /// <example>United States</example>
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// The audit event city.
         /// </summary>
-        /// <value>The audit event city.</value>
-        /*
-        <example>New York</example>
-        */
+        /// <example>New York</example>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
         /// The audit event browser.
         /// </summary>
-        /// <value>The audit event browser.</value>
-        /*
-        <example>Chrome 120.0</example>
-        */
+        /// <example>Chrome 120.0</example>
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
 
         /// <summary>
         /// The audit event platform.
         /// </summary>
-        /// <value>The audit event platform.</value>
-        /*
-        <example>Windows</example>
-        */
+        /// <example>Windows</example>
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
         /// The audit event page.
         /// </summary>
-        /// <value>The audit event page.</value>
-        /*
-        <example>/rooms/shared</example>
-        */
+        /// <example>/rooms/shared</example>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public string Page { get; set; }
 
         /// <summary>
         /// The list of target objects affected by the audit event (e.g., document ID, user account).
         /// </summary>
-        /// <value>The list of target objects affected by the audit event (e.g., document ID, user account).</value>
-        /*
-        <example>["item1","item2"]</example>
-        */
+        /// <example>["item1","item2"]</example>
         [DataMember(Name = "target", EmitDefaultValue = true)]
         public List<string> Target { get; set; }
 
         /// <summary>
         /// The list of audit entry types (e.g., Folder, User, File).
         /// </summary>
-        /// <value>The list of audit entry types (e.g., Folder, User, File).</value>
-        /*
-        <example>["File","Folder"]</example>
-        */
+        /// <example>["File","Folder"]</example>
         [DataMember(Name = "entries", EmitDefaultValue = true)]
         public List<EntryType> Entries { get; set; }
 
         /// <summary>
         /// The audit event context.
         /// </summary>
-        /// <value>The audit event context.</value>
-        /*
-        <example>Security settings updated</example>
-        */
+        /// <example>Security settings updated</example>
         [DataMember(Name = "context", EmitDefaultValue = true)]
         public string Context { get; set; }
 

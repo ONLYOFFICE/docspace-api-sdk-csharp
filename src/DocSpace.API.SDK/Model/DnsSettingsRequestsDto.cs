@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The DNS (Domain Name System) configuration name.
         /// </summary>
-        /// <value>The DNS (Domain Name System) configuration name.</value>
-        /*
-        <example>example.com</example>
-        */
+        /// <example>example.com</example>
         [DataMember(Name = "dnsName", EmitDefaultValue = true)]
         public string DnsName { get; set; }
 
         /// <summary>
         /// Specifies whether the DNS settings are enabled.
         /// </summary>
-        /// <value>Specifies whether the DNS settings are enabled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enable", EmitDefaultValue = true)]
         public bool Enable { get; set; }
 

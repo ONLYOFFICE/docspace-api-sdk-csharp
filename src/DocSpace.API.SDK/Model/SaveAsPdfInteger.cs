@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The folder ID to save the file as PDF.
         /// </summary>
-        /// <value>The folder ID to save the file as PDF.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "folderId", IsRequired = true, EmitDefaultValue = true)]
         public int FolderId { get; set; }
 
         /// <summary>
         /// The file title to save as PDF.
         /// </summary>
-        /// <value>The file title to save as PDF.</value>
-        /*
-        <example>My Document</example>
-        */
+        /// <example>My Document</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 

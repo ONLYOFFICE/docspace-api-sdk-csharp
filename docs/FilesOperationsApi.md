@@ -1521,9 +1521,9 @@ catch (ApiException e)
 
 <a id="emptytrash"></a>
 # **EmptyTrash**
-> FileOperationArrayWrapper EmptyTrash (bool? single = null)
+> FileOperationArrayWrapper EmptyTrash (bool? single = null, List<int>? folderType = null)
 
-Deletes all the files and folders from the Trash folder.
+Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/).
 
@@ -1532,6 +1532,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **single** | **bool?** | Specifies whether to return only the current operation | [optional]  |
+| **folderType** | [**List&lt;int&gt;?**](int.md) | The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. | [optional]  |
 
 ### Return type
 
@@ -1579,11 +1580,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
             var single = false;  // bool? | Specifies whether to return only the current operation (optional) 
+            var folderType = new List<int>?(); // List<int>? | The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional) 
 
             try
             {
                 // Empty the Trash folder
-                FileOperationArrayWrapper result = apiInstance.EmptyTrash(single);
+                FileOperationArrayWrapper result = apiInstance.EmptyTrash(single, folderType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1604,7 +1606,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Empty the Trash folder
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.EmptyTrashWithHttpInfo(single);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.EmptyTrashWithHttpInfo(single, folderType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

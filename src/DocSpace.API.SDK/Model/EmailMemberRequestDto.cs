@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets RecaptchaType
+        /// The type of CAPTCHA validation used.
         /// </summary>
         [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
         public RecaptchaType? RecaptchaType { get; set; }
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EmailMemberRequestDto" /> class.
         /// </summary>
         /// <param name="email">The user email address. (required).</param>
-        /// <param name="recaptchaType">recaptchaType.</param>
+        /// <param name="recaptchaType">The type of CAPTCHA validation used..</param>
         /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
         public EmailMemberRequestDto(string email = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default)
         {
@@ -70,20 +70,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user email address.
         /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>john.doe@example.com</example>
-        */
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The user&#39;s response to the CAPTCHA challenge.
         /// </summary>
-        /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
-        /*
-        <example>03AGdBq27...</example>
-        */
+        /// <example>03AGdBq27...</example>
         [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
         public string RecaptchaResponse { get; set; }
 

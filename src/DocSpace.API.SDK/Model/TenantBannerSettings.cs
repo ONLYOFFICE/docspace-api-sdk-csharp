@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The banners visibility flag.
         /// </summary>
-        /// <value>The banners visibility flag.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "hidden", EmitDefaultValue = true)]
         public bool Hidden { get; set; }
 
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

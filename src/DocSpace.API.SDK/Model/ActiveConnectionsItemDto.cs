@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="city">The active connection city..</param>
         /// <param name="browser">The active connection browser..</param>
         /// <param name="platform">The active connection platform..</param>
-        /// <param name="date">date.</param>
+        /// <param name="date">The API date and time parameters..</param>
         /// <param name="page">The active connection page..</param>
         public ActiveConnectionsItemDto(int id = default, int tenantId = default, Guid userId = default, bool mobile = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, ApiDateTime date = default, string page = default)
         {
@@ -75,95 +75,68 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The active connection ID.
         /// </summary>
-        /// <value>The active connection ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// Specifies if the active connection has a mobile phone or not.
         /// </summary>
-        /// <value>Specifies if the active connection has a mobile phone or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "mobile", EmitDefaultValue = true)]
         public bool Mobile { get; set; }
 
         /// <summary>
         /// The IP address of the active connection.
         /// </summary>
-        /// <value>The IP address of the active connection.</value>
-        /*
-        <example>192.0.2.1</example>
-        */
+        /// <example>192.0.2.1</example>
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
         /// The active connection country.
         /// </summary>
-        /// <value>The active connection country.</value>
-        /*
-        <example>United States</example>
-        */
+        /// <example>United States</example>
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// The active connection city.
         /// </summary>
-        /// <value>The active connection city.</value>
-        /*
-        <example>New York</example>
-        */
+        /// <example>New York</example>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
         /// The active connection browser.
         /// </summary>
-        /// <value>The active connection browser.</value>
-        /*
-        <example>Chrome 120.0</example>
-        */
+        /// <example>Chrome 120.0</example>
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
 
         /// <summary>
         /// The active connection platform.
         /// </summary>
-        /// <value>The active connection platform.</value>
-        /*
-        <example>Windows</example>
-        */
+        /// <example>Windows</example>
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
@@ -171,10 +144,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The active connection page.
         /// </summary>
-        /// <value>The active connection page.</value>
-        /*
-        <example>/rooms/shared</example>
-        */
+        /// <example>/rooms/shared</example>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public string Page { get; set; }
 

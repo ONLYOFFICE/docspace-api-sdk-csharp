@@ -61,40 +61,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The maximum number of consecutive failed login attempts allowed before triggering account suspension.
         /// </summary>
-        /// <value>The maximum number of consecutive failed login attempts allowed before triggering account suspension.</value>
-        /*
-        <example>5</example>
-        */
+        /// <example>5</example>
         [DataMember(Name = "attemptCount", IsRequired = true, EmitDefaultValue = true)]
         public int AttemptCount { get; set; }
 
         /// <summary>
         /// The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.
         /// </summary>
-        /// <value>The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.</value>
-        /*
-        <example>15</example>
-        */
+        /// <example>15</example>
         [DataMember(Name = "blockTime", IsRequired = true, EmitDefaultValue = true)]
         public int BlockTime { get; set; }
 
         /// <summary>
         /// The maximum time (in seconds) allowed for server to process and respond to login requests.
         /// </summary>
-        /// <value>The maximum time (in seconds) allowed for server to process and respond to login requests.</value>
-        /*
-        <example>60</example>
-        */
+        /// <example>60</example>
         [DataMember(Name = "checkPeriod", IsRequired = true, EmitDefaultValue = true)]
         public int CheckPeriod { get; set; }
 
         /// <summary>
         /// Specifies whether the login settings are default or not.
         /// </summary>
-        /// <value>Specifies whether the login settings are default or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 

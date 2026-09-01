@@ -78,21 +78,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The client name.
         /// </summary>
-        /// <value>The client name.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// The client description.
         /// </summary>
-        /// <value>The client description.</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// The client scopes.
         /// </summary>
-        /// <value>The client scopes.</value>
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
 
@@ -105,77 +102,66 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The client ID.
         /// </summary>
-        /// <value>The client ID.</value>
         [DataMember(Name = "client_id", EmitDefaultValue = false)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// The URL to the client&#39;s website
         /// </summary>
-        /// <value>The URL to the client&#39;s website</value>
         [DataMember(Name = "website_url", EmitDefaultValue = false)]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
         /// The URL to the client&#39;s terms of service.
         /// </summary>
-        /// <value>The URL to the client&#39;s terms of service.</value>
         [DataMember(Name = "terms_url", EmitDefaultValue = false)]
         public string TermsUrl { get; set; }
 
         /// <summary>
         /// The URL to the client&#39;s privacy policy.
         /// </summary>
-        /// <value>The URL to the client&#39;s privacy policy.</value>
         [DataMember(Name = "policy_url", EmitDefaultValue = false)]
         public string PolicyUrl { get; set; }
 
         /// <summary>
         /// The client logo in base64 format.
         /// </summary>
-        /// <value>The client logo in base64 format.</value>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public string Logo { get; set; }
 
         /// <summary>
         /// The authentication methods supported by the client.
         /// </summary>
-        /// <value>The authentication methods supported by the client.</value>
         [DataMember(Name = "authentication_methods", EmitDefaultValue = false)]
         public List<string> AuthenticationMethods { get; set; }
 
         /// <summary>
         /// Indicates whether the client is accessible by third-party tenants.
         /// </summary>
-        /// <value>Indicates whether the client is accessible by third-party tenants.</value>
         [DataMember(Name = "is_public", EmitDefaultValue = true)]
         public bool IsPublic { get; set; }
 
         /// <summary>
         /// The date and time when the client was created.
         /// </summary>
-        /// <value>The date and time when the client was created.</value>
         [DataMember(Name = "created_on", EmitDefaultValue = false)]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
         /// The user who created the client.
         /// </summary>
-        /// <value>The user who created the client.</value>
         [DataMember(Name = "created_by", EmitDefaultValue = false)]
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// The date and time when the client was last modified.
         /// </summary>
-        /// <value>The date and time when the client was last modified.</value>
         [DataMember(Name = "modified_on", EmitDefaultValue = false)]
         public DateTime ModifiedOn { get; set; }
 
         /// <summary>
         /// The user who last modified the client.
         /// </summary>
-        /// <value>The user who last modified the client.</value>
         [DataMember(Name = "modified_by", EmitDefaultValue = false)]
         public string ModifiedBy { get; set; }
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Operation
+        /// The file operation type.
         /// </summary>
         [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
         public FileOperationType Operation { get; set; }
@@ -53,10 +53,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ConversationResultDto" /> class.
         /// </summary>
         /// <param name="id">The conversion operation ID. (required).</param>
-        /// <param name="operation">operation (required).</param>
+        /// <param name="operation">The file operation type. (required).</param>
         /// <param name="progress">The conversion operation progress. (required).</param>
         /// <param name="source">The source file for the conversion..</param>
-        /// <param name="result">The resulting file after the conversion..</param>
+        /// <param name="result">result.</param>
         /// <param name="error">The conversion operation error message..</param>
         /// <param name="processed">Specifies if the conversion operation is processed or not..</param>
         public ConversationResultDto(string id = default, FileOperationType operation = default, int progress = default, string source = default, Object result = default, string error = default, string processed = default)
@@ -78,60 +78,41 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The conversion operation ID.
         /// </summary>
-        /// <value>The conversion operation ID.</value>
-        /*
-        <example>12345</example>
-        */
+        /// <example>12345</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The conversion operation progress.
         /// </summary>
-        /// <value>The conversion operation progress.</value>
-        /*
-        <example>50</example>
-        */
+        /// <example>50</example>
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public int Progress { get; set; }
 
         /// <summary>
         /// The source file for the conversion.
         /// </summary>
-        /// <value>The source file for the conversion.</value>
-        /*
-        <example>document.docx</example>
-        */
+        /// <example>document.docx</example>
         [DataMember(Name = "source", EmitDefaultValue = true)]
         public string Source { get; set; }
 
         /// <summary>
-        /// The resulting file after the conversion.
+        /// Gets or Sets Result
         /// </summary>
-        /// <value>The resulting file after the conversion.</value>
-        /*
-        <example>{"id":10,"title":"converted_file.pdf"}</example>
-        */
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public Object Result { get; set; }
 
         /// <summary>
         /// The conversion operation error message.
         /// </summary>
-        /// <value>The conversion operation error message.</value>
-        /*
-        <example>Conversion failed</example>
-        */
+        /// <example>Conversion failed</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// Specifies if the conversion operation is processed or not.
         /// </summary>
-        /// <value>Specifies if the conversion operation is processed or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "processed", EmitDefaultValue = true)]
         public string Processed { get; set; }
 

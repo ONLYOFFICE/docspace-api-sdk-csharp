@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The unique document identifier used by the service to get a link to the file.
         /// </summary>
-        /// <value>The unique document identifier used by the service to get a link to the file.</value>
-        /*
-        <example>doc_2026_02_001</example>
-        */
+        /// <example>doc_2026_02_001</example>
         [DataMember(Name = "fileKey", EmitDefaultValue = true)]
         public string FileKey { get; set; }
 
         /// <summary>
         /// The unique system identifier.
         /// </summary>
-        /// <value>The unique system identifier.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "instanceId", EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
         /// <summary>
         /// Room ID
         /// </summary>
-        /// <value>Room ID</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "roomId", EmitDefaultValue = true)]
         public string RoomId { get; set; }
 
         /// <summary>
         /// Specifies if the room can be edited out or not.
         /// </summary>
-        /// <value>Specifies if the room can be edited out or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canEditRoom", EmitDefaultValue = true)]
         public bool CanEditRoom { get; set; }
 

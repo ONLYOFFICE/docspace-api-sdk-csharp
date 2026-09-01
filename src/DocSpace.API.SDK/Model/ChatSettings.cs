@@ -54,40 +54,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The provider ID.
         /// </summary>
-        /// <value>The provider ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "providerId", EmitDefaultValue = false)]
         public int ProviderId { get; set; }
 
         /// <summary>
         /// The model ID.
         /// </summary>
-        /// <value>The model ID.</value>
-        /*
-        <example>gpt-4</example>
-        */
+        /// <example>gpt-4</example>
         [DataMember(Name = "modelId", EmitDefaultValue = true)]
         public string ModelId { get; set; }
 
         /// <summary>
         /// The prompt.
         /// </summary>
-        /// <value>The prompt.</value>
-        /*
-        <example>Please analyze this document</example>
-        */
+        /// <example>Please analyze this document</example>
         [DataMember(Name = "prompt", EmitDefaultValue = true)]
         public string Prompt { get; set; }
 
         /// <summary>
         /// Specifies whether the provider is internal or not.
         /// </summary>
-        /// <value>Specifies whether the provider is internal or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool Internal { get; private set; }
 

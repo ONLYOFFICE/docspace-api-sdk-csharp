@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to return only the current operation
         /// </summary>
-        /// <value>Specifies whether to return only the current operation</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
         public bool ReturnSingleOperation { get; set; }
 

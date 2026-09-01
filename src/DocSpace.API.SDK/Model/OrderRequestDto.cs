@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The order value.
         /// </summary>
-        /// <value>The order value.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "order", EmitDefaultValue = false)]
         public int Order { get; set; }
 

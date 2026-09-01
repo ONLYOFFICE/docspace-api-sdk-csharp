@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FillingFormResultDtoInteger" /> class.
         /// </summary>
         /// <param name="formNumber">The filling form number. (required).</param>
-        /// <param name="completedForm">completedForm.</param>
-        /// <param name="originalForm">originalForm.</param>
-        /// <param name="manager">manager.</param>
+        /// <param name="completedForm">The file parameters..</param>
+        /// <param name="originalForm">The file parameters..</param>
+        /// <param name="manager">The full list of user parameters..</param>
         /// <param name="roomId">The room ID where filling the form. (required).</param>
         /// <param name="isRoomMember">Specifies if the manager who fills the form is a room member or not..</param>
         public FillingFormResultDtoInteger(int formNumber = default, FileDtoInteger completedForm = default, FileDtoInteger originalForm = default, EmployeeFullDto manager = default, int roomId = default, bool isRoomMember = default)
@@ -65,27 +65,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The filling form number.
         /// </summary>
-        /// <value>The filling form number.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "formNumber", IsRequired = true, EmitDefaultValue = true)]
         public int FormNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets CompletedForm
+        /// The file parameters.
         /// </summary>
         [DataMember(Name = "completedForm", EmitDefaultValue = false)]
         public FileDtoInteger CompletedForm { get; set; }
 
         /// <summary>
-        /// Gets or Sets OriginalForm
+        /// The file parameters.
         /// </summary>
         [DataMember(Name = "originalForm", EmitDefaultValue = false)]
         public FileDtoInteger OriginalForm { get; set; }
 
         /// <summary>
-        /// Gets or Sets Manager
+        /// The full list of user parameters.
         /// </summary>
         [DataMember(Name = "manager", EmitDefaultValue = false)]
         public EmployeeFullDto Manager { get; set; }
@@ -93,20 +90,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The room ID where filling the form.
         /// </summary>
-        /// <value>The room ID where filling the form.</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>
         /// Specifies if the manager who fills the form is a room member or not.
         /// </summary>
-        /// <value>Specifies if the manager who fills the form is a room member or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isRoomMember", EmitDefaultValue = true)]
         public bool IsRoomMember { get; set; }
 

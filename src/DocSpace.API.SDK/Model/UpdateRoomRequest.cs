@@ -45,13 +45,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="quota">The room quota..</param>
         /// <param name="indexing">Specifies whether to create a third-party room with indexing..</param>
         /// <param name="denyDownload">Specifies whether to deny downloads from the third-party room..</param>
-        /// <param name="lifetime">lifetime.</param>
-        /// <param name="watermark">watermark.</param>
-        /// <param name="logo">logo.</param>
+        /// <param name="lifetime">The room data lifetime information..</param>
+        /// <param name="watermark">The watermark settings..</param>
+        /// <param name="logo">The room logo..</param>
         /// <param name="tags">The list of tags..</param>
-        /// <param name="color">The room color..</param>
+        /// <param name="color">The room color, as a six-digit hexadecimal value without a leading &#39;#&#39;..</param>
         /// <param name="cover">The room cover..</param>
-        /// <param name="chatSettings">chatSettings.</param>
+        /// <param name="chatSettings">The chat settings..</param>
         /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
         /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
         public UpdateRoomRequest(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, ChatSettings chatSettings = default, bool? sendFormToExternalDB = default, bool? saveFormAsXLSX = default)
@@ -74,57 +74,45 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The room title.
         /// </summary>
-        /// <value>The room title.</value>
-        /*
-        <example>My Document</example>
-        */
+        /// <example>My Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The room quota.
         /// </summary>
-        /// <value>The room quota.</value>
-        /*
-        <example>10485760</example>
-        */
+        /// <example>10485760</example>
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
 
         /// <summary>
         /// Specifies whether to create a third-party room with indexing.
         /// </summary>
-        /// <value>Specifies whether to create a third-party room with indexing.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool? Indexing { get; set; }
 
         /// <summary>
         /// Specifies whether to deny downloads from the third-party room.
         /// </summary>
-        /// <value>Specifies whether to deny downloads from the third-party room.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lifetime
+        /// The room data lifetime information.
         /// </summary>
         [DataMember(Name = "lifetime", EmitDefaultValue = false)]
         public RoomDataLifetimeDto Lifetime { get; set; }
 
         /// <summary>
-        /// Gets or Sets Watermark
+        /// The watermark settings.
         /// </summary>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public WatermarkRequestDto Watermark { get; set; }
 
         /// <summary>
-        /// Gets or Sets Logo
+        /// The room logo.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }
@@ -132,35 +120,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of tags.
         /// </summary>
-        /// <value>The list of tags.</value>
-        /*
-        <example>["tag1","tag2"]</example>
-        */
+        /// <example>["tag1","tag2"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// The room color.
+        /// The room color, as a six-digit hexadecimal value without a leading &#39;#&#39;.
         /// </summary>
-        /// <value>The room color.</value>
-        /*
-        <example>#FF5733</example>
-        */
+        /// <example>FF5733</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
         /// The room cover.
         /// </summary>
-        /// <value>The room cover.</value>
-        /*
-        <example>cover1</example>
-        */
+        /// <example>cover1</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChatSettings
+        /// The chat settings.
         /// </summary>
         [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
         public ChatSettings ChatSettings { get; set; }
@@ -168,20 +147,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to send form data to external database.
         /// </summary>
-        /// <value>Specifies whether to send form data to external database.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
         public bool? SendFormToExternalDB { get; set; }
 
         /// <summary>
         /// Specifies whether to save form data as XLSX file.
         /// </summary>
-        /// <value>Specifies whether to save form data as XLSX file.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
         public bool? SaveFormAsXLSX { get; set; }
 
@@ -238,16 +211,13 @@ namespace DocSpace.API.SDK.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
             }
 
-            // Color (string) maxLength
-            if (this.Color != null && this.Color.Length > 6)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Color, length must be less than 6.", new [] { "Color" });
-            }
-
-            // Color (string) minLength
-            if (this.Color != null && this.Color.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Color, length must be greater than 0.", new [] { "Color" });
+            if (this.Color != null) {
+                // Color (string) pattern
+                                Regex regexColor = new Regex(@"^[0-9a-fA-F]{6}$", RegexOptions.CultureInvariant);
+                                if (!regexColor.Match(this.Color).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Color, must match a pattern of " + regexColor, new [] { "Color" });
+                                }
             }
 
             // Cover (string) maxLength

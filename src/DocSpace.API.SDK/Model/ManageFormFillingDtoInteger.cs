@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Action
+        /// The action to perform on the form.
         /// </summary>
         [DataMember(Name = "action", EmitDefaultValue = false)]
         public FormFillingManageAction? Action { get; set; }
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ManageFormFillingDtoInteger" /> class.
         /// </summary>
         /// <param name="formId">The ID of the form to manage. (required).</param>
-        /// <param name="action">action.</param>
+        /// <param name="action">The action to perform on the form..</param>
         public ManageFormFillingDtoInteger(int formId = default, FormFillingManageAction? action = default)
         {
             this.FormId = formId;
@@ -63,10 +63,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the form to manage.
         /// </summary>
-        /// <value>The ID of the form to manage.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "formId", IsRequired = true, EmitDefaultValue = true)]
         public int FormId { get; set; }
 

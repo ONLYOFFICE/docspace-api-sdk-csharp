@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomsNotificationsSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="roomsId">The target room identifier..</param>
+        /// <param name="roomsId">roomsId.</param>
         /// <param name="mute">Specifies whether the notifications will be delivered to the specified room or not..</param>
         public RoomsNotificationsSettingsRequestDto(Object roomsId = default, bool mute = default)
         {
@@ -50,19 +50,15 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The target room identifier.
+        /// Gets or Sets RoomsId
         /// </summary>
-        /// <value>The target room identifier.</value>
         [DataMember(Name = "roomsId", EmitDefaultValue = true)]
         public Object RoomsId { get; set; }
 
         /// <summary>
         /// Specifies whether the notifications will be delivered to the specified room or not.
         /// </summary>
-        /// <value>Specifies whether the notifications will be delivered to the specified room or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "mute", EmitDefaultValue = true)]
         public bool Mute { get; set; }
 

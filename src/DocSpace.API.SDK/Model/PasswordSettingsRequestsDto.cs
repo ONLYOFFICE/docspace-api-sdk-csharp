@@ -61,40 +61,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The minimum number of characters required for valid passwords.
         /// </summary>
-        /// <value>The minimum number of characters required for valid passwords.</value>
-        /*
-        <example>8</example>
-        */
+        /// <example>8</example>
         [DataMember(Name = "minLength", IsRequired = true, EmitDefaultValue = true)]
         public int MinLength { get; set; }
 
         /// <summary>
         /// Specifies whether the password should contain the uppercase letters or not.
         /// </summary>
-        /// <value>Specifies whether the password should contain the uppercase letters or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "upperCase", EmitDefaultValue = true)]
         public bool UpperCase { get; set; }
 
         /// <summary>
         /// Specifies whether the password should contain the digits or not.
         /// </summary>
-        /// <value>Specifies whether the password should contain the digits or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "digits", EmitDefaultValue = true)]
         public bool Digits { get; set; }
 
         /// <summary>
         /// Specifies whether the password should contain the special symbols or not.
         /// </summary>
-        /// <value>Specifies whether the password should contain the special symbols or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "specSymbols", EmitDefaultValue = true)]
         public bool SpecSymbols { get; set; }
 

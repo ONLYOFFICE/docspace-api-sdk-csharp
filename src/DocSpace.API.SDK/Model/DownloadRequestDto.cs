@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of folder IDs to be downloaded.
         /// </summary>
-        /// <value>The list of folder IDs to be downloaded.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DownloadRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be downloaded.
         /// </summary>
-        /// <value>The list of file IDs to be downloaded.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DownloadRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The list of file IDs which will be converted.
         /// </summary>
-        /// <value>The list of file IDs which will be converted.</value>
-        /*
-        <example>[{&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;pdf&quot;,&quot;password&quot;:&quot;password123&quot;}]</example>
-        */
+        /// <example>[{"key":"1","value":"pdf","password":"password123"}]</example>
         [DataMember(Name = "fileConvertIds", EmitDefaultValue = true)]
         public List<DownloadRequestItemDto> FileConvertIds { get; set; }
 
@@ -117,4 +108,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="availableShareRights">availableShareRights.</param>
         /// <param name="requestToken">The request token of the file entry..</param>
         /// <param name="external">Specifies if the folder can be accessed via an external link or not..</param>
-        /// <param name="expirationDate">expirationDate.</param>
+        /// <param name="expirationDate">Represents the expiration date of the file entry..</param>
         /// <param name="isLinkExpired">Indicates whether the shareable link associated with the file or folder has expired..</param>
         public FileEntryDtoInteger(int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default)
         {
@@ -76,70 +76,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file entry ID.
         /// </summary>
-        /// <value>The file entry ID.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The root folder ID of the file entry.
         /// </summary>
-        /// <value>The root folder ID of the file entry.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "rootFolderId", EmitDefaultValue = false)]
         public int RootFolderId { get; set; }
 
         /// <summary>
         /// The origin ID of the file entry.
         /// </summary>
-        /// <value>The origin ID of the file entry.</value>
-        /*
-        <example>12</example>
-        */
+        /// <example>12</example>
         [DataMember(Name = "originId", EmitDefaultValue = false)]
         public int OriginId { get; set; }
 
         /// <summary>
         /// The origin room ID of the file entry.
         /// </summary>
-        /// <value>The origin room ID of the file entry.</value>
-        /*
-        <example>22</example>
-        */
+        /// <example>22</example>
         [DataMember(Name = "originRoomId", EmitDefaultValue = false)]
         public int OriginRoomId { get; set; }
 
         /// <summary>
         /// The origin title of the file entry.
         /// </summary>
-        /// <value>The origin title of the file entry.</value>
-        /*
-        <example>Original Title</example>
-        */
+        /// <example>Original Title</example>
         [DataMember(Name = "originTitle", EmitDefaultValue = true)]
         public string OriginTitle { get; set; }
 
         /// <summary>
         /// The origin room title of the file entry.
         /// </summary>
-        /// <value>The origin room title of the file entry.</value>
-        /*
-        <example>Original Room</example>
-        */
+        /// <example>Original Room</example>
         [DataMember(Name = "originRoomTitle", EmitDefaultValue = true)]
         public string OriginRoomTitle { get; set; }
 
         /// <summary>
         /// Specifies if the file entry can be shared or not.
         /// </summary>
-        /// <value>Specifies if the file entry can be shared or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canShare", EmitDefaultValue = true)]
         public bool CanShare { get; set; }
 
@@ -164,25 +143,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The request token of the file entry.
         /// </summary>
-        /// <value>The request token of the file entry.</value>
-        /*
-        <example>token-abc-123</example>
-        */
+        /// <example>token-abc-123</example>
         [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
 
         /// <summary>
         /// Specifies if the folder can be accessed via an external link or not.
         /// </summary>
-        /// <value>Specifies if the folder can be accessed via an external link or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "external", EmitDefaultValue = true)]
         public bool? External { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpirationDate
+        /// Represents the expiration date of the file entry.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
@@ -190,10 +163,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Indicates whether the shareable link associated with the file or folder has expired.
         /// </summary>
-        /// <value>Indicates whether the shareable link associated with the file or folder has expired.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isLinkExpired", EmitDefaultValue = true)]
         public bool? IsLinkExpired { get; set; }
 
@@ -244,4 +214,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

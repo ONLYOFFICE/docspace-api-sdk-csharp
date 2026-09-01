@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user&#39;s mobile phone number.
         /// </summary>
-        /// <value>The user&#39;s mobile phone number.</value>
-        /*
-        <example>+1234567890</example>
-        */
+        /// <example>+1234567890</example>
         [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
         public string MobilePhone { get; set; }
 

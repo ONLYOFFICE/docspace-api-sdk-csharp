@@ -52,21 +52,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The external resource domain.
         /// </summary>
-        /// <value>The external resource domain.</value>
-        /*
-        <example>example.com</example>
-        */
+        /// <example>example.com</example>
         [DataMember(Name = "domain", EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>
         /// The external resource entries.
         /// </summary>
-        /// <value>The external resource entries.</value>
-        /*
-        <example>{"welcomeMessage":"Welcome","logoutButton":"Log out"}</example>
-        */
-        [DataMember(Name = "entries", EmitDefaultValue = true)]
+        /// <example>{"welcomeMessage":"Welcome","logoutButton":"Log out"}</example>
+        [DataMember(Name = "entries", EmitDefaultValue = false)]
         public Dictionary<string, string> Entries { get; set; }
 
         /// <summary>

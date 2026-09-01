@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Result
+        /// The result of the validation operation.
         /// </summary>
         [DataMember(Name = "result", EmitDefaultValue = false)]
         public CheckDestFolderResult? Result { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckDestFolderDto" /> class.
         /// </summary>
-        /// <param name="result">result.</param>
+        /// <param name="result">The result of the validation operation..</param>
         /// <param name="files">The list of files in the destination folder..</param>
         public CheckDestFolderDto(CheckDestFolderResult? result = default, List<FileEntryBaseDto> files = default)
         {
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of files in the destination folder.
         /// </summary>
-        /// <value>The list of files in the destination folder.</value>
-        /*
-        <example>[{"id":10,"title":"document.docx"}]</example>
-        */
+        /// <example>[{"id":10,"title":"document.docx"}]</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 

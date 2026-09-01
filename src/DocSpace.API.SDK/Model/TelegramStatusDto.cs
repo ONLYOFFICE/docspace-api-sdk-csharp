@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The registration Telegram status.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public RegStatus Status { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TelegramStatusDto" /> class.
         /// </summary>
-        /// <param name="status">status (required).</param>
+        /// <param name="status">The registration Telegram status. (required).</param>
         /// <param name="username">The Telegram username..</param>
         public TelegramStatusDto(RegStatus status = default, string username = default)
         {
@@ -63,10 +63,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The Telegram username.
         /// </summary>
-        /// <value>The Telegram username.</value>
-        /*
-        <example>john_doe</example>
-        */
+        /// <example>john_doe</example>
         [DataMember(Name = "username", EmitDefaultValue = true)]
         public string Username { get; set; }
 

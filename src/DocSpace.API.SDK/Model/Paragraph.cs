@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The paragraph align.
         /// </summary>
-        /// <value>The paragraph align.</value>
-        /*
-        <example>2</example>
-        */
+        /// <example>2</example>
         [DataMember(Name = "align", EmitDefaultValue = false)]
         public int Align { get; set; }
 
         /// <summary>
         /// The list of text runs from the paragraph.
         /// </summary>
-        /// <value>The list of text runs from the paragraph.</value>
-        /*
-        <example>[{"fill":[124,124,124],"text":"CONFIDENTIAL","fontSize":26}]</example>
-        */
+        /// <example>[{"fill":[124,124,124],"text":"CONFIDENTIAL","fontSize":26}]</example>
         [DataMember(Name = "runs", EmitDefaultValue = true)]
         public List<Run> Runs { get; set; }
 

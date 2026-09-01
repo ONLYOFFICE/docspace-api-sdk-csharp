@@ -77,70 +77,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The connection URL for the sharepoint.
         /// </summary>
-        /// <value>The connection URL for the sharepoint.</value>
-        /*
-        <example>https://example.com</example>
-        */
+        /// <example>https://example.com</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The third-party request login.
         /// </summary>
-        /// <value>The third-party request login.</value>
-        /*
-        <example>admin</example>
-        */
+        /// <example>admin</example>
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
         /// The third-party request password.
         /// </summary>
-        /// <value>The third-party request password.</value>
-        /*
-        <example>password123</example>
-        */
+        /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// The authentication token.
         /// </summary>
-        /// <value>The authentication token.</value>
-        /*
-        <example>abc123</example>
-        */
+        /// <example>abc123</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
         /// The customer title.
         /// </summary>
-        /// <value>The customer title.</value>
-        /*
-        <example>My Document</example>
-        */
+        /// <example>My Document</example>
         [DataMember(Name = "customerTitle", IsRequired = true, EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
         /// The provider key.
         /// </summary>
-        /// <value>The provider key.</value>
-        /*
-        <example>abc123</example>
-        */
+        /// <example>abc123</example>
         [DataMember(Name = "providerKey", IsRequired = true, EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>
         /// The provider ID.
         /// </summary>
-        /// <value>The provider ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "providerId", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
 

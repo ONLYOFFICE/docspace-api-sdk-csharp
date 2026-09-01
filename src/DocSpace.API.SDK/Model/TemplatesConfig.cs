@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The absolute URL to the image for template.
         /// </summary>
-        /// <value>The absolute URL to the image for template.</value>
-        /*
-        <example>https://portal.example.com/templates/template1.png</example>
-        */
+        /// <example>https://portal.example.com/templates/template1.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
         /// The template title that will be displayed in the Create New... menu option.
         /// </summary>
-        /// <value>The template title that will be displayed in the Create New... menu option.</value>
-        /*
-        <example>Blank Document</example>
-        */
+        /// <example>Blank Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The absolute URL to the document where it will be created and available after creation.
         /// </summary>
-        /// <value>The absolute URL to the document where it will be created and available after creation.</value>
-        /*
-        <example>https://portal.example.com/editor/new?template=blank</example>
-        */
+        /// <example>https://portal.example.com/editor/new?template=blank</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

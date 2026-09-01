@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Mode
+        /// The co-editing mode (fast or strict).
         /// </summary>
         [DataMember(Name = "mode", EmitDefaultValue = false)]
         public CoEditingConfigMode? Mode { get; set; }
@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="change">Specifies if the co-editing mode can be changed in the editor interface or not..</param>
         /// <param name="fast">Specifies if the co-editing mode is fast..</param>
-        /// <param name="mode">mode.</param>
+        /// <param name="mode">The co-editing mode (fast or strict)..</param>
         public CoEditingConfig(bool change = default, bool fast = default, CoEditingConfigMode? mode = default)
         {
             this.Change = change;
@@ -60,20 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the co-editing mode can be changed in the editor interface or not.
         /// </summary>
-        /// <value>Specifies if the co-editing mode can be changed in the editor interface or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "change", EmitDefaultValue = true)]
         public bool Change { get; set; }
 
         /// <summary>
         /// Specifies if the co-editing mode is fast.
         /// </summary>
-        /// <value>Specifies if the co-editing mode is fast.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "fast", EmitDefaultValue = true)]
         public bool Fast { get; set; }
 

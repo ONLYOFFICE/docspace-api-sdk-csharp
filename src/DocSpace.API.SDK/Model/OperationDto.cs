@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The operation type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public OperationType? Type { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OperationDto" /> class.
         /// </summary>
-        /// <param name="date">date.</param>
+        /// <param name="date">The API date and time parameters..</param>
         /// <param name="service">The service related to the operation..</param>
         /// <param name="description">The brief operation description..</param>
         /// <param name="details">The detailed information about the operation..</param>
@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="participantDisplayName">The participant display name..</param>
         /// <param name="agentId">AI Agent id..</param>
         /// <param name="agentTitle">AI Agent name..</param>
-        /// <param name="type">type.</param>
+        /// <param name="type">The operation type.</param>
         public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string agentId = default, string agentTitle = default, OperationType? type = default)
         {
             this.Date = date;
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
@@ -88,120 +88,84 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The service related to the operation.
         /// </summary>
-        /// <value>The service related to the operation.</value>
-        /*
-        <example>Storage</example>
-        */
+        /// <example>Storage</example>
         [DataMember(Name = "service", EmitDefaultValue = true)]
         public string Service { get; set; }
 
         /// <summary>
         /// The brief operation description.
         /// </summary>
-        /// <value>The brief operation description.</value>
-        /*
-        <example>Storage quota increase</example>
-        */
+        /// <example>Storage quota increase</example>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// The detailed information about the operation.
         /// </summary>
-        /// <value>The detailed information about the operation.</value>
-        /*
-        <example>Increased storage from 50GB to 100GB</example>
-        */
+        /// <example>Increased storage from 50GB to 100GB</example>
         [DataMember(Name = "details", EmitDefaultValue = true)]
         public string Details { get; set; }
 
         /// <summary>
         /// The service unit.
         /// </summary>
-        /// <value>The service unit.</value>
-        /*
-        <example>GB</example>
-        */
+        /// <example>GB</example>
         [DataMember(Name = "serviceUnit", EmitDefaultValue = true)]
         public string ServiceUnit { get; set; }
 
         /// <summary>
         /// The quantity of the service used.
         /// </summary>
-        /// <value>The quantity of the service used.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
         /// <summary>
         /// The three-character ISO 4217 currency symbol of the operation.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol of the operation.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// The credit amount of the operation.
         /// </summary>
-        /// <value>The credit amount of the operation.</value>
-        /*
-        <example>99.99</example>
-        */
+        /// <example>99.99</example>
         [DataMember(Name = "credit", EmitDefaultValue = false)]
         public double Credit { get; set; }
 
         /// <summary>
         /// The debit amount of the operation.
         /// </summary>
-        /// <value>The debit amount of the operation.</value>
-        /*
-        <example>99.99</example>
-        */
+        /// <example>99.99</example>
         [DataMember(Name = "debit", EmitDefaultValue = false)]
         public double Debit { get; set; }
 
         /// <summary>
         /// The participant original name.
         /// </summary>
-        /// <value>The participant original name.</value>
-        /*
-        <example>Example Name</example>
-        */
+        /// <example>Example Name</example>
         [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
 
         /// <summary>
         /// The participant display name.
         /// </summary>
-        /// <value>The participant display name.</value>
-        /*
-        <example>Example Name</example>
-        */
+        /// <example>Example Name</example>
         [DataMember(Name = "participantDisplayName", EmitDefaultValue = true)]
         public string ParticipantDisplayName { get; set; }
 
         /// <summary>
         /// AI Agent id.
         /// </summary>
-        /// <value>AI Agent id.</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "agentId", EmitDefaultValue = true)]
         public string AgentId { get; set; }
 
         /// <summary>
         /// AI Agent name.
         /// </summary>
-        /// <value>AI Agent name.</value>
-        /*
-        <example>My AI Agent</example>
-        */
+        /// <example>My AI Agent</example>
         [DataMember(Name = "agentTitle", EmitDefaultValue = true)]
         public string AgentTitle { get; set; }
 

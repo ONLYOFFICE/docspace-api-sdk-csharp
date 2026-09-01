@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomColorThemesSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="theme">theme.</param>
+        /// <param name="theme">The custom color theme settings..</param>
         /// <param name="selected">Specifies the optional value indicating the selected custom color theme..</param>
         public CustomColorThemesSettingsRequestsDto(CustomColorThemesSettingsItem theme = default, int? selected = default)
         {
@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Theme
+        /// The custom color theme settings.
         /// </summary>
         [DataMember(Name = "theme", EmitDefaultValue = false)]
         public CustomColorThemesSettingsItem Theme { get; set; }
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies the optional value indicating the selected custom color theme.
         /// </summary>
-        /// <value>Specifies the optional value indicating the selected custom color theme.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "selected", EmitDefaultValue = true)]
         public int? Selected { get; set; }
 

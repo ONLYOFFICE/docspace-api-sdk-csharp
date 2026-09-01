@@ -55,10 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to send a welcome email or not.
         /// </summary>
-        /// <value>Specifies whether to send a welcome email or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isSendWelcomeEmail", IsRequired = true, EmitDefaultValue = true)]
         public bool IsSendWelcomeEmail { get; set; }
 

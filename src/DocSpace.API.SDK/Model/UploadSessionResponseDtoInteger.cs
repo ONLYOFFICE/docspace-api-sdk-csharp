@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="title">The file title..</param>
         /// <param name="providerKey">The third-party provider key..</param>
         /// <param name="uploaded">Specifies whether the file has been uploaded..</param>
-        /// <param name="file">file.</param>
+        /// <param name="file">The file parameters..</param>
         public UploadSessionResponseDtoInteger(int id = default, int folderId = default, int version = default, string title = default, string providerKey = default, bool uploaded = default, FileDtoInteger file = default)
         {
             this.Id = id;
@@ -62,65 +62,47 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The upload session ID.
         /// </summary>
-        /// <value>The upload session ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The folder ID where the file is being uploaded.
         /// </summary>
-        /// <value>The folder ID where the file is being uploaded.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
 
         /// <summary>
         /// The file version number.
         /// </summary>
-        /// <value>The file version number.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The file title.
         /// </summary>
-        /// <value>The file title.</value>
-        /*
-        <example>My Document.docx</example>
-        */
+        /// <example>My Document.docx</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The third-party provider key.
         /// </summary>
-        /// <value>The third-party provider key.</value>
-        /*
-        <example>Google</example>
-        */
+        /// <example>Google</example>
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>
         /// Specifies whether the file has been uploaded.
         /// </summary>
-        /// <value>Specifies whether the file has been uploaded.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "uploaded", EmitDefaultValue = true)]
         public bool Uploaded { get; set; }
 
         /// <summary>
-        /// Gets or Sets File
+        /// The file parameters.
         /// </summary>
         [DataMember(Name = "file", EmitDefaultValue = false)]
         public FileDtoInteger File { get; set; }

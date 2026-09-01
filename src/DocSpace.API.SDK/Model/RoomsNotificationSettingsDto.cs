@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of rooms with the disabled notifications.
         /// </summary>
-        /// <value>The list of rooms with the disabled notifications.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "disabledRooms", EmitDefaultValue = true)]
         public List<Object> DisabledRooms { get; set; }
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The notification type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public NotificationType? Type { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationSettingsDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">The notification type..</param>
         /// <param name="isEnabled">Specifies if the notification type is enabled or not..</param>
         public NotificationSettingsDto(NotificationType? type = default, bool isEnabled = default)
         {
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the notification type is enabled or not.
         /// </summary>
-        /// <value>Specifies if the notification type is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isEnabled", EmitDefaultValue = true)]
         public bool IsEnabled { get; set; }
 

@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Determines if users have restricted access to the Developer Tools.
         /// </summary>
-        /// <value>Determines if users have restricted access to the Developer Tools.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "limitedAccessForUsers", EmitDefaultValue = true)]
         public bool LimitedAccessForUsers { get; set; }
 

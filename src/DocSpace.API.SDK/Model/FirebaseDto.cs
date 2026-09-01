@@ -109,80 +109,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The Firebase API key.
         /// </summary>
-        /// <value>The Firebase API key.</value>
-        /*
-        <example>AIzaSyDxK9L3j4H8mN2pQ5rS6tU7vW8xY9zA1bC</example>
-        */
+        /// <example>AIzaSyDxK9L3j4H8mN2pQ5rS6tU7vW8xY9zA1bC</example>
         [DataMember(Name = "apiKey", IsRequired = true, EmitDefaultValue = true)]
         public string ApiKey { get; set; }
 
         /// <summary>
         /// The Firebase authentication domain.
         /// </summary>
-        /// <value>The Firebase authentication domain.</value>
-        /*
-        <example>myapp-12345.firebaseapp.com</example>
-        */
+        /// <example>myapp-12345.firebaseapp.com</example>
         [DataMember(Name = "authDomain", IsRequired = true, EmitDefaultValue = true)]
         public string AuthDomain { get; set; }
 
         /// <summary>
         /// The Firebase project ID.
         /// </summary>
-        /// <value>The Firebase project ID.</value>
-        /*
-        <example>myapp-12345</example>
-        */
+        /// <example>myapp-12345</example>
         [DataMember(Name = "projectId", IsRequired = true, EmitDefaultValue = true)]
         public string ProjectId { get; set; }
 
         /// <summary>
         /// The Firebase storage bucket.
         /// </summary>
-        /// <value>The Firebase storage bucket.</value>
-        /*
-        <example>myapp-12345.appspot.com</example>
-        */
+        /// <example>myapp-12345.appspot.com</example>
         [DataMember(Name = "storageBucket", IsRequired = true, EmitDefaultValue = true)]
         public string StorageBucket { get; set; }
 
         /// <summary>
         /// The Firebase messaging sender ID.
         /// </summary>
-        /// <value>The Firebase messaging sender ID.</value>
-        /*
-        <example>123456789012</example>
-        */
+        /// <example>123456789012</example>
         [DataMember(Name = "messagingSenderId", IsRequired = true, EmitDefaultValue = true)]
         public string MessagingSenderId { get; set; }
 
         /// <summary>
         /// The Firebase application ID.
         /// </summary>
-        /// <value>The Firebase application ID.</value>
-        /*
-        <example>1:123456789012:web:a1b2c3d4e5f6g7h8</example>
-        */
+        /// <example>1:123456789012:web:a1b2c3d4e5f6g7h8</example>
         [DataMember(Name = "appId", IsRequired = true, EmitDefaultValue = true)]
         public string AppId { get; set; }
 
         /// <summary>
         /// The Firebase measurement ID.
         /// </summary>
-        /// <value>The Firebase measurement ID.</value>
-        /*
-        <example>G-ABCD123456</example>
-        */
+        /// <example>G-ABCD123456</example>
         [DataMember(Name = "measurementId", IsRequired = true, EmitDefaultValue = true)]
         public string MeasurementId { get; set; }
 
         /// <summary>
         /// The Firebase database URL.
         /// </summary>
-        /// <value>The Firebase database URL.</value>
-        /*
-        <example>https://myapp-12345.firebaseio.com</example>
-        */
+        /// <example>https://myapp-12345.firebaseio.com</example>
         [DataMember(Name = "databaseURL", IsRequired = true, EmitDefaultValue = true)]
         public string DatabaseURL { get; set; }
 

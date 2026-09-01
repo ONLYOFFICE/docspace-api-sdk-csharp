@@ -31,26 +31,28 @@ namespace DocSpace.API.SDK.Api.Security
     {
         #region Synchronous Operations
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        StringWrapper CreateAuditTrailReport();
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper CreateAuditTrailReport(AuditReportFormat? format = default);
 
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> CreateAuditTrailReportWithHttpInfo();
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> CreateAuditTrailReportWithHttpInfo(AuditReportFormat? format = default);
         /// <summary>
         /// Get filtered audit trail data
         /// </summary>
@@ -139,6 +141,27 @@ namespace DocSpace.API.SDK.Api.Security
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default);
         /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper GetAuditTrailReport();
+
+        /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> GetAuditTrailReportWithHttpInfo();
+        /// <summary>
         /// Get audit trail types
         /// </summary>
         /// <remarks>
@@ -203,6 +226,27 @@ namespace DocSpace.API.SDK.Api.Security
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
         ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns></returns>
+        void TerminateAuditTrailReport();
+
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> TerminateAuditTrailReportWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -213,28 +257,30 @@ namespace DocSpace.API.SDK.Api.Security
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> CreateAuditTrailReportAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> CreateAuditTrailReportAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> CreateAuditTrailReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateAuditTrailReportWithHttpInfoAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get filtered audit trail data
         /// </summary>
@@ -329,6 +375,29 @@ namespace DocSpace.API.SDK.Api.Security
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
         Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> GetAuditTrailReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> GetAuditTrailReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get audit trail types
         /// </summary>
         /// <remarks>
@@ -399,6 +468,29 @@ namespace DocSpace.API.SDK.Api.Security
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
         Task<ApiResponse<TenantAuditSettingsWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        Task TerminateAuditTrailReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> TerminateAuditTrailReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -628,30 +720,32 @@ namespace DocSpace.API.SDK.Api.Security
 
         
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        public StringWrapper CreateAuditTrailReport()
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper CreateAuditTrailReport(AuditReportFormat? format = default)
         {
-            var localVarResponse = CreateAuditTrailReportWithHttpInfo();
+            var localVarResponse = CreateAuditTrailReportWithHttpInfo(format);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> CreateAuditTrailReportWithHttpInfo()
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> CreateAuditTrailReportWithHttpInfo(AuditReportFormat? format = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -666,6 +760,10 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (format != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "format", format));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -699,7 +797,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<StringWrapper>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -714,32 +812,34 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> CreateAuditTrailReportAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> CreateAuditTrailReportAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CreateAuditTrailReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateAuditTrailReportWithHttpInfoAsync(format, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate the audit trail report
+        /// Start the audit trail report generation
         /// </summary>
         /// <remarks>
-        /// Generates the audit trail report.
+        /// Starts generating the audit trail report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> CreateAuditTrailReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateAuditTrailReportWithHttpInfoAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -755,6 +855,10 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (format != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "format", format));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -789,7 +893,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<StringWrapper>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1488,6 +1592,182 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
         /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper GetAuditTrailReport()
+        {
+            var localVarResponse = GetAuditTrailReportWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> GetAuditTrailReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAuditTrailReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> GetAuditTrailReportAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetAuditTrailReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the audit trail report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> GetAuditTrailReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAuditTrailReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get audit trail types
         /// </summary>
         /// <remarks>
@@ -2012,6 +2292,180 @@ namespace DocSpace.API.SDK.Api.Security
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SetAuditSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns></returns>
+        public void TerminateAuditTrailReport()
+        {
+            TerminateAuditTrailReportWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> TerminateAuditTrailReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<Object>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateAuditTrailReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        public async Task TerminateAuditTrailReportAsync(CancellationToken cancellationToken = default)
+        {
+            await TerminateAuditTrailReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Terminate the audit trail report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the audit trail report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-audit-trail-report/">REST API Reference for TerminateAuditTrailReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> TerminateAuditTrailReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/security/audit/events/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateAuditTrailReport", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

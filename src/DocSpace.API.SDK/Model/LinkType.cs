@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Invitation, 1 - External]
     /// </summary>
-    /// <value>[0 - Invitation, 1 - External]</value>
     public enum LinkType
     {
         /// <summary>

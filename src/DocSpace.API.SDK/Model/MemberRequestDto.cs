@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The user type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EmployeeType? Type { get; set; }
@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="password">The user password..</param>
         /// <param name="passwordHash">The user password hash..</param>
         /// <param name="email">The user email address..</param>
-        /// <param name="type">type.</param>
+        /// <param name="type">The user type..</param>
         /// <param name="isUser">Specifies if this is a guest or a user..</param>
         /// <param name="firstName">The user first name..</param>
         /// <param name="lastName">The user last name..</param>
@@ -88,160 +88,112 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user password.
         /// </summary>
-        /// <value>The user password.</value>
-        /*
-        <example>P@ssw0rd</example>
-        */
+        /// <example>P@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// The user password hash.
         /// </summary>
-        /// <value>The user password hash.</value>
-        /*
-        <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
-        */
+        /// <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 
         /// <summary>
         /// The user email address.
         /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>john.doe@example.com</example>
-        */
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// Specifies if this is a guest or a user.
         /// </summary>
-        /// <value>Specifies if this is a guest or a user.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isUser", EmitDefaultValue = true)]
         public bool? IsUser { get; set; }
 
         /// <summary>
         /// The user first name.
         /// </summary>
-        /// <value>The user first name.</value>
-        /*
-        <example>John</example>
-        */
+        /// <example>John</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// The user last name.
         /// </summary>
-        /// <value>The user last name.</value>
-        /*
-        <example>Doe</example>
-        */
+        /// <example>Doe</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
         /// The list of the user departments IDs.
         /// </summary>
-        /// <value>The list of the user departments IDs.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public List<Guid> Department { get; set; }
 
         /// <summary>
         /// The user location.
         /// </summary>
-        /// <value>The user location.</value>
-        /*
-        <example>New York</example>
-        */
+        /// <example>New York</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
         /// The user comment.
         /// </summary>
-        /// <value>The user comment.</value>
-        /*
-        <example>User comment</example>
-        */
+        /// <example>User comment</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
         /// The list of the user contacts.
         /// </summary>
-        /// <value>The list of the user contacts.</value>
-        /*
-        <example>[{"type":"email","value":"john.doe@example.com"}]</example>
-        */
+        /// <example>[{"type":"email","value":"john.doe@example.com"}]</example>
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
         /// The avatar photo URL.
         /// </summary>
-        /// <value>The avatar photo URL.</value>
-        /*
-        <example>https://example.com/avatar.jpg</example>
-        */
+        /// <example>https://example.com/avatar.jpg</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
 
         /// <summary>
         /// Specifies if the user is added via the invitation link or not.
         /// </summary>
-        /// <value>Specifies if the user is added via the invitation link or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "fromInviteLink", EmitDefaultValue = true)]
         public bool FromInviteLink { get; set; }
 
         /// <summary>
         /// The user key.
         /// </summary>
-        /// <value>The user key.</value>
-        /*
-        <example>user_key_string</example>
-        */
+        /// <example>user_key_string</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The user culture code.
         /// </summary>
-        /// <value>The user culture code.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "cultureName", EmitDefaultValue = true)]
         public string CultureName { get; set; }
 
         /// <summary>
         /// The user target ID.
         /// </summary>
-        /// <value>The user target ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "target", EmitDefaultValue = false)]
         public Guid Target { get; set; }
 
         /// <summary>
         /// Specifies if tips, updates and offers are allowed to be sent to the user or not.
         /// </summary>
-        /// <value>Specifies if tips, updates and offers are allowed to be sent to the user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "spam", EmitDefaultValue = true)]
         public bool? Spam { get; set; }
 

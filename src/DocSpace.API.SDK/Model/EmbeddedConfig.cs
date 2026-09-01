@@ -54,20 +54,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The absolute URL to the document serving as a source file for the document embedded into the web page.
         /// </summary>
-        /// <value>The absolute URL to the document serving as a source file for the document embedded into the web page.</value>
-        /*
-        <example>https://portal.example.com/files/editor?action=embedded&share=abc123</example>
-        */
+        /// <example>https://portal.example.com/files/editor?action=embedded&amp;share=abc123</example>
         [DataMember(Name = "embedUrl", EmitDefaultValue = true)]
         public string EmbedUrl { get; set; }
 
         /// <summary>
         /// The absolute URL that will allow the document to be saved onto the user personal computer.
         /// </summary>
-        /// <value>The absolute URL that will allow the document to be saved onto the user personal computer.</value>
-        /*
-        <example>https://portal.example.com/files/filehandler?action=download&share=abc123</example>
-        */
+        /// <example>https://portal.example.com/files/filehandler?action=download&amp;share=abc123</example>
         [DataMember(Name = "saveUrl", EmitDefaultValue = true)]
         public string SaveUrl { get; private set; }
 
@@ -82,30 +76,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The shared URL parameter.
         /// </summary>
-        /// <value>The shared URL parameter.</value>
-        /*
-        <example>&share=abc123</example>
-        */
+        /// <example>&amp;share=abc123</example>
         [DataMember(Name = "shareLinkParam", EmitDefaultValue = true)]
         public string ShareLinkParam { get; set; }
 
         /// <summary>
         /// The absolute URL that will allow other users to share this document.
         /// </summary>
-        /// <value>The absolute URL that will allow other users to share this document.</value>
-        /*
-        <example>https://portal.example.com/files/editor?action=view&share=abc123</example>
-        */
+        /// <example>https://portal.example.com/files/editor?action=view&amp;share=abc123</example>
         [DataMember(Name = "shareUrl", EmitDefaultValue = true)]
         public string ShareUrl { get; set; }
 
         /// <summary>
         /// The place for the embedded viewer toolbar, can be either top or bottom.
         /// </summary>
-        /// <value>The place for the embedded viewer toolbar, can be either top or bottom.</value>
-        /*
-        <example>top</example>
-        */
+        /// <example>top</example>
         [DataMember(Name = "toolbarDocked", EmitDefaultValue = true)]
         public string ToolbarDocked { get; private set; }
 

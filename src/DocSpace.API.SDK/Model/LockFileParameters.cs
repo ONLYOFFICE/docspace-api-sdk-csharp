@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to lock a file or not.
         /// </summary>
-        /// <value>Specifies whether to lock a file or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "lockFile", EmitDefaultValue = true)]
         public bool LockFile { get; set; }
 

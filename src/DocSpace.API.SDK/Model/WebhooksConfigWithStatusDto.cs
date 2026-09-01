@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhooksConfigWithStatusDto" /> class.
         /// </summary>
-        /// <param name="configs">configs.</param>
+        /// <param name="configs">The webhook configuration..</param>
         /// <param name="status">The webhook status..</param>
         public WebhooksConfigWithStatusDto(WebhooksConfigDto configs = default, int status = default)
         {
@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Configs
+        /// The webhook configuration.
         /// </summary>
         [DataMember(Name = "configs", EmitDefaultValue = false)]
         public WebhooksConfigDto Configs { get; set; }
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The webhook status.
         /// </summary>
-        /// <value>The webhook status.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 

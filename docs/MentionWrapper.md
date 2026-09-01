@@ -5,7 +5,7 @@ The parameters of a user mentioned in a message.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | [**UserInfo**](UserInfo.md) |  | [optional] 
+**User** | [**UserInfo**](UserInfo.md) | The user information. | [optional] 
 **Email** | **string** | The user email address. | [optional] [readonly] 
 **Id** | **string** | The user unique identification. | [optional] [readonly] 
 **Image** | **string** | The path to the user's avatar. | [optional] [readonly] 

@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The code for two-factor authentication.
         /// </summary>
-        /// <value>The code for two-factor authentication.</value>
-        /*
-        <example>123456</example>
-        */
+        /// <example>123456</example>
         [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
@@ -91,4 +88,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

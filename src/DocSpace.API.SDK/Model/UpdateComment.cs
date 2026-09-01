@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The comment version.
         /// </summary>
-        /// <value>The comment version.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The comment text.
         /// </summary>
-        /// <value>The comment text.</value>
-        /*
-        <example>This is a comment</example>
-        */
+        /// <example>This is a comment</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
@@ -104,6 +98,30 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // @Version (int) maximum
+            if (this.@Version > (int)2147483647)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for @Version, must be a value less than or equal to 2147483647.", new [] { "@Version" });
+            }
+
+            // @Version (int) minimum
+            if (this.@Version < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for @Version, must be a value greater than or equal to 1.", new [] { "@Version" });
+            }
+
+            // Comment (string) maxLength
+            if (this.Comment != null && this.Comment.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Comment, length must be less than 255.", new [] { "Comment" });
+            }
+
+            // Comment (string) minLength
+            if (this.Comment != null && this.Comment.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Comment, length must be greater than 0.", new [] { "Comment" });
+            }
+
             yield break;
         }
 

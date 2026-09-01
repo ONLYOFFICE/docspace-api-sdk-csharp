@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets EmployeeType
+        /// The user type.
         /// </summary>
         [DataMember(Name = "employeeType", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeType EmployeeType { get; set; }
@@ -53,8 +53,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="InvitationLinkDto" /> class.
         /// </summary>
         /// <param name="id">The ID of the invitation link..</param>
-        /// <param name="employeeType">employeeType (required).</param>
-        /// <param name="expiration">expiration.</param>
+        /// <param name="employeeType">The user type. (required).</param>
+        /// <param name="expiration">The API date and time parameters..</param>
         /// <param name="isExpired">Indicates whether the invitation link has expired..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
@@ -73,15 +73,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the invitation link.
         /// </summary>
-        /// <value>The ID of the invitation link.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Expiration
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "expiration", EmitDefaultValue = false)]
         public ApiDateTime Expiration { get; set; }
@@ -89,40 +86,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Indicates whether the invitation link has expired.
         /// </summary>
-        /// <value>Indicates whether the invitation link has expired.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
         public bool IsExpired { get; set; }
 
         /// <summary>
         /// The maximum number of times the invitation link can be used.
         /// </summary>
-        /// <value>The maximum number of times the invitation link can be used.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 
         /// <summary>
         /// The current number of times the invitation link has been used.
         /// </summary>
-        /// <value>The current number of times the invitation link has been used.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "currentUseCount", EmitDefaultValue = false)]
         public int CurrentUseCount { get; set; }
 
         /// <summary>
         /// The URL of the invitation link.
         /// </summary>
-        /// <value>The URL of the invitation link.</value>
-        /*
-        <example>https://example.com</example>
-        */
+        /// <example>https://example.com</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

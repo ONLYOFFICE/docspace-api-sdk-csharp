@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets RoomType
+        /// The room type.
         /// </summary>
         [DataMember(Name = "roomType", IsRequired = true, EmitDefaultValue = true)]
         public RoomType RoomType { get; set; }
@@ -54,14 +54,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="createAsNewFolder">Specifies whether to create a third-party room as a new folder or not..</param>
         /// <param name="title">The third-party room name to be created. (required).</param>
-        /// <param name="roomType">roomType (required).</param>
+        /// <param name="roomType">The room type. (required).</param>
         /// <param name="private">Specifies whether to create the private third-party room or not..</param>
         /// <param name="indexing">Specifies whether to create the third-party room with indexing..</param>
         /// <param name="denyDownload">Specifies whether to deny downloads from the third-party room..</param>
         /// <param name="color">The color of the third-party room..</param>
         /// <param name="cover">The cover of the third-party room..</param>
         /// <param name="tags">The list of tags of the third-party room..</param>
-        /// <param name="logo">logo.</param>
+        /// <param name="logo">The logo request parameters..</param>
         public CreateThirdPartyRoom(bool createAsNewFolder = default, string title = default, RoomType roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, string color = default, string cover = default, List<string> tags = default, LogoRequest logo = default)
         {
             // to ensure "title" is required (not null)
@@ -84,85 +84,61 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to create a third-party room as a new folder or not.
         /// </summary>
-        /// <value>Specifies whether to create a third-party room as a new folder or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "createAsNewFolder", EmitDefaultValue = true)]
         public bool CreateAsNewFolder { get; set; }
 
         /// <summary>
         /// The third-party room name to be created.
         /// </summary>
-        /// <value>The third-party room name to be created.</value>
-        /*
-        <example>My Third-Party Room</example>
-        */
+        /// <example>My Third-Party Room</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Specifies whether to create the private third-party room or not.
         /// </summary>
-        /// <value>Specifies whether to create the private third-party room or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool Private { get; set; }
 
         /// <summary>
         /// Specifies whether to create the third-party room with indexing.
         /// </summary>
-        /// <value>Specifies whether to create the third-party room with indexing.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool Indexing { get; set; }
 
         /// <summary>
         /// Specifies whether to deny downloads from the third-party room.
         /// </summary>
-        /// <value>Specifies whether to deny downloads from the third-party room.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
         /// The color of the third-party room.
         /// </summary>
-        /// <value>The color of the third-party room.</value>
-        /*
-        <example>#FF0000</example>
-        */
+        /// <example>#FF0000</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
         /// The cover of the third-party room.
         /// </summary>
-        /// <value>The cover of the third-party room.</value>
-        /*
-        <example>cover1.jpg</example>
-        */
+        /// <example>cover1.jpg</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
         /// The list of tags of the third-party room.
         /// </summary>
-        /// <value>The list of tags of the third-party room.</value>
-        /*
-        <example>["tag1","tag2","tag3"]</example>
-        */
+        /// <example>["tag1","tag2","tag3"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// Gets or Sets Logo
+        /// The logo request parameters.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }

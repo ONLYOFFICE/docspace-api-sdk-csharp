@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The form field metadata.
         /// </summary>
-        /// <value>The form field metadata.</value>
-        /*
-        <example>[]</example>
-        */
+        /// <example>[]</example>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public List<FormMetadata> Metadata { get; set; }
 
         /// <summary>
         /// All submissions.
         /// </summary>
-        /// <value>All submissions.</value>
-        /*
-        <example>[]</example>
-        */
+        /// <example>[]</example>
         [DataMember(Name = "submissions", EmitDefaultValue = true)]
         public List<FormResultsDto> Submissions { get; set; }
 

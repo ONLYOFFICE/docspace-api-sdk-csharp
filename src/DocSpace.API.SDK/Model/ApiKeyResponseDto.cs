@@ -51,10 +51,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="key">The full API key value (only returned when creating a new key). (required).</param>
         /// <param name="keyPostfix">The API key postfix (used for identification)..</param>
         /// <param name="permissions">The list of permissions granted to the API key. (required).</param>
-        /// <param name="lastUsed">lastUsed.</param>
-        /// <param name="createOn">createOn.</param>
-        /// <param name="createBy">createBy.</param>
-        /// <param name="expiresAt">expiresAt.</param>
+        /// <param name="lastUsed">The API date and time parameters..</param>
+        /// <param name="createOn">The API date and time parameters..</param>
+        /// <param name="createBy">The user parameters..</param>
+        /// <param name="expiresAt">The API date and time parameters..</param>
         /// <param name="isActive">Indicates whether the API key is active or not. (required).</param>
         public ApiKeyResponseDto(Guid id = default, string name = default, string key = default, string keyPostfix = default, List<string> permissions = default, ApiDateTime lastUsed = default, ApiDateTime createOn = default, EmployeeDto createBy = default, ApiDateTime expiresAt = default, bool isActive = default)
         {
@@ -88,73 +88,58 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The API key unique identifier.
         /// </summary>
-        /// <value>The API key unique identifier.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The API key name.
         /// </summary>
-        /// <value>The API key name.</value>
-        /*
-        <example>My API Key</example>
-        */
+        /// <example>My API Key</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The full API key value (only returned when creating a new key).
         /// </summary>
-        /// <value>The full API key value (only returned when creating a new key).</value>
-        /*
-        <example>api_key_1234567890abcdef</example>
-        */
+        /// <example>api_key_1234567890abcdef</example>
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The API key postfix (used for identification).
         /// </summary>
-        /// <value>The API key postfix (used for identification).</value>
-        /*
-        <example>...cdef</example>
-        */
+        /// <example>...cdef</example>
         [DataMember(Name = "keyPostfix", EmitDefaultValue = true)]
         public string KeyPostfix { get; set; }
 
         /// <summary>
         /// The list of permissions granted to the API key.
         /// </summary>
-        /// <value>The list of permissions granted to the API key.</value>
-        /*
-        <example>["read","write","delete"]</example>
-        */
+        /// <example>["read","write","delete"]</example>
         [DataMember(Name = "permissions", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastUsed
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "lastUsed", EmitDefaultValue = false)]
         public ApiDateTime LastUsed { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreateOn
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "createOn", EmitDefaultValue = false)]
         public ApiDateTime CreateOn { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreateBy
+        /// The user parameters.
         /// </summary>
         [DataMember(Name = "createBy", EmitDefaultValue = false)]
         public EmployeeDto CreateBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpiresAt
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
         public ApiDateTime ExpiresAt { get; set; }
@@ -162,10 +147,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Indicates whether the API key is active or not.
         /// </summary>
-        /// <value>Indicates whether the API key is active or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isActive", IsRequired = true, EmitDefaultValue = true)]
         public bool IsActive { get; set; }
 

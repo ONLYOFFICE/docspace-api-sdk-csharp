@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of IP restriction addresses.
         /// </summary>
-        /// <value>The list of IP restriction addresses.</value>
-        /*
-        <example>[{"ip":"192.0.2.1","forAdmin":false}]</example>
-        */
+        /// <example>[{"ip":"192.0.2.1","forAdmin":false}]</example>
         [DataMember(Name = "ipRestrictions", IsRequired = true, EmitDefaultValue = true)]
         public List<IpRestrictionBase> IpRestrictions { get; set; }
 
         /// <summary>
         /// Specifies whether to enable IP restrictions or not.
         /// </summary>
-        /// <value>Specifies whether to enable IP restrictions or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enable", EmitDefaultValue = true)]
         public bool? Enable { get; set; }
 

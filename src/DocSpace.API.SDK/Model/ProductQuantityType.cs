@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Set, 1 - Add, 2 - Sub, 3 - Renew]
     /// </summary>
-    /// <value>[0 - Set, 1 - Add, 2 - Sub, 3 - Renew]</value>
     public enum ProductQuantityType
     {
         /// <summary>

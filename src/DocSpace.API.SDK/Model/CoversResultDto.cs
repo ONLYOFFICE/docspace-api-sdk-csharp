@@ -67,20 +67,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The cover unique identifier.
         /// </summary>
-        /// <value>The cover unique identifier.</value>
-        /*
-        <example>cover-123</example>
-        */
+        /// <example>cover-123</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The cover image data.
         /// </summary>
-        /// <value>The cover image data.</value>
-        /*
-        <example>base64EncodedImageData</example>
-        */
+        /// <example>base64EncodedImageData</example>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public string Data { get; set; }
 

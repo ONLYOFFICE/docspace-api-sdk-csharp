@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of folder IDs.
         /// </summary>
-        /// <value>The list of folder IDs.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs.
         /// </summary>
-        /// <value>The list of file IDs.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
@@ -104,4 +98,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

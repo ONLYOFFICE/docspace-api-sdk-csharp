@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Error
+        /// The error type.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public RoomSecurityError? Error { get; set; }
@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="members">The list of room members..</param>
         /// <param name="warning">The warning message..</param>
-        /// <param name="error">error.</param>
+        /// <param name="error">The error type..</param>
         public RoomSecurityDto(List<FileShareDto> members = default, string warning = default, RoomSecurityError? error = default)
         {
             this.Members = members;
@@ -60,20 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of room members.
         /// </summary>
-        /// <value>The list of room members.</value>
-        /*
-        <example>[{"access":1,"isOwner":false}]</example>
-        */
+        /// <example>[{"access":1,"isOwner":false}]</example>
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<FileShareDto> Members { get; set; }
 
         /// <summary>
         /// The warning message.
         /// </summary>
-        /// <value>The warning message.</value>
-        /*
-        <example>Warning message</example>
-        */
+        /// <example>Warning message</example>
         [DataMember(Name = "warning", EmitDefaultValue = true)]
         public string Warning { get; set; }
 

@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The folder where the document is stored.
         /// </summary>
-        /// <value>The folder where the document is stored.</value>
-        /*
-        <example>folder_123</example>
-        */
+        /// <example>folder_123</example>
         [DataMember(Name = "folder", EmitDefaultValue = true)]
         public string Folder { get; set; }
 
         /// <summary>
         /// The document title that will be displayed in the Open Recent... menu option.
         /// </summary>
-        /// <value>The document title that will be displayed in the Open Recent... menu option.</value>
-        /*
-        <example>Report 2026</example>
-        */
+        /// <example>Report 2026</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The absolute URL to the document where it is stored.
         /// </summary>
-        /// <value>The absolute URL to the document where it is stored.</value>
-        /*
-        <example>https://portal.example.com/files/recent/report2026.docx</example>
-        */
+        /// <example>https://portal.example.com/files/recent/report2026.docx</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

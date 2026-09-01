@@ -68,100 +68,70 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The SMTP host.
         /// </summary>
-        /// <value>The SMTP host.</value>
-        /*
-        <example>mail.example.com</example>
-        */
+        /// <example>mail.example.com</example>
         [DataMember(Name = "host", EmitDefaultValue = true)]
         public string Host { get; set; }
 
         /// <summary>
         /// The SMTP port.
         /// </summary>
-        /// <value>The SMTP port.</value>
-        /*
-        <example>25</example>
-        */
+        /// <example>25</example>
         [DataMember(Name = "port", EmitDefaultValue = true)]
         public int? Port { get; set; }
 
         /// <summary>
         /// The sender address.
         /// </summary>
-        /// <value>The sender address.</value>
-        /*
-        <example>notify@example.com</example>
-        */
+        /// <example>notify@example.com</example>
         [DataMember(Name = "senderAddress", EmitDefaultValue = true)]
         public string SenderAddress { get; set; }
 
         /// <summary>
         /// The sender display name.
         /// </summary>
-        /// <value>The sender display name.</value>
-        /*
-        <example>Postman</example>
-        */
+        /// <example>Postman</example>
         [DataMember(Name = "senderDisplayName", EmitDefaultValue = true)]
         public string SenderDisplayName { get; set; }
 
         /// <summary>
         /// The credentials username.
         /// </summary>
-        /// <value>The credentials username.</value>
-        /*
-        <example>notify@example.com</example>
-        */
+        /// <example>notify@example.com</example>
         [DataMember(Name = "credentialsUserName", EmitDefaultValue = true)]
         public string CredentialsUserName { get; set; }
 
         /// <summary>
         /// The credentials user password.
         /// </summary>
-        /// <value>The credentials user password.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "credentialsUserPassword", EmitDefaultValue = true)]
         public string CredentialsUserPassword { get; set; }
 
         /// <summary>
         /// Specifies whether the SSL is enabled or not.
         /// </summary>
-        /// <value>Specifies whether the SSL is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enableSSL", EmitDefaultValue = true)]
         public bool EnableSSL { get; set; }
 
         /// <summary>
         /// Specifies whether the authentication is enabled or not.
         /// </summary>
-        /// <value>Specifies whether the authentication is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enableAuth", EmitDefaultValue = true)]
         public bool EnableAuth { get; set; }
 
         /// <summary>
         /// Specifies whether to use NTLM or not.
         /// </summary>
-        /// <value>Specifies whether to use NTLM or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "useNtlm", EmitDefaultValue = true)]
         public bool UseNtlm { get; set; }
 
         /// <summary>
         /// Specifies if the current settings are default or not.
         /// </summary>
-        /// <value>Specifies if the current settings are default or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isDefaultSettings", EmitDefaultValue = true)]
         public bool IsDefaultSettings { get; set; }
 

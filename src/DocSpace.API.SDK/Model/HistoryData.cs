@@ -49,10 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The name of the action initiator.
         /// </summary>
-        /// <value>The name of the action initiator.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "initiatorName", EmitDefaultValue = true)]
         public string InitiatorName { get; private set; }
 

@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="medium">The medium logo. (required).</param>
         /// <param name="small">The small logo. (required).</param>
         /// <param name="color">The logo color..</param>
-        /// <param name="cover">cover.</param>
+        /// <param name="cover">The logo cover..</param>
         public Logo(string original = default, string large = default, string medium = default, string small = default, string color = default, LogoCover cover = default)
         {
             // to ensure "original" is required (not null)
@@ -85,55 +85,40 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The original logo.
         /// </summary>
-        /// <value>The original logo.</value>
-        /*
-        <example>https://portal.example.com/logo/original.png</example>
-        */
+        /// <example>https://portal.example.com/logo/original.png</example>
         [DataMember(Name = "original", IsRequired = true, EmitDefaultValue = true)]
         public string Original { get; set; }
 
         /// <summary>
         /// The large logo.
         /// </summary>
-        /// <value>The large logo.</value>
-        /*
-        <example>https://portal.example.com/logo/large.png</example>
-        */
+        /// <example>https://portal.example.com/logo/large.png</example>
         [DataMember(Name = "large", IsRequired = true, EmitDefaultValue = true)]
         public string Large { get; set; }
 
         /// <summary>
         /// The medium logo.
         /// </summary>
-        /// <value>The medium logo.</value>
-        /*
-        <example>https://portal.example.com/logo/medium.png</example>
-        */
+        /// <example>https://portal.example.com/logo/medium.png</example>
         [DataMember(Name = "medium", IsRequired = true, EmitDefaultValue = true)]
         public string Medium { get; set; }
 
         /// <summary>
         /// The small logo.
         /// </summary>
-        /// <value>The small logo.</value>
-        /*
-        <example>https://portal.example.com/logo/small.png</example>
-        */
+        /// <example>https://portal.example.com/logo/small.png</example>
         [DataMember(Name = "small", IsRequired = true, EmitDefaultValue = true)]
         public string Small { get; set; }
 
         /// <summary>
         /// The logo color.
         /// </summary>
-        /// <value>The logo color.</value>
-        /*
-        <example>#4781D1</example>
-        */
+        /// <example>#4781D1</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
-        /// Gets or Sets Cover
+        /// The logo cover.
         /// </summary>
         [DataMember(Name = "cover", EmitDefaultValue = false)]
         public LogoCover Cover { get; set; }

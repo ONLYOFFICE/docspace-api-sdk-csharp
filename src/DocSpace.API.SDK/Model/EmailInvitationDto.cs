@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The email address.
         /// </summary>
-        /// <value>The email address.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 

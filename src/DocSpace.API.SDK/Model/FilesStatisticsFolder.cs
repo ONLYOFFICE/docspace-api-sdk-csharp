@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The folder title.
         /// </summary>
-        /// <value>The folder title.</value>
-        /*
-        <example>My Documents</example>
-        */
+        /// <example>My Documents</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The used space in the folder.
         /// </summary>
-        /// <value>The used space in the folder.</value>
-        /*
-        <example>1048576</example>
-        */
+        /// <example>1048576</example>
         [DataMember(Name = "usedSpace", EmitDefaultValue = false)]
         public long UsedSpace { get; set; }
 

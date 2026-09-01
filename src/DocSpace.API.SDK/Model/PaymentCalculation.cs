@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The operation unique identifier.
         /// </summary>
-        /// <value>The operation unique identifier.</value>
-        /*
-        <example>123456789</example>
-        */
+        /// <example>123456789</example>
         [DataMember(Name = "operationId", EmitDefaultValue = false)]
         public long OperationId { get; set; }
 
         /// <summary>
         /// The calculated payment amount.
         /// </summary>
-        /// <value>The calculated payment amount.</value>
-        /*
-        <example>10.0</example>
-        */
+        /// <example>10.0</example>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public double Amount { get; set; }
 
         /// <summary>
         /// The three-character ISO 4217 currency symbol used for the payment calculation.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol used for the payment calculation.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// The quantity associated with the payment calculation.
         /// </summary>
-        /// <value>The quantity associated with the payment calculation.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 

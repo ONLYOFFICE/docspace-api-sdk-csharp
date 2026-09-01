@@ -4,31 +4,29 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetAiSettings**](#getaisettings) | **GET** /api/2.0/ai/config | Get AI settings |
-| [**GetAiUserSettings**](#getaiusersettings) | **GET** /api/2.0/ai/config/user | Get per-user AI settings |
-| [**GetVectorizationSettings**](#getvectorizationsettings) | **GET** /api/2.0/ai/config/vectorization | Get vectorization settings |
-| [**GetWebSearchSettings**](#getwebsearchsettings) | **GET** /api/2.0/ai/config/web-search | Get web search settings |
-| [**SetAiUserSettings**](#setaiusersettings) | **PUT** /api/2.0/ai/config/user | Update per-user AI settings |
-| [**SetVectorizationSettings**](#setvectorizationsettings) | **PUT** /api/2.0/ai/config/vectorization | Update vectorization settings |
-| [**SetWebSearchSettings**](#setwebsearchsettings) | **PUT** /api/2.0/ai/config/web-search | Update web search settings |
+| [**AiSettingsGet**](#aisettingsget) | **GET** /api/2.0/ai/config | Get AI settings |
+| [**AiSettingsGetUser**](#aisettingsgetuser) | **GET** /api/2.0/ai/config/user | Get user AI settings |
+| [**AiSettingsGetVectorization**](#aisettingsgetvectorization) | **GET** /api/2.0/ai/config/vectorization | Get vectorization settings |
+| [**AiSettingsSetUser**](#aisettingssetuser) | **PUT** /api/2.0/ai/config/user | Update user AI settings |
+| [**AiSettingsSetVectorization**](#aisettingssetvectorization) | **PUT** /api/2.0/ai/config/vectorization | Update vectorization settings |
 
-<a id="getaisettings"></a>
-# **GetAiSettings**
-> AiSettingsWrapper GetAiSettings ()
+<a id="aisettingsget"></a>
+# **AiSettingsGet**
+> AiAiSettingsWrapper AiSettingsGet ()
 
-Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/).
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/).
 
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiSettingsWrapper**](AiSettingsWrapper.md)
+[**AiAiSettingsWrapper**](AiAiSettingsWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -41,28 +39,12 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetAiSettingsExample
+    public class AiSettingsGetExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -71,12 +53,12 @@ namespace Example
             try
             {
                 // Get AI settings
-                AiSettingsWrapper result = apiInstance.GetAiSettings();
+                AiAiSettingsWrapper result = apiInstance.AiSettingsGet();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsApi.GetAiSettings: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.AiSettingsGet: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -85,21 +67,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAiSettingsWithHttpInfo variant
+#### Using the AiSettingsGetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get AI settings
-    ApiResponse<AiSettingsWrapper> response = apiInstance.GetAiSettingsWithHttpInfo();
+    ApiResponse<AiAiSettingsWrapper> response = apiInstance.AiSettingsGetWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsApi.GetAiSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.AiSettingsGetWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -114,31 +96,28 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Current AI settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | Success. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getaiusersettings"></a>
-# **GetAiUserSettings**
-> AiUserSettingsWrapper GetAiUserSettings ()
+<a id="aisettingsgetuser"></a>
+# **AiSettingsGetUser**
+> AiAiUserSettingsWrapper AiSettingsGetUser ()
 
-Retrieves the current user's AI settings, including the recommended model banner visibility preference.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/).
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/).
 
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiUserSettingsWrapper**](AiUserSettingsWrapper.md)
+[**AiAiUserSettingsWrapper**](AiAiUserSettingsWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -151,28 +130,12 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetAiUserSettingsExample
+    public class AiSettingsGetUserExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -180,13 +143,13 @@ namespace Example
 
             try
             {
-                // Get per-user AI settings
-                AiUserSettingsWrapper result = apiInstance.GetAiUserSettings();
+                // Get user AI settings
+                AiAiUserSettingsWrapper result = apiInstance.AiSettingsGetUser();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsApi.GetAiUserSettings: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.AiSettingsGetUser: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -195,21 +158,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAiUserSettingsWithHttpInfo variant
+#### Using the AiSettingsGetUserWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get per-user AI settings
-    ApiResponse<AiUserSettingsWrapper> response = apiInstance.GetAiUserSettingsWithHttpInfo();
+    // Get user AI settings
+    ApiResponse<AiAiUserSettingsWrapper> response = apiInstance.AiSettingsGetUserWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsApi.GetAiUserSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.AiSettingsGetUserWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -224,31 +187,28 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Current per-user AI settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | Success. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getvectorizationsettings"></a>
-# **GetVectorizationSettings**
-> VectorizationSettingsWrapper GetVectorizationSettings ()
+<a id="aisettingsgetvectorization"></a>
+# **AiSettingsGetVectorization**
+> AiVectorizationSettingsWrapper AiSettingsGetVectorization ()
 
-Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/).
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/).
 
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
 
-[**VectorizationSettingsWrapper**](VectorizationSettingsWrapper.md)
+[**AiVectorizationSettingsWrapper**](AiVectorizationSettingsWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -261,28 +221,12 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetVectorizationSettingsExample
+    public class AiSettingsGetVectorizationExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -291,12 +235,12 @@ namespace Example
             try
             {
                 // Get vectorization settings
-                VectorizationSettingsWrapper result = apiInstance.GetVectorizationSettings();
+                AiVectorizationSettingsWrapper result = apiInstance.AiSettingsGetVectorization();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsApi.GetVectorizationSettings: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.AiSettingsGetVectorization: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -305,21 +249,21 @@ namespace Example
 }
 ```
 
-#### Using the GetVectorizationSettingsWithHttpInfo variant
+#### Using the AiSettingsGetVectorizationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get vectorization settings
-    ApiResponse<VectorizationSettingsWrapper> response = apiInstance.GetVectorizationSettingsWithHttpInfo();
+    ApiResponse<AiVectorizationSettingsWrapper> response = apiInstance.AiSettingsGetVectorizationWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsApi.GetVectorizationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.AiSettingsGetVectorizationWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -334,145 +278,32 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Current vectorization settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | Success. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getwebsearchsettings"></a>
-# **GetWebSearchSettings**
-> WebSearchSettingsWrapper GetWebSearchSettings ()
-
-Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/).
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**WebSearchSettingsWrapper**](WebSearchSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using DocSpace.API.SDK.Api;
-using DocSpace.API.SDK.Client;
-using DocSpace.API.SDK.Model;
-
-namespace Example
-{
-    public class GetWebSearchSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get web search settings
-                WebSearchSettingsWrapper result = apiInstance.GetWebSearchSettings();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsApi.GetWebSearchSettings: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetWebSearchSettingsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get web search settings
-    ApiResponse<WebSearchSettingsWrapper> response = apiInstance.GetWebSearchSettingsWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsApi.GetWebSearchSettingsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
+<a id="aisettingssetuser"></a>
+# **AiSettingsSetUser**
+> AiAiUserSettingsWrapper AiSettingsSetUser (Dictionary<string, Object> requestBody)
 
 
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Current web search settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="setaiusersettings"></a>
-# **SetAiUserSettings**
-> AiUserSettingsWrapper SetAiUserSettings (SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = null)
-
-Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **setAiUserSettingsRequestDto** | [**SetAiUserSettingsRequestDto?**](SetAiUserSettingsRequestDto.md) | Request to update per-user AI recommended model visibility settings. | [optional]  |
+| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
 
 ### Return type
 
-[**AiUserSettingsWrapper**](AiUserSettingsWrapper.md)
+[**AiAiUserSettingsWrapper**](AiAiUserSettingsWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -485,43 +316,27 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class SetAiUserSettingsExample
+    public class AiSettingsSetUserExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var setAiUserSettingsRequestDto = new SetAiUserSettingsRequestDto?(); // SetAiUserSettingsRequestDto? | Request to update per-user AI recommended model visibility settings. (optional) 
+            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
 
             try
             {
-                // Update per-user AI settings
-                AiUserSettingsWrapper result = apiInstance.SetAiUserSettings(setAiUserSettingsRequestDto);
+                // Update user AI settings
+                AiAiUserSettingsWrapper result = apiInstance.AiSettingsSetUser(requestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsApi.SetAiUserSettings: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.AiSettingsSetUser: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -530,21 +345,21 @@ namespace Example
 }
 ```
 
-#### Using the SetAiUserSettingsWithHttpInfo variant
+#### Using the AiSettingsSetUserWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Update per-user AI settings
-    ApiResponse<AiUserSettingsWrapper> response = apiInstance.SetAiUserSettingsWithHttpInfo(setAiUserSettingsRequestDto);
+    // Update user AI settings
+    ApiResponse<AiAiUserSettingsWrapper> response = apiInstance.AiSettingsSetUserWithHttpInfo(requestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsApi.SetAiUserSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.AiSettingsSetUserWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -559,35 +374,32 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated per-user AI settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | Success. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="setvectorizationsettings"></a>
-# **SetVectorizationSettings**
-> VectorizationSettingsWrapper SetVectorizationSettings (SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody)
+<a id="aisettingssetvectorization"></a>
+# **AiSettingsSetVectorization**
+> AiVectorizationSettingsWrapper AiSettingsSetVectorization (Dictionary<string, Object> requestBody)
 
-Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/).
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **setEmbeddingConfigRequestBody** | [**SetEmbeddingConfigRequestBody**](SetEmbeddingConfigRequestBody.md) | The embedding provider configuration parameters. |  |
+| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
 
 ### Return type
 
-[**VectorizationSettingsWrapper**](VectorizationSettingsWrapper.md)
+[**AiVectorizationSettingsWrapper**](AiVectorizationSettingsWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -600,43 +412,27 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class SetVectorizationSettingsExample
+    public class AiSettingsSetVectorizationExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var setEmbeddingConfigRequestBody = new SetEmbeddingConfigRequestBody(); // SetEmbeddingConfigRequestBody | The embedding provider configuration parameters.
+            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
 
             try
             {
                 // Update vectorization settings
-                VectorizationSettingsWrapper result = apiInstance.SetVectorizationSettings(setEmbeddingConfigRequestBody);
+                AiVectorizationSettingsWrapper result = apiInstance.AiSettingsSetVectorization(requestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsApi.SetVectorizationSettings: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.AiSettingsSetVectorization: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -645,21 +441,21 @@ namespace Example
 }
 ```
 
-#### Using the SetVectorizationSettingsWithHttpInfo variant
+#### Using the AiSettingsSetVectorizationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Update vectorization settings
-    ApiResponse<VectorizationSettingsWrapper> response = apiInstance.SetVectorizationSettingsWithHttpInfo(setEmbeddingConfigRequestBody);
+    ApiResponse<AiVectorizationSettingsWrapper> response = apiInstance.AiSettingsSetVectorizationWithHttpInfo(requestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsApi.SetVectorizationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.AiSettingsSetVectorizationWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -674,126 +470,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated vectorization settings |  * X-RateLimit-Limit - Rate limit: 10 requests per 1 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="setwebsearchsettings"></a>
-# **SetWebSearchSettings**
-> WebSearchSettingsWrapper SetWebSearchSettings (SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody)
-
-Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/).
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **setWebSearchSettingsRequestBody** | [**SetWebSearchSettingsRequestBody**](SetWebSearchSettingsRequestBody.md) | The web search configuration parameters. |  |
-
-### Return type
-
-[**WebSearchSettingsWrapper**](WebSearchSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using DocSpace.API.SDK.Api;
-using DocSpace.API.SDK.Client;
-using DocSpace.API.SDK.Model;
-
-namespace Example
-{
-    public class SetWebSearchSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var setWebSearchSettingsRequestBody = new SetWebSearchSettingsRequestBody(); // SetWebSearchSettingsRequestBody | The web search configuration parameters.
-
-            try
-            {
-                // Update web search settings
-                WebSearchSettingsWrapper result = apiInstance.SetWebSearchSettings(setWebSearchSettingsRequestBody);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsApi.SetWebSearchSettings: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the SetWebSearchSettingsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Update web search settings
-    ApiResponse<WebSearchSettingsWrapper> response = apiInstance.SetWebSearchSettingsWithHttpInfo(setWebSearchSettingsRequestBody);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsApi.SetWebSearchSettingsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Updated web search settings |  * X-RateLimit-Limit - Rate limit: 10 requests per 1 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | Success. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

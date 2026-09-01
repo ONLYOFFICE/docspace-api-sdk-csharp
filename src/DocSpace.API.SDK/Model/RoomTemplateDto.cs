@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="RoomTemplateDto" /> class.
         /// </summary>
         /// <param name="roomId">The room template ID. (required).</param>
-        /// <param name="title">The room template title..</param>
-        /// <param name="logo">logo.</param>
+        /// <param name="title">The room template title. (required).</param>
+        /// <param name="logo">The logo request parameters..</param>
         /// <param name="copyLogo">Specifies whether to copy room logo or not..</param>
         /// <param name="share">The collection of email addresses of users with whom to share a room..</param>
         /// <param name="groups">The collection of groups with whom to share a room..</param>
@@ -60,6 +60,11 @@ namespace DocSpace.API.SDK.Model
         public RoomTemplateDto(int roomId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> share = default, List<Guid> groups = default, bool @public = default, List<string> tags = default, string color = default, string cover = default, long? quota = default)
         {
             this.RoomId = roomId;
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new ArgumentNullException("title is a required property for RoomTemplateDto and cannot be null");
+            }
             this.Title = title;
             this.Logo = logo;
             this.CopyLogo = copyLogo;
@@ -75,25 +80,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The room template ID.
         /// </summary>
-        /// <value>The room template ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>
         /// The room template title.
         /// </summary>
-        /// <value>The room template title.</value>
-        /*
-        <example>My Document</example>
-        */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        /// <example>My Document</example>
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Logo
+        /// The logo request parameters.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }
@@ -101,80 +100,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to copy room logo or not.
         /// </summary>
-        /// <value>Specifies whether to copy room logo or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "copyLogo", EmitDefaultValue = true)]
         public bool CopyLogo { get; set; }
 
         /// <summary>
         /// The collection of email addresses of users with whom to share a room.
         /// </summary>
-        /// <value>The collection of email addresses of users with whom to share a room.</value>
-        /*
-        <example>["user1@example.com","user2@example.com"]</example>
-        */
+        /// <example>["user1@example.com","user2@example.com"]</example>
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<string> Share { get; set; }
 
         /// <summary>
         /// The collection of groups with whom to share a room.
         /// </summary>
-        /// <value>The collection of groups with whom to share a room.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<Guid> Groups { get; set; }
 
         /// <summary>
         /// Specifies whether the room template is public or not.
         /// </summary>
-        /// <value>Specifies whether the room template is public or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "public", EmitDefaultValue = true)]
         public bool Public { get; set; }
 
         /// <summary>
         /// The collection of tags.
         /// </summary>
-        /// <value>The collection of tags.</value>
-        /*
-        <example>["tag1","tag2"]</example>
-        */
+        /// <example>["tag1","tag2"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// The color of the room template.
         /// </summary>
-        /// <value>The color of the room template.</value>
-        /*
-        <example>#FF0000</example>
-        */
+        /// <example>#FF0000</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
         /// The cover of the room template.
         /// </summary>
-        /// <value>The cover of the room template.</value>
-        /*
-        <example>cover1</example>
-        */
+        /// <example>cover1</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
         /// Room quota
         /// </summary>
-        /// <value>Room quota</value>
-        /*
-        <example>10485760</example>
-        */
+        /// <example>10485760</example>
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
 
@@ -217,6 +192,18 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Title (string) maxLength
+            if (this.Title != null && this.Title.Length > 400)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 400.", new [] { "Title" });
+            }
+
+            // Title (string) minLength
+            if (this.Title != null && this.Title.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
+            }
+
             // Color (string) maxLength
             if (this.Color != null && this.Color.Length > 6)
             {

@@ -73,50 +73,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The storage ID.
         /// </summary>
-        /// <value>The storage ID.</value>
-        /*
-        <example>storage_001</example>
-        */
+        /// <example>storage_001</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The storage title.
         /// </summary>
-        /// <value>The storage title.</value>
-        /*
-        <example>Main Storage</example>
-        */
+        /// <example>Main Storage</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The list of storage authentication keys.
         /// </summary>
-        /// <value>The list of storage authentication keys.</value>
-        /*
-        <example>[{"name":"ApiKey","value":"12345"}]</example>
-        */
+        /// <example>[{"name":"ApiKey","value":"12345"}]</example>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public List<AuthKey> Properties { get; set; }
 
         /// <summary>
         /// Specifies if this is the current portal storage or not.
         /// </summary>
-        /// <value>Specifies if this is the current portal storage or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
         public bool Current { get; set; }
 
         /// <summary>
         /// Specifies if this storage can be set or not.
         /// </summary>
-        /// <value>Specifies if this storage can be set or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isSet", IsRequired = true, EmitDefaultValue = true)]
         public bool IsSet { get; set; }
 

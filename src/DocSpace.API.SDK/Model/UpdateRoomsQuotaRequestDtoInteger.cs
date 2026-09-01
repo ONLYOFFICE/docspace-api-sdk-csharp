@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="roomIds">The list of room IDs..</param>
         /// <param name="quota">The room quota..</param>
-        public UpdateRoomsQuotaRequestDtoInteger(List<ContinueChatBodyFilesInner> roomIds = default, long quota = default)
+        public UpdateRoomsQuotaRequestDtoInteger(List<DuplicateRequestDtoAllOfFileIds> roomIds = default, long quota = default)
         {
             this.RoomIds = roomIds;
             this.Quota = quota;
@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of room IDs.
         /// </summary>
-        /// <value>The list of room IDs.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "roomIds", EmitDefaultValue = true)]
-        public List<ContinueChatBodyFilesInner> RoomIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFileIds> RoomIds { get; set; }
 
         /// <summary>
         /// The room quota.
         /// </summary>
-        /// <value>The room quota.</value>
-        /*
-        <example>10485760</example>
-        */
+        /// <example>10485760</example>
         [DataMember(Name = "quota", EmitDefaultValue = false)]
         public long Quota { get; set; }
 

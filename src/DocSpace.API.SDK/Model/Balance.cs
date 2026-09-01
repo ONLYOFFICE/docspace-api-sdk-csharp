@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="accountName">The account name..</param>
         /// <param name="accountCurrency">The account currency..</param>
         /// <param name="subAccounts">A list of sub-accounts..</param>
-        /// <param name="lastCredit">lastCredit.</param>
+        /// <param name="lastCredit">The most recent credit transaction applied to the account..</param>
         public Balance(int accountNumber = default, int subAccountNumber = default, string accountName = default, string accountCurrency = default, List<SubAccount> subAccounts = default, TransactionInfo lastCredit = default)
         {
             this.AccountNumber = accountNumber;
@@ -60,55 +60,40 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The account number.
         /// </summary>
-        /// <value>The account number.</value>
-        /*
-        <example>12345</example>
-        */
+        /// <example>12345</example>
         [DataMember(Name = "accountNumber", EmitDefaultValue = false)]
         public int AccountNumber { get; set; }
 
         /// <summary>
         /// The sub-account number.
         /// </summary>
-        /// <value>The sub-account number.</value>
-        /*
-        <example>12345</example>
-        */
+        /// <example>12345</example>
         [DataMember(Name = "subAccountNumber", EmitDefaultValue = false)]
         public int SubAccountNumber { get; set; }
 
         /// <summary>
         /// The account name.
         /// </summary>
-        /// <value>The account name.</value>
-        /*
-        <example>account name</example>
-        */
+        /// <example>account name</example>
         [DataMember(Name = "accountName", EmitDefaultValue = true)]
         public string AccountName { get; set; }
 
         /// <summary>
         /// The account currency.
         /// </summary>
-        /// <value>The account currency.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>"USD"</example>
         [DataMember(Name = "accountCurrency", EmitDefaultValue = true)]
         public string AccountCurrency { get; set; }
 
         /// <summary>
         /// A list of sub-accounts.
         /// </summary>
-        /// <value>A list of sub-accounts.</value>
-        /*
-        <example>[{"currency":"USD","amount":1500.75}]</example>
-        */
+        /// <example>[{"currency":"USD","amount":1500.75}]</example>
         [DataMember(Name = "subAccounts", EmitDefaultValue = true)]
         public List<SubAccount> SubAccounts { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastCredit
+        /// The most recent credit transaction applied to the account.
         /// </summary>
         [DataMember(Name = "lastCredit", EmitDefaultValue = false)]
         public TransactionInfo LastCredit { get; set; }

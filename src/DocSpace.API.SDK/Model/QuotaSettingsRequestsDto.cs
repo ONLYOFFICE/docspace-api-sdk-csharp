@@ -62,10 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the storage quota restrictions are enabled.
         /// </summary>
-        /// <value>Specifies whether the storage quota restrictions are enabled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enableQuota", EmitDefaultValue = true)]
         public bool EnableQuota { get; set; }
 

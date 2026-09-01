@@ -68,50 +68,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The path to the temporary image file.
         /// </summary>
-        /// <value>The path to the temporary image file.</value>
-        /*
-        <example>/tmp/logo.png</example>
-        */
+        /// <example>/tmp/logo.png</example>
         [DataMember(Name = "tmpFile", IsRequired = true, EmitDefaultValue = true)]
         public string TmpFile { get; set; }
 
         /// <summary>
         /// The X coordinate of the rectangle starting point.
         /// </summary>
-        /// <value>The X coordinate of the rectangle starting point.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "x", EmitDefaultValue = false)]
         public int X { get; set; }
 
         /// <summary>
         /// The Y coordinate of the rectangle starting point.
         /// </summary>
-        /// <value>The Y coordinate of the rectangle starting point.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "y", EmitDefaultValue = false)]
         public int Y { get; set; }
 
         /// <summary>
         /// The rectangle width.
         /// </summary>
-        /// <value>The rectangle width.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
         /// <summary>
         /// The rectangle height.
         /// </summary>
-        /// <value>The rectangle height.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 

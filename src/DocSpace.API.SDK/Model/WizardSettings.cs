@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the Wizard settings are completed or not
         /// </summary>
-        /// <value>Specifies if the Wizard settings are completed or not</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "completed", EmitDefaultValue = true)]
         public bool Completed { get; set; }
 
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

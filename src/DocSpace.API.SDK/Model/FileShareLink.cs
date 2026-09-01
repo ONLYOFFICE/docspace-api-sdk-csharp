@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets LinkType
+        /// The sharing link type (e.g., Invitation).
         /// </summary>
         [DataMember(Name = "linkType", EmitDefaultValue = false)]
         public LinkType? LinkType { get; set; }
@@ -50,8 +50,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The unique identifier of the shared link..</param>
         /// <param name="title">The title of the shared content..</param>
         /// <param name="shareLink">The URL for accessing the shared content..</param>
-        /// <param name="expirationDate">expirationDate.</param>
-        /// <param name="linkType">linkType.</param>
+        /// <param name="expirationDate">The API date and time parameters..</param>
+        /// <param name="linkType">The sharing link type (e.g., Invitation)..</param>
         /// <param name="password">The password protection for accessing the shared content..</param>
         /// <param name="denyDownload">Indicates whether downloading of the shared content is prohibited..</param>
         /// <param name="isExpired">Indicates whether the shared link has expired..</param>
@@ -80,35 +80,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The unique identifier of the shared link.
         /// </summary>
-        /// <value>The unique identifier of the shared link.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The title of the shared content.
         /// </summary>
-        /// <value>The title of the shared content.</value>
-        /*
-        <example>Shared Document</example>
-        */
+        /// <example>Shared Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The URL for accessing the shared content.
         /// </summary>
-        /// <value>The URL for accessing the shared content.</value>
-        /*
-        <example>http://localhost/share/abc123</example>
-        */
+        /// <example>http://localhost/share/abc123</example>
         [DataMember(Name = "shareLink", EmitDefaultValue = true)]
         public string ShareLink { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpirationDate
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
@@ -116,80 +107,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The password protection for accessing the shared content.
         /// </summary>
-        /// <value>The password protection for accessing the shared content.</value>
-        /*
-        <example>password123</example>
-        */
+        /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// Indicates whether downloading of the shared content is prohibited.
         /// </summary>
-        /// <value>Indicates whether downloading of the shared content is prohibited.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
 
         /// <summary>
         /// Indicates whether the shared link has expired.
         /// </summary>
-        /// <value>Indicates whether the shared link has expired.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
         public bool? IsExpired { get; set; }
 
         /// <summary>
         /// Indicates whether this is the primary shared link.
         /// </summary>
-        /// <value>Indicates whether this is the primary shared link.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "primary", EmitDefaultValue = true)]
         public bool Primary { get; set; }
 
         /// <summary>
         /// Indicates whether the link is for the internal sharing only.
         /// </summary>
-        /// <value>Indicates whether the link is for the internal sharing only.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool? Internal { get; set; }
 
         /// <summary>
         /// The token for validating access requests.
         /// </summary>
-        /// <value>The token for validating access requests.</value>
-        /*
-        <example>token-abc-123</example>
-        */
+        /// <example>token-abc-123</example>
         [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
 
         /// <summary>
         /// The maximum number of times the invitation link can be used.
         /// </summary>
-        /// <value>The maximum number of times the invitation link can be used.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 
         /// <summary>
         /// The current number of times the invitation link has been used.
         /// </summary>
-        /// <value>The current number of times the invitation link has been used.</value>
-        /*
-        <example>5</example>
-        */
+        /// <example>5</example>
         [DataMember(Name = "currentUseCount", EmitDefaultValue = true)]
         public int? CurrentUseCount { get; set; }
 

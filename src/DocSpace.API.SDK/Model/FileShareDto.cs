@@ -39,13 +39,13 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Access
+        /// The access rights type.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
 
         /// <summary>
-        /// Gets or Sets SubjectType
+        /// The subject type of the access right.
         /// </summary>
         [DataMember(Name = "subjectType", IsRequired = true, EmitDefaultValue = true)]
         public SubjectType SubjectType { get; set; }
@@ -58,11 +58,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileShareDto" /> class.
         /// </summary>
-        /// <param name="access">access.</param>
-        /// <param name="sharedTo">The user who has the access to the specified file..</param>
-        /// <param name="sharedToUser">sharedToUser.</param>
-        /// <param name="sharedToGroup">sharedToGroup.</param>
-        /// <param name="sharedLink">sharedLink.</param>
+        /// <param name="access">The access rights type..</param>
+        /// <param name="sharedTo">sharedTo.</param>
+        /// <param name="sharedToUser">The full list of user parameters..</param>
+        /// <param name="sharedToGroup">The group summary parameters..</param>
+        /// <param name="sharedLink">The user who has the access to the specified file..</param>
         /// <param name="isLocked">Specifies if the access right is locked or not. (required).</param>
         /// <param name="isOwner">Specifies if the user is an owner of the specified file or not. (required).</param>
         /// <param name="canEditAccess">Specifies if the user can edit the access to the specified file or not. (required).</param>
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="canEditDenyDownload">Determines whether the user has permission to modify the deny download setting for the file share. (required).</param>
         /// <param name="canEditExpirationDate">Indicates whether the expiration date of access permissions can be edited. (required).</param>
         /// <param name="canRevoke">Specifies whether the file sharing access can be revoked by the current user. (required).</param>
-        /// <param name="subjectType">subjectType (required).</param>
+        /// <param name="subjectType">The subject type of the access right. (required).</param>
         public FileShareDto(FileShare? access = default, Object sharedTo = default, EmployeeFullDto sharedToUser = default, GroupSummaryDto sharedToGroup = default, FileShareLink sharedLink = default, bool isLocked = default, bool isOwner = default, bool canEditAccess = default, bool canEditInternal = default, bool canEditDenyDownload = default, bool canEditExpirationDate = default, bool canRevoke = default, SubjectType subjectType = default)
         {
             this.IsLocked = isLocked;
@@ -89,30 +89,25 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user who has the access to the specified file.
+        /// Gets or Sets SharedTo
         /// </summary>
-        /// <value>The user who has the access to the specified file.</value>
-        /*
-        <example>{"displayName":"John Doe"}</example>
-        */
         [DataMember(Name = "sharedTo", EmitDefaultValue = true)]
-        [Obsolete]
         public Object SharedTo { get; set; }
 
         /// <summary>
-        /// Gets or Sets SharedToUser
+        /// The full list of user parameters.
         /// </summary>
         [DataMember(Name = "sharedToUser", EmitDefaultValue = false)]
         public EmployeeFullDto SharedToUser { get; set; }
 
         /// <summary>
-        /// Gets or Sets SharedToGroup
+        /// The group summary parameters.
         /// </summary>
         [DataMember(Name = "sharedToGroup", EmitDefaultValue = false)]
         public GroupSummaryDto SharedToGroup { get; set; }
 
         /// <summary>
-        /// Gets or Sets SharedLink
+        /// The user who has the access to the specified file.
         /// </summary>
         [DataMember(Name = "sharedLink", EmitDefaultValue = false)]
         public FileShareLink SharedLink { get; set; }
@@ -120,70 +115,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the access right is locked or not.
         /// </summary>
-        /// <value>Specifies if the access right is locked or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isLocked", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
 
         /// <summary>
         /// Specifies if the user is an owner of the specified file or not.
         /// </summary>
-        /// <value>Specifies if the user is an owner of the specified file or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isOwner", IsRequired = true, EmitDefaultValue = true)]
         public bool IsOwner { get; set; }
 
         /// <summary>
         /// Specifies if the user can edit the access to the specified file or not.
         /// </summary>
-        /// <value>Specifies if the user can edit the access to the specified file or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canEditAccess", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditAccess { get; set; }
 
         /// <summary>
         /// Indicates whether internal editing permissions are granted.
         /// </summary>
-        /// <value>Indicates whether internal editing permissions are granted.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canEditInternal", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditInternal { get; set; }
 
         /// <summary>
         /// Determines whether the user has permission to modify the deny download setting for the file share.
         /// </summary>
-        /// <value>Determines whether the user has permission to modify the deny download setting for the file share.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canEditDenyDownload", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditDenyDownload { get; set; }
 
         /// <summary>
         /// Indicates whether the expiration date of access permissions can be edited.
         /// </summary>
-        /// <value>Indicates whether the expiration date of access permissions can be edited.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canEditExpirationDate", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditExpirationDate { get; set; }
 
         /// <summary>
         /// Specifies whether the file sharing access can be revoked by the current user.
         /// </summary>
-        /// <value>Specifies whether the file sharing access can be revoked by the current user.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canRevoke", IsRequired = true, EmitDefaultValue = true)]
         public bool CanRevoke { get; set; }
 

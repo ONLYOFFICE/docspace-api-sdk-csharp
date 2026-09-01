@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets ActionId
+        /// The event action ID.
         /// </summary>
         [DataMember(Name = "actionId", EmitDefaultValue = false)]
         public MessageAction? ActionId { get; set; }
@@ -48,12 +48,12 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="LoginEventDto" /> class.
         /// </summary>
         /// <param name="id">The login event ID..</param>
-        /// <param name="date">date.</param>
+        /// <param name="date">The API date and time parameters..</param>
         /// <param name="user">The user name of the login event..</param>
         /// <param name="userId">The user ID of the login event..</param>
         /// <param name="login">The user login of the login event..</param>
         /// <param name="action">The login event action..</param>
-        /// <param name="actionId">actionId.</param>
+        /// <param name="actionId">The event action ID..</param>
         /// <param name="ip">The login event IP..</param>
         /// <param name="country">The login event country..</param>
         /// <param name="city">The login event city..</param>
@@ -80,15 +80,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The login event ID.
         /// </summary>
-        /// <value>The login event ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
@@ -96,97 +93,70 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user name of the login event.
         /// </summary>
-        /// <value>The user name of the login event.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
         /// The user ID of the login event.
         /// </summary>
-        /// <value>The user ID of the login event.</value>
+        /// <example>{}</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// The user login of the login event.
         /// </summary>
-        /// <value>The user login of the login event.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
         /// The login event action.
         /// </summary>
-        /// <value>The login event action.</value>
-        /*
-        <example>User logged in</example>
-        */
+        /// <example>User logged in</example>
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
         /// The login event IP.
         /// </summary>
-        /// <value>The login event IP.</value>
-        /*
-        <example>192.0.2.1</example>
-        */
+        /// <example>192.0.2.1</example>
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
         /// The login event country.
         /// </summary>
-        /// <value>The login event country.</value>
-        /*
-        <example>United States</example>
-        */
+        /// <example>United States</example>
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// The login event city.
         /// </summary>
-        /// <value>The login event city.</value>
-        /*
-        <example>New York</example>
-        */
+        /// <example>New York</example>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
         /// The login event browser.
         /// </summary>
-        /// <value>The login event browser.</value>
-        /*
-        <example>Chrome 120.0</example>
-        */
+        /// <example>Chrome 120.0</example>
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
 
         /// <summary>
         /// The login event platform.
         /// </summary>
-        /// <value>The login event platform.</value>
-        /*
-        <example>Windows</example>
-        */
+        /// <example>Windows</example>
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
         /// The login event page.
         /// </summary>
-        /// <value>The login event page.</value>
-        /*
-        <example>/login</example>
-        */
+        /// <example>/login</example>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public string Page { get; set; }
 

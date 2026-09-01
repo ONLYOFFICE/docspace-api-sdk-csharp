@@ -72,120 +72,84 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = true)]
         public string UserId { get; set; }
 
         /// <summary>
         /// Specifies whether to disable a user or not.
         /// </summary>
-        /// <value>Specifies whether to disable a user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "disable", EmitDefaultValue = true)]
         public bool? Disable { get; set; }
 
         /// <summary>
         /// The user email address.
         /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>john.doe@example.com</example>
-        */
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// Specifies if this is a guest or a user.
         /// </summary>
-        /// <value>Specifies if this is a guest or a user.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isUser", EmitDefaultValue = true)]
         public bool? IsUser { get; set; }
 
         /// <summary>
         /// The user first name.
         /// </summary>
-        /// <value>The user first name.</value>
-        /*
-        <example>John</example>
-        */
+        /// <example>John</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// The user last name.
         /// </summary>
-        /// <value>The user last name.</value>
-        /*
-        <example>Doe</example>
-        */
+        /// <example>Doe</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
         /// The list of the user departments.
         /// </summary>
-        /// <value>The list of the user departments.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public List<Guid> Department { get; set; }
 
         /// <summary>
         /// The user location.
         /// </summary>
-        /// <value>The user location.</value>
-        /*
-        <example>New York</example>
-        */
+        /// <example>New York</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
         /// The user comment.
         /// </summary>
-        /// <value>The user comment.</value>
-        /*
-        <example>User comment</example>
-        */
+        /// <example>User comment</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
         /// The list of the user contacts.
         /// </summary>
-        /// <value>The list of the user contacts.</value>
-        /*
-        <example>[{"type":"email","value":"john.doe@example.com"}]</example>
-        */
+        /// <example>[{"type":"email","value":"john.doe@example.com"}]</example>
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
         /// The user avatar photo URL.
         /// </summary>
-        /// <value>The user avatar photo URL.</value>
-        /*
-        <example>https://example.com/avatar.jpg</example>
-        */
+        /// <example>https://example.com/avatar.jpg</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
 
         /// <summary>
         /// Specifies if tips, updates and offers are allowed to be sent to the user or not.
         /// </summary>
-        /// <value>Specifies if tips, updates and offers are allowed to be sent to the user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "spam", EmitDefaultValue = true)]
         public bool? Spam { get; set; }
 

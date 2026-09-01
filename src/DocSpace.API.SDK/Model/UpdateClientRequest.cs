@@ -62,30 +62,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The name of the client
         /// </summary>
-        /// <value>The name of the client</value>
-        /*
-        <example>Updated Client</example>
-        */
+        /// <example>Updated Client</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// The description of the client
         /// </summary>
-        /// <value>The description of the client</value>
-        /*
-        <example>Updated description of the client</example>
-        */
+        /// <example>Updated description of the client</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// The logo of the client in base64 format
         /// </summary>
-        /// <value>The logo of the client in base64 format</value>
-        /*
-        <example>data:image/png;base64,...</example>
-        */
+        /// <example>data:image/png;base64,...</example>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public string Logo { get; set; }
 
@@ -98,30 +89,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Indicates whether PKCE is allowed for the client
         /// </summary>
-        /// <value>Indicates whether PKCE is allowed for the client</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "allow_pkce", EmitDefaultValue = true)]
         public bool AllowPkce { get; set; }
 
         /// <summary>
         /// Indicates whether client is accessible by third-party tenants
         /// </summary>
-        /// <value>Indicates whether client is accessible by third-party tenants</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "is_public", EmitDefaultValue = true)]
         public bool IsPublic { get; set; }
 
         /// <summary>
         /// The allowed origins for the client
         /// </summary>
-        /// <value>The allowed origins for the client</value>
-        /*
-        <example>["http://allowed.origin"]</example>
-        */
+        /// <example>["http://allowed.origin"]</example>
         [DataMember(Name = "allowed_origins", EmitDefaultValue = false)]
         public List<string> AllowedOrigins { get; set; }
 

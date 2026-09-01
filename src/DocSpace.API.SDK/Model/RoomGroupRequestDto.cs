@@ -74,30 +74,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Group name
         /// </summary>
-        /// <value>Group name</value>
-        /*
-        <example>My Group</example>
-        */
+        /// <example>My Group</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Group icon
         /// </summary>
-        /// <value>Group icon</value>
-        /*
-        <example>cover1</example>
-        */
+        /// <example>cover1</example>
         [DataMember(Name = "icon", IsRequired = true, EmitDefaultValue = true)]
         public string Icon { get; set; }
 
         /// <summary>
         /// The list of room IDs.
         /// </summary>
-        /// <value>The list of room IDs.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "rooms", IsRequired = true, EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> Rooms { get; set; }
 

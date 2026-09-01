@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The price value.
         /// </summary>
-        /// <value>The price value.</value>
-        /*
-        <example>99.99</example>
-        */
+        /// <example>99.99</example>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public double? Value { get; set; }
 
         /// <summary>
         /// The currency symbol.
         /// </summary>
-        /// <value>The currency symbol.</value>
-        /*
-        <example>$</example>
-        */
+        /// <example>$</example>
         [DataMember(Name = "currencySymbol", EmitDefaultValue = true)]
         public string CurrencySymbol { get; set; }
 
         /// <summary>
         /// The three-character ISO 4217 currency symbol.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>USD</example>
         [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = true)]
         public string IsoCurrencySymbol { get; set; }
 

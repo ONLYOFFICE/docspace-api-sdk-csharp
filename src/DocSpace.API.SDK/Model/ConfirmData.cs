@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The email address to confirm the user&#39;s identity.
         /// </summary>
-        /// <value>The email address to confirm the user&#39;s identity.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// Specifies whether this is the first access to the user&#39;s account.
         /// </summary>
-        /// <value>Specifies whether this is the first access to the user&#39;s account.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "first", EmitDefaultValue = true)]
         public bool? First { get; set; }
 
         /// <summary>
         /// The unique confirmation key for validating user identity.
         /// </summary>
-        /// <value>The unique confirmation key for validating user identity.</value>
-        /*
-        <example>abc123def456</example>
-        */
+        /// <example>abc123def456</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 

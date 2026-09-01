@@ -39,25 +39,25 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Access
+        /// The access rights to the file entry.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
 
         /// <summary>
-        /// Gets or Sets RootFolderType
+        /// The root folder type of the file entry.
         /// </summary>
         [DataMember(Name = "rootFolderType", EmitDefaultValue = false)]
         public FolderType? RootFolderType { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParentRoomType
+        /// The parent room type of the file entry.
         /// </summary>
         [DataMember(Name = "parentRoomType", EmitDefaultValue = false)]
         public FolderType? ParentRoomType { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileEntryType
+        /// The file entry type.
         /// </summary>
         [DataMember(Name = "fileEntryType", EmitDefaultValue = false)]
         public FileEntryType? FileEntryType { get; set; }
@@ -66,27 +66,27 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FileEntryBaseDto" /> class.
         /// </summary>
         /// <param name="title">The file entry title..</param>
-        /// <param name="access">access.</param>
-        /// <param name="sharedBy">sharedBy.</param>
-        /// <param name="ownedBy">ownedBy.</param>
+        /// <param name="access">The access rights to the file entry..</param>
+        /// <param name="sharedBy">Provides information about the employee who shared the file or folder..</param>
+        /// <param name="ownedBy">The information about the employee who owns the file entry..</param>
         /// <param name="shared">Specifies if the file entry is shared via link or not..</param>
         /// <param name="sharedForUser">Specifies if the file entry is shared for user or not..</param>
         /// <param name="sharedExternal">Specifies if the file entry is shared via a public (non-internal) external link..</param>
         /// <param name="parentShared">Indicates whether the parent entity is shared..</param>
         /// <param name="shortWebUrl">The short Web URL..</param>
-        /// <param name="created">created.</param>
-        /// <param name="createdBy">createdBy.</param>
-        /// <param name="updated">updated.</param>
-        /// <param name="autoDelete">autoDelete.</param>
-        /// <param name="rootFolderType">rootFolderType.</param>
-        /// <param name="parentRoomType">parentRoomType.</param>
-        /// <param name="updatedBy">updatedBy.</param>
+        /// <param name="created">The creation date and time of the file entry..</param>
+        /// <param name="createdBy">The file entry author..</param>
+        /// <param name="updated">The last date and time when the file entry was updated..</param>
+        /// <param name="autoDelete">The date and time when the file entry will be automatically deleted..</param>
+        /// <param name="rootFolderType">The root folder type of the file entry..</param>
+        /// <param name="parentRoomType">The parent room type of the file entry..</param>
+        /// <param name="updatedBy">The user who updated the file entry..</param>
         /// <param name="providerItem">Specifies if the file entry provider is specified or not..</param>
         /// <param name="providerKey">The provider key of the file entry..</param>
         /// <param name="providerId">The provider ID of the file entry..</param>
         /// <param name="order">The order of the file entry..</param>
         /// <param name="isFavorite">Specifies if the file is a favorite or not..</param>
-        /// <param name="fileEntryType">fileEntryType.</param>
+        /// <param name="fileEntryType">The file entry type..</param>
         public FileEntryBaseDto(string title = default, FileShare? access = default, EmployeeDto sharedBy = default, EmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool sharedExternal = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
@@ -116,21 +116,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file entry title.
         /// </summary>
-        /// <value>The file entry title.</value>
-        /*
-        <example>Some title.txt</example>
-        */
+        /// <example>Some title.txt</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets SharedBy
+        /// Provides information about the employee who shared the file or folder.
         /// </summary>
         [DataMember(Name = "sharedBy", EmitDefaultValue = false)]
         public EmployeeDto SharedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets OwnedBy
+        /// The information about the employee who owns the file entry.
         /// </summary>
         [DataMember(Name = "ownedBy", EmitDefaultValue = false)]
         public EmployeeDto OwnedBy { get; set; }
@@ -138,79 +135,64 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the file entry is shared via link or not.
         /// </summary>
-        /// <value>Specifies if the file entry is shared via link or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool Shared { get; set; }
 
         /// <summary>
         /// Specifies if the file entry is shared for user or not.
         /// </summary>
-        /// <value>Specifies if the file entry is shared for user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "sharedForUser", EmitDefaultValue = true)]
         public bool SharedForUser { get; set; }
 
         /// <summary>
         /// Specifies if the file entry is shared via a public (non-internal) external link.
         /// </summary>
-        /// <value>Specifies if the file entry is shared via a public (non-internal) external link.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "sharedExternal", EmitDefaultValue = true)]
         public bool SharedExternal { get; set; }
 
         /// <summary>
         /// Indicates whether the parent entity is shared.
         /// </summary>
-        /// <value>Indicates whether the parent entity is shared.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "parentShared", EmitDefaultValue = true)]
         public bool ParentShared { get; set; }
 
         /// <summary>
         /// The short Web URL.
         /// </summary>
-        /// <value>The short Web URL.</value>
-        /*
-        <example>http://localhost/s/abc123</example>
-        */
+        /// <example>http://localhost/s/abc123</example>
         [DataMember(Name = "shortWebUrl", EmitDefaultValue = true)]
         public string ShortWebUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// The creation date and time of the file entry.
         /// </summary>
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public ApiDateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedBy
+        /// The file entry author.
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public EmployeeDto CreatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets Updated
+        /// The last date and time when the file entry was updated.
         /// </summary>
         [DataMember(Name = "updated", EmitDefaultValue = false)]
         public ApiDateTime Updated { get; set; }
 
         /// <summary>
-        /// Gets or Sets AutoDelete
+        /// The date and time when the file entry will be automatically deleted.
         /// </summary>
         [DataMember(Name = "autoDelete", EmitDefaultValue = false)]
         public ApiDateTime AutoDelete { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpdatedBy
+        /// The user who updated the file entry.
         /// </summary>
         [DataMember(Name = "updatedBy", EmitDefaultValue = false)]
         public EmployeeDto UpdatedBy { get; set; }
@@ -218,50 +200,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the file entry provider is specified or not.
         /// </summary>
-        /// <value>Specifies if the file entry provider is specified or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
         public bool? ProviderItem { get; set; }
 
         /// <summary>
         /// The provider key of the file entry.
         /// </summary>
-        /// <value>The provider key of the file entry.</value>
-        /*
-        <example>google-drive</example>
-        */
+        /// <example>google-drive</example>
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>
         /// The provider ID of the file entry.
         /// </summary>
-        /// <value>The provider ID of the file entry.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "providerId", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
 
         /// <summary>
         /// The order of the file entry.
         /// </summary>
-        /// <value>The order of the file entry.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public string Order { get; set; }
 
         /// <summary>
         /// Specifies if the file is a favorite or not.
         /// </summary>
-        /// <value>Specifies if the file is a favorite or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isFavorite", EmitDefaultValue = true)]
         public bool? IsFavorite { get; set; }
 

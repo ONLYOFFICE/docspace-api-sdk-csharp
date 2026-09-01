@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **City** | **string** | The active connection city. | [optional] 
 **Browser** | **string** | The active connection browser. | [optional] 
 **Platform** | **string** | The active connection platform. | [optional] 
-**Date** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**Date** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. | [optional] 
 **Page** | **string** | The active connection page. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

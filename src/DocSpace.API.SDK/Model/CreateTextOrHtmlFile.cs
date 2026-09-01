@@ -64,30 +64,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file title for text or HTML file.
         /// </summary>
-        /// <value>The file title for text or HTML file.</value>
-        /*
-        <example>Document.txt</example>
-        */
+        /// <example>Document.txt</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The text or HTML file contents.
         /// </summary>
-        /// <value>The text or HTML file contents.</value>
-        /*
-        <example>This is the file content</example>
-        */
+        /// <example>This is the file content</example>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
 
         /// <summary>
         /// Specifies whether to create a new text or HTML file if it exists or not.
         /// </summary>
-        /// <value>Specifies whether to create a new text or HTML file if it exists or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "createNewIfExist", EmitDefaultValue = true)]
         public bool CreateNewIfExist { get; set; }
 

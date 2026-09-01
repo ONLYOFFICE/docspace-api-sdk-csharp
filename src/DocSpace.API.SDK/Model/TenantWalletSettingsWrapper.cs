@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantWalletSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="settings">settings.</param>
+        /// <param name="settings">The tenant wallet settings..</param>
         public TenantWalletSettingsWrapper(TenantWalletSettings settings = default)
         {
             this.Settings = settings;
         }
 
         /// <summary>
-        /// Gets or Sets Settings
+        /// The tenant wallet settings.
         /// </summary>
         [DataMember(Name = "settings", EmitDefaultValue = false)]
         public TenantWalletSettings Settings { get; set; }

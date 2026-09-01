@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to set the specified settings or not.
         /// </summary>
-        /// <value>Specifies whether to set the specified settings or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "set", EmitDefaultValue = true)]
         public bool Set { get; set; }
 

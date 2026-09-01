@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="feedbackAndSupportUrl">The URL for accessing the feedback and support resources..</param>
         /// <param name="buyUrl">The URL for purchasing or upgrading the product. (required).</param>
         /// <param name="standalone">Indicates whether the system is running in standalone mode. (required).</param>
-        /// <param name="currentLicense">currentLicense (required).</param>
+        /// <param name="currentLicense">The current license information. (required).</param>
         /// <param name="max">The maximum quota quantity. (required).</param>
         public PaymentSettingsDto(string salesEmail = default, string feedbackAndSupportUrl = default, string buyUrl = default, bool standalone = default, CurrentLicenseInfo currentLicense = default, int max = default)
         {
@@ -80,45 +80,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The email address for sales inquiries and support.
         /// </summary>
-        /// <value>The email address for sales inquiries and support.</value>
-        /*
-        <example>sales@example.com</example>
-        */
+        /// <example>sales@example.com</example>
         [DataMember(Name = "salesEmail", IsRequired = true, EmitDefaultValue = true)]
         public string SalesEmail { get; set; }
 
         /// <summary>
         /// The URL for accessing the feedback and support resources.
         /// </summary>
-        /// <value>The URL for accessing the feedback and support resources.</value>
-        /*
-        <example>https://example.com</example>
-        */
+        /// <example>https://example.com</example>
         [DataMember(Name = "feedbackAndSupportUrl", EmitDefaultValue = true)]
         public string FeedbackAndSupportUrl { get; set; }
 
         /// <summary>
         /// The URL for purchasing or upgrading the product.
         /// </summary>
-        /// <value>The URL for purchasing or upgrading the product.</value>
-        /*
-        <example>https://example.com/buy</example>
-        */
+        /// <example>https://example.com/buy</example>
         [DataMember(Name = "buyUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BuyUrl { get; set; }
 
         /// <summary>
         /// Indicates whether the system is running in standalone mode.
         /// </summary>
-        /// <value>Indicates whether the system is running in standalone mode.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "standalone", IsRequired = true, EmitDefaultValue = true)]
         public bool Standalone { get; set; }
 
         /// <summary>
-        /// Gets or Sets CurrentLicense
+        /// The current license information.
         /// </summary>
         [DataMember(Name = "currentLicense", IsRequired = true, EmitDefaultValue = true)]
         public CurrentLicenseInfo CurrentLicense { get; set; }
@@ -126,10 +114,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The maximum quota quantity.
         /// </summary>
-        /// <value>The maximum quota quantity.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "max", IsRequired = true, EmitDefaultValue = true)]
         public int Max { get; set; }
 

@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - Custom, 2 - All]
     /// </summary>
-    /// <value>[0 - None, 1 - Custom, 2 - All]</value>
     public enum TenantTrustedDomainsType
     {
         /// <summary>

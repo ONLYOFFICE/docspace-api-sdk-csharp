@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** | The backup ID. | 
 **FileName** | **string** | The backup file name. | 
-**StorageType** | **BackupStorageType** |  | 
+**StorageType** | **BackupStorageType** | The backup storage type. | 
 **CreatedOn** | **DateTime** | The backup creation date. | 
 **ExpiresOn** | **DateTime** | The backup expiration date. | 
 

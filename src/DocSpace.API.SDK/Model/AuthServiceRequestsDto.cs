@@ -62,70 +62,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The name of the authorization service.
         /// </summary>
-        /// <value>The name of the authorization service.</value>
-        /*
-        <example>google</example>
-        */
+        /// <example>google</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The user-friendly display title of the authorization service.
         /// </summary>
-        /// <value>The user-friendly display title of the authorization service.</value>
-        /*
-        <example>Google</example>
-        */
+        /// <example>Google</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The brief description of the authorization service.
         /// </summary>
-        /// <value>The brief description of the authorization service.</value>
-        /*
-        <example>Google OAuth authentication</example>
-        */
+        /// <example>Google OAuth authentication</example>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// The detailed instructions for configuring or using the authorization service.
         /// </summary>
-        /// <value>The detailed instructions for configuring or using the authorization service.</value>
-        /*
-        <example>Configure your Google OAuth credentials</example>
-        */
+        /// <example>Configure your Google OAuth credentials</example>
         [DataMember(Name = "instruction", EmitDefaultValue = true)]
         public string Instruction { get; set; }
 
         /// <summary>
         /// Specifies whether the authorization service can be configured by the user.
         /// </summary>
-        /// <value>Specifies whether the authorization service can be configured by the user.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "canSet", EmitDefaultValue = true)]
         public bool CanSet { get; set; }
 
         /// <summary>
         /// Specifies whether the authorization service is paid or not.
         /// </summary>
-        /// <value>Specifies whether the authorization service is paid or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "paid", EmitDefaultValue = true)]
         public bool Paid { get; set; }
 
         /// <summary>
         /// The collection of authorization keys associated with the authorization service.
         /// </summary>
-        /// <value>The collection of authorization keys associated with the authorization service.</value>
-        /*
-        <example>[{"name":"key","value":"value"}]</example>
-        */
+        /// <example>[{"name":"key","value":"value"}]</example>
         [DataMember(Name = "props", EmitDefaultValue = true)]
         public List<AuthKey> Props { get; set; }
 

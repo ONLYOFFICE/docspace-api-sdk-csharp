@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The password to share external data.
         /// </summary>
-        /// <value>The password to share external data.</value>
-        /*
-        <example>p@ssw0rd</example>
-        */
+        /// <example>p@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 

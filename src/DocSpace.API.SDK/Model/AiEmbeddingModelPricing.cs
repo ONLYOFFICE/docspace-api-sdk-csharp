@@ -50,8 +50,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="alias">alias.</param>
         /// <param name="ownedBy">ownedBy.</param>
         /// <param name="provider">provider.</param>
+        /// <param name="link">link.</param>
         /// <param name="price">price (required).</param>
-        public AiEmbeddingModelPricing(string id = default, string alias = default, string ownedBy = default, string provider = default, AiEmbeddingPrice price = default)
+        public AiEmbeddingModelPricing(string id = default, string alias = default, string ownedBy = default, string provider = default, string link = default, AiEmbeddingPrice price = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -68,6 +69,7 @@ namespace DocSpace.API.SDK.Model
             this.Alias = alias;
             this.OwnedBy = ownedBy;
             this.Provider = provider;
+            this.Link = link;
         }
 
         /// <summary>
@@ -95,6 +97,12 @@ namespace DocSpace.API.SDK.Model
         public string Provider { get; set; }
 
         /// <summary>
+        /// Gets or Sets Link
+        /// </summary>
+        [DataMember(Name = "link", EmitDefaultValue = true)]
+        public string Link { get; set; }
+
+        /// <summary>
         /// Gets or Sets Price
         /// </summary>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
@@ -112,6 +120,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Alias: ").Append(Alias).Append("\n");
             sb.Append("  OwnedBy: ").Append(OwnedBy).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

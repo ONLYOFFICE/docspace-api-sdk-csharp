@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The email address used for sending administrator messages.
         /// </summary>
-        /// <value>The email address used for sending administrator messages.</value>
-        /*
-        <example>admin@example.com</example>
-        */
+        /// <example>admin@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The locale identifier for message localization.
         /// </summary>
-        /// <value>The locale identifier for message localization.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 

@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The access token issued by the authorization server.
         /// </summary>
-        /// <value>The access token issued by the authorization server.</value>
-        /*
-        <example>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</example>
-        */
+        /// <example>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</example>
         [DataMember(Name = "access_token", EmitDefaultValue = false)]
         public string AccessToken { get; set; }
 
         /// <summary>
         /// The type of token issued, typically &#39;Bearer&#39;.
         /// </summary>
-        /// <value>The type of token issued, typically &#39;Bearer&#39;.</value>
-        /*
-        <example>Bearer</example>
-        */
+        /// <example>Bearer</example>
         [DataMember(Name = "token_type", EmitDefaultValue = false)]
         public string TokenType { get; set; }
 
         /// <summary>
         /// The number of seconds until the access token expires.
         /// </summary>
-        /// <value>The number of seconds until the access token expires.</value>
-        /*
-        <example>3600</example>
-        */
+        /// <example>3600</example>
         [DataMember(Name = "expires_in", EmitDefaultValue = false)]
         public int ExpiresIn { get; set; }
 
         /// <summary>
         /// The token used to obtain a new access token when the current one expires.
         /// </summary>
-        /// <value>The token used to obtain a new access token when the current one expires.</value>
-        /*
-        <example>def502...</example>
-        */
+        /// <example>def502...</example>
         [DataMember(Name = "refresh_token", EmitDefaultValue = false)]
         public string RefreshToken { get; set; }
 

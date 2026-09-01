@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets HandlingMode
+        /// The deep link handling mode.
         /// </summary>
         [DataMember(Name = "handlingMode", EmitDefaultValue = false)]
         public DeepLinkHandlingMode? HandlingMode { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantDeepLinkSettings" /> class.
         /// </summary>
-        /// <param name="handlingMode">handlingMode.</param>
+        /// <param name="handlingMode">The deep link handling mode..</param>
         /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
         public TenantDeepLinkSettings(DeepLinkHandlingMode? handlingMode = default, DateTime lastModified = default)
         {
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

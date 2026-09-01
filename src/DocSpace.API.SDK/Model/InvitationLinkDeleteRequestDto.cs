@@ -55,10 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the invitation link.
         /// </summary>
-        /// <value>The ID of the invitation link.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 

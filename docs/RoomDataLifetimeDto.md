@@ -6,7 +6,7 @@ The room data lifetime information.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeletePermanently** | **bool** | Specifies whether to permanently delete the room data or not. | [optional] 
-**Period** | **RoomDataLifetimePeriod** |  | [optional] 
+**Period** | **RoomDataLifetimePeriod** | Specifies the time period type of the room data lifetime. | [optional] 
 **Value** | **int?** | Specifies the time period value of the room data lifetime. | [optional] 
 **Enabled** | **bool?** | Specifies whether the room data lifetime setting is enabled or not. | [optional] 
 

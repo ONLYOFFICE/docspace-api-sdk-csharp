@@ -5,7 +5,7 @@ The request parameters for creating an invitation link.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EmployeeType** | **EmployeeType** |  | 
+**EmployeeType** | **EmployeeType** | The user type. | 
 **Expiration** | **DateTime?** | The expiration date of the invitation link. | [optional] 
 **MaxUseCount** | **int?** | The maximum number of times the invitation link can be used. | [optional] 
 

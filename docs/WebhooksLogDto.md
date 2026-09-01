@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The webhook log ID. | 
 **ConfigName** | **string** | The webhook configuration name. | [optional] 
-**Trigger** | **WebhookTrigger** |  | [optional] 
+**Trigger** | **WebhookTrigger** | The webhook trigger type. | [optional] 
 **CreationTime** | **DateTime** | The webhook creation time. | [optional] 
 **Method** | **string** | The webhook method. | [optional] 
 **Route** | **string** | The webhook route. | [optional] 

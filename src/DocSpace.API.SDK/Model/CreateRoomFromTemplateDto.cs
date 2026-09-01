@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="templateId">The template ID from which the room to be created. (required).</param>
         /// <param name="title">The room title. (required).</param>
-        /// <param name="logo">logo.</param>
+        /// <param name="logo">The logo request parameters..</param>
         /// <param name="copyLogo">Specifies whether to copy a logo or not..</param>
         /// <param name="tags">The collection of tags..</param>
         /// <param name="color">The color of the room to be created..</param>
@@ -56,8 +56,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="quota">The room quota..</param>
         /// <param name="indexing">Specifies whether to create a room with indexing..</param>
         /// <param name="denyDownload">Specifies whether to deny downloads from the room..</param>
-        /// <param name="lifetime">lifetime.</param>
-        /// <param name="watermark">watermark.</param>
+        /// <param name="lifetime">The room data lifetime information..</param>
+        /// <param name="watermark">The request parameters for adding watermarks..</param>
         /// <param name="private">Specifies whether the room to be created is private or not..</param>
         public CreateRoomFromTemplateDto(int templateId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> tags = default, string color = default, string cover = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, bool? @private = default)
         {
@@ -84,25 +84,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The template ID from which the room to be created.
         /// </summary>
-        /// <value>The template ID from which the room to be created.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
         public int TemplateId { get; set; }
 
         /// <summary>
         /// The room title.
         /// </summary>
-        /// <value>The room title.</value>
-        /*
-        <example>My Room From Template</example>
-        */
+        /// <example>My Room From Template</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Logo
+        /// The logo request parameters.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }
@@ -110,81 +104,60 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to copy a logo or not.
         /// </summary>
-        /// <value>Specifies whether to copy a logo or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "copyLogo", EmitDefaultValue = true)]
         public bool CopyLogo { get; set; }
 
         /// <summary>
         /// The collection of tags.
         /// </summary>
-        /// <value>The collection of tags.</value>
-        /*
-        <example>["tag1","tag2","tag3"]</example>
-        */
+        /// <example>["tag1","tag2","tag3"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// The color of the room to be created.
         /// </summary>
-        /// <value>The color of the room to be created.</value>
-        /*
-        <example>#FF0000</example>
-        */
+        /// <example>#FF0000</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
         /// The cover of the room to be created.
         /// </summary>
-        /// <value>The cover of the room to be created.</value>
-        /*
-        <example>cover1.jpg</example>
-        */
+        /// <example>cover1.jpg</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
         /// The room quota.
         /// </summary>
-        /// <value>The room quota.</value>
-        /*
-        <example>1073741824</example>
-        */
+        /// <example>1073741824</example>
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
 
         /// <summary>
         /// Specifies whether to create a room with indexing.
         /// </summary>
-        /// <value>Specifies whether to create a room with indexing.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool? Indexing { get; set; }
 
         /// <summary>
         /// Specifies whether to deny downloads from the room.
         /// </summary>
-        /// <value>Specifies whether to deny downloads from the room.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lifetime
+        /// The room data lifetime information.
         /// </summary>
         [DataMember(Name = "lifetime", EmitDefaultValue = false)]
         public RoomDataLifetimeDto Lifetime { get; set; }
 
         /// <summary>
-        /// Gets or Sets Watermark
+        /// The request parameters for adding watermarks.
         /// </summary>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public WatermarkRequestDto Watermark { get; set; }
@@ -192,10 +165,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the room to be created is private or not.
         /// </summary>
-        /// <value>Specifies whether the room to be created is private or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool? Private { get; set; }
 
@@ -240,6 +210,18 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Title (string) maxLength
+            if (this.Title != null && this.Title.Length > 170)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 170.", new [] { "Title" });
+            }
+
+            // Title (string) minLength
+            if (this.Title != null && this.Title.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
+            }
+
             // Color (string) maxLength
             if (this.Color != null && this.Color.Length > 6)
             {

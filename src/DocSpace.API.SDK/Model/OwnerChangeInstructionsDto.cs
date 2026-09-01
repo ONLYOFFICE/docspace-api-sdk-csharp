@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The owner change instructions status.
         /// </summary>
-        /// <value>The owner change instructions status.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
         /// The owner change instructions message.
         /// </summary>
-        /// <value>The owner change instructions message.</value>
-        /*
-        <example>Ownership transferred successfully</example>
-        */
+        /// <example>Ownership transferred successfully</example>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 

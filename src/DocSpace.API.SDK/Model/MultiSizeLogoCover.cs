@@ -67,20 +67,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The logo cover ID.
         /// </summary>
-        /// <value>The logo cover ID.</value>
-        /*
-        <example>default_cover</example>
-        */
+        /// <example>default_cover</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The logo cover data.
         /// </summary>
-        /// <value>The logo cover data.</value>
-        /*
-        <example>{"small":"base64...","medium":"base64...","large":"base64..."}</example>
-        */
+        /// <example>{"small":"base64...","medium":"base64...","large":"base64..."}</example>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> Data { get; set; }
 

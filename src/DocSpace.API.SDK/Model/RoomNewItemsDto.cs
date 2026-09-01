@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomNewItemsDto" /> class.
         /// </summary>
-        /// <param name="room">room.</param>
+        /// <param name="room">The room file entry..</param>
         /// <param name="items">The list of file entry items..</param>
         public RoomNewItemsDto(FileEntryBaseDto room = default, List<FileEntryBaseDto> items = default)
         {
@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Room
+        /// The room file entry.
         /// </summary>
         [DataMember(Name = "room", EmitDefaultValue = false)]
         public FileEntryBaseDto Room { get; set; }
@@ -58,7 +58,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of file entry items.
         /// </summary>
-        /// <value>The list of file entry items.</value>
         [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Items { get; set; }
 

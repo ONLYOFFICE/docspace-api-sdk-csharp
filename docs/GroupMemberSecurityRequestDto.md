@@ -5,9 +5,9 @@ The group member security information.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | [**EmployeeFullDto**](EmployeeFullDto.md) |  | 
-**GroupAccess** | **FileShare** |  | 
-**UserAccess** | **FileShare** |  | [optional] 
+**User** | [**EmployeeFullDto**](EmployeeFullDto.md) | The full list of user parameters. | 
+**GroupAccess** | **FileShare** | The access rights type. | 
+**UserAccess** | **FileShare** | The group member access rights to the files. | [optional] 
 **Overridden** | **bool** | Specifies if the group access rights are overridden or not. | 
 **CanEditAccess** | **bool** | Specifies if the group member can edit the group access rights or not. | 
 **Owner** | **bool** | Specifies if the group member is a group owner or not. | 

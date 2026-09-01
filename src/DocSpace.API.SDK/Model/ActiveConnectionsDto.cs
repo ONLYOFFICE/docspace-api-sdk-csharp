@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The login event.
         /// </summary>
-        /// <value>The login event.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "loginEvent", IsRequired = true, EmitDefaultValue = true)]
         public int LoginEvent { get; set; }
 
         /// <summary>
         /// The list of active connection items.
         /// </summary>
-        /// <value>The list of active connection items.</value>
-        /*
-        <example>[{"id":"conn1","ip":"192.168.1.1"}]</example>
-        */
+        /// <example>[{"id":"conn1","ip":"192.168.1.1"}]</example>
         [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<ActiveConnectionsItemDto> Items { get; set; }
 

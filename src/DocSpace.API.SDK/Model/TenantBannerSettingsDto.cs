@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The banners visibility flag.
         /// </summary>
-        /// <value>The banners visibility flag.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "hidden", EmitDefaultValue = true)]
         public bool Hidden { get; set; }
 

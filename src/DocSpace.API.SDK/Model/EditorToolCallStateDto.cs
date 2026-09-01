@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EditorToolCallStateDto" /> class.
         /// </summary>
         /// <param name="toolName">The tool name. (required).</param>
-        /// <param name="parameters">The editor tool call parameters. (required).</param>
+        /// <param name="parameters">The tool call parameters. (required).</param>
         public EditorToolCallStateDto(string toolName = default, Object parameters = default)
         {
             // to ensure "toolName" is required (not null)
@@ -67,17 +67,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The tool name.
         /// </summary>
-        /// <value>The tool name.</value>
-        /*
-        <example>GenerateDocx</example>
-        */
+        /// <example>GenerateDocx</example>
         [DataMember(Name = "toolName", IsRequired = true, EmitDefaultValue = true)]
         public string ToolName { get; set; }
 
         /// <summary>
-        /// The editor tool call parameters.
+        /// The tool call parameters.
         /// </summary>
-        /// <value>The editor tool call parameters.</value>
         [DataMember(Name = "parameters", IsRequired = true, EmitDefaultValue = true)]
         public Object Parameters { get; set; }
 

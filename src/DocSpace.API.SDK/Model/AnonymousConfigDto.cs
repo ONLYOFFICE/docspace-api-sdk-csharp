@@ -55,10 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the anonymous is a request.
         /// </summary>
-        /// <value>Specifies if the anonymous is a request.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "request", IsRequired = true, EmitDefaultValue = true)]
         public bool Request { get; set; }
 

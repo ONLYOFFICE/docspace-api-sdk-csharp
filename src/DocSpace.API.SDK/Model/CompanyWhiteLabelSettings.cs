@@ -64,80 +64,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The company name.
         /// </summary>
-        /// <value>The company name.</value>
-        /*
-        <example>ONLYOFFICE</example>
-        */
+        /// <example>ONLYOFFICE</example>
         [DataMember(Name = "companyName", EmitDefaultValue = true)]
         public string CompanyName { get; set; }
 
         /// <summary>
         /// The company site.
         /// </summary>
-        /// <value>The company site.</value>
-        /*
-        <example>https://www.onlyoffice.com</example>
-        */
+        /// <example>https://www.onlyoffice.com</example>
         [DataMember(Name = "site", EmitDefaultValue = true)]
         public string Site { get; set; }
 
         /// <summary>
         /// The company email address.
         /// </summary>
-        /// <value>The company email address.</value>
-        /*
-        <example>support@onlyoffice.com</example>
-        */
+        /// <example>support@onlyoffice.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The company address.
         /// </summary>
-        /// <value>The company address.</value>
-        /*
-        <example>Lubanas st. 125a-25</example>
-        */
+        /// <example>Lubanas st. 125a-25</example>
         [DataMember(Name = "address", EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
         /// The company phone number.
         /// </summary>
-        /// <value>The company phone number.</value>
-        /*
-        <example>+7 843 2271372</example>
-        */
+        /// <example>+7 843 2271372</example>
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public string Phone { get; set; }
 
         /// <summary>
         /// Specifies if a company is a licensor or not.
         /// </summary>
-        /// <value>Specifies if a company is a licensor or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "IsLicensor", EmitDefaultValue = true)]
         public bool IsLicensor { get; set; }
 
         /// <summary>
         /// Specifies if the About page is visible or not
         /// </summary>
-        /// <value>Specifies if the About page is visible or not</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "hideAbout", EmitDefaultValue = true)]
         public bool HideAbout { get; set; }
 
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Group icon
         /// </summary>
-        /// <value>Group icon</value>
-        /*
-        <example>https://example.com/image.png</example>
-        */
+        /// <example>https://example.com/image.png</example>
         [DataMember(Name = "icon", EmitDefaultValue = true)]
         public string Icon { get; set; }
 

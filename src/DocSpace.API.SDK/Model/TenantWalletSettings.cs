@@ -45,63 +45,66 @@ namespace DocSpace.API.SDK.Model
         /// <param name="minBalance">The minimum wallet balance at which automatic top-up will be triggered. Must be between 5 and 1000..</param>
         /// <param name="upToBalance">The maximum wallet balance at which automatic top-up will be triggered. Must be between 6 and 5000..</param>
         /// <param name="currency">The three-character ISO 4217 currency symbol..</param>
+        /// <param name="lowBalanceThreshold">The wallet balance below which a low-balance notification is sent. Set internally, not user-configurable..</param>
+        /// <param name="lowBalanceNotified">Specifies whether a low-balance notification has already been sent for the current dip below ASC.Core.Tenants.TenantWalletSettings.LowBalanceThreshold..</param>
         /// <param name="lastModified">The date and time when the tenant wallet settings were last modified..</param>
-        public TenantWalletSettings(bool enabled = default, int minBalance = default, int upToBalance = default, string currency = default, DateTime lastModified = default)
+        public TenantWalletSettings(bool enabled = default, int minBalance = default, int upToBalance = default, string currency = default, int lowBalanceThreshold = default, bool lowBalanceNotified = default, DateTime lastModified = default)
         {
             this.Enabled = enabled;
             this.MinBalance = minBalance;
             this.UpToBalance = upToBalance;
             this.Currency = currency;
+            this.LowBalanceThreshold = lowBalanceThreshold;
+            this.LowBalanceNotified = lowBalanceNotified;
             this.LastModified = lastModified;
         }
 
         /// <summary>
         /// Specifies whether automatic top-up for the tenant wallet is enabled.
         /// </summary>
-        /// <value>Specifies whether automatic top-up for the tenant wallet is enabled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// The minimum wallet balance at which automatic top-up will be triggered. Must be between 5 and 1000.
         /// </summary>
-        /// <value>The minimum wallet balance at which automatic top-up will be triggered. Must be between 5 and 1000.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "minBalance", EmitDefaultValue = false)]
         public int MinBalance { get; set; }
 
         /// <summary>
         /// The maximum wallet balance at which automatic top-up will be triggered. Must be between 6 and 5000.
         /// </summary>
-        /// <value>The maximum wallet balance at which automatic top-up will be triggered. Must be between 6 and 5000.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "upToBalance", EmitDefaultValue = false)]
         public int UpToBalance { get; set; }
 
         /// <summary>
         /// The three-character ISO 4217 currency symbol.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
+        /// The wallet balance below which a low-balance notification is sent. Set internally, not user-configurable.
+        /// </summary>
+        /// <example>1</example>
+        [DataMember(Name = "lowBalanceThreshold", EmitDefaultValue = false)]
+        public int LowBalanceThreshold { get; set; }
+
+        /// <summary>
+        /// Specifies whether a low-balance notification has already been sent for the current dip below ASC.Core.Tenants.TenantWalletSettings.LowBalanceThreshold.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "lowBalanceNotified", EmitDefaultValue = true)]
+        public bool LowBalanceNotified { get; set; }
+
+        /// <summary>
         /// The date and time when the tenant wallet settings were last modified.
         /// </summary>
-        /// <value>The date and time when the tenant wallet settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 
@@ -117,6 +120,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  MinBalance: ").Append(MinBalance).Append("\n");
             sb.Append("  UpToBalance: ").Append(UpToBalance).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  LowBalanceThreshold: ").Append(LowBalanceThreshold).Append("\n");
+            sb.Append("  LowBalanceNotified: ").Append(LowBalanceNotified).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

@@ -1,0 +1,12 @@
+# DocSpace.API.SDK.Model.EncryptionKeyRequestDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **Guid** |  | [optional] 
+**PublicKey** | **string** |  | [optional] 
+**PrivateKeyEnc** | **string** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

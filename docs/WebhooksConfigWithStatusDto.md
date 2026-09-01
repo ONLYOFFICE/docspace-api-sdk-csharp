@@ -5,7 +5,7 @@ The webhook configuration with its status.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Configs** | [**WebhooksConfigDto**](WebhooksConfigDto.md) |  | [optional] 
+**Configs** | [**WebhooksConfigDto**](WebhooksConfigDto.md) | The webhook configuration. | [optional] 
 **Status** | **int** | The webhook status. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the tenant whose quota is being configured.
         /// </summary>
-        /// <value>The ID of the tenant whose quota is being configured.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// The storage quota limit in bytes allocated to the tenant.
         /// </summary>
-        /// <value>The storage quota limit in bytes allocated to the tenant.</value>
-        /*
-        <example>1048576</example>
-        */
+        /// <example>1048576</example>
         [DataMember(Name = "quota", EmitDefaultValue = false)]
         public long Quota { get; set; }
 

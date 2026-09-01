@@ -6,7 +6,7 @@ The backup restoring parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BackupId** | **string** | The backup ID. | 
-**StorageType** | **BackupStorageType** |  | [optional] 
+**StorageType** | **BackupStorageType** | The backup storage type. | [optional] 
 **StorageParams** | [**List&lt;ItemKeyValuePairObjectObject&gt;**](ItemKeyValuePairObjectObject.md) | The backup storage parameters. | [optional] 
 **Notify** | **bool** | Notifies users about the portal restoring process or not. | [optional] 
 **Dump** | **bool** | Specifies if a dump will be created or not. | [optional] 

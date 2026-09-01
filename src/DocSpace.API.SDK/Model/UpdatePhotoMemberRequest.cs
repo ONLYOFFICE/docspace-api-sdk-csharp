@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The avatar photo URL.
         /// </summary>
-        /// <value>The avatar photo URL.</value>
-        /*
-        <example>https://example.com/avatar.jpg</example>
-        */
+        /// <example>https://example.com/avatar.jpg</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
 

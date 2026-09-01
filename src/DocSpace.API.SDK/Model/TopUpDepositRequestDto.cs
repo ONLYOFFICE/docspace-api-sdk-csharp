@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The amount of money for the operation.
         /// </summary>
-        /// <value>The amount of money for the operation.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public int Amount { get; set; }
 
         /// <summary>
         /// The three-character ISO 4217 currency symbol.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 

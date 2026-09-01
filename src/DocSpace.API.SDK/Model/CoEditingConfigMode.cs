@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Fast, 1 - Strict]
     /// </summary>
-    /// <value>[0 - Fast, 1 - Strict]</value>
     public enum CoEditingConfigMode
     {
         /// <summary>

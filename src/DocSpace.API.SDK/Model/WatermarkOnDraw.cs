@@ -62,70 +62,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Defines the watermark width measured in millimeters.
         /// </summary>
-        /// <value>Defines the watermark width measured in millimeters.</value>
-        /*
-        <example>150</example>
-        */
+        /// <example>150</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public double Width { get; set; }
 
         /// <summary>
         /// Defines the watermark height measured in millimeters.
         /// </summary>
-        /// <value>Defines the watermark height measured in millimeters.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public double Height { get; set; }
 
         /// <summary>
         /// Defines the watermark margins measured in millimeters.
         /// </summary>
-        /// <value>Defines the watermark margins measured in millimeters.</value>
-        /*
-        <example>[10,10,10,10]</example>
-        */
+        /// <example>[10,10,10,10]</example>
         [DataMember(Name = "margins", EmitDefaultValue = true)]
         public List<int> Margins { get; set; }
 
         /// <summary>
         /// Defines the watermark fill color.
         /// </summary>
-        /// <value>Defines the watermark fill color.</value>
-        /*
-        <example>#FF0000</example>
-        */
+        /// <example>#FF0000</example>
         [DataMember(Name = "fill", EmitDefaultValue = true)]
         public string Fill { get; set; }
 
         /// <summary>
         /// Defines the watermark rotation angle.
         /// </summary>
-        /// <value>Defines the watermark rotation angle.</value>
-        /*
-        <example>45</example>
-        */
+        /// <example>45</example>
         [DataMember(Name = "rotate", EmitDefaultValue = false)]
         public int Rotate { get; set; }
 
         /// <summary>
         /// Defines the watermark transparency percentage.
         /// </summary>
-        /// <value>Defines the watermark transparency percentage.</value>
-        /*
-        <example>0.4</example>
-        */
+        /// <example>0.4</example>
         [DataMember(Name = "transparent", EmitDefaultValue = false)]
         public double Transparent { get; set; }
 
         /// <summary>
         /// The list of paragraphs of the watermark.
         /// </summary>
-        /// <value>The list of paragraphs of the watermark.</value>
-        /*
-        <example>[{"align":2,"runs":[{"fill":[124,124,124],"text":"CONFIDENTIAL","fontSize":26}]}]</example>
-        */
+        /// <example>[{"align":2,"runs":[{"fill":[124,124,124],"text":"CONFIDENTIAL","fontSize":26}]}]</example>
         [DataMember(Name = "paragraphs", EmitDefaultValue = true)]
         public List<Paragraph> Paragraphs { get; set; }
 

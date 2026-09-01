@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The third-party profile in the serialized format.
         /// </summary>
-        /// <value>The third-party profile in the serialized format.</value>
-        /*
-        <example>{"provider":"Google","id":"123456"}</example>
-        */
+        /// <example>{"provider":"Google","id":"123456"}</example>
         [DataMember(Name = "serializedProfile", EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 

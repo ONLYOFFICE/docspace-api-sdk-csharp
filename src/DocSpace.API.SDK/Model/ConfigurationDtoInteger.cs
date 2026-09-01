@@ -39,19 +39,19 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets EditorType
+        /// The editor type.
         /// </summary>
         [DataMember(Name = "editorType", IsRequired = true, EmitDefaultValue = true)]
         public EditorType EditorType { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartFillingMode
+        /// The start filling mode.
         /// </summary>
         [DataMember(Name = "startFillingMode", EmitDefaultValue = false)]
         public StartFillingMode? StartFillingMode { get; set; }
 
         /// <summary>
-        /// Gets or Sets QuotaExceededScope
+        /// Indicates which quota scope has been exceeded.
         /// </summary>
         [DataMember(Name = "quotaExceededScope", EmitDefaultValue = false)]
         public QuotaScope? QuotaExceededScope { get; set; }
@@ -64,21 +64,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationDtoInteger" /> class.
         /// </summary>
-        /// <param name="document">document (required).</param>
+        /// <param name="document">The document configuration. (required).</param>
         /// <param name="documentType">The document type. (required).</param>
-        /// <param name="editorConfig">editorConfig (required).</param>
-        /// <param name="editorType">editorType (required).</param>
+        /// <param name="editorConfig">The editor configuration. (required).</param>
+        /// <param name="editorType">The editor type. (required).</param>
         /// <param name="editorUrl">The editor URL. (required).</param>
         /// <param name="token">The token of the file configuration..</param>
         /// <param name="type">The platform type..</param>
-        /// <param name="file">file (required).</param>
+        /// <param name="file">The file parameters. (required).</param>
         /// <param name="errorMessage">The error message..</param>
         /// <param name="startFilling">Specifies if the file filling has started or not..</param>
         /// <param name="fillingStatus">The file filling status..</param>
-        /// <param name="startFillingMode">startFillingMode.</param>
+        /// <param name="startFillingMode">The start filling mode..</param>
         /// <param name="fillingSessionId">The file filling session ID..</param>
-        /// <param name="quotaExceededScope">quotaExceededScope.</param>
-        /// <param name="generationToolCallState">generationToolCallState.</param>
+        /// <param name="quotaExceededScope">Indicates which quota scope has been exceeded..</param>
+        /// <param name="generationToolCallState">The generation tool call state. Used to run the agent flow in the editor..</param>
         public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default, QuotaScope? quotaExceededScope = default, EditorToolCallStateDto generationToolCallState = default)
         {
             // to ensure "document" is required (not null)
@@ -124,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Document
+        /// The document configuration.
         /// </summary>
         [DataMember(Name = "document", IsRequired = true, EmitDefaultValue = true)]
         public DocumentConfigDto Document { get; set; }
@@ -132,15 +132,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The document type.
         /// </summary>
-        /// <value>The document type.</value>
-        /*
-        <example>word</example>
-        */
+        /// <example>word</example>
         [DataMember(Name = "documentType", IsRequired = true, EmitDefaultValue = true)]
         public string DocumentType { get; set; }
 
         /// <summary>
-        /// Gets or Sets EditorConfig
+        /// The editor configuration.
         /// </summary>
         [DataMember(Name = "editorConfig", IsRequired = true, EmitDefaultValue = true)]
         public EditorConfigurationDto EditorConfig { get; set; }
@@ -148,35 +145,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The editor URL.
         /// </summary>
-        /// <value>The editor URL.</value>
-        /*
-        <example>http://localhost/editor</example>
-        */
+        /// <example>http://localhost/editor</example>
         [DataMember(Name = "editorUrl", IsRequired = true, EmitDefaultValue = true)]
         public string EditorUrl { get; set; }
 
         /// <summary>
         /// The token of the file configuration.
         /// </summary>
-        /// <value>The token of the file configuration.</value>
-        /*
-        <example>token-abc-123</example>
-        */
+        /// <example>token-abc-123</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
         /// The platform type.
         /// </summary>
-        /// <value>The platform type.</value>
-        /*
-        <example>desktop</example>
-        */
+        /// <example>desktop</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets File
+        /// The file parameters.
         /// </summary>
         [DataMember(Name = "file", IsRequired = true, EmitDefaultValue = true)]
         public FileDtoInteger File { get; set; }
@@ -184,45 +172,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The error message.
         /// </summary>
-        /// <value>The error message.</value>
-        /*
-        <example>Configuration error</example>
-        */
+        /// <example>Configuration error</example>
         [DataMember(Name = "errorMessage", EmitDefaultValue = true)]
         public string ErrorMessage { get; set; }
 
         /// <summary>
         /// Specifies if the file filling has started or not.
         /// </summary>
-        /// <value>Specifies if the file filling has started or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "startFilling", EmitDefaultValue = true)]
         public bool? StartFilling { get; set; }
 
         /// <summary>
         /// The file filling status.
         /// </summary>
-        /// <value>The file filling status.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "fillingStatus", EmitDefaultValue = true)]
         public bool? FillingStatus { get; set; }
 
         /// <summary>
         /// The file filling session ID.
         /// </summary>
-        /// <value>The file filling session ID.</value>
-        /*
-        <example>session-123-456</example>
-        */
+        /// <example>session-123-456</example>
         [DataMember(Name = "fillingSessionId", EmitDefaultValue = true)]
         public string FillingSessionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets GenerationToolCallState
+        /// The generation tool call state. Used to run the agent flow in the editor.
         /// </summary>
         [DataMember(Name = "generationToolCallState", EmitDefaultValue = false)]
         public EditorToolCallStateDto GenerationToolCallState { get; set; }

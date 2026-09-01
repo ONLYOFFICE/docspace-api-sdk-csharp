@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - Set, 2 - Expired]
     /// </summary>
-    /// <value>[0 - None, 1 - Set, 2 - Expired]</value>
     public enum PaymentMethodStatus
     {
         /// <summary>

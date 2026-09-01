@@ -60,10 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user culture name (en-US, de, fr, es, ...).
         /// </summary>
-        /// <value>The user culture name (en-US, de, fr, es, ...).</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "cultureName", IsRequired = true, EmitDefaultValue = true)]
         public string CultureName { get; set; }
 

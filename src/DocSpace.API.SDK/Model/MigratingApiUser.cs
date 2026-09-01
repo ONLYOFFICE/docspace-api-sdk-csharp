@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets UserType
+        /// The user type.
         /// </summary>
         [DataMember(Name = "userType", EmitDefaultValue = false)]
         public EmployeeType? UserType { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="displayName">displayName.</param>
         /// <param name="firstName">firstName.</param>
         /// <param name="lastName">lastName.</param>
-        /// <param name="userType">userType.</param>
+        /// <param name="userType">The user type..</param>
         /// <param name="migratingFiles">migratingFiles.</param>
         public MigratingApiUser(string key = default, string email = default, string displayName = default, string firstName = default, string lastName = default, EmployeeType? userType = default, MigratingApiFiles migratingFiles = default)
         {
@@ -141,4 +141,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

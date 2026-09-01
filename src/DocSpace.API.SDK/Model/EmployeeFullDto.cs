@@ -39,25 +39,25 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The user status.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public EmployeeStatus? Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActivationStatus
+        /// The user activation status.
         /// </summary>
         [DataMember(Name = "activationStatus", EmitDefaultValue = false)]
         public EmployeeActivationStatus? ActivationStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets MobilePhoneActivationStatus
+        /// The user mobile phone activation status.
         /// </summary>
         [DataMember(Name = "mobilePhoneActivationStatus", EmitDefaultValue = false)]
         public MobilePhoneActivationStatus? MobilePhoneActivationStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets Theme
+        /// The user theme settings.
         /// </summary>
         [DataMember(Name = "theme", EmitDefaultValue = false)]
         public DarkThemeSettingsType? Theme { get; set; }
@@ -70,9 +70,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="userName">The user username..</param>
         /// <param name="email">The user email..</param>
         /// <param name="contacts">The list of user contacts..</param>
-        /// <param name="status">status.</param>
-        /// <param name="activationStatus">activationStatus.</param>
-        /// <param name="terminated">terminated.</param>
+        /// <param name="status">The user status..</param>
+        /// <param name="activationStatus">The user activation status..</param>
+        /// <param name="terminated">The date when the user account was terminated..</param>
         /// <param name="department">The user department..</param>
         /// <param name="groups">The list of user groups..</param>
         /// <param name="location">The user location..</param>
@@ -86,17 +86,17 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isCollaborator">Specifies if the user is a portal collaborator or not..</param>
         /// <param name="cultureName">The user culture code..</param>
         /// <param name="mobilePhone">The user mobile phone number..</param>
-        /// <param name="mobilePhoneActivationStatus">mobilePhoneActivationStatus.</param>
+        /// <param name="mobilePhoneActivationStatus">The user mobile phone activation status..</param>
         /// <param name="isSSO">Specifies if the SSO settings are enabled for the user or not..</param>
-        /// <param name="theme">theme.</param>
+        /// <param name="theme">The user theme settings..</param>
         /// <param name="quotaLimit">The user quota limit..</param>
         /// <param name="usedSpace">The portal used space of the user..</param>
         /// <param name="shared">Specifies if the user has access rights..</param>
         /// <param name="isCustomQuota">Specifies if the user has a custom quota or not..</param>
         /// <param name="loginEventId">The current login event ID..</param>
         /// <param name="authCookieLifetime">The auth cookie lifetime in seconds..</param>
-        /// <param name="createdBy">createdBy.</param>
-        /// <param name="registrationDate">registrationDate.</param>
+        /// <param name="createdBy">The user who created the current user..</param>
+        /// <param name="registrationDate">The user registration date..</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
         public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
@@ -140,55 +140,40 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user first name.
         /// </summary>
-        /// <value>The user first name.</value>
-        /*
-        <example>Mike</example>
-        */
+        /// <example>Mike</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// The user last name.
         /// </summary>
-        /// <value>The user last name.</value>
-        /*
-        <example>Zanyatski</example>
-        */
+        /// <example>Zanyatski</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
         /// The user username.
         /// </summary>
-        /// <value>The user username.</value>
-        /*
-        <example>Mike.Zanyatski</example>
-        */
+        /// <example>Mike.Zanyatski</example>
         [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
         /// The user email.
         /// </summary>
-        /// <value>The user email.</value>
-        /*
-        <example>my@gmail.com</example>
-        */
+        /// <example>my@gmail.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The list of user contacts.
         /// </summary>
-        /// <value>The list of user contacts.</value>
-        /*
-        <example>[{&quot;type&quot;:&quot;email&quot;,&quot;value&quot;:&quot;user@example.com&quot;}]</example>
-        */
+        /// <example>[{"type":"email","value":"user@example.com"}]</example>
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
-        /// Gets or Sets Terminated
+        /// The date when the user account was terminated.
         /// </summary>
         [DataMember(Name = "terminated", EmitDefaultValue = false)]
         public ApiDateTime Terminated { get; set; }
@@ -196,211 +181,151 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user department.
         /// </summary>
-        /// <value>The user department.</value>
-        /*
-        <example>Marketing</example>
-        */
+        /// <example>Marketing</example>
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public string Department { get; set; }
 
         /// <summary>
         /// The list of user groups.
         /// </summary>
-        /// <value>The list of user groups.</value>
-        /*
-        <example>[{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;name&quot;:&quot;Marketing&quot;}]</example>
-        */
+        /// <example>[{"id":"00000000-0000-0000-0000-000000000000","name":"Marketing"}]</example>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }
 
         /// <summary>
         /// The user location.
         /// </summary>
-        /// <value>The user location.</value>
-        /*
-        <example>Palo Alto</example>
-        */
+        /// <example>Palo Alto</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
         /// The user notes.
         /// </summary>
-        /// <value>The user notes.</value>
-        /*
-        <example>Notes to worker</example>
-        */
+        /// <example>Notes to worker</example>
         [DataMember(Name = "notes", EmitDefaultValue = true)]
         public string Notes { get; set; }
 
         /// <summary>
         /// Specifies if the user is an administrator or not.
         /// </summary>
-        /// <value>Specifies if the user is an administrator or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isAdmin", EmitDefaultValue = true)]
         public bool IsAdmin { get; set; }
 
         /// <summary>
         /// Specifies if the user is a room administrator or not.
         /// </summary>
-        /// <value>Specifies if the user is a room administrator or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isRoomAdmin", EmitDefaultValue = true)]
         public bool IsRoomAdmin { get; set; }
 
         /// <summary>
         /// Specifies if the LDAP settings are enabled for the user or not.
         /// </summary>
-        /// <value>Specifies if the LDAP settings are enabled for the user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isLDAP", EmitDefaultValue = true)]
         public bool IsLDAP { get; set; }
 
         /// <summary>
         /// The list of the administrator modules.
         /// </summary>
-        /// <value>The list of the administrator modules.</value>
-        /*
-        <example>[&quot;projects&quot;,&quot;crm&quot;]</example>
-        */
+        /// <example>["projects","crm"]</example>
         [DataMember(Name = "listAdminModules", EmitDefaultValue = true)]
         public List<string> ListAdminModules { get; set; }
 
         /// <summary>
         /// Specifies if the user is a portal owner or not.
         /// </summary>
-        /// <value>Specifies if the user is a portal owner or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isOwner", EmitDefaultValue = true)]
         public bool IsOwner { get; set; }
 
         /// <summary>
         /// Specifies if the user is a portal visitor or not.
         /// </summary>
-        /// <value>Specifies if the user is a portal visitor or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isVisitor", EmitDefaultValue = true)]
         public bool IsVisitor { get; set; }
 
         /// <summary>
         /// Specifies if the user is a portal collaborator or not.
         /// </summary>
-        /// <value>Specifies if the user is a portal collaborator or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCollaborator", EmitDefaultValue = true)]
         public bool IsCollaborator { get; set; }
 
         /// <summary>
         /// The user culture code.
         /// </summary>
-        /// <value>The user culture code.</value>
-        /*
-        <example>en-EN</example>
-        */
+        /// <example>en-EN</example>
         [DataMember(Name = "cultureName", EmitDefaultValue = true)]
         public string CultureName { get; set; }
 
         /// <summary>
         /// The user mobile phone number.
         /// </summary>
-        /// <value>The user mobile phone number.</value>
-        /*
-        <example>+1 (555) 123-4567</example>
-        */
+        /// <example>+1 (555) 123-4567</example>
         [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
         public string MobilePhone { get; set; }
 
         /// <summary>
         /// Specifies if the SSO settings are enabled for the user or not.
         /// </summary>
-        /// <value>Specifies if the SSO settings are enabled for the user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isSSO", EmitDefaultValue = true)]
         public bool IsSSO { get; set; }
 
         /// <summary>
         /// The user quota limit.
         /// </summary>
-        /// <value>The user quota limit.</value>
-        /*
-        <example>1073741824</example>
-        */
+        /// <example>1073741824</example>
         [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
         public long? QuotaLimit { get; set; }
 
         /// <summary>
         /// The portal used space of the user.
         /// </summary>
-        /// <value>The portal used space of the user.</value>
-        /*
-        <example>12345</example>
-        */
+        /// <example>12345</example>
         [DataMember(Name = "usedSpace", EmitDefaultValue = true)]
         public double? UsedSpace { get; set; }
 
         /// <summary>
         /// Specifies if the user has access rights.
         /// </summary>
-        /// <value>Specifies if the user has access rights.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool? Shared { get; set; }
 
         /// <summary>
         /// Specifies if the user has a custom quota or not.
         /// </summary>
-        /// <value>Specifies if the user has a custom quota or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
         public bool? IsCustomQuota { get; set; }
 
         /// <summary>
         /// The current login event ID.
         /// </summary>
-        /// <value>The current login event ID.</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "loginEventId", EmitDefaultValue = true)]
         public int? LoginEventId { get; set; }
 
         /// <summary>
         /// The auth cookie lifetime in seconds.
         /// </summary>
-        /// <value>The auth cookie lifetime in seconds.</value>
-        /*
-        <example>3600</example>
-        */
+        /// <example>3600</example>
         [DataMember(Name = "authCookieLifetime", EmitDefaultValue = true)]
         public double? AuthCookieLifetime { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedBy
+        /// The user who created the current user.
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public EmployeeDto CreatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets RegistrationDate
+        /// The user registration date.
         /// </summary>
         [DataMember(Name = "registrationDate", EmitDefaultValue = false)]
         public ApiDateTime RegistrationDate { get; set; }
@@ -408,20 +333,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the user has a personal folder or not.
         /// </summary>
-        /// <value>Specifies if the user has a personal folder or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "hasPersonalFolder", EmitDefaultValue = true)]
         public bool? HasPersonalFolder { get; set; }
 
         /// <summary>
         /// Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.
         /// </summary>
-        /// <value>Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "tfaAppEnabled", EmitDefaultValue = true)]
         public bool? TfaAppEnabled { get; set; }
 
@@ -492,4 +411,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

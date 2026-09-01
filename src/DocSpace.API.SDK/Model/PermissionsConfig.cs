@@ -68,100 +68,70 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Defines if the document can be commented or not.
         /// </summary>
-        /// <value>Defines if the document can be commented or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public bool Comment { get; set; }
 
         /// <summary>
         /// Defines if the chat functionality is enabled in the document or not.
         /// </summary>
-        /// <value>Defines if the chat functionality is enabled in the document or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "chat", EmitDefaultValue = true)]
         public bool Chat { get; set; }
 
         /// <summary>
         /// Defines if the document can be downloaded or only viewed or edited online.
         /// </summary>
-        /// <value>Defines if the document can be downloaded or only viewed or edited online.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "download", EmitDefaultValue = true)]
         public bool Download { get; set; }
 
         /// <summary>
         /// Defines if the document can be edited or only viewed.
         /// </summary>
-        /// <value>Defines if the document can be edited or only viewed.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "edit", EmitDefaultValue = true)]
         public bool Edit { get; set; }
 
         /// <summary>
         /// Defines if the forms can be filled.
         /// </summary>
-        /// <value>Defines if the forms can be filled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "fillForms", EmitDefaultValue = true)]
         public bool FillForms { get; set; }
 
         /// <summary>
         /// Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only.
         /// </summary>
-        /// <value>Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "modifyFilter", EmitDefaultValue = true)]
         public bool ModifyFilter { get; set; }
 
         /// <summary>
         /// Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden.
         /// </summary>
-        /// <value>Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "protect", EmitDefaultValue = true)]
         public bool Protect { get; set; }
 
         /// <summary>
         /// Defines if the document can be printed or not.
         /// </summary>
-        /// <value>Defines if the document can be printed or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "print", EmitDefaultValue = true)]
         public bool Print { get; set; }
 
         /// <summary>
         /// Defines if the document can be reviewed or not.
         /// </summary>
-        /// <value>Defines if the document can be reviewed or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "review", EmitDefaultValue = true)]
         public bool Review { get; set; }
 
         /// <summary>
         /// Defines if the content can be copied to the clipboard or not.
         /// </summary>
-        /// <value>Defines if the content can be copied to the clipboard or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "copy", EmitDefaultValue = true)]
         public bool Copy { get; set; }
 

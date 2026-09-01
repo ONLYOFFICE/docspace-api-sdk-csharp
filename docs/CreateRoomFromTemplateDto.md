@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TemplateId** | **int** | The template ID from which the room to be created. | 
 **Title** | **string** | The room title. | 
-**Logo** | [**LogoRequest**](LogoRequest.md) |  | [optional] 
+**Logo** | [**LogoRequest**](LogoRequest.md) | The logo request parameters. | [optional] 
 **CopyLogo** | **bool** | Specifies whether to copy a logo or not. | [optional] 
 **Tags** | **List&lt;string&gt;** | The collection of tags. | [optional] 
 **Color** | **string** | The color of the room to be created. | [optional] 
@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **Quota** | **long?** | The room quota. | [optional] 
 **Indexing** | **bool?** | Specifies whether to create a room with indexing. | [optional] 
 **DenyDownload** | **bool?** | Specifies whether to deny downloads from the room. | [optional] 
-**Lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) |  | [optional] 
-**Watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) |  | [optional] 
+**Lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) | The room data lifetime information. | [optional] 
+**Watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) | The request parameters for adding watermarks. | [optional] 
 **Private** | **bool?** | Specifies whether the room to be created is private or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

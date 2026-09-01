@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The thumbnail original photo.
         /// </summary>
-        /// <value>The thumbnail original photo.</value>
-        /*
-        <example>default_user_photo_size_1280-1280.png</example>
-        */
+        /// <example>default_user_photo_size_1280-1280.png</example>
         [DataMember(Name = "original", EmitDefaultValue = true)]
         public string Original { get; set; }
 
         /// <summary>
         /// The thumbnail retina.
         /// </summary>
-        /// <value>The thumbnail retina.</value>
-        /*
-        <example>default_user_photo_size_360-360.png</example>
-        */
+        /// <example>default_user_photo_size_360-360.png</example>
         [DataMember(Name = "retina", EmitDefaultValue = true)]
         public string Retina { get; set; }
 
         /// <summary>
         /// The thumbnail maximum size photo.
         /// </summary>
-        /// <value>The thumbnail maximum size photo.</value>
-        /*
-        <example>default_user_photo_size_200-200.png</example>
-        */
+        /// <example>default_user_photo_size_200-200.png</example>
         [DataMember(Name = "max", EmitDefaultValue = true)]
         public string Max { get; set; }
 
         /// <summary>
         /// The thumbnail big size photo.
         /// </summary>
-        /// <value>The thumbnail big size photo.</value>
-        /*
-        <example>default_user_photo_size_82-82.png</example>
-        */
+        /// <example>default_user_photo_size_82-82.png</example>
         [DataMember(Name = "big", EmitDefaultValue = true)]
         public string Big { get; set; }
 
         /// <summary>
         /// The thumbnail medium size photo.
         /// </summary>
-        /// <value>The thumbnail medium size photo.</value>
-        /*
-        <example>default_user_photo_size_48-48.png</example>
-        */
+        /// <example>default_user_photo_size_48-48.png</example>
         [DataMember(Name = "medium", EmitDefaultValue = true)]
         public string Medium { get; set; }
 
         /// <summary>
         /// The thumbnail small size photo.
         /// </summary>
-        /// <value>The thumbnail small size photo.</value>
-        /*
-        <example>default_user_photo_size_32-32.png</example>
-        */
+        /// <example>default_user_photo_size_32-32.png</example>
         [DataMember(Name = "small", EmitDefaultValue = true)]
         public string Small { get; set; }
 

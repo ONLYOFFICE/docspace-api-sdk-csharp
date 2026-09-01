@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **RawToken** | **string** | The authentication raw token. | [optional] 
 **Url** | **string** | The authentication URL. | [optional] 
 **Provider** | **string** | The authentication provider. | [optional] 
-**Token** | [**OAuth20Token**](OAuth20Token.md) |  | [optional] 
+**Token** | [**OAuth20Token**](OAuth20Token.md) | The authentication token. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

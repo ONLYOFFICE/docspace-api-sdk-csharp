@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets PaymentMethodStatus
+        /// The payment method status.
         /// </summary>
         [DataMember(Name = "paymentMethodStatus", EmitDefaultValue = false)]
         public PaymentMethodStatus? PaymentMethodStatus { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerInfoDto" /> class.
         /// </summary>
-        /// <param name="paymentMethodStatus">paymentMethodStatus.</param>
-        /// <param name="payer">payer.</param>
+        /// <param name="paymentMethodStatus">The payment method status..</param>
+        /// <param name="payer">The user parameters..</param>
         public CustomerInfoDto(PaymentMethodStatus? paymentMethodStatus = default, EmployeeDto payer = default)
         {
             this.PaymentMethodStatus = paymentMethodStatus;
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The portal ID.
         /// </summary>
-        /// <value>The portal ID.</value>
-        /*
-        <example>portal-001</example>
-        */
+        /// <example>portal-001</example>
         [DataMember(Name = "portalId", EmitDefaultValue = true)]
         public string PortalId { get; private set; }
 
@@ -76,10 +73,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The customer email address.
         /// </summary>
-        /// <value>The customer email address.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; private set; }
 
@@ -92,7 +86,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Payer
+        /// The user parameters.
         /// </summary>
         [DataMember(Name = "payer", EmitDefaultValue = false)]
         public EmployeeDto Payer { get; set; }

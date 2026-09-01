@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The path to the temporary thumbnail file.
         /// </summary>
-        /// <value>The path to the temporary thumbnail file.</value>
-        /*
-        <example>/tmp/photo_temp_123.jpg</example>
-        */
+        /// <example>/tmp/photo_temp_123.jpg</example>
         [DataMember(Name = "tmpFile", EmitDefaultValue = true)]
         public string TmpFile { get; set; }
 
         /// <summary>
         /// The thumbnail horizontal coordinate.
         /// </summary>
-        /// <value>The thumbnail horizontal coordinate.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "x", EmitDefaultValue = false)]
         public int X { get; set; }
 
         /// <summary>
         /// The thumbnail vertical coordinate.
         /// </summary>
-        /// <value>The thumbnail vertical coordinate.</value>
-        /*
-        <example>50</example>
-        */
+        /// <example>50</example>
         [DataMember(Name = "y", EmitDefaultValue = false)]
         public int Y { get; set; }
 
         /// <summary>
         /// The thumbnail width.
         /// </summary>
-        /// <value>The thumbnail width.</value>
-        /*
-        <example>200</example>
-        */
+        /// <example>200</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
         /// <summary>
         /// The thumbnail height.
         /// </summary>
-        /// <value>The thumbnail height.</value>
-        /*
-        <example>200</example>
-        */
+        /// <example>200</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 

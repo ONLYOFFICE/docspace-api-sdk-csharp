@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of the distributed task.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public DistributedTaskStatus Status { get; set; }
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="error">The task progress error message..</param>
         /// <param name="percentage">The percentage of the task progress. (required).</param>
         /// <param name="isCompleted">Specifies if the task peogress is completed or not. (required).</param>
-        /// <param name="status">status (required).</param>
+        /// <param name="status">The status of the distributed task. (required).</param>
         public TaskProgressResponseDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default)
         {
             // to ensure "id" is required (not null)
@@ -74,40 +74,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The task progress ID.
         /// </summary>
-        /// <value>The task progress ID.</value>
-        /*
-        <example>task-123456</example>
-        */
+        /// <example>task-123456</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The task progress error message.
         /// </summary>
-        /// <value>The task progress error message.</value>
-        /*
-        <example>An error occurred during processing</example>
-        */
+        /// <example>An error occurred during processing</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// The percentage of the task progress.
         /// </summary>
-        /// <value>The percentage of the task progress.</value>
-        /*
-        <example>75</example>
-        */
+        /// <example>75</example>
         [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
         /// Specifies if the task peogress is completed or not.
         /// </summary>
-        /// <value>Specifies if the task peogress is completed or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 

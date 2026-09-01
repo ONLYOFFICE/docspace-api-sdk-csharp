@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of the document building process.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public DistributedTaskStatus Status { get; set; }
@@ -56,8 +56,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="error">The error message occurred during the document building process. (required).</param>
         /// <param name="percentage">The progress percentage of the document building process. (required).</param>
         /// <param name="isCompleted">Specifies whether the document building process is completed or not. (required).</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="resultFileId">The result file ID. (required).</param>
+        /// <param name="status">The status of the document building process. (required).</param>
+        /// <param name="resultFileId">resultFileId (required).</param>
         /// <param name="resultFileName">The result file name. (required).</param>
         /// <param name="resultFileUrl">The result file URL. (required).</param>
         public DocumentBuilderTaskDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default, Object resultFileId = default, string resultFileName = default, string resultFileUrl = default)
@@ -100,70 +100,48 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The Document Builder task ID.
         /// </summary>
-        /// <value>The Document Builder task ID.</value>
-        /*
-        <example>task-123-456</example>
-        */
+        /// <example>task-123-456</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The error message occurred during the document building process.
         /// </summary>
-        /// <value>The error message occurred during the document building process.</value>
-        /*
-        <example>Build failed</example>
-        */
+        /// <example>Build failed</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// The progress percentage of the document building process.
         /// </summary>
-        /// <value>The progress percentage of the document building process.</value>
-        /*
-        <example>75</example>
-        */
+        /// <example>75</example>
         [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
         /// Specifies whether the document building process is completed or not.
         /// </summary>
-        /// <value>Specifies whether the document building process is completed or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>
-        /// The result file ID.
+        /// Gets or Sets ResultFileId
         /// </summary>
-        /// <value>The result file ID.</value>
-        /*
-        <example>123</example>
-        */
         [DataMember(Name = "resultFileId", IsRequired = true, EmitDefaultValue = true)]
         public Object ResultFileId { get; set; }
 
         /// <summary>
         /// The result file name.
         /// </summary>
-        /// <value>The result file name.</value>
-        /*
-        <example>result.docx</example>
-        */
+        /// <example>result.docx</example>
         [DataMember(Name = "resultFileName", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileName { get; set; }
 
         /// <summary>
         /// The result file URL.
         /// </summary>
-        /// <value>The result file URL.</value>
-        /*
-        <example>http://localhost/files/result.docx</example>
-        */
+        /// <example>http://localhost/files/result.docx</example>
         [DataMember(Name = "resultFileUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileUrl { get; set; }
 

@@ -59,30 +59,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the invitation link.
         /// </summary>
-        /// <value>The ID of the invitation link.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The expiration date of the invitation link.
         /// </summary>
-        /// <value>The expiration date of the invitation link.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public DateTime? Expiration { get; set; }
 
         /// <summary>
         /// The maximum number of times the invitation link can be used.
         /// </summary>
-        /// <value>The maximum number of times the invitation link can be used.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 

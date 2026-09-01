@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **AccountName** | **string** | The account name. | [optional] 
 **AccountCurrency** | **string** | The account currency. | [optional] 
 **SubAccounts** | [**List&lt;SubAccount&gt;**](SubAccount.md) | A list of sub-accounts. | [optional] 
-**LastCredit** | [**TransactionInfo**](TransactionInfo.md) |  | [optional] 
+**LastCredit** | [**TransactionInfo**](TransactionInfo.md) | The most recent credit transaction applied to the account. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

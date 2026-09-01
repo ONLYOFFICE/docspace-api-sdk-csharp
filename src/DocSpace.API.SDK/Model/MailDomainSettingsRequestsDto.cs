@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of the tenant trusted domains.
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TenantTrustedDomainsType Type { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MailDomainSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">type (required).</param>
+        /// <param name="type">The type of the tenant trusted domains. (required).</param>
         /// <param name="domains">The list of authorized email domains that are considered trusted. (required).</param>
         /// <param name="inviteUsersAsVisitors">Specifies the default permission level for the invited users (visitors or not). (required).</param>
         public MailDomainSettingsRequestsDto(TenantTrustedDomainsType type = default, List<string> domains = default, bool inviteUsersAsVisitors = default)
@@ -70,20 +70,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of authorized email domains that are considered trusted.
         /// </summary>
-        /// <value>The list of authorized email domains that are considered trusted.</value>
-        /*
-        <example>["example.com","company.com"]</example>
-        */
+        /// <example>["example.com","company.com"]</example>
         [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
 
         /// <summary>
         /// Specifies the default permission level for the invited users (visitors or not).
         /// </summary>
-        /// <value>Specifies the default permission level for the invited users (visitors or not).</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "inviteUsersAsVisitors", IsRequired = true, EmitDefaultValue = true)]
         public bool InviteUsersAsVisitors { get; set; }
 

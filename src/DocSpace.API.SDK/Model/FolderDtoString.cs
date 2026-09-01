@@ -39,19 +39,19 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets RoomType
+        /// The room type of the folder.
         /// </summary>
         [DataMember(Name = "roomType", EmitDefaultValue = false)]
         public RoomType? RoomType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The folder type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public FolderType? Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets RootRoomType
+        /// The room type of the root folder. Indicates the type of the parent room if the current folder is nested within a room hierarchy.  This property helps identify the context in which a nested folder exists.
         /// </summary>
         [DataMember(Name = "rootRoomType", EmitDefaultValue = false)]
         public RoomType? RootRoomType { get; set; }
@@ -66,23 +66,23 @@ namespace DocSpace.API.SDK.Model
         /// <param name="new">The new element index in the folder..</param>
         /// <param name="mute">Specifies if the folder notifications are enabled or not..</param>
         /// <param name="tags">The list of tags of the folder..</param>
-        /// <param name="logo">logo.</param>
+        /// <param name="logo">The folder logo..</param>
         /// <param name="pinned">Specifies if the folder is pinned or not..</param>
-        /// <param name="roomType">roomType.</param>
+        /// <param name="roomType">The room type of the folder..</param>
         /// <param name="private">Specifies if the folder is private or not..</param>
         /// <param name="indexing">Specifies if the folder is indexed or not..</param>
         /// <param name="denyDownload">Specifies if the folder can be downloaded or not..</param>
-        /// <param name="lifetime">lifetime.</param>
-        /// <param name="watermark">watermark.</param>
-        /// <param name="type">type.</param>
+        /// <param name="lifetime">The room data lifetime settings of the folder..</param>
+        /// <param name="watermark">The watermark settings of the folder..</param>
+        /// <param name="type">The folder type..</param>
         /// <param name="inRoom">Specifies if the folder is placed in the room or not..</param>
         /// <param name="quotaLimit">The folder quota limit..</param>
         /// <param name="isCustomQuota">Specifies if the folder room has a custom quota or not..</param>
         /// <param name="usedSpace">How much folder space is used (counter)..</param>
         /// <param name="passwordProtected">Specifies if the folder is password protected or not..</param>
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
-        /// <param name="chatSettings">chatSettings.</param>
-        /// <param name="rootRoomType">rootRoomType.</param>
+        /// <param name="chatSettings">The AI chat settings for the folder room. Contains configuration for AI provider, model selection, and custom prompts.  Only applicable to rooms with AI chat functionality enabled. Null if the room does not have chat settings configured..</param>
+        /// <param name="rootRoomType">The room type of the root folder. Indicates the type of the parent room if the current folder is nested within a room hierarchy.  This property helps identify the context in which a nested folder exists..</param>
         /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
         /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
         /// <param name="originalFormId">The original form ID that corresponds to this FormFillingFolderDone folder..</param>
@@ -120,75 +120,54 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The parent folder ID of the folder.
         /// </summary>
-        /// <value>The parent folder ID of the folder.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "parentId", EmitDefaultValue = true)]
         public string ParentId { get; set; }
 
         /// <summary>
         /// The number of files that the folder contains.
         /// </summary>
-        /// <value>The number of files that the folder contains.</value>
-        /*
-        <example>5</example>
-        */
+        /// <example>5</example>
         [DataMember(Name = "filesCount", EmitDefaultValue = false)]
         public int FilesCount { get; set; }
 
         /// <summary>
         /// The number of folders that the folder contains.
         /// </summary>
-        /// <value>The number of folders that the folder contains.</value>
-        /*
-        <example>7</example>
-        */
+        /// <example>7</example>
         [DataMember(Name = "foldersCount", EmitDefaultValue = false)]
         public int FoldersCount { get; set; }
 
         /// <summary>
         /// Specifies if the folder can be shared or not.
         /// </summary>
-        /// <value>Specifies if the folder can be shared or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isShareable", EmitDefaultValue = true)]
         public bool? IsShareable { get; set; }
 
         /// <summary>
         /// The new element index in the folder.
         /// </summary>
-        /// <value>The new element index in the folder.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "new", EmitDefaultValue = false)]
         public int New { get; set; }
 
         /// <summary>
         /// Specifies if the folder notifications are enabled or not.
         /// </summary>
-        /// <value>Specifies if the folder notifications are enabled or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "mute", EmitDefaultValue = true)]
         public bool Mute { get; set; }
 
         /// <summary>
         /// The list of tags of the folder.
         /// </summary>
-        /// <value>The list of tags of the folder.</value>
-        /*
-        <example>[&quot;tag1&quot;,&quot;tag2&quot;]</example>
-        */
+        /// <example>["tag1","tag2"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// Gets or Sets Logo
+        /// The folder logo.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public Logo Logo { get; set; }
@@ -196,51 +175,39 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the folder is pinned or not.
         /// </summary>
-        /// <value>Specifies if the folder is pinned or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "pinned", EmitDefaultValue = true)]
         public bool Pinned { get; set; }
 
         /// <summary>
         /// Specifies if the folder is private or not.
         /// </summary>
-        /// <value>Specifies if the folder is private or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool Private { get; set; }
 
         /// <summary>
         /// Specifies if the folder is indexed or not.
         /// </summary>
-        /// <value>Specifies if the folder is indexed or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool Indexing { get; set; }
 
         /// <summary>
         /// Specifies if the folder can be downloaded or not.
         /// </summary>
-        /// <value>Specifies if the folder can be downloaded or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lifetime
+        /// The room data lifetime settings of the folder.
         /// </summary>
         [DataMember(Name = "lifetime", EmitDefaultValue = false)]
         public RoomDataLifetimeDto Lifetime { get; set; }
 
         /// <summary>
-        /// Gets or Sets Watermark
+        /// The watermark settings of the folder.
         /// </summary>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public WatermarkDto Watermark { get; set; }
@@ -248,66 +215,48 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the folder is placed in the room or not.
         /// </summary>
-        /// <value>Specifies if the folder is placed in the room or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "inRoom", EmitDefaultValue = true)]
         public bool? InRoom { get; set; }
 
         /// <summary>
         /// The folder quota limit.
         /// </summary>
-        /// <value>The folder quota limit.</value>
-        /*
-        <example>1073741824</example>
-        */
+        /// <example>1073741824</example>
         [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
         public long? QuotaLimit { get; set; }
 
         /// <summary>
         /// Specifies if the folder room has a custom quota or not.
         /// </summary>
-        /// <value>Specifies if the folder room has a custom quota or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
         public bool? IsCustomQuota { get; set; }
 
         /// <summary>
         /// How much folder space is used (counter).
         /// </summary>
-        /// <value>How much folder space is used (counter).</value>
-        /*
-        <example>524288000</example>
-        */
+        /// <example>524288000</example>
         [DataMember(Name = "usedSpace", EmitDefaultValue = true)]
         public long? UsedSpace { get; set; }
 
         /// <summary>
         /// Specifies if the folder is password protected or not.
         /// </summary>
-        /// <value>Specifies if the folder is password protected or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "passwordProtected", EmitDefaultValue = true)]
         public bool? PasswordProtected { get; set; }
 
         /// <summary>
         /// Specifies if an external link to the folder is expired or not.
         /// </summary>
-        /// <value>Specifies if an external link to the folder is expired or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "expired", EmitDefaultValue = true)]
         [Obsolete]
         public bool? Expired { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChatSettings
+        /// The AI chat settings for the folder room. Contains configuration for AI provider, model selection, and custom prompts.  Only applicable to rooms with AI chat functionality enabled. Null if the room does not have chat settings configured.
         /// </summary>
         [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
         public ChatSettingsDto ChatSettings { get; set; }
@@ -315,30 +264,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to save form data as XLSX file.
         /// </summary>
-        /// <value>Specifies whether to save form data as XLSX file.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
         public bool? SaveFormAsXLSX { get; set; }
 
         /// <summary>
         /// Specifies whether to send form data to external database.
         /// </summary>
-        /// <value>Specifies whether to send form data to external database.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
         public bool? SendFormToExternalDB { get; set; }
 
         /// <summary>
         /// The original form ID that corresponds to this FormFillingFolderDone folder.
         /// </summary>
-        /// <value>The original form ID that corresponds to this FormFillingFolderDone folder.</value>
-        /*
-        <example>42</example>
-        */
+        /// <example>42</example>
         [DataMember(Name = "originalFormId", EmitDefaultValue = true)]
         public int? OriginalFormId { get; set; }
 
@@ -402,4 +342,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

@@ -66,90 +66,63 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The module ID.
         /// </summary>
-        /// <value>The module ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The module product class name.
         /// </summary>
-        /// <value>The module product class name.</value>
-        /*
-        <example>files</example>
-        */
+        /// <example>files</example>
         [DataMember(Name = "appName", EmitDefaultValue = true)]
         public string AppName { get; set; }
 
         /// <summary>
         /// The module product class name.
         /// </summary>
-        /// <value>The module product class name.</value>
-        /*
-        <example>Documents</example>
-        */
+        /// <example>Documents</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The URL to the module start page.
         /// </summary>
-        /// <value>The URL to the module start page.</value>
-        /*
-        <example>https://example.com</example>
-        */
+        /// <example>https://example.com</example>
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
         /// The module icon URL.
         /// </summary>
-        /// <value>The module icon URL.</value>
-        /*
-        <example>https://example.com/icon.svg</example>
-        */
+        /// <example>https://example.com/icon.svg</example>
         [DataMember(Name = "iconUrl", EmitDefaultValue = true)]
         public string IconUrl { get; set; }
 
         /// <summary>
         /// The module large image URL.
         /// </summary>
-        /// <value>The module large image URL.</value>
-        /*
-        <example>https://example.com/image.png</example>
-        */
+        /// <example>https://example.com/image.png</example>
         [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// The module help URL.
         /// </summary>
-        /// <value>The module help URL.</value>
-        /*
-        <example>https://example.com/help</example>
-        */
+        /// <example>https://example.com/help</example>
         [DataMember(Name = "helpUrl", EmitDefaultValue = true)]
         public string HelpUrl { get; set; }
 
         /// <summary>
         /// The module description.
         /// </summary>
-        /// <value>The module description.</value>
-        /*
-        <example>File management</example>
-        */
+        /// <example>File management</example>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Specifies if the module is primary or not.
         /// </summary>
-        /// <value>Specifies if the module is primary or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isPrimary", EmitDefaultValue = true)]
         public bool IsPrimary { get; set; }
 

@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Waiting, 1 - Created, 2 - Error, 3 - Not required, 4 - Creating]
     /// </summary>
-    /// <value>[0 - Waiting, 1 - Created, 2 - Error, 3 - Not required, 4 - Creating]</value>
     public enum Thumbnail
     {
         /// <summary>

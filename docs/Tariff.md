@@ -6,7 +6,7 @@ The tariff parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The tariff ID. | [optional] 
-**State** | **TariffState** |  | [optional] 
+**State** | **TariffState** | The tariff state. | [optional] 
 **DueDate** | **DateTime** | The tariff due date. | 
 **DelayDueDate** | **DateTime** | The tariff delay due date. | [optional] 
 **LicenseDate** | **DateTime** | The tariff license date. | [optional] 

@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the Complete  &amp; Submit button will be displayed or hidden on the top toolbar.
         /// </summary>
-        /// <value>Specifies whether the Complete  &amp; Submit button will be displayed or hidden on the top toolbar.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "visible", EmitDefaultValue = true)]
         public bool Visible { get; set; }
 
         /// <summary>
         /// A message displayed after forms are submitted.
         /// </summary>
-        /// <value>A message displayed after forms are submitted.</value>
-        /*
-        <example>Form submitted successfully</example>
-        */
+        /// <example>Form submitted successfully</example>
         [DataMember(Name = "resultMessage", EmitDefaultValue = true)]
         public string ResultMessage { get; set; }
 

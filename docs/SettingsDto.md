@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Timezone** | **string** | The time zone. | [optional] 
 **TrustedDomains** | **List&lt;string&gt;** | The list of the trusted domains. | [optional] 
-**TrustedDomainsType** | **TenantTrustedDomainsType** |  | [optional] 
+**TrustedDomainsType** | **TenantTrustedDomainsType** | The type of the tenant trusted domains. | [optional] 
 **Culture** | **string** | The language. | 
 **UtcOffset** | **string** | The UTC offset in the TimeSpan format. | [optional] 
 **UtcHoursOffset** | **double** | The UTC offset in hours. | [optional] 
@@ -22,17 +22,17 @@ Name | Type | Description | Notes
 **IsAmi** | **bool** | Specifies if this portal is the AMI instance or not. | [optional] 
 **BaseDomain** | **string** | The base domain. | 
 **WizardToken** | **string** | The wizard token. | [optional] 
-**PasswordHash** | [**PasswordHasher**](PasswordHasher.md) |  | [optional] 
-**Firebase** | [**FirebaseDto**](FirebaseDto.md) |  | [optional] 
+**PasswordHash** | [**PasswordHasher**](PasswordHasher.md) | The password hash. | [optional] 
+**Firebase** | [**FirebaseDto**](FirebaseDto.md) | The Firebase parameters. | [optional] 
 **@Version** | **string** | The portal version. | [optional] 
-**RecaptchaType** | **RecaptchaType** |  | [optional] 
+**RecaptchaType** | **RecaptchaType** | The type of CAPTCHA validation used. | [optional] 
 **RecaptchaPublicKey** | **string** | The ReCAPTCHA public key. | [optional] 
 **DebugInfo** | **bool** | Specifies if the debug information will be sent or not. | [optional] 
 **SocketUrl** | **string** | The socket URL. | [optional] 
-**TenantStatus** | **TenantStatus** |  | [optional] 
+**TenantStatus** | **TenantStatus** | The tenant status. | [optional] 
 **TenantAlias** | **string** | The tenant alias. | [optional] 
 **DisplayAbout** | **bool** | Specifies whether to display the About portal section. | [optional] 
-**DomainValidator** | [**TenantDomainValidator**](TenantDomainValidator.md) |  | [optional] 
+**DomainValidator** | [**TenantDomainValidator**](TenantDomainValidator.md) | The domain validator. | [optional] 
 **ZendeskKey** | **string** | The Zendesk key. | [optional] 
 **TagManagerId** | **string** | The tag manager ID. | [optional] 
 **CookieSettingsEnabled** | **bool** | Specifies whether the cookie settings are enabled. | 
@@ -40,15 +40,16 @@ Name | Type | Description | Notes
 **LimitedAccessDevToolsForUsers** | **bool** | Specifies whether the access to the Developer Tools is limited for users or not. | [optional] 
 **DisplayBanners** | **bool** | Specifies whether to display the promotional banners. | [optional] 
 **AiEnabled** | **bool** | Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden. | [optional] 
+**WalletLowBalance** | **bool?** | Specifies whether the tenant wallet balance is currently below the low-balance threshold. Only returned to portal administrators. | [optional] 
 **UserNameRegex** | **string** | The user name validation regex. | [optional] 
 **InvitationLimit** | **int?** | The maximum number of invitations to the portal. | [optional] 
-**Plugins** | [**PluginsDto**](PluginsDto.md) |  | [optional] 
-**DeepLink** | [**DeepLinkDto**](DeepLinkDto.md) |  | 
-**FormGallery** | [**FormGalleryDto**](FormGalleryDto.md) |  | [optional] 
+**Plugins** | [**PluginsDto**](PluginsDto.md) | The plugins settings. | [optional] 
+**DeepLink** | [**DeepLinkDto**](DeepLinkDto.md) | The deep link settings. | 
+**FormGallery** | [**FormGalleryDto**](FormGalleryDto.md) | The form gallery settings. | [optional] 
 **MaxImageUploadSize** | **long** | The maximum image upload size. | [optional] 
 **LogoText** | **string** | The white label logo text. | [optional] 
-**ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) |  | [optional] 
-**DefaultFolderType** | **FolderType** |  | [optional] 
+**ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) | The external resources settings. | [optional] 
+**DefaultFolderType** | **FolderType** | The folder type. | [optional] 
 **ExternalDbEnabled** | **bool** | Specifies if an external database is connected for storing form results. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

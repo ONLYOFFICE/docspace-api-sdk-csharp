@@ -47,10 +47,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="HistoryDto" /> class.
         /// </summary>
         /// <param name="id">The unique identifier for the file history entry. (required).</param>
-        /// <param name="action">action (required).</param>
-        /// <param name="initiator">initiator (required).</param>
-        /// <param name="date">date (required).</param>
-        /// <param name="data">data (required).</param>
+        /// <param name="action">The action performed on the file. (required).</param>
+        /// <param name="initiator">The user parameters. (required).</param>
+        /// <param name="date">The API date and time parameters. (required).</param>
+        /// <param name="data">The history data. (required).</param>
         /// <param name="related">The list of related history..</param>
         public HistoryDto(int id = default, HistoryAction action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryData data = default, List<HistoryDto> related = default)
         {
@@ -85,33 +85,30 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The unique identifier for the file history entry.
         /// </summary>
-        /// <value>The unique identifier for the file history entry.</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Action
+        /// The action performed on the file.
         /// </summary>
         [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = true)]
         public HistoryAction Action { get; set; }
 
         /// <summary>
-        /// Gets or Sets Initiator
+        /// The user parameters.
         /// </summary>
         [DataMember(Name = "initiator", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeDto Initiator { get; set; }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// The history data.
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public HistoryData Data { get; set; }
@@ -119,10 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of related history.
         /// </summary>
-        /// <value>The list of related history.</value>
-        /*
-        <example>[{"id":124,"action":0}]</example>
-        */
+        /// <example>[{"id":124,"action":0}]</example>
         [DataMember(Name = "related", EmitDefaultValue = true)]
         public List<HistoryDto> Related { get; set; }
 

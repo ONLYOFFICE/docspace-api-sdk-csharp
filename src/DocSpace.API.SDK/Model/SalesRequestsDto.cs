@@ -46,11 +46,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SalesRequestsDto" /> class.
         /// </summary>
-        /// <param name="userName">The name of the user submitting the sales request..</param>
+        /// <param name="userName">The name of the user submitting the sales request. (required).</param>
         /// <param name="email">The contact email address for the sales inquiry. (required).</param>
         /// <param name="message">The details of the sales inquiry or payment request. (required).</param>
         public SalesRequestsDto(string userName = default, string email = default, string message = default)
         {
+            // to ensure "userName" is required (not null)
+            if (userName == null)
+            {
+                throw new ArgumentNullException("userName is a required property for SalesRequestsDto and cannot be null");
+            }
+            this.UserName = userName;
             // to ensure "email" is required (not null)
             if (email == null)
             {
@@ -63,36 +69,26 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("message is a required property for SalesRequestsDto and cannot be null");
             }
             this.Message = message;
-            this.UserName = userName;
         }
 
         /// <summary>
         /// The name of the user submitting the sales request.
         /// </summary>
-        /// <value>The name of the user submitting the sales request.</value>
-        /*
-        <example>John Doe</example>
-        */
-        [DataMember(Name = "userName", EmitDefaultValue = true)]
+        /// <example>John Doe</example>
+        [DataMember(Name = "userName", IsRequired = true, EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
         /// The contact email address for the sales inquiry.
         /// </summary>
-        /// <value>The contact email address for the sales inquiry.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The details of the sales inquiry or payment request.
         /// </summary>
-        /// <value>The details of the sales inquiry or payment request.</value>
-        /*
-        <example>I would like to inquire about pricing</example>
-        */
+        /// <example>I would like to inquire about pricing</example>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
 
@@ -133,16 +129,34 @@ namespace DocSpace.API.SDK.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserName, length must be less than 255.", new [] { "UserName" });
             }
 
+            // UserName (string) minLength
+            if (this.UserName != null && this.UserName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserName, length must be greater than 1.", new [] { "UserName" });
+            }
+
             // Email (string) maxLength
             if (this.Email != null && this.Email.Length > 64)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 64.", new [] { "Email" });
             }
 
+            // Email (string) minLength
+            if (this.Email != null && this.Email.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be greater than 1.", new [] { "Email" });
+            }
+
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 255.", new [] { "Message" });
+            }
+
+            // Message (string) minLength
+            if (this.Message != null && this.Message.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
 
             yield break;

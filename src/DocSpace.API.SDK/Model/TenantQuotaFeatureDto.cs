@@ -44,9 +44,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The ID of the tenant quota feature..</param>
         /// <param name="title">The title of the tenant quota feature..</param>
         /// <param name="image">The image URL of the tenant quota feature..</param>
-        /// <param name="value">The value of the tenant quota feature..</param>
+        /// <param name="value">value.</param>
         /// <param name="type">The type of the tenant quota feature..</param>
-        /// <param name="used">used.</param>
+        /// <param name="used">The used space parameters of the tenant quota feature..</param>
         /// <param name="priceTitle">The price title of the tenant quota feature..</param>
         public TenantQuotaFeatureDto(string id = default, string title = default, string image = default, Object value = default, string type = default, FeatureUsedDto used = default, string priceTitle = default)
         {
@@ -62,52 +62,39 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the tenant quota feature.
         /// </summary>
-        /// <value>The ID of the tenant quota feature.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000001</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The title of the tenant quota feature.
         /// </summary>
-        /// <value>The title of the tenant quota feature.</value>
-        /*
-        <example>Premium Storage</example>
-        */
+        /// <example>Premium Storage</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The image URL of the tenant quota feature.
         /// </summary>
-        /// <value>The image URL of the tenant quota feature.</value>
-        /*
-        <example>/images/premium-storage.png</example>
-        */
+        /// <example>/images/premium-storage.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
-        /// The value of the tenant quota feature.
+        /// Gets or Sets Value
         /// </summary>
-        /// <value>The value of the tenant quota feature.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public Object Value { get; set; }
 
         /// <summary>
         /// The type of the tenant quota feature.
         /// </summary>
-        /// <value>The type of the tenant quota feature.</value>
-        /*
-        <example>Storage</example>
-        */
+        /// <example>Storage</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Used
+        /// The used space parameters of the tenant quota feature.
         /// </summary>
         [DataMember(Name = "used", EmitDefaultValue = false)]
         public FeatureUsedDto Used { get; set; }
@@ -115,10 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The price title of the tenant quota feature.
         /// </summary>
-        /// <value>The price title of the tenant quota feature.</value>
-        /*
-        <example>$9.99/month</example>
-        */
+        /// <example>$9.99/month</example>
         [DataMember(Name = "priceTitle", EmitDefaultValue = true)]
         public string PriceTitle { get; set; }
 

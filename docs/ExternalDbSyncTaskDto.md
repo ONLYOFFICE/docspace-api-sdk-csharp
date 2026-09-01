@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Error** | **string** | The error message if the synchronization failed. | [optional] 
 **Percentage** | **int** | The progress percentage of the synchronization. | 
 **IsCompleted** | **bool** | Specifies whether the synchronization is completed or not. | 
-**Status** | **DistributedTaskStatus** |  | 
+**Status** | **DistributedTaskStatus** | The status of the synchronization task. | 
 **Forms** | [**List&lt;ExternalDbSyncFormResultDto&gt;**](ExternalDbSyncFormResultDto.md) | The synchronization results for all original forms in the room. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

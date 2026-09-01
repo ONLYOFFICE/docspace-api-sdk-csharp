@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - Sms, 2 - App]
     /// </summary>
-    /// <value>[0 - None, 1 - Sms, 2 - App]</value>
     public enum TfaRequestsDtoType
     {
         /// <summary>

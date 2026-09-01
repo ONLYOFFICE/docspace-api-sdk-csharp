@@ -47,26 +47,20 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="QuotaDto" /> class.
         /// </summary>
         /// <param name="id">The quota ID. (required).</param>
-        /// <param name="title">The quota title. (required).</param>
-        /// <param name="price">price (required).</param>
+        /// <param name="title">The quota title..</param>
+        /// <param name="price">The price parameters. (required).</param>
         /// <param name="nonProfit">Specifies if the quota is nonprofit or not. (required).</param>
         /// <param name="free">Specifies if the quota is free or not. (required).</param>
         /// <param name="trial">Specifies if the quota is trial or not. (required).</param>
         /// <param name="features">The list of tenant quota features. (required).</param>
-        /// <param name="usersQuota">usersQuota.</param>
-        /// <param name="roomsQuota">roomsQuota.</param>
-        /// <param name="aiAgentsQuota">aiAgentsQuota.</param>
-        /// <param name="tenantCustomQuota">tenantCustomQuota.</param>
+        /// <param name="usersQuota">The tenant entity quota settings..</param>
+        /// <param name="roomsQuota">The tenant entity quota settings..</param>
+        /// <param name="aiAgentsQuota">The tenant entity quota settings..</param>
+        /// <param name="tenantCustomQuota">The tenant quota settings..</param>
         /// <param name="dueDate">The due date..</param>
         public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
         {
             this.Id = id;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for QuotaDto and cannot be null");
-            }
-            this.Title = title;
             // to ensure "price" is required (not null)
             if (price == null)
             {
@@ -82,6 +76,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("features is a required property for QuotaDto and cannot be null");
             }
             this.Features = features;
+            this.Title = title;
             this.UsersQuota = usersQuota;
             this.RoomsQuota = roomsQuota;
             this.AiAgentsQuota = aiAgentsQuota;
@@ -92,25 +87,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The quota ID.
         /// </summary>
-        /// <value>The quota ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The quota title.
         /// </summary>
-        /// <value>The quota title.</value>
-        /*
-        <example>Basic Plan</example>
-        */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        /// <example>Basic Plan</example>
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Price
+        /// The price parameters.
         /// </summary>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
         public PriceDto Price { get; set; }
@@ -118,63 +107,51 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the quota is nonprofit or not.
         /// </summary>
-        /// <value>Specifies if the quota is nonprofit or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "nonProfit", IsRequired = true, EmitDefaultValue = true)]
         public bool NonProfit { get; set; }
 
         /// <summary>
         /// Specifies if the quota is free or not.
         /// </summary>
-        /// <value>Specifies if the quota is free or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "free", IsRequired = true, EmitDefaultValue = true)]
         public bool Free { get; set; }
 
         /// <summary>
         /// Specifies if the quota is trial or not.
         /// </summary>
-        /// <value>Specifies if the quota is trial or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "trial", IsRequired = true, EmitDefaultValue = true)]
         public bool Trial { get; set; }
 
         /// <summary>
         /// The list of tenant quota features.
         /// </summary>
-        /// <value>The list of tenant quota features.</value>
-        /*
-        <example>[{"id":"00000000-0000-0000-0000-000000000001","title":"Premium Storage"}]</example>
-        */
+        /// <example>[{"id":"00000000-0000-0000-0000-000000000001","title":"Premium Storage"}]</example>
         [DataMember(Name = "features", IsRequired = true, EmitDefaultValue = true)]
         public List<TenantQuotaFeatureDto> Features { get; set; }
 
         /// <summary>
-        /// Gets or Sets UsersQuota
+        /// The tenant entity quota settings.
         /// </summary>
         [DataMember(Name = "usersQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings UsersQuota { get; set; }
 
         /// <summary>
-        /// Gets or Sets RoomsQuota
+        /// The tenant entity quota settings.
         /// </summary>
         [DataMember(Name = "roomsQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings RoomsQuota { get; set; }
 
         /// <summary>
-        /// Gets or Sets AiAgentsQuota
+        /// The tenant entity quota settings.
         /// </summary>
         [DataMember(Name = "aiAgentsQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings AiAgentsQuota { get; set; }
 
         /// <summary>
-        /// Gets or Sets TenantCustomQuota
+        /// The tenant quota settings.
         /// </summary>
         [DataMember(Name = "tenantCustomQuota", EmitDefaultValue = false)]
         public TenantQuotaSettings TenantCustomQuota { get; set; }
@@ -182,10 +159,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The due date.
         /// </summary>
-        /// <value>The due date.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "dueDate", EmitDefaultValue = true)]
         public DateTime? DueDate { get; set; }
 

@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The fill color of the text run in RGB format.
         /// </summary>
-        /// <value>The fill color of the text run in RGB format.</value>
-        /*
-        <example>[124,124,124]</example>
-        */
+        /// <example>[124,124,124]</example>
         [DataMember(Name = "fill", EmitDefaultValue = true)]
         public List<int> Fill { get; set; }
 
         /// <summary>
         /// The run text.
         /// </summary>
-        /// <value>The run text.</value>
-        /*
-        <example>CONFIDENTIAL</example>
-        */
+        /// <example>CONFIDENTIAL</example>
         [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
         /// The font size of the text run in points.
         /// </summary>
-        /// <value>The font size of the text run in points.</value>
-        /*
-        <example>26</example>
-        */
+        /// <example>26</example>
         [DataMember(Name = "font-size", EmitDefaultValue = true)]
         public string FontSize { get; set; }
 

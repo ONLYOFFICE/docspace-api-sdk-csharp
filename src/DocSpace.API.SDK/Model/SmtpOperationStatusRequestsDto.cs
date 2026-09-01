@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the SMTP operation has finished processing.
         /// </summary>
-        /// <value>Specifies whether the SMTP operation has finished processing.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "completed", EmitDefaultValue = true)]
         public bool Completed { get; set; }
 
         /// <summary>
         /// The unique identifier for tracking the SMTP operation.
         /// </summary>
-        /// <value>The unique identifier for tracking the SMTP operation.</value>
-        /*
-        <example>smtp-op-123</example>
-        */
+        /// <example>smtp-op-123</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The error message if the SMTP operation encountered issues.
         /// </summary>
-        /// <value>The error message if the SMTP operation encountered issues.</value>
-        /*
-        <example>SMTP connection failed.</example>
-        */
+        /// <example>SMTP connection failed.</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// The current state of the SMTP operation.
         /// </summary>
-        /// <value>The current state of the SMTP operation.</value>
-        /*
-        <example>Completed</example>
-        */
+        /// <example>Completed</example>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>
         /// The progress indicator showing completion percentage of the operation.
         /// </summary>
-        /// <value>The progress indicator showing completion percentage of the operation.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "percents", EmitDefaultValue = false)]
         public int Percents { get; set; }
 

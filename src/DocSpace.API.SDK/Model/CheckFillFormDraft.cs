@@ -57,30 +57,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file version of the form draft.
         /// </summary>
-        /// <value>The file version of the form draft.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The action with the form draft.
         /// </summary>
-        /// <value>The action with the form draft.</value>
-        /*
-        <example>view</example>
-        */
+        /// <example>view</example>
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
         /// Specifies whether to request the form for viewing or not.
         /// </summary>
-        /// <value>Specifies whether to request the form for viewing or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "requestView", EmitDefaultValue = true)]
         public bool RequestView { get; private set; }
 
@@ -95,10 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to request an embedded form or not.
         /// </summary>
-        /// <value>Specifies whether to request an embedded form or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "requestEmbedded", EmitDefaultValue = true)]
         public bool RequestEmbedded { get; private set; }
 

@@ -51,6 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="serviceGroup">The service group..</param>
         /// <param name="visible">Specifies if the tenant quota is visible or not..</param>
         /// <param name="wallet">Specifies if the tenant quota applies to the wallet or not.</param>
+        /// <param name="additional">Specifies if the tenant quota is primary or additional..</param>
         /// <param name="dueDate">The quota due date..</param>
         /// <param name="features">The tenant quota features..</param>
         /// <param name="maxFileSize">The tenant maximum file size..</param>
@@ -82,7 +83,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="backup">Specifies if the backup enabled as a wallet service or not..</param>
         /// <param name="countAIAgent">The number of AI agents..</param>
         /// <param name="aiTools">Specifies if the AI tools enabled as a wallet service or not..</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default)
+        /// <param name="aiSearch">Specifies if the AI search enabled as a wallet service or not..</param>
+        /// <param name="docsCloud">The number of DocsCloud users..</param>
+        /// <param name="docsCloudDevPack">Specifies if the DocsCloudDevPack enabled or not..</param>
+        /// <param name="docsCloudTrial">Specifies if the DocsCloudTrial enabled or not..</param>
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, bool additional = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiSearch = default, int docsCloud = default, bool docsCloudDevPack = default, bool docsCloudTrial = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -94,6 +99,7 @@ namespace DocSpace.API.SDK.Model
             this.ServiceGroup = serviceGroup;
             this.Visible = visible;
             this.Wallet = wallet;
+            this.Additional = additional;
             this.DueDate = dueDate;
             this.Features = features;
             this.MaxFileSize = maxFileSize;
@@ -125,414 +131,333 @@ namespace DocSpace.API.SDK.Model
             this.Backup = backup;
             this.CountAIAgent = countAIAgent;
             this.AiTools = aiTools;
+            this.AiSearch = aiSearch;
+            this.DocsCloud = docsCloud;
+            this.DocsCloudDevPack = docsCloudDevPack;
+            this.DocsCloudTrial = docsCloudTrial;
         }
 
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// The tenant name.
         /// </summary>
-        /// <value>The tenant name.</value>
-        /*
-        <example>Default</example>
-        */
+        /// <example>Default</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The tenant price.
         /// </summary>
-        /// <value>The tenant price.</value>
-        /*
-        <example>10.0</example>
-        */
+        /// <example>10.0</example>
         [DataMember(Name = "price", EmitDefaultValue = false)]
         public double Price { get; set; }
 
         /// <summary>
         /// The tenant price currency symbol.
         /// </summary>
-        /// <value>The tenant price currency symbol.</value>
-        /*
-        <example>$</example>
-        */
+        /// <example>$</example>
         [DataMember(Name = "priceCurrencySymbol", EmitDefaultValue = true)]
         public string PriceCurrencySymbol { get; set; }
 
         /// <summary>
         /// The tenant price three-character ISO 4217 currency symbol.
         /// </summary>
-        /// <value>The tenant price three-character ISO 4217 currency symbol.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>USD</example>
         [DataMember(Name = "priceISOCurrencySymbol", EmitDefaultValue = true)]
         public string PriceISOCurrencySymbol { get; set; }
 
         /// <summary>
         /// The tenant product ID.
         /// </summary>
-        /// <value>The tenant product ID.</value>
-        /*
-        <example>64</example>
-        */
+        /// <example>64</example>
         [DataMember(Name = "productId", EmitDefaultValue = true)]
         public string ProductId { get; set; }
 
         /// <summary>
         /// The service name.
         /// </summary>
-        /// <value>The service name.</value>
-        /*
-        <example>backup</example>
-        */
+        /// <example>backup</example>
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
 
         /// <summary>
         /// The service group.
         /// </summary>
-        /// <value>The service group.</value>
-        /*
-        <example>services</example>
-        */
+        /// <example>services</example>
         [DataMember(Name = "serviceGroup", EmitDefaultValue = true)]
         public string ServiceGroup { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is visible or not.
         /// </summary>
-        /// <value>Specifies if the tenant quota is visible or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "visible", EmitDefaultValue = true)]
         public bool Visible { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota applies to the wallet or not
         /// </summary>
-        /// <value>Specifies if the tenant quota applies to the wallet or not</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "wallet", EmitDefaultValue = true)]
         public bool Wallet { get; set; }
 
         /// <summary>
+        /// Specifies if the tenant quota is primary or additional.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "additional", EmitDefaultValue = true)]
+        public bool Additional { get; set; }
+
+        /// <summary>
         /// The quota due date.
         /// </summary>
-        /// <value>The quota due date.</value>
+        /// <example>2021-01-01T00:00:00</example>
         [DataMember(Name = "dueDate", EmitDefaultValue = true)]
         public DateTime? DueDate { get; set; }
 
         /// <summary>
         /// The tenant quota features.
         /// </summary>
-        /// <value>The tenant quota features.</value>
-        /*
-        <example>audit,ldap,sso</example>
-        */
+        /// <example>audit,ldap,sso</example>
         [DataMember(Name = "features", EmitDefaultValue = true)]
         public string Features { get; set; }
 
         /// <summary>
         /// The tenant maximum file size.
         /// </summary>
-        /// <value>The tenant maximum file size.</value>
-        /*
-        <example>25000000</example>
-        */
+        /// <example>25000000</example>
         [DataMember(Name = "maxFileSize", EmitDefaultValue = false)]
         public long MaxFileSize { get; set; }
 
         /// <summary>
         /// The tenant maximum total size.
         /// </summary>
-        /// <value>The tenant maximum total size.</value>
-        /*
-        <example>25000000000</example>
-        */
+        /// <example>25000000000</example>
         [DataMember(Name = "maxTotalSize", EmitDefaultValue = false)]
         public long MaxTotalSize { get; set; }
 
         /// <summary>
         /// The number of portal users.
         /// </summary>
-        /// <value>The number of portal users.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "countUser", EmitDefaultValue = false)]
         public int CountUser { get; set; }
 
         /// <summary>
         /// The number of portal room administrators.
         /// </summary>
-        /// <value>The number of portal room administrators.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "countRoomAdmin", EmitDefaultValue = false)]
         public int CountRoomAdmin { get; set; }
 
         /// <summary>
         /// The number of room users.
         /// </summary>
-        /// <value>The number of room users.</value>
-        /*
-        <example>50</example>
-        */
+        /// <example>50</example>
         [DataMember(Name = "usersInRoom", EmitDefaultValue = false)]
         public int UsersInRoom { get; set; }
 
         /// <summary>
         /// The number of rooms.
         /// </summary>
-        /// <value>The number of rooms.</value>
-        /*
-        <example>500</example>
-        */
+        /// <example>500</example>
         [DataMember(Name = "countRoom", EmitDefaultValue = false)]
         public int CountRoom { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is nonprofit or not.
         /// </summary>
-        /// <value>Specifies if the tenant quota is nonprofit or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "nonProfit", EmitDefaultValue = true)]
         public bool NonProfit { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is trial or not.
         /// </summary>
-        /// <value>Specifies if the tenant quota is trial or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "trial", EmitDefaultValue = true)]
         public bool Trial { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is free or not.
         /// </summary>
-        /// <value>Specifies if the tenant quota is free or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "free", EmitDefaultValue = true)]
         public bool Free { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is updated or not.
         /// </summary>
-        /// <value>Specifies if the tenant quota is updated or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "update", EmitDefaultValue = true)]
         public bool Update { get; set; }
 
         /// <summary>
         /// Specifies if the audit trail is available or not.
         /// </summary>
-        /// <value>Specifies if the audit trail is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "audit", EmitDefaultValue = true)]
         public bool Audit { get; set; }
 
         /// <summary>
         /// Specifies if ONLYOFFICE Docs is included in the tenant quota or not.
         /// </summary>
-        /// <value>Specifies if ONLYOFFICE Docs is included in the tenant quota or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "docsEdition", EmitDefaultValue = true)]
         public bool DocsEdition { get; set; }
 
         /// <summary>
         /// Specifies if the LDAP settings are available or not.
         /// </summary>
-        /// <value>Specifies if the LDAP settings are available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "ldap", EmitDefaultValue = true)]
         public bool Ldap { get; set; }
 
         /// <summary>
         /// Specifies if the SSO settings are available or not.
         /// </summary>
-        /// <value>Specifies if the SSO settings are available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "sso", EmitDefaultValue = true)]
         public bool Sso { get; set; }
 
         /// <summary>
         /// Specifies if the statistics settings are available or not.
         /// </summary>
-        /// <value>Specifies if the statistics settings are available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "statistic", EmitDefaultValue = true)]
         public bool Statistic { get; set; }
 
         /// <summary>
         /// Specifies if the branding settings are available or not.
         /// </summary>
-        /// <value>Specifies if the branding settings are available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "branding", EmitDefaultValue = true)]
         public bool Branding { get; set; }
 
         /// <summary>
         /// Specifies if the customization settings are available or not.
         /// </summary>
-        /// <value>Specifies if the customization settings are available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "customization", EmitDefaultValue = true)]
         public bool Customization { get; set; }
 
         /// <summary>
         /// Specifies if the license has the lifetime settings or not.
         /// </summary>
-        /// <value>Specifies if the license has the lifetime settings or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "lifetime", EmitDefaultValue = true)]
         public bool Lifetime { get; set; }
 
         /// <summary>
         /// Specifies if the Automation API is available or not.
         /// </summary>
-        /// <value>Specifies if the Automation API is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "automationApi", EmitDefaultValue = true)]
         public bool AutomationApi { get; set; }
 
         /// <summary>
         /// Specifies if the custom domain URL is available or not.
         /// </summary>
-        /// <value>Specifies if the custom domain URL is available or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "custom", EmitDefaultValue = true)]
         public bool Custom { get; set; }
 
         /// <summary>
         /// Specifies if the restore is enabled or not.
         /// </summary>
-        /// <value>Specifies if the restore is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "restore", EmitDefaultValue = true)]
         public bool Restore { get; set; }
 
         /// <summary>
         /// Specifies if Oauth is available or not.
         /// </summary>
-        /// <value>Specifies if Oauth is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public bool Oauth { get; set; }
 
         /// <summary>
         /// Specifies if the content search is available or not.
         /// </summary>
-        /// <value>Specifies if the content search is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "contentSearch", EmitDefaultValue = true)]
         public bool ContentSearch { get; set; }
 
         /// <summary>
         /// Specifies if the third-party accounts linking is available or not.
         /// </summary>
-        /// <value>Specifies if the third-party accounts linking is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "thirdParty", EmitDefaultValue = true)]
         public bool ThirdParty { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is yearly subscription or not.
         /// </summary>
-        /// <value>Specifies if the tenant quota is yearly subscription or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "year", EmitDefaultValue = true)]
         public bool Year { get; set; }
 
         /// <summary>
         /// The number of free backups within a month.
         /// </summary>
-        /// <value>The number of free backups within a month.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "countFreeBackup", EmitDefaultValue = false)]
         public int CountFreeBackup { get; set; }
 
         /// <summary>
         /// Specifies if the backup enabled as a wallet service or not.
         /// </summary>
-        /// <value>Specifies if the backup enabled as a wallet service or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "backup", EmitDefaultValue = true)]
         public bool Backup { get; set; }
 
         /// <summary>
         /// The number of AI agents.
         /// </summary>
-        /// <value>The number of AI agents.</value>
-        /*
-        <example>5</example>
-        */
+        /// <example>5</example>
         [DataMember(Name = "countAIAgent", EmitDefaultValue = false)]
         public int CountAIAgent { get; set; }
 
         /// <summary>
         /// Specifies if the AI tools enabled as a wallet service or not.
         /// </summary>
-        /// <value>Specifies if the AI tools enabled as a wallet service or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "aiTools", EmitDefaultValue = true)]
         public bool AiTools { get; set; }
+
+        /// <summary>
+        /// Specifies if the AI search enabled as a wallet service or not.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "aiSearch", EmitDefaultValue = true)]
+        public bool AiSearch { get; set; }
+
+        /// <summary>
+        /// The number of DocsCloud users.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "docsCloud", EmitDefaultValue = false)]
+        public int DocsCloud { get; set; }
+
+        /// <summary>
+        /// Specifies if the DocsCloudDevPack enabled or not.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "docsCloudDevPack", EmitDefaultValue = true)]
+        public bool DocsCloudDevPack { get; set; }
+
+        /// <summary>
+        /// Specifies if the DocsCloudTrial enabled or not.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "docsCloudTrial", EmitDefaultValue = true)]
+        public bool DocsCloudTrial { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -552,6 +477,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ServiceGroup: ").Append(ServiceGroup).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
+            sb.Append("  Additional: ").Append(Additional).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  MaxFileSize: ").Append(MaxFileSize).Append("\n");
@@ -583,6 +509,10 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Backup: ").Append(Backup).Append("\n");
             sb.Append("  CountAIAgent: ").Append(CountAIAgent).Append("\n");
             sb.Append("  AiTools: ").Append(AiTools).Append("\n");
+            sb.Append("  AiSearch: ").Append(AiSearch).Append("\n");
+            sb.Append("  DocsCloud: ").Append(DocsCloud).Append("\n");
+            sb.Append("  DocsCloudDevPack: ").Append(DocsCloudDevPack).Append("\n");
+            sb.Append("  DocsCloudTrial: ").Append(DocsCloudTrial).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

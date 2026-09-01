@@ -59,30 +59,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user ID whose data will be reassigned to another user.
         /// </summary>
-        /// <value>The user ID whose data will be reassigned to another user.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "fromUserId", IsRequired = true, EmitDefaultValue = true)]
         public Guid FromUserId { get; set; }
 
         /// <summary>
         /// The user ID to whom all the data will be reassigned.
         /// </summary>
-        /// <value>The user ID to whom all the data will be reassigned.</value>
-        /*
-        <example>11111111-1111-1111-1111-111111111111</example>
-        */
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "toUserId", IsRequired = true, EmitDefaultValue = true)]
         public Guid ToUserId { get; set; }
 
         /// <summary>
         /// Specifies whether to delete a profile when the data reassignment will be finished or not.
         /// </summary>
-        /// <value>Specifies whether to delete a profile when the data reassignment will be finished or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "deleteProfile", EmitDefaultValue = true)]
         public bool DeleteProfile { get; set; }
 

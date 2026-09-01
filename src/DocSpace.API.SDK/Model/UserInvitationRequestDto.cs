@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The user type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EmployeeType? Type { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInvitationRequestDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">The user type..</param>
         public UserInvitationRequestDto(EmployeeType? type = default)
         {
             this.Type = type;
@@ -93,4 +93,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The white label logo name.
         /// </summary>
-        /// <value>The white label logo name.</value>
-        /*
-        <example>logo_light</example>
-        */
+        /// <example>logo_light</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Specifies if the white label logo is default or not.
         /// </summary>
-        /// <value>Specifies if the white label logo is default or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "default", IsRequired = true, EmitDefaultValue = true)]
         public bool Default { get; set; }
 

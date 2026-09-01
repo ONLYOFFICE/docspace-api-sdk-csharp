@@ -35,15 +35,39 @@ namespace DocSpace.API.SDK.Model
     /// CdnStorageSettings
     /// </summary>
     [DataContract(Name = "CdnStorageSettings")]
-    public partial class CdnStorageSettings : BaseStorageSettingsCdnStorageSettings, IValidatableObject
+    public partial class CdnStorageSettings : IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="CdnStorageSettings" /> class.
         /// </summary>
-        public CdnStorageSettings()
+        /// <param name="module">module.</param>
+        /// <param name="props">props.</param>
+        /// <param name="lastModified">lastModified.</param>
+        public CdnStorageSettings(string module = default, Dictionary<string, string> props = default, DateTime lastModified = default)
         {
+            this.Module = module;
+            this.Props = props;
+            this.LastModified = lastModified;
         }
+
+        /// <summary>
+        /// Gets or Sets Module
+        /// </summary>
+        [DataMember(Name = "module", EmitDefaultValue = true)]
+        public string Module { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Props
+        /// </summary>
+        [DataMember(Name = "props", EmitDefaultValue = false)]
+        public Dictionary<string, string> Props { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastModified
+        /// </summary>
+        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
+        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,6 +77,9 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CdnStorageSettings {\n");
+            sb.Append("  Module: ").Append(Module).Append("\n");
+            sb.Append("  Props: ").Append(Props).Append("\n");
+            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -61,11 +88,10 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
-    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -78,4 +104,6 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
+
 }

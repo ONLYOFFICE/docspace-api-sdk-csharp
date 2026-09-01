@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The form data key.
         /// </summary>
-        /// <value>The form data key.</value>
-        /*
-        <example>first_name</example>
-        */
+        /// <example>first_name</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The form data tag.
         /// </summary>
-        /// <value>The form data tag.</value>
-        /*
-        <example>personal_info</example>
-        */
+        /// <example>personal_info</example>
         [DataMember(Name = "tag", EmitDefaultValue = true)]
         public string Tag { get; set; }
 
         /// <summary>
         /// The form data value.
         /// </summary>
-        /// <value>The form data value.</value>
-        /*
-        <example>John</example>
-        */
+        /// <example>John</example>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// The form data type.
         /// </summary>
-        /// <value>The form data type.</value>
-        /*
-        <example>text</example>
-        */
+        /// <example>text</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

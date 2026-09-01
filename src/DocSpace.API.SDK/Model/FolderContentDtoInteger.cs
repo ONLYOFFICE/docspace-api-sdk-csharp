@@ -48,8 +48,8 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="files">The list of files in the folder..</param>
         /// <param name="folders">The list of folders in the folder..</param>
-        /// <param name="current">current.</param>
-        /// <param name="pathParts">The folder path. (required).</param>
+        /// <param name="current">The current folder information..</param>
+        /// <param name="pathParts">pathParts (required).</param>
         /// <param name="startIndex">The folder start index..</param>
         /// <param name="count">The number of folder elements..</param>
         /// <param name="total">The total number of elements in the folder. (required).</param>
@@ -74,76 +74,54 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of files in the folder.
         /// </summary>
-        /// <value>The list of files in the folder.</value>
-        /*
-        <example>[{"id":10,"title":"document.docx"}]</example>
-        */
+        /// <example>[{"id":10,"title":"document.docx"}]</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>
         /// The list of folders in the folder.
         /// </summary>
-        /// <value>The list of folders in the folder.</value>
-        /*
-        <example>[{"id":20,"title":"My Folder"}]</example>
-        */
+        /// <example>[{"id":20,"title":"My Folder"}]</example>
         [DataMember(Name = "folders", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Folders { get; set; }
 
         /// <summary>
-        /// Gets or Sets Current
+        /// The current folder information.
         /// </summary>
         [DataMember(Name = "current", EmitDefaultValue = false)]
         public FolderDtoInteger Current { get; set; }
 
         /// <summary>
-        /// The folder path.
+        /// Gets or Sets PathParts
         /// </summary>
-        /// <value>The folder path.</value>
-        /*
-        <example>{key = "Key", path = "//path//to//folder"}</example>
-        */
         [DataMember(Name = "pathParts", IsRequired = true, EmitDefaultValue = true)]
         public Object PathParts { get; set; }
 
         /// <summary>
         /// The folder start index.
         /// </summary>
-        /// <value>The folder start index.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "startIndex", EmitDefaultValue = false)]
         public int StartIndex { get; set; }
 
         /// <summary>
         /// The number of folder elements.
         /// </summary>
-        /// <value>The number of folder elements.</value>
-        /*
-        <example>4</example>
-        */
+        /// <example>4</example>
         [DataMember(Name = "count", EmitDefaultValue = false)]
         public int Count { get; set; }
 
         /// <summary>
         /// The total number of elements in the folder.
         /// </summary>
-        /// <value>The total number of elements in the folder.</value>
-        /*
-        <example>4</example>
-        */
+        /// <example>4</example>
         [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
         public int Total { get; set; }
 
         /// <summary>
         /// The new element index in the folder.
         /// </summary>
-        /// <value>The new element index in the folder.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "new", EmitDefaultValue = false)]
         public int New { get; set; }
 

@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ItemKeyValuePairStringLogoRequestsDto" /> class.
         /// </summary>
         /// <param name="key">key.</param>
-        /// <param name="value">value.</param>
+        /// <param name="value">The request parameters for the theme-specific logo configurations..</param>
         public ItemKeyValuePairStringLogoRequestsDto(string key = default, LogoRequestsDto value = default)
         {
             this.Key = key;
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The request parameters for the theme-specific logo configurations.
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public LogoRequestsDto Value { get; set; }

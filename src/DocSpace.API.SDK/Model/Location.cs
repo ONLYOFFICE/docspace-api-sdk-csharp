@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [1 - Room, 2 - Documents, 3 - Link]
     /// </summary>
-    /// <value>[1 - Room, 2 - Documents, 3 - Link]</value>
     public enum Location
     {
         /// <summary>

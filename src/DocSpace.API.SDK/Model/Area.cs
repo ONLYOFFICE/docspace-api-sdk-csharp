@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - All, 1 - People, 2 - Guests]
     /// </summary>
-    /// <value>[0 - All, 1 - People, 2 - Guests]</value>
     public enum Area
     {
         /// <summary>

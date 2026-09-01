@@ -88,140 +88,120 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The client name.
         /// </summary>
-        /// <value>The client name.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// The client description.
         /// </summary>
-        /// <value>The client description.</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// The tenant ID associated with the client.
         /// </summary>
-        /// <value>The tenant ID associated with the client.</value>
         [DataMember(Name = "tenant", EmitDefaultValue = false)]
         public long Tenant { get; set; }
 
         /// <summary>
         /// The client scopes.
         /// </summary>
-        /// <value>The client scopes.</value>
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
 
         /// <summary>
         /// Specifies if the client is currently enabled or not.
         /// </summary>
-        /// <value>Specifies if the client is currently enabled or not.</value>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// The client identifier issued to the client during registration.
         /// </summary>
-        /// <value>The client identifier issued to the client during registration.</value>
         [DataMember(Name = "client_id", EmitDefaultValue = false)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// The client secret issued to the client during registration.
         /// </summary>
-        /// <value>The client secret issued to the client during registration.</value>
         [DataMember(Name = "client_secret", EmitDefaultValue = false)]
         public string ClientSecret { get; set; }
 
         /// <summary>
         /// The URL to the client&#39;s website.
         /// </summary>
-        /// <value>The URL to the client&#39;s website.</value>
         [DataMember(Name = "website_url", EmitDefaultValue = false)]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
         /// The URL to the client&#39;s terms of service.
         /// </summary>
-        /// <value>The URL to the client&#39;s terms of service.</value>
         [DataMember(Name = "terms_url", EmitDefaultValue = false)]
         public string TermsUrl { get; set; }
 
         /// <summary>
         /// The URL to the client&#39;s privacy policy.
         /// </summary>
-        /// <value>The URL to the client&#39;s privacy policy.</value>
         [DataMember(Name = "policy_url", EmitDefaultValue = false)]
         public string PolicyUrl { get; set; }
 
         /// <summary>
         /// The URL to the client&#39;s logo.
         /// </summary>
-        /// <value>The URL to the client&#39;s logo.</value>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public string Logo { get; set; }
 
         /// <summary>
         /// The authentication methods supported by the client.
         /// </summary>
-        /// <value>The authentication methods supported by the client.</value>
         [DataMember(Name = "authentication_methods", EmitDefaultValue = false)]
         public List<string> AuthenticationMethods { get; set; }
 
         /// <summary>
         /// The list of allowed redirect URIs.
         /// </summary>
-        /// <value>The list of allowed redirect URIs.</value>
         [DataMember(Name = "redirect_uris", EmitDefaultValue = false)]
         public List<string> RedirectUris { get; set; }
 
         /// <summary>
         /// The list of allowed CORS origins.
         /// </summary>
-        /// <value>The list of allowed CORS origins.</value>
         [DataMember(Name = "allowed_origins", EmitDefaultValue = false)]
         public List<string> AllowedOrigins { get; set; }
 
         /// <summary>
         /// The list of allowed logout redirect URIs.
         /// </summary>
-        /// <value>The list of allowed logout redirect URIs.</value>
         [DataMember(Name = "logout_redirect_uris", EmitDefaultValue = false)]
         public List<string> LogoutRedirectUris { get; set; }
 
         /// <summary>
         /// The date and time when the client was created.
         /// </summary>
-        /// <value>The date and time when the client was created.</value>
         [DataMember(Name = "created_on", EmitDefaultValue = false)]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
         /// The user who created the client.
         /// </summary>
-        /// <value>The user who created the client.</value>
         [DataMember(Name = "created_by", EmitDefaultValue = false)]
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// The date and time when the client was last modified.
         /// </summary>
-        /// <value>The date and time when the client was last modified.</value>
         [DataMember(Name = "modified_on", EmitDefaultValue = false)]
         public DateTime ModifiedOn { get; set; }
 
         /// <summary>
         /// The user who last modified the client.
         /// </summary>
-        /// <value>The user who last modified the client.</value>
         [DataMember(Name = "modified_by", EmitDefaultValue = false)]
         public string ModifiedBy { get; set; }
 
         /// <summary>
         /// Indicates whether the client is accessible by third-party tenants.
         /// </summary>
-        /// <value>Indicates whether the client is accessible by third-party tenants.</value>
         [DataMember(Name = "is_public", EmitDefaultValue = true)]
         public bool IsPublic { get; set; }
 

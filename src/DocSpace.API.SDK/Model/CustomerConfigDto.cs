@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The address of the customer configuration.
         /// </summary>
-        /// <value>The address of the customer configuration.</value>
-        /*
-        <example>123 Main Street, City</example>
-        */
+        /// <example>123 Main Street, City</example>
         [DataMember(Name = "address", EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
         /// The logo of the customer configuration.
         /// </summary>
-        /// <value>The logo of the customer configuration.</value>
-        /*
-        <example>http://localhost/customer-logo.png</example>
-        */
+        /// <example>http://localhost/customer-logo.png</example>
         [DataMember(Name = "logo", EmitDefaultValue = true)]
         public string Logo { get; set; }
 
         /// <summary>
         /// The dark logo of the customer configuration.
         /// </summary>
-        /// <value>The dark logo of the customer configuration.</value>
-        /*
-        <example>http://localhost/customer-logo-dark.png</example>
-        */
+        /// <example>http://localhost/customer-logo-dark.png</example>
         [DataMember(Name = "logoDark", EmitDefaultValue = true)]
         public string LogoDark { get; set; }
 
         /// <summary>
         /// The mail address of the customer configuration.
         /// </summary>
-        /// <value>The mail address of the customer configuration.</value>
-        /*
-        <example>contact@example.com</example>
-        */
+        /// <example>contact@example.com</example>
         [DataMember(Name = "mail", EmitDefaultValue = true)]
         public string Mail { get; set; }
 
         /// <summary>
         /// The name of the customer configuration.
         /// </summary>
-        /// <value>The name of the customer configuration.</value>
-        /*
-        <example>ONLYOFFICE</example>
-        */
+        /// <example>ONLYOFFICE</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The site web address of the customer configuration.
         /// </summary>
-        /// <value>The site web address of the customer configuration.</value>
-        /*
-        <example>https://www.example.com</example>
-        */
+        /// <example>https://www.example.com</example>
         [DataMember(Name = "www", EmitDefaultValue = true)]
         public string Www { get; set; }
 

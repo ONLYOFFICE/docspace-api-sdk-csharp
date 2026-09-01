@@ -60,10 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Default templates list.
         /// </summary>
-        /// <value>Default templates list.</value>
-        /*
-        <example>[{"extension":".docx","title":"Blank Document"}]</example>
-        */
+        /// <example>[{"extension":".docx","title":"Blank Document"}]</example>
         [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
         public List<DefaultTemplateItemDto> Items { get; set; }
 

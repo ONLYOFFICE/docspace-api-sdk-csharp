@@ -60,10 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The folder title to create.
         /// </summary>
-        /// <value>The folder title to create.</value>
-        /*
-        <example>New Folder</example>
-        */
+        /// <example>New Folder</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 

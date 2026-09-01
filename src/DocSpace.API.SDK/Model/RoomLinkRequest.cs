@@ -39,13 +39,13 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Access
+        /// The access rights type.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
 
         /// <summary>
-        /// Gets or Sets LinkType
+        /// The link type.
         /// </summary>
         [DataMember(Name = "linkType", EmitDefaultValue = false)]
         public LinkType? LinkType { get; set; }
@@ -54,11 +54,11 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="RoomLinkRequest" /> class.
         /// </summary>
         /// <param name="linkId">The room link ID..</param>
-        /// <param name="access">access.</param>
-        /// <param name="expirationDate">expirationDate.</param>
+        /// <param name="access">The access rights type..</param>
+        /// <param name="expirationDate">The API date and time parameters..</param>
         /// <param name="internal">The link scope, whether it is internal or not..</param>
         /// <param name="title">The link name..</param>
-        /// <param name="linkType">linkType.</param>
+        /// <param name="linkType">The link type..</param>
         /// <param name="password">The link password..</param>
         /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
@@ -80,15 +80,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The room link ID.
         /// </summary>
-        /// <value>The room link ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "linkId", EmitDefaultValue = false)]
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpirationDate
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
@@ -96,60 +93,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The link scope, whether it is internal or not.
         /// </summary>
-        /// <value>The link scope, whether it is internal or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool Internal { get; set; }
 
         /// <summary>
         /// The link name.
         /// </summary>
-        /// <value>The link name.</value>
-        /*
-        <example>My Document</example>
-        */
+        /// <example>My Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The link password.
         /// </summary>
-        /// <value>The link password.</value>
-        /*
-        <example>doc_key_123</example>
-        */
+        /// <example>doc_key_123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// Specifies if downloading the file from the link is disabled or not.
         /// </summary>
-        /// <value>Specifies if downloading the file from the link is disabled or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
         /// The maximum number of times the invitation link can be used.
         /// </summary>
-        /// <value>The maximum number of times the invitation link can be used.</value>
-        /*
-        <example>25</example>
-        */
+        /// <example>25</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 
         /// <summary>
         /// The current number of times the invitation link has been used.
         /// </summary>
-        /// <value>The current number of times the invitation link has been used.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "currentUseCount", EmitDefaultValue = false)]
         public int CurrentUseCount { get; set; }
 

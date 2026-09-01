@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Not activated, 1 - Activated]
     /// </summary>
-    /// <value>[0 - Not activated, 1 - Activated]</value>
     public enum MobilePhoneActivationStatus
     {
         /// <summary>

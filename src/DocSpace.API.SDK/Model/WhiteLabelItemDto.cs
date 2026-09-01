@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The white label logo type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public WhiteLabelLogoType? Type { get; set; }
@@ -47,10 +47,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WhiteLabelItemDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">The white label logo type..</param>
         /// <param name="name">The white label file name..</param>
-        /// <param name="size">size.</param>
-        /// <param name="path">path.</param>
+        /// <param name="size">The white label file size..</param>
+        /// <param name="path">The white label file path..</param>
         public WhiteLabelItemDto(WhiteLabelLogoType? type = default, string name = default, IMagickGeometry size = default, WhiteLabelItemPathDto path = default)
         {
             this.Type = type;
@@ -62,21 +62,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The white label file name.
         /// </summary>
-        /// <value>The white label file name.</value>
-        /*
-        <example>Example Name</example>
-        */
+        /// <example>Example Name</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Size
+        /// The white label file size.
         /// </summary>
         [DataMember(Name = "size", EmitDefaultValue = false)]
         public IMagickGeometry Size { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// The white label file path.
         /// </summary>
         [DataMember(Name = "path", EmitDefaultValue = false)]
         public WhiteLabelItemPathDto Path { get; set; }

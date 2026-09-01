@@ -41,15 +41,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CultureSpecificExternalResources" /> class.
         /// </summary>
-        /// <param name="api">api.</param>
-        /// <param name="common">common.</param>
-        /// <param name="forum">forum.</param>
-        /// <param name="helpcenter">helpcenter.</param>
-        /// <param name="integrations">integrations.</param>
-        /// <param name="site">site.</param>
-        /// <param name="socialNetworks">socialNetworks.</param>
-        /// <param name="support">support.</param>
-        /// <param name="videoguides">videoguides.</param>
+        /// <param name="api">The link to the product API..</param>
+        /// <param name="common">The link to the common product information..</param>
+        /// <param name="forum">The link to the forum..</param>
+        /// <param name="helpcenter">The link to the Help Center..</param>
+        /// <param name="integrations">The link to the product integrations..</param>
+        /// <param name="site">The link to the product website..</param>
+        /// <param name="socialNetworks">The link to the product social nerworks..</param>
+        /// <param name="support">The link to the product support..</param>
+        /// <param name="videoguides">The link to the video guides..</param>
         public CultureSpecificExternalResources(CultureSpecificExternalResource api = default, CultureSpecificExternalResource common = default, CultureSpecificExternalResource forum = default, CultureSpecificExternalResource helpcenter = default, CultureSpecificExternalResource integrations = default, CultureSpecificExternalResource site = default, CultureSpecificExternalResource socialNetworks = default, CultureSpecificExternalResource support = default, CultureSpecificExternalResource videoguides = default)
         {
             this.Api = api;
@@ -64,55 +64,55 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Api
+        /// The link to the product API.
         /// </summary>
         [DataMember(Name = "api", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Api { get; set; }
 
         /// <summary>
-        /// Gets or Sets Common
+        /// The link to the common product information.
         /// </summary>
         [DataMember(Name = "common", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Common { get; set; }
 
         /// <summary>
-        /// Gets or Sets Forum
+        /// The link to the forum.
         /// </summary>
         [DataMember(Name = "forum", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Forum { get; set; }
 
         /// <summary>
-        /// Gets or Sets Helpcenter
+        /// The link to the Help Center.
         /// </summary>
         [DataMember(Name = "helpcenter", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Helpcenter { get; set; }
 
         /// <summary>
-        /// Gets or Sets Integrations
+        /// The link to the product integrations.
         /// </summary>
         [DataMember(Name = "integrations", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Integrations { get; set; }
 
         /// <summary>
-        /// Gets or Sets Site
+        /// The link to the product website.
         /// </summary>
         [DataMember(Name = "site", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Site { get; set; }
 
         /// <summary>
-        /// Gets or Sets SocialNetworks
+        /// The link to the product social nerworks.
         /// </summary>
         [DataMember(Name = "socialNetworks", EmitDefaultValue = false)]
         public CultureSpecificExternalResource SocialNetworks { get; set; }
 
         /// <summary>
-        /// Gets or Sets Support
+        /// The link to the product support.
         /// </summary>
         [DataMember(Name = "support", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Support { get; set; }
 
         /// <summary>
-        /// Gets or Sets Videoguides
+        /// The link to the video guides.
         /// </summary>
         [DataMember(Name = "videoguides", EmitDefaultValue = false)]
         public CultureSpecificExternalResource Videoguides { get; set; }

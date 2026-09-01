@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of inner services.
         /// </summary>
-        /// <value>The list of inner services.</value>
-        /*
-        <example>[{&quot;title&quot;:&quot;File Storage&quot;,&quot;size&quot;:1073741824}]</example>
-        */
+        /// <example>[{"title":"File Storage","size":1073741824}]</example>
         [DataMember(Name = "innerServices", EmitDefaultValue = true)]
         public List<WalletServiceDto> InnerServices { get; set; }
 
         /// <summary>
         /// The service name.
         /// </summary>
-        /// <value>The service name.</value>
-        /*
-        <example>backup</example>
-        */
+        /// <example>backup</example>
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
 
@@ -109,4 +103,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

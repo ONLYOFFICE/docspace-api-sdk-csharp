@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Period
+        /// Specifies the time period type of the room data lifetime.
         /// </summary>
         [DataMember(Name = "period", EmitDefaultValue = false)]
         public RoomDataLifetimePeriod? Period { get; set; }
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="RoomDataLifetimeDto" /> class.
         /// </summary>
         /// <param name="deletePermanently">Specifies whether to permanently delete the room data or not..</param>
-        /// <param name="period">period.</param>
+        /// <param name="period">Specifies the time period type of the room data lifetime..</param>
         /// <param name="value">Specifies the time period value of the room data lifetime..</param>
         /// <param name="enabled">Specifies whether the room data lifetime setting is enabled or not..</param>
         public RoomDataLifetimeDto(bool deletePermanently = default, RoomDataLifetimePeriod? period = default, int? value = default, bool? enabled = default)
@@ -62,30 +62,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to permanently delete the room data or not.
         /// </summary>
-        /// <value>Specifies whether to permanently delete the room data or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "deletePermanently", EmitDefaultValue = true)]
         public bool DeletePermanently { get; set; }
 
         /// <summary>
         /// Specifies the time period value of the room data lifetime.
         /// </summary>
-        /// <value>Specifies the time period value of the room data lifetime.</value>
-        /*
-        <example>33</example>
-        */
+        /// <example>33</example>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public int? Value { get; set; }
 
         /// <summary>
         /// Specifies whether the room data lifetime setting is enabled or not.
         /// </summary>
-        /// <value>Specifies whether the room data lifetime setting is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool? Enabled { get; set; }
 

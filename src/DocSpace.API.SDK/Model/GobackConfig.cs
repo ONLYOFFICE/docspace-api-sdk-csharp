@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The absolute URL to the website address which will be opened when clicking the Open file location menu button.
         /// </summary>
-        /// <value>The absolute URL to the website address which will be opened when clicking the Open file location menu button.</value>
-        /*
-        <example>https://portal.example.com/files/location</example>
-        */
+        /// <example>https://portal.example.com/files/location</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

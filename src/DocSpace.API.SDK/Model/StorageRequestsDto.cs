@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The name for the storage module to be configured.
         /// </summary>
-        /// <value>The name for the storage module to be configured.</value>
-        /*
-        <example>default</example>
-        */
+        /// <example>default</example>
         [DataMember(Name = "module", IsRequired = true, EmitDefaultValue = true)]
         public string Module { get; set; }
 
         /// <summary>
         /// The list of configuration key-value pairs for the storage module.
         /// </summary>
-        /// <value>The list of configuration key-value pairs for the storage module.</value>
-        /*
-        <example>["item1","item2"]</example>
-        */
+        /// <example>["item1","item2"]</example>
         [DataMember(Name = "props", EmitDefaultValue = true)]
         public List<ItemKeyValuePairStringString> Props { get; set; }
 

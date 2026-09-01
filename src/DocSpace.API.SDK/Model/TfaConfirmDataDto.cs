@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The confirmation URL.
         /// </summary>
-        /// <value>The confirmation URL.</value>
-        /*
-        <example>https://example.com/confirm?type=TfaAuth&key=abc123</example>
-        */
+        /// <example>https://example.com/confirm?type=TfaAuth&amp;key=abc123</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The confirmation cookie name.
         /// </summary>
-        /// <value>The confirmation cookie name.</value>
-        /*
-        <example>asc_confirm_key_TfaAuth</example>
-        */
+        /// <example>asc_confirm_key_TfaAuth</example>
         [DataMember(Name = "cookieName", EmitDefaultValue = true)]
         public string CookieName { get; set; }
 
         /// <summary>
         /// The confirmation cookie value.
         /// </summary>
-        /// <value>The confirmation cookie value.</value>
-        /*
-        <example>1234567890.abcdef</example>
-        */
+        /// <example>1234567890.abcdef</example>
         [DataMember(Name = "cookieValue", EmitDefaultValue = true)]
         public string CookieValue { get; set; }
 

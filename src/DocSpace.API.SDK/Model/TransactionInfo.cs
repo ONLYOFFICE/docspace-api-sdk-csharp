@@ -35,51 +35,24 @@ namespace DocSpace.API.SDK.Model
     /// Represents information about the transaction applied to an account.
     /// </summary>
     [DataContract(Name = "TransactionInfo")]
-    public partial class TransactionInfo : IValidatableObject
+    public partial class TransactionInfo : CurrencyAmount, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionInfo" /> class.
         /// </summary>
         /// <param name="date">The date and time when the credit transaction occurred..</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol of the transaction..</param>
-        /// <param name="amount">Amount of the transaction..</param>
-        public TransactionInfo(DateTime date = default, string currency = default, double amount = default)
+        public TransactionInfo(DateTime date = default)
         {
             this.Date = date;
-            this.Currency = currency;
-            this.Amount = amount;
         }
 
         /// <summary>
         /// The date and time when the credit transaction occurred.
         /// </summary>
-        /// <value>The date and time when the credit transaction occurred.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTime Date { get; set; }
-
-        /// <summary>
-        /// The three-character ISO 4217 currency symbol of the transaction.
-        /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol of the transaction.</value>
-        /*
-        <example>USD</example>
-        */
-        [DataMember(Name = "currency", EmitDefaultValue = true)]
-        public string Currency { get; set; }
-
-        /// <summary>
-        /// Amount of the transaction.
-        /// </summary>
-        /// <value>Amount of the transaction.</value>
-        /*
-        <example>1500.75</example>
-        */
-        [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public double Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,8 +63,6 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class TransactionInfo {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,10 +71,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -116,6 +88,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
-
 
 }

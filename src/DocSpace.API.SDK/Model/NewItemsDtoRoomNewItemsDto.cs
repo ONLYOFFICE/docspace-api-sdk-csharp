@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewItemsDtoRoomNewItemsDto" /> class.
         /// </summary>
-        /// <param name="date">date (required).</param>
+        /// <param name="date">The date and time when the new item was created. (required).</param>
         /// <param name="items">The list of items. (required).</param>
         public NewItemsDtoRoomNewItemsDto(ApiDateTime date = default, List<RoomNewItemsDto> items = default)
         {
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// The date and time when the new item was created.
         /// </summary>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public ApiDateTime Date { get; set; }
@@ -73,7 +73,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of items.
         /// </summary>
-        /// <value>The list of items.</value>
         [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
         public List<RoomNewItemsDto> Items { get; set; }
 

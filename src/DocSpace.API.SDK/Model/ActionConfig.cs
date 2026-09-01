@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The action data that will be scrolled to.
         /// </summary>
-        /// <value>The action data that will be scrolled to.</value>
-        /*
-        <example>section</example>
-        */
+        /// <example>section</example>
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public string Data { get; set; }
 
         /// <summary>
         /// The action type.
         /// </summary>
-        /// <value>The action type.</value>
-        /*
-        <example>scroll</example>
-        */
+        /// <example>scroll</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

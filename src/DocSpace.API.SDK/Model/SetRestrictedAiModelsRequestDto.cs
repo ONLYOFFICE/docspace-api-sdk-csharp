@@ -60,10 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The set of restricted AI model IDs.
         /// </summary>
-        /// <value>The set of restricted AI model IDs.</value>
-        /*
-        <example>["model1","model2"]</example>
-        */
+        /// <example>["model1","model2"]</example>
         [DataMember(Name = "models", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Models { get; set; }
 

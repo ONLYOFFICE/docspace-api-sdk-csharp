@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The collection of invitation parameters.
         /// </summary>
-        /// <value>The collection of invitation parameters.</value>
-        /*
-        <example>[{"id":"00000000-0000-0000-0000-000000000000","access":1}]</example>
-        */
+        /// <example>[{"id":"00000000-0000-0000-0000-000000000000","access":1}]</example>
         [DataMember(Name = "invitations", EmitDefaultValue = true)]
         public List<RoomInvitation> Invitations { get; set; }
 
         /// <summary>
         /// Specifies whether to notify users about the shared room or not.
         /// </summary>
-        /// <value>Specifies whether to notify users about the shared room or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "notify", EmitDefaultValue = true)]
         public bool Notify { get; set; }
 
         /// <summary>
         /// The message to send when notifying about the shared room.
         /// </summary>
-        /// <value>The message to send when notifying about the shared room.</value>
-        /*
-        <example>You have been invited to the room</example>
-        */
+        /// <example>You have been invited to the room</example>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
         /// The language of the room invitation.
         /// </summary>
-        /// <value>The language of the room invitation.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
         /// Specifies whether to forcibly delete a user with form roles from the room.
         /// </summary>
-        /// <value>Specifies whether to forcibly delete a user with form roles from the room.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "force", EmitDefaultValue = true)]
         public bool Force { get; set; }
 

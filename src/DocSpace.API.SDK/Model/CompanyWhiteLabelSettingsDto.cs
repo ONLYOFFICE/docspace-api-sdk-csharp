@@ -94,80 +94,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The company name.
         /// </summary>
-        /// <value>The company name.</value>
-        /*
-        <example>My Own Corporation</example>
-        */
+        /// <example>My Own Corporation</example>
         [DataMember(Name = "companyName", IsRequired = true, EmitDefaultValue = true)]
         public string CompanyName { get; set; }
 
         /// <summary>
         /// The company site.
         /// </summary>
-        /// <value>The company site.</value>
-        /*
-        <example>https://www.example.com</example>
-        */
+        /// <example>https://www.example.com</example>
         [DataMember(Name = "site", IsRequired = true, EmitDefaultValue = true)]
         public string Site { get; set; }
 
         /// <summary>
         /// The company email address.
         /// </summary>
-        /// <value>The company email address.</value>
-        /*
-        <example>contact@example.com</example>
-        */
+        /// <example>contact@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The company address.
         /// </summary>
-        /// <value>The company address.</value>
-        /*
-        <example>123 Business St, New York, NY 10001</example>
-        */
+        /// <example>123 Business St, New York, NY 10001</example>
         [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
         /// The company phone number.
         /// </summary>
-        /// <value>The company phone number.</value>
-        /*
-        <example>+1-800-555-0123</example>
-        */
+        /// <example>+1-800-555-0123</example>
         [DataMember(Name = "phone", IsRequired = true, EmitDefaultValue = true)]
         public string Phone { get; set; }
 
         /// <summary>
         /// Specifies if a company is a licensor or not.
         /// </summary>
-        /// <value>Specifies if a company is a licensor or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isLicensor", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLicensor { get; set; }
 
         /// <summary>
         /// Specifies if the About page is visible or not.
         /// </summary>
-        /// <value>Specifies if the About page is visible or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "hideAbout", IsRequired = true, EmitDefaultValue = true)]
         public bool HideAbout { get; set; }
 
         /// <summary>
         /// Specifies if these settings are default or not.
         /// </summary>
-        /// <value>Specifies if these settings are default or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 

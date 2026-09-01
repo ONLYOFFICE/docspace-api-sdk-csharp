@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The trigger name.
         /// </summary>
-        /// <value>The trigger name.</value>
-        /*
-        <example>file.created</example>
-        */
+        /// <example>file.created</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The trigger bit value.
         /// </summary>
-        /// <value>The trigger bit value.</value>
-        /*
-        <example>128</example>
-        */
+        /// <example>128</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public long Id { get; set; }
 
         /// <summary>
         /// Specifies whether this trigger is available for the current user&#39;s role.
         /// </summary>
-        /// <value>Specifies whether this trigger is available for the current user&#39;s role.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "available", EmitDefaultValue = true)]
         public bool Available { get; set; }
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The user type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EmployeeType? Type { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StartUpdateUserTypeDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">The user type..</param>
         /// <param name="userId">The user ID..</param>
         /// <param name="reassignUserId">The user ID to reassign..</param>
         public StartUpdateUserTypeDto(EmployeeType? type = default, Guid userId = default, Guid? reassignUserId = default)
@@ -60,20 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// The user ID to reassign.
         /// </summary>
-        /// <value>The user ID to reassign.</value>
-        /*
-        <example>11111111-1111-1111-1111-111111111111</example>
-        */
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "reassignUserId", EmitDefaultValue = true)]
         public Guid? ReassignUserId { get; set; }
 

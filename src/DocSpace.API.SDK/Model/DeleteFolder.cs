@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to delete a folder after the editing session is finished or not.
         /// </summary>
-        /// <value>Specifies whether to delete a folder after the editing session is finished or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
         /// Specifies whether to move a folder to the \\Trash\\ folder or delete it immediately.
         /// </summary>
-        /// <value>Specifies whether to move a folder to the \\Trash\\ folder or delete it immediately.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "immediately", EmitDefaultValue = true)]
         public bool Immediately { get; set; }
 

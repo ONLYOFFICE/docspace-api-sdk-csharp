@@ -69,30 +69,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The account provider.
         /// </summary>
-        /// <value>The account provider.</value>
-        /*
-        <example>Google</example>
-        */
+        /// <example>Google</example>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
         /// The account URL.
         /// </summary>
-        /// <value>The account URL.</value>
-        /*
-        <example>https://example.com/account</example>
-        */
+        /// <example>https://example.com/account</example>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// Specifies if an account is linked with other profiles or not.
         /// </summary>
-        /// <value>Specifies if an account is linked with other profiles or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "linked", IsRequired = true, EmitDefaultValue = true)]
         public bool Linked { get; set; }
 

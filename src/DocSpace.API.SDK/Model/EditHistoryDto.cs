@@ -45,8 +45,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="key">The document identifier used to unambiguously identify the document file..</param>
         /// <param name="version">The document version number..</param>
         /// <param name="versionGroup">The document version group..</param>
-        /// <param name="user">user.</param>
-        /// <param name="created">created.</param>
+        /// <param name="user">The information about the file editing history author..</param>
+        /// <param name="created">The API date and time parameters..</param>
         /// <param name="changesHistory">The file history changes in the string format..</param>
         /// <param name="changes">The list of file history changes..</param>
         /// <param name="serverVersion">The current server version number..</param>
@@ -66,51 +66,39 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The document ID.
         /// </summary>
-        /// <value>The document ID.</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The document identifier used to unambiguously identify the document file.
         /// </summary>
-        /// <value>The document identifier used to unambiguously identify the document file.</value>
-        /*
-        <example>doc-key-abc123</example>
-        */
+        /// <example>doc-key-abc123</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The document version number.
         /// </summary>
-        /// <value>The document version number.</value>
-        /*
-        <example>2</example>
-        */
+        /// <example>2</example>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The document version group.
         /// </summary>
-        /// <value>The document version group.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "versionGroup", EmitDefaultValue = false)]
         public int VersionGroup { get; set; }
 
         /// <summary>
-        /// Gets or Sets User
+        /// The information about the file editing history author.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public EditHistoryAuthor User { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public ApiDateTime Created { get; set; }
@@ -118,30 +106,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file history changes in the string format.
         /// </summary>
-        /// <value>The file history changes in the string format.</value>
-        /*
-        <example>Changes history text</example>
-        */
+        /// <example>Changes history text</example>
         [DataMember(Name = "changesHistory", EmitDefaultValue = true)]
         public string ChangesHistory { get; set; }
 
         /// <summary>
         /// The list of file history changes.
         /// </summary>
-        /// <value>The list of file history changes.</value>
-        /*
-        <example>[{"user":{"id":"123","name":"John Doe"},"created":"2021-01-01T00:00:00Z"}]</example>
-        */
+        /// <example>[{"user":{"id":"123","name":"John Doe"},"created":"2021-01-01T00:00:00Z"}]</example>
         [DataMember(Name = "changes", EmitDefaultValue = true)]
         public List<EditHistoryChangesWrapper> Changes { get; set; }
 
         /// <summary>
         /// The current server version number.
         /// </summary>
-        /// <value>The current server version number.</value>
-        /*
-        <example>8.0.1</example>
-        */
+        /// <example>8.0.1</example>
         [DataMember(Name = "serverVersion", EmitDefaultValue = true)]
         public string ServerVersion { get; set; }
 

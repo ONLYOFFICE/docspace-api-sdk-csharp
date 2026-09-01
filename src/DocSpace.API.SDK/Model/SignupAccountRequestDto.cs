@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets EmployeeType
+        /// The user type.
         /// </summary>
         [DataMember(Name = "employeeType", EmitDefaultValue = false)]
         public EmployeeType? EmployeeType { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignupAccountRequestDto" /> class.
         /// </summary>
-        /// <param name="employeeType">employeeType.</param>
+        /// <param name="employeeType">The user type..</param>
         /// <param name="key">The user link key. (required).</param>
         /// <param name="culture">The user culture code..</param>
         /// <param name="serializedProfile">The third-party profile in the serialized format (required).</param>
@@ -77,30 +77,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user link key.
         /// </summary>
-        /// <value>The user link key.</value>
-        /*
-        <example>invite_key_123456</example>
-        */
+        /// <example>invite_key_123456</example>
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The user culture code.
         /// </summary>
-        /// <value>The user culture code.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
         /// The third-party profile in the serialized format
         /// </summary>
-        /// <value>The third-party profile in the serialized format</value>
-        /*
-        <example>{"provider":"Google","id":"123456"}</example>
-        */
+        /// <example>{"provider":"Google","id":"123456"}</example>
         [DataMember(Name = "serializedProfile", IsRequired = true, EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 

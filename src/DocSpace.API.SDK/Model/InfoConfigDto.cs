@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The editor type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EditorType? Type { get; set; }
@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="folder">The folder of the file..</param>
         /// <param name="owner">The file owner..</param>
         /// <param name="sharingSettings">The sharing settings of the file..</param>
-        /// <param name="type">type.</param>
+        /// <param name="type">The editor type..</param>
         /// <param name="uploaded">The uploaded file..</param>
         public InfoConfigDto(bool? favorite = default, string folder = default, string owner = default, List<AceShortWrapper> sharingSettings = default, EditorType? type = default, string uploaded = default)
         {
@@ -66,50 +66,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the file is favorite or not.
         /// </summary>
-        /// <value>Specifies if the file is favorite or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "favorite", EmitDefaultValue = true)]
         public bool? Favorite { get; set; }
 
         /// <summary>
         /// The folder of the file.
         /// </summary>
-        /// <value>The folder of the file.</value>
-        /*
-        <example>My Documents</example>
-        */
+        /// <example>My Documents</example>
         [DataMember(Name = "folder", EmitDefaultValue = true)]
         public string Folder { get; set; }
 
         /// <summary>
         /// The file owner.
         /// </summary>
-        /// <value>The file owner.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public string Owner { get; set; }
 
         /// <summary>
         /// The sharing settings of the file.
         /// </summary>
-        /// <value>The sharing settings of the file.</value>
-        /*
-        <example>[]</example>
-        */
+        /// <example>[]</example>
         [DataMember(Name = "sharingSettings", EmitDefaultValue = true)]
         public List<AceShortWrapper> SharingSettings { get; set; }
 
         /// <summary>
         /// The uploaded file.
         /// </summary>
-        /// <value>The uploaded file.</value>
-        /*
-        <example>2025-01-01T00:00:00</example>
-        */
+        /// <example>2025-01-01T00:00:00</example>
         [DataMember(Name = "uploaded", EmitDefaultValue = true)]
         public string Uploaded { get; set; }
 

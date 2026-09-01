@@ -62,70 +62,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The certificate signing algorithm.
         /// </summary>
-        /// <value>The certificate signing algorithm.</value>
-        /*
-        <example>rsa-sha256</example>
-        */
+        /// <example>rsa-sha256</example>
         [DataMember(Name = "signingAlgorithm", EmitDefaultValue = true)]
         public string SigningAlgorithm { get; set; }
 
         /// <summary>
         /// Specifies if SP will sign the SAML authentication requests sent to IdP or not.
         /// </summary>
-        /// <value>Specifies if SP will sign the SAML authentication requests sent to IdP or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "signAuthRequests", EmitDefaultValue = true)]
         public bool SignAuthRequests { get; set; }
 
         /// <summary>
         /// Specifies if SP will sign the SAML logout requests sent to IdP or not.
         /// </summary>
-        /// <value>Specifies if SP will sign the SAML logout requests sent to IdP or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "signLogoutRequests", EmitDefaultValue = true)]
         public bool SignLogoutRequests { get; set; }
 
         /// <summary>
         /// Specifies if SP will sign the SAML logout responses sent to IdP or not.
         /// </summary>
-        /// <value>Specifies if SP will sign the SAML logout responses sent to IdP or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "signLogoutResponses", EmitDefaultValue = true)]
         public bool SignLogoutResponses { get; set; }
 
         /// <summary>
         /// The certificate encryption algorithm.
         /// </summary>
-        /// <value>The certificate encryption algorithm.</value>
-        /*
-        <example>aes256-cbc</example>
-        */
+        /// <example>aes256-cbc</example>
         [DataMember(Name = "encryptAlgorithm", EmitDefaultValue = true)]
         public string EncryptAlgorithm { get; set; }
 
         /// <summary>
         /// The certificate decryption algorithm.
         /// </summary>
-        /// <value>The certificate decryption algorithm.</value>
-        /*
-        <example>aes256-cbc</example>
-        */
+        /// <example>aes256-cbc</example>
         [DataMember(Name = "decryptAlgorithm", EmitDefaultValue = true)]
         public string DecryptAlgorithm { get; set; }
 
         /// <summary>
         /// Specifies if the assertions will be encrypted or not.
         /// </summary>
-        /// <value>Specifies if the assertions will be encrypted or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "encryptAssertions", EmitDefaultValue = true)]
         public bool EncryptAssertions { get; set; }
 

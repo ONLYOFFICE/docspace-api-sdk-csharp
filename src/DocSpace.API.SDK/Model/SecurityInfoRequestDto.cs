@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of the shared folder IDs.
         /// </summary>
-        /// <value>The list of the shared folder IDs.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of the shared file IDs.
         /// </summary>
-        /// <value>The list of the shared file IDs.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The collection of sharing parameters.
         /// </summary>
-        /// <value>The collection of sharing parameters.</value>
-        /*
-        <example>[{"shareTo":"00000000-0000-0000-0000-000000000000","access":1}]</example>
-        */
+        /// <example>[{"access":1,"shareTo":"00000000-0000-0000-0000-000000000000"}]</example>
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }
 
         /// <summary>
         /// Specifies whether to notify users about the shared file or not.
         /// </summary>
-        /// <value>Specifies whether to notify users about the shared file or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "notify", EmitDefaultValue = true)]
         public bool Notify { get; set; }
 
         /// <summary>
         /// The message to send when notifying about the shared file.
         /// </summary>
-        /// <value>The message to send when notifying about the shared file.</value>
-        /*
-        <example>You have been granted access to the file</example>
-        */
+        /// <example>You have been granted access to the file</example>
         [DataMember(Name = "sharingMessage", EmitDefaultValue = true)]
         public string SharingMessage { get; set; }
 

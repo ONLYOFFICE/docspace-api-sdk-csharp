@@ -54,21 +54,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The paginated modification data.
         /// </summary>
-        /// <value>The paginated modification data.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public Object Data { get; set; }
 
         /// <summary>
         /// The maximum number of results returned per page.
         /// </summary>
-        /// <value>The maximum number of results returned per page.</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
         /// <summary>
         /// The date when the user consent was last modified.
         /// </summary>
-        /// <value>The date when the user consent was last modified.</value>
         [DataMember(Name = "last_modified_on", EmitDefaultValue = false)]
         public DateTime LastModifiedOn { get; set; }
 

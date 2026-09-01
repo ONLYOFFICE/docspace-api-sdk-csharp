@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the tenant quota is enabled or not.
         /// </summary>
-        /// <value>Specifies if the tenant quota is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enableQuota", EmitDefaultValue = true)]
         public bool EnableQuota { get; set; }
 
         /// <summary>
         /// The tenant quota.
         /// </summary>
-        /// <value>The tenant quota.</value>
-        /*
-        <example>10737418240</example>
-        */
+        /// <example>10737418240</example>
         [DataMember(Name = "quota", EmitDefaultValue = false)]
         public long Quota { get; set; }
 
         /// <summary>
         /// The date of the last tenant quota recalculation.
         /// </summary>
-        /// <value>The date of the last tenant quota recalculation.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastRecalculateDate", EmitDefaultValue = true)]
         public DateTime? LastRecalculateDate { get; set; }
 
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

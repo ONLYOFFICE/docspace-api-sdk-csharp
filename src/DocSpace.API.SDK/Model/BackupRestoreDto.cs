@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets StorageType
+        /// The backup storage type.
         /// </summary>
         [DataMember(Name = "storageType", EmitDefaultValue = false)]
         public BackupStorageType? StorageType { get; set; }
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="BackupRestoreDto" /> class.
         /// </summary>
         /// <param name="backupId">The backup ID. (required).</param>
-        /// <param name="storageType">storageType.</param>
+        /// <param name="storageType">The backup storage type..</param>
         /// <param name="storageParams">The backup storage parameters..</param>
         /// <param name="notify">Notifies users about the portal restoring process or not..</param>
         /// <param name="dump">Specifies if a dump will be created or not..</param>
@@ -74,40 +74,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The backup ID.
         /// </summary>
-        /// <value>The backup ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "backupId", IsRequired = true, EmitDefaultValue = true)]
         public string BackupId { get; set; }
 
         /// <summary>
         /// The backup storage parameters.
         /// </summary>
-        /// <value>The backup storage parameters.</value>
-        /*
-        <example>[{"key":"path","value":"/backup"}]</example>
-        */
+        /// <example>[{"key":"path","value":"/backup"}]</example>
         [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>
         /// Notifies users about the portal restoring process or not.
         /// </summary>
-        /// <value>Notifies users about the portal restoring process or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "notify", EmitDefaultValue = true)]
         public bool Notify { get; set; }
 
         /// <summary>
         /// Specifies if a dump will be created or not.
         /// </summary>
-        /// <value>Specifies if a dump will be created or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "dump", EmitDefaultValue = true)]
         public bool Dump { get; set; }
 

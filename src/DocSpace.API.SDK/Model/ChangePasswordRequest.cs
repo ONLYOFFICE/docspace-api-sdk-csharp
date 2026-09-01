@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user password.
         /// </summary>
-        /// <value>The user password.</value>
-        /*
-        <example>P@ssw0rd</example>
-        */
+        /// <example>P@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// The user password hash.
         /// </summary>
-        /// <value>The user password hash.</value>
-        /*
-        <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
-        */
+        /// <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 

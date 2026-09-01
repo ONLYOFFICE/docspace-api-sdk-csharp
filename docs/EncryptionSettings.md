@@ -6,7 +6,7 @@ The encryption settings.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Password** | **string** | The encryption password. | [optional] 
-**Status** | **EncryprtionStatus** |  | [optional] 
+**Status** | **EncryprtionStatus** | The encryption status. | [optional] 
 **NotifyUsers** | **bool** | Specifies if the users will be notified about the encryption operation or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **FolderIds** | [**List&lt;BatchRequestDtoAllOfFolderIds&gt;**](BatchRequestDtoAllOfFolderIds.md) | The list of folder IDs to be copied/moved. | [optional] 
 **FileIds** | [**List&lt;BatchRequestDtoAllOfFileIds&gt;**](BatchRequestDtoAllOfFileIds.md) | The list of file IDs to be copied/moved. | [optional] 
 **DestFolderId** | [**BatchRequestDtoAllOfDestFolderId**](BatchRequestDtoAllOfDestFolderId.md) |  | [optional] 
-**ConflictResolveType** | **FileConflictResolveType** |  | [optional] 
+**ConflictResolveType** | **FileConflictResolveType** | The overwriting behavior of the file copying or moving. | [optional] 
 **DeleteAfter** | **bool** | Specifies whether to delete the source files/folders after they are moved or copied to the destination folder. | [optional] 
 **Content** | **bool** | Specifies whether to copy or move the folder content or not. | [optional] 
 **ToFillOut** | **bool** | Specifies whether the file is copied for filling out | [optional] 

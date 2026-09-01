@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionLinkConfig" /> class.
         /// </summary>
-        /// <param name="action">action.</param>
+        /// <param name="action">The information about the action in the document that will be scrolled to..</param>
         public ActionLinkConfig(ActionConfig action = default)
         {
             this.Action = action;
         }
 
         /// <summary>
-        /// Gets or Sets Action
+        /// The information about the action in the document that will be scrolled to.
         /// </summary>
         [DataMember(Name = "action", EmitDefaultValue = false)]
         public ActionConfig Action { get; set; }

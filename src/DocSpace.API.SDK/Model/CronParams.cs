@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Period
+        /// The backup period type.
         /// </summary>
         [DataMember(Name = "period", EmitDefaultValue = false)]
         public BackupPeriod? Period { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CronParams" /> class.
         /// </summary>
-        /// <param name="period">period.</param>
+        /// <param name="period">The backup period type..</param>
         /// <param name="hour">The time of the day to start the backup process..</param>
         /// <param name="day">The day of the week to start the backup process..</param>
         public CronParams(BackupPeriod? period = default, int hour = default, int day = default)
@@ -60,20 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The time of the day to start the backup process.
         /// </summary>
-        /// <value>The time of the day to start the backup process.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "hour", EmitDefaultValue = false)]
         public int Hour { get; set; }
 
         /// <summary>
         /// The day of the week to start the backup process.
         /// </summary>
-        /// <value>The day of the week to start the backup process.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "day", EmitDefaultValue = false)]
         public int Day { get; set; }
 

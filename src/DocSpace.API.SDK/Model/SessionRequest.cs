@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fileName">The file name. (required).</param>
         /// <param name="fileSize">The file size..</param>
         /// <param name="relativePath">The relative path to the file..</param>
-        /// <param name="createOn">createOn.</param>
+        /// <param name="createOn">The API date and time parameters..</param>
         /// <param name="encrypted">Specifies whether the file is encrypted or not..</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists..</param>
         public SessionRequest(string fileName = default, long fileSize = default, string relativePath = default, ApiDateTime createOn = default, bool encrypted = default, bool createNewIfExist = default)
@@ -70,35 +70,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file name.
         /// </summary>
-        /// <value>The file name.</value>
-        /*
-        <example>My Document.docx</example>
-        */
+        /// <example>My Document.docx</example>
         [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// The file size.
         /// </summary>
-        /// <value>The file size.</value>
-        /*
-        <example>10485760</example>
-        */
+        /// <example>10485760</example>
         [DataMember(Name = "fileSize", EmitDefaultValue = false)]
         public long FileSize { get; set; }
 
         /// <summary>
         /// The relative path to the file.
         /// </summary>
-        /// <value>The relative path to the file.</value>
-        /*
-        <example>subfolder/documents</example>
-        */
+        /// <example>subfolder/documents</example>
         [DataMember(Name = "relativePath", EmitDefaultValue = true)]
         public string RelativePath { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreateOn
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "createOn", EmitDefaultValue = false)]
         public ApiDateTime CreateOn { get; set; }
@@ -106,20 +97,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the file is encrypted or not.
         /// </summary>
-        /// <value>Specifies whether the file is encrypted or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "encrypted", EmitDefaultValue = true)]
         public bool Encrypted { get; set; }
 
         /// <summary>
         /// Specifies whether to create a new file if it already exists.
         /// </summary>
-        /// <value>Specifies whether to create a new file if it already exists.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "createNewIfExist", EmitDefaultValue = true)]
         public bool CreateNewIfExist { get; set; }
 

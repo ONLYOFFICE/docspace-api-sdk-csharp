@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The InProcess folder ID of the draft.
         /// </summary>
-        /// <value>The InProcess folder ID of the draft.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
 
         /// <summary>
         /// The InProcess folder title of the draft.
         /// </summary>
-        /// <value>The InProcess folder title of the draft.</value>
-        /*
-        <example>Draft Folder</example>
-        */
+        /// <example>Draft Folder</example>
         [DataMember(Name = "folderTitle", EmitDefaultValue = true)]
         public string FolderTitle { get; set; }
 
         /// <summary>
         /// The draft ID.
         /// </summary>
-        /// <value>The draft ID.</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public int FileId { get; set; }
 
         /// <summary>
         /// The draft title.
         /// </summary>
-        /// <value>The draft title.</value>
-        /*
-        <example>Draft Document</example>
-        */
+        /// <example>Draft Document</example>
         [DataMember(Name = "fileTitle", EmitDefaultValue = true)]
         public string FileTitle { get; set; }
 

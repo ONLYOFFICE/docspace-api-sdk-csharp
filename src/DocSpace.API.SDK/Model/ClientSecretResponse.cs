@@ -50,7 +50,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The newly generated client secret.
         /// </summary>
-        /// <value>The newly generated client secret.</value>
         [DataMember(Name = "client_secret", EmitDefaultValue = false)]
         public string ClientSecret { get; set; }
 

@@ -67,20 +67,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The IANA time zone identifier.
         /// </summary>
-        /// <value>The IANA time zone identifier.</value>
-        /*
-        <example>America/New_York</example>
-        */
+        /// <example>America/New_York</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The user-friendly name for the time zone.
         /// </summary>
-        /// <value>The user-friendly name for the time zone.</value>
-        /*
-        <example>(UTC-05:00) Eastern Time (US and Canada)</example>
-        */
+        /// <example>(UTC-05:00) Eastern Time (US and Canada)</example>
         [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 

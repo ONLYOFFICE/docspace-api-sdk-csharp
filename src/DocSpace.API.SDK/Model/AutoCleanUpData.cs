@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Gap
+        /// The period when the trash bin will be cleared.
         /// </summary>
         [DataMember(Name = "gap", EmitDefaultValue = false)]
         public DateToAutoCleanUp? Gap { get; set; }
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AutoCleanUpData" /> class.
         /// </summary>
         /// <param name="isAutoCleanUp">Specifies whether to permanently delete files in the Trash folder..</param>
-        /// <param name="gap">gap.</param>
+        /// <param name="gap">The period when the trash bin will be cleared..</param>
         public AutoCleanUpData(bool isAutoCleanUp = default, DateToAutoCleanUp? gap = default)
         {
             this.IsAutoCleanUp = isAutoCleanUp;
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to permanently delete files in the Trash folder.
         /// </summary>
-        /// <value>Specifies whether to permanently delete files in the Trash folder.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isAutoCleanUp", EmitDefaultValue = true)]
         public bool IsAutoCleanUp { get; set; }
 

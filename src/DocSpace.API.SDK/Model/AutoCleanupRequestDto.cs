@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Gap
+        /// The period when the trash bin will be cleared.
         /// </summary>
         [DataMember(Name = "gap", EmitDefaultValue = false)]
         public DateToAutoCleanUp? Gap { get; set; }
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AutoCleanupRequestDto" /> class.
         /// </summary>
         /// <param name="set">Specifies whether to enable the auto-clearing or not..</param>
-        /// <param name="gap">gap.</param>
+        /// <param name="gap">The period when the trash bin will be cleared..</param>
         public AutoCleanupRequestDto(bool set = default, DateToAutoCleanUp? gap = default)
         {
             this.Set = set;
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to enable the auto-clearing or not.
         /// </summary>
-        /// <value>Specifies whether to enable the auto-clearing or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "set", EmitDefaultValue = true)]
         public bool Set { get; set; }
 

@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Options" /> class.
         /// </summary>
-        /// <param name="watermarkOnDraw">watermarkOnDraw.</param>
+        /// <param name="watermarkOnDraw">The document watermark parameters..</param>
         public Options(WatermarkOnDraw watermarkOnDraw = default)
         {
             this.WatermarkOnDraw = watermarkOnDraw;
         }
 
         /// <summary>
-        /// Gets or Sets WatermarkOnDraw
+        /// The document watermark parameters.
         /// </summary>
         [DataMember(Name = "watermark_on_draw", EmitDefaultValue = false)]
         public WatermarkOnDraw WatermarkOnDraw { get; set; }

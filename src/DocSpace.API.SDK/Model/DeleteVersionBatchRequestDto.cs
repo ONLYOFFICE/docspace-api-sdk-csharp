@@ -64,30 +64,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to delete a file after the editing session is finished or not.
         /// </summary>
-        /// <value>Specifies whether to delete a file after the editing session is finished or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
         /// The file ID to delete.
         /// </summary>
-        /// <value>The file ID to delete.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "fileId", IsRequired = true, EmitDefaultValue = true)]
         public int FileId { get; set; }
 
         /// <summary>
         /// The collection of file versions to be deleted.
         /// </summary>
-        /// <value>The collection of file versions to be deleted.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "versions", IsRequired = true, EmitDefaultValue = true)]
         public List<int> Versions { get; set; }
 
@@ -127,4 +118,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The connection URL for the sharepoint.
         /// </summary>
-        /// <value>The connection URL for the sharepoint.</value>
-        /*
-        <example>https://sharepoint.example.com</example>
-        */
+        /// <example>https://sharepoint.example.com</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The login.
         /// </summary>
-        /// <value>The login.</value>
-        /*
-        <example>admin</example>
-        */
+        /// <example>admin</example>
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
         /// The password.
         /// </summary>
-        /// <value>The password.</value>
-        /*
-        <example>P@ssw0rd</example>
-        */
+        /// <example>P@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// The authentication token.
         /// </summary>
-        /// <value>The authentication token.</value>
-        /*
-        <example>abc123def456</example>
-        */
+        /// <example>abc123def456</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
         /// The customer title.
         /// </summary>
-        /// <value>The customer title.</value>
-        /*
-        <example>My Cloud Storage</example>
-        */
+        /// <example>My Cloud Storage</example>
         [DataMember(Name = "customerTitle", EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
         /// The provider key.
         /// </summary>
-        /// <value>The provider key.</value>
-        /*
-        <example>SharePoint</example>
-        */
+        /// <example>SharePoint</example>
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 

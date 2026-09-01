@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The unique identifier for the entity.
         /// </summary>
-        /// <value>The unique identifier for the entity.</value>
-        /*
-        <example>0af4bc0d-9a9d-450c-a72b-f14d9ac55c89</example>
-        */
+        /// <example>0af4bc0d-9a9d-450c-a72b-f14d9ac55c89</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Represents the hierarchical path of folders associated with a chunked upload session.
         /// </summary>
-        /// <value>Represents the hierarchical path of folders associated with a chunked upload session.</value>
-        /*
-        <example>["123","456","789"]</example>
-        */
+        /// <example>["123","456","789"]</example>
         [DataMember(Name = "path", EmitDefaultValue = true)]
         public List<int> Path { get; set; }
 
         /// <summary>
         /// The timestamp indicating when the chunked upload session was created.
         /// </summary>
-        /// <value>The timestamp indicating when the chunked upload session was created.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The date and time when the chunked upload session is set to expire.
         /// </summary>
-        /// <value>The date and time when the chunked upload session is set to expire.</value>
-        /*
-        <example>2024-01-15T11:30Z</example>
-        */
+        /// <example>2024-01-15T11:30:00Z</example>
         [DataMember(Name = "expired", EmitDefaultValue = false)]
         public DateTime Expired { get; set; }
 
         /// <summary>
         /// Represents the URI or path of the chunked upload session&#39;s current location.
         /// </summary>
-        /// <value>Represents the URI or path of the chunked upload session&#39;s current location.</value>
-        /*
-        <example>https://example.com/products/files/httphandlers/filehandler.ashx?action=upload</example>
-        */
+        /// <example>https://example.com/products/files/httphandlers/filehandler.ashx?action=upload</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
         /// The total size, in bytes, of the file being uploaded in the chunked upload session.
         /// </summary>
-        /// <value>The total size, in bytes, of the file being uploaded in the chunked upload session.</value>
-        /*
-        <example>10485760</example>
-        */
+        /// <example>10485760</example>
         [DataMember(Name = "bytes_total", EmitDefaultValue = false)]
         public long BytesTotal { get; set; }
 

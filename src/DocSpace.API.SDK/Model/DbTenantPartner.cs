@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// The partner ID.
         /// </summary>
-        /// <value>The partner ID.</value>
-        /*
-        <example>partner_123</example>
-        */
+        /// <example>partner_123</example>
         [DataMember(Name = "partnerId", EmitDefaultValue = true)]
         public string PartnerId { get; set; }
 
         /// <summary>
         /// The affiliate ID.
         /// </summary>
-        /// <value>The affiliate ID.</value>
-        /*
-        <example>artifact_123</example>
-        */
+        /// <example>artifact_123</example>
         [DataMember(Name = "affiliateId", EmitDefaultValue = true)]
         public string AffiliateId { get; set; }
 
         /// <summary>
         /// The tenant partner campaign.
         /// </summary>
-        /// <value>The tenant partner campaign.</value>
-        /*
-        <example>campaigh</example>
-        */
+        /// <example>campaigh</example>
         [DataMember(Name = "campaign", EmitDefaultValue = true)]
         public string Campaign { get; set; }
 

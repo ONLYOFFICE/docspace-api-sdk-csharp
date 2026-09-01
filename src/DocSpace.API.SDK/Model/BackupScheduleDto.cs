@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets StorageType
+        /// The backup storage type.
         /// </summary>
         [DataMember(Name = "storageType", EmitDefaultValue = false)]
         public BackupStorageType? StorageType { get; set; }
@@ -47,10 +47,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupScheduleDto" /> class.
         /// </summary>
-        /// <param name="storageType">storageType.</param>
+        /// <param name="storageType">The backup storage type..</param>
         /// <param name="storageParams">The backup storage parameters..</param>
         /// <param name="backupsStored">The maximum number of the stored backup copies..</param>
-        /// <param name="cronParams">cronParams.</param>
+        /// <param name="cronParams">The backup cron parameters..</param>
         /// <param name="dump">Specifies if a dump will be created or not..</param>
         public BackupScheduleDto(BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, int? backupsStored = default, Cron cronParams = default, bool dump = default)
         {
@@ -64,25 +64,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The backup storage parameters.
         /// </summary>
-        /// <value>The backup storage parameters.</value>
-        /*
-        <example>[{"key":"path","value":"/backup"}]</example>
-        */
+        /// <example>[{"key":"path","value":"/backup"}]</example>
         [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>
         /// The maximum number of the stored backup copies.
         /// </summary>
-        /// <value>The maximum number of the stored backup copies.</value>
-        /*
-        <example>5</example>
-        */
+        /// <example>5</example>
         [DataMember(Name = "backupsStored", EmitDefaultValue = true)]
         public int? BackupsStored { get; set; }
 
         /// <summary>
-        /// Gets or Sets CronParams
+        /// The backup cron parameters.
         /// </summary>
         [DataMember(Name = "cronParams", EmitDefaultValue = false)]
         public Cron CronParams { get; set; }
@@ -90,10 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if a dump will be created or not.
         /// </summary>
-        /// <value>Specifies if a dump will be created or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "dump", EmitDefaultValue = true)]
         public bool Dump { get; set; }
 

@@ -52,17 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when the form was created.
         /// </summary>
-        /// <value>The date and time when the form was created.</value>
+        /// <example>2025-01-01T00:00:00</example>
         [DataMember(Name = "createOn", EmitDefaultValue = false)]
         public DateTime CreateOn { get; set; }
 
         /// <summary>
         /// The list of forms data.
         /// </summary>
-        /// <value>The list of forms data.</value>
-        /*
-        <example>[{"key":"field1","value":"Answer"}]</example>
-        */
+        /// <example>[{"key":"field1","value":"Answer"}]</example>
         [DataMember(Name = "formsData", EmitDefaultValue = true)]
         public List<FormsItemData> FormsData { get; set; }
 

@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="settings">settings.</param>
+        /// <param name="settings">The company white label settings..</param>
         public CompanyWhiteLabelSettingsWrapper(CompanyWhiteLabelSettings settings = default)
         {
             this.Settings = settings;
         }
 
         /// <summary>
-        /// Gets or Sets Settings
+        /// The company white label settings.
         /// </summary>
         [DataMember(Name = "settings", EmitDefaultValue = false)]
         public CompanyWhiteLabelSettings Settings { get; set; }

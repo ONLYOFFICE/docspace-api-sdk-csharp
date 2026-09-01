@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The group ID. (required).</param>
         /// <param name="isLDAP">Specifies if the LDAP settings are enabled for the group or not. (required).</param>
         /// <param name="isSystem">Indicates whether the group is a system group..</param>
-        /// <param name="manager">manager.</param>
+        /// <param name="manager">The group manager full information..</param>
         /// <param name="members">The list of group members..</param>
         /// <param name="shared">Specifies whether the group can be shared or not..</param>
         /// <param name="membersCount">The number of group members..</param>
@@ -78,65 +78,47 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The group name.
         /// </summary>
-        /// <value>The group name.</value>
-        /*
-        <example>Marketing Team</example>
-        */
+        /// <example>Marketing Team</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The parent group ID.
         /// </summary>
-        /// <value>The parent group ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "parent", EmitDefaultValue = true)]
         public Guid? Parent { get; set; }
 
         /// <summary>
         /// The group category ID.
         /// </summary>
-        /// <value>The group category ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public Guid Category { get; set; }
 
         /// <summary>
         /// The group ID.
         /// </summary>
-        /// <value>The group ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Specifies if the LDAP settings are enabled for the group or not.
         /// </summary>
-        /// <value>Specifies if the LDAP settings are enabled for the group or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isLDAP", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLDAP { get; set; }
 
         /// <summary>
         /// Indicates whether the group is a system group.
         /// </summary>
-        /// <value>Indicates whether the group is a system group.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isSystem", EmitDefaultValue = true)]
         public bool? IsSystem { get; set; }
 
         /// <summary>
-        /// Gets or Sets Manager
+        /// The group manager full information.
         /// </summary>
         [DataMember(Name = "manager", EmitDefaultValue = false)]
         public EmployeeFullDto Manager { get; set; }
@@ -144,30 +126,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of group members.
         /// </summary>
-        /// <value>The list of group members.</value>
-        /*
-        <example>[{"displayName":"John Doe"}]</example>
-        */
+        /// <example>[{"displayName":"John Doe"}]</example>
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<EmployeeFullDto> Members { get; set; }
 
         /// <summary>
         /// Specifies whether the group can be shared or not.
         /// </summary>
-        /// <value>Specifies whether the group can be shared or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool? Shared { get; set; }
 
         /// <summary>
         /// The number of group members.
         /// </summary>
-        /// <value>The number of group members.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "membersCount", EmitDefaultValue = false)]
         public int MembersCount { get; set; }
 

@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of the custom color themes.
         /// </summary>
-        /// <value>The list of the custom color themes.</value>
-        /*
-        <example>[{"id":1,"name":"Custom Theme"}]</example>
-        */
+        /// <example>[{"id":1,"name":"Custom Theme"}]</example>
         [DataMember(Name = "themes", EmitDefaultValue = true)]
         public List<CustomColorThemesSettingsItem> Themes { get; set; }
 
         /// <summary>
         /// Specifies whether the custom color theme is selected.
         /// </summary>
-        /// <value>Specifies whether the custom color theme is selected.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "selected", EmitDefaultValue = false)]
         public int Selected { get; set; }
 
         /// <summary>
         /// The maximum number of the custom color themes.
         /// </summary>
-        /// <value>The maximum number of the custom color themes.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets StorageType
+        /// The backup storage type.
         /// </summary>
         [DataMember(Name = "storageType", EmitDefaultValue = false)]
         public BackupStorageType? StorageType { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupDto" /> class.
         /// </summary>
-        /// <param name="storageType">storageType.</param>
+        /// <param name="storageType">The backup storage type..</param>
         /// <param name="storageParams">The backup storage parameters..</param>
         /// <param name="dump">Specifies if a dump will be created or not..</param>
         public BackupDto(BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, bool dump = default)
@@ -60,20 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The backup storage parameters.
         /// </summary>
-        /// <value>The backup storage parameters.</value>
-        /*
-        <example>[{"key":"path","value":"/backup"}]</example>
-        */
+        /// <example>[{"key":"path","value":"/backup"}]</example>
         [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>
         /// Specifies if a dump will be created or not.
         /// </summary>
-        /// <value>Specifies if a dump will be created or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "dump", EmitDefaultValue = true)]
         public bool Dump { get; set; }
 

@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [1 - Active, 2 - Terminated, 4 - Pending, 5 - Default, 7 - All]
     /// </summary>
-    /// <value>[1 - Active, 2 - Terminated, 4 - Pending, 5 - Default, 7 - All]</value>
     public enum EmployeeStatus
     {
         /// <summary>

@@ -55,10 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the owner whose settings are being managed.
         /// </summary>
-        /// <value>The ID of the owner whose settings are being managed.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000001</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
         public Guid OwnerId { get; set; }
 

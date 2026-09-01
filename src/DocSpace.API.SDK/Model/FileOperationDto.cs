@@ -39,13 +39,13 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Operation
+        /// The file operation type.
         /// </summary>
         [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
         public FileOperationType Operation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of the distributed task related to the file operation.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public DistributedTaskStatus? Status { get; set; }
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FileOperationDto" /> class.
         /// </summary>
         /// <param name="id">The file operation ID. (required).</param>
-        /// <param name="operation">operation (required).</param>
+        /// <param name="operation">The file operation type. (required).</param>
         /// <param name="progress">The file operation progress in percentage. (required).</param>
         /// <param name="error">The file operation error message. (required).</param>
         /// <param name="processed">The file operation processing status. (required).</param>
@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="url">The file operation URL..</param>
         /// <param name="files">The list of files of the file operation..</param>
         /// <param name="folders">The list of folders of the file operation..</param>
-        /// <param name="status">status.</param>
+        /// <param name="status">The status of the distributed task related to the file operation..</param>
         public FileOperationDto(string id = default, FileOperationType operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default, DistributedTaskStatus? status = default)
         {
             // to ensure "id" is required (not null)
@@ -100,80 +100,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file operation ID.
         /// </summary>
-        /// <value>The file operation ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The file operation progress in percentage.
         /// </summary>
-        /// <value>The file operation progress in percentage.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public int Progress { get; set; }
 
         /// <summary>
         /// The file operation error message.
         /// </summary>
-        /// <value>The file operation error message.</value>
-        /*
-        <example>File not found.</example>
-        */
+        /// <example>File not found.</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// The file operation processing status.
         /// </summary>
-        /// <value>The file operation processing status.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "processed", IsRequired = true, EmitDefaultValue = true)]
         public string Processed { get; set; }
 
         /// <summary>
         /// Specifies if the file operation is finished or not.
         /// </summary>
-        /// <value>Specifies if the file operation is finished or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "finished", IsRequired = true, EmitDefaultValue = true)]
         public bool Finished { get; set; }
 
         /// <summary>
         /// The file operation URL.
         /// </summary>
-        /// <value>The file operation URL.</value>
-        /*
-        <example>http://localhost/download</example>
-        */
+        /// <example>http://localhost/download</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The list of files of the file operation.
         /// </summary>
-        /// <value>The list of files of the file operation.</value>
-        /*
-        <example>[{"id":10,"title":"document.docx"}]</example>
-        */
+        /// <example>[{"id":10,"title":"document.docx"}]</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>
         /// The list of folders of the file operation.
         /// </summary>
-        /// <value>The list of folders of the file operation.</value>
-        /*
-        <example>[{"id":20,"title":"My Folder"}]</example>
-        */
+        /// <example>[{"id":20,"title":"My Folder"}]</example>
         [DataMember(Name = "folders", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Folders { get; set; }
 

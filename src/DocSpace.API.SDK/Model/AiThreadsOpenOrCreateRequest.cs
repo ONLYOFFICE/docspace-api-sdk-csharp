@@ -1,0 +1,156 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// AiThreadsOpenOrCreateRequest
+    /// </summary>
+    [DataContract(Name = "aiThreadsOpenOrCreate_request")]
+    public partial class AiThreadsOpenOrCreateRequest : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AiThreadsOpenOrCreateRequest" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected AiThreadsOpenOrCreateRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AiThreadsOpenOrCreateRequest" /> class.
+        /// </summary>
+        /// <param name="threadId">threadId.</param>
+        /// <param name="profile">Profile the title generation runs on. (required).</param>
+        /// <param name="profileId">profileId (required).</param>
+        /// <param name="firstMessage">First user message a fresh thread derives its title from. (required).</param>
+        /// <param name="entityId">Opaque scope token persisted on a freshly created thread..</param>
+        /// <param name="entityMeta">entityMeta.</param>
+        public AiThreadsOpenOrCreateRequest(string threadId = default, AiProfile profile = default, string profileId = default, AiThreadMessageLike firstMessage = default, string entityId = default, AiThreadsOpenOrCreateRequestEntityMeta entityMeta = default)
+        {
+            // to ensure "profile" is required (not null)
+            if (profile == null)
+            {
+                throw new ArgumentNullException("profile is a required property for AiThreadsOpenOrCreateRequest and cannot be null");
+            }
+            this.Profile = profile;
+            // to ensure "profileId" is required (not null)
+            if (profileId == null)
+            {
+                throw new ArgumentNullException("profileId is a required property for AiThreadsOpenOrCreateRequest and cannot be null");
+            }
+            this.ProfileId = profileId;
+            // to ensure "firstMessage" is required (not null)
+            if (firstMessage == null)
+            {
+                throw new ArgumentNullException("firstMessage is a required property for AiThreadsOpenOrCreateRequest and cannot be null");
+            }
+            this.FirstMessage = firstMessage;
+            this.ThreadId = threadId;
+            this.EntityId = entityId;
+            this.EntityMeta = entityMeta;
+        }
+
+        /// <summary>
+        /// Gets or Sets ThreadId
+        /// </summary>
+        [DataMember(Name = "threadId", EmitDefaultValue = false)]
+        public string ThreadId { get; set; }
+
+        /// <summary>
+        /// Profile the title generation runs on.
+        /// </summary>
+        [DataMember(Name = "profile", IsRequired = true, EmitDefaultValue = true)]
+        public AiProfile Profile { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProfileId
+        /// </summary>
+        [DataMember(Name = "profileId", IsRequired = true, EmitDefaultValue = true)]
+        public string ProfileId { get; set; }
+
+        /// <summary>
+        /// First user message a fresh thread derives its title from.
+        /// </summary>
+        [DataMember(Name = "firstMessage", IsRequired = true, EmitDefaultValue = true)]
+        public AiThreadMessageLike FirstMessage { get; set; }
+
+        /// <summary>
+        /// Opaque scope token persisted on a freshly created thread.
+        /// </summary>
+        [DataMember(Name = "entityId", EmitDefaultValue = false)]
+        public string EntityId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EntityMeta
+        /// </summary>
+        [DataMember(Name = "entityMeta", EmitDefaultValue = false)]
+        public AiThreadsOpenOrCreateRequestEntityMeta EntityMeta { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class AiThreadsOpenOrCreateRequest {\n");
+            sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
+            sb.Append("  Profile: ").Append(Profile).Append("\n");
+            sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
+            sb.Append("  FirstMessage: ").Append(FirstMessage).Append("\n");
+            sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("  EntityMeta: ").Append(EntityMeta).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

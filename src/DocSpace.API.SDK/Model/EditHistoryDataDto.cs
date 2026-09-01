@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="changesUrl">The URL address of the file with the document changes data..</param>
         /// <param name="key">The document identifier used to unambiguously identify the document file. (required).</param>
-        /// <param name="previous">previous.</param>
+        /// <param name="previous">The object of the previous version of the document..</param>
         /// <param name="token">The encrypted signature added to the parameter in the form of a token..</param>
         /// <param name="url">The URL address of the current document version. (required).</param>
         /// <param name="version">The document version number. (required).</param>
@@ -82,25 +82,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The URL address of the file with the document changes data.
         /// </summary>
-        /// <value>The URL address of the file with the document changes data.</value>
-        /*
-        <example>https://example.com/changes</example>
-        */
+        /// <example>https://example.com/changes</example>
         [DataMember(Name = "changesUrl", EmitDefaultValue = true)]
         public string ChangesUrl { get; set; }
 
         /// <summary>
         /// The document identifier used to unambiguously identify the document file.
         /// </summary>
-        /// <value>The document identifier used to unambiguously identify the document file.</value>
-        /*
-        <example>doc1</example>
-        */
+        /// <example>doc1</example>
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or Sets Previous
+        /// The object of the previous version of the document.
         /// </summary>
         [DataMember(Name = "previous", EmitDefaultValue = false)]
         public EditHistoryUrl Previous { get; set; }
@@ -108,40 +102,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The encrypted signature added to the parameter in the form of a token.
         /// </summary>
-        /// <value>The encrypted signature added to the parameter in the form of a token.</value>
-        /*
-        <example>token</example>
-        */
+        /// <example>token</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
         /// The URL address of the current document version.
         /// </summary>
-        /// <value>The URL address of the current document version.</value>
-        /*
-        <example>https://example.com/file.docx</example>
-        */
+        /// <example>https://example.com/file.docx</example>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The document version number.
         /// </summary>
-        /// <value>The document version number.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The document extension.
         /// </summary>
-        /// <value>The document extension.</value>
-        /*
-        <example>docx</example>
-        */
+        /// <example>docx</example>
         [DataMember(Name = "fileType", IsRequired = true, EmitDefaultValue = true)]
         public string FileType { get; set; }
 

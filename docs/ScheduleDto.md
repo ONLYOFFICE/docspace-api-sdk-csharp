@@ -5,9 +5,9 @@ The backup schedule parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StorageType** | **BackupStorageType** |  | 
+**StorageType** | **BackupStorageType** | The backup storage type. | 
 **StorageParams** | **Dictionary&lt;string, string&gt;** | The backup storage parameters. | 
-**CronParams** | [**CronParams**](CronParams.md) |  | 
+**CronParams** | [**CronParams**](CronParams.md) | The backup cron parameters. | 
 **BackupsStored** | **int?** | The maximum number of the stored backup copies. | [optional] 
 **LastBackupTime** | **DateTime** | The date and time when the last backup was reated. | 
 **Dump** | **bool** | Specifies if a dump will be created or not. | 

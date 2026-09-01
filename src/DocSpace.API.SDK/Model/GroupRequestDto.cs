@@ -64,30 +64,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of group member IDs.
         /// </summary>
-        /// <value>The list of group member IDs.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<Guid> Members { get; set; }
 
         /// <summary>
         /// The group manager ID.
         /// </summary>
-        /// <value>The group manager ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "groupManager", EmitDefaultValue = false)]
         public Guid GroupManager { get; set; }
 
         /// <summary>
         /// The group name.
         /// </summary>
-        /// <value>The group name.</value>
-        /*
-        <example>Marketing Team</example>
-        */
+        /// <example>Marketing Team</example>
         [DataMember(Name = "groupName", IsRequired = true, EmitDefaultValue = true)]
         public string GroupName { get; set; }
 

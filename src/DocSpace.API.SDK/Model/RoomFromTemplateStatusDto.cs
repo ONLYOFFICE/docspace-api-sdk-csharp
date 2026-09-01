@@ -66,40 +66,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The room ID.
         /// </summary>
-        /// <value>The room ID.</value>
-        /*
-        <example>456</example>
-        */
+        /// <example>456</example>
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>
         /// The progress of creating a room from the template.
         /// </summary>
-        /// <value>The progress of creating a room from the template.</value>
-        /*
-        <example>50.0</example>
-        */
+        /// <example>50.0</example>
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public double Progress { get; set; }
 
         /// <summary>
         /// The error message that is sent when a room is not created successfully from the template.
         /// </summary>
-        /// <value>The error message that is sent when a room is not created successfully from the template.</value>
-        /*
-        <example>Room creation failed</example>
-        */
+        /// <example>Room creation failed</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// Specifies whether the process of creating a room from the template is completed.
         /// </summary>
-        /// <value>Specifies whether the process of creating a room from the template is completed.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 

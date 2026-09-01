@@ -62,70 +62,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if a certificate is self-signed or not.
         /// </summary>
-        /// <value>Specifies if a certificate is self-signed or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "selfSigned", EmitDefaultValue = true)]
         public bool SelfSigned { get; set; }
 
         /// <summary>
         /// The CRT certificate file.
         /// </summary>
-        /// <value>The CRT certificate file.</value>
-        /*
-        <example>crt file</example>
-        */
+        /// <example>crt file</example>
         [DataMember(Name = "crt", EmitDefaultValue = true)]
         public string Crt { get; set; }
 
         /// <summary>
         /// The certificate key.
         /// </summary>
-        /// <value>The certificate key.</value>
-        /*
-        <example>key</example>
-        */
+        /// <example>key</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The certificate action.
         /// </summary>
-        /// <value>The certificate action.</value>
-        /*
-        <example>validate</example>
-        */
+        /// <example>validate</example>
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
         /// The certificate domain name.
         /// </summary>
-        /// <value>The certificate domain name.</value>
-        /*
-        <example>example.com</example>
-        */
+        /// <example>example.com</example>
         [DataMember(Name = "domainName", EmitDefaultValue = true)]
         public string DomainName { get; set; }
 
         /// <summary>
         /// The certificate start date.
         /// </summary>
-        /// <value>The certificate start date.</value>
-        /*
-        <example>2024-01-01T00:00Z</example>
-        */
+        /// <example>2024-01-01T00:00:00Z</example>
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public DateTime StartDate { get; set; }
 
         /// <summary>
         /// The certificate expiration date.
         /// </summary>
-        /// <value>The certificate expiration date.</value>
-        /*
-        <example>2024-01-01T00:00Z</example>
-        */
+        /// <example>2024-01-01T00:00:00Z</example>
         [DataMember(Name = "expiredDate", EmitDefaultValue = false)]
         public DateTime ExpiredDate { get; set; }
 

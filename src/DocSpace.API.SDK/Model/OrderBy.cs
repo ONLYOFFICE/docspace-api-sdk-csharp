@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Property
+        /// The parameters by which the files will be sorted.
         /// </summary>
         [DataMember(Name = "property", EmitDefaultValue = false)]
         public SortedByType? Property { get; set; }
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="OrderBy" /> class.
         /// </summary>
         /// <param name="isAsc">Specifies if the order is ascending..</param>
-        /// <param name="property">property.</param>
+        /// <param name="property">The parameters by which the files will be sorted..</param>
         public OrderBy(bool isAsc = default, SortedByType? property = default)
         {
             this.IsAsc = isAsc;
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the order is ascending.
         /// </summary>
-        /// <value>Specifies if the order is ascending.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "is_asc", EmitDefaultValue = true)]
         public bool IsAsc { get; set; }
 

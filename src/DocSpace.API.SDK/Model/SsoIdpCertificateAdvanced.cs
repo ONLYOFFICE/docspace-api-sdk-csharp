@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The certificate verification algorithm.
         /// </summary>
-        /// <value>The certificate verification algorithm.</value>
-        /*
-        <example>rsa-sha256</example>
-        */
+        /// <example>rsa-sha256</example>
         [DataMember(Name = "verifyAlgorithm", EmitDefaultValue = true)]
         public string VerifyAlgorithm { get; set; }
 
         /// <summary>
         /// Specifies if the signatures of the SAML authentication responses sent to SP will be verified or not.
         /// </summary>
-        /// <value>Specifies if the signatures of the SAML authentication responses sent to SP will be verified or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "verifyAuthResponsesSign", EmitDefaultValue = true)]
         public bool VerifyAuthResponsesSign { get; set; }
 
         /// <summary>
         /// Specifies if the signatures of the SAML logout requests sent to SP will be verified or not.
         /// </summary>
-        /// <value>Specifies if the signatures of the SAML logout requests sent to SP will be verified or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "verifyLogoutRequestsSign", EmitDefaultValue = true)]
         public bool VerifyLogoutRequestsSign { get; set; }
 
         /// <summary>
         /// Specifies if the signatures of the SAML logout responses sent to SP will be verified or not.
         /// </summary>
-        /// <value>Specifies if the signatures of the SAML logout responses sent to SP will be verified or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "verifyLogoutResponsesSign", EmitDefaultValue = true)]
         public bool VerifyLogoutResponsesSign { get; set; }
 
         /// <summary>
         /// The certificate decryption algorithm.
         /// </summary>
-        /// <value>The certificate decryption algorithm.</value>
-        /*
-        <example>aes256-cbc</example>
-        */
+        /// <example>aes256-cbc</example>
         [DataMember(Name = "decryptAlgorithm", EmitDefaultValue = true)]
         public string DecryptAlgorithm { get; set; }
 
         /// <summary>
         /// Specifies if the assertions will be decrypted or not.
         /// </summary>
-        /// <value>Specifies if the assertions will be decrypted or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "decryptAssertions", EmitDefaultValue = true)]
         public bool DecryptAssertions { get; set; }
 

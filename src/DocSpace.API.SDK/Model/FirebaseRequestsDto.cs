@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The Firebase device token.
         /// </summary>
-        /// <value>The Firebase device token.</value>
-        /*
-        <example>dGhpc2lzYXRva2Vu...</example>
-        */
+        /// <example>dGhpc2lzYXRva2Vu...</example>
         [DataMember(Name = "firebaseDeviceToken", EmitDefaultValue = true)]
         public string FirebaseDeviceToken { get; set; }
 
         /// <summary>
         /// Specifies whether the user is subscribed to the push notifications or not.
         /// </summary>
-        /// <value>Specifies whether the user is subscribed to the push notifications or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isSubscribed", EmitDefaultValue = true)]
         public bool IsSubscribed { get; set; }
 

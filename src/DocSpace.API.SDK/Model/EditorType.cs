@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Desktop, 1 - Mobile, 2 - Embedded]
     /// </summary>
-    /// <value>[0 - Desktop, 1 - Mobile, 2 - Embedded]</value>
     public enum EditorType
     {
         /// <summary>

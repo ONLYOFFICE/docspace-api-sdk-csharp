@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file title to update.
         /// </summary>
-        /// <value>The file title to update.</value>
-        /*
-        <example>My Document</example>
-        */
+        /// <example>My Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The number of the latest file version.
         /// </summary>
-        /// <value>The number of the latest file version.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "lastVersion", EmitDefaultValue = false)]
         public int LastVersion { get; set; }
 

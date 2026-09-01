@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The global switch for the administrator messaging functionality.
         /// </summary>
-        /// <value>The global switch for the administrator messaging functionality.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "turnOn", EmitDefaultValue = true)]
         public bool TurnOn { get; set; }
 

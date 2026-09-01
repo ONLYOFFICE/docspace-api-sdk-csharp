@@ -55,10 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The webhook configuration ID.
         /// </summary>
-        /// <value>The webhook configuration ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
@@ -138,4 +135,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

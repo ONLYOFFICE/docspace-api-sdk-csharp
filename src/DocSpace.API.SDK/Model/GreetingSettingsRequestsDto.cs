@@ -60,10 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The title of the tenant greeting settings.
         /// </summary>
-        /// <value>The title of the tenant greeting settings.</value>
-        /*
-        <example>Welcome to Our Portal</example>
-        */
+        /// <example>Welcome to Our Portal</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 

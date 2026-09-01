@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The URL or base64-encoded image data for the light theme logo.
         /// </summary>
-        /// <value>The URL or base64-encoded image data for the light theme logo.</value>
-        /*
-        <example>data:image/png;base64,iVBORw0KGgoAAAANS...</example>
-        */
+        /// <example>data:image/png;base64,iVBORw0KGgoAAAANS...</example>
         [DataMember(Name = "light", EmitDefaultValue = true)]
         public string Light { get; set; }
 
         /// <summary>
         /// The URL or base64-encoded image data for the dark theme logo.
         /// </summary>
-        /// <value>The URL or base64-encoded image data for the dark theme logo.</value>
-        /*
-        <example>data:image/png;base64,iVBORw0KGgoAAAANS...</example>
-        */
+        /// <example>data:image/png;base64,iVBORw0KGgoAAAANS...</example>
         [DataMember(Name = "dark", EmitDefaultValue = true)]
         public string Dark { get; set; }
 

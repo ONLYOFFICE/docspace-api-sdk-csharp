@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Controls whether the web plugin is active and operational.
         /// </summary>
-        /// <value>Controls whether the web plugin is active and operational.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// The JSON-formatted configuration settings for the web plugin.
         /// </summary>
-        /// <value>The JSON-formatted configuration settings for the web plugin.</value>
-        /*
-        <example>{"theme":"dark","autoSave":true}</example>
-        */
+        /// <example>{"theme":"dark","autoSave":true}</example>
         [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]
         public string Settings { get; set; }
 

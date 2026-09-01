@@ -77,58 +77,45 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The authorization key name.
         /// </summary>
-        /// <value>The authorization key name.</value>
-        /*
-        <example>Auth-Key</example>
-        */
+        /// <example>Auth-Key</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The authorization key value.
         /// </summary>
-        /// <value>The authorization key value.</value>
-        /*
-        <example>abc123xyz456</example>
-        */
+        /// <example>abc123xyz456</example>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// The authorization key title.
         /// </summary>
-        /// <value>The authorization key title.</value>
-        /*
-        <example>API key</example>
-        */
+        /// <example>API key</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The field type: text, password, select, toggle.
         /// </summary>
-        /// <value>The field type: text, password, select, toggle.</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// The list of options for select type fields.
         /// </summary>
-        /// <value>The list of options for select type fields.</value>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public List<string> Options { get; set; }
 
         /// <summary>
         /// The name of another key this field depends on for visibility.
         /// </summary>
-        /// <value>The name of another key this field depends on for visibility.</value>
         [DataMember(Name = "dependsOn", EmitDefaultValue = true)]
         public string DependsOn { get; set; }
 
         /// <summary>
         /// The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible.
         /// </summary>
-        /// <value>The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible.</value>
         [DataMember(Name = "dependsOnValue", EmitDefaultValue = true)]
         public string DependsOnValue { get; set; }
 

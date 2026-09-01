@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The accent color.
         /// </summary>
-        /// <value>The accent color.</value>
-        /*
-        <example>#4781D1</example>
-        */
+        /// <example>#4781D1</example>
         [DataMember(Name = "accent", EmitDefaultValue = true)]
         public string Accent { get; set; }
 
         /// <summary>
         /// The button color.
         /// </summary>
-        /// <value>The button color.</value>
-        /*
-        <example>#5299E0</example>
-        */
+        /// <example>#5299E0</example>
         [DataMember(Name = "buttons", EmitDefaultValue = true)]
         public string Buttons { get; set; }
 

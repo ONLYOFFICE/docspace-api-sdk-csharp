@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The entity ID.
         /// </summary>
-        /// <value>The entity ID.</value>
-        /*
-        <example>https://idp.company.com/saml</example>
-        */
+        /// <example>https://idp.company.com/saml</example>
         [DataMember(Name = "entityId", EmitDefaultValue = true)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// The SSO URL.
         /// </summary>
-        /// <value>The SSO URL.</value>
-        /*
-        <example>https://idp.example.com/sso</example>
-        */
+        /// <example>https://idp.example.com/sso</example>
         [DataMember(Name = "ssoUrl", EmitDefaultValue = true)]
         public string SsoUrl { get; set; }
 
         /// <summary>
         /// The SSO binding.
         /// </summary>
-        /// <value>The SSO binding.</value>
-        /*
-        <example>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect</example>
-        */
+        /// <example>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect</example>
         [DataMember(Name = "ssoBinding", EmitDefaultValue = true)]
         public string SsoBinding { get; set; }
 
         /// <summary>
         /// The SLO URL.
         /// </summary>
-        /// <value>The SLO URL.</value>
-        /*
-        <example>https://idp.example.com/slo</example>
-        */
+        /// <example>https://idp.example.com/slo</example>
         [DataMember(Name = "sloUrl", EmitDefaultValue = true)]
         public string SloUrl { get; set; }
 
         /// <summary>
         /// The SLO binding.
         /// </summary>
-        /// <value>The SLO binding.</value>
-        /*
-        <example>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect</example>
-        */
+        /// <example>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect</example>
         [DataMember(Name = "sloBinding", EmitDefaultValue = true)]
         public string SloBinding { get; set; }
 
         /// <summary>
         /// The name ID format.
         /// </summary>
-        /// <value>The name ID format.</value>
-        /*
-        <example>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</example>
-        */
+        /// <example>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</example>
         [DataMember(Name = "nameIdFormat", EmitDefaultValue = true)]
         public string NameIdFormat { get; set; }
 

@@ -75,60 +75,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user&#39;s email address for authentication and communication.
         /// </summary>
-        /// <value>The user&#39;s email address for authentication and communication.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The hashed representation of the user&#39;s password.
         /// </summary>
-        /// <value>The hashed representation of the user&#39;s password.</value>
-        /*
-        <example>2DYmIoA/aYKEksFocEf6uw==</example>
-        */
+        /// <example>2DYmIoA/aYKEksFocEf6uw==</example>
         [DataMember(Name = "passwordHash", IsRequired = true, EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 
         /// <summary>
         /// The user&#39;s preferred interface language code.
         /// </summary>
-        /// <value>The user&#39;s preferred interface language code.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "lng", EmitDefaultValue = true)]
         public string Lng { get; set; }
 
         /// <summary>
         /// The user&#39;s time zone identifier.
         /// </summary>
-        /// <value>The user&#39;s time zone identifier.</value>
-        /*
-        <example>UTC</example>
-        */
+        /// <example>UTC</example>
         [DataMember(Name = "timeZone", EmitDefaultValue = true)]
         public string @TimeZone { get; set; }
 
         /// <summary>
         /// The Amazon Machine Image (AMI) identifier.
         /// </summary>
-        /// <value>The Amazon Machine Image (AMI) identifier.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000001</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "amiId", EmitDefaultValue = true)]
         public string AmiId { get; set; }
 
         /// <summary>
         /// Specifies whether the user opted in for site communications.
         /// </summary>
-        /// <value>Specifies whether the user opted in for site communications.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "subscribeFromSite", EmitDefaultValue = true)]
         public bool SubscribeFromSite { get; set; }
 

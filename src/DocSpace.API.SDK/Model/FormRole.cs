@@ -64,80 +64,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The room ID.
         /// </summary>
-        /// <value>The room ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "roomId", EmitDefaultValue = false)]
         public int RoomId { get; set; }
 
         /// <summary>
         /// The role name.
         /// </summary>
-        /// <value>The role name.</value>
-        /*
-        <example>Manager</example>
-        */
+        /// <example>Manager</example>
         [DataMember(Name = "roleName", EmitDefaultValue = true)]
         public string RoleName { get; set; }
 
         /// <summary>
         /// The role color.
         /// </summary>
-        /// <value>The role color.</value>
-        /*
-        <example>#4781D1</example>
-        */
+        /// <example>#4781D1</example>
         [DataMember(Name = "roleColor", EmitDefaultValue = true)]
         public string RoleColor { get; set; }
 
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// The role sequence.
         /// </summary>
-        /// <value>The role sequence.</value>
-        /*
-        <example>12</example>
-        */
+        /// <example>12</example>
         [DataMember(Name = "sequence", EmitDefaultValue = false)]
         public int Sequence { get; set; }
 
         /// <summary>
         /// Specifies if the role was submitted or not.
         /// </summary>
-        /// <value>Specifies if the role was submitted or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "submitted", EmitDefaultValue = true)]
         public bool Submitted { get; set; }
 
         /// <summary>
         /// The date and time when the role was opened.
         /// </summary>
-        /// <value>The date and time when the role was opened.</value>
-        /*
-        <example>2026-01-01T10:00Z</example>
-        */
+        /// <example>2026-01-01T10:00:00Z</example>
         [DataMember(Name = "openedAt", EmitDefaultValue = false)]
         public DateTime OpenedAt { get; set; }
 
         /// <summary>
         /// The date and time when the role was submitted.
         /// </summary>
-        /// <value>The date and time when the role was submitted.</value>
-        /*
-        <example>2026-01-01T10:00Z</example>
-        */
+        /// <example>2026-01-01T10:00:00Z</example>
         [DataMember(Name = "submissionDate", EmitDefaultValue = false)]
         public DateTime SubmissionDate { get; set; }
 

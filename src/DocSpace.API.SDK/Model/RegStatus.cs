@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// []
     /// </summary>
-    /// <value>[]</value>
     public enum RegStatus
     {
         /// <summary>

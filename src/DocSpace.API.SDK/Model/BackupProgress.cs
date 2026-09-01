@@ -39,13 +39,13 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets BackupProgressEnum
+        /// The backup progress type.
         /// </summary>
         [DataMember(Name = "backupProgressEnum", EmitDefaultValue = false)]
         public BackupProgressEnum? BackupProgressEnum { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The backup progress status.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public DistributedTaskStatus? Status { get; set; }
@@ -59,8 +59,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="warning">The backup warning message..</param>
         /// <param name="link">The backup link..</param>
         /// <param name="tenantId">The tenant ID..</param>
-        /// <param name="backupProgressEnum">backupProgressEnum.</param>
-        /// <param name="status">status.</param>
+        /// <param name="backupProgressEnum">The backup progress type..</param>
+        /// <param name="status">The backup progress status..</param>
         /// <param name="taskId">The task ID..</param>
         public BackupProgress(bool isCompleted = default, int progress = default, string error = default, string warning = default, string link = default, int tenantId = default, BackupProgressEnum? backupProgressEnum = default, DistributedTaskStatus? status = default, string taskId = default)
         {
@@ -78,64 +78,47 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the backup is completed or not.
         /// </summary>
-        /// <value>Specifies if the backup is completed or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCompleted", EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>
         /// The backup progress in percentage.
         /// </summary>
-        /// <value>The backup progress in percentage.</value>
-        /*
-        <example>50</example>
-        */
+        /// <example>50</example>
         [DataMember(Name = "progress", EmitDefaultValue = false)]
         public int Progress { get; set; }
 
         /// <summary>
         /// The backup error message.
         /// </summary>
-        /// <value>The backup error message.</value>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// The backup warning message.
         /// </summary>
-        /// <value>The backup warning message.</value>
         [DataMember(Name = "warning", EmitDefaultValue = true)]
         public string Warning { get; set; }
 
         /// <summary>
         /// The backup link.
         /// </summary>
-        /// <value>The backup link.</value>
-        /*
-        <example>https://example.com/backup/task_123</example>
-        */
+        /// <example>https://example.com/backup/task_123</example>
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// The task ID.
         /// </summary>
-        /// <value>The task ID.</value>
-        /*
-        <example>task_123</example>
-        */
+        /// <example>task_123</example>
         [DataMember(Name = "taskId", EmitDefaultValue = true)]
         public string TaskId { get; set; }
 

@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of group member IDs.
         /// </summary>
-        /// <value>The list of group member IDs.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<Guid> Members { get; set; }
 

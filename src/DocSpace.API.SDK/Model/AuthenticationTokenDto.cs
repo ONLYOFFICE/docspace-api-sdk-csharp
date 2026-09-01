@@ -62,70 +62,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The authentication token.
         /// </summary>
-        /// <value>The authentication token.</value>
-        /*
-        <example>abcde12345</example>
-        */
+        /// <example>abcde12345</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
         /// The token expiration time.
         /// </summary>
-        /// <value>The token expiration time.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "expires", EmitDefaultValue = false)]
         public DateTime Expires { get; set; }
 
         /// <summary>
         /// Specifies if the authentication code is sent by SMS or not.
         /// </summary>
-        /// <value>Specifies if the authentication code is sent by SMS or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "sms", EmitDefaultValue = true)]
         public bool Sms { get; set; }
 
         /// <summary>
         /// The phone number.
         /// </summary>
-        /// <value>The phone number.</value>
-        /*
-        <example>+1***1234</example>
-        */
+        /// <example>+1***1234</example>
         [DataMember(Name = "phoneNoise", EmitDefaultValue = true)]
         public string PhoneNoise { get; set; }
 
         /// <summary>
         /// Specifies if the two-factor application is used or not.
         /// </summary>
-        /// <value>Specifies if the two-factor application is used or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "tfa", EmitDefaultValue = true)]
         public bool Tfa { get; set; }
 
         /// <summary>
         /// The two-factor authentication key.
         /// </summary>
-        /// <value>The two-factor authentication key.</value>
-        /*
-        <example>JBSWY3DPEHPK3PXP</example>
-        */
+        /// <example>JBSWY3DPEHPK3PXP</example>
         [DataMember(Name = "tfaKey", EmitDefaultValue = true)]
         public string TfaKey { get; set; }
 
         /// <summary>
         /// The confirmation email URL.
         /// </summary>
-        /// <value>The confirmation email URL.</value>
-        /*
-        <example>https://example.com/confirm?token=abc123</example>
-        */
+        /// <example>https://example.com/confirm?token=abc123</example>
         [DataMember(Name = "confirmUrl", EmitDefaultValue = true)]
         public string ConfirmUrl { get; set; }
 

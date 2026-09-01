@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The name of the user the document will be shared with.
         /// </summary>
-        /// <value>The name of the user the document will be shared with.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
         /// The access rights for the user with the name above.  Can be Full Access, Read Only, or Deny Access.
         /// </summary>
-        /// <value>The access rights for the user with the name above.  Can be Full Access, Read Only, or Deny Access.</value>
-        /*
-        <example>Full Access</example>
-        */
+        /// <example>Full Access</example>
         [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public string Permissions { get; set; }
 
         /// <summary>
         /// Specifies whether to change the user icon to the link icon.
         /// </summary>
-        /// <value>Specifies whether to change the user icon to the link icon.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isLink", EmitDefaultValue = true)]
         public bool IsLink { get; set; }
 

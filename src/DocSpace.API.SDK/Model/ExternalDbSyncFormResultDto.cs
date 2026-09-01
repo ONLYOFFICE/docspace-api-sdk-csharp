@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The form file ID.
         /// </summary>
-        /// <value>The form file ID.</value>
-        /*
-        <example>42</example>
-        */
+        /// <example>42</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The form file title.
         /// </summary>
-        /// <value>The form file title.</value>
-        /*
-        <example>Application.pdf</example>
-        */
+        /// <example>Application.pdf</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Specifies whether the synchronization succeeded for this form.
         /// </summary>
-        /// <value>Specifies whether the synchronization succeeded for this form.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
         /// The error message if the synchronization failed for this form.
         /// </summary>
-        /// <value>The error message if the synchronization failed for this form.</value>
-        /*
-        <example>Connection refused</example>
-        */
+        /// <example>Connection refused</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 

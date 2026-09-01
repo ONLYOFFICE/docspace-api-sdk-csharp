@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of the synchronization task.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public DistributedTaskStatus Status { get; set; }
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="error">The error message if the synchronization failed..</param>
         /// <param name="percentage">The progress percentage of the synchronization. (required).</param>
         /// <param name="isCompleted">Specifies whether the synchronization is completed or not. (required).</param>
-        /// <param name="status">status (required).</param>
+        /// <param name="status">The status of the synchronization task. (required).</param>
         /// <param name="forms">The synchronization results for all original forms in the room. (required).</param>
         public ExternalDbSyncTaskDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default, List<ExternalDbSyncFormResultDto> forms = default)
         {
@@ -81,50 +81,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The task ID.
         /// </summary>
-        /// <value>The task ID.</value>
-        /*
-        <example>ExternalDbSyncTask_1_42</example>
-        */
+        /// <example>ExternalDbSyncTask_1_42</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The error message if the synchronization failed.
         /// </summary>
-        /// <value>The error message if the synchronization failed.</value>
-        /*
-        <example>Connection refused</example>
-        */
+        /// <example>Connection refused</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// The progress percentage of the synchronization.
         /// </summary>
-        /// <value>The progress percentage of the synchronization.</value>
-        /*
-        <example>75</example>
-        */
+        /// <example>75</example>
         [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
         /// Specifies whether the synchronization is completed or not.
         /// </summary>
-        /// <value>Specifies whether the synchronization is completed or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>
         /// The synchronization results for all original forms in the room.
         /// </summary>
-        /// <value>The synchronization results for all original forms in the room.</value>
-        /*
-        <example>[{"id":42,"title":"Application.pdf","success":true,"error":null}]</example>
-        */
+        /// <example>[{"id":42,"title":"Application.pdf","success":true}]</example>
         [DataMember(Name = "forms", IsRequired = true, EmitDefaultValue = true)]
         public List<ExternalDbSyncFormResultDto> Forms { get; set; }
 

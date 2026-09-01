@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The caption of the button that starts filling out the form.
         /// </summary>
-        /// <value>The caption of the button that starts filling out the form.</value>
-        /*
-        <example>Start Filling</example>
-        */
+        /// <example>Start Filling</example>
         [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 

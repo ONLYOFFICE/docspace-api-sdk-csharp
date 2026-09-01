@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The image of the logo.
         /// </summary>
-        /// <value>The image of the logo.</value>
-        /*
-        <example>http://localhost/logo.png</example>
-        */
+        /// <example>http://localhost/logo.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
         /// The dark image of the logo.
         /// </summary>
-        /// <value>The dark image of the logo.</value>
-        /*
-        <example>http://localhost/logo-dark.png</example>
-        */
+        /// <example>http://localhost/logo-dark.png</example>
         [DataMember(Name = "imageDark", EmitDefaultValue = true)]
         public string ImageDark { get; set; }
 
         /// <summary>
         /// The light image of the logo.
         /// </summary>
-        /// <value>The light image of the logo.</value>
-        /*
-        <example>http://localhost/logo-light.png</example>
-        */
+        /// <example>http://localhost/logo-light.png</example>
         [DataMember(Name = "imageLight", EmitDefaultValue = true)]
         public string ImageLight { get; set; }
 
         /// <summary>
         /// The embedded image of the logo.
         /// </summary>
-        /// <value>The embedded image of the logo.</value>
-        /*
-        <example>http://localhost/logo-embedded.png</example>
-        */
+        /// <example>http://localhost/logo-embedded.png</example>
         [DataMember(Name = "imageEmbedded", EmitDefaultValue = true)]
         public string ImageEmbedded { get; set; }
 
         /// <summary>
         /// The url link of the logo.
         /// </summary>
-        /// <value>The url link of the logo.</value>
-        /*
-        <example>http://localhost</example>
-        */
+        /// <example>http://localhost</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// Specifies if the logo is visible.
         /// </summary>
-        /// <value>Specifies if the logo is visible.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "visible", EmitDefaultValue = true)]
         public bool Visible { get; set; }
 

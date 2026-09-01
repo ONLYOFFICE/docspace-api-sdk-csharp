@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **SerializedProfile** | **string** | The serialized user profile data, if applicable. | [optional] 
 **CodeOAuth** | **string** | The authorization code used for obtaining OAuth tokens. | [optional] 
 **Session** | **bool** | Specifies whether the authentication is session-based. | [optional] 
-**ConfirmData** | [**ConfirmData**](ConfirmData.md) |  | [optional] 
-**RecaptchaType** | **RecaptchaType** |  | [optional] 
+**ConfirmData** | [**ConfirmData**](ConfirmData.md) | The additional confirmation data required for authentication. | [optional] 
+**RecaptchaType** | **RecaptchaType** | The type of CAPTCHA validation used. | [optional] 
 **RecaptchaResponse** | **string** | The user's response to the CAPTCHA challenge. | [optional] 
 **Culture** | **string** | The culture code for localization during authentication. | [optional] 
 

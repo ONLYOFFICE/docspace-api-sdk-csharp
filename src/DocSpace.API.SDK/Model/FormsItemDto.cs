@@ -52,14 +52,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The form item key.              &lt;example&gt;field_name&lt;/example&gt;
         /// </summary>
-        /// <value>The form item key.              &lt;example&gt;field_name&lt;/example&gt;</value>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The form item type.              &lt;example&gt;text&lt;/example&gt;
         /// </summary>
-        /// <value>The form item type.              &lt;example&gt;text&lt;/example&gt;</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

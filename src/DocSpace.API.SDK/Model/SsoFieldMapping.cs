@@ -60,60 +60,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The first name.
         /// </summary>
-        /// <value>The first name.</value>
-        /*
-        <example>givenName</example>
-        */
+        /// <example>givenName</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// The last name.
         /// </summary>
-        /// <value>The last name.</value>
-        /*
-        <example>sn</example>
-        */
+        /// <example>sn</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
         /// The email address.
         /// </summary>
-        /// <value>The email address.</value>
-        /*
-        <example>sn@example.com</example>
-        */
+        /// <example>sn@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The title.
         /// </summary>
-        /// <value>The title.</value>
-        /*
-        <example>SN</example>
-        */
+        /// <example>SN</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The location.
         /// </summary>
-        /// <value>The location.</value>
-        /*
-        <example>Location</example>
-        */
+        /// <example>Location</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
         /// The phone number.
         /// </summary>
-        /// <value>The phone number.</value>
-        /*
-        <example>+14155552671</example>
-        */
+        /// <example>+14155552671</example>
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public string Phone { get; set; }
 

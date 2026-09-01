@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets EntryType
+        /// The entry type (file or folder).
         /// </summary>
         [DataMember(Name = "entryType", IsRequired = true, EmitDefaultValue = true)]
         public FileEntryType EntryType { get; set; }
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="OrdersItemRequestDtoInteger" /> class.
         /// </summary>
         /// <param name="entryId">The entry unique identifier (file or folder). (required).</param>
-        /// <param name="entryType">entryType (required).</param>
+        /// <param name="entryType">The entry type (file or folder). (required).</param>
         /// <param name="order">The order value. (required).</param>
         public OrdersItemRequestDtoInteger(int entryId = default, FileEntryType entryType = default, int order = default)
         {
@@ -65,20 +65,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The entry unique identifier (file or folder).
         /// </summary>
-        /// <value>The entry unique identifier (file or folder).</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "entryId", IsRequired = true, EmitDefaultValue = true)]
         public int EntryId { get; set; }
 
         /// <summary>
         /// The order value.
         /// </summary>
-        /// <value>The order value.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "order", IsRequired = true, EmitDefaultValue = true)]
         public int Order { get; set; }
 

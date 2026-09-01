@@ -64,30 +64,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The API key name.
         /// </summary>
-        /// <value>The API key name.</value>
-        /*
-        <example>My API Key</example>
-        */
+        /// <example>My API Key</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The list of permissions granted to the API key.
         /// </summary>
-        /// <value>The list of permissions granted to the API key.</value>
-        /*
-        <example>["read","write"]</example>
-        */
+        /// <example>["read","write"]</example>
         [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
         /// The number of days until the API key expires (null for no expiration).
         /// </summary>
-        /// <value>The number of days until the API key expires (null for no expiration).</value>
-        /*
-        <example>30</example>
-        */
+        /// <example>30</example>
         [DataMember(Name = "expiresInDays", EmitDefaultValue = true)]
         public int? ExpiresInDays { get; set; }
 

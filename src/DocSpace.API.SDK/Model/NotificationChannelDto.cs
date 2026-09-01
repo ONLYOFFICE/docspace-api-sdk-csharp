@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The notification channel name.
         /// </summary>
-        /// <value>The notification channel name.</value>
-        /*
-        <example>Email</example>
-        */
+        /// <example>Email</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Specifies whether the notification channel is enabled.
         /// </summary>
-        /// <value>Specifies whether the notification channel is enabled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool IsEnabled { get; set; }
 

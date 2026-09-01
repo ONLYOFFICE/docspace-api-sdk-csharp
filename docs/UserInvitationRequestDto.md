@@ -6,7 +6,7 @@ The user invitation parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | **string** | The email address. | [optional] 
-**Type** | **EmployeeType** |  | [optional] 
+**Type** | **EmployeeType** | The user type. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

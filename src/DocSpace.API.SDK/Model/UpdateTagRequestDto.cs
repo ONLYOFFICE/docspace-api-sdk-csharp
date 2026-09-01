@@ -67,20 +67,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The old tag name.
         /// </summary>
-        /// <value>The old tag name.</value>
-        /*
-        <example>old-tag</example>
-        */
+        /// <example>old-tag</example>
         [DataMember(Name = "oldName", IsRequired = true, EmitDefaultValue = true)]
         public string OldName { get; set; }
 
         /// <summary>
         /// The new tag name.
         /// </summary>
-        /// <value>The new tag name.</value>
-        /*
-        <example>new-tag</example>
-        */
+        /// <example>new-tag</example>
         [DataMember(Name = "newName", IsRequired = true, EmitDefaultValue = true)]
         public string NewName { get; set; }
 

@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="progress">The migration progress..</param>
         /// <param name="error">The migration error..</param>
-        /// <param name="parseResult">parseResult.</param>
+        /// <param name="parseResult">The migration API information..</param>
         /// <param name="isCompleted">Specifies whether the migration is completed or not..</param>
         public MigrationStatusDto(double progress = default, string error = default, MigrationApiInfo parseResult = default, bool isCompleted = default)
         {
@@ -56,25 +56,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The migration progress.
         /// </summary>
-        /// <value>The migration progress.</value>
-        /*
-        <example>99.99</example>
-        */
+        /// <example>99.99</example>
         [DataMember(Name = "progress", EmitDefaultValue = false)]
         public double Progress { get; set; }
 
         /// <summary>
         /// The migration error.
         /// </summary>
-        /// <value>The migration error.</value>
-        /*
-        <example>Connection failed</example>
-        */
+        /// <example>Connection failed</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParseResult
+        /// The migration API information.
         /// </summary>
         [DataMember(Name = "parseResult", EmitDefaultValue = false)]
         public MigrationApiInfo ParseResult { get; set; }
@@ -82,10 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the migration is completed or not.
         /// </summary>
-        /// <value>Specifies whether the migration is completed or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isCompleted", EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 

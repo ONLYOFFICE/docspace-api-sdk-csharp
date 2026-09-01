@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the quota is enabled for the tenant entity or not.
         /// </summary>
-        /// <value>Specifies if the quota is enabled for the tenant entity or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enableQuota", EmitDefaultValue = true)]
         public bool EnableQuota { get; set; }
 
         /// <summary>
         /// The default quota of the tenant entity.
         /// </summary>
-        /// <value>The default quota of the tenant entity.</value>
-        /*
-        <example>1000</example>
-        */
+        /// <example>1000</example>
         [DataMember(Name = "defaultQuota", EmitDefaultValue = false)]
         public long DefaultQuota { get; set; }
 
         /// <summary>
         /// The date of the last quota recalculation.
         /// </summary>
-        /// <value>The date of the last quota recalculation.</value>
-        /*
-        <example>2024-01-01T00:00Z</example>
-        */
+        /// <example>2024-01-01T00:00:00Z</example>
         [DataMember(Name = "lastRecalculateDate", EmitDefaultValue = true)]
         public DateTime? LastRecalculateDate { get; set; }
 

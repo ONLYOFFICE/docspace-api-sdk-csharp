@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The quota parameters.  &lt;example&gt;  {    id: 1,    quantity: 50,    wallet: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  &lt;/example&gt;
+    /// The quota parameters.  &lt;example&gt;  {    id: 1,    quantity: 50,    wallet: false,    additional: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  &lt;/example&gt;
     /// </summary>
     [DataContract(Name = "Quota")]
     public partial class Quota : IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets State
+        /// The quota state.
         /// </summary>
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public QuotaState? State { get; set; }
@@ -52,63 +52,67 @@ namespace DocSpace.API.SDK.Model
         /// <param name="wallet">The quota applies to the wallet or not.</param>
         /// <param name="dueDate">The quota due date..</param>
         /// <param name="nextQuantity">The quota next quantity..</param>
-        /// <param name="state">state.</param>
-        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, int? nextQuantity = default, QuotaState? state = default)
+        /// <param name="additional">Indicates whether the quota is primary or additional..</param>
+        /// <param name="nextQuota">The quota ID to switch to at the next period..</param>
+        /// <param name="state">The quota state..</param>
+        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, int? nextQuantity = default, bool additional = default, int? nextQuota = default, QuotaState? state = default)
         {
             this.Id = id;
             this.Quantity = quantity;
             this.Wallet = wallet;
             this.DueDate = dueDate;
             this.NextQuantity = nextQuantity;
+            this.Additional = additional;
+            this.NextQuota = nextQuota;
             this.State = state;
         }
 
         /// <summary>
         /// The quota ID.
         /// </summary>
-        /// <value>The quota ID.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The quota quantity.
         /// </summary>
-        /// <value>The quota quantity.</value>
-        /*
-        <example>50</example>
-        */
+        /// <example>50</example>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
         /// <summary>
         /// The quota applies to the wallet or not
         /// </summary>
-        /// <value>The quota applies to the wallet or not</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "wallet", EmitDefaultValue = true)]
         public bool Wallet { get; set; }
 
         /// <summary>
         /// The quota due date.
         /// </summary>
-        /// <value>The quota due date.</value>
-        /*
-        <example>2026-03-31T00:00Z</example>
-        */
+        /// <example>2026-03-31T00:00:00Z</example>
         [DataMember(Name = "dueDate", EmitDefaultValue = true)]
         public DateTime? DueDate { get; set; }
 
         /// <summary>
         /// The quota next quantity.
         /// </summary>
-        /// <value>The quota next quantity.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "nextQuantity", EmitDefaultValue = true)]
         public int? NextQuantity { get; set; }
+
+        /// <summary>
+        /// Indicates whether the quota is primary or additional.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "additional", EmitDefaultValue = true)]
+        public bool Additional { get; set; }
+
+        /// <summary>
+        /// The quota ID to switch to at the next period.
+        /// </summary>
+        [DataMember(Name = "nextQuota", EmitDefaultValue = true)]
+        public int? NextQuota { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,6 +127,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("  NextQuantity: ").Append(NextQuantity).Append("\n");
+            sb.Append("  Additional: ").Append(Additional).Append("\n");
+            sb.Append("  NextQuota: ").Append(NextQuota).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

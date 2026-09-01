@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The encryption status.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public EncryprtionStatus? Status { get; set; }
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EncryptionSettings" /> class.
         /// </summary>
         /// <param name="password">The encryption password..</param>
-        /// <param name="status">status.</param>
+        /// <param name="status">The encryption status..</param>
         /// <param name="notifyUsers">Specifies if the users will be notified about the encryption operation or not..</param>
         public EncryptionSettings(string password = default, EncryprtionStatus? status = default, bool notifyUsers = default)
         {
@@ -60,20 +60,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The encryption password.
         /// </summary>
-        /// <value>The encryption password.</value>
-        /*
-        <example>password</example>
-        */
+        /// <example>password</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// Specifies if the users will be notified about the encryption operation or not.
         /// </summary>
-        /// <value>Specifies if the users will be notified about the encryption operation or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "notifyUsers", EmitDefaultValue = true)]
         public bool NotifyUsers { get; set; }
 

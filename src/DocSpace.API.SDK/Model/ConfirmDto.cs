@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Result
+        /// The confirmation result.
         /// </summary>
         [DataMember(Name = "result", IsRequired = true, EmitDefaultValue = true)]
         public ValidationResult Result { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmDto" /> class.
         /// </summary>
-        /// <param name="result">result (required).</param>
+        /// <param name="result">The confirmation result. (required).</param>
         /// <param name="roomId">The confirmation room ID..</param>
         /// <param name="title">The confirmation title..</param>
         /// <param name="email">The confirmation email..</param>
@@ -69,40 +69,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The confirmation room ID.
         /// </summary>
-        /// <value>The confirmation room ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "roomId", EmitDefaultValue = true)]
         public string RoomId { get; set; }
 
         /// <summary>
         /// The confirmation title.
         /// </summary>
-        /// <value>The confirmation title.</value>
-        /*
-        <example>Conference Room</example>
-        */
+        /// <example>Conference Room</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The confirmation email.
         /// </summary>
-        /// <value>The confirmation email.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The confirmation is agent.
         /// </summary>
-        /// <value>The confirmation is agent.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isAgent", EmitDefaultValue = true)]
         public bool IsAgent { get; set; }
 

@@ -6,8 +6,8 @@ The folder link parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LinkId** | **Guid** | The folder link ID. | [optional] 
-**Access** | **FileShare** |  | [optional] 
-**ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**Access** | **FileShare** | The access rights type. | [optional] 
+**ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. | [optional] 
 **Title** | **string** | The link name. | [optional] 
 **Password** | **string** | The link password. | [optional] 
 **DenyDownload** | **bool** | Specifies if downloading the file from the link is disabled or not. | [optional] 

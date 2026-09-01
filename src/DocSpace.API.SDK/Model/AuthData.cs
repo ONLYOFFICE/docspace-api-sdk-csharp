@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="rawToken">The authentication raw token..</param>
         /// <param name="url">The authentication URL..</param>
         /// <param name="provider">The authentication provider..</param>
-        /// <param name="token">token.</param>
+        /// <param name="token">The authentication token..</param>
         public AuthData(string login = default, string password = default, string rawToken = default, string url = default, string provider = default, OAuth20Token token = default)
         {
             this.Login = login;
@@ -60,55 +60,40 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The authentication login.
         /// </summary>
-        /// <value>The authentication login.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
         /// The authentication password.
         /// </summary>
-        /// <value>The authentication password.</value>
-        /*
-        <example>p@ssw0rd!</example>
-        */
+        /// <example>p@ssw0rd!</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// The authentication raw token.
         /// </summary>
-        /// <value>The authentication raw token.</value>
-        /*
-        <example>{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...","expires_in":3600}</example>
-        */
+        /// <example>{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...","expires_in":3600}</example>
         [DataMember(Name = "rawToken", EmitDefaultValue = true)]
         public string RawToken { get; set; }
 
         /// <summary>
         /// The authentication URL.
         /// </summary>
-        /// <value>The authentication URL.</value>
-        /*
-        <example>https://auth.example.com</example>
-        */
+        /// <example>https://auth.example.com</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The authentication provider.
         /// </summary>
-        /// <value>The authentication provider.</value>
-        /*
-        <example>OAuth2</example>
-        */
+        /// <example>OAuth2</example>
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
-        /// Gets or Sets Token
+        /// The authentication token.
         /// </summary>
         [DataMember(Name = "token", EmitDefaultValue = false)]
         public OAuth20Token Token { get; set; }

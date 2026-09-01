@@ -39,19 +39,19 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The user status.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public EmployeeStatus? Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActivationStatus
+        /// The user activation status.
         /// </summary>
         [DataMember(Name = "activationStatus", EmitDefaultValue = false)]
         public EmployeeActivationStatus? ActivationStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets MobilePhoneActivationStatus
+        /// The user mobile phone activation status.
         /// </summary>
         [DataMember(Name = "mobilePhoneActivationStatus", EmitDefaultValue = false)]
         public MobilePhoneActivationStatus? MobilePhoneActivationStatus { get; set; }
@@ -65,8 +65,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="userName">The user username..</param>
         /// <param name="birthDate">The user birthday..</param>
         /// <param name="sex">The user sex (male or female)..</param>
-        /// <param name="status">status.</param>
-        /// <param name="activationStatus">activationStatus.</param>
+        /// <param name="status">The user status..</param>
+        /// <param name="activationStatus">The user activation status..</param>
         /// <param name="terminatedDate">The date and time when the user account was terminated..</param>
         /// <param name="title">The user title..</param>
         /// <param name="workFromDate">The user registration date..</param>
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="tenantId">The tenant ID..</param>
         /// <param name="cultureName">The user culture code..</param>
         /// <param name="mobilePhone">The user mobile phone..</param>
-        /// <param name="mobilePhoneActivationStatus">mobilePhoneActivationStatus.</param>
+        /// <param name="mobilePhoneActivationStatus">The user mobile phone activation status..</param>
         /// <param name="sid">The LDAP user identifier..</param>
         /// <param name="ldapQouta">The LDAP user quota attribute..</param>
         /// <param name="ssoNameId">The SSO SAML user identifier..</param>
@@ -124,180 +124,126 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The user&#39;s first name.
         /// </summary>
-        /// <value>The user&#39;s first name.</value>
-        /*
-        <example>John</example>
-        */
+        /// <example>John</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// The user&#39;s last name.
         /// </summary>
-        /// <value>The user&#39;s last name.</value>
-        /*
-        <example>Doe</example>
-        */
+        /// <example>Doe</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
         /// The user username.
         /// </summary>
-        /// <value>The user username.</value>
-        /*
-        <example>johndoe</example>
-        */
+        /// <example>johndoe</example>
         [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
         /// The user birthday.
         /// </summary>
-        /// <value>The user birthday.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "birthDate", EmitDefaultValue = true)]
         public DateTime? BirthDate { get; set; }
 
         /// <summary>
         /// The user sex (male or female).
         /// </summary>
-        /// <value>The user sex (male or female).</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "sex", EmitDefaultValue = true)]
         public bool? Sex { get; set; }
 
         /// <summary>
         /// The date and time when the user account was terminated.
         /// </summary>
-        /// <value>The date and time when the user account was terminated.</value>
-        /*
-        <example>2025-12-31T23:59:59Z</example>
-        */
+        /// <example>2025-12-31T23:59:59Z</example>
         [DataMember(Name = "terminatedDate", EmitDefaultValue = true)]
         public DateTime? TerminatedDate { get; set; }
 
         /// <summary>
         /// The user title.
         /// </summary>
-        /// <value>The user title.</value>
-        /*
-        <example>Manager</example>
-        */
+        /// <example>Manager</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The user registration date.
         /// </summary>
-        /// <value>The user registration date.</value>
-        /*
-        <example>2020-01-15T00:00Z</example>
-        */
+        /// <example>2020-01-15T00:00:00Z</example>
         [DataMember(Name = "workFromDate", EmitDefaultValue = true)]
         public DateTime? WorkFromDate { get; set; }
 
         /// <summary>
         /// The user email address.
         /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>john.doe@example.com</example>
-        */
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The list of user contacts in the string format.
         /// </summary>
-        /// <value>The list of user contacts in the string format.</value>
-        /*
-        <example>skype:johndoe|telegram:@johndoe</example>
-        */
+        /// <example>skype:johndoe|telegram:@johndoe</example>
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public string Contacts { get; set; }
 
         /// <summary>
         /// The list of user contacts.
         /// </summary>
-        /// <value>The list of user contacts.</value>
-        /*
-        <example>["skype:johndoe","telegram:@johndoe"]</example>
-        */
+        /// <example>["skype:johndoe","telegram:@johndoe"]</example>
         [DataMember(Name = "contactsList", EmitDefaultValue = true)]
         public List<string> ContactsList { get; set; }
 
         /// <summary>
         /// The user location.
         /// </summary>
-        /// <value>The user location.</value>
-        /*
-        <example>New York, USA</example>
-        */
+        /// <example>New York, USA</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
         /// The user notes.
         /// </summary>
-        /// <value>The user notes.</value>
-        /*
-        <example>Additional information about the user</example>
-        */
+        /// <example>Additional information about the user</example>
         [DataMember(Name = "notes", EmitDefaultValue = true)]
         public string Notes { get; set; }
 
         /// <summary>
         /// Specifies if the user account was removed or not.
         /// </summary>
-        /// <value>Specifies if the user account was removed or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "removed", EmitDefaultValue = true)]
         public bool Removed { get; set; }
 
         /// <summary>
         /// The date and time when the user account was last modified.
         /// </summary>
-        /// <value>The date and time when the user account was last modified.</value>
-        /*
-        <example>2025-02-08T10:30Z</example>
-        */
+        /// <example>2025-02-08T10:30:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// Specifies if the user is active or not.
         /// </summary>
-        /// <value>Specifies if the user is active or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isActive", EmitDefaultValue = true)]
         public bool IsActive { get; private set; }
 
@@ -312,100 +258,70 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user culture code.
         /// </summary>
-        /// <value>The user culture code.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "cultureName", EmitDefaultValue = true)]
         public string CultureName { get; set; }
 
         /// <summary>
         /// The user mobile phone.
         /// </summary>
-        /// <value>The user mobile phone.</value>
-        /*
-        <example>+1234567890</example>
-        */
+        /// <example>+1234567890</example>
         [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
         public string MobilePhone { get; set; }
 
         /// <summary>
         /// The LDAP user identifier.
         /// </summary>
-        /// <value>The LDAP user identifier.</value>
-        /*
-        <example>S-1-5-21-3623811015-3361044348-30300820-1013</example>
-        */
+        /// <example>S-1-5-21-3623811015-3361044348-30300820-1013</example>
         [DataMember(Name = "sid", EmitDefaultValue = true)]
         public string Sid { get; set; }
 
         /// <summary>
         /// The LDAP user quota attribute.
         /// </summary>
-        /// <value>The LDAP user quota attribute.</value>
-        /*
-        <example>1073741824</example>
-        */
+        /// <example>1073741824</example>
         [DataMember(Name = "ldapQouta", EmitDefaultValue = false)]
         public long LdapQouta { get; set; }
 
         /// <summary>
         /// The SSO SAML user identifier.
         /// </summary>
-        /// <value>The SSO SAML user identifier.</value>
-        /*
-        <example>johndoe@example.com</example>
-        */
+        /// <example>johndoe@example.com</example>
         [DataMember(Name = "ssoNameId", EmitDefaultValue = true)]
         public string SsoNameId { get; set; }
 
         /// <summary>
         /// The SSO SAML user session identifier.
         /// </summary>
-        /// <value>The SSO SAML user session identifier.</value>
-        /*
-        <example>_1a2b3c4d5e6f7g8h9i0j</example>
-        */
+        /// <example>_1a2b3c4d5e6f7g8h9i0j</example>
         [DataMember(Name = "ssoSessionId", EmitDefaultValue = true)]
         public string SsoSessionId { get; set; }
 
         /// <summary>
         /// The date and time when the user account was created.
         /// </summary>
-        /// <value>The date and time when the user account was created.</value>
-        /*
-        <example>2020-01-15T00:00Z</example>
-        */
+        /// <example>2020-01-15T00:00:00Z</example>
         [DataMember(Name = "createDate", EmitDefaultValue = false)]
         public DateTime CreateDate { get; set; }
 
         /// <summary>
         /// The ID of the user who created the current user account.
         /// </summary>
-        /// <value>The ID of the user who created the current user account.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "createdBy", EmitDefaultValue = true)]
         public Guid? CreatedBy { get; set; }
 
         /// <summary>
         /// Specifies if tips, updates and offers are allowed to be sent to the user or not.
         /// </summary>
-        /// <value>Specifies if tips, updates and offers are allowed to be sent to the user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "spam", EmitDefaultValue = true)]
         public bool? Spam { get; set; }
 
         /// <summary>
         /// Indicates whether the activation status of the employee or recipient is unchecked or inactive.  Depending on the context, this property evaluates the activation or eligibility status accordingly.
         /// </summary>
-        /// <value>Indicates whether the activation status of the employee or recipient is unchecked or inactive.  Depending on the context, this property evaluates the activation or eligibility status accordingly.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "checkActivation", EmitDefaultValue = true)]
         public bool CheckActivation { get; private set; }
 

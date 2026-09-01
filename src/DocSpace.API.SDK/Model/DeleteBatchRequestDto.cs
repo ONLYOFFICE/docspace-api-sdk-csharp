@@ -56,40 +56,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of folder IDs to be deleted.
         /// </summary>
-        /// <value>The list of folder IDs to be deleted.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DeleteBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be deleted.
         /// </summary>
-        /// <value>The list of file IDs to be deleted.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DeleteBatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// Specifies whether to delete a file after the editing session is finished or not
         /// </summary>
-        /// <value>Specifies whether to delete a file after the editing session is finished or not</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
         /// Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.
         /// </summary>
-        /// <value>Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "immediately", EmitDefaultValue = true)]
         public bool Immediately { get; set; }
 
@@ -130,4 +118,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

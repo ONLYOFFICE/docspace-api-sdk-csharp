@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Every day, 1 - Every week, 2 - Every month]
     /// </summary>
-    /// <value>[0 - Every day, 1 - Every week, 2 - Every month]</value>
     public enum BackupPeriod
     {
         /// <summary>

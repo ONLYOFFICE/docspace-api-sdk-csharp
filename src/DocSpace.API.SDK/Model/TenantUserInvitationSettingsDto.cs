@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to allow inviting new DocSpace members through the Contacts section.
         /// </summary>
-        /// <value>Specifies whether to allow inviting new DocSpace members through the Contacts section.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "allowInvitingMembers", IsRequired = true, EmitDefaultValue = true)]
         public bool AllowInvitingMembers { get; set; }
 
         /// <summary>
         /// Specifies whether to allow all DocSpace members to invite external guests to the rooms.
         /// </summary>
-        /// <value>Specifies whether to allow all DocSpace members to invite external guests to the rooms.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "allowInvitingGuests", IsRequired = true, EmitDefaultValue = true)]
         public bool AllowInvitingGuests { get; set; }
 

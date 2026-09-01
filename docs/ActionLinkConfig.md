@@ -5,7 +5,7 @@ The config parameter which contains the information about the action in the docu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | [**ActionConfig**](ActionConfig.md) |  | [optional] 
+**Action** | [**ActionConfig**](ActionConfig.md) | The information about the action in the document that will be scrolled to. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

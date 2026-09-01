@@ -5,7 +5,7 @@ The request parameters for specifying payment quantity.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Quantity** | **Dictionary&lt;string, int&gt;** | The mapping of item identifiers to their respective quantities in the payment. | [optional] 
+**Quantity** | **Dictionary&lt;string, int&gt;** | The mapping of item identifiers to their respective quantities in the payment. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

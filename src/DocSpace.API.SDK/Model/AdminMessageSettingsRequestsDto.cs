@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets RecaptchaType
+        /// The type of CAPTCHA validation used.
         /// </summary>
         [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
         public RecaptchaType? RecaptchaType { get; set; }
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="message">The content of the administrator message to be sent. (required).</param>
         /// <param name="email">Email (required).</param>
         /// <param name="culture">Culture.</param>
-        /// <param name="recaptchaType">recaptchaType.</param>
+        /// <param name="recaptchaType">The type of CAPTCHA validation used..</param>
         /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
         public AdminMessageSettingsRequestsDto(string message = default, string email = default, string culture = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default)
         {
@@ -79,40 +79,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The content of the administrator message to be sent.
         /// </summary>
-        /// <value>The content of the administrator message to be sent.</value>
-        /*
-        <example>Hello, this is a test message from the administrator.</example>
-        */
+        /// <example>Hello, this is a test message from the administrator.</example>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
         /// Email
         /// </summary>
-        /// <value>Email</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// Culture
         /// </summary>
-        /// <value>Culture</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
         /// The user&#39;s response to the CAPTCHA challenge.
         /// </summary>
-        /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
-        /*
-        <example>03AGdBq24PBCbwiDRaS...</example>
-        */
+        /// <example>03AGdBq24PBCbwiDRaS...</example>
         [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
         public string RecaptchaResponse { get; set; }
 

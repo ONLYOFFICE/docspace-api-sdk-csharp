@@ -60,10 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The tag name.
         /// </summary>
-        /// <value>The tag name.</value>
-        /*
-        <example>Important</example>
-        */
+        /// <example>Important</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 

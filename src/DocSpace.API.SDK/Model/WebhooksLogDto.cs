@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Trigger
+        /// The webhook trigger type.
         /// </summary>
         [DataMember(Name = "trigger", EmitDefaultValue = false)]
         public WebhookTrigger? Trigger { get; set; }
@@ -54,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">The webhook log ID. (required).</param>
         /// <param name="configName">The webhook configuration name..</param>
-        /// <param name="trigger">trigger.</param>
+        /// <param name="trigger">The webhook trigger type..</param>
         /// <param name="creationTime">The webhook creation time..</param>
         /// <param name="method">The webhook method..</param>
         /// <param name="route">The webhook route..</param>
@@ -83,110 +83,77 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The webhook log ID.
         /// </summary>
-        /// <value>The webhook log ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The webhook configuration name.
         /// </summary>
-        /// <value>The webhook configuration name.</value>
-        /*
-        <example>Example Name</example>
-        */
+        /// <example>Example Name</example>
         [DataMember(Name = "configName", EmitDefaultValue = true)]
         public string ConfigName { get; set; }
 
         /// <summary>
         /// The webhook creation time.
         /// </summary>
-        /// <value>The webhook creation time.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "creationTime", EmitDefaultValue = false)]
         public DateTime CreationTime { get; set; }
 
         /// <summary>
         /// The webhook method.
         /// </summary>
-        /// <value>The webhook method.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "method", EmitDefaultValue = true)]
         public string Method { get; set; }
 
         /// <summary>
         /// The webhook route.
         /// </summary>
-        /// <value>The webhook route.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "route", EmitDefaultValue = true)]
         public string Route { get; set; }
 
         /// <summary>
         /// The webhook request headers.
         /// </summary>
-        /// <value>The webhook request headers.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "requestHeaders", EmitDefaultValue = true)]
         public string RequestHeaders { get; set; }
 
         /// <summary>
         /// The webhook request payload.
         /// </summary>
-        /// <value>The webhook request payload.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "requestPayload", EmitDefaultValue = true)]
         public string RequestPayload { get; set; }
 
         /// <summary>
         /// The webhook response headers.
         /// </summary>
-        /// <value>The webhook response headers.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "responseHeaders", EmitDefaultValue = true)]
         public string ResponseHeaders { get; set; }
 
         /// <summary>
         /// The webhook response payload.
         /// </summary>
-        /// <value>The webhook response payload.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "responsePayload", EmitDefaultValue = true)]
         public string ResponsePayload { get; set; }
 
         /// <summary>
         /// The webhook status.
         /// </summary>
-        /// <value>The webhook status.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
         /// The webhook delivery time.
         /// </summary>
-        /// <value>The webhook delivery time.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "delivery", EmitDefaultValue = true)]
         public DateTime? Delivery { get; set; }
 

@@ -39,31 +39,31 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets FileStatus
+        /// The current status of the file.
         /// </summary>
         [DataMember(Name = "fileStatus", EmitDefaultValue = false)]
         public FileStatus? FileStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileType
+        /// The file type.
         /// </summary>
         [DataMember(Name = "fileType", EmitDefaultValue = false)]
         public FileType? FileType { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThumbnailStatus
+        /// The current thumbnail status of the file.
         /// </summary>
         [DataMember(Name = "thumbnailStatus", EmitDefaultValue = false)]
         public Thumbnail? ThumbnailStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets FormFillingStatus
+        /// The status of the form filling process.
         /// </summary>
         [DataMember(Name = "formFillingStatus", EmitDefaultValue = false)]
         public FormFillingStatus? FormFillingStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets VectorizationStatus
+        /// The vectorization status of the file.
         /// </summary>
         [DataMember(Name = "vectorizationStatus", EmitDefaultValue = false)]
         public VectorizationStatus? VectorizationStatus { get; set; }
@@ -76,21 +76,21 @@ namespace DocSpace.API.SDK.Model
         /// <param name="versionGroup">The version group of the file..</param>
         /// <param name="contentLength">The content length of the file..</param>
         /// <param name="pureContentLength">The pure content length of the file..</param>
-        /// <param name="fileStatus">fileStatus.</param>
+        /// <param name="fileStatus">The current status of the file..</param>
         /// <param name="editingBy">The list of users editing the file..</param>
         /// <param name="mute">Specifies if the file is muted or not..</param>
         /// <param name="viewUrl">The URL link to view the file..</param>
         /// <param name="webUrl">The Web URL link to the file..</param>
-        /// <param name="fileType">fileType.</param>
+        /// <param name="fileType">The file type..</param>
         /// <param name="fileExst">The file extension..</param>
         /// <param name="comment">The comment to the file..</param>
         /// <param name="encrypted">Specifies if the file is encrypted or not..</param>
         /// <param name="thumbnailUrl">The thumbnail URL of the file..</param>
-        /// <param name="thumbnailStatus">thumbnailStatus.</param>
+        /// <param name="thumbnailStatus">The current thumbnail status of the file..</param>
         /// <param name="locked">Specifies if the file is locked or not..</param>
         /// <param name="lockedBy">The user ID of the person who locked the file..</param>
         /// <param name="hasDraft">Specifies if the file has a draft or not..</param>
-        /// <param name="formFillingStatus">formFillingStatus.</param>
+        /// <param name="formFillingStatus">The status of the form filling process..</param>
         /// <param name="isForm">Specifies if the file is a form or not..</param>
         /// <param name="customFilterEnabled">Specifies if the Custom Filter editing mode is enabled for a file or not..</param>
         /// <param name="customFilterEnabledBy">The name of the user who enabled a Custom Filter editing mode for a file..</param>
@@ -99,13 +99,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="inProcessFolderId">The InProcess folder ID of the file..</param>
         /// <param name="inProcessFolderTitle">The InProcess folder title of the file..</param>
         /// <param name="resultsFolderId">The ID of the FormFillingFolderDone folder that corresponds to this original form..</param>
-        /// <param name="draftLocation">draftLocation.</param>
+        /// <param name="draftLocation">The file draft information with its location..</param>
         /// <param name="viewAccessibility">viewAccessibility.</param>
-        /// <param name="lastOpened">lastOpened.</param>
-        /// <param name="expired">expired.</param>
-        /// <param name="vectorizationStatus">vectorizationStatus.</param>
+        /// <param name="lastOpened">The time when the file was last opened..</param>
+        /// <param name="expired">The date when the file will be expired..</param>
+        /// <param name="vectorizationStatus">The vectorization status of the file..</param>
         /// <param name="externalDbTableName">The name of the table in the external database that corresponds to this form..</param>
-        /// <param name="dimensions">dimensions.</param>
+        /// <param name="dimensions">Represents dimensions with width and height values..</param>
         public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, int? resultsFolderId = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, string externalDbTableName = default, Size dimensions = default)
         {
             this.FolderId = folderId;
@@ -148,245 +148,173 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The folder ID where the file is located.
         /// </summary>
-        /// <value>The folder ID where the file is located.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
 
         /// <summary>
         /// The file version.
         /// </summary>
-        /// <value>The file version.</value>
-        /*
-        <example>3</example>
-        */
+        /// <example>3</example>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The version group of the file.
         /// </summary>
-        /// <value>The version group of the file.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "versionGroup", EmitDefaultValue = false)]
         public int VersionGroup { get; set; }
 
         /// <summary>
         /// The content length of the file.
         /// </summary>
-        /// <value>The content length of the file.</value>
-        /*
-        <example>12345</example>
-        */
+        /// <example>12345</example>
         [DataMember(Name = "contentLength", EmitDefaultValue = true)]
         public string ContentLength { get; set; }
 
         /// <summary>
         /// The pure content length of the file.
         /// </summary>
-        /// <value>The pure content length of the file.</value>
-        /*
-        <example>12345</example>
-        */
+        /// <example>12345</example>
         [DataMember(Name = "pureContentLength", EmitDefaultValue = true)]
         public long? PureContentLength { get; set; }
 
         /// <summary>
         /// The list of users editing the file.
         /// </summary>
-        /// <value>The list of users editing the file.</value>
-        /*
-        <example>{&quot;00000000-0000-0000-0000-000000000000&quot;:&quot;John Doe&quot;}</example>
-        */
-        [DataMember(Name = "editingBy", EmitDefaultValue = true)]
+        /// <example>{"00000000-0000-0000-0000-000000000000":"John Doe"}</example>
+        [DataMember(Name = "editingBy", EmitDefaultValue = false)]
         public Dictionary<string, string> EditingBy { get; set; }
 
         /// <summary>
         /// Specifies if the file is muted or not.
         /// </summary>
-        /// <value>Specifies if the file is muted or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "mute", EmitDefaultValue = true)]
         public bool Mute { get; set; }
 
         /// <summary>
         /// The URL link to view the file.
         /// </summary>
-        /// <value>The URL link to view the file.</value>
-        /*
-        <example>https://www.onlyoffice.com/viewfile?fileid&#x3D;2221</example>
-        */
+        /// <example>https://www.onlyoffice.com/viewfile?fileid=2221</example>
         [DataMember(Name = "viewUrl", EmitDefaultValue = true)]
         public string ViewUrl { get; set; }
 
         /// <summary>
         /// The Web URL link to the file.
         /// </summary>
-        /// <value>The Web URL link to the file.</value>
-        /*
-        <example>http://localhost/files/document.docx</example>
-        */
+        /// <example>http://localhost/files/document.docx</example>
         [DataMember(Name = "webUrl", EmitDefaultValue = true)]
         public string WebUrl { get; set; }
 
         /// <summary>
         /// The file extension.
         /// </summary>
-        /// <value>The file extension.</value>
-        /*
-        <example>.txt</example>
-        */
+        /// <example>.txt</example>
         [DataMember(Name = "fileExst", EmitDefaultValue = true)]
         public string FileExst { get; set; }
 
         /// <summary>
         /// The comment to the file.
         /// </summary>
-        /// <value>The comment to the file.</value>
-        /*
-        <example>This is a comment</example>
-        */
+        /// <example>This is a comment</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
         /// Specifies if the file is encrypted or not.
         /// </summary>
-        /// <value>Specifies if the file is encrypted or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "encrypted", EmitDefaultValue = true)]
         public bool? Encrypted { get; set; }
 
         /// <summary>
         /// The thumbnail URL of the file.
         /// </summary>
-        /// <value>The thumbnail URL of the file.</value>
-        /*
-        <example>http://localhost/thumbnails/file.png</example>
-        */
+        /// <example>http://localhost/thumbnails/file.png</example>
         [DataMember(Name = "thumbnailUrl", EmitDefaultValue = true)]
         public string ThumbnailUrl { get; set; }
 
         /// <summary>
         /// Specifies if the file is locked or not.
         /// </summary>
-        /// <value>Specifies if the file is locked or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "locked", EmitDefaultValue = true)]
         public bool? Locked { get; set; }
 
         /// <summary>
         /// The user ID of the person who locked the file.
         /// </summary>
-        /// <value>The user ID of the person who locked the file.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "lockedBy", EmitDefaultValue = true)]
         public string LockedBy { get; set; }
 
         /// <summary>
         /// Specifies if the file has a draft or not.
         /// </summary>
-        /// <value>Specifies if the file has a draft or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "hasDraft", EmitDefaultValue = true)]
         public bool? HasDraft { get; set; }
 
         /// <summary>
         /// Specifies if the file is a form or not.
         /// </summary>
-        /// <value>Specifies if the file is a form or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isForm", EmitDefaultValue = true)]
         public bool? IsForm { get; set; }
 
         /// <summary>
         /// Specifies if the Custom Filter editing mode is enabled for a file or not.
         /// </summary>
-        /// <value>Specifies if the Custom Filter editing mode is enabled for a file or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "customFilterEnabled", EmitDefaultValue = true)]
         public bool? CustomFilterEnabled { get; set; }
 
         /// <summary>
         /// The name of the user who enabled a Custom Filter editing mode for a file.
         /// </summary>
-        /// <value>The name of the user who enabled a Custom Filter editing mode for a file.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "customFilterEnabledBy", EmitDefaultValue = true)]
         public string CustomFilterEnabledBy { get; set; }
 
         /// <summary>
         /// Specifies if the filling has started or not.
         /// </summary>
-        /// <value>Specifies if the filling has started or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "startFilling", EmitDefaultValue = true)]
         public bool? StartFilling { get; set; }
 
         /// <summary>
         /// Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed.
         /// </summary>
-        /// <value>Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isFillingPreparing", EmitDefaultValue = true)]
         public bool? IsFillingPreparing { get; set; }
 
         /// <summary>
         /// The InProcess folder ID of the file.
         /// </summary>
-        /// <value>The InProcess folder ID of the file.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "inProcessFolderId", EmitDefaultValue = true)]
         public int? InProcessFolderId { get; set; }
 
         /// <summary>
         /// The InProcess folder title of the file.
         /// </summary>
-        /// <value>The InProcess folder title of the file.</value>
-        /*
-        <example>In Process</example>
-        */
+        /// <example>In Process</example>
         [DataMember(Name = "inProcessFolderTitle", EmitDefaultValue = true)]
         public string InProcessFolderTitle { get; set; }
 
         /// <summary>
         /// The ID of the FormFillingFolderDone folder that corresponds to this original form.
         /// </summary>
-        /// <value>The ID of the FormFillingFolderDone folder that corresponds to this original form.</value>
-        /*
-        <example>55</example>
-        */
+        /// <example>55</example>
         [DataMember(Name = "resultsFolderId", EmitDefaultValue = true)]
         public int? ResultsFolderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets DraftLocation
+        /// The file draft information with its location.
         /// </summary>
         [DataMember(Name = "draftLocation", EmitDefaultValue = false)]
         public DraftLocationInteger DraftLocation { get; set; }
@@ -398,13 +326,13 @@ namespace DocSpace.API.SDK.Model
         public FileDtoIntegerAllOfViewAccessibility ViewAccessibility { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastOpened
+        /// The time when the file was last opened.
         /// </summary>
         [DataMember(Name = "lastOpened", EmitDefaultValue = false)]
         public ApiDateTime LastOpened { get; set; }
 
         /// <summary>
-        /// Gets or Sets Expired
+        /// The date when the file will be expired.
         /// </summary>
         [DataMember(Name = "expired", EmitDefaultValue = false)]
         public ApiDateTime Expired { get; set; }
@@ -412,15 +340,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The name of the table in the external database that corresponds to this form.
         /// </summary>
-        /// <value>The name of the table in the external database that corresponds to this form.</value>
-        /*
-        <example>form_123_v1</example>
-        */
+        /// <example>form_123_v1</example>
         [DataMember(Name = "externalDbTableName", EmitDefaultValue = true)]
         public string ExternalDbTableName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Dimensions
+        /// Represents dimensions with width and height values.
         /// </summary>
         [DataMember(Name = "dimensions", EmitDefaultValue = false)]
         public Size Dimensions { get; set; }
@@ -493,4 +418,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

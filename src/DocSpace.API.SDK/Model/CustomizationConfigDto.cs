@@ -42,16 +42,16 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="CustomizationConfigDto" /> class.
         /// </summary>
         /// <param name="about">Specifies if the customization is about..</param>
-        /// <param name="customer">customer.</param>
-        /// <param name="anonymous">anonymous.</param>
-        /// <param name="feedback">feedback.</param>
+        /// <param name="customer">The customization customer configuration..</param>
+        /// <param name="anonymous">The anonymous configuration of the customization..</param>
+        /// <param name="feedback">The settings for the Feedback &amp; Support menu button..</param>
         /// <param name="forcesave">Specifies if the customization should be force saved..</param>
-        /// <param name="goback">goback.</param>
-        /// <param name="review">review.</param>
-        /// <param name="logo">logo.</param>
+        /// <param name="goback">The settings for the Open file location menu button and upper right corner button..</param>
+        /// <param name="review">Configuration for review display settings..</param>
+        /// <param name="logo">The logo of the customization..</param>
         /// <param name="mentionShare">Specifies if the share should be mentioned..</param>
-        /// <param name="submitForm">submitForm.</param>
-        /// <param name="startFillingForm">startFillingForm.</param>
+        /// <param name="submitForm">The Complete &amp; Submit button settings..</param>
+        /// <param name="startFillingForm">The parameters of the button that starts filling out the form..</param>
         public CustomizationConfigDto(bool about = default, CustomerConfigDto customer = default, AnonymousConfigDto anonymous = default, FeedbackConfig feedback = default, bool? forcesave = default, GobackConfig goback = default, ReviewConfig review = default, LogoConfigDto logo = default, bool mentionShare = default, SubmitForm submitForm = default, StartFillingForm startFillingForm = default)
         {
             this.About = about;
@@ -70,27 +70,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the customization is about.
         /// </summary>
-        /// <value>Specifies if the customization is about.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "about", EmitDefaultValue = true)]
         public bool About { get; set; }
 
         /// <summary>
-        /// Gets or Sets Customer
+        /// The customization customer configuration.
         /// </summary>
         [DataMember(Name = "customer", EmitDefaultValue = false)]
         public CustomerConfigDto Customer { get; set; }
 
         /// <summary>
-        /// Gets or Sets Anonymous
+        /// The anonymous configuration of the customization.
         /// </summary>
         [DataMember(Name = "anonymous", EmitDefaultValue = false)]
         public AnonymousConfigDto Anonymous { get; set; }
 
         /// <summary>
-        /// Gets or Sets Feedback
+        /// The settings for the Feedback &amp; Support menu button.
         /// </summary>
         [DataMember(Name = "feedback", EmitDefaultValue = false)]
         public FeedbackConfig Feedback { get; set; }
@@ -98,27 +95,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the customization should be force saved.
         /// </summary>
-        /// <value>Specifies if the customization should be force saved.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "forcesave", EmitDefaultValue = true)]
         public bool? Forcesave { get; set; }
 
         /// <summary>
-        /// Gets or Sets Goback
+        /// The settings for the Open file location menu button and upper right corner button.
         /// </summary>
         [DataMember(Name = "goback", EmitDefaultValue = false)]
         public GobackConfig Goback { get; set; }
 
         /// <summary>
-        /// Gets or Sets Review
+        /// Configuration for review display settings.
         /// </summary>
         [DataMember(Name = "review", EmitDefaultValue = false)]
         public ReviewConfig Review { get; set; }
 
         /// <summary>
-        /// Gets or Sets Logo
+        /// The logo of the customization.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoConfigDto Logo { get; set; }
@@ -126,21 +120,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the share should be mentioned.
         /// </summary>
-        /// <value>Specifies if the share should be mentioned.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "mentionShare", EmitDefaultValue = true)]
         public bool MentionShare { get; set; }
 
         /// <summary>
-        /// Gets or Sets SubmitForm
+        /// The Complete &amp; Submit button settings.
         /// </summary>
         [DataMember(Name = "submitForm", EmitDefaultValue = false)]
         public SubmitForm SubmitForm { get; set; }
 
         /// <summary>
-        /// Gets or Sets StartFillingForm
+        /// The parameters of the button that starts filling out the form.
         /// </summary>
         [DataMember(Name = "startFillingForm", EmitDefaultValue = false)]
         public StartFillingForm StartFillingForm { get; set; }

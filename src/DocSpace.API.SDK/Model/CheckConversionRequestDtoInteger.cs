@@ -62,70 +62,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file ID to check conversion proccess.
         /// </summary>
-        /// <value>The file ID to check conversion proccess.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public int FileId { get; set; }
 
         /// <summary>
         /// Specifies if the conversion process is synchronous or not.
         /// </summary>
-        /// <value>Specifies if the conversion process is synchronous or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "sync", EmitDefaultValue = true)]
         public bool Sync { get; set; }
 
         /// <summary>
         /// Specifies whether to start a conversion process or not.
         /// </summary>
-        /// <value>Specifies whether to start a conversion process or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "startConvert", EmitDefaultValue = true)]
         public bool StartConvert { get; set; }
 
         /// <summary>
         /// The file version that is converted.
         /// </summary>
-        /// <value>The file version that is converted.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The password of the converted file.
         /// </summary>
-        /// <value>The password of the converted file.</value>
-        /*
-        <example>password123</example>
-        */
+        /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// The conversion output type.
         /// </summary>
-        /// <value>The conversion output type.</value>
-        /*
-        <example>pdf</example>
-        */
+        /// <example>pdf</example>
         [DataMember(Name = "outputType", EmitDefaultValue = true)]
         public string OutputType { get; set; }
 
         /// <summary>
         /// Specifies whether to create a new file if it exists or not.
         /// </summary>
-        /// <value>Specifies whether to create a new file if it exists or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "createNewIfExist", EmitDefaultValue = true)]
         public bool CreateNewIfExist { get; set; }
 

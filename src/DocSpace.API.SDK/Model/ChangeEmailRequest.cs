@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user email address.
         /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>john.doe@example.com</example>
-        */
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The user encrypted email address.
         /// </summary>
-        /// <value>The user encrypted email address.</value>
-        /*
-        <example>encrypted_email_string</example>
-        */
+        /// <example>encrypted_email_string</example>
         [DataMember(Name = "encEmail", EmitDefaultValue = true)]
         public string EncEmail { get; set; }
 

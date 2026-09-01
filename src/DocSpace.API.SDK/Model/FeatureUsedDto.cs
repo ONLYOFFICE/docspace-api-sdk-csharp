@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeatureUsedDto" /> class.
         /// </summary>
-        /// <param name="value">The used space value. (required).</param>
+        /// <param name="value">value (required).</param>
         /// <param name="title">The used space title..</param>
         public FeatureUsedDto(Object value = default, string title = default)
         {
@@ -60,19 +60,15 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The used space value.
+        /// Gets or Sets Value
         /// </summary>
-        /// <value>The used space value.</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public Object Value { get; set; }
 
         /// <summary>
         /// The used space title.
         /// </summary>
-        /// <value>The used space title.</value>
-        /*
-        <example>50 GB used</example>
-        */
+        /// <example>50 GB used</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 

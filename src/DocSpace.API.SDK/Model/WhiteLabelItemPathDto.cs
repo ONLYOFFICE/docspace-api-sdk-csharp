@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The path to the light theme logo.
         /// </summary>
-        /// <value>The path to the light theme logo.</value>
-        /*
-        <example>/images/logo-light.png</example>
-        */
+        /// <example>/images/logo-light.png</example>
         [DataMember(Name = "light", EmitDefaultValue = true)]
         public string Light { get; set; }
 
         /// <summary>
         /// The path to the dark theme logo.
         /// </summary>
-        /// <value>The path to the dark theme logo.</value>
-        /*
-        <example>/images/logo-dark.png</example>
-        */
+        /// <example>/images/logo-dark.png</example>
         [DataMember(Name = "dark", EmitDefaultValue = true)]
         public string Dark { get; set; }
 

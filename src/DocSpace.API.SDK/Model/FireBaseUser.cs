@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="firebaseDeviceToken">The Firebase device token..</param>
         /// <param name="application">The Firebase application..</param>
         /// <param name="isSubscribed">Specifies if the user is subscribed to the push notifications or not..</param>
-        /// <param name="tenant">tenant.</param>
+        /// <param name="tenant">The database tenant parameters..</param>
         public FireBaseUser(int id = default, Guid userId = default, int tenantId = default, string firebaseDeviceToken = default, string application = default, bool? isSubscribed = default, DbTenant tenant = default)
         {
             this.Id = id;
@@ -62,65 +62,47 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The Firebase user ID.
         /// </summary>
-        /// <value>The Firebase user ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
 
         /// <summary>
         /// The Firebase device token.
         /// </summary>
-        /// <value>The Firebase device token.</value>
-        /*
-        <example>token123</example>
-        */
+        /// <example>token123</example>
         [DataMember(Name = "firebaseDeviceToken", EmitDefaultValue = true)]
         public string FirebaseDeviceToken { get; set; }
 
         /// <summary>
         /// The Firebase application.
         /// </summary>
-        /// <value>The Firebase application.</value>
-        /*
-        <example>web</example>
-        */
+        /// <example>web</example>
         [DataMember(Name = "application", EmitDefaultValue = true)]
         public string Application { get; set; }
 
         /// <summary>
         /// Specifies if the user is subscribed to the push notifications or not.
         /// </summary>
-        /// <value>Specifies if the user is subscribed to the push notifications or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isSubscribed", EmitDefaultValue = true)]
         public bool? IsSubscribed { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tenant
+        /// The database tenant parameters.
         /// </summary>
         [DataMember(Name = "tenant", EmitDefaultValue = false)]
         public DbTenant Tenant { get; set; }

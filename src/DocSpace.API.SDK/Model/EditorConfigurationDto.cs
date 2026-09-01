@@ -47,19 +47,19 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EditorConfigurationDto" /> class.
         /// </summary>
         /// <param name="callbackUrl">The callback URL of the editor..</param>
-        /// <param name="coEditing">coEditing.</param>
+        /// <param name="coEditing">The co-editing configuration parameters..</param>
         /// <param name="createUrl">The creation URL of the editor..</param>
-        /// <param name="customization">customization.</param>
-        /// <param name="embedded">embedded.</param>
-        /// <param name="encryptionKeys">encryptionKeys.</param>
+        /// <param name="customization">The customization configuration..</param>
+        /// <param name="embedded">The configuration parameters for the embedded document type..</param>
+        /// <param name="encryptionKeys">The encryption keys of the editor configuration..</param>
         /// <param name="lang">The language of the editor configuration. (required).</param>
         /// <param name="mode">The mode of the editor configuration. (required).</param>
         /// <param name="modeWrite">Specifies if the mode is write of the editor configuration..</param>
-        /// <param name="plugins">plugins.</param>
+        /// <param name="plugins">The configuration settings to connect the special add-ons..</param>
         /// <param name="recent">The recent configuration of the editor..</param>
         /// <param name="templates">The templates of the editor configuration..</param>
-        /// <param name="user">user.</param>
-        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, EncryptionKeysConfig encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
+        /// <param name="user">The configuration parameters of the user currently viewing or editing the document..</param>
+        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, List<EncryptionKeyDto> encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
         {
             // to ensure "lang" is required (not null)
             if (lang == null)
@@ -89,15 +89,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The callback URL of the editor.
         /// </summary>
-        /// <value>The callback URL of the editor.</value>
-        /*
-        <example>http://localhost/callback</example>
-        */
+        /// <example>http://localhost/callback</example>
         [DataMember(Name = "callbackUrl", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets CoEditing
+        /// The co-editing configuration parameters.
         /// </summary>
         [DataMember(Name = "coEditing", EmitDefaultValue = false)]
         public CoEditingConfig CoEditing { get; set; }
@@ -105,63 +102,51 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The creation URL of the editor.
         /// </summary>
-        /// <value>The creation URL of the editor.</value>
-        /*
-        <example>http://localhost/create</example>
-        */
+        /// <example>http://localhost/create</example>
         [DataMember(Name = "createUrl", EmitDefaultValue = true)]
         public string CreateUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Customization
+        /// The customization configuration.
         /// </summary>
         [DataMember(Name = "customization", EmitDefaultValue = false)]
         public CustomizationConfigDto Customization { get; set; }
 
         /// <summary>
-        /// Gets or Sets Embedded
+        /// The configuration parameters for the embedded document type.
         /// </summary>
         [DataMember(Name = "embedded", EmitDefaultValue = false)]
         public EmbeddedConfig Embedded { get; set; }
 
         /// <summary>
-        /// Gets or Sets EncryptionKeys
+        /// The encryption keys of the editor configuration.
         /// </summary>
-        [DataMember(Name = "encryptionKeys", EmitDefaultValue = false)]
-        public EncryptionKeysConfig EncryptionKeys { get; set; }
+        [DataMember(Name = "encryptionKeys", EmitDefaultValue = true)]
+        public List<EncryptionKeyDto> EncryptionKeys { get; set; }
 
         /// <summary>
         /// The language of the editor configuration.
         /// </summary>
-        /// <value>The language of the editor configuration.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "lang", IsRequired = true, EmitDefaultValue = true)]
         public string Lang { get; set; }
 
         /// <summary>
         /// The mode of the editor configuration.
         /// </summary>
-        /// <value>The mode of the editor configuration.</value>
-        /*
-        <example>edit</example>
-        */
+        /// <example>edit</example>
         [DataMember(Name = "mode", IsRequired = true, EmitDefaultValue = true)]
         public string Mode { get; set; }
 
         /// <summary>
         /// Specifies if the mode is write of the editor configuration.
         /// </summary>
-        /// <value>Specifies if the mode is write of the editor configuration.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "modeWrite", EmitDefaultValue = true)]
         public bool ModeWrite { get; set; }
 
         /// <summary>
-        /// Gets or Sets Plugins
+        /// The configuration settings to connect the special add-ons.
         /// </summary>
         [DataMember(Name = "plugins", EmitDefaultValue = false)]
         public PluginsConfig Plugins { get; set; }
@@ -169,25 +154,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The recent configuration of the editor.
         /// </summary>
-        /// <value>The recent configuration of the editor.</value>
-        /*
-        <example>[]</example>
-        */
+        /// <example>[]</example>
         [DataMember(Name = "recent", EmitDefaultValue = true)]
         public List<RecentConfig> Recent { get; set; }
 
         /// <summary>
         /// The templates of the editor configuration.
         /// </summary>
-        /// <value>The templates of the editor configuration.</value>
-        /*
-        <example>[]</example>
-        */
+        /// <example>[]</example>
         [DataMember(Name = "templates", EmitDefaultValue = true)]
         public List<TemplatesConfig> Templates { get; set; }
 
         /// <summary>
-        /// Gets or Sets User
+        /// The configuration parameters of the user currently viewing or editing the document.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public UserConfig User { get; set; }

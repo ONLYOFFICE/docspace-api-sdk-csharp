@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Triggers
+        /// The webhook trigger type.
         /// </summary>
         [DataMember(Name = "triggers", EmitDefaultValue = false)]
         public WebhookTrigger? Triggers { get; set; }
@@ -57,11 +57,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="uri">The webhook URI..</param>
         /// <param name="enabled">Specifies if the webhooks are enabled or not..</param>
         /// <param name="ssl">The webhook SSL verification (enabled or not)..</param>
-        /// <param name="triggers">triggers.</param>
+        /// <param name="triggers">The webhook trigger type..</param>
         /// <param name="targetId">The webhook target ID..</param>
-        /// <param name="createdBy">createdBy.</param>
+        /// <param name="createdBy">The user parameters..</param>
         /// <param name="createdOn">The date and time when the webhook was created..</param>
-        /// <param name="modifiedBy">modifiedBy.</param>
+        /// <param name="modifiedBy">The user parameters..</param>
         /// <param name="modifiedOn">The date and time when the webhook was modified..</param>
         /// <param name="lastFailureOn">The date and time of the webhook last failure..</param>
         /// <param name="lastFailureContent">The webhook last failure content..</param>
@@ -87,65 +87,47 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The webhook ID.
         /// </summary>
-        /// <value>The webhook ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The webhook name.
         /// </summary>
-        /// <value>The webhook name.</value>
-        /*
-        <example>John</example>
-        */
+        /// <example>John</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The webhook URI.
         /// </summary>
-        /// <value>The webhook URI.</value>
-        /*
-        <example>https://example.com</example>
-        */
+        /// <example>https://example.com</example>
         [DataMember(Name = "uri", EmitDefaultValue = true)]
         public string Uri { get; set; }
 
         /// <summary>
         /// Specifies if the webhooks are enabled or not.
         /// </summary>
-        /// <value>Specifies if the webhooks are enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// The webhook SSL verification (enabled or not).
         /// </summary>
-        /// <value>The webhook SSL verification (enabled or not).</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "ssl", EmitDefaultValue = true)]
         public bool Ssl { get; set; }
 
         /// <summary>
         /// The webhook target ID.
         /// </summary>
-        /// <value>The webhook target ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000001</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "targetId", EmitDefaultValue = true)]
         public string TargetId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedBy
+        /// The user parameters.
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public EmployeeDto CreatedBy { get; set; }
@@ -153,15 +135,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when the webhook was created.
         /// </summary>
-        /// <value>The date and time when the webhook was created.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "createdOn", EmitDefaultValue = true)]
         public DateTime? CreatedOn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModifiedBy
+        /// The user parameters.
         /// </summary>
         [DataMember(Name = "modifiedBy", EmitDefaultValue = false)]
         public EmployeeDto ModifiedBy { get; set; }
@@ -169,40 +148,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when the webhook was modified.
         /// </summary>
-        /// <value>The date and time when the webhook was modified.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "modifiedOn", EmitDefaultValue = true)]
         public DateTime? ModifiedOn { get; set; }
 
         /// <summary>
         /// The date and time of the webhook last failure.
         /// </summary>
-        /// <value>The date and time of the webhook last failure.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "lastFailureOn", EmitDefaultValue = true)]
         public DateTime? LastFailureOn { get; set; }
 
         /// <summary>
         /// The webhook last failure content.
         /// </summary>
-        /// <value>The webhook last failure content.</value>
-        /*
-        <example>example value</example>
-        */
+        /// <example>example value</example>
         [DataMember(Name = "lastFailureContent", EmitDefaultValue = true)]
         public string LastFailureContent { get; set; }
 
         /// <summary>
         /// The date and time of the webhook last success.
         /// </summary>
-        /// <value>The date and time of the webhook last success.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "lastSuccessOn", EmitDefaultValue = true)]
         public DateTime? LastSuccessOn { get; set; }
 

@@ -70,57 +70,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// File id to use as a default template
         /// </summary>
-        /// <value>File id to use as a default template</value>
-        /*
-        <example>123</example>
-        */
+        /// <example>123</example>
         [DataMember(Name = "selectedFile", EmitDefaultValue = true)]
         public int? SelectedFile { get; set; }
 
         /// <summary>
         /// Extension of a default template
         /// </summary>
-        /// <value>Extension of a default template</value>
-        /*
-        <example>.docx</example>
-        */
+        /// <example>.docx</example>
         [DataMember(Name = "fileExtension", IsRequired = true, EmitDefaultValue = true)]
         public string FileExtension { get; set; }
 
         /// <summary>
         /// Title of a default template
         /// </summary>
-        /// <value>Title of a default template</value>
-        /*
-        <example>Default Template</example>
-        */
+        /// <example>Default Template</example>
         [DataMember(Name = "fileTitle", EmitDefaultValue = true)]
         public string FileTitle { get; set; }
 
         /// <summary>
         /// Last modified date of a default template
         /// </summary>
-        /// <value>Last modified date of a default template</value>
+        /// <example>2025-01-01T00:00:00</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = true)]
         public DateTime? LastModified { get; set; }
 
         /// <summary>
         /// Filesize (in bytes) of a default template
         /// </summary>
-        /// <value>Filesize (in bytes) of a default template</value>
-        /*
-        <example>1024</example>
-        */
+        /// <example>1024</example>
         [DataMember(Name = "fileSize", EmitDefaultValue = true)]
         public long? FileSize { get; set; }
 
         /// <summary>
         /// View url of a default template
         /// </summary>
-        /// <value>View url of a default template</value>
-        /*
-        <example>http://localhost/template/view</example>
-        */
+        /// <example>http://localhost/template/view</example>
         [DataMember(Name = "viewUrl", EmitDefaultValue = true)]
         public string ViewUrl { get; set; }
 

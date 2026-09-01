@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// The two-factor authentication type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TfaRequestsDtoType? Type { get; set; }
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">The two-factor authentication type..</param>
         /// <param name="id">The ID of the user for whom the TFA settings are being configured..</param>
-        /// <param name="trustedIps">The list of IP addresses that bypass TFA verification..</param>
+        /// <param name="trustedIps">The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block..</param>
         /// <param name="mandatoryUsers">The list of user IDs for whom TFA is mandatory..</param>
         /// <param name="mandatoryGroups">The list group IDs whose members must use TFA..</param>
         public TfaRequestsDto(TfaRequestsDtoType? type = default, Guid id = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
@@ -64,40 +64,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the user for whom the TFA settings are being configured.
         /// </summary>
-        /// <value>The ID of the user for whom the TFA settings are being configured.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The list of IP addresses that bypass TFA verification.
+        /// The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block.
         /// </summary>
-        /// <value>The list of IP addresses that bypass TFA verification.</value>
-        /*
-        <example>["item1","item2"]</example>
-        */
+        /// <example>["192.0.2.1","198.51.100.1-198.51.100.20","203.0.113.0/24"]</example>
         [DataMember(Name = "trustedIps", EmitDefaultValue = true)]
         public List<string> TrustedIps { get; set; }
 
         /// <summary>
         /// The list of user IDs for whom TFA is mandatory.
         /// </summary>
-        /// <value>The list of user IDs for whom TFA is mandatory.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryUsers", EmitDefaultValue = true)]
         public List<Guid> MandatoryUsers { get; set; }
 
         /// <summary>
         /// The list group IDs whose members must use TFA.
         /// </summary>
-        /// <value>The list group IDs whose members must use TFA.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryGroups", EmitDefaultValue = true)]
         public List<Guid> MandatoryGroups { get; set; }
 

@@ -55,10 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The activation status of the client
         /// </summary>
-        /// <value>The activation status of the client</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public bool Status { get; set; }
 

@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - None, 1 - Internal, 2 - ThirdParty]
     /// </summary>
-    /// <value>[0 - None, 1 - Internal, 2 - ThirdParty]</value>
     public enum StorageFilter
     {
         /// <summary>

@@ -56,28 +56,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The paginated client data.
         /// </summary>
-        /// <value>The paginated client data.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public Object Data { get; set; }
 
         /// <summary>
         /// The maximum number of results returned per page.
         /// </summary>
-        /// <value>The maximum number of results returned per page.</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
         /// <summary>
         /// The identifier of the last retrieved client.
         /// </summary>
-        /// <value>The identifier of the last retrieved client.</value>
         [DataMember(Name = "last_client_id", EmitDefaultValue = false)]
         public string LastClientId { get; set; }
 
         /// <summary>
         /// The creation date of the last retrieved client.
         /// </summary>
-        /// <value>The creation date of the last retrieved client.</value>
         [DataMember(Name = "last_created_on", EmitDefaultValue = false)]
         public DateTime LastCreatedOn { get; set; }
 

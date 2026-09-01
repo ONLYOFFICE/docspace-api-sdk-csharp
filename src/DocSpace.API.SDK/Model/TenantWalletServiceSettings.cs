@@ -40,9 +40,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of the enabled wallet services.
         /// </summary>
-        /// <value>The list of the enabled wallet services.</value>
         public enum EnabledServicesEnum
         {
+            /// <summary>
+            /// Enum AISearch for value: -18
+            /// </summary>
+            AISearch = -18,
+
+            /// <summary>
+            /// Enum DocsCloudDevPack for value: -16
+            /// </summary>
+            DocsCloudDevPack = -16,
+
+            /// <summary>
+            /// Enum DocsCloud for value: -15
+            /// </summary>
+            DocsCloud = -15,
+
+            /// <summary>
+            /// Enum Admin for value: -14
+            /// </summary>
+            Admin = -14,
+
             /// <summary>
             /// Enum AITools for value: -13
             /// </summary>
@@ -73,20 +92,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of the enabled wallet services.
         /// </summary>
-        /// <value>The list of the enabled wallet services.</value>
-        /*
-        <example>[-11,-12]</example>
-        */
+        /// <example>[-11,-12]</example>
         [DataMember(Name = "enabledServices", EmitDefaultValue = true)]
         public List<TenantWalletServiceSettings.EnabledServicesEnum> EnabledServices { get; set; }
 
         /// <summary>
         /// The date and time when the wallet services settings were last modified.
         /// </summary>
-        /// <value>The date and time when the wallet services settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

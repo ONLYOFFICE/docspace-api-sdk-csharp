@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file version of the change history.
         /// </summary>
-        /// <value>The file version of the change history.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>
         /// Specifies whether to start a new version or continue revision of the change history.
         /// </summary>
-        /// <value>Specifies whether to start a new version or continue revision of the change history.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "continueVersion", EmitDefaultValue = true)]
         public bool ContinueVersion { get; set; }
 

@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of webhook delivery IDs to retry.
         /// </summary>
-        /// <value>The list of webhook delivery IDs to retry.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "ids", EmitDefaultValue = true)]
         public List<int> Ids { get; set; }
 

@@ -31,26 +31,28 @@ namespace DocSpace.API.SDK.Api.Security
     {
         #region Synchronous Operations
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        StringWrapper CreateLoginHistoryReport();
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper CreateLoginHistoryReport(AuditReportFormat? format = default);
 
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> CreateLoginHistoryReportWithHttpInfo();
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> CreateLoginHistoryReportWithHttpInfo(AuditReportFormat? format = default);
         /// <summary>
         /// Get login history
         /// </summary>
@@ -105,6 +107,48 @@ namespace DocSpace.API.SDK.Api.Security
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of LoginEventArrayWrapper</returns>
         ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default);
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper GetLoginHistoryReport();
+
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> GetLoginHistoryReportWithHttpInfo();
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns></returns>
+        void TerminateLoginHistoryReport();
+
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> TerminateLoginHistoryReportWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -115,28 +159,30 @@ namespace DocSpace.API.SDK.Api.Security
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> CreateLoginHistoryReportAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> CreateLoginHistoryReportAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> CreateLoginHistoryReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateLoginHistoryReportWithHttpInfoAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get login history
         /// </summary>
@@ -195,6 +241,52 @@ namespace DocSpace.API.SDK.Api.Security
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (LoginEventArrayWrapper)</returns>
         Task<ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> GetLoginHistoryReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> GetLoginHistoryReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        Task TerminateLoginHistoryReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> TerminateLoginHistoryReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -424,30 +516,32 @@ namespace DocSpace.API.SDK.Api.Security
 
         
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        public StringWrapper CreateLoginHistoryReport()
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper CreateLoginHistoryReport(AuditReportFormat? format = default)
         {
-            var localVarResponse = CreateLoginHistoryReportWithHttpInfo();
+            var localVarResponse = CreateLoginHistoryReportWithHttpInfo(format);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> CreateLoginHistoryReportWithHttpInfo()
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> CreateLoginHistoryReportWithHttpInfo(AuditReportFormat? format = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -462,6 +556,10 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (format != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "format", format));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -495,7 +593,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<StringWrapper>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -510,32 +608,34 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> CreateLoginHistoryReportAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> CreateLoginHistoryReportAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CreateLoginHistoryReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateLoginHistoryReportWithHttpInfoAsync(format, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Generate the login history report
+        /// Start the login history report generation
         /// </summary>
         /// <remarks>
-        /// Generates the login history report.
+        /// Starts generating the login history report (XLSX by default, or CSV) and saves it to My documents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">The output file format of the report. Defaults to XLSX. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/">REST API Reference for CreateLoginHistoryReport Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> CreateLoginHistoryReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateLoginHistoryReportWithHttpInfoAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -551,6 +651,10 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (format != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "format", format));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -585,7 +689,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<StringWrapper>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1026,6 +1130,356 @@ namespace DocSpace.API.SDK.Api.Security
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetLoginEventsByFilter", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper GetLoginHistoryReport()
+        {
+            var localVarResponse = GetLoginHistoryReportWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> GetLoginHistoryReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetLoginHistoryReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> GetLoginHistoryReportAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetLoginHistoryReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the login history report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/">REST API Reference for GetLoginHistoryReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> GetLoginHistoryReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<DocumentBuilderTaskWrapper>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetLoginHistoryReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns></returns>
+        public void TerminateLoginHistoryReport()
+        {
+            TerminateLoginHistoryReportWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> TerminateLoginHistoryReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<Object>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateLoginHistoryReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        public async Task TerminateLoginHistoryReportAsync(CancellationToken cancellationToken = default)
+        {
+            await TerminateLoginHistoryReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Terminate the login history report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating the login history report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-login-history-report/">REST API Reference for TerminateLoginHistoryReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> TerminateLoginHistoryReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/security/audit/login/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateLoginHistoryReport", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

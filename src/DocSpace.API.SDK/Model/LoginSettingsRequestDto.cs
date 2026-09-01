@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The maximum number of consecutive failed login attempts allowed before triggering account suspension.
         /// </summary>
-        /// <value>The maximum number of consecutive failed login attempts allowed before triggering account suspension.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "attemptCount", EmitDefaultValue = false)]
         public int AttemptCount { get; set; }
 
         /// <summary>
         /// The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.
         /// </summary>
-        /// <value>The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "blockTime", EmitDefaultValue = false)]
         public int BlockTime { get; set; }
 
         /// <summary>
         /// The maximum time (in seconds) allowed for server to process and respond to login requests.
         /// </summary>
-        /// <value>The maximum time (in seconds) allowed for server to process and respond to login requests.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "checkPeriod", EmitDefaultValue = false)]
         public int CheckPeriod { get; set; }
 

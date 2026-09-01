@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the plugins are enabled or not.
         /// </summary>
-        /// <value>Specifies if the plugins are enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Specifies if the plugins can be uploaded or not.
         /// </summary>
-        /// <value>Specifies if the plugins can be uploaded or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "upload", EmitDefaultValue = true)]
         public bool Upload { get; set; }
 
         /// <summary>
         /// Specifies if the plugins can be deleted or not.
         /// </summary>
-        /// <value>Specifies if the plugins can be deleted or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "delete", EmitDefaultValue = true)]
         public bool Delete { get; set; }
 

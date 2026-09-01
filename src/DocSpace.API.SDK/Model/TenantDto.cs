@@ -39,19 +39,19 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Industry
+        /// The tenant industry.
         /// </summary>
         [DataMember(Name = "industry", EmitDefaultValue = false)]
         public TenantIndustry? Industry { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The tenant status.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public TenantStatus? Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrustedDomainsType
+        /// The type of the tenant trusted domains.
         /// </summary>
         [DataMember(Name = "trustedDomainsType", EmitDefaultValue = false)]
         public TenantTrustedDomainsType? TrustedDomainsType { get; set; }
@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="calls">Specifies if the calls are available for this tenant or not..</param>
         /// <param name="campaign">The tenant campaign..</param>
         /// <param name="hostedRegion">The hosted region..</param>
-        /// <param name="industry">industry.</param>
+        /// <param name="industry">The tenant industry..</param>
         /// <param name="language">The tenant language..</param>
         /// <param name="lastModified">The date and time when the tenant was last modified..</param>
         /// <param name="mappedDomain">The tenant mapped domain..</param>
@@ -72,11 +72,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="ownerId">The tenant owner ID..</param>
         /// <param name="paymentId">The tenant payment ID..</param>
         /// <param name="spam">Specifies if the ONLYOFFICE newsletter is allowed or not..</param>
-        /// <param name="status">status.</param>
+        /// <param name="status">The tenant status..</param>
         /// <param name="timeZone">The tenant time zone..</param>
         /// <param name="trustedDomains">The list of tenant trusted domains..</param>
         /// <param name="trustedDomainsRaw">The tenant trusted domains in the string format..</param>
-        /// <param name="trustedDomainsType">trustedDomainsType.</param>
+        /// <param name="trustedDomainsType">The type of the tenant trusted domains..</param>
         /// <param name="version">The tenant version.</param>
         /// <param name="versionChanged">The date and time when the tenant version was changed..</param>
         /// <param name="region">The tenant AWS region..</param>
@@ -108,50 +108,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The affiliate ID.
         /// </summary>
-        /// <value>The affiliate ID.</value>
-        /*
-        <example>AFF12345</example>
-        */
+        /// <example>AFF12345</example>
         [DataMember(Name = "affiliateId", EmitDefaultValue = true)]
         public string AffiliateId { get; set; }
 
         /// <summary>
         /// The tenant alias.
         /// </summary>
-        /// <value>The tenant alias.</value>
-        /*
-        <example>my-company</example>
-        */
+        /// <example>my-company</example>
         [DataMember(Name = "tenantAlias", EmitDefaultValue = true)]
         public string TenantAlias { get; set; }
 
         /// <summary>
         /// Specifies if the calls are available for this tenant or not.
         /// </summary>
-        /// <value>Specifies if the calls are available for this tenant or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "calls", EmitDefaultValue = true)]
         public bool Calls { get; set; }
 
         /// <summary>
         /// The tenant campaign.
         /// </summary>
-        /// <value>The tenant campaign.</value>
-        /*
-        <example>WINTER2024</example>
-        */
+        /// <example>WINTER2024</example>
         [DataMember(Name = "campaign", EmitDefaultValue = true)]
         public string Campaign { get; set; }
 
         /// <summary>
         /// The tenant creation date and time.
         /// </summary>
-        /// <value>The tenant creation date and time.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
         public DateTime CreationDateTime { get; private set; }
 
@@ -166,20 +151,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The hosted region.
         /// </summary>
-        /// <value>The hosted region.</value>
-        /*
-        <example>EU</example>
-        */
+        /// <example>EU</example>
         [DataMember(Name = "hostedRegion", EmitDefaultValue = true)]
         public string HostedRegion { get; set; }
 
         /// <summary>
         /// The tenant ID.
         /// </summary>
-        /// <value>The tenant ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; private set; }
 
@@ -194,80 +173,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The tenant language.
         /// </summary>
-        /// <value>The tenant language.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "language", EmitDefaultValue = true)]
         public string Language { get; set; }
 
         /// <summary>
         /// The date and time when the tenant was last modified.
         /// </summary>
-        /// <value>The date and time when the tenant was last modified.</value>
-        /*
-        <example>2024-02-10T14:20Z</example>
-        */
+        /// <example>2024-02-10T14:20:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 
         /// <summary>
         /// The tenant mapped domain.
         /// </summary>
-        /// <value>The tenant mapped domain.</value>
-        /*
-        <example>mycompany.example.com</example>
-        */
+        /// <example>mycompany.example.com</example>
         [DataMember(Name = "mappedDomain", EmitDefaultValue = true)]
         public string MappedDomain { get; set; }
 
         /// <summary>
         /// The tenant name.
         /// </summary>
-        /// <value>The tenant name.</value>
-        /*
-        <example>My Company</example>
-        */
+        /// <example>My Company</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The tenant owner ID.
         /// </summary>
-        /// <value>The tenant owner ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000001</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public Guid OwnerId { get; set; }
 
         /// <summary>
         /// The tenant payment ID.
         /// </summary>
-        /// <value>The tenant payment ID.</value>
-        /*
-        <example>PAY123456789</example>
-        */
+        /// <example>PAY123456789</example>
         [DataMember(Name = "paymentId", EmitDefaultValue = true)]
         public string PaymentId { get; set; }
 
         /// <summary>
         /// Specifies if the ONLYOFFICE newsletter is allowed or not.
         /// </summary>
-        /// <value>Specifies if the ONLYOFFICE newsletter is allowed or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "spam", EmitDefaultValue = true)]
         public bool Spam { get; set; }
 
         /// <summary>
         /// The date and time when the tenant status was changed.
         /// </summary>
-        /// <value>The date and time when the tenant status was changed.</value>
-        /*
-        <example>2024-01-15T10:30Z</example>
-        */
+        /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "statusChangeDate", EmitDefaultValue = false)]
         public DateTime StatusChangeDate { get; private set; }
 
@@ -282,60 +237,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The tenant time zone.
         /// </summary>
-        /// <value>The tenant time zone.</value>
-        /*
-        <example>America/New_York</example>
-        */
+        /// <example>America/New_York</example>
         [DataMember(Name = "timeZone", EmitDefaultValue = true)]
         public string @TimeZone { get; set; }
 
         /// <summary>
         /// The list of tenant trusted domains.
         /// </summary>
-        /// <value>The list of tenant trusted domains.</value>
-        /*
-        <example>["example.com","trusted.com"]</example>
-        */
+        /// <example>["example.com","trusted.com"]</example>
         [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
         public List<string> TrustedDomains { get; set; }
 
         /// <summary>
         /// The tenant trusted domains in the string format.
         /// </summary>
-        /// <value>The tenant trusted domains in the string format.</value>
-        /*
-        <example>example.com,trusted.com</example>
-        */
+        /// <example>example.com,trusted.com</example>
         [DataMember(Name = "trustedDomainsRaw", EmitDefaultValue = true)]
         public string TrustedDomainsRaw { get; set; }
 
         /// <summary>
         /// The tenant version
         /// </summary>
-        /// <value>The tenant version</value>
-        /*
-        <example>2</example>
-        */
+        /// <example>2</example>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
         /// The date and time when the tenant version was changed.
         /// </summary>
-        /// <value>The date and time when the tenant version was changed.</value>
-        /*
-        <example>2024-02-01T09:00Z</example>
-        */
+        /// <example>2024-02-01T09:00:00Z</example>
         [DataMember(Name = "versionChanged", EmitDefaultValue = false)]
         public DateTime VersionChanged { get; set; }
 
         /// <summary>
         /// The tenant AWS region.
         /// </summary>
-        /// <value>The tenant AWS region.</value>
-        /*
-        <example>us-east-1</example>
-        */
+        /// <example>us-east-1</example>
         [DataMember(Name = "region", EmitDefaultValue = true)]
         public string Region { get; set; }
 

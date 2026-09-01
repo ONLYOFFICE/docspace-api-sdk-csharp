@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the users receive notifications about the storage encryption operations.
         /// </summary>
-        /// <value>Specifies whether the users receive notifications about the storage encryption operations.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "notifyUsers", EmitDefaultValue = true)]
         public bool NotifyUsers { get; set; }
 

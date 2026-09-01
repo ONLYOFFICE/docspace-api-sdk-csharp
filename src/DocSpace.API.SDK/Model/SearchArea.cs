@@ -32,9 +32,8 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents]
+    /// [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents, 8 - Forms, 9 - Form templates]
     /// </summary>
-    /// <value>[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents]</value>
     public enum SearchArea
     {
         /// <summary>
@@ -75,7 +74,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum AiAgents for value: 7
         /// </summary>
-        AiAgents = 7
+        AiAgents = 7,
+
+        /// <summary>
+        /// Enum Forms for value: 8
+        /// </summary>
+        Forms = 8,
+
+        /// <summary>
+        /// Enum FormTemplates for value: 9
+        /// </summary>
+        FormTemplates = 9
     }
 
 }

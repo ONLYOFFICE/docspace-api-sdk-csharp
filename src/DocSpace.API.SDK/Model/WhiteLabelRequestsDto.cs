@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The text to display alongside or in place of the logo.
         /// </summary>
-        /// <value>The text to display alongside or in place of the logo.</value>
-        /*
-        <example>Company Name</example>
-        */
+        /// <example>Company Name</example>
         [DataMember(Name = "logoText", EmitDefaultValue = true)]
         public string LogoText { get; set; }
 
         /// <summary>
         /// The white label tenant IDs with their logos (light or dark).
         /// </summary>
-        /// <value>The white label tenant IDs with their logos (light or dark).</value>
-        /*
-        <example>["item1","item2"]</example>
-        */
+        /// <example>["item1","item2"]</example>
         [DataMember(Name = "logo", EmitDefaultValue = true)]
         public List<ItemKeyValuePairStringLogoRequestsDto> Logo { get; set; }
 

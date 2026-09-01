@@ -39,25 +39,25 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets TrustedDomainsType
+        /// The type of the tenant trusted domains.
         /// </summary>
         [DataMember(Name = "trustedDomainsType", EmitDefaultValue = false)]
         public TenantTrustedDomainsType? TrustedDomainsType { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecaptchaType
+        /// The type of CAPTCHA validation used.
         /// </summary>
         [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
         public RecaptchaType? RecaptchaType { get; set; }
 
         /// <summary>
-        /// Gets or Sets TenantStatus
+        /// The tenant status.
         /// </summary>
         [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
         public TenantStatus? TenantStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets DefaultFolderType
+        /// The folder type.
         /// </summary>
         [DataMember(Name = "defaultFolderType", EmitDefaultValue = false)]
         public FolderType? DefaultFolderType { get; set; }
@@ -72,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="timezone">The time zone..</param>
         /// <param name="trustedDomains">The list of the trusted domains..</param>
-        /// <param name="trustedDomainsType">trustedDomainsType.</param>
+        /// <param name="trustedDomainsType">The type of the tenant trusted domains..</param>
         /// <param name="culture">The language. (required).</param>
         /// <param name="utcOffset">The UTC offset in the TimeSpan format..</param>
         /// <param name="utcHoursOffset">The UTC offset in hours..</param>
@@ -87,17 +87,17 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isAmi">Specifies if this portal is the AMI instance or not..</param>
         /// <param name="baseDomain">The base domain. (required).</param>
         /// <param name="wizardToken">The wizard token..</param>
-        /// <param name="passwordHash">passwordHash.</param>
-        /// <param name="firebase">firebase.</param>
+        /// <param name="passwordHash">The password hash..</param>
+        /// <param name="firebase">The Firebase parameters..</param>
         /// <param name="version">The portal version..</param>
-        /// <param name="recaptchaType">recaptchaType.</param>
+        /// <param name="recaptchaType">The type of CAPTCHA validation used..</param>
         /// <param name="recaptchaPublicKey">The ReCAPTCHA public key..</param>
         /// <param name="debugInfo">Specifies if the debug information will be sent or not..</param>
         /// <param name="socketUrl">The socket URL..</param>
-        /// <param name="tenantStatus">tenantStatus.</param>
+        /// <param name="tenantStatus">The tenant status..</param>
         /// <param name="tenantAlias">The tenant alias..</param>
         /// <param name="displayAbout">Specifies whether to display the About portal section..</param>
-        /// <param name="domainValidator">domainValidator.</param>
+        /// <param name="domainValidator">The domain validator..</param>
         /// <param name="zendeskKey">The Zendesk key..</param>
         /// <param name="tagManagerId">The tag manager ID..</param>
         /// <param name="cookieSettingsEnabled">Specifies whether the cookie settings are enabled. (required).</param>
@@ -105,17 +105,18 @@ namespace DocSpace.API.SDK.Model
         /// <param name="limitedAccessDevToolsForUsers">Specifies whether the access to the Developer Tools is limited for users or not..</param>
         /// <param name="displayBanners">Specifies whether to display the promotional banners..</param>
         /// <param name="aiEnabled">Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden..</param>
+        /// <param name="walletLowBalance">Specifies whether the tenant wallet balance is currently below the low-balance threshold. Only returned to portal administrators..</param>
         /// <param name="userNameRegex">The user name validation regex..</param>
         /// <param name="invitationLimit">The maximum number of invitations to the portal..</param>
-        /// <param name="plugins">plugins.</param>
-        /// <param name="deepLink">deepLink (required).</param>
-        /// <param name="formGallery">formGallery.</param>
+        /// <param name="plugins">The plugins settings..</param>
+        /// <param name="deepLink">The deep link settings. (required).</param>
+        /// <param name="formGallery">The form gallery settings..</param>
         /// <param name="maxImageUploadSize">The maximum image upload size..</param>
         /// <param name="logoText">The white label logo text..</param>
-        /// <param name="externalResources">externalResources.</param>
-        /// <param name="defaultFolderType">defaultFolderType.</param>
+        /// <param name="externalResources">The external resources settings..</param>
+        /// <param name="defaultFolderType">The folder type..</param>
         /// <param name="externalDbEnabled">Specifies if an external database is connected for storing form results..</param>
-        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, bool aiEnabled = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, bool aiEnabled = default, bool? walletLowBalance = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
         {
             // to ensure "culture" is required (not null)
             if (culture == null)
@@ -168,6 +169,7 @@ namespace DocSpace.API.SDK.Model
             this.LimitedAccessDevToolsForUsers = limitedAccessDevToolsForUsers;
             this.DisplayBanners = displayBanners;
             this.AiEnabled = aiEnabled;
+            this.WalletLowBalance = walletLowBalance;
             this.UserNameRegex = userNameRegex;
             this.InvitationLimit = invitationLimit;
             this.Plugins = plugins;
@@ -182,171 +184,123 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The time zone.
         /// </summary>
-        /// <value>The time zone.</value>
-        /*
-        <example>UTC</example>
-        */
+        /// <example>UTC</example>
         [DataMember(Name = "timezone", EmitDefaultValue = true)]
         public string Timezone { get; set; }
 
         /// <summary>
         /// The list of the trusted domains.
         /// </summary>
-        /// <value>The list of the trusted domains.</value>
-        /*
-        <example>["mydomain.com","mydomain1.com"]</example>
-        */
+        /// <example>["mydomain.com","mydomain1.com"]</example>
         [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
         public List<string> TrustedDomains { get; set; }
 
         /// <summary>
         /// The language.
         /// </summary>
-        /// <value>The language.</value>
-        /*
-        <example>en-US</example>
-        */
+        /// <example>en-US</example>
         [DataMember(Name = "culture", IsRequired = true, EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
         /// The UTC offset in the TimeSpan format.
         /// </summary>
-        /// <value>The UTC offset in the TimeSpan format.</value>
-        /*
-        <example>-08:30:00</example>
-        */
+        /// <example>-08:30:00</example>
         [DataMember(Name = "utcOffset", EmitDefaultValue = false)]
         public string UtcOffset { get; set; }
 
         /// <summary>
         /// The UTC offset in hours.
         /// </summary>
-        /// <value>The UTC offset in hours.</value>
-        /*
-        <example>-8.5</example>
-        */
+        /// <example>-8.5</example>
         [DataMember(Name = "utcHoursOffset", EmitDefaultValue = false)]
         public double UtcHoursOffset { get; set; }
 
         /// <summary>
         /// The greeting settings.
         /// </summary>
-        /// <value>The greeting settings.</value>
-        /*
-        <example>Web Office Applications</example>
-        */
+        /// <example>Web Office Applications</example>
         [DataMember(Name = "greetingSettings", EmitDefaultValue = true)]
         public string GreetingSettings { get; set; }
 
         /// <summary>
         /// The owner ID.
         /// </summary>
-        /// <value>The owner ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public Guid OwnerId { get; set; }
 
         /// <summary>
         /// The team template ID.
         /// </summary>
-        /// <value>The team template ID.</value>
-        /*
-        <example>default</example>
-        */
+        /// <example>default</example>
         [DataMember(Name = "nameSchemaId", EmitDefaultValue = true)]
         public string NameSchemaId { get; set; }
 
         /// <summary>
         /// Specifies if a user can join the portal or not.
         /// </summary>
-        /// <value>Specifies if a user can join the portal or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabledJoin", EmitDefaultValue = true)]
         public bool? EnabledJoin { get; set; }
 
         /// <summary>
         /// Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not.
         /// </summary>
-        /// <value>Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enableAdmMess", EmitDefaultValue = true)]
         public bool? EnableAdmMess { get; set; }
 
         /// <summary>
         /// Specifies if a user can connect third-party providers to the portal or not.
         /// </summary>
-        /// <value>Specifies if a user can connect third-party providers to the portal or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "thirdpartyEnable", EmitDefaultValue = true)]
         public bool? ThirdpartyEnable { get; set; }
 
         /// <summary>
         /// Specifies if this portal is a DocSpace portal or not.
         /// </summary>
-        /// <value>Specifies if this portal is a DocSpace portal or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "docSpace", EmitDefaultValue = true)]
         public bool DocSpace { get; set; }
 
         /// <summary>
         /// Indicates whether the system is running in standalone mode.
         /// </summary>
-        /// <value>Indicates whether the system is running in standalone mode.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "standalone", EmitDefaultValue = true)]
         public bool Standalone { get; set; }
 
         /// <summary>
         /// Specifies if this portal is the AMI instance or not.
         /// </summary>
-        /// <value>Specifies if this portal is the AMI instance or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isAmi", EmitDefaultValue = true)]
         public bool IsAmi { get; set; }
 
         /// <summary>
         /// The base domain.
         /// </summary>
-        /// <value>The base domain.</value>
-        /*
-        <example>example.com</example>
-        */
+        /// <example>example.com</example>
         [DataMember(Name = "baseDomain", IsRequired = true, EmitDefaultValue = true)]
         public string BaseDomain { get; set; }
 
         /// <summary>
         /// The wizard token.
         /// </summary>
-        /// <value>The wizard token.</value>
-        /*
-        <example>dGhpc2lzYXRva2Vu...</example>
-        */
+        /// <example>dGhpc2lzYXRva2Vu...</example>
         [DataMember(Name = "wizardToken", EmitDefaultValue = true)]
         public string WizardToken { get; set; }
 
         /// <summary>
-        /// Gets or Sets PasswordHash
+        /// The password hash.
         /// </summary>
         [DataMember(Name = "passwordHash", EmitDefaultValue = false)]
         public PasswordHasher PasswordHash { get; set; }
 
         /// <summary>
-        /// Gets or Sets Firebase
+        /// The Firebase parameters.
         /// </summary>
         [DataMember(Name = "firebase", EmitDefaultValue = false)]
         public FirebaseDto Firebase { get; set; }
@@ -354,65 +308,47 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The portal version.
         /// </summary>
-        /// <value>The portal version.</value>
-        /*
-        <example>12.5.0</example>
-        */
+        /// <example>12.5.0</example>
         [DataMember(Name = "version", EmitDefaultValue = true)]
         public string @Version { get; set; }
 
         /// <summary>
         /// The ReCAPTCHA public key.
         /// </summary>
-        /// <value>The ReCAPTCHA public key.</value>
-        /*
-        <example>abc123def456</example>
-        */
+        /// <example>abc123def456</example>
         [DataMember(Name = "recaptchaPublicKey", EmitDefaultValue = true)]
         public string RecaptchaPublicKey { get; set; }
 
         /// <summary>
         /// Specifies if the debug information will be sent or not.
         /// </summary>
-        /// <value>Specifies if the debug information will be sent or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "debugInfo", EmitDefaultValue = true)]
         public bool DebugInfo { get; set; }
 
         /// <summary>
         /// The socket URL.
         /// </summary>
-        /// <value>The socket URL.</value>
-        /*
-        <example>https://example.com</example>
-        */
+        /// <example>https://example.com</example>
         [DataMember(Name = "socketUrl", EmitDefaultValue = true)]
         public string SocketUrl { get; set; }
 
         /// <summary>
         /// The tenant alias.
         /// </summary>
-        /// <value>The tenant alias.</value>
-        /*
-        <example>mycompany</example>
-        */
+        /// <example>mycompany</example>
         [DataMember(Name = "tenantAlias", EmitDefaultValue = true)]
         public string TenantAlias { get; set; }
 
         /// <summary>
         /// Specifies whether to display the About portal section.
         /// </summary>
-        /// <value>Specifies whether to display the About portal section.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "displayAbout", EmitDefaultValue = true)]
         public bool DisplayAbout { get; set; }
 
         /// <summary>
-        /// Gets or Sets DomainValidator
+        /// The domain validator.
         /// </summary>
         [DataMember(Name = "domainValidator", EmitDefaultValue = false)]
         public TenantDomainValidator DomainValidator { get; set; }
@@ -420,107 +356,87 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The Zendesk key.
         /// </summary>
-        /// <value>The Zendesk key.</value>
-        /*
-        <example>abc123def456</example>
-        */
+        /// <example>abc123def456</example>
         [DataMember(Name = "zendeskKey", EmitDefaultValue = true)]
         public string ZendeskKey { get; set; }
 
         /// <summary>
         /// The tag manager ID.
         /// </summary>
-        /// <value>The tag manager ID.</value>
-        /*
-        <example>GTM-XXXXXX</example>
-        */
+        /// <example>GTM-XXXXXX</example>
         [DataMember(Name = "tagManagerId", EmitDefaultValue = true)]
         public string TagManagerId { get; set; }
 
         /// <summary>
         /// Specifies whether the cookie settings are enabled.
         /// </summary>
-        /// <value>Specifies whether the cookie settings are enabled.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "cookieSettingsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool CookieSettingsEnabled { get; set; }
 
         /// <summary>
         /// Specifies whether the access to the space management is limited or not.
         /// </summary>
-        /// <value>Specifies whether the access to the space management is limited or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "limitedAccessSpace", EmitDefaultValue = true)]
         public bool LimitedAccessSpace { get; set; }
 
         /// <summary>
         /// Specifies whether the access to the Developer Tools is limited for users or not.
         /// </summary>
-        /// <value>Specifies whether the access to the Developer Tools is limited for users or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "limitedAccessDevToolsForUsers", EmitDefaultValue = true)]
         public bool LimitedAccessDevToolsForUsers { get; set; }
 
         /// <summary>
         /// Specifies whether to display the promotional banners.
         /// </summary>
-        /// <value>Specifies whether to display the promotional banners.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "displayBanners", EmitDefaultValue = true)]
         public bool DisplayBanners { get; set; }
 
         /// <summary>
         /// Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden.
         /// </summary>
-        /// <value>Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "aiEnabled", EmitDefaultValue = true)]
         public bool AiEnabled { get; set; }
 
         /// <summary>
+        /// Specifies whether the tenant wallet balance is currently below the low-balance threshold. Only returned to portal administrators.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "walletLowBalance", EmitDefaultValue = true)]
+        public bool? WalletLowBalance { get; set; }
+
+        /// <summary>
         /// The user name validation regex.
         /// </summary>
-        /// <value>The user name validation regex.</value>
-        /*
-        <example>^[a-zA-Z0-9_]{3,20}$</example>
-        */
+        /// <example>^[a-zA-Z0-9_]{3,20}$</example>
         [DataMember(Name = "userNameRegex", EmitDefaultValue = true)]
         public string UserNameRegex { get; set; }
 
         /// <summary>
         /// The maximum number of invitations to the portal.
         /// </summary>
-        /// <value>The maximum number of invitations to the portal.</value>
-        /*
-        <example>10</example>
-        */
+        /// <example>10</example>
         [DataMember(Name = "invitationLimit", EmitDefaultValue = true)]
         public int? InvitationLimit { get; set; }
 
         /// <summary>
-        /// Gets or Sets Plugins
+        /// The plugins settings.
         /// </summary>
         [DataMember(Name = "plugins", EmitDefaultValue = false)]
         public PluginsDto Plugins { get; set; }
 
         /// <summary>
-        /// Gets or Sets DeepLink
+        /// The deep link settings.
         /// </summary>
         [DataMember(Name = "deepLink", IsRequired = true, EmitDefaultValue = true)]
         public DeepLinkDto DeepLink { get; set; }
 
         /// <summary>
-        /// Gets or Sets FormGallery
+        /// The form gallery settings.
         /// </summary>
         [DataMember(Name = "formGallery", EmitDefaultValue = false)]
         public FormGalleryDto FormGallery { get; set; }
@@ -528,25 +444,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The maximum image upload size.
         /// </summary>
-        /// <value>The maximum image upload size.</value>
-        /*
-        <example>10485760</example>
-        */
+        /// <example>10485760</example>
         [DataMember(Name = "maxImageUploadSize", EmitDefaultValue = false)]
         public long MaxImageUploadSize { get; set; }
 
         /// <summary>
         /// The white label logo text.
         /// </summary>
-        /// <value>The white label logo text.</value>
-        /*
-        <example>Company Name</example>
-        */
+        /// <example>Company Name</example>
         [DataMember(Name = "logoText", EmitDefaultValue = true)]
         public string LogoText { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExternalResources
+        /// The external resources settings.
         /// </summary>
         [DataMember(Name = "externalResources", EmitDefaultValue = false)]
         public CultureSpecificExternalResources ExternalResources { get; set; }
@@ -554,10 +464,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if an external database is connected for storing form results.
         /// </summary>
-        /// <value>Specifies if an external database is connected for storing form results.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "externalDbEnabled", EmitDefaultValue = true)]
         public bool ExternalDbEnabled { get; set; }
 
@@ -604,6 +511,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  LimitedAccessDevToolsForUsers: ").Append(LimitedAccessDevToolsForUsers).Append("\n");
             sb.Append("  DisplayBanners: ").Append(DisplayBanners).Append("\n");
             sb.Append("  AiEnabled: ").Append(AiEnabled).Append("\n");
+            sb.Append("  WalletLowBalance: ").Append(WalletLowBalance).Append("\n");
             sb.Append("  UserNameRegex: ").Append(UserNameRegex).Append("\n");
             sb.Append("  InvitationLimit: ").Append(InvitationLimit).Append("\n");
             sb.Append("  Plugins: ").Append(Plugins).Append("\n");

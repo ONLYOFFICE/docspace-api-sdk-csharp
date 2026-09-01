@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Access
+        /// The access rights type.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -48,8 +48,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FolderLinkRequest" /> class.
         /// </summary>
         /// <param name="linkId">The folder link ID..</param>
-        /// <param name="access">access.</param>
-        /// <param name="expirationDate">expirationDate.</param>
+        /// <param name="access">The access rights type..</param>
+        /// <param name="expirationDate">The API date and time parameters..</param>
         /// <param name="title">The link name..</param>
         /// <param name="password">The link password..</param>
         /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
@@ -70,15 +70,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The folder link ID.
         /// </summary>
-        /// <value>The folder link ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "linkId", EmitDefaultValue = false)]
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpirationDate
+        /// The API date and time parameters.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
@@ -86,50 +83,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The link name.
         /// </summary>
-        /// <value>The link name.</value>
-        /*
-        <example>My Document</example>
-        */
+        /// <example>My Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The link password.
         /// </summary>
-        /// <value>The link password.</value>
-        /*
-        <example>p@ssw0rd</example>
-        */
+        /// <example>p@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
         /// Specifies if downloading the file from the link is disabled or not.
         /// </summary>
-        /// <value>Specifies if downloading the file from the link is disabled or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
         /// The link scope, whether it is internal or not.
         /// </summary>
-        /// <value>The link scope, whether it is internal or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool Internal { get; set; }
 
         /// <summary>
         /// Specifies whether the folder link is primary or not.
         /// </summary>
-        /// <value>Specifies whether the folder link is primary or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "primary", EmitDefaultValue = true)]
         public bool Primary { get; set; }
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Additions
+        /// Specifies whether to display in the watermark: username, user email, user ip-adress, current date, and room name.
         /// </summary>
         [DataMember(Name = "additions", IsRequired = true, EmitDefaultValue = true)]
         public WatermarkAdditions Additions { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WatermarkDto" /> class.
         /// </summary>
-        /// <param name="additions">additions (required).</param>
+        /// <param name="additions">Specifies whether to display in the watermark: username, user email, user ip-adress, current date, and room name. (required).</param>
         /// <param name="text">The watermark text..</param>
         /// <param name="rotate">The watermark text and image rotate. (required).</param>
         /// <param name="imageScale">The watermark image scale. (required).</param>
@@ -73,60 +73,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The watermark text.
         /// </summary>
-        /// <value>The watermark text.</value>
-        /*
-        <example>Confidential</example>
-        */
+        /// <example>Confidential</example>
         [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
         /// The watermark text and image rotate.
         /// </summary>
-        /// <value>The watermark text and image rotate.</value>
-        /*
-        <example>45</example>
-        */
+        /// <example>45</example>
         [DataMember(Name = "rotate", IsRequired = true, EmitDefaultValue = true)]
         public int Rotate { get; set; }
 
         /// <summary>
         /// The watermark image scale.
         /// </summary>
-        /// <value>The watermark image scale.</value>
-        /*
-        <example>100</example>
-        */
+        /// <example>100</example>
         [DataMember(Name = "imageScale", IsRequired = true, EmitDefaultValue = true)]
         public int ImageScale { get; set; }
 
         /// <summary>
         /// The watermark image url.
         /// </summary>
-        /// <value>The watermark image url.</value>
-        /*
-        <example>http://localhost/watermark.png</example>
-        */
+        /// <example>http://localhost/watermark.png</example>
         [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// The watermark image height.
         /// </summary>
-        /// <value>The watermark image height.</value>
-        /*
-        <example>100.0</example>
-        */
+        /// <example>100.0</example>
         [DataMember(Name = "imageHeight", IsRequired = true, EmitDefaultValue = true)]
         public double ImageHeight { get; set; }
 
         /// <summary>
         /// The watermark image width.
         /// </summary>
-        /// <value>The watermark image width.</value>
-        /*
-        <example>200.0</example>
-        */
+        /// <example>200.0</example>
         [DataMember(Name = "imageWidth", IsRequired = true, EmitDefaultValue = true)]
         public double ImageWidth { get; set; }
 

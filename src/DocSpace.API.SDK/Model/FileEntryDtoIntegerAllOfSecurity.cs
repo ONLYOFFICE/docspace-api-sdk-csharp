@@ -86,7 +86,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="useChat">useChat.</param>
         /// <param name="updateXlsx">updateXlsx.</param>
         /// <param name="analyzeResponses">analyzeResponses.</param>
-        public FileEntryDtoIntegerAllOfSecurity(bool read = default, bool comment = default, bool fillForms = default, bool review = default, bool create = default, bool createFrom = default, bool edit = default, bool delete = default, bool customFilter = default, bool editRoom = default, bool rename = default, bool readHistory = default, bool @lock = default, bool editHistory = default, bool copyTo = default, bool copy = default, bool moveTo = default, bool move = default, bool pin = default, bool mute = default, bool editAccess = default, bool duplicate = default, bool submitToFormGallery = default, bool download = default, bool convert = default, bool copySharedLink = default, bool readLinks = default, bool reconnect = default, bool createRoomFrom = default, bool copyLink = default, bool embed = default, bool changeOwner = default, bool indexExport = default, bool startFilling = default, bool fillingStatus = default, bool resetFilling = default, bool stopFilling = default, bool openForm = default, bool editInternal = default, bool editExpiration = default, bool vectorization = default, bool askAi = default, bool useChat = default, bool updateXlsx = default, bool analyzeResponses = default)
+        /// <param name="canUseAi">canUseAi.</param>
+        /// <param name="historyExport">historyExport.</param>
+        public FileEntryDtoIntegerAllOfSecurity(bool read = default, bool comment = default, bool fillForms = default, bool review = default, bool create = default, bool createFrom = default, bool edit = default, bool delete = default, bool customFilter = default, bool editRoom = default, bool rename = default, bool readHistory = default, bool @lock = default, bool editHistory = default, bool copyTo = default, bool copy = default, bool moveTo = default, bool move = default, bool pin = default, bool mute = default, bool editAccess = default, bool duplicate = default, bool submitToFormGallery = default, bool download = default, bool convert = default, bool copySharedLink = default, bool readLinks = default, bool reconnect = default, bool createRoomFrom = default, bool copyLink = default, bool embed = default, bool changeOwner = default, bool indexExport = default, bool startFilling = default, bool fillingStatus = default, bool resetFilling = default, bool stopFilling = default, bool openForm = default, bool editInternal = default, bool editExpiration = default, bool vectorization = default, bool askAi = default, bool useChat = default, bool updateXlsx = default, bool analyzeResponses = default, bool canUseAi = default, bool historyExport = default)
         {
             this.Read = read;
             this.Comment = comment;
@@ -133,6 +135,8 @@ namespace DocSpace.API.SDK.Model
             this.UseChat = useChat;
             this.UpdateXlsx = updateXlsx;
             this.AnalyzeResponses = analyzeResponses;
+            this.CanUseAi = canUseAi;
+            this.HistoryExport = historyExport;
         }
 
         /// <summary>
@@ -406,6 +410,18 @@ namespace DocSpace.API.SDK.Model
         public bool AnalyzeResponses { get; set; }
 
         /// <summary>
+        /// Gets or Sets CanUseAi
+        /// </summary>
+        [DataMember(Name = "CanUseAi", EmitDefaultValue = true)]
+        public bool CanUseAi { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HistoryExport
+        /// </summary>
+        [DataMember(Name = "HistoryExport", EmitDefaultValue = true)]
+        public bool HistoryExport { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -458,6 +474,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  UseChat: ").Append(UseChat).Append("\n");
             sb.Append("  UpdateXlsx: ").Append(UpdateXlsx).Append("\n");
             sb.Append("  AnalyzeResponses: ").Append(AnalyzeResponses).Append("\n");
+            sb.Append("  CanUseAi: ").Append(CanUseAi).Append("\n");
+            sb.Append("  HistoryExport: ").Append(HistoryExport).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

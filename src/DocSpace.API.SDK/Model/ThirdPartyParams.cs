@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThirdPartyParams" /> class.
         /// </summary>
-        /// <param name="authData">authData.</param>
+        /// <param name="authData">The authentication data..</param>
         /// <param name="corporate">Specifies if this is a corporate account or not..</param>
         /// <param name="roomsStorage">Specifies if this is a room storage or not..</param>
         /// <param name="customerTitle">The customer title..</param>
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets AuthData
+        /// The authentication data.
         /// </summary>
         [DataMember(Name = "auth_data", EmitDefaultValue = false)]
         public AuthData AuthData { get; set; }
@@ -66,50 +66,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if this is a corporate account or not.
         /// </summary>
-        /// <value>Specifies if this is a corporate account or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "corporate", EmitDefaultValue = true)]
         public bool Corporate { get; set; }
 
         /// <summary>
         /// Specifies if this is a room storage or not.
         /// </summary>
-        /// <value>Specifies if this is a room storage or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "roomsStorage", EmitDefaultValue = true)]
         public bool RoomsStorage { get; set; }
 
         /// <summary>
         /// The customer title.
         /// </summary>
-        /// <value>The customer title.</value>
-        /*
-        <example>My Storage</example>
-        */
+        /// <example>My Storage</example>
         [DataMember(Name = "customer_title", EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
         /// The provider ID.
         /// </summary>
-        /// <value>The provider ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "provider_id", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
 
         /// <summary>
         /// The provider key.
         /// </summary>
-        /// <value>The provider key.</value>
-        /*
-        <example>GoogleDrive</example>
-        */
+        /// <example>GoogleDrive</example>
         [DataMember(Name = "provider_key", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 

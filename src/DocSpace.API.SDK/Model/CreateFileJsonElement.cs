@@ -66,10 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The file title for creation.
         /// </summary>
-        /// <value>The file title for creation.</value>
-        /*
-        <example>New Document.docx</example>
-        */
+        /// <example>New Document.docx</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
@@ -82,20 +79,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to allow creating a file of an external extension or not.
         /// </summary>
-        /// <value>Specifies whether to allow creating a file of an external extension or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "enableExternalExt", EmitDefaultValue = true)]
         public bool EnableExternalExt { get; set; }
 
         /// <summary>
         /// The form ID for creation.
         /// </summary>
-        /// <value>The form ID for creation.</value>
-        /*
-        <example>0</example>
-        */
+        /// <example>0</example>
         [DataMember(Name = "formId", EmitDefaultValue = false)]
         public int FormId { get; set; }
 

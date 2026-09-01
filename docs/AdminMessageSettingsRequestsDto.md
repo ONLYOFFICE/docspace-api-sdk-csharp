@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Message** | **string** | The content of the administrator message to be sent. | 
 **Email** | **string** | Email | 
 **Culture** | **string** | Culture | [optional] 
-**RecaptchaType** | **RecaptchaType** |  | [optional] 
+**RecaptchaType** | **RecaptchaType** | The type of CAPTCHA validation used. | [optional] 
 **RecaptchaResponse** | **string** | The user's response to the CAPTCHA challenge. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

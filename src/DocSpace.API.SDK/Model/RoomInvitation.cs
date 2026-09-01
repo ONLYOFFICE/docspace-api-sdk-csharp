@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Access
+        /// The room sharing rights.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="RoomInvitation" /> class.
         /// </summary>
         /// <param name="id">The ID of the user to share a room with..</param>
-        /// <param name="access">access.</param>
+        /// <param name="access">The room sharing rights..</param>
         public RoomInvitation(Guid id = default, FileShare? access = default)
         {
             this.Id = id;
@@ -58,10 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the user to share a room with.
         /// </summary>
-        /// <value>The ID of the user to share a room with.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
@@ -106,4 +103,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

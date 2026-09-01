@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The TFA app code usage status.
         /// </summary>
-        /// <value>The TFA app code usage status.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isUsed", EmitDefaultValue = true)]
         public bool IsUsed { get; set; }
 
         /// <summary>
         /// The TFA app code.
         /// </summary>
-        /// <value>The TFA app code.</value>
-        /*
-        <example>123456</example>
-        */
+        /// <example>123456</example>
         [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 

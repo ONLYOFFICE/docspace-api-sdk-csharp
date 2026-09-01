@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of user IDs.
         /// </summary>
-        /// <value>The list of user IDs.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "userIds", EmitDefaultValue = true)]
         public List<Guid> UserIds { get; set; }
 
         /// <summary>
         /// Specifies whether to resend invitation letters to all the users or not.
         /// </summary>
-        /// <value>Specifies whether to resend invitation letters to all the users or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "resendAll", EmitDefaultValue = true)]
         public bool ResendAll { get; set; }
 

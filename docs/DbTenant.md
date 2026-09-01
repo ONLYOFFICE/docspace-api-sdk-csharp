@@ -15,17 +15,17 @@ Name | Type | Description | Notes
 **Language** | **string** | The tenant language. | [optional] 
 **@TimeZone** | **string** | The tenant time zone. | [optional] 
 **TrustedDomainsRaw** | **string** | The tenant trusted domains raw. | [optional] 
-**TrustedDomainsEnabled** | **TenantTrustedDomainsType** |  | [optional] 
-**Status** | **TenantStatus** |  | [optional] 
+**TrustedDomainsEnabled** | **TenantTrustedDomainsType** | The type of the tenant trusted domains. | [optional] 
+**Status** | **TenantStatus** | The tenant status. | [optional] 
 **StatusChanged** | **DateTime?** | The date and time when the tenant status was changed. | [optional] 
 **StatusChangedHack** | **DateTime** | The hacked date and time when the tenant status was changed. | [optional] 
 **CreationDateTime** | **DateTime** | The tenant creation date. | [optional] 
 **OwnerId** | **Guid?** | The tenant owner ID. | [optional] 
 **PaymentId** | **string** | The tenant payment ID. | [optional] 
-**Industry** | **TenantIndustry** |  | [optional] 
+**Industry** | **TenantIndustry** | The tenant industry. | [optional] 
 **LastModified** | **DateTime** | The date and time when the tenant was last modified. | [optional] 
 **Calls** | **bool** | Specifies if the calls are available for the current tenant or not. | [optional] 
-**Partner** | [**DbTenantPartner**](DbTenantPartner.md) |  | [optional] 
+**Partner** | [**DbTenantPartner**](DbTenantPartner.md) | The database tenant partner parameters. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

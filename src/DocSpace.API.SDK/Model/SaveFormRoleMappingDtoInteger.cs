@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The form ID.
         /// </summary>
-        /// <value>The form ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "formId", IsRequired = true, EmitDefaultValue = true)]
         public int FormId { get; set; }
 
         /// <summary>
         /// The collection of roles.
         /// </summary>
-        /// <value>The collection of roles.</value>
-        /*
-        <example>[{"roleName":"Approver","userId":"00000000-0000-0000-0000-000000000000"}]</example>
-        */
+        /// <example>[{"roleName":"Approver","userId":"00000000-0000-0000-0000-000000000000"}]</example>
         [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = true)]
         public List<FormRole> Roles { get; set; }
 

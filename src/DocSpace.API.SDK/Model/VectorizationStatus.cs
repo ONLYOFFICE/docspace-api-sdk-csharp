@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - In Progress, 1 - Completed, 2 - Failed]
     /// </summary>
-    /// <value>[0 - In Progress, 1 - Completed, 2 - Failed]</value>
     public enum VectorizationStatus
     {
         /// <summary>

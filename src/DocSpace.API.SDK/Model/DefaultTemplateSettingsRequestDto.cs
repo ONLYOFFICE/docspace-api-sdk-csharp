@@ -73,10 +73,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// File extension of a template to replace
         /// </summary>
-        /// <value>File extension of a template to replace</value>
-        /*
-        <example>.docx</example>
-        */
+        /// <example>.docx</example>
         [DataMember(Name = "fileExtension", IsRequired = true, EmitDefaultValue = true)]
         public string FileExtension { get; set; }
 

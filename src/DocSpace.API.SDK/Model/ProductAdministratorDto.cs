@@ -59,30 +59,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The product ID.
         /// </summary>
-        /// <value>The product ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "productId", IsRequired = true, EmitDefaultValue = true)]
         public Guid ProductId { get; set; }
 
         /// <summary>
         /// The user unique identifier.
         /// </summary>
-        /// <value>The user unique identifier.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// Indicates whether the user has administrator privileges for the product.
         /// </summary>
-        /// <value>Indicates whether the user has administrator privileges for the product.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "administrator", IsRequired = true, EmitDefaultValue = true)]
         public bool Administrator { get; set; }
 

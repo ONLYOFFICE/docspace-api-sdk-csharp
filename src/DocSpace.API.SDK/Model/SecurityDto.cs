@@ -58,50 +58,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The module ID.
         /// </summary>
-        /// <value>The module ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "webItemId", EmitDefaultValue = true)]
         public string WebItemId { get; set; }
 
         /// <summary>
         /// The list of users with the access to the module.
         /// </summary>
-        /// <value>The list of users with the access to the module.</value>
-        /*
-        <example>[{"displayName":"John Doe"}]</example>
-        */
+        /// <example>[{"displayName":"John Doe"}]</example>
         [DataMember(Name = "users", EmitDefaultValue = true)]
         public List<EmployeeDto> Users { get; set; }
 
         /// <summary>
         /// The list of groups with the access to the module.
         /// </summary>
-        /// <value>The list of groups with the access to the module.</value>
-        /*
-        <example>[{"id":"00000000-0000-0000-0000-000000000000","name":"Administrators"}]</example>
-        */
+        /// <example>[{"id":"00000000-0000-0000-0000-000000000000","name":"Administrators"}]</example>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }
 
         /// <summary>
         /// Specifies if the security settings are enabled or not.
         /// </summary>
-        /// <value>Specifies if the security settings are enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Specifies if the module is a subitem or not.
         /// </summary>
-        /// <value>Specifies if the module is a subitem or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isSubItem", EmitDefaultValue = true)]
         public bool IsSubItem { get; set; }
 

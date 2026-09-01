@@ -89,40 +89,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The client name.
         /// </summary>
-        /// <value>The client name.</value>
-        /*
-        <example>Example Client</example>
-        */
+        /// <example>Example Client</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// The description of the client
         /// </summary>
-        /// <value>The description of the client</value>
-        /*
-        <example>Description of the client</example>
-        */
+        /// <example>Description of the client</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// The logo of the client in base64 format
         /// </summary>
-        /// <value>The logo of the client in base64 format</value>
-        /*
-        <example>data:image/png;base64,...</example>
-        */
+        /// <example>data:image/png;base64,...</example>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public string Logo { get; set; }
 
         /// <summary>
         /// The scopes for the client
         /// </summary>
-        /// <value>The scopes for the client</value>
-        /*
-        <example>["read","write"]</example>
-        */
+        /// <example>["read","write"]</example>
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
 
@@ -135,80 +123,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Indicates whether PKCE is allowed for the client
         /// </summary>
-        /// <value>Indicates whether PKCE is allowed for the client</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "allow_pkce", EmitDefaultValue = true)]
         public bool AllowPkce { get; set; }
 
         /// <summary>
         /// Indicates if the client is public
         /// </summary>
-        /// <value>Indicates if the client is public</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "is_public", EmitDefaultValue = true)]
         public bool IsPublic { get; set; }
 
         /// <summary>
         /// The website URL of the client
         /// </summary>
-        /// <value>The website URL of the client</value>
-        /*
-        <example>http://example.com</example>
-        */
+        /// <example>http://example.com</example>
         [DataMember(Name = "website_url", EmitDefaultValue = false)]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
         /// The terms URL of the client
         /// </summary>
-        /// <value>The terms URL of the client</value>
-        /*
-        <example>http://example.com/terms</example>
-        */
+        /// <example>http://example.com/terms</example>
         [DataMember(Name = "terms_url", EmitDefaultValue = false)]
         public string TermsUrl { get; set; }
 
         /// <summary>
         /// The policy URL of the client
         /// </summary>
-        /// <value>The policy URL of the client</value>
-        /*
-        <example>http://example.com/policy</example>
-        */
+        /// <example>http://example.com/policy</example>
         [DataMember(Name = "policy_url", EmitDefaultValue = false)]
         public string PolicyUrl { get; set; }
 
         /// <summary>
         /// The redirect URIs for the client
         /// </summary>
-        /// <value>The redirect URIs for the client</value>
-        /*
-        <example>["http://example.com/redirect"]</example>
-        */
+        /// <example>["http://example.com/redirect"]</example>
         [DataMember(Name = "redirect_uris", IsRequired = true, EmitDefaultValue = true)]
         public List<string> RedirectUris { get; set; }
 
         /// <summary>
         /// The allowed origins for the client
         /// </summary>
-        /// <value>The allowed origins for the client</value>
-        /*
-        <example>["http://example.com"]</example>
-        */
+        /// <example>["http://example.com"]</example>
         [DataMember(Name = "allowed_origins", IsRequired = true, EmitDefaultValue = true)]
         public List<string> AllowedOrigins { get; set; }
 
         /// <summary>
         /// The logout redirect URI for the client
         /// </summary>
-        /// <value>The logout redirect URI for the client</value>
-        /*
-        <example>http://example.com/logout</example>
-        */
+        /// <example>http://example.com/logout</example>
         [DataMember(Name = "logout_redirect_uri", EmitDefaultValue = false)]
         public string LogoutRedirectUri { get; set; }
 

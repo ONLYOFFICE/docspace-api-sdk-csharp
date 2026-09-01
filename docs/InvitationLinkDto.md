@@ -6,8 +6,8 @@ The invitation link parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** | The ID of the invitation link. | [optional] 
-**EmployeeType** | **EmployeeType** |  | 
-**Expiration** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**EmployeeType** | **EmployeeType** | The user type. | 
+**Expiration** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. | [optional] 
 **IsExpired** | **bool** | Indicates whether the invitation link has expired. | [optional] 
 **MaxUseCount** | **int?** | The maximum number of times the invitation link can be used. | [optional] 
 **CurrentUseCount** | **int** | The current number of times the invitation link has been used. | [optional] 

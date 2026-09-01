@@ -343,25 +343,27 @@ namespace DocSpace.API.SDK.Api.Files
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper EmptyTrash(bool? single = default);
+        FileOperationArrayWrapper EmptyTrash(bool? single = default, List<int>? folderType = default);
 
         /// <summary>
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default);
+        ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default, List<int>? folderType = default);
         /// <summary>
         /// Finalize an upload session
         /// </summary>
@@ -958,27 +960,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        Task<FileOperationArrayWrapper> EmptyTrashAsync(bool? single = default, CancellationToken cancellationToken = default);
+        Task<FileOperationArrayWrapper> EmptyTrashAsync(bool? single = default, List<int>? folderType = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default, List<int>? folderType = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Finalize an upload session
         /// </summary>
@@ -3840,15 +3844,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper EmptyTrash(bool? single = default)
+        public FileOperationArrayWrapper EmptyTrash(bool? single = default, List<int>? folderType = default)
         {
-            var localVarResponse = EmptyTrashWithHttpInfo(single);
+            var localVarResponse = EmptyTrashWithHttpInfo(single, folderType);
             return localVarResponse.Data;
         }
 
@@ -3856,13 +3861,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default)
+        public ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default, List<int>? folderType = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3880,6 +3886,10 @@ namespace DocSpace.API.SDK.Api.Files
             if (single != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Single", single));
+            }
+            if (folderType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "folderType", folderType));
             }
 
             // authentication (Basic) required
@@ -3932,16 +3942,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async Task<FileOperationArrayWrapper> EmptyTrashAsync(bool? single = default, CancellationToken cancellationToken = default)
+        public async Task<FileOperationArrayWrapper> EmptyTrashAsync(bool? single = default, List<int>? folderType = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await EmptyTrashWithHttpInfoAsync(single, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await EmptyTrashWithHttpInfoAsync(single, folderType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3949,14 +3960,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// Empty the Trash folder
         /// </summary>
         /// <remarks>
-        /// Deletes all the files and folders from the Trash folder.
+        /// Deletes all the files and folders from the Trash folder. If the folder types are specified, only the items originally located in the sections of these types are deleted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="single">Specifies whether to return only the current operation (optional)</param>
+        /// <param name="folderType">The parent folder types used to empty the trash only from the items originally located in the sections of the specified types. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default, List<int>? folderType = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3975,6 +3987,10 @@ namespace DocSpace.API.SDK.Api.Files
             if (single != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Single", single));
+            }
+            if (folderType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "folderType", folderType));
             }
 
             // authentication (Basic) required

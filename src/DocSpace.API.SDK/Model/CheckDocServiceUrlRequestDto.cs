@@ -70,60 +70,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ONLYOFFICE Docs URL address.
         /// </summary>
-        /// <value>The ONLYOFFICE Docs URL address.</value>
-        /*
-        <example>https://documentserver.example.com</example>
-        */
+        /// <example>https://documentserver.example.com</example>
         [DataMember(Name = "docServiceUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrl { get; set; }
 
         /// <summary>
         /// The ONLYOFFICE Docs URL address in the local private network.
         /// </summary>
-        /// <value>The ONLYOFFICE Docs URL address in the local private network.</value>
-        /*
-        <example>https://documentserver-internal.example.com</example>
-        */
+        /// <example>https://documentserver-internal.example.com</example>
         [DataMember(Name = "docServiceUrlInternal", EmitDefaultValue = true)]
         public string DocServiceUrlInternal { get; set; }
 
         /// <summary>
         /// The ONLYOFFICE Docs URL address.
         /// </summary>
-        /// <value>The ONLYOFFICE Docs URL address.</value>
-        /*
-        <example>https://documentserver-portal.example.com</example>
-        */
+        /// <example>https://documentserver-portal.example.com</example>
         [DataMember(Name = "docServiceUrlPortal", EmitDefaultValue = true)]
         public string DocServiceUrlPortal { get; set; }
 
         /// <summary>
         /// The signature secret of the ONLYOFFICE Docs.
         /// </summary>
-        /// <value>The signature secret of the ONLYOFFICE Docs.</value>
-        /*
-        <example>secret-key-123</example>
-        */
+        /// <example>secret-key-123</example>
         [DataMember(Name = "docServiceSignatureSecret", EmitDefaultValue = true)]
         public string DocServiceSignatureSecret { get; set; }
 
         /// <summary>
         /// The signature header of the ONLYOFFICE Docs.
         /// </summary>
-        /// <value>The signature header of the ONLYOFFICE Docs.</value>
-        /*
-        <example>Authorization</example>
-        */
+        /// <example>Authorization</example>
         [DataMember(Name = "docServiceSignatureHeader", EmitDefaultValue = true)]
         public string DocServiceSignatureHeader { get; set; }
 
         /// <summary>
         /// Specifies if the SSL verification of the ONLYOFFICE Docs is enabled or not.
         /// </summary>
-        /// <value>Specifies if the SSL verification of the ONLYOFFICE Docs is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "docServiceSslVerification", EmitDefaultValue = true)]
         public bool? DocServiceSslVerification { get; set; }
 

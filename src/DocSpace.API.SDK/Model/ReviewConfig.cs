@@ -49,10 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The review display string representation.
         /// </summary>
-        /// <value>The review display string representation.</value>
-        /*
-        <example>full</example>
-        */
+        /// <example>full</example>
         [DataMember(Name = "reviewDisplay", EmitDefaultValue = true)]
         public string ReviewDisplay { get; private set; }
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Password** | **string** | The user password. | [optional] 
 **PasswordHash** | **string** | The user password hash. | [optional] 
 **Email** | **string** | The user email address. | [optional] 
-**Type** | **EmployeeType** |  | [optional] 
+**Type** | **EmployeeType** | The user type. | [optional] 
 **IsUser** | **bool?** | Specifies if this is a guest or a user. | [optional] 
 **FirstName** | **string** | The user first name. | [optional] 
 **LastName** | **string** | The user last name. | [optional] 

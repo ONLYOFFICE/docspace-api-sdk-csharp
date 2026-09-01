@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets ConflictResolveType
+        /// The overwriting behavior of the file copying or moving.
         /// </summary>
         [DataMember(Name = "conflictResolveType", EmitDefaultValue = false)]
         public FileConflictResolveType? ConflictResolveType { get; set; }
@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="folderIds">The list of folder IDs to be copied/moved..</param>
         /// <param name="fileIds">The list of file IDs to be copied/moved..</param>
         /// <param name="destFolderId">destFolderId.</param>
-        /// <param name="conflictResolveType">conflictResolveType.</param>
+        /// <param name="conflictResolveType">The overwriting behavior of the file copying or moving..</param>
         /// <param name="deleteAfter">Specifies whether to delete the source files/folders after they are moved or copied to the destination folder..</param>
         /// <param name="content">Specifies whether to copy or move the folder content or not..</param>
         /// <param name="toFillOut">Specifies whether the file is copied for filling out.</param>
@@ -68,20 +68,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of folder IDs to be copied/moved.
         /// </summary>
-        /// <value>The list of folder IDs to be copied/moved.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<BatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be copied/moved.
         /// </summary>
-        /// <value>The list of file IDs to be copied/moved.</value>
-        /*
-        <example>[1,2,3]</example>
-        */
+        /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
@@ -94,30 +88,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to delete the source files/folders after they are moved or copied to the destination folder.
         /// </summary>
-        /// <value>Specifies whether to delete the source files/folders after they are moved or copied to the destination folder.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
         /// Specifies whether to copy or move the folder content or not.
         /// </summary>
-        /// <value>Specifies whether to copy or move the folder content or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public bool Content { get; set; }
 
         /// <summary>
         /// Specifies whether the file is copied for filling out
         /// </summary>
-        /// <value>Specifies whether the file is copied for filling out</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "toFillOut", EmitDefaultValue = true)]
         public bool ToFillOut { get; set; }
 
@@ -161,4 +146,5 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
 }

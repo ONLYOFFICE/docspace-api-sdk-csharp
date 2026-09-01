@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Day, 1 - Month, 2 - Year]
     /// </summary>
-    /// <value>[0 - Day, 1 - Month, 2 - Year]</value>
     public enum RoomDataLifetimePeriod
     {
         /// <summary>

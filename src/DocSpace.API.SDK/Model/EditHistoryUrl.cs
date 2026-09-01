@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The document identifier of the previous version of the document.
         /// </summary>
-        /// <value>The document identifier of the previous version of the document.</value>
-        /*
-        <example>doc_v2_20260101</example>
-        */
+        /// <example>doc_v2_20260101</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// The url address of the previous version of the document.
         /// </summary>
-        /// <value>The url address of the previous version of the document.</value>
-        /*
-        <example>https://files.example.com/history/doc_v2_20260101.docx</example>
-        */
+        /// <example>https://files.example.com/history/doc_v2_20260101.docx</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// The document extension.
         /// </summary>
-        /// <value>The document extension.</value>
-        /*
-        <example>.docx</example>
-        */
+        /// <example>.docx</example>
         [DataMember(Name = "fileType", EmitDefaultValue = true)]
         public string FileType { get; set; }
 

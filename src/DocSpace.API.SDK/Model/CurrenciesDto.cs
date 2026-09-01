@@ -54,30 +54,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ISO country code.
         /// </summary>
-        /// <value>The ISO country code.</value>
-        /*
-        <example>US</example>
-        */
+        /// <example>US</example>
         [DataMember(Name = "isoCountryCode", EmitDefaultValue = true)]
         public string IsoCountryCode { get; set; }
 
         /// <summary>
         /// The ISO currency symbol.
         /// </summary>
-        /// <value>The ISO currency symbol.</value>
-        /*
-        <example>USD</example>
-        */
+        /// <example>USD</example>
         [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = true)]
         public string IsoCurrencySymbol { get; set; }
 
         /// <summary>
         /// The currency native name.
         /// </summary>
-        /// <value>The currency native name.</value>
-        /*
-        <example>Example Name</example>
-        */
+        /// <example>Example Name</example>
         [DataMember(Name = "currencyNativeName", EmitDefaultValue = true)]
         public string CurrencyNativeName { get; set; }
 

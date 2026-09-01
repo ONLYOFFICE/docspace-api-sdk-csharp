@@ -57,20 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The cookie lifetime value in minutes.
         /// </summary>
-        /// <value>The cookie lifetime value in minutes.</value>
-        /*
-        <example>1440</example>
-        */
+        /// <example>1440</example>
         [DataMember(Name = "lifeTime", IsRequired = true, EmitDefaultValue = true)]
         public int LifeTime { get; set; }
 
         /// <summary>
         /// Specifies if the cookie settings are enabled or not.
         /// </summary>
-        /// <value>Specifies if the cookie settings are enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 

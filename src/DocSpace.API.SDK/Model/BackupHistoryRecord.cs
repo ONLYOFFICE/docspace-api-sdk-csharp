@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets StorageType
+        /// The backup storage type.
         /// </summary>
         [DataMember(Name = "storageType", IsRequired = true, EmitDefaultValue = true)]
         public BackupStorageType StorageType { get; set; }
@@ -54,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">The backup ID. (required).</param>
         /// <param name="fileName">The backup file name. (required).</param>
-        /// <param name="storageType">storageType (required).</param>
+        /// <param name="storageType">The backup storage type. (required).</param>
         /// <param name="createdOn">The backup creation date. (required).</param>
         /// <param name="expiresOn">The backup expiration date. (required).</param>
         public BackupHistoryRecord(Guid id = default, string fileName = default, BackupStorageType storageType = default, DateTime createdOn = default, DateTime expiresOn = default)
@@ -74,40 +74,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The backup ID.
         /// </summary>
-        /// <value>The backup ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// The backup file name.
         /// </summary>
-        /// <value>The backup file name.</value>
-        /*
-        <example>tenant-backup</example>
-        */
+        /// <example>tenant-backup</example>
         [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// The backup creation date.
         /// </summary>
-        /// <value>The backup creation date.</value>
-        /*
-        <example>2026-03-01T02:15Z</example>
-        */
+        /// <example>2026-03-01T02:15:00Z</example>
         [DataMember(Name = "createdOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
         /// The backup expiration date.
         /// </summary>
-        /// <value>The backup expiration date.</value>
-        /*
-        <example>2026-03-31T02:15Z</example>
-        */
+        /// <example>2026-03-31T02:15:00Z</example>
         [DataMember(Name = "expiresOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime ExpiresOn { get; set; }
 

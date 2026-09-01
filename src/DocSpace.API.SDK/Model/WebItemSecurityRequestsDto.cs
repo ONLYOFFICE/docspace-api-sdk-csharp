@@ -64,30 +64,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The module ID.
         /// </summary>
-        /// <value>The module ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Controls whether the security restrictions are enforced for this module.
         /// </summary>
-        /// <value>Controls whether the security restrictions are enforced for this module.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// The collection of user and group identifiers granted access to the module.
         /// </summary>
-        /// <value>The collection of user and group identifiers granted access to the module.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "subjects", EmitDefaultValue = true)]
         public List<Guid> Subjects { get; set; }
 

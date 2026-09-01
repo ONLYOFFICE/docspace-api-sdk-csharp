@@ -33,156 +33,97 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>AiSettingsWrapper</returns>
-        AiSettingsWrapper GetAiSettings();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>AiAiSettingsWrapper</returns>
+        AiAiSettingsWrapper AiSettingsGet();
 
         /// <summary>
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>ApiResponse of AiSettingsWrapper</returns>
-        ApiResponse<AiSettingsWrapper> GetAiSettingsWithHttpInfo();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>ApiResponse of AiAiSettingsWrapper</returns>
+        ApiResponse<AiAiSettingsWrapper> AiSettingsGetWithHttpInfo();
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>AiUserSettingsWrapper</returns>
-        AiUserSettingsWrapper GetAiUserSettings();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>AiAiUserSettingsWrapper</returns>
+        AiAiUserSettingsWrapper AiSettingsGetUser();
 
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>ApiResponse of AiUserSettingsWrapper</returns>
-        ApiResponse<AiUserSettingsWrapper> GetAiUserSettingsWithHttpInfo();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>ApiResponse of AiAiUserSettingsWrapper</returns>
+        ApiResponse<AiAiUserSettingsWrapper> AiSettingsGetUserWithHttpInfo();
         /// <summary>
         /// Get vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>VectorizationSettingsWrapper</returns>
-        VectorizationSettingsWrapper GetVectorizationSettings();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>AiVectorizationSettingsWrapper</returns>
+        AiVectorizationSettingsWrapper AiSettingsGetVectorization();
 
         /// <summary>
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
-        ApiResponse<VectorizationSettingsWrapper> GetVectorizationSettingsWithHttpInfo();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>ApiResponse of AiVectorizationSettingsWrapper</returns>
+        ApiResponse<AiVectorizationSettingsWrapper> AiSettingsGetVectorizationWithHttpInfo();
         /// <summary>
-        /// Get web search settings
+        /// Update user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>WebSearchSettingsWrapper</returns>
-        WebSearchSettingsWrapper GetWebSearchSettings();
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>AiAiUserSettingsWrapper</returns>
+        AiAiUserSettingsWrapper AiSettingsSetUser(Dictionary<string, Object> requestBody);
 
         /// <summary>
-        /// Get web search settings
+        /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
-        ApiResponse<WebSearchSettingsWrapper> GetWebSearchSettingsWithHttpInfo();
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>AiUserSettingsWrapper</returns>
-        AiUserSettingsWrapper SetAiUserSettings(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default);
-
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>ApiResponse of AiUserSettingsWrapper</returns>
-        ApiResponse<AiUserSettingsWrapper> SetAiUserSettingsWithHttpInfo(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default);
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>ApiResponse of AiAiUserSettingsWrapper</returns>
+        ApiResponse<AiAiUserSettingsWrapper> AiSettingsSetUserWithHttpInfo(Dictionary<string, Object> requestBody);
         /// <summary>
         /// Update vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>VectorizationSettingsWrapper</returns>
-        VectorizationSettingsWrapper SetVectorizationSettings(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody);
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>AiVectorizationSettingsWrapper</returns>
+        AiVectorizationSettingsWrapper AiSettingsSetVectorization(Dictionary<string, Object> requestBody);
 
         /// <summary>
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
-        ApiResponse<VectorizationSettingsWrapper> SetVectorizationSettingsWithHttpInfo(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody);
-        /// <summary>
-        /// Update web search settings
-        /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>WebSearchSettingsWrapper</returns>
-        WebSearchSettingsWrapper SetWebSearchSettings(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody);
-
-        /// <summary>
-        /// Update web search settings
-        /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
-        ApiResponse<WebSearchSettingsWrapper> SetWebSearchSettingsWithHttpInfo(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody);
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>ApiResponse of AiVectorizationSettingsWrapper</returns>
+        ApiResponse<AiVectorizationSettingsWrapper> AiSettingsSetVectorizationWithHttpInfo(Dictionary<string, Object> requestBody);
         #endregion Synchronous Operations
     }
 
@@ -196,169 +137,121 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>Task of AiSettingsWrapper</returns>
-        Task<AiSettingsWrapper> GetAiSettingsAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>Task of AiAiSettingsWrapper</returns>
+        Task<AiAiSettingsWrapper> AiSettingsGetAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSettingsWrapper)</returns>
-        Task<ApiResponse<AiSettingsWrapper>> GetAiSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiSettingsWrapper)</returns>
+        Task<ApiResponse<AiAiSettingsWrapper>> AiSettingsGetWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>Task of AiUserSettingsWrapper</returns>
-        Task<AiUserSettingsWrapper> GetAiUserSettingsAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>Task of AiAiUserSettingsWrapper</returns>
+        Task<AiAiUserSettingsWrapper> AiSettingsGetUserAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AiUserSettingsWrapper)</returns>
-        Task<ApiResponse<AiUserSettingsWrapper>> GetAiUserSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiUserSettingsWrapper)</returns>
+        Task<ApiResponse<AiAiUserSettingsWrapper>> AiSettingsGetUserWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>Task of VectorizationSettingsWrapper</returns>
-        Task<VectorizationSettingsWrapper> GetVectorizationSettingsAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>Task of AiVectorizationSettingsWrapper</returns>
+        Task<AiVectorizationSettingsWrapper> AiSettingsGetVectorizationAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (VectorizationSettingsWrapper)</returns>
-        Task<ApiResponse<VectorizationSettingsWrapper>> GetVectorizationSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>Task of ApiResponse (AiVectorizationSettingsWrapper)</returns>
+        Task<ApiResponse<AiVectorizationSettingsWrapper>> AiSettingsGetVectorizationWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get web search settings
+        /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>Task of WebSearchSettingsWrapper</returns>
-        Task<WebSearchSettingsWrapper> GetWebSearchSettingsAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>Task of AiAiUserSettingsWrapper</returns>
+        Task<AiAiUserSettingsWrapper> AiSettingsSetUserAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get web search settings
+        /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (WebSearchSettingsWrapper)</returns>
-        Task<ApiResponse<WebSearchSettingsWrapper>> GetWebSearchSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>Task of AiUserSettingsWrapper</returns>
-        Task<AiUserSettingsWrapper> SetAiUserSettingsAsync(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AiUserSettingsWrapper)</returns>
-        Task<ApiResponse<AiUserSettingsWrapper>> SetAiUserSettingsWithHttpInfoAsync(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default, CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiUserSettingsWrapper)</returns>
+        Task<ApiResponse<AiAiUserSettingsWrapper>> AiSettingsSetUserWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>Task of VectorizationSettingsWrapper</returns>
-        Task<VectorizationSettingsWrapper> SetVectorizationSettingsAsync(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody, CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>Task of AiVectorizationSettingsWrapper</returns>
+        Task<AiVectorizationSettingsWrapper> AiSettingsSetVectorizationAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (VectorizationSettingsWrapper)</returns>
-        Task<ApiResponse<VectorizationSettingsWrapper>> SetVectorizationSettingsWithHttpInfoAsync(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody, CancellationToken cancellationToken = default);
-        /// <summary>
-        /// Update web search settings
-        /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>Task of WebSearchSettingsWrapper</returns>
-        Task<WebSearchSettingsWrapper> SetWebSearchSettingsAsync(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Update web search settings
-        /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (WebSearchSettingsWrapper)</returns>
-        Task<ApiResponse<WebSearchSettingsWrapper>> SetWebSearchSettingsWithHttpInfoAsync(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody, CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>Task of ApiResponse (AiVectorizationSettingsWrapper)</returns>
+        Task<ApiResponse<AiVectorizationSettingsWrapper>> AiSettingsSetVectorizationWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -577,28 +470,22 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>AiSettingsWrapper</returns>
-        public AiSettingsWrapper GetAiSettings()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>AiAiSettingsWrapper</returns>
+        public AiAiSettingsWrapper AiSettingsGet()
         {
-            var localVarResponse = GetAiSettingsWithHttpInfo();
+            var localVarResponse = AiSettingsGetWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>ApiResponse of AiSettingsWrapper</returns>
-        public ApiResponse<AiSettingsWrapper> GetAiSettingsWithHttpInfo()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>ApiResponse of AiAiSettingsWrapper</returns>
+        public ApiResponse<AiAiSettingsWrapper> AiSettingsGetWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -614,43 +501,13 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiSettingsWrapper>("/api/2.0/ai/config", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiAiSettingsWrapper>("/api/2.0/ai/config", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetAiSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsGet", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -663,30 +520,24 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>Task of AiSettingsWrapper</returns>
-        public async Task<AiSettingsWrapper> GetAiSettingsAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>Task of AiAiSettingsWrapper</returns>
+        public async Task<AiAiSettingsWrapper> AiSettingsGetAsync(CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetAiSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiSettingsGetWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSettingsWrapper)</returns>
-        public async Task<ApiResponse<AiSettingsWrapper>> GetAiSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiSettingsWrapper)</returns>
+        public async Task<ApiResponse<AiAiSettingsWrapper>> AiSettingsGetWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -703,44 +554,14 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiSettingsWrapper>("/api/2.0/ai/config", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiAiSettingsWrapper>("/api/2.0/ai/config", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetAiSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsGet", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -751,30 +572,24 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>AiUserSettingsWrapper</returns>
-        public AiUserSettingsWrapper GetAiUserSettings()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>AiAiUserSettingsWrapper</returns>
+        public AiAiUserSettingsWrapper AiSettingsGetUser()
         {
-            var localVarResponse = GetAiUserSettingsWithHttpInfo();
+            var localVarResponse = AiSettingsGetUserWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>ApiResponse of AiUserSettingsWrapper</returns>
-        public ApiResponse<AiUserSettingsWrapper> GetAiUserSettingsWithHttpInfo()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>ApiResponse of AiAiUserSettingsWrapper</returns>
+        public ApiResponse<AiAiUserSettingsWrapper> AiSettingsGetUserWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -790,43 +605,13 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiAiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetAiUserSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsGetUser", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -837,32 +622,26 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>Task of AiUserSettingsWrapper</returns>
-        public async Task<AiUserSettingsWrapper> GetAiUserSettingsAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>Task of AiAiUserSettingsWrapper</returns>
+        public async Task<AiAiUserSettingsWrapper> AiSettingsGetUserAsync(CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetAiUserSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiSettingsGetUserWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get per-user AI settings
+        /// Get user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current user's AI settings, including the recommended model banner visibility preference.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-user-settings/">REST API Reference for GetAiUserSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AiUserSettingsWrapper)</returns>
-        public async Task<ApiResponse<AiUserSettingsWrapper>> GetAiUserSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiUserSettingsWrapper)</returns>
+        public async Task<ApiResponse<AiAiUserSettingsWrapper>> AiSettingsGetUserWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -879,44 +658,14 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiAiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetAiUserSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsGetUser", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -929,28 +678,22 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>VectorizationSettingsWrapper</returns>
-        public VectorizationSettingsWrapper GetVectorizationSettings()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>AiVectorizationSettingsWrapper</returns>
+        public AiVectorizationSettingsWrapper AiSettingsGetVectorization()
         {
-            var localVarResponse = GetVectorizationSettingsWithHttpInfo();
+            var localVarResponse = AiSettingsGetVectorizationWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
-        public ApiResponse<VectorizationSettingsWrapper> GetVectorizationSettingsWithHttpInfo()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>ApiResponse of AiVectorizationSettingsWrapper</returns>
+        public ApiResponse<AiVectorizationSettingsWrapper> AiSettingsGetVectorizationWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -966,43 +709,13 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<VectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiVectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetVectorizationSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsGetVectorization", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -1015,30 +728,24 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>Task of VectorizationSettingsWrapper</returns>
-        public async Task<VectorizationSettingsWrapper> GetVectorizationSettingsAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>Task of AiVectorizationSettingsWrapper</returns>
+        public async Task<AiVectorizationSettingsWrapper> AiSettingsGetVectorizationAsync(CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetVectorizationSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiSettingsGetVectorizationWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (VectorizationSettingsWrapper)</returns>
-        public async Task<ApiResponse<VectorizationSettingsWrapper>> GetVectorizationSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
+        /// <returns>Task of ApiResponse (AiVectorizationSettingsWrapper)</returns>
+        public async Task<ApiResponse<AiVectorizationSettingsWrapper>> AiSettingsGetVectorizationWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1055,44 +762,14 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<VectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiVectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetVectorizationSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsGetVectorization", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -1103,394 +780,30 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Get web search settings
+        /// Update user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>WebSearchSettingsWrapper</returns>
-        public WebSearchSettingsWrapper GetWebSearchSettings()
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>AiAiUserSettingsWrapper</returns>
+        public AiAiUserSettingsWrapper AiSettingsSetUser(Dictionary<string, Object> requestBody)
         {
-            var localVarResponse = GetWebSearchSettingsWithHttpInfo();
+            var localVarResponse = AiSettingsSetUserWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get web search settings
+        /// Update user AI settings
         /// </summary>
-        /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
-        public ApiResponse<WebSearchSettingsWrapper> GetWebSearchSettingsWithHttpInfo()
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>ApiResponse of AiAiUserSettingsWrapper</returns>
+        public ApiResponse<AiAiUserSettingsWrapper> AiSettingsSetUserWithHttpInfo(Dictionary<string, Object> requestBody)
         {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = Client.Get<WebSearchSettingsWrapper>("/api/2.0/ai/config/web-search", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetWebSearchSettings", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get web search settings
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>Task of WebSearchSettingsWrapper</returns>
-        public async Task<WebSearchSettingsWrapper> GetWebSearchSettingsAsync(CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await GetWebSearchSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get web search settings
-        /// </summary>
-        /// <remarks>
-        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (WebSearchSettingsWrapper)</returns>
-        public async Task<ApiResponse<WebSearchSettingsWrapper>> GetWebSearchSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.GetAsync<WebSearchSettingsWrapper>("/api/2.0/ai/config/web-search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetWebSearchSettings", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>AiUserSettingsWrapper</returns>
-        public AiUserSettingsWrapper SetAiUserSettings(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default)
-        {
-            var localVarResponse = SetAiUserSettingsWithHttpInfo(setAiUserSettingsRequestDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>ApiResponse of AiUserSettingsWrapper</returns>
-        public ApiResponse<AiUserSettingsWrapper> SetAiUserSettingsWithHttpInfo(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [ "application/json"];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (setAiUserSettingsRequestDto != null) localVarRequestOptions.Data = setAiUserSettingsRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = Client.Put<AiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("SetAiUserSettings", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>Task of AiUserSettingsWrapper</returns>
-        public async Task<AiUserSettingsWrapper> SetAiUserSettingsAsync(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await SetAiUserSettingsWithHttpInfoAsync(setAiUserSettingsRequestDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update per-user AI settings
-        /// </summary>
-        /// <remarks>
-        /// Updates the current user's AI recommended model banner visibility preferences.  Each user's settings are stored independently.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setAiUserSettingsRequestDto">Request to update per-user AI recommended model visibility settings. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-ai-user-settings/">REST API Reference for SetAiUserSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AiUserSettingsWrapper)</returns>
-        public async Task<ApiResponse<AiUserSettingsWrapper>> SetAiUserSettingsWithHttpInfoAsync(SetAiUserSettingsRequestDto? setAiUserSettingsRequestDto = default, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [ "application/json"];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (setAiUserSettingsRequestDto != null) localVarRequestOptions.Data = setAiUserSettingsRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.PutAsync<AiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("SetAiUserSettings", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update vectorization settings
-        /// </summary>
-        /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>VectorizationSettingsWrapper</returns>
-        public VectorizationSettingsWrapper SetVectorizationSettings(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody)
-        {
-            var localVarResponse = SetVectorizationSettingsWithHttpInfo(setEmbeddingConfigRequestBody);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update vectorization settings
-        /// </summary>
-        /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
-        public ApiResponse<VectorizationSettingsWrapper> SetVectorizationSettingsWithHttpInfo(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody)
-        {
-            // verify the required parameter 'setEmbeddingConfigRequestBody' is set
-            if (setEmbeddingConfigRequestBody == null)
-                throw new ApiException(400, "Missing required parameter 'setEmbeddingConfigRequestBody' when calling SettingsApi->SetVectorizationSettings");
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling SettingsApi->AiSettingsSetUser");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1505,45 +818,15 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (setEmbeddingConfigRequestBody != null) localVarRequestOptions.Data = setEmbeddingConfigRequestBody;
+            if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<VectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<AiAiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("SetVectorizationSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsSetUser", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -1554,38 +837,32 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update vectorization settings
+        /// Update user AI settings
         /// </summary>
-        /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>Task of VectorizationSettingsWrapper</returns>
-        public async Task<VectorizationSettingsWrapper> SetVectorizationSettingsAsync(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody, CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>Task of AiAiUserSettingsWrapper</returns>
+        public async Task<AiAiUserSettingsWrapper> AiSettingsSetUserAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetVectorizationSettingsWithHttpInfoAsync(setEmbeddingConfigRequestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiSettingsSetUserWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update vectorization settings
+        /// Update user AI settings
         /// </summary>
-        /// <remarks>
-        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (VectorizationSettingsWrapper)</returns>
-        public async Task<ApiResponse<VectorizationSettingsWrapper>> SetVectorizationSettingsWithHttpInfoAsync(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody, CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiUserSettingsWrapper)</returns>
+        public async Task<ApiResponse<AiAiUserSettingsWrapper>> AiSettingsSetUserWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'setEmbeddingConfigRequestBody' is set
-            if (setEmbeddingConfigRequestBody == null)
-                throw new ApiException(400, "Missing required parameter 'setEmbeddingConfigRequestBody' when calling SettingsApi->SetVectorizationSettings");
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling SettingsApi->AiSettingsSetUser");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1601,46 +878,16 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (setEmbeddingConfigRequestBody != null) localVarRequestOptions.Data = setEmbeddingConfigRequestBody;
+            if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<VectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<AiAiUserSettingsWrapper>("/api/2.0/ai/config/user", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("SetVectorizationSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsSetUser", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -1651,36 +898,30 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update web search settings
+        /// Update vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>WebSearchSettingsWrapper</returns>
-        public WebSearchSettingsWrapper SetWebSearchSettings(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody)
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>AiVectorizationSettingsWrapper</returns>
+        public AiVectorizationSettingsWrapper AiSettingsSetVectorization(Dictionary<string, Object> requestBody)
         {
-            var localVarResponse = SetWebSearchSettingsWithHttpInfo(setWebSearchSettingsRequestBody);
+            var localVarResponse = AiSettingsSetVectorizationWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update web search settings
+        /// Update vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
-        public ApiResponse<WebSearchSettingsWrapper> SetWebSearchSettingsWithHttpInfo(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody)
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>ApiResponse of AiVectorizationSettingsWrapper</returns>
+        public ApiResponse<AiVectorizationSettingsWrapper> AiSettingsSetVectorizationWithHttpInfo(Dictionary<string, Object> requestBody)
         {
-            // verify the required parameter 'setWebSearchSettingsRequestBody' is set
-            if (setWebSearchSettingsRequestBody == null)
-                throw new ApiException(400, "Missing required parameter 'setWebSearchSettingsRequestBody' when calling SettingsApi->SetWebSearchSettings");
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling SettingsApi->AiSettingsSetVectorization");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1695,45 +936,15 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (setWebSearchSettingsRequestBody != null) localVarRequestOptions.Data = setWebSearchSettingsRequestBody;
+            if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<WebSearchSettingsWrapper>("/api/2.0/ai/config/web-search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<AiVectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("SetWebSearchSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsSetVectorization", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -1744,38 +955,32 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Update web search settings
+        /// Update vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>Task of WebSearchSettingsWrapper</returns>
-        public async Task<WebSearchSettingsWrapper> SetWebSearchSettingsAsync(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody, CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>Task of AiVectorizationSettingsWrapper</returns>
+        public async Task<AiVectorizationSettingsWrapper> AiSettingsSetVectorizationAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetWebSearchSettingsWithHttpInfoAsync(setWebSearchSettingsRequestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiSettingsSetVectorizationWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update web search settings
+        /// Update vectorization settings
         /// </summary>
-        /// <remarks>
-        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
+        /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (WebSearchSettingsWrapper)</returns>
-        public async Task<ApiResponse<WebSearchSettingsWrapper>> SetWebSearchSettingsWithHttpInfoAsync(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody, CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
+        /// <returns>Task of ApiResponse (AiVectorizationSettingsWrapper)</returns>
+        public async Task<ApiResponse<AiVectorizationSettingsWrapper>> AiSettingsSetVectorizationWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'setWebSearchSettingsRequestBody' is set
-            if (setWebSearchSettingsRequestBody == null)
-                throw new ApiException(400, "Missing required parameter 'setWebSearchSettingsRequestBody' when calling SettingsApi->SetWebSearchSettings");
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling SettingsApi->AiSettingsSetVectorization");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1791,46 +996,16 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (setWebSearchSettingsRequestBody != null) localVarRequestOptions.Data = setWebSearchSettingsRequestBody;
+            if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<WebSearchSettingsWrapper>("/api/2.0/ai/config/web-search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<AiVectorizationSettingsWrapper>("/api/2.0/ai/config/vectorization", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("SetWebSearchSettings", localVarResponse);
+                var exception = ExceptionFactory("AiSettingsSetVectorization", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

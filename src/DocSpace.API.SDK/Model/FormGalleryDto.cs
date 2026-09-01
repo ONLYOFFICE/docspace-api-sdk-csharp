@@ -102,70 +102,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The form gallery path.
         /// </summary>
-        /// <value>The form gallery path.</value>
-        /*
-        <example>/forms/templates</example>
-        */
+        /// <example>/forms/templates</example>
         [DataMember(Name = "path", IsRequired = true, EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
         /// The form gallery domain.
         /// </summary>
-        /// <value>The form gallery domain.</value>
-        /*
-        <example>https://forms.example.com</example>
-        */
+        /// <example>https://forms.example.com</example>
         [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>
         /// The form gallery extension.
         /// </summary>
-        /// <value>The form gallery extension.</value>
-        /*
-        <example>.docxf</example>
-        */
+        /// <example>.docxf</example>
         [DataMember(Name = "ext", IsRequired = true, EmitDefaultValue = true)]
         public string Ext { get; set; }
 
         /// <summary>
         /// The form gallery upload path.
         /// </summary>
-        /// <value>The form gallery upload path.</value>
-        /*
-        <example>/forms/upload</example>
-        */
+        /// <example>/forms/upload</example>
         [DataMember(Name = "uploadPath", IsRequired = true, EmitDefaultValue = true)]
         public string UploadPath { get; set; }
 
         /// <summary>
         /// The form gallery upload domain.
         /// </summary>
-        /// <value>The form gallery upload domain.</value>
-        /*
-        <example>https://upload.forms.example.com</example>
-        */
+        /// <example>https://upload.forms.example.com</example>
         [DataMember(Name = "uploadDomain", IsRequired = true, EmitDefaultValue = true)]
         public string UploadDomain { get; set; }
 
         /// <summary>
         /// The form gallery upload extension.
         /// </summary>
-        /// <value>The form gallery upload extension.</value>
-        /*
-        <example>.docxf</example>
-        */
+        /// <example>.docxf</example>
         [DataMember(Name = "uploadExt", IsRequired = true, EmitDefaultValue = true)]
         public string UploadExt { get; set; }
 
         /// <summary>
         /// The form gallery upload dashboard.
         /// </summary>
-        /// <value>The form gallery upload dashboard.</value>
-        /*
-        <example>/dashboard/forms</example>
-        */
+        /// <example>/dashboard/forms</example>
         [DataMember(Name = "uploadDashboard", IsRequired = true, EmitDefaultValue = true)]
         public string UploadDashboard { get; set; }
 

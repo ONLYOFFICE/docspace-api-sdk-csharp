@@ -67,70 +67,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the sample documents are displayed or hidden.
         /// </summary>
-        /// <value>Specifies if the sample documents are displayed or hidden.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "startDocsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool StartDocsEnabled { get; set; }
 
         /// <summary>
         /// Specifies if the Help Center link is available or not.
         /// </summary>
-        /// <value>Specifies if the Help Center link is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "helpCenterEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool HelpCenterEnabled { get; set; }
 
         /// <summary>
         /// Specifies if the Feedback &amp; Support link is available or not.
         /// </summary>
-        /// <value>Specifies if the Feedback &amp; Support link is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "feedbackAndSupportEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool FeedbackAndSupportEnabled { get; set; }
 
         /// <summary>
         /// Specifies if the user forum is available or not.
         /// </summary>
-        /// <value>Specifies if the user forum is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "userForumEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool UserForumEnabled { get; set; }
 
         /// <summary>
         /// Specifies if the Video Guides link is available or not.
         /// </summary>
-        /// <value>Specifies if the Video Guides link is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "videoGuidesEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool VideoGuidesEnabled { get; set; }
 
         /// <summary>
         /// Specifies if the License Agreements link is available or not.
         /// </summary>
-        /// <value>Specifies if the License Agreements link is available or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "licenseAgreementsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool LicenseAgreementsEnabled { get; set; }
 
         /// <summary>
         /// Specifies if the additional white label settings are default or not.
         /// </summary>
-        /// <value>Specifies if the additional white label settings are default or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 

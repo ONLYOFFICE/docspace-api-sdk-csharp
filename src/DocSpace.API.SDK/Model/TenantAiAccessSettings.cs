@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.
         /// </summary>
-        /// <value>Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
+        /// <example>1990-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

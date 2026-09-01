@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Stop, 1 - Resume, 2 - Start, 3 - Edit]
     /// </summary>
-    /// <value>[0 - Stop, 1 - Resume, 2 - Start, 3 - Edit]</value>
     public enum FormFillingManageAction
     {
         /// <summary>

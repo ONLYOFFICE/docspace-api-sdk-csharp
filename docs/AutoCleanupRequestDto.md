@@ -6,7 +6,7 @@ The request parameters for updating the trash bin auto-clearing setting.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Set** | **bool** | Specifies whether to enable the auto-clearing or not. | [optional] 
-**Gap** | **DateToAutoCleanUp** |  | [optional] 
+**Gap** | **DateToAutoCleanUp** | The period when the trash bin will be cleared. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

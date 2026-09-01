@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Error** | **string** | The error message occurred during the document building process. | 
 **Percentage** | **int** | The progress percentage of the document building process. | 
 **IsCompleted** | **bool** | Specifies whether the document building process is completed or not. | 
-**Status** | **DistributedTaskStatus** |  | 
-**ResultFileId** | **Object** | The result file ID. | 
+**Status** | **DistributedTaskStatus** | The status of the document building process. | 
+**ResultFileId** | **Object** |  | 
 **ResultFileName** | **string** | The result file name. | 
 **ResultFileUrl** | **string** | The result file URL. | 
 

@@ -62,20 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The verification code provided by the user.
         /// </summary>
-        /// <value>The verification code provided by the user.</value>
-        /*
-        <example>123456</example>
-        */
+        /// <example>123456</example>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
         /// Specifies whether the authentication is session-based.
         /// </summary>
-        /// <value>Specifies whether the authentication is session-based.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "session", EmitDefaultValue = true)]
         public bool Session { get; set; }
 

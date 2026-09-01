@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">The group ID..</param>
         /// <param name="name">Group name.</param>
-        /// <param name="icon">icon.</param>
+        /// <param name="icon">Group icon.</param>
         /// <param name="userId">The user ID..</param>
         /// <param name="rooms">The list of rooms in the group..</param>
         /// <param name="totalRooms">Total number of rooms in the group..</param>
@@ -60,25 +60,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The group ID.
         /// </summary>
-        /// <value>The group ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
         /// Group name
         /// </summary>
-        /// <value>Group name</value>
-        /*
-        <example>My Group</example>
-        */
+        /// <example>My Group</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Icon
+        /// Group icon
         /// </summary>
         [DataMember(Name = "icon", EmitDefaultValue = false)]
         public MultiSizeLogoCover Icon { get; set; }
@@ -86,30 +80,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user ID.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// The list of rooms in the group.
         /// </summary>
-        /// <value>The list of rooms in the group.</value>
-        /*
-        <example>[{"id":1,"title":"Room 1"},{"id":2,"title":"Room 2"}]</example>
-        */
+        /// <example>[{"id":1,"title":"Room 1"},{"id":2,"title":"Room 2"}]</example>
         [DataMember(Name = "rooms", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Rooms { get; set; }
 
         /// <summary>
         /// Total number of rooms in the group.
         /// </summary>
-        /// <value>Total number of rooms in the group.</value>
-        /*
-        <example>2</example>
-        */
+        /// <example>2</example>
         [DataMember(Name = "totalRooms", EmitDefaultValue = false)]
         public int TotalRooms { get; set; }
 

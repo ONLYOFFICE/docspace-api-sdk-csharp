@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Triggers
+        /// The webhook trigger type.
         /// </summary>
         [DataMember(Name = "triggers", EmitDefaultValue = false)]
         public WebhookTrigger? Triggers { get; set; }
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="secretKey">The webhook secret key used to sign the webhook payloads for the security verification..</param>
         /// <param name="enabled">Specifies whether the webhook configuration is active or not..</param>
         /// <param name="ssl">Specifies whether the SSL certificate verification is required or not..</param>
-        /// <param name="triggers">triggers.</param>
+        /// <param name="triggers">The webhook trigger type..</param>
         /// <param name="targetId">Target ID.</param>
         public CreateWebhooksConfigRequestsDto(string name = default, string uri = default, string secretKey = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default)
         {
@@ -83,60 +83,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The human-readable name of the webhook configuration.
         /// </summary>
-        /// <value>The human-readable name of the webhook configuration.</value>
-        /*
-        <example>Production Webhook</example>
-        */
+        /// <example>Production Webhook</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The destination URL where the webhook events will be sent.
         /// </summary>
-        /// <value>The destination URL where the webhook events will be sent.</value>
-        /*
-        <example>https://example.com/webhook</example>
-        */
+        /// <example>https://example.com/webhook</example>
         [DataMember(Name = "uri", IsRequired = true, EmitDefaultValue = true)]
         public string Uri { get; set; }
 
         /// <summary>
         /// The webhook secret key used to sign the webhook payloads for the security verification.
         /// </summary>
-        /// <value>The webhook secret key used to sign the webhook payloads for the security verification.</value>
-        /*
-        <example>my-secret-key-123</example>
-        */
+        /// <example>my-secret-key-123</example>
         [DataMember(Name = "secretKey", EmitDefaultValue = true)]
         public string SecretKey { get; set; }
 
         /// <summary>
         /// Specifies whether the webhook configuration is active or not.
         /// </summary>
-        /// <value>Specifies whether the webhook configuration is active or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Specifies whether the SSL certificate verification is required or not.
         /// </summary>
-        /// <value>Specifies whether the SSL certificate verification is required or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "ssl", EmitDefaultValue = true)]
         public bool Ssl { get; set; }
 
         /// <summary>
         /// Target ID
         /// </summary>
-        /// <value>Target ID</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000001</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "targetId", EmitDefaultValue = true)]
         public string TargetId { get; set; }
 

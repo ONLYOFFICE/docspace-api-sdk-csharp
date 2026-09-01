@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether to share the file with other users for editing or not.
         /// </summary>
-        /// <value>Specifies whether to share the file with other users for editing or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "editingAlone", EmitDefaultValue = true)]
         public bool EditingAlone { get; set; }
 

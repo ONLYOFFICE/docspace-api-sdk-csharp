@@ -82,70 +82,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies if the LDAP settings are enabled or not.
         /// </summary>
-        /// <value>Specifies if the LDAP settings are enabled or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "ldapEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool LdapEnabled { get; set; }
 
         /// <summary>
         /// The LDAP domain.
         /// </summary>
-        /// <value>The LDAP domain.</value>
-        /*
-        <example>example.com</example>
-        */
+        /// <example>example.com</example>
         [DataMember(Name = "ldapDomain", EmitDefaultValue = true)]
         public string LdapDomain { get; set; }
 
         /// <summary>
         /// The list of providers.
         /// </summary>
-        /// <value>The list of providers.</value>
-        /*
-        <example>["google","facebook","microsoft"]</example>
-        */
+        /// <example>["google","facebook","microsoft"]</example>
         [DataMember(Name = "providers", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Providers { get; set; }
 
         /// <summary>
         /// The SP login label.
         /// </summary>
-        /// <value>The SP login label.</value>
-        /*
-        <example>Enterprise SSO</example>
-        */
+        /// <example>Enterprise SSO</example>
         [DataMember(Name = "ssoLabel", IsRequired = true, EmitDefaultValue = true)]
         public string SsoLabel { get; set; }
 
         /// <summary>
         /// Specifies if OAuth is enabled or not.
         /// </summary>
-        /// <value>Specifies if OAuth is enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "oauthEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool OauthEnabled { get; set; }
 
         /// <summary>
         /// The SSO URL. If this parameter is empty, then the SSO settings are disabled.
         /// </summary>
-        /// <value>The SSO URL. If this parameter is empty, then the SSO settings are disabled.</value>
-        /*
-        <example>https://sso.example.com/login</example>
-        */
+        /// <example>https://sso.example.com/login</example>
         [DataMember(Name = "ssoUrl", IsRequired = true, EmitDefaultValue = true)]
         public string SsoUrl { get; set; }
 
         /// <summary>
         /// Specifies if an identity server is enabled or not.
         /// </summary>
-        /// <value>Specifies if an identity server is enabled or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "identityServerEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool IdentityServerEnabled { get; set; }
 

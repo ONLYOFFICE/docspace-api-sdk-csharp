@@ -50,10 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether AI functionality is enabled for the tenant.  Set to &#x60;true&#x60; to enable all AI features or &#x60;false&#x60; to disable them tenant-wide.
         /// </summary>
-        /// <value>Specifies whether AI functionality is enabled for the tenant.  Set to &#x60;true&#x60; to enable all AI features or &#x60;false&#x60; to disable them tenant-wide.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 

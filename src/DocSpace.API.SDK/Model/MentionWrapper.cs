@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MentionWrapper" /> class.
         /// </summary>
-        /// <param name="user">user.</param>
+        /// <param name="user">The user information..</param>
         public MentionWrapper(UserInfo user = default)
         {
             this.User = user;
         }
 
         /// <summary>
-        /// Gets or Sets User
+        /// The user information.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public UserInfo User { get; set; }
@@ -56,10 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user email address.
         /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>user@example.com</example>
-        */
+        /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; private set; }
 
@@ -74,10 +71,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user unique identification.
         /// </summary>
-        /// <value>The user unique identification.</value>
-        /*
-        <example>user_0001</example>
-        */
+        /// <example>user_0001</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
@@ -92,10 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The path to the user&#39;s avatar.
         /// </summary>
-        /// <value>The path to the user&#39;s avatar.</value>
-        /*
-        <example>https://portal.example.com/avatar/user_0001.png</example>
-        */
+        /// <example>https://portal.example.com/avatar/user_0001.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; private set; }
 
@@ -110,10 +101,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Specifies whether the user has the access to the file where they are mentioned.
         /// </summary>
-        /// <value>Specifies whether the user has the access to the file where they are mentioned.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "hasAccess", EmitDefaultValue = true)]
         public bool HasAccess { get; private set; }
 
@@ -128,10 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user full name.
         /// </summary>
-        /// <value>The user full name.</value>
-        /*
-        <example>John Doe</example>
-        */
+        /// <example>John Doe</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; private set; }
 

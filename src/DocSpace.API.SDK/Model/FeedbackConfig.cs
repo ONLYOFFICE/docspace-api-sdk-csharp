@@ -50,20 +50,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The absolute URL to the website address which will be opened when clicking the Feedback &amp; Support menu button.
         /// </summary>
-        /// <value>The absolute URL to the website address which will be opened when clicking the Feedback &amp; Support menu button.</value>
-        /*
-        <example>https://portal.example.com/support</example>
-        */
+        /// <example>https://portal.example.com/support</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// Shows or hides the Feedback &amp; Support menu button.
         /// </summary>
-        /// <value>Shows or hides the Feedback &amp; Support menu button.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "visible", EmitDefaultValue = true)]
         public bool Visible { get; private set; }
 

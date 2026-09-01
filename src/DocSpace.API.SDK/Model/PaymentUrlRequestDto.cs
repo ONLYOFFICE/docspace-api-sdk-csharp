@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="backUrl">The URL where the user will be redirected after payment cancellation. (required).</param>
         /// <param name="successUrl">The URL where the user will be redirected after successful payment. (required).</param>
-        /// <param name="quantity">The payment quantity..</param>
+        /// <param name="quantity">The payment quantity. (required).</param>
         public PaymentUrlRequestDto(string backUrl = default, string successUrl = default, Dictionary<string, int> quantity = default)
         {
             // to ensure "backUrl" is required (not null)
@@ -63,34 +63,33 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("successUrl is a required property for PaymentUrlRequestDto and cannot be null");
             }
             this.SuccessUrl = successUrl;
+            // to ensure "quantity" is required (not null)
+            if (quantity == null)
+            {
+                throw new ArgumentNullException("quantity is a required property for PaymentUrlRequestDto and cannot be null");
+            }
             this.Quantity = quantity;
         }
 
         /// <summary>
         /// The URL where the user will be redirected after payment cancellation.
         /// </summary>
-        /// <value>The URL where the user will be redirected after payment cancellation.</value>
-        /*
-        <example>https://example.com/payment/back</example>
-        */
+        /// <example>https://example.com/payment/back</example>
         [DataMember(Name = "backUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BackUrl { get; set; }
 
         /// <summary>
         /// The URL where the user will be redirected after successful payment.
         /// </summary>
-        /// <value>The URL where the user will be redirected after successful payment.</value>
-        /*
-        <example>https://example.com/payment/success</example>
-        */
+        /// <example>https://example.com/payment/success</example>
         [DataMember(Name = "successUrl", IsRequired = true, EmitDefaultValue = true)]
         public string SuccessUrl { get; set; }
 
         /// <summary>
         /// The payment quantity.
         /// </summary>
-        /// <value>The payment quantity.</value>
-        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        /// <example>{"admin":1}</example>
+        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, int> Quantity { get; set; }
 
         /// <summary>

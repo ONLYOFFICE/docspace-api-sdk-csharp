@@ -5,7 +5,7 @@ The company white label settings wrapper.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Settings** | [**CompanyWhiteLabelSettings**](CompanyWhiteLabelSettings.md) |  | [optional] 
+**Settings** | [**CompanyWhiteLabelSettings**](CompanyWhiteLabelSettings.md) | The company white label settings. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

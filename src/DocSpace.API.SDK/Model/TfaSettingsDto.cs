@@ -77,70 +77,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The ID of the TFA configuration.
         /// </summary>
-        /// <value>The ID of the TFA configuration.</value>
-        /*
-        <example>tfa-default</example>
-        */
+        /// <example>tfa-default</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// The display name or description of the TFA configuration.
         /// </summary>
-        /// <value>The display name or description of the TFA configuration.</value>
-        /*
-        <example>Default TFA policy</example>
-        */
+        /// <example>Default TFA policy</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Indicates whether the TFA configuration is currently active.
         /// </summary>
-        /// <value>Indicates whether the TFA configuration is currently active.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Indicates whether the TFA configuration can be used.
         /// </summary>
-        /// <value>Indicates whether the TFA configuration can be used.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "available", IsRequired = true, EmitDefaultValue = true)]
         public bool Available { get; set; }
 
         /// <summary>
         /// The list of IP addresses that are exempt from TFA requirements.
         /// </summary>
-        /// <value>The list of IP addresses that are exempt from TFA requirements.</value>
-        /*
-        <example>["item1","item2"]</example>
-        */
+        /// <example>["item1","item2"]</example>
         [DataMember(Name = "trustedIps", EmitDefaultValue = true)]
         public List<string> TrustedIps { get; set; }
 
         /// <summary>
         /// The list of user IDs that are required to use TFA.
         /// </summary>
-        /// <value>The list of user IDs that are required to use TFA.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryUsers", EmitDefaultValue = true)]
         public List<Guid> MandatoryUsers { get; set; }
 
         /// <summary>
         /// The list of group IDs whose members are required to use TFA.
         /// </summary>
-        /// <value>The list of group IDs whose members are required to use TFA.</value>
-        /*
-        <example>["00000000-0000-0000-0000-000000000000"]</example>
-        */
+        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryGroups", EmitDefaultValue = true)]
         public List<Guid> MandatoryGroups { get; set; }
 
