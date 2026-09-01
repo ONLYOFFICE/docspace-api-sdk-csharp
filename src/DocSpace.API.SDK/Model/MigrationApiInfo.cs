@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// MigrationApiInfo
+    /// The migration API information.
     /// </summary>
     [DataContract(Name = "MigrationApiInfo")]
     public partial class MigrationApiInfo : IValidatableObject
@@ -41,23 +41,23 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MigrationApiInfo" /> class.
         /// </summary>
-        /// <param name="migratorName">migratorName.</param>
-        /// <param name="operation">operation.</param>
-        /// <param name="failedArchives">failedArchives.</param>
-        /// <param name="users">users.</param>
-        /// <param name="withoutEmailUsers">withoutEmailUsers.</param>
-        /// <param name="existUsers">existUsers.</param>
-        /// <param name="groups">groups.</param>
-        /// <param name="importPersonalFiles">importPersonalFiles.</param>
-        /// <param name="importSharedFiles">importSharedFiles.</param>
-        /// <param name="importSharedFolders">importSharedFolders.</param>
-        /// <param name="importCommonFiles">importCommonFiles.</param>
-        /// <param name="importProjectFiles">importProjectFiles.</param>
-        /// <param name="importGroups">importGroups.</param>
-        /// <param name="successedUsers">successedUsers.</param>
-        /// <param name="failedUsers">failedUsers.</param>
-        /// <param name="files">files.</param>
-        /// <param name="errors">errors.</param>
+        /// <param name="migratorName">The migrator name..</param>
+        /// <param name="operation">The migration operation..</param>
+        /// <param name="failedArchives">The list of failed archives..</param>
+        /// <param name="users">The list of migrating users..</param>
+        /// <param name="withoutEmailUsers">The list of migrating users without email..</param>
+        /// <param name="existUsers">The list of existing migrating users..</param>
+        /// <param name="groups">The list of migrating groups..</param>
+        /// <param name="importPersonalFiles">Specifies whether to import personal files or not..</param>
+        /// <param name="importSharedFiles">Specifies whether to import shared files or not..</param>
+        /// <param name="importSharedFolders">Specifies whether to import shared folders or not..</param>
+        /// <param name="importCommonFiles">Specifies whether to import common files or not..</param>
+        /// <param name="importProjectFiles">Specifies whether to import project files or not..</param>
+        /// <param name="importGroups">Specifies whether to import groups or not..</param>
+        /// <param name="successedUsers">The number of successfully migrated users..</param>
+        /// <param name="failedUsers">The number of unsuccessfully migrated users..</param>
+        /// <param name="files">The list of migrated files..</param>
+        /// <param name="errors">The list of migration errors..</param>
         public MigrationApiInfo(string migratorName = default, string operation = default, List<string> failedArchives = default, List<MigratingApiUser> users = default, List<MigratingApiUser> withoutEmailUsers = default, List<MigratingApiUser> existUsers = default, List<MigratingApiGroup> groups = default, bool importPersonalFiles = default, bool importSharedFiles = default, bool importSharedFolders = default, bool importCommonFiles = default, bool importProjectFiles = default, bool importGroups = default, int successedUsers = default, int failedUsers = default, List<string> files = default, List<string> errors = default)
         {
             this.MigratorName = migratorName;
@@ -80,104 +80,117 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets MigratorName
+        /// The migrator name.
         /// </summary>
+        /// <example>Nextcloud</example>
         [DataMember(Name = "migratorName", EmitDefaultValue = true)]
         public string MigratorName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Operation
+        /// The migration operation.
         /// </summary>
+        /// <example>parse</example>
         [DataMember(Name = "operation", EmitDefaultValue = true)]
         public string Operation { get; set; }
 
         /// <summary>
-        /// Gets or Sets FailedArchives
+        /// The list of failed archives.
         /// </summary>
+        /// <example>["archive1.zip","archive2.zip"]</example>
         [DataMember(Name = "failedArchives", EmitDefaultValue = true)]
         public List<string> FailedArchives { get; set; }
 
         /// <summary>
-        /// Gets or Sets Users
+        /// The list of migrating users.
         /// </summary>
         [DataMember(Name = "users", EmitDefaultValue = true)]
         public List<MigratingApiUser> Users { get; set; }
 
         /// <summary>
-        /// Gets or Sets WithoutEmailUsers
+        /// The list of migrating users without email.
         /// </summary>
         [DataMember(Name = "withoutEmailUsers", EmitDefaultValue = true)]
         public List<MigratingApiUser> WithoutEmailUsers { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExistUsers
+        /// The list of existing migrating users.
         /// </summary>
         [DataMember(Name = "existUsers", EmitDefaultValue = true)]
         public List<MigratingApiUser> ExistUsers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Groups
+        /// The list of migrating groups.
         /// </summary>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<MigratingApiGroup> Groups { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImportPersonalFiles
+        /// Specifies whether to import personal files or not.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "importPersonalFiles", EmitDefaultValue = true)]
         public bool ImportPersonalFiles { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImportSharedFiles
+        /// Specifies whether to import shared files or not.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "importSharedFiles", EmitDefaultValue = true)]
         public bool ImportSharedFiles { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImportSharedFolders
+        /// Specifies whether to import shared folders or not.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "importSharedFolders", EmitDefaultValue = true)]
         public bool ImportSharedFolders { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImportCommonFiles
+        /// Specifies whether to import common files or not.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "importCommonFiles", EmitDefaultValue = true)]
         public bool ImportCommonFiles { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImportProjectFiles
+        /// Specifies whether to import project files or not.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "importProjectFiles", EmitDefaultValue = true)]
         public bool ImportProjectFiles { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImportGroups
+        /// Specifies whether to import groups or not.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "importGroups", EmitDefaultValue = true)]
         public bool ImportGroups { get; set; }
 
         /// <summary>
-        /// Gets or Sets SuccessedUsers
+        /// The number of successfully migrated users.
         /// </summary>
+        /// <example>50</example>
         [DataMember(Name = "successedUsers", EmitDefaultValue = false)]
         public int SuccessedUsers { get; set; }
 
         /// <summary>
-        /// Gets or Sets FailedUsers
+        /// The number of unsuccessfully migrated users.
         /// </summary>
+        /// <example>2</example>
         [DataMember(Name = "failedUsers", EmitDefaultValue = false)]
         public int FailedUsers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Files
+        /// The list of migrated files.
         /// </summary>
+        /// <example>["document.docx","spreadsheet.xlsx"]</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<string> Files { get; set; }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// The list of migration errors.
         /// </summary>
+        /// <example>["User not found","File access denied"]</example>
         [DataMember(Name = "errors", EmitDefaultValue = true)]
         public List<string> Errors { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Per-entry error reported by  {@link  PromptsEngine.importBundle } .
+    /// Per-entry error reported by &#x60;PromptsEngine.importBundle&#x60;.
     /// </summary>
     [DataContract(Name = "AiImportError")]
     public partial class AiImportError : IValidatableObject
@@ -71,8 +71,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiImportError" /> class.
         /// </summary>
         /// <param name="kind">&#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id. (required).</param>
-        /// <param name="ref">@ref (required).</param>
-        /// <param name="error">error (required).</param>
+        /// <param name="ref">The offending entry - its name or its id. (required).</param>
+        /// <param name="error">Why the entry was rejected. (required).</param>
         public AiImportError(KindEnum kind = default, string @ref = default, AiTErrorData error = default)
         {
             this.Kind = kind;
@@ -91,13 +91,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Ref
+        /// The offending entry - its name or its id.
         /// </summary>
         [DataMember(Name = "ref", IsRequired = true, EmitDefaultValue = true)]
         public string Ref { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the entry was rejected.
         /// </summary>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public AiTErrorData Error { get; set; }

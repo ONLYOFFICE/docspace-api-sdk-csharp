@@ -708,7 +708,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -721,7 +721,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -1797,7 +1797,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
@@ -1811,7 +1811,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
@@ -4135,7 +4135,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -4225,7 +4225,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -7610,7 +7610,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -7627,7 +7627,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -7709,7 +7709,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
@@ -7727,7 +7727,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName2"></param>
+        /// <param name="tagName2">The tag being checked. Send the same value as the `tagName` query parameter, which is the one the handler reads.</param>
         /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
@@ -8207,7 +8207,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -8304,7 +8304,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -8395,7 +8395,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -8485,7 +8485,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -9329,7 +9329,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -9416,7 +9416,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

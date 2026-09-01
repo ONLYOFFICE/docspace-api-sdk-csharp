@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiErrorResponse" /> class.
         /// </summary>
-        /// <param name="error">error (required).</param>
+        /// <param name="error">The error message, ready to be shown to the caller. (required).</param>
         public AiErrorResponse(string error = default)
         {
             // to ensure "error" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// The error message, ready to be shown to the caller.
         /// </summary>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiAiToolCallData
+    /// Identifies a pending tool call to resume — mirrors the library &#x60;ToolCallData&#x60; (its serializable fields).
     /// </summary>
     [DataContract(Name = "AiAiToolCallData")]
     public partial class AiAiToolCallData : IValidatableObject
@@ -50,9 +50,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="messageId">Storage id of the assistant message holding the tool call. (required).</param>
         /// <param name="idx">Index of the tool-call content part inside &#x60;message.content&#x60;. (required).</param>
         /// <param name="message">Snapshot of the assistant message at the time the tool call surfaced. (required).</param>
-        /// <param name="actionArgs">actionArgs.</param>
-        /// <param name="entityId">entityId.</param>
-        /// <param name="profileId">profileId.</param>
+        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
+        /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
+        /// <param name="profileId">Session-level profile override for this request only..</param>
         public AiAiToolCallData(string threadId = default, string messageId = default, decimal idx = default, AiThreadMessageLike message = default, AiAiActionArgs actionArgs = default, string entityId = default, string profileId = default)
         {
             // to ensure "threadId" is required (not null)
@@ -104,19 +104,19 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLike Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActionArgs
+        /// Per-request engine options: extra tools, reasoning, prompt override.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiAiActionArgs ActionArgs { get; set; }
 
         /// <summary>
-        /// Gets or Sets EntityId
+        /// Optional entity (room) scope for profile resolution.
         /// </summary>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProfileId
+        /// Session-level profile override for this request only.
         /// </summary>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }

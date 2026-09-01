@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// WizardSettingsWrapper
+    /// The successful API response containing the WizardSettings object.
     /// </summary>
     [DataContract(Name = "WizardSettingsWrapper")]
     public partial class WizardSettingsWrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WizardSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">response.</param>
+        /// <param name="response">The WizardSettings object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Response
+        /// The WizardSettings object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public WizardSettings Response { get; set; }

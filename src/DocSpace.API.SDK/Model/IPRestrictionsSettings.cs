@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// IPRestrictionsSettings
+    /// The IP restriction settings.
     /// </summary>
     [DataContract(Name = "IPRestrictionsSettings")]
     public partial class IPRestrictionsSettings : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IPRestrictionsSettings" /> class.
         /// </summary>
-        /// <param name="enable">enable.</param>
-        /// <param name="lastModified">lastModified.</param>
+        /// <param name="enable">Specifies if the IP restrictions are enabled or not..</param>
+        /// <param name="lastModified">The date and time when the settings were last modified..</param>
         public IPRestrictionsSettings(bool enable = default, DateTime lastModified = default)
         {
             this.Enable = enable;
@@ -50,14 +50,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Enable
+        /// Specifies if the IP restrictions are enabled or not.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "enable", EmitDefaultValue = true)]
         public bool Enable { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The date and time when the settings were last modified.
         /// </summary>
+        /// <example>2024-01-01T00:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// TelegramStatusWrapper
+    /// The successful API response containing the TelegramStatusDto object.
     /// </summary>
     [DataContract(Name = "TelegramStatusWrapper")]
     public partial class TelegramStatusWrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TelegramStatusWrapper" /> class.
         /// </summary>
-        /// <param name="response">response.</param>
+        /// <param name="response">The TelegramStatusDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Response
+        /// The TelegramStatusDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public TelegramStatusDto Response { get; set; }

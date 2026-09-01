@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiThreadMessageLike
+    /// A single chat message as it travels on the wire.
     /// </summary>
     [DataContract(Name = "AiThreadMessageLike")]
     public partial class AiThreadMessageLike : IValidatableObject

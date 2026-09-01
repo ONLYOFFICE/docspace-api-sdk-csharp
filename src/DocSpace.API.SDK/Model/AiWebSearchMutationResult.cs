@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of  {@link  WebSearchEngine.configure }  — either the persisted config or a field-scoped error suitable for the settings form.
+    /// Outcome of &#x60;WebSearchEngine.configure&#x60; — either the persisted config or a field-scoped error suitable for the settings form.
     /// </summary>
     [DataContract(Name = "AiWebSearchMutationResult")]
     public partial class AiWebSearchMutationResult : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiWebSearchMutationResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="config">config.</param>
-        /// <param name="error">error.</param>
+        /// <param name="success">True when the configuration was persisted. (required).</param>
+        /// <param name="config">The persisted web-search configuration. Present on success..</param>
+        /// <param name="error">Why the configuration was rejected. Present on failure..</param>
         public AiWebSearchMutationResult(bool success = default, AiWebSearchConfig config = default, AiTErrorData error = default)
         {
             this.Success = success;
@@ -57,19 +57,19 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when the configuration was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Config
+        /// The persisted web-search configuration. Present on success.
         /// </summary>
         [DataMember(Name = "config", EmitDefaultValue = false)]
         public AiWebSearchConfig Config { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the configuration was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public AiTErrorData Error { get; set; }

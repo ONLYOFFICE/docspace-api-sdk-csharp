@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The event action ID.
+        /// The login-related action to filter events by.
         /// </summary>
         [DataMember(Name = "actionId", EmitDefaultValue = false)]
         public MessageAction? ActionId { get; set; }
@@ -48,19 +48,19 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="LoginEventDto" /> class.
         /// </summary>
         /// <param name="id">The login event ID..</param>
-        /// <param name="date">The API date and time parameters..</param>
+        /// <param name="date">The login event date..</param>
         /// <param name="user">The user name of the login event..</param>
         /// <param name="userId">The user ID of the login event..</param>
         /// <param name="login">The user login of the login event..</param>
         /// <param name="action">The login event action..</param>
-        /// <param name="actionId">The event action ID..</param>
+        /// <param name="actionId">The login-related action to filter events by..</param>
         /// <param name="ip">The login event IP..</param>
         /// <param name="country">The login event country..</param>
         /// <param name="city">The login event city..</param>
         /// <param name="browser">The login event browser..</param>
         /// <param name="platform">The login event platform..</param>
         /// <param name="page">The login event page..</param>
-        public LoginEventDto(int id = default, ApiDateTime date = default, string user = default, Guid userId = default, string login = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default)
+        public LoginEventDto(int id = default, DateTime? date = default, string user = default, Guid userId = default, string login = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default)
         {
             this.Id = id;
             this.Date = date;
@@ -85,10 +85,11 @@ namespace DocSpace.API.SDK.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The login event date.
         /// </summary>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
-        public ApiDateTime Date { get; set; }
+        /// <example>2024-01-15T10:30:00Z</example>
+        [DataMember(Name = "date", EmitDefaultValue = true)]
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// The user name of the login event.

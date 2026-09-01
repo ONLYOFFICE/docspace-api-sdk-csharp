@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiVectorizationSettingsWrapper
+    /// The successful API response containing the VectorizationSettingsDto object.
     /// </summary>
     [DataContract(Name = "AiVectorizationSettingsWrapper")]
     public partial class AiVectorizationSettingsWrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiVectorizationSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">response.</param>
+        /// <param name="response">The VectorizationSettingsDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Response
+        /// The VectorizationSettingsDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public AiVectorizationSettingsDto Response { get; set; }

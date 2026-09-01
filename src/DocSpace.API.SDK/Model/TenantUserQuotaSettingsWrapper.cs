@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// TenantUserQuotaSettingsWrapper
+    /// The successful API response containing the TenantUserQuotaSettings object.
     /// </summary>
     [DataContract(Name = "TenantUserQuotaSettingsWrapper")]
     public partial class TenantUserQuotaSettingsWrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantUserQuotaSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">response.</param>
+        /// <param name="response">The TenantUserQuotaSettings object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Response
+        /// The TenantUserQuotaSettings object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public TenantUserQuotaSettings Response { get; set; }

@@ -1,11 +1,12 @@
 # DocSpace.API.SDK.Model.ItemKeyValuePairStringBoolean
+A key-value pair of a list item.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** |  | [optional] 
-**Value** | **bool** |  | [optional] 
+**Key** | **string** | The key that identifies the item within the list. | [optional] 
+**Value** | **bool** | The value associated with the key. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

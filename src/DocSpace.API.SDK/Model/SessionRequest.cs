@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fileName">The file name. (required).</param>
         /// <param name="fileSize">The file size..</param>
         /// <param name="relativePath">The relative path to the file..</param>
-        /// <param name="createOn">The API date and time parameters..</param>
+        /// <param name="createOn">The date and time when the file was created..</param>
         /// <param name="encrypted">Specifies whether the file is encrypted or not..</param>
         /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists..</param>
-        public SessionRequest(string fileName = default, long fileSize = default, string relativePath = default, ApiDateTime createOn = default, bool encrypted = default, bool createNewIfExist = default)
+        public SessionRequest(string fileName = default, long fileSize = default, string relativePath = default, DateTime? createOn = default, bool encrypted = default, bool createNewIfExist = default)
         {
             // to ensure "fileName" is required (not null)
             if (fileName == null)
@@ -89,10 +89,11 @@ namespace DocSpace.API.SDK.Model
         public string RelativePath { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The date and time when the file was created.
         /// </summary>
-        [DataMember(Name = "createOn", EmitDefaultValue = false)]
-        public ApiDateTime CreateOn { get; set; }
+        /// <example>2025-01-01T00:00:00Z</example>
+        [DataMember(Name = "createOn", EmitDefaultValue = true)]
+        public DateTime? CreateOn { get; set; }
 
         /// <summary>
         /// Specifies whether the file is encrypted or not.

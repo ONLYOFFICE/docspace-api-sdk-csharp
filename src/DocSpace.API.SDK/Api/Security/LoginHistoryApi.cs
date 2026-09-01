@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>LoginEventArrayWrapper</returns>
-        LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default);
+        LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default);
 
         /// <summary>
         /// Get filtered login events
@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of LoginEventArrayWrapper</returns>
-        ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default);
+        ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default);
         /// <summary>
         /// Get the login history report generation status
         /// </summary>
@@ -222,7 +222,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>Task of LoginEventArrayWrapper</returns>
-        Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get filtered login events
@@ -240,7 +240,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (LoginEventArrayWrapper)</returns>
-        Task<ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the login history report generation status
         /// </summary>
@@ -894,7 +894,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>LoginEventArrayWrapper</returns>
-        public LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
+        public LoginEventArrayWrapper GetLoginEventsByFilter(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default)
         {
             var localVarResponse = GetLoginEventsByFilterWithHttpInfo(userId, action, from, to, count, startIndex);
             return localVarResponse.Data;
@@ -915,7 +915,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The starting index for fetching a subset of login events from the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of LoginEventArrayWrapper</returns>
-        public ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
+        public ApiResponse<LoginEventArrayWrapper> GetLoginEventsByFilterWithHttpInfo(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -940,19 +940,11 @@ namespace DocSpace.API.SDK.Api.Security
             }
             if (from != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", from.UtcTime));
-                if (from.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", from.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
             }
             if (to != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", to.UtcTime));
-                if (to.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", to.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
             if (count != null)
             {
@@ -1029,7 +1021,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>Task of LoginEventArrayWrapper</returns>
-        public async Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<LoginEventArrayWrapper> GetLoginEventsByFilterAsync(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetLoginEventsByFilterWithHttpInfoAsync(userId, action, from, to, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1051,7 +1043,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/">REST API Reference for GetLoginEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (LoginEventArrayWrapper)</returns>
-        public async Task<ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default, MessageAction? action = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<LoginEventArrayWrapper>> GetLoginEventsByFilterWithHttpInfoAsync(Guid? userId = default, MessageAction? action = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1345,7 +1337,7 @@ namespace DocSpace.API.SDK.Api.Security
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1432,7 +1424,7 @@ namespace DocSpace.API.SDK.Api.Security
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

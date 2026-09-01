@@ -85,8 +85,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>FileShareArrayWrapper</returns>
-        FileShareArrayWrapper ChangeDefaultAccessRights(List<int>? requestBody = default);
+        /// <returns>FileShareResponseArrayWrapper</returns>
+        FileShareResponseArrayWrapper ChangeDefaultAccessRights(List<int>? requestBody = default);
 
         /// <summary>
         /// Change the default access rights
@@ -97,8 +97,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        ApiResponse<FileShareArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? requestBody = default);
+        /// <returns>ApiResponse of FileShareResponseArrayWrapper</returns>
+        ApiResponse<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? requestBody = default);
         /// <summary>
         /// Confirm the file deletion
         /// </summary>
@@ -756,8 +756,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>Task of FileShareArrayWrapper</returns>
-        Task<FileShareArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileShareResponseArrayWrapper</returns>
+        Task<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change the default access rights
@@ -769,8 +769,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        Task<ApiResponse<FileShareArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileShareResponseArrayWrapper)</returns>
+        Task<ApiResponse<FileShareResponseArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Confirm the file deletion
         /// </summary>
@@ -1999,8 +1999,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>FileShareArrayWrapper</returns>
-        public FileShareArrayWrapper ChangeDefaultAccessRights(List<int>? requestBody = default)
+        /// <returns>FileShareResponseArrayWrapper</returns>
+        public FileShareResponseArrayWrapper ChangeDefaultAccessRights(List<int>? requestBody = default)
         {
             var localVarResponse = ChangeDefaultAccessRightsWithHttpInfo(requestBody);
             return localVarResponse.Data;
@@ -2015,8 +2015,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public ApiResponse<FileShareArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? requestBody = default)
+        /// <returns>ApiResponse of FileShareResponseArrayWrapper</returns>
+        public ApiResponse<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? requestBody = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2065,7 +2065,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/settings/dafaultaccessrights", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileShareResponseArrayWrapper>("/api/2.0/files/settings/dafaultaccessrights", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2089,8 +2089,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>Task of FileShareArrayWrapper</returns>
-        public async Task<FileShareArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileShareResponseArrayWrapper</returns>
+        public async Task<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ChangeDefaultAccessRightsWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2106,8 +2106,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
-        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async Task<ApiResponse<FileShareArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileShareResponseArrayWrapper)</returns>
+        public async Task<ApiResponse<FileShareResponseArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2158,7 +2158,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/settings/dafaultaccessrights", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileShareResponseArrayWrapper>("/api/2.0/files/settings/dafaultaccessrights", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

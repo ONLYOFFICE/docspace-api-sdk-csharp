@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ItemKeyValuePairStringLogoRequestsDto
+    /// A key-value pair of a list item.
     /// </summary>
     [DataContract(Name = "ItemKeyValuePairStringLogoRequestsDto")]
     public partial class ItemKeyValuePairStringLogoRequestsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemKeyValuePairStringLogoRequestsDto" /> class.
         /// </summary>
-        /// <param name="key">key.</param>
-        /// <param name="value">The request parameters for the theme-specific logo configurations..</param>
+        /// <param name="key">The key that identifies the item within the list..</param>
+        /// <param name="value">The value associated with the key..</param>
         public ItemKeyValuePairStringLogoRequestsDto(string key = default, LogoRequestsDto value = default)
         {
             this.Key = key;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// The key that identifies the item within the list.
         /// </summary>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The request parameters for the theme-specific logo configurations.
+        /// The value associated with the key.
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public LogoRequestsDto Value { get; set; }

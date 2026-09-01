@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         public FileShare? Access { get; set; }
 
         /// <summary>
-        /// The subject type of the access right.
+        /// The subject type.
         /// </summary>
         [DataMember(Name = "subjectType", IsRequired = true, EmitDefaultValue = true)]
         public SubjectType SubjectType { get; set; }
@@ -60,8 +60,8 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="access">The access rights type..</param>
         /// <param name="sharedTo">sharedTo.</param>
-        /// <param name="sharedToUser">The full list of user parameters..</param>
-        /// <param name="sharedToGroup">The group summary parameters..</param>
+        /// <param name="sharedToUser">The user who has the access to the specified file..</param>
+        /// <param name="sharedToGroup">The user who has the access to the specified file..</param>
         /// <param name="sharedLink">The user who has the access to the specified file..</param>
         /// <param name="isLocked">Specifies if the access right is locked or not. (required).</param>
         /// <param name="isOwner">Specifies if the user is an owner of the specified file or not. (required).</param>
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="canEditDenyDownload">Determines whether the user has permission to modify the deny download setting for the file share. (required).</param>
         /// <param name="canEditExpirationDate">Indicates whether the expiration date of access permissions can be edited. (required).</param>
         /// <param name="canRevoke">Specifies whether the file sharing access can be revoked by the current user. (required).</param>
-        /// <param name="subjectType">The subject type of the access right. (required).</param>
+        /// <param name="subjectType">The subject type. (required).</param>
         public FileShareDto(FileShare? access = default, Object sharedTo = default, EmployeeFullDto sharedToUser = default, GroupSummaryDto sharedToGroup = default, FileShareLink sharedLink = default, bool isLocked = default, bool isOwner = default, bool canEditAccess = default, bool canEditInternal = default, bool canEditDenyDownload = default, bool canEditExpirationDate = default, bool canRevoke = default, SubjectType subjectType = default)
         {
             this.IsLocked = isLocked;
@@ -95,13 +95,13 @@ namespace DocSpace.API.SDK.Model
         public Object SharedTo { get; set; }
 
         /// <summary>
-        /// The full list of user parameters.
+        /// The user who has the access to the specified file.
         /// </summary>
         [DataMember(Name = "sharedToUser", EmitDefaultValue = false)]
         public EmployeeFullDto SharedToUser { get; set; }
 
         /// <summary>
-        /// The group summary parameters.
+        /// The user who has the access to the specified file.
         /// </summary>
         [DataMember(Name = "sharedToGroup", EmitDefaultValue = false)]
         public GroupSummaryDto SharedToGroup { get; set; }

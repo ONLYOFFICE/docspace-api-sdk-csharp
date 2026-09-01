@@ -44,10 +44,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="about">Specifies if the customization is about..</param>
         /// <param name="customer">The customization customer configuration..</param>
         /// <param name="anonymous">The anonymous configuration of the customization..</param>
-        /// <param name="feedback">The settings for the Feedback &amp; Support menu button..</param>
+        /// <param name="feedback">The feedback configuration of the customization..</param>
         /// <param name="forcesave">Specifies if the customization should be force saved..</param>
-        /// <param name="goback">The settings for the Open file location menu button and upper right corner button..</param>
-        /// <param name="review">Configuration for review display settings..</param>
+        /// <param name="goback">The go back configuration of the customization..</param>
+        /// <param name="review">The review configuration of the customization..</param>
         /// <param name="logo">The logo of the customization..</param>
         /// <param name="mentionShare">Specifies if the share should be mentioned..</param>
         /// <param name="submitForm">The Complete &amp; Submit button settings..</param>
@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         public AnonymousConfigDto Anonymous { get; set; }
 
         /// <summary>
-        /// The settings for the Feedback &amp; Support menu button.
+        /// The feedback configuration of the customization.
         /// </summary>
         [DataMember(Name = "feedback", EmitDefaultValue = false)]
         public FeedbackConfig Feedback { get; set; }
@@ -100,13 +100,13 @@ namespace DocSpace.API.SDK.Model
         public bool? Forcesave { get; set; }
 
         /// <summary>
-        /// The settings for the Open file location menu button and upper right corner button.
+        /// The go back configuration of the customization.
         /// </summary>
         [DataMember(Name = "goback", EmitDefaultValue = false)]
         public GobackConfig Goback { get; set; }
 
         /// <summary>
-        /// Configuration for review display settings.
+        /// The review configuration of the customization.
         /// </summary>
         [DataMember(Name = "review", EmitDefaultValue = false)]
         public ReviewConfig Review { get; set; }

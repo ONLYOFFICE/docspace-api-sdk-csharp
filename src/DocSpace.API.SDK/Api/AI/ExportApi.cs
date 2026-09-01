@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start markdown → docx export
         /// </summary>
+        /// <remarks>
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Start markdown → docx export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
@@ -63,7 +66,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Start markdown → docx export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
@@ -76,7 +79,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Start markdown → docx export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
@@ -302,6 +305,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start markdown → docx export
         /// </summary>
+        /// <remarks>
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
@@ -315,6 +321,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start markdown → docx export
         /// </summary>
+        /// <remarks>
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-export-text-to-docx/">REST API Reference for AiExportTextToDocx Operation</seealso>
@@ -359,6 +368,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start markdown → docx export
         /// </summary>
+        /// <remarks>
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -373,6 +385,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start markdown → docx export
         /// </summary>
+        /// <remarks>
+        /// Starts an asynchronous markdown-to-docx export. The response only acknowledges the task: the AI Worker converts the content and saves the .docx into the target folder (an agent room resolves to its result-storage subfolder), and completion reaches the client as the usual folder-modified socket event.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiExportTextToDocxRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

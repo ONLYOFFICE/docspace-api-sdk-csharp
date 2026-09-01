@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The access rights type.
+        /// The group access rights to the files.
         /// </summary>
         [DataMember(Name = "groupAccess", IsRequired = true, EmitDefaultValue = true)]
         public FileShare GroupAccess { get; set; }
@@ -58,8 +58,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMemberSecurityRequestDto" /> class.
         /// </summary>
-        /// <param name="user">The full list of user parameters. (required).</param>
-        /// <param name="groupAccess">The access rights type. (required).</param>
+        /// <param name="user">The group member parameters. (required).</param>
+        /// <param name="groupAccess">The group access rights to the files. (required).</param>
         /// <param name="userAccess">The group member access rights to the files..</param>
         /// <param name="overridden">Specifies if the group access rights are overridden or not. (required).</param>
         /// <param name="canEditAccess">Specifies if the group member can edit the group access rights or not. (required).</param>
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The full list of user parameters.
+        /// The group member parameters.
         /// </summary>
         [DataMember(Name = "user", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeFullDto User { get; set; }

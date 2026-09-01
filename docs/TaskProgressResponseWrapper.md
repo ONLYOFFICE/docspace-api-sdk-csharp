@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.TaskProgressResponseWrapper
+The successful API response containing the TaskProgressResponseDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TaskProgressResponseDto**](TaskProgressResponseDto.md) |  | [optional] 
+**Response** | [**TaskProgressResponseDto**](TaskProgressResponseDto.md) | The TaskProgressResponseDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

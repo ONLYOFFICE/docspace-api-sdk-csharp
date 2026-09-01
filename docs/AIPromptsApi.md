@@ -22,7 +22,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiPromptsCreate**
 > AiPromptMutationResult AiPromptsCreate (AiCreatePromptInput aiCreatePromptInput)
 
-
+Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/).
 
@@ -118,7 +118,7 @@ catch (ApiException e)
 # **AiPromptsCreateFolder**
 > AiFolderMutationResult AiPromptsCreateFolder (string body)
 
-
+Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/).
 
@@ -214,7 +214,7 @@ catch (ApiException e)
 # **AiPromptsDelete**
 > AiSuccessResponse AiPromptsDelete (string body)
 
-
+Deletes a saved prompt. Does nothing when it no longer exists.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/).
 
@@ -310,7 +310,7 @@ catch (ApiException e)
 # **AiPromptsDeleteFolder**
 > AiSuccessResponse AiPromptsDeleteFolder (string body)
 
-
+Deletes a prompt folder together with the prompts inside it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/).
 
@@ -406,7 +406,7 @@ catch (ApiException e)
 # **AiPromptsExport**
 > AiPromptBundle AiPromptsExport ()
 
-
+Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/).
 
@@ -497,7 +497,7 @@ catch (ApiException e)
 # **AiPromptsGetById**
 > AiPrompt AiPromptsGetById (string id)
 
-
+Returns one saved prompt, or an empty result when the identifier is unknown.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/).
 
@@ -505,7 +505,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** |  |  |
+| **id** | **string** | The saved prompt identifier. |  |
 
 ### Return type
 
@@ -536,7 +536,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PromptsApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // string | 
+            var id = "id_example";  // string | The saved prompt identifier.
 
             try
             {
@@ -593,7 +593,7 @@ catch (ApiException e)
 # **AiPromptsGetFolderById**
 > AiPromptFolder AiPromptsGetFolderById (string id)
 
-
+Returns one prompt folder, or an empty result when the identifier is unknown.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/).
 
@@ -601,7 +601,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** |  |  |
+| **id** | **string** | The prompt folder identifier. |  |
 
 ### Return type
 
@@ -632,7 +632,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PromptsApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // string | 
+            var id = "id_example";  // string | The prompt folder identifier.
 
             try
             {
@@ -689,7 +689,7 @@ catch (ApiException e)
 # **AiPromptsImportBundle**
 > AiImportResult AiPromptsImportBundle (AiPromptsImportBundleRequest aiPromptsImportBundleRequest)
 
-
+Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/).
 
@@ -783,9 +783,9 @@ catch (ApiException e)
 
 <a id="aipromptslist"></a>
 # **AiPromptsList**
-> List&lt;AiPrompt&gt; AiPromptsList (string folderId)
+> List&lt;AiPrompt&gt; AiPromptsList (string? folderId = null)
 
-
+Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/).
 
@@ -793,7 +793,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **string** |  |  |
+| **folderId** | **string?** | The prompt folder identifier. Omit to list the prompts that sit outside any folder. | [optional]  |
 
 ### Return type
 
@@ -824,7 +824,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PromptsApi(httpClient, config, httpClientHandler);
-            var folderId = "folderId_example";  // string | 
+            var folderId = "folderId_example";  // string? | The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional) 
 
             try
             {
@@ -881,7 +881,7 @@ catch (ApiException e)
 # **AiPromptsListFolders**
 > List&lt;AiPromptFolder&gt; AiPromptsListFolders ()
 
-
+Lists the prompt folders, newest first.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/).
 
@@ -972,7 +972,7 @@ catch (ApiException e)
 # **AiPromptsMove**
 > AiPromptMutationResult AiPromptsMove (AiPromptsMoveRequest aiPromptsMoveRequest)
 
-
+Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/).
 
@@ -1068,7 +1068,7 @@ catch (ApiException e)
 # **AiPromptsRenameFolder**
 > AiFolderMutationResult AiPromptsRenameFolder (AiPromptsRenameFolderRequest aiPromptsRenameFolderRequest)
 
-
+Renames a prompt folder, validating the new name against the existing folders.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/).
 
@@ -1164,7 +1164,7 @@ catch (ApiException e)
 # **AiPromptsUpdate**
 > AiPromptMutationResult AiPromptsUpdate (AiPromptsUpdateRequest aiPromptsUpdateRequest)
 
-
+Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/).
 

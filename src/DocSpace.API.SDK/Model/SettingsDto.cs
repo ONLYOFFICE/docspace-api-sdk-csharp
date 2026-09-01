@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The type of the tenant trusted domains.
+        /// The type of the trusted domains.
         /// </summary>
         [DataMember(Name = "trustedDomainsType", EmitDefaultValue = false)]
         public TenantTrustedDomainsType? TrustedDomainsType { get; set; }
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         public TenantStatus? TenantStatus { get; set; }
 
         /// <summary>
-        /// The folder type.
+        /// Specifies the default folder type for the current settings.
         /// </summary>
         [DataMember(Name = "defaultFolderType", EmitDefaultValue = false)]
         public FolderType? DefaultFolderType { get; set; }
@@ -72,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="timezone">The time zone..</param>
         /// <param name="trustedDomains">The list of the trusted domains..</param>
-        /// <param name="trustedDomainsType">The type of the tenant trusted domains..</param>
+        /// <param name="trustedDomainsType">The type of the trusted domains..</param>
         /// <param name="culture">The language. (required).</param>
         /// <param name="utcOffset">The UTC offset in the TimeSpan format..</param>
         /// <param name="utcHoursOffset">The UTC offset in hours..</param>
@@ -114,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="maxImageUploadSize">The maximum image upload size..</param>
         /// <param name="logoText">The white label logo text..</param>
         /// <param name="externalResources">The external resources settings..</param>
-        /// <param name="defaultFolderType">The folder type..</param>
+        /// <param name="defaultFolderType">Specifies the default folder type for the current settings..</param>
         /// <param name="externalDbEnabled">Specifies if an external database is connected for storing form results..</param>
         public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, bool aiEnabled = default, bool? walletLowBalance = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
         {

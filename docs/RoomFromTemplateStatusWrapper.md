@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.RoomFromTemplateStatusWrapper
+The successful API response containing the RoomFromTemplateStatusDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**RoomFromTemplateStatusDto**](RoomFromTemplateStatusDto.md) |  | [optional] 
+**Response** | [**RoomFromTemplateStatusDto**](RoomFromTemplateStatusDto.md) | The RoomFromTemplateStatusDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

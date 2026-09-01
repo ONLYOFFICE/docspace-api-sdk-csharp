@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiOpenAIChunkChoice
+    /// One choice of a streaming completion, carrying the part this chunk adds.
     /// </summary>
     [DataContract(Name = "AiOpenAIChunkChoice")]
     public partial class AiOpenAIChunkChoice : IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets FinishReason
+        /// Why the completion stopped, or null while it is still streaming.
         /// </summary>
         [DataMember(Name = "finish_reason", IsRequired = true, EmitDefaultValue = true)]
         public AiOpenAIFinishReason FinishReason { get; set; }
@@ -52,9 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiOpenAIChunkChoice" /> class.
         /// </summary>
-        /// <param name="index">index (required).</param>
-        /// <param name="delta">delta (required).</param>
-        /// <param name="finishReason">finishReason (required).</param>
+        /// <param name="index">The zero-based position of the choice. This service emits a single choice, so always 0. (required).</param>
+        /// <param name="delta">What this chunk adds to the choice. (required).</param>
+        /// <param name="finishReason">Why the completion stopped, or null while it is still streaming. (required).</param>
         public AiOpenAIChunkChoice(decimal index = default, AiOpenAIChoiceDelta delta = default, AiOpenAIFinishReason finishReason = default)
         {
             this.Index = index;
@@ -68,13 +68,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Index
+        /// The zero-based position of the choice. This service emits a single choice, so always 0.
         /// </summary>
         [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = true)]
         public decimal Index { get; set; }
 
         /// <summary>
-        /// Gets or Sets Delta
+        /// What this chunk adds to the choice.
         /// </summary>
         [DataMember(Name = "delta", IsRequired = true, EmitDefaultValue = true)]
         public AiOpenAIChoiceDelta Delta { get; set; }

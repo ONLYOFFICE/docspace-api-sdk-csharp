@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.TfaSettingsArrayWrapper
+The successful API response containing the list of TfaSettingsDto objects.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;TfaSettingsDto&gt;**](TfaSettingsDto.md) |  | [optional] 
+**Response** | [**List&lt;TfaSettingsDto&gt;**](TfaSettingsDto.md) | The list of TfaSettingsDto objects returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="indexing">Specifies whether to create a room with indexing..</param>
         /// <param name="denyDownload">Specifies whether to deny downloads from the room..</param>
         /// <param name="lifetime">The room data lifetime information..</param>
-        /// <param name="watermark">The request parameters for adding watermarks..</param>
+        /// <param name="watermark">The watermark settings..</param>
         /// <param name="private">Specifies whether the room to be created is private or not..</param>
         public CreateRoomFromTemplateDto(int templateId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> tags = default, string color = default, string cover = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, bool? @private = default)
         {
@@ -157,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         public RoomDataLifetimeDto Lifetime { get; set; }
 
         /// <summary>
-        /// The request parameters for adding watermarks.
+        /// The watermark settings.
         /// </summary>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public WatermarkRequestDto Watermark { get; set; }

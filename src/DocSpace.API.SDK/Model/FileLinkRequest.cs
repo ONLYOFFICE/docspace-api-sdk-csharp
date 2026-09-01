@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The access rights type.
+        /// The link sharing rights.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -48,14 +48,14 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FileLinkRequest" /> class.
         /// </summary>
         /// <param name="linkId">The external link ID..</param>
-        /// <param name="access">The access rights type..</param>
-        /// <param name="expirationDate">The API date and time parameters..</param>
+        /// <param name="access">The link sharing rights..</param>
+        /// <param name="expirationDate">The link expiration date..</param>
         /// <param name="title">The link name..</param>
         /// <param name="internal">The link scope, whether it is internal or not..</param>
         /// <param name="primary">Specifies whether the file link is primary or not..</param>
         /// <param name="denyDownload">Specifies whether to deny downloading the file or not..</param>
         /// <param name="password">Password for access via link..</param>
-        public FileLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, string title = default, bool @internal = default, bool primary = default, bool denyDownload = default, string password = default)
+        public FileLinkRequest(Guid linkId = default, FileShare? access = default, DateTime? expirationDate = default, string title = default, bool @internal = default, bool primary = default, bool denyDownload = default, string password = default)
         {
             this.LinkId = linkId;
             this.Access = access;
@@ -75,10 +75,11 @@ namespace DocSpace.API.SDK.Model
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The link expiration date.
         /// </summary>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
-        public ApiDateTime ExpirationDate { get; set; }
+        /// <example>2021-01-01T00:00:00Z</example>
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// The link name.

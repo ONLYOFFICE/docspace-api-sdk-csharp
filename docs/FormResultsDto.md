@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.FormResultsDto
+A single filled-in form submission.
 
 ## Properties
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// StorageSettings
+    /// The storage settings.
     /// </summary>
     [DataContract(Name = "StorageSettings")]
     public partial class StorageSettings : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageSettings" /> class.
         /// </summary>
-        /// <param name="module">module.</param>
-        /// <param name="props">props.</param>
-        /// <param name="lastModified">lastModified.</param>
+        /// <param name="module">The storage name..</param>
+        /// <param name="props">The storage properties..</param>
+        /// <param name="lastModified">The date and time when the storage settings were last modified..</param>
         public StorageSettings(string module = default, Dictionary<string, string> props = default, DateTime lastModified = default)
         {
             this.Module = module;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Module
+        /// The storage name.
         /// </summary>
+        /// <example>LocalStorage</example>
         [DataMember(Name = "module", EmitDefaultValue = true)]
         public string Module { get; set; }
 
         /// <summary>
-        /// Gets or Sets Props
+        /// The storage properties.
         /// </summary>
+        /// <example>{"region":"eu-central-1","bucket":"tenant-files"}</example>
         [DataMember(Name = "props", EmitDefaultValue = false)]
         public Dictionary<string, string> Props { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The date and time when the storage settings were last modified.
         /// </summary>
+        /// <example>2025-01-01T12:00:00Z</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
 

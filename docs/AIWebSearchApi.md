@@ -17,7 +17,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiWebSearchClear**
 > AiSuccessResponse AiWebSearchClear (string body)
 
-
+Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/).
 
@@ -113,7 +113,7 @@ catch (ApiException e)
 # **AiWebSearchConfigure**
 > AiWebSearchMutationResult AiWebSearchConfigure (AiWebSearchConfigureRequest aiWebSearchConfigureRequest)
 
-
+Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/).
 
@@ -207,9 +207,9 @@ catch (ApiException e)
 
 <a id="aiwebsearchgetactiveconfig"></a>
 # **AiWebSearchGetActiveConfig**
-> AiWebSearchConfig AiWebSearchGetActiveConfig (string entityId)
+> AiWebSearchConfig AiWebSearchGetActiveConfig (string? entityId = null)
 
-
+Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/).
 
@@ -217,7 +217,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -248,7 +248,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -303,9 +303,9 @@ catch (ApiException e)
 
 <a id="aiwebsearchisconfigured"></a>
 # **AiWebSearchIsConfigured**
-> bool AiWebSearchIsConfigured (string entityId)
+> bool AiWebSearchIsConfigured (string? entityId = null)
 
-
+Tells whether web search is configured in the scope.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/).
 
@@ -313,7 +313,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -344,7 +344,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -401,7 +401,7 @@ catch (ApiException e)
 # **AiWebSearchPassthroughContents**
 > AiSuccessResponse AiWebSearchPassthroughContents (Dictionary<string, Object> requestBody)
 
-
+Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/).
 
@@ -497,7 +497,7 @@ catch (ApiException e)
 # **AiWebSearchPassthroughSearch**
 > AiSuccessResponse AiWebSearchPassthroughSearch (Dictionary<string, Object> requestBody)
 
-
+Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/).
 
@@ -593,7 +593,7 @@ catch (ApiException e)
 # **AiWebSearchSetActiveConfig**
 > AiSuccessResponse AiWebSearchSetActiveConfig (AiWebSearchConfigureRequest aiWebSearchConfigureRequest)
 
-
+Stores a web-search configuration without contacting the provider first, for forms that validate locally.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/).
 
@@ -689,7 +689,7 @@ catch (ApiException e)
 # **AiWebSearchTestConnection**
 > AiProfilesTestConnection200Response AiWebSearchTestConnection (AiWebSearchConfig aiWebSearchConfig)
 
-
+Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/).
 

@@ -17,7 +17,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiProfilesCreate**
 > AiProfileMutationResult AiProfilesCreate (AiCreateProfileInput aiCreateProfileInput)
 
-
+Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/).
 
@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiCreateProfileInput** | [**AiCreateProfileInput**](AiCreateProfileInput.md) | Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`). |  |
+| **aiCreateProfileInput** | [**AiCreateProfileInput**](AiCreateProfileInput.md) | Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`). |  |
 
 ### Return type
 
@@ -56,7 +56,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var aiCreateProfileInput = new AiCreateProfileInput(); // AiCreateProfileInput | Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).
+            var aiCreateProfileInput = new AiCreateProfileInput(); // AiCreateProfileInput | Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).
 
             try
             {
@@ -113,7 +113,7 @@ catch (ApiException e)
 # **AiProfilesDelete**
 > AiSuccessResponse AiProfilesDelete (string body)
 
-
+Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/).
 
@@ -209,7 +209,7 @@ catch (ApiException e)
 # **AiProfilesGetById**
 > AiProfilesGetById200Response AiProfilesGetById (string id)
 
-
+Returns one AI provider profile, or an empty result when the identifier is unknown.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/).
 
@@ -217,7 +217,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** |  |  |
+| **id** | **string** | The AI provider profile identifier. |  |
 
 ### Return type
 
@@ -248,7 +248,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // string | 
+            var id = "id_example";  // string | The AI provider profile identifier.
 
             try
             {
@@ -305,7 +305,7 @@ catch (ApiException e)
 # **AiProfilesList**
 > List&lt;AiProfile&gt; AiProfilesList ()
 
-
+Lists the portal's AI provider profiles.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/).
 
@@ -396,7 +396,7 @@ catch (ApiException e)
 # **AiProfilesListModels**
 > List&lt;AiModel&gt; AiProfilesListModels (string profileId)
 
-
+Lists the models the given profile's provider offers, as reported by the provider itself.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/).
 
@@ -404,7 +404,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **profileId** | **string** |  |  |
+| **profileId** | **string** | The AI provider profile identifier. |  |
 
 ### Return type
 
@@ -435,7 +435,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var profileId = "profileId_example";  // string | 
+            var profileId = "profileId_example";  // string | The AI provider profile identifier.
 
             try
             {
@@ -492,7 +492,7 @@ catch (ApiException e)
 # **AiProfilesListProviderModels**
 > List&lt;AiModel&gt; AiProfilesListProviderModels (AiProfilesListProviderModelsRequest aiProfilesListProviderModelsRequest)
 
-
+Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/).
 
@@ -588,7 +588,7 @@ catch (ApiException e)
 # **AiProfilesTestConnection**
 > AiProfilesTestConnection200Response AiProfilesTestConnection (string body)
 
-
+Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/).
 
@@ -684,7 +684,7 @@ catch (ApiException e)
 # **AiProfilesUpdate**
 > AiProfileMutationResult AiProfilesUpdate (AiProfile aiProfile)
 
-
+Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/).
 

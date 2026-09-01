@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Timezone** | **string** | The time zone. | [optional] 
 **TrustedDomains** | **List&lt;string&gt;** | The list of the trusted domains. | [optional] 
-**TrustedDomainsType** | **TenantTrustedDomainsType** | The type of the tenant trusted domains. | [optional] 
+**TrustedDomainsType** | **TenantTrustedDomainsType** | The type of the trusted domains. | [optional] 
 **Culture** | **string** | The language. | 
 **UtcOffset** | **string** | The UTC offset in the TimeSpan format. | [optional] 
 **UtcHoursOffset** | **double** | The UTC offset in hours. | [optional] 
@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 **MaxImageUploadSize** | **long** | The maximum image upload size. | [optional] 
 **LogoText** | **string** | The white label logo text. | [optional] 
 **ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) | The external resources settings. | [optional] 
-**DefaultFolderType** | **FolderType** | The folder type. | [optional] 
+**DefaultFolderType** | **FolderType** | Specifies the default folder type for the current settings. | [optional] 
 **ExternalDbEnabled** | **bool** | Specifies if an external database is connected for storing form results. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

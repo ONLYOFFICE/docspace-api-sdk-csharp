@@ -11,7 +11,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiOpenaiChatCompletions**
 > AiSuccessResponse AiOpenaiChatCompletions (string profileId, Dictionary<string, Object> requestBody)
 
-
+OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/).
 
@@ -19,7 +19,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **profileId** | **string** |  |  |
+| **profileId** | **string** | The AI provider profile identifier. |  |
 | **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
 
 ### Return type
@@ -51,7 +51,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OpenAIPassthroughApi(httpClient, config, httpClientHandler);
-            var profileId = "profileId_example";  // string | 
+            var profileId = "profileId_example";  // string | The AI provider profile identifier.
             var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
 
             try
@@ -109,7 +109,7 @@ catch (ApiException e)
 # **AiOpenaiImagesGenerations**
 > AiSuccessResponse AiOpenaiImagesGenerations (string profileId, Dictionary<string, Object> requestBody)
 
-
+OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/).
 
@@ -117,7 +117,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **profileId** | **string** |  |  |
+| **profileId** | **string** | The AI provider profile identifier. |  |
 | **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
 
 ### Return type
@@ -149,7 +149,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OpenAIPassthroughApi(httpClient, config, httpClientHandler);
-            var profileId = "profileId_example";  // string | 
+            var profileId = "profileId_example";  // string | The AI provider profile identifier.
             var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
 
             try

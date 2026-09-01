@@ -5,7 +5,7 @@ The agent new item's information.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Agent** | [**AiFileEntryBaseDto**](AiFileEntryBaseDto.md) | The file entry information. | 
+**Agent** | [**AiFileEntryBaseDto**](AiFileEntryBaseDto.md) | The agent file entry. | 
 **Items** | [**List&lt;AiFileEntryBaseDto&gt;**](AiFileEntryBaseDto.md) | The list of file entry items. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

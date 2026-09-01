@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.CustomerInfoWrapper
+The successful API response containing the CustomerInfoDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**CustomerInfoDto**](CustomerInfoDto.md) |  | [optional] 
+**Response** | [**CustomerInfoDto**](CustomerInfoDto.md) | The CustomerInfoDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

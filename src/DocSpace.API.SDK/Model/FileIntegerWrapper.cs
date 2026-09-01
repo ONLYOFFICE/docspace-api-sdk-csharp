@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// FileIntegerWrapper
+    /// The successful API response containing the FileDtoInteger object.
     /// </summary>
     [DataContract(Name = "FileIntegerWrapper")]
     public partial class FileIntegerWrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileIntegerWrapper" /> class.
         /// </summary>
-        /// <param name="response">response.</param>
+        /// <param name="response">The FileDtoInteger object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Response
+        /// The FileDtoInteger object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public FileDtoInteger Response { get; set; }

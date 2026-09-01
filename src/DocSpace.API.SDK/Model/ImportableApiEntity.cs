@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ImportableApiEntity
+    /// The parameters of an importable API entity.
     /// </summary>
     [DataContract(Name = "ImportableApiEntity")]
     public partial class ImportableApiEntity : IValidatableObject
@@ -41,15 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImportableApiEntity" /> class.
         /// </summary>
-        /// <param name="shouldImport">shouldImport.</param>
+        /// <param name="shouldImport">Specifies whether the API entity should be imported..</param>
         public ImportableApiEntity(bool shouldImport = default)
         {
             this.ShouldImport = shouldImport;
         }
 
         /// <summary>
-        /// Gets or Sets ShouldImport
+        /// Specifies whether the API entity should be imported.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "shouldImport", EmitDefaultValue = true)]
         public bool ShouldImport { get; set; }
 

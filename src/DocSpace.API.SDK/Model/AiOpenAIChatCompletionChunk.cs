@@ -32,13 +32,13 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiOpenAIChatCompletionChunk
+    /// One &#x60;chat.completion.chunk&#x60; of an OpenAI-compatible streaming response. Only the fields this service can populate are emitted - an OpenAI client tolerates the rest as absent.
     /// </summary>
     [DataContract(Name = "AiOpenAIChatCompletionChunk")]
     public partial class AiOpenAIChatCompletionChunk : IValidatableObject
     {
         /// <summary>
-        /// Defines Object
+        /// Always &#x60;chat.completion.chunk&#x60;.
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ObjectEnum
@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Object
+        /// Always &#x60;chat.completion.chunk&#x60;.
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
         public ObjectEnum Object { get; set; }
@@ -64,11 +64,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiOpenAIChatCompletionChunk" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="object">@object (required).</param>
-        /// <param name="created">created (required).</param>
-        /// <param name="model">model (required).</param>
-        /// <param name="choices">choices (required).</param>
+        /// <param name="id">The completion identifier, stable across every chunk of one response. (required).</param>
+        /// <param name="object">Always &#x60;chat.completion.chunk&#x60;. (required).</param>
+        /// <param name="created">When the completion started, in Unix seconds. (required).</param>
+        /// <param name="model">The model that produced the completion - the resolved profile&#39;s model. (required).</param>
+        /// <param name="choices">The choices carried by this chunk. This service emits exactly one. (required).</param>
         public AiOpenAIChatCompletionChunk(string id = default, ObjectEnum @object = default, decimal created = default, string model = default, List<AiOpenAIChunkChoice> choices = default)
         {
             // to ensure "id" is required (not null)
@@ -94,25 +94,25 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The completion identifier, stable across every chunk of one response.
         /// </summary>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// When the completion started, in Unix seconds.
         /// </summary>
         [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = true)]
         public decimal Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets Model
+        /// The model that produced the completion - the resolved profile&#39;s model.
         /// </summary>
         [DataMember(Name = "model", IsRequired = true, EmitDefaultValue = true)]
         public string Model { get; set; }
 
         /// <summary>
-        /// Gets or Sets Choices
+        /// The choices carried by this chunk. This service emits exactly one.
         /// </summary>
         [DataMember(Name = "choices", IsRequired = true, EmitDefaultValue = true)]
         public List<AiOpenAIChunkChoice> Choices { get; set; }

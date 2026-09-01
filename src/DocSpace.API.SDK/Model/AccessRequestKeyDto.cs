@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AccessRequestKeyDto
+    /// The encryption key granting one user access to a file.
     /// </summary>
     [DataContract(Name = "AccessRequestKeyDto")]
     public partial class AccessRequestKeyDto : IValidatableObject

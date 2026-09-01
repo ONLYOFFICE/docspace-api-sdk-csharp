@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Add custom server
         /// </summary>
+        /// <remarks>
+        /// Registers a custom MCP server in the scope under the given name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/">REST API Reference for AiToolsAddCustomServer Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Add custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a custom MCP server in the scope under the given name.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
@@ -53,156 +56,180 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get allow always
         /// </summary>
+        /// <remarks>
+        /// Lists the tools on the always-allow list of the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>List&lt;string&gt;</returns>
-        List<string> AiToolsGetAllowAlways(string entityId);
+        List<string> AiToolsGetAllowAlways(string? entityId = default);
 
         /// <summary>
         /// Get allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the tools on the always-allow list of the scope.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        ApiResponse<List<string>> AiToolsGetAllowAlwaysWithHttpInfo(string entityId);
+        ApiResponse<List<string>> AiToolsGetAllowAlwaysWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Get custom server
         /// </summary>
+        /// <remarks>
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>Object</returns>
-        Object AiToolsGetCustomServer(string name, string entityId);
+        Object AiToolsGetCustomServer(string name, string? entityId = default);
 
         /// <summary>
         /// Get custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> AiToolsGetCustomServerWithHttpInfo(string name, string entityId);
+        ApiResponse<Object> AiToolsGetCustomServerWithHttpInfo(string name, string? entityId = default);
         /// <summary>
         /// Get disabled
         /// </summary>
+        /// <remarks>
+        /// Returns the switched-off tools of the scope, grouped by server type.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
-        Dictionary<string, List<string>> AiToolsGetDisabled(string entityId);
+        Dictionary<string, List<string>> AiToolsGetDisabled(string? entityId = default);
 
         /// <summary>
         /// Get disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the switched-off tools of the scope, grouped by server type.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
-        ApiResponse<Dictionary<string, List<string>>> AiToolsGetDisabledWithHttpInfo(string entityId);
+        ApiResponse<Dictionary<string, List<string>>> AiToolsGetDisabledWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Is allow always
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool is on the always-allow list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>bool</returns>
-        bool AiToolsIsAllowAlways(string serverType, string toolName, string entityId);
+        bool AiToolsIsAllowAlways(string serverType, string toolName, string? entityId = default);
 
         /// <summary>
         /// Is allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether one tool is on the always-allow list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        ApiResponse<bool> AiToolsIsAllowAlwaysWithHttpInfo(string serverType, string toolName, string entityId);
+        ApiResponse<bool> AiToolsIsAllowAlwaysWithHttpInfo(string serverType, string toolName, string? entityId = default);
         /// <summary>
         /// Is tool disabled
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool of a server type is switched off.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>bool</returns>
-        bool AiToolsIsToolDisabled(string serverType, string toolName, string entityId);
+        bool AiToolsIsToolDisabled(string serverType, string toolName, string? entityId = default);
 
         /// <summary>
         /// Is tool disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether one tool of a server type is switched off.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        ApiResponse<bool> AiToolsIsToolDisabledWithHttpInfo(string serverType, string toolName, string entityId);
+        ApiResponse<bool> AiToolsIsToolDisabledWithHttpInfo(string serverType, string toolName, string? entityId = default);
         /// <summary>
         /// List custom servers
         /// </summary>
+        /// <remarks>
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>Dictionary&lt;string, Object&gt;</returns>
-        Dictionary<string, Object> AiToolsListCustomServers(string entityId);
+        Dictionary<string, Object> AiToolsListCustomServers(string? entityId = default);
 
         /// <summary>
         /// List custom servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
-        ApiResponse<Dictionary<string, Object>> AiToolsListCustomServersWithHttpInfo(string entityId);
+        ApiResponse<Dictionary<string, Object>> AiToolsListCustomServersWithHttpInfo(string? entityId = default);
         /// <summary>
         /// List system tools
         /// </summary>
+        /// <remarks>
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;</returns>
-        Dictionary<string, List<AiTMCPItem>> AiToolsListSystemTools(string entityId);
+        Dictionary<string, List<AiTMCPItem>> AiToolsListSystemTools(string? entityId = default);
 
         /// <summary>
         /// List system tools
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;</returns>
-        ApiResponse<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsWithHttpInfo(string entityId);
+        ApiResponse<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Remove custom server
         /// </summary>
+        /// <remarks>
+        /// Removes a custom MCP server from the registry.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/">REST API Reference for AiToolsRemoveCustomServer Operation</seealso>
@@ -213,7 +240,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Remove custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a custom MCP server from the registry.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
@@ -223,6 +250,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Replace all custom servers
         /// </summary>
+        /// <remarks>
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/">REST API Reference for AiToolsReplaceAllCustomServers Operation</seealso>
@@ -233,7 +263,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Replace all custom servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
@@ -243,6 +273,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set allow always
         /// </summary>
+        /// <remarks>
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/">REST API Reference for AiToolsSetAllowAlways Operation</seealso>
@@ -253,7 +286,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
@@ -263,6 +296,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set disabled
         /// </summary>
+        /// <remarks>
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/">REST API Reference for AiToolsSetDisabled Operation</seealso>
@@ -273,7 +309,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
@@ -283,6 +319,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update custom server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of a registered custom MCP server.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/">REST API Reference for AiToolsUpdateCustomServer Operation</seealso>
@@ -293,7 +332,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of a registered custom MCP server.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
@@ -313,7 +352,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Add custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a custom MCP server in the scope under the given name.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
@@ -326,7 +365,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Add custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a custom MCP server in the scope under the given name.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
@@ -338,192 +377,192 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the tools on the always-allow list of the scope.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>Task of List&lt;string&gt;</returns>
-        Task<List<string>> AiToolsGetAllowAlwaysAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<List<string>> AiToolsGetAllowAlwaysAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the tools on the always-allow list of the scope.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        Task<ApiResponse<List<string>>> AiToolsGetAllowAlwaysWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<List<string>>> AiToolsGetAllowAlwaysWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>Task of Object</returns>
-        Task<Object> AiToolsGetCustomServerAsync(string name, string entityId, CancellationToken cancellationToken = default);
+        Task<Object> AiToolsGetCustomServerAsync(string name, string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
-        Task<ApiResponse<Object>> AiToolsGetCustomServerWithHttpInfoAsync(string name, string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> AiToolsGetCustomServerWithHttpInfoAsync(string name, string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the switched-off tools of the scope, grouped by server type.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
-        Task<Dictionary<string, List<string>>> AiToolsGetDisabledAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<Dictionary<string, List<string>>> AiToolsGetDisabledAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the switched-off tools of the scope, grouped by server type.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;string&gt;&gt;)</returns>
-        Task<ApiResponse<Dictionary<string, List<string>>>> AiToolsGetDisabledWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Dictionary<string, List<string>>>> AiToolsGetDisabledWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Is allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether one tool is on the always-allow list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>Task of bool</returns>
-        Task<bool> AiToolsIsAllowAlwaysAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default);
+        Task<bool> AiToolsIsAllowAlwaysAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Is allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether one tool is on the always-allow list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        Task<ApiResponse<bool>> AiToolsIsAllowAlwaysWithHttpInfoAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<bool>> AiToolsIsAllowAlwaysWithHttpInfoAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Is tool disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether one tool of a server type is switched off.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>Task of bool</returns>
-        Task<bool> AiToolsIsToolDisabledAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default);
+        Task<bool> AiToolsIsToolDisabledAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Is tool disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether one tool of a server type is switched off.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        Task<ApiResponse<bool>> AiToolsIsToolDisabledWithHttpInfoAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<bool>> AiToolsIsToolDisabledWithHttpInfoAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// List custom servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
-        Task<Dictionary<string, Object>> AiToolsListCustomServersAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<Dictionary<string, Object>> AiToolsListCustomServersAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List custom servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
-        Task<ApiResponse<Dictionary<string, Object>>> AiToolsListCustomServersWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Dictionary<string, Object>>> AiToolsListCustomServersWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// List system tools
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;</returns>
-        Task<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List system tools
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;)</returns>
-        Task<ApiResponse<Dictionary<string, List<AiTMCPItem>>>> AiToolsListSystemToolsWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Dictionary<string, List<AiTMCPItem>>>> AiToolsListSystemToolsWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a custom MCP server from the registry.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
@@ -536,7 +575,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Remove custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a custom MCP server from the registry.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
@@ -548,7 +587,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Replace all custom servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
@@ -561,7 +600,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Replace all custom servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
@@ -573,7 +612,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
@@ -586,7 +625,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set allow always
         /// </summary>
         /// <remarks>
-        /// 
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
@@ -598,7 +637,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
@@ -611,7 +650,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set disabled
         /// </summary>
         /// <remarks>
-        /// 
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
@@ -623,7 +662,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of a registered custom MCP server.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
@@ -636,7 +675,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update custom server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of a registered custom MCP server.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
@@ -862,6 +901,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Add custom server
         /// </summary>
+        /// <remarks>
+        /// Registers a custom MCP server in the scope under the given name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/">REST API Reference for AiToolsAddCustomServer Operation</seealso>
@@ -875,6 +917,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Add custom server
         /// </summary>
+        /// <remarks>
+        /// Registers a custom MCP server in the scope under the given name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/">REST API Reference for AiToolsAddCustomServer Operation</seealso>
@@ -919,6 +964,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Add custom server
         /// </summary>
+        /// <remarks>
+        /// Registers a custom MCP server in the scope under the given name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -933,6 +981,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Add custom server
         /// </summary>
+        /// <remarks>
+        /// Registers a custom MCP server in the scope under the given name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsAddCustomServerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -980,11 +1031,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get allow always
         /// </summary>
+        /// <remarks>
+        /// Lists the tools on the always-allow list of the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>List&lt;string&gt;</returns>
-        public List<string> AiToolsGetAllowAlways(string entityId)
+        public List<string> AiToolsGetAllowAlways(string? entityId = default)
         {
             var localVarResponse = AiToolsGetAllowAlwaysWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -993,16 +1047,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get allow always
         /// </summary>
+        /// <remarks>
+        /// Lists the tools on the always-allow list of the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        public ApiResponse<List<string>> AiToolsGetAllowAlwaysWithHttpInfo(string entityId)
+        public ApiResponse<List<string>> AiToolsGetAllowAlwaysWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsGetAllowAlways");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1016,7 +1069,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1037,12 +1093,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get allow always
         /// </summary>
+        /// <remarks>
+        /// Lists the tools on the always-allow list of the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>Task of List&lt;string&gt;</returns>
-        public async Task<List<string>> AiToolsGetAllowAlwaysAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<List<string>> AiToolsGetAllowAlwaysAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiToolsGetAllowAlwaysWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1051,17 +1110,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get allow always
         /// </summary>
+        /// <remarks>
+        /// Lists the tools on the always-allow list of the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/">REST API Reference for AiToolsGetAllowAlways Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        public async Task<ApiResponse<List<string>>> AiToolsGetAllowAlwaysWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<string>>> AiToolsGetAllowAlwaysWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsGetAllowAlways");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1076,7 +1134,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1098,12 +1159,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get custom server
         /// </summary>
+        /// <remarks>
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>Object</returns>
-        public Object AiToolsGetCustomServer(string name, string entityId)
+        public Object AiToolsGetCustomServer(string name, string? entityId = default)
         {
             var localVarResponse = AiToolsGetCustomServerWithHttpInfo(name, entityId);
             return localVarResponse.Data;
@@ -1112,20 +1176,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get custom server
         /// </summary>
+        /// <remarks>
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
-        public ApiResponse<Object> AiToolsGetCustomServerWithHttpInfo(string name, string entityId)
+        public ApiResponse<Object> AiToolsGetCustomServerWithHttpInfo(string name, string? entityId = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling ToolsApi->AiToolsGetCustomServer");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsGetCustomServer");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1141,7 +1204,10 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "name", name));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1162,13 +1228,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get custom server
         /// </summary>
+        /// <remarks>
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>Task of Object</returns>
-        public async Task<Object> AiToolsGetCustomServerAsync(string name, string entityId, CancellationToken cancellationToken = default)
+        public async Task<Object> AiToolsGetCustomServerAsync(string name, string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiToolsGetCustomServerWithHttpInfoAsync(name, entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1177,21 +1246,20 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get custom server
         /// </summary>
+        /// <remarks>
+        /// Returns the configuration of one custom MCP server, or an empty result when it is not registered.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"></param>
-        /// <param name="entityId"></param>
+        /// <param name="name">The custom MCP server name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/">REST API Reference for AiToolsGetCustomServer Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async Task<ApiResponse<Object>> AiToolsGetCustomServerWithHttpInfoAsync(string name, string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> AiToolsGetCustomServerWithHttpInfoAsync(string name, string? entityId = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling ToolsApi->AiToolsGetCustomServer");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsGetCustomServer");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1208,7 +1276,10 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "name", name));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1230,11 +1301,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get disabled
         /// </summary>
+        /// <remarks>
+        /// Returns the switched-off tools of the scope, grouped by server type.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
-        public Dictionary<string, List<string>> AiToolsGetDisabled(string entityId)
+        public Dictionary<string, List<string>> AiToolsGetDisabled(string? entityId = default)
         {
             var localVarResponse = AiToolsGetDisabledWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -1243,16 +1317,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get disabled
         /// </summary>
+        /// <remarks>
+        /// Returns the switched-off tools of the scope, grouped by server type.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
-        public ApiResponse<Dictionary<string, List<string>>> AiToolsGetDisabledWithHttpInfo(string entityId)
+        public ApiResponse<Dictionary<string, List<string>>> AiToolsGetDisabledWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsGetDisabled");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1266,7 +1339,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1287,12 +1363,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get disabled
         /// </summary>
+        /// <remarks>
+        /// Returns the switched-off tools of the scope, grouped by server type.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, List&lt;string&gt;&gt;</returns>
-        public async Task<Dictionary<string, List<string>>> AiToolsGetDisabledAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<Dictionary<string, List<string>>> AiToolsGetDisabledAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiToolsGetDisabledWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1301,17 +1380,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get disabled
         /// </summary>
+        /// <remarks>
+        /// Returns the switched-off tools of the scope, grouped by server type.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/">REST API Reference for AiToolsGetDisabled Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;string&gt;&gt;)</returns>
-        public async Task<ApiResponse<Dictionary<string, List<string>>>> AiToolsGetDisabledWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Dictionary<string, List<string>>>> AiToolsGetDisabledWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsGetDisabled");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1326,7 +1404,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1348,13 +1429,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is allow always
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool is on the always-allow list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>bool</returns>
-        public bool AiToolsIsAllowAlways(string serverType, string toolName, string entityId)
+        public bool AiToolsIsAllowAlways(string serverType, string toolName, string? entityId = default)
         {
             var localVarResponse = AiToolsIsAllowAlwaysWithHttpInfo(serverType, toolName, entityId);
             return localVarResponse.Data;
@@ -1363,13 +1447,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is allow always
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool is on the always-allow list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        public ApiResponse<bool> AiToolsIsAllowAlwaysWithHttpInfo(string serverType, string toolName, string entityId)
+        public ApiResponse<bool> AiToolsIsAllowAlwaysWithHttpInfo(string serverType, string toolName, string? entityId = default)
         {
             // verify the required parameter 'serverType' is set
             if (serverType == null)
@@ -1378,10 +1465,6 @@ namespace DocSpace.API.SDK.Api.AI
             // verify the required parameter 'toolName' is set
             if (toolName == null)
                 throw new ApiException(400, "Missing required parameter 'toolName' when calling ToolsApi->AiToolsIsAllowAlways");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsIsAllowAlways");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1398,7 +1481,10 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "serverType", serverType));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toolName", toolName));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1419,14 +1505,17 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is allow always
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool is on the always-allow list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>Task of bool</returns>
-        public async Task<bool> AiToolsIsAllowAlwaysAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default)
+        public async Task<bool> AiToolsIsAllowAlwaysAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiToolsIsAllowAlwaysWithHttpInfoAsync(serverType, toolName, entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1435,14 +1524,17 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is allow always
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool is on the always-allow list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/">REST API Reference for AiToolsIsAllowAlways Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        public async Task<ApiResponse<bool>> AiToolsIsAllowAlwaysWithHttpInfoAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<bool>> AiToolsIsAllowAlwaysWithHttpInfoAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'serverType' is set
             if (serverType == null)
@@ -1451,10 +1543,6 @@ namespace DocSpace.API.SDK.Api.AI
             // verify the required parameter 'toolName' is set
             if (toolName == null)
                 throw new ApiException(400, "Missing required parameter 'toolName' when calling ToolsApi->AiToolsIsAllowAlways");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsIsAllowAlways");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1472,7 +1560,10 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "serverType", serverType));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toolName", toolName));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1494,13 +1585,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is tool disabled
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool of a server type is switched off.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>bool</returns>
-        public bool AiToolsIsToolDisabled(string serverType, string toolName, string entityId)
+        public bool AiToolsIsToolDisabled(string serverType, string toolName, string? entityId = default)
         {
             var localVarResponse = AiToolsIsToolDisabledWithHttpInfo(serverType, toolName, entityId);
             return localVarResponse.Data;
@@ -1509,13 +1603,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is tool disabled
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool of a server type is switched off.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        public ApiResponse<bool> AiToolsIsToolDisabledWithHttpInfo(string serverType, string toolName, string entityId)
+        public ApiResponse<bool> AiToolsIsToolDisabledWithHttpInfo(string serverType, string toolName, string? entityId = default)
         {
             // verify the required parameter 'serverType' is set
             if (serverType == null)
@@ -1524,10 +1621,6 @@ namespace DocSpace.API.SDK.Api.AI
             // verify the required parameter 'toolName' is set
             if (toolName == null)
                 throw new ApiException(400, "Missing required parameter 'toolName' when calling ToolsApi->AiToolsIsToolDisabled");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsIsToolDisabled");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1544,7 +1637,10 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "serverType", serverType));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toolName", toolName));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1565,14 +1661,17 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is tool disabled
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool of a server type is switched off.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>Task of bool</returns>
-        public async Task<bool> AiToolsIsToolDisabledAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default)
+        public async Task<bool> AiToolsIsToolDisabledAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiToolsIsToolDisabledWithHttpInfoAsync(serverType, toolName, entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1581,14 +1680,17 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is tool disabled
         /// </summary>
+        /// <remarks>
+        /// Tells whether one tool of a server type is switched off.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverType"></param>
-        /// <param name="toolName"></param>
-        /// <param name="entityId"></param>
+        /// <param name="serverType">The MCP server type the tool belongs to.</param>
+        /// <param name="toolName">The tool name.</param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/">REST API Reference for AiToolsIsToolDisabled Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        public async Task<ApiResponse<bool>> AiToolsIsToolDisabledWithHttpInfoAsync(string serverType, string toolName, string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<bool>> AiToolsIsToolDisabledWithHttpInfoAsync(string serverType, string toolName, string? entityId = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'serverType' is set
             if (serverType == null)
@@ -1597,10 +1699,6 @@ namespace DocSpace.API.SDK.Api.AI
             // verify the required parameter 'toolName' is set
             if (toolName == null)
                 throw new ApiException(400, "Missing required parameter 'toolName' when calling ToolsApi->AiToolsIsToolDisabled");
-
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsIsToolDisabled");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1618,7 +1716,10 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "serverType", serverType));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toolName", toolName));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1640,11 +1741,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List custom servers
         /// </summary>
+        /// <remarks>
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>Dictionary&lt;string, Object&gt;</returns>
-        public Dictionary<string, Object> AiToolsListCustomServers(string entityId)
+        public Dictionary<string, Object> AiToolsListCustomServers(string? entityId = default)
         {
             var localVarResponse = AiToolsListCustomServersWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -1653,16 +1757,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List custom servers
         /// </summary>
+        /// <remarks>
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
-        public ApiResponse<Dictionary<string, Object>> AiToolsListCustomServersWithHttpInfo(string entityId)
+        public ApiResponse<Dictionary<string, Object>> AiToolsListCustomServersWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsListCustomServers");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1676,7 +1779,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1697,12 +1803,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List custom servers
         /// </summary>
+        /// <remarks>
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
-        public async Task<Dictionary<string, Object>> AiToolsListCustomServersAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<Dictionary<string, Object>> AiToolsListCustomServersAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiToolsListCustomServersWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1711,17 +1820,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List custom servers
         /// </summary>
+        /// <remarks>
+        /// Lists the custom MCP servers registered in the scope, keyed by name.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/">REST API Reference for AiToolsListCustomServers Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
-        public async Task<ApiResponse<Dictionary<string, Object>>> AiToolsListCustomServersWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiToolsListCustomServersWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsListCustomServers");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1736,7 +1844,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1758,11 +1869,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List system tools
         /// </summary>
+        /// <remarks>
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;</returns>
-        public Dictionary<string, List<AiTMCPItem>> AiToolsListSystemTools(string entityId)
+        public Dictionary<string, List<AiTMCPItem>> AiToolsListSystemTools(string? entityId = default)
         {
             var localVarResponse = AiToolsListSystemToolsWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -1771,16 +1885,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List system tools
         /// </summary>
+        /// <remarks>
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;</returns>
-        public ApiResponse<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsWithHttpInfo(string entityId)
+        public ApiResponse<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsListSystemTools");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1794,7 +1907,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1815,12 +1931,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List system tools
         /// </summary>
+        /// <remarks>
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;</returns>
-        public async Task<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<Dictionary<string, List<AiTMCPItem>>> AiToolsListSystemToolsAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiToolsListSystemToolsWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1829,17 +1948,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List system tools
         /// </summary>
+        /// <remarks>
+        /// Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/">REST API Reference for AiToolsListSystemTools Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt;)</returns>
-        public async Task<ApiResponse<Dictionary<string, List<AiTMCPItem>>>> AiToolsListSystemToolsWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Dictionary<string, List<AiTMCPItem>>>> AiToolsListSystemToolsWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ToolsApi->AiToolsListSystemTools");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1854,7 +1972,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1876,6 +1997,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Remove custom server
         /// </summary>
+        /// <remarks>
+        /// Removes a custom MCP server from the registry.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/">REST API Reference for AiToolsRemoveCustomServer Operation</seealso>
@@ -1889,6 +2013,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Remove custom server
         /// </summary>
+        /// <remarks>
+        /// Removes a custom MCP server from the registry.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/">REST API Reference for AiToolsRemoveCustomServer Operation</seealso>
@@ -1933,6 +2060,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Remove custom server
         /// </summary>
+        /// <remarks>
+        /// Removes a custom MCP server from the registry.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1947,6 +2077,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Remove custom server
         /// </summary>
+        /// <remarks>
+        /// Removes a custom MCP server from the registry.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsRemoveCustomServerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1994,6 +2127,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Replace all custom servers
         /// </summary>
+        /// <remarks>
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/">REST API Reference for AiToolsReplaceAllCustomServers Operation</seealso>
@@ -2007,6 +2143,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Replace all custom servers
         /// </summary>
+        /// <remarks>
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/">REST API Reference for AiToolsReplaceAllCustomServers Operation</seealso>
@@ -2051,6 +2190,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Replace all custom servers
         /// </summary>
+        /// <remarks>
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2065,6 +2207,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Replace all custom servers
         /// </summary>
+        /// <remarks>
+        /// Replaces the whole custom MCP server registry of the scope with the supplied map.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsReplaceAllCustomServersRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2112,6 +2257,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set allow always
         /// </summary>
+        /// <remarks>
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/">REST API Reference for AiToolsSetAllowAlways Operation</seealso>
@@ -2125,6 +2273,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set allow always
         /// </summary>
+        /// <remarks>
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/">REST API Reference for AiToolsSetAllowAlways Operation</seealso>
@@ -2169,6 +2320,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set allow always
         /// </summary>
+        /// <remarks>
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2183,6 +2337,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set allow always
         /// </summary>
+        /// <remarks>
+        /// Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetAllowAlwaysRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2230,6 +2387,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set disabled
         /// </summary>
+        /// <remarks>
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/">REST API Reference for AiToolsSetDisabled Operation</seealso>
@@ -2243,6 +2403,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set disabled
         /// </summary>
+        /// <remarks>
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/">REST API Reference for AiToolsSetDisabled Operation</seealso>
@@ -2287,6 +2450,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set disabled
         /// </summary>
+        /// <remarks>
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2301,6 +2467,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set disabled
         /// </summary>
+        /// <remarks>
+        /// Marks the listed tools of one server type as switched off, so the model is no longer offered them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsSetDisabledRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2348,6 +2517,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update custom server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of a registered custom MCP server.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/">REST API Reference for AiToolsUpdateCustomServer Operation</seealso>
@@ -2361,6 +2533,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update custom server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of a registered custom MCP server.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/">REST API Reference for AiToolsUpdateCustomServer Operation</seealso>
@@ -2405,6 +2580,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update custom server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of a registered custom MCP server.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2419,6 +2597,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update custom server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of a registered custom MCP server.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiToolsUpdateCustomServerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

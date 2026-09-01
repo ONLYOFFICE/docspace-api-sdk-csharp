@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// CurrencyInfo
+    /// The currency the AI prices are quoted in.
     /// </summary>
     [DataContract(Name = "CurrencyInfo")]
     public partial class CurrencyInfo : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrencyInfo" /> class.
         /// </summary>
-        /// <param name="code">code (required).</param>
-        /// <param name="symbol">symbol (required).</param>
+        /// <param name="code">The ISO 4217 code of the currency the prices are quoted in. (required).</param>
+        /// <param name="symbol">The display symbol of the currency. (required).</param>
         public CurrencyInfo(string code = default, string symbol = default)
         {
             // to ensure "code" is required (not null)
@@ -65,14 +65,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// The ISO 4217 code of the currency the prices are quoted in.
         /// </summary>
+        /// <example>USD</example>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Symbol
+        /// The display symbol of the currency.
         /// </summary>
+        /// <example>$</example>
         [DataMember(Name = "symbol", IsRequired = true, EmitDefaultValue = true)]
         public string Symbol { get; set; }
 

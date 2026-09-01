@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// MigratingApiGroup
+    /// The migrating group parameters.
     /// </summary>
     [DataContract(Name = "MigratingApiGroup")]
     public partial class MigratingApiGroup : ImportableApiEntity, IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MigratingApiGroup" /> class.
         /// </summary>
-        /// <param name="groupName">groupName.</param>
-        /// <param name="moduleName">moduleName.</param>
-        /// <param name="userUidList">userUidList.</param>
+        /// <param name="groupName">The group name..</param>
+        /// <param name="moduleName">The group module name..</param>
+        /// <param name="userUidList">The list of group user UIDs..</param>
         public MigratingApiGroup(string groupName = default, string moduleName = default, List<string> userUidList = default)
         {
             this.GroupName = groupName;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets GroupName
+        /// The group name.
         /// </summary>
+        /// <example>Marketing Team</example>
         [DataMember(Name = "groupName", EmitDefaultValue = true)]
         public string GroupName { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModuleName
+        /// The group module name.
         /// </summary>
+        /// <example>Projects</example>
         [DataMember(Name = "moduleName", EmitDefaultValue = true)]
         public string ModuleName { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserUidList
+        /// The list of group user UIDs.
         /// </summary>
+        /// <example>["user1-uid","user2-uid"]</example>
         [DataMember(Name = "userUidList", EmitDefaultValue = true)]
         public List<string> UserUidList { get; set; }
 

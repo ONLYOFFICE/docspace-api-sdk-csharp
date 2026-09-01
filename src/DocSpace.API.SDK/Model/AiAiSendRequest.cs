@@ -54,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="actionType">Which AI action to run — selects the assignment slot and action. (required).</param>
         /// <param name="userMessage">The user turn to send. (required).</param>
-        /// <param name="actionArgs">actionArgs.</param>
+        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
         /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
         public AiAiSendRequest(AiActionType actionType = default, AiThreadMessageLike userMessage = default, AiAiActionArgs actionArgs = default, string entityId = default)
         {
@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLike UserMessage { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActionArgs
+        /// Per-request engine options: extra tools, reasoning, prompt override.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiAiActionArgs ActionArgs { get; set; }

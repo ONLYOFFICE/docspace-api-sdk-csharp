@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -53,6 +56,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
@@ -63,7 +69,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -73,6 +79,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
@@ -83,7 +92,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -93,6 +102,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a prompt folder together with the prompts inside it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
@@ -103,7 +115,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a prompt folder together with the prompts inside it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -113,6 +125,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Export
         /// </summary>
+        /// <remarks>
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
         /// <returns>AiPromptBundle</returns>
@@ -122,7 +137,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
@@ -131,8 +146,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>AiPrompt</returns>
         AiPrompt AiPromptsGetById(string id);
@@ -141,18 +159,21 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>ApiResponse of AiPrompt</returns>
         ApiResponse<AiPrompt> AiPromptsGetByIdWithHttpInfo(string id);
         /// <summary>
         /// Get folder by id
         /// </summary>
+        /// <remarks>
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>AiPromptFolder</returns>
         AiPromptFolder AiPromptsGetFolderById(string id);
@@ -161,16 +182,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get folder by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>ApiResponse of AiPromptFolder</returns>
         ApiResponse<AiPromptFolder> AiPromptsGetFolderByIdWithHttpInfo(string id);
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/">REST API Reference for AiPromptsImportBundle Operation</seealso>
@@ -181,7 +205,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// 
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -191,26 +215,32 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>List&lt;AiPrompt&gt;</returns>
-        List<AiPrompt> AiPromptsList(string folderId);
+        List<AiPrompt> AiPromptsList(string? folderId = default);
 
         /// <summary>
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiPrompt&gt;</returns>
-        ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string folderId);
+        ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string? folderId = default);
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists the prompt folders, newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
         /// <returns>List&lt;AiPromptFolder&gt;</returns>
@@ -220,7 +250,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List folders
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the prompt folders, newest first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
@@ -229,6 +259,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Move
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/">REST API Reference for AiPromptsMove Operation</seealso>
@@ -239,7 +272,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -249,6 +282,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a prompt folder, validating the new name against the existing folders.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/">REST API Reference for AiPromptsRenameFolder Operation</seealso>
@@ -259,7 +295,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a prompt folder, validating the new name against the existing folders.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -269,6 +305,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/">REST API Reference for AiPromptsUpdate Operation</seealso>
@@ -279,7 +318,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -299,7 +338,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -312,7 +351,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -324,7 +363,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -337,7 +376,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -349,7 +388,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -362,7 +401,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -374,7 +413,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a prompt folder together with the prompts inside it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -387,7 +426,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a prompt folder together with the prompts inside it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -399,7 +438,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -411,7 +450,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -422,10 +461,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of AiPrompt</returns>
@@ -435,10 +474,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPrompt)</returns>
@@ -447,10 +486,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get folder by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of AiPromptFolder</returns>
@@ -460,10 +499,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get folder by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPromptFolder)</returns>
@@ -472,7 +511,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// 
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -485,7 +524,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// 
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -497,32 +536,32 @@ namespace DocSpace.API.SDK.Api.AI
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of List&lt;AiPrompt&gt;</returns>
-        Task<List<AiPrompt>> AiPromptsListAsync(string folderId, CancellationToken cancellationToken = default);
+        Task<List<AiPrompt>> AiPromptsListAsync(string? folderId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiPrompt&gt;)</returns>
-        Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string folderId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string? folderId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// List folders
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the prompt folders, newest first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -534,7 +573,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List folders
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the prompt folders, newest first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -545,7 +584,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -558,7 +597,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -570,7 +609,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a prompt folder, validating the new name against the existing folders.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -583,7 +622,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a prompt folder, validating the new name against the existing folders.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -595,7 +634,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -608,7 +647,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -834,6 +873,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
@@ -847,6 +889,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create/">REST API Reference for AiPromptsCreate Operation</seealso>
@@ -891,6 +936,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -905,6 +953,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Saves a new prompt. The name must be non-empty and unique inside its folder, and `folderId` must point at an existing folder - omit it for the root.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -952,6 +1003,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
@@ -965,6 +1019,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
@@ -1009,6 +1066,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1023,6 +1083,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create folder
         /// </summary>
+        /// <remarks>
+        /// Creates a prompt folder. The name must be non-empty and unique across the portal - prompt folders do not nest.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1070,6 +1133,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
@@ -1083,6 +1149,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
@@ -1127,6 +1196,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1141,6 +1213,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a saved prompt. Does nothing when it no longer exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1188,6 +1263,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a prompt folder together with the prompts inside it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
@@ -1201,6 +1279,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a prompt folder together with the prompts inside it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
@@ -1245,6 +1326,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a prompt folder together with the prompts inside it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1259,6 +1343,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete folder
         /// </summary>
+        /// <remarks>
+        /// Deletes a prompt folder together with the prompts inside it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1306,6 +1393,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Export
         /// </summary>
+        /// <remarks>
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
         /// <returns>AiPromptBundle</returns>
@@ -1318,6 +1408,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Export
         /// </summary>
+        /// <remarks>
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
         /// <returns>ApiResponse of AiPromptBundle</returns>
@@ -1356,6 +1449,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Export
         /// </summary>
+        /// <remarks>
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
@@ -1369,6 +1465,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Export
         /// </summary>
+        /// <remarks>
+        /// Builds a self-contained, versioned bundle of every saved prompt and folder, ready for `import-bundle`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-export/">REST API Reference for AiPromptsExport Operation</seealso>
@@ -1410,8 +1509,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>AiPrompt</returns>
         public AiPrompt AiPromptsGetById(string id)
@@ -1423,8 +1525,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>ApiResponse of AiPrompt</returns>
         public ApiResponse<AiPrompt> AiPromptsGetByIdWithHttpInfo(string id)
@@ -1467,8 +1572,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of AiPrompt</returns>
@@ -1481,8 +1589,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one saved prompt, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The saved prompt identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-by-id/">REST API Reference for AiPromptsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPrompt)</returns>
@@ -1528,8 +1639,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get folder by id
         /// </summary>
+        /// <remarks>
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>AiPromptFolder</returns>
         public AiPromptFolder AiPromptsGetFolderById(string id)
@@ -1541,8 +1655,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get folder by id
         /// </summary>
+        /// <remarks>
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>ApiResponse of AiPromptFolder</returns>
         public ApiResponse<AiPromptFolder> AiPromptsGetFolderByIdWithHttpInfo(string id)
@@ -1585,8 +1702,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get folder by id
         /// </summary>
+        /// <remarks>
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of AiPromptFolder</returns>
@@ -1599,8 +1719,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get folder by id
         /// </summary>
+        /// <remarks>
+        /// Returns one prompt folder, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The prompt folder identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-get-folder-by-id/">REST API Reference for AiPromptsGetFolderById Operation</seealso>
         /// <returns>Task of ApiResponse (AiPromptFolder)</returns>
@@ -1646,6 +1769,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/">REST API Reference for AiPromptsImportBundle Operation</seealso>
@@ -1659,6 +1785,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-import-bundle/">REST API Reference for AiPromptsImportBundle Operation</seealso>
@@ -1703,6 +1832,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1717,6 +1849,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Import bundle
         /// </summary>
+        /// <remarks>
+        /// Restores a prompt bundle. `replace` wipes the current prompts and folders before writing the bundle, `merge` writes the bundle on top of what is already there; both validate the folder references inside the bundle before any write, so a corrupt bundle is rejected whole.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1764,11 +1899,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>List&lt;AiPrompt&gt;</returns>
-        public List<AiPrompt> AiPromptsList(string folderId)
+        public List<AiPrompt> AiPromptsList(string? folderId = default)
         {
             var localVarResponse = AiPromptsListWithHttpInfo(folderId);
             return localVarResponse.Data;
@@ -1777,16 +1915,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiPrompt&gt;</returns>
-        public ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string folderId)
+        public ApiResponse<List<AiPrompt>> AiPromptsListWithHttpInfo(string? folderId = default)
         {
-            // verify the required parameter 'folderId' is set
-            if (folderId == null)
-                throw new ApiException(400, "Missing required parameter 'folderId' when calling PromptsApi->AiPromptsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1800,7 +1937,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            if (folderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            }
 
 
             // make the HTTP request
@@ -1821,12 +1961,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of List&lt;AiPrompt&gt;</returns>
-        public async Task<List<AiPrompt>> AiPromptsListAsync(string folderId, CancellationToken cancellationToken = default)
+        public async Task<List<AiPrompt>> AiPromptsListAsync(string? folderId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiPromptsListWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1835,17 +1978,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists saved prompts. Scope the answer to one folder, ask for the root-level prompts only, or omit the folder to get every prompt newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The prompt folder identifier. Omit to list the prompts that sit outside any folder. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list/">REST API Reference for AiPromptsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiPrompt&gt;)</returns>
-        public async Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string folderId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<AiPrompt>>> AiPromptsListWithHttpInfoAsync(string? folderId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'folderId' is set
-            if (folderId == null)
-                throw new ApiException(400, "Missing required parameter 'folderId' when calling PromptsApi->AiPromptsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1860,7 +2002,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            if (folderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "folderId", folderId));
+            }
 
 
             // make the HTTP request
@@ -1882,6 +2027,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists the prompt folders, newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
         /// <returns>List&lt;AiPromptFolder&gt;</returns>
@@ -1894,6 +2042,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists the prompt folders, newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiPromptFolder&gt;</returns>
@@ -1932,6 +2083,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists the prompt folders, newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
@@ -1945,6 +2099,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List folders
         /// </summary>
+        /// <remarks>
+        /// Lists the prompt folders, newest first.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-list-folders/">REST API Reference for AiPromptsListFolders Operation</seealso>
@@ -1986,6 +2143,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Move
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/">REST API Reference for AiPromptsMove Operation</seealso>
@@ -1999,6 +2159,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Move
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-move/">REST API Reference for AiPromptsMove Operation</seealso>
@@ -2043,6 +2206,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Move
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2057,6 +2223,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Move
         /// </summary>
+        /// <remarks>
+        /// Moves a saved prompt into another folder, or to the root. The name is re-validated in the target folder, so the move fails when a prompt of that name is already there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2104,6 +2273,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a prompt folder, validating the new name against the existing folders.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/">REST API Reference for AiPromptsRenameFolder Operation</seealso>
@@ -2117,6 +2289,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a prompt folder, validating the new name against the existing folders.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-rename-folder/">REST API Reference for AiPromptsRenameFolder Operation</seealso>
@@ -2161,6 +2336,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a prompt folder, validating the new name against the existing folders.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2175,6 +2353,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename folder
         /// </summary>
+        /// <remarks>
+        /// Renames a prompt folder, validating the new name against the existing folders.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2222,6 +2403,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/">REST API Reference for AiPromptsUpdate Operation</seealso>
@@ -2235,6 +2419,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-update/">REST API Reference for AiPromptsUpdate Operation</seealso>
@@ -2279,6 +2466,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2293,6 +2483,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates a saved prompt. The name and the folder reference are re-validated whenever either of them changes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

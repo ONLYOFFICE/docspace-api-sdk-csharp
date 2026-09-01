@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The unique identifier of the shared link..</param>
         /// <param name="title">The title of the shared content..</param>
         /// <param name="shareLink">The URL for accessing the shared content..</param>
-        /// <param name="expirationDate">The API date and time parameters..</param>
+        /// <param name="expirationDate">The date when the shared link expires..</param>
         /// <param name="linkType">The sharing link type (e.g., Invitation)..</param>
         /// <param name="password">The password protection for accessing the shared content..</param>
         /// <param name="denyDownload">Indicates whether downloading of the shared content is prohibited..</param>
@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="requestToken">The token for validating access requests..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
-        public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default, int? maxUseCount = default, int? currentUseCount = default)
+        public FileShareLink(Guid id = default, string title = default, string shareLink = default, DateTime? expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default, int? maxUseCount = default, int? currentUseCount = default)
         {
             this.Id = id;
             this.Title = title;
@@ -99,10 +99,10 @@ namespace DocSpace.API.SDK.Model
         public string ShareLink { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The date when the shared link expires.
         /// </summary>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
-        public ApiDateTime ExpirationDate { get; set; }
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// The password protection for accessing the shared content.

@@ -38,7 +38,7 @@ namespace DocSpace.API.SDK.Model
     public partial class AiPromptBundle : IValidatableObject
     {
         /// <summary>
-        /// Defines @Version
+        /// The bundle format version, so an import can migrate an older export.
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum VersionEnum
@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets @Version
+        /// The bundle format version, so an import can migrate an older export.
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public VersionEnum @Version { get; set; }
@@ -64,9 +64,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiPromptBundle" /> class.
         /// </summary>
-        /// <param name="version">version (required).</param>
-        /// <param name="folders">folders (required).</param>
-        /// <param name="prompts">prompts (required).</param>
+        /// <param name="version">The bundle format version, so an import can migrate an older export. (required).</param>
+        /// <param name="folders">Every exported prompt folder. (required).</param>
+        /// <param name="prompts">Every exported prompt. (required).</param>
         public AiPromptBundle(VersionEnum version = default, List<AiPromptFolder> folders = default, List<AiPrompt> prompts = default)
         {
             this.@Version = version;
@@ -85,13 +85,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Folders
+        /// Every exported prompt folder.
         /// </summary>
         [DataMember(Name = "folders", IsRequired = true, EmitDefaultValue = true)]
         public List<AiPromptFolder> Folders { get; set; }
 
         /// <summary>
-        /// Gets or Sets Prompts
+        /// Every exported prompt.
         /// </summary>
         [DataMember(Name = "prompts", IsRequired = true, EmitDefaultValue = true)]
         public List<AiPrompt> Prompts { get; set; }

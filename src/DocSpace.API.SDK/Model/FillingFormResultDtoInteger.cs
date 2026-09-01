@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FillingFormResultDtoInteger" /> class.
         /// </summary>
         /// <param name="formNumber">The filling form number. (required).</param>
-        /// <param name="completedForm">The file parameters..</param>
-        /// <param name="originalForm">The file parameters..</param>
-        /// <param name="manager">The full list of user parameters..</param>
+        /// <param name="completedForm">The file with the completed forms..</param>
+        /// <param name="originalForm">The file with the original forms..</param>
+        /// <param name="manager">The manager who is filling the form..</param>
         /// <param name="roomId">The room ID where filling the form. (required).</param>
         /// <param name="isRoomMember">Specifies if the manager who fills the form is a room member or not..</param>
         public FillingFormResultDtoInteger(int formNumber = default, FileDtoInteger completedForm = default, FileDtoInteger originalForm = default, EmployeeFullDto manager = default, int roomId = default, bool isRoomMember = default)
@@ -70,19 +70,19 @@ namespace DocSpace.API.SDK.Model
         public int FormNumber { get; set; }
 
         /// <summary>
-        /// The file parameters.
+        /// The file with the completed forms.
         /// </summary>
         [DataMember(Name = "completedForm", EmitDefaultValue = false)]
         public FileDtoInteger CompletedForm { get; set; }
 
         /// <summary>
-        /// The file parameters.
+        /// The file with the original forms.
         /// </summary>
         [DataMember(Name = "originalForm", EmitDefaultValue = false)]
         public FileDtoInteger OriginalForm { get; set; }
 
         /// <summary>
-        /// The full list of user parameters.
+        /// The manager who is filling the form.
         /// </summary>
         [DataMember(Name = "manager", EmitDefaultValue = false)]
         public EmployeeFullDto Manager { get; set; }

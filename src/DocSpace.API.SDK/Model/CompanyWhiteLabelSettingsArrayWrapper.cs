@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// CompanyWhiteLabelSettingsArrayWrapper
+    /// The successful API response containing the list of CompanyWhiteLabelSettings objects.
     /// </summary>
     [DataContract(Name = "CompanyWhiteLabelSettingsArrayWrapper")]
     public partial class CompanyWhiteLabelSettingsArrayWrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsArrayWrapper" /> class.
         /// </summary>
-        /// <param name="response">response.</param>
+        /// <param name="response">The list of CompanyWhiteLabelSettings objects returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Response
+        /// The list of CompanyWhiteLabelSettings objects returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public List<CompanyWhiteLabelSettings> Response { get; set; }

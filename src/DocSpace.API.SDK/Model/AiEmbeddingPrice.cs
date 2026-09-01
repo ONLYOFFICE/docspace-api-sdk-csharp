@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiEmbeddingPrice
+    /// The price of an embedding model, per token.
     /// </summary>
     [DataContract(Name = "AiEmbeddingPrice")]
     public partial class AiEmbeddingPrice : IValidatableObject
@@ -41,15 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiEmbeddingPrice" /> class.
         /// </summary>
-        /// <param name="prompt">prompt.</param>
+        /// <param name="prompt">The price of a single input token..</param>
         public AiEmbeddingPrice(double prompt = default)
         {
             this.Prompt = prompt;
         }
 
         /// <summary>
-        /// Gets or Sets Prompt
+        /// The price of a single input token.
         /// </summary>
+        /// <example>2.0E-8</example>
         [DataMember(Name = "prompt", EmitDefaultValue = false)]
         public double Prompt { get; set; }
 

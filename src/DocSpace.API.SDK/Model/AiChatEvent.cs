@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Discriminated event emitted by the streaming methods of  {@link  AIEngine } . The engine never invokes user-supplied middleware or callbacks directly — every observable side-effect is encoded as a  {@link  ChatEvent }  so the same stream can be replayed over SSE, WebSocket, or in-process.  Pause point: &#x60;tool-call-pending&#x60; is the only stop. The UI must execute the tool itself (consulting &#x60;autoAllow&#x60; to decide between the silent path and the approve dialog) and resume via  {@link  AIEngine.approveToolCall }  or  {@link  AIEngine.denyToolCall } .  Other variants are pure data:  - &#x60;message-start&#x60; / &#x60;message-delta&#x60; / &#x60;message-end&#x60; — assistant   reply lifecycle. - &#x60;message-incomplete&#x60; — the provider returned an error or   incomplete status. - &#x60;thread-title&#x60; — auto-generated title ready for a new thread.
+    /// Discriminated event emitted by the streaming methods of &#x60;AIEngine&#x60;. The engine never invokes user-supplied middleware or callbacks directly — every observable side-effect is encoded as a &#x60;ChatEvent&#x60; so the same stream can be replayed over SSE, WebSocket, or in-process.  Pause point: &#x60;tool-call-pending&#x60; is the only stop. The UI must execute the tool itself (consulting &#x60;autoAllow&#x60; to decide between the silent path and the approve dialog) and resume via &#x60;AIEngine.approveToolCall&#x60; or &#x60;AIEngine.denyToolCall&#x60;.  Other variants are pure data:  - &#x60;message-start&#x60; / &#x60;message-delta&#x60; / &#x60;message-end&#x60; — assistant reply lifecycle. - &#x60;message-incomplete&#x60; — the provider returned an error or incomplete status. - &#x60;thread-title&#x60; — auto-generated title ready for a new thread.
     /// </summary>
     [DataContract(Name = "AiChatEvent")]
     public partial class AiChatEvent : IValidatableObject
@@ -101,14 +101,14 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiChatEvent" /> class.
         /// </summary>
         /// <param name="type">Emitted once per &#x60;sendWithStream&#x60; call, immediately after the user message has been persisted by storage and before the assistant stream starts. Carries the storage-assigned &#x60;id&#x60; and &#x60;createdAt&#x60;. The UI uses it to render the user bubble — no client-side optimistic placeholder is needed, which keeps the runtime tree free of phantom nodes from index-fallback ids. (required).</param>
-        /// <param name="message">message.</param>
-        /// <param name="messageId">messageId.</param>
-        /// <param name="idx">idx.</param>
-        /// <param name="threadId">threadId.</param>
+        /// <param name="message">The message the event is about, in the state it has reached..</param>
+        /// <param name="messageId">The storage identifier of that message..</param>
+        /// <param name="idx">The zero-based position of the pending tool call within the message..</param>
+        /// <param name="threadId">The thread the event belongs to..</param>
         /// <param name="autoAllow">The consumer should execute the tool without prompting the user. True when the tool is in the persisted always-allow list, or the tool itself opts in via &#x60;TMCPItem.requireApproval &#x3D;&#x3D;&#x3D; false&#x60; (host tools default to this). For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip..</param>
         /// <param name="serverExecuted">Set when the tool is served by a server-side system source: the consumer must NOT execute it locally — only show the approval UI (unless &#x60;autoAllow&#x60;) and resume via &#x60;approveToolCall&#x60; (no &#x60;result&#x60; needed) / &#x60;denyToolCall&#x60;. The engine runs it in-engine..</param>
-        /// <param name="title">title.</param>
-        /// <param name="profileId">profileId.</param>
+        /// <param name="title">The generated thread title..</param>
+        /// <param name="profileId">The profile that generated the title, when one was used..</param>
         public AiChatEvent(TypeEnum type = default, AiThreadMessageLike message = default, string messageId = default, decimal idx = default, string threadId = default, bool autoAllow = default, bool serverExecuted = default, string title = default, string profileId = default)
         {
             this.Type = type;
@@ -123,25 +123,25 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// The message the event is about, in the state it has reached.
         /// </summary>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public AiThreadMessageLike Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets MessageId
+        /// The storage identifier of that message.
         /// </summary>
         [DataMember(Name = "messageId", EmitDefaultValue = false)]
         public string MessageId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Idx
+        /// The zero-based position of the pending tool call within the message.
         /// </summary>
         [DataMember(Name = "idx", EmitDefaultValue = false)]
         public decimal Idx { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThreadId
+        /// The thread the event belongs to.
         /// </summary>
         [DataMember(Name = "threadId", EmitDefaultValue = false)]
         public string ThreadId { get; set; }
@@ -159,13 +159,13 @@ namespace DocSpace.API.SDK.Model
         public bool ServerExecuted { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// The generated thread title.
         /// </summary>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProfileId
+        /// The profile that generated the title, when one was used.
         /// </summary>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }

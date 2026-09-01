@@ -150,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="hideConfirmConvertSave">Specifies whether to hide the confirmation dialog  for saving the file copy in the original format when converting a file..</param>
         /// <param name="hideConfirmConvertOpen">Specifies whether to hide the confirmation dialog  for opening the conversion result..</param>
         /// <param name="hideConfirmRoomLifetime">Specifies whether to hide the confirmation dialog about the file lifetime in the room..</param>
-        /// <param name="defaultOrder">The sorting parameters..</param>
+        /// <param name="defaultOrder">The default order of files..</param>
         /// <param name="forcesave">Specifies whether to forcesave the files or not..</param>
         /// <param name="storeForcesave">Specifies whether to store the forcesaved file versions or not..</param>
         /// <param name="recentSection">Specifies if the Recent section is displayed or not..</param>
@@ -546,7 +546,7 @@ namespace DocSpace.API.SDK.Model
         public bool HideConfirmRoomLifetime { get; set; }
 
         /// <summary>
-        /// The sorting parameters.
+        /// The default order of files.
         /// </summary>
         [DataMember(Name = "defaultOrder", EmitDefaultValue = false)]
         public OrderBy DefaultOrder { get; set; }

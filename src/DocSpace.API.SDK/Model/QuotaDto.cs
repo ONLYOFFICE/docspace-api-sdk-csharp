@@ -53,10 +53,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="free">Specifies if the quota is free or not. (required).</param>
         /// <param name="trial">Specifies if the quota is trial or not. (required).</param>
         /// <param name="features">The list of tenant quota features. (required).</param>
-        /// <param name="usersQuota">The tenant entity quota settings..</param>
-        /// <param name="roomsQuota">The tenant entity quota settings..</param>
-        /// <param name="aiAgentsQuota">The tenant entity quota settings..</param>
-        /// <param name="tenantCustomQuota">The tenant quota settings..</param>
+        /// <param name="usersQuota">The user quota..</param>
+        /// <param name="roomsQuota">The room quota..</param>
+        /// <param name="aiAgentsQuota">The ai agent quota..</param>
+        /// <param name="tenantCustomQuota">The tenant custom quota..</param>
         /// <param name="dueDate">The due date..</param>
         public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
         {
@@ -133,25 +133,25 @@ namespace DocSpace.API.SDK.Model
         public List<TenantQuotaFeatureDto> Features { get; set; }
 
         /// <summary>
-        /// The tenant entity quota settings.
+        /// The user quota.
         /// </summary>
         [DataMember(Name = "usersQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings UsersQuota { get; set; }
 
         /// <summary>
-        /// The tenant entity quota settings.
+        /// The room quota.
         /// </summary>
         [DataMember(Name = "roomsQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings RoomsQuota { get; set; }
 
         /// <summary>
-        /// The tenant entity quota settings.
+        /// The ai agent quota.
         /// </summary>
         [DataMember(Name = "aiAgentsQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings AiAgentsQuota { get; set; }
 
         /// <summary>
-        /// The tenant quota settings.
+        /// The tenant custom quota.
         /// </summary>
         [DataMember(Name = "tenantCustomQuota", EmitDefaultValue = false)]
         public TenantQuotaSettings TenantCustomQuota { get; set; }

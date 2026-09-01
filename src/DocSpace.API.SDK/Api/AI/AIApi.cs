@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Approve tool call
         /// </summary>
+        /// <remarks>
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/">REST API Reference for AiAiApproveToolCall Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Approve tool call
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
@@ -53,8 +56,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Deny tool call
         /// </summary>
+        /// <remarks>
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>AiChatEvent</returns>
         AiChatEvent AiAiDenyToolCall(AiAiToolCallData aiAiToolCallData);
@@ -63,16 +69,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deny tool call
         /// </summary>
         /// <remarks>
-        /// 
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>ApiResponse of AiChatEvent</returns>
         ApiResponse<AiChatEvent> AiAiDenyToolCallWithHttpInfo(AiAiToolCallData aiAiToolCallData);
         /// <summary>
         /// Regenerate stream
         /// </summary>
+        /// <remarks>
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/">REST API Reference for AiAiRegenerateStream Operation</seealso>
@@ -83,7 +92,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Regenerate stream
         /// </summary>
         /// <remarks>
-        /// 
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
@@ -93,6 +102,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send
         /// </summary>
+        /// <remarks>
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/">REST API Reference for AiAiSend Operation</seealso>
@@ -103,7 +115,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
@@ -113,6 +125,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send custom
         /// </summary>
+        /// <remarks>
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/">REST API Reference for AiAiSendCustom Operation</seealso>
@@ -123,7 +138,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send custom
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
@@ -133,8 +148,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream
         /// </summary>
+        /// <remarks>
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>AiChatEvent</returns>
         AiChatEvent AiAiSendWithStream(AiAiSendStreamBody aiAiSendStreamBody);
@@ -143,18 +161,21 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send with stream
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>ApiResponse of AiChatEvent</returns>
         ApiResponse<AiChatEvent> AiAiSendWithStreamWithHttpInfo(AiAiSendStreamBody aiAiSendStreamBody);
         /// <summary>
         /// Send with stream open ai
         /// </summary>
+        /// <remarks>
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>AiOpenAIStreamChunk</returns>
         AiOpenAIStreamChunk AiAiSendWithStreamOpenAI(AiAiSendStreamBody aiAiSendStreamBody);
@@ -163,10 +184,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send with stream open ai
         /// </summary>
         /// <remarks>
-        /// 
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>ApiResponse of AiOpenAIStreamChunk</returns>
         ApiResponse<AiOpenAIStreamChunk> AiAiSendWithStreamOpenAIWithHttpInfo(AiAiSendStreamBody aiAiSendStreamBody);
@@ -183,7 +204,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Approve tool call
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
@@ -196,7 +217,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Approve tool call
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
@@ -208,10 +229,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deny tool call
         /// </summary>
         /// <remarks>
-        /// 
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>Task of AiChatEvent</returns>
@@ -221,10 +242,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deny tool call
         /// </summary>
         /// <remarks>
-        /// 
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>Task of ApiResponse (AiChatEvent)</returns>
@@ -233,7 +254,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Regenerate stream
         /// </summary>
         /// <remarks>
-        /// 
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
@@ -246,7 +267,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Regenerate stream
         /// </summary>
         /// <remarks>
-        /// 
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
@@ -258,7 +279,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
@@ -271,7 +292,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
@@ -283,7 +304,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send custom
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
@@ -296,7 +317,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send custom
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
@@ -308,10 +329,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send with stream
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>Task of AiChatEvent</returns>
@@ -321,10 +342,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send with stream
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>Task of ApiResponse (AiChatEvent)</returns>
@@ -333,10 +354,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send with stream open ai
         /// </summary>
         /// <remarks>
-        /// 
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>Task of AiOpenAIStreamChunk</returns>
@@ -346,10 +367,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send with stream open ai
         /// </summary>
         /// <remarks>
-        /// 
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>Task of ApiResponse (AiOpenAIStreamChunk)</returns>
@@ -572,6 +593,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Approve tool call
         /// </summary>
+        /// <remarks>
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/">REST API Reference for AiAiApproveToolCall Operation</seealso>
@@ -585,6 +609,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Approve tool call
         /// </summary>
+        /// <remarks>
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/">REST API Reference for AiAiApproveToolCall Operation</seealso>
@@ -629,6 +656,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Approve tool call
         /// </summary>
+        /// <remarks>
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -643,6 +673,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Approve tool call
         /// </summary>
+        /// <remarks>
+        /// Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiApproveToolCallRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -690,8 +723,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Deny tool call
         /// </summary>
+        /// <remarks>
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>AiChatEvent</returns>
         public AiChatEvent AiAiDenyToolCall(AiAiToolCallData aiAiToolCallData)
@@ -703,8 +739,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Deny tool call
         /// </summary>
+        /// <remarks>
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>ApiResponse of AiChatEvent</returns>
         public ApiResponse<AiChatEvent> AiAiDenyToolCallWithHttpInfo(AiAiToolCallData aiAiToolCallData)
@@ -747,8 +786,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Deny tool call
         /// </summary>
+        /// <remarks>
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>Task of AiChatEvent</returns>
@@ -761,8 +803,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Deny tool call
         /// </summary>
+        /// <remarks>
+        /// Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiToolCallData"></param>
+        /// <param name="aiAiToolCallData">Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/">REST API Reference for AiAiDenyToolCall Operation</seealso>
         /// <returns>Task of ApiResponse (AiChatEvent)</returns>
@@ -808,6 +853,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate stream
         /// </summary>
+        /// <remarks>
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/">REST API Reference for AiAiRegenerateStream Operation</seealso>
@@ -821,6 +869,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate stream
         /// </summary>
+        /// <remarks>
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/">REST API Reference for AiAiRegenerateStream Operation</seealso>
@@ -865,6 +916,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate stream
         /// </summary>
+        /// <remarks>
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -879,6 +933,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate stream
         /// </summary>
+        /// <remarks>
+        /// Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiRegenerateStreamRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -926,6 +983,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send
         /// </summary>
+        /// <remarks>
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/">REST API Reference for AiAiSend Operation</seealso>
@@ -939,6 +999,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send
         /// </summary>
+        /// <remarks>
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/">REST API Reference for AiAiSend Operation</seealso>
@@ -983,6 +1046,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send
         /// </summary>
+        /// <remarks>
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -997,6 +1063,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send
         /// </summary>
+        /// <remarks>
+        /// Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1044,6 +1113,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send custom
         /// </summary>
+        /// <remarks>
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/">REST API Reference for AiAiSendCustom Operation</seealso>
@@ -1057,6 +1129,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send custom
         /// </summary>
+        /// <remarks>
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/">REST API Reference for AiAiSendCustom Operation</seealso>
@@ -1101,6 +1176,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send custom
         /// </summary>
+        /// <remarks>
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1115,6 +1193,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send custom
         /// </summary>
+        /// <remarks>
+        /// Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAiSendCustomRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1162,8 +1243,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream
         /// </summary>
+        /// <remarks>
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>AiChatEvent</returns>
         public AiChatEvent AiAiSendWithStream(AiAiSendStreamBody aiAiSendStreamBody)
@@ -1175,8 +1259,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream
         /// </summary>
+        /// <remarks>
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>ApiResponse of AiChatEvent</returns>
         public ApiResponse<AiChatEvent> AiAiSendWithStreamWithHttpInfo(AiAiSendStreamBody aiAiSendStreamBody)
@@ -1219,8 +1306,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream
         /// </summary>
+        /// <remarks>
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>Task of AiChatEvent</returns>
@@ -1233,8 +1323,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream
         /// </summary>
+        /// <remarks>
+        /// Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/">REST API Reference for AiAiSendWithStream Operation</seealso>
         /// <returns>Task of ApiResponse (AiChatEvent)</returns>
@@ -1280,8 +1373,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream open ai
         /// </summary>
+        /// <remarks>
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>AiOpenAIStreamChunk</returns>
         public AiOpenAIStreamChunk AiAiSendWithStreamOpenAI(AiAiSendStreamBody aiAiSendStreamBody)
@@ -1293,8 +1389,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream open ai
         /// </summary>
+        /// <remarks>
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>ApiResponse of AiOpenAIStreamChunk</returns>
         public ApiResponse<AiOpenAIStreamChunk> AiAiSendWithStreamOpenAIWithHttpInfo(AiAiSendStreamBody aiAiSendStreamBody)
@@ -1337,8 +1436,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream open ai
         /// </summary>
+        /// <remarks>
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>Task of AiOpenAIStreamChunk</returns>
@@ -1351,8 +1453,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Send with stream open ai
         /// </summary>
+        /// <remarks>
+        /// The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiAiSendStreamBody"></param>
+        /// <param name="aiAiSendStreamBody">Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/">REST API Reference for AiAiSendWithStreamOpenAI Operation</seealso>
         /// <returns>Task of ApiResponse (AiOpenAIStreamChunk)</returns>

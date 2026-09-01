@@ -101,8 +101,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>SetupCodeWrapper</returns>
-        SetupCodeWrapper TfaAppGenerateSetupCode();
+        /// <returns>TfaSetupCodeWrapper</returns>
+        TfaSetupCodeWrapper TfaAppGenerateSetupCode();
 
         /// <summary>
         /// Generate setup code
@@ -112,8 +112,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>ApiResponse of SetupCodeWrapper</returns>
-        ApiResponse<SetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo();
+        /// <returns>ApiResponse of TfaSetupCodeWrapper</returns>
+        ApiResponse<TfaSetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo();
         /// <summary>
         /// Validate the TFA code
         /// </summary>
@@ -314,8 +314,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>Task of SetupCodeWrapper</returns>
-        Task<SetupCodeWrapper> TfaAppGenerateSetupCodeAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TfaSetupCodeWrapper</returns>
+        Task<TfaSetupCodeWrapper> TfaAppGenerateSetupCodeAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generate setup code
@@ -326,8 +326,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>Task of ApiResponse (SetupCodeWrapper)</returns>
-        Task<ApiResponse<SetupCodeWrapper>> TfaAppGenerateSetupCodeWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TfaSetupCodeWrapper)</returns>
+        Task<ApiResponse<TfaSetupCodeWrapper>> TfaAppGenerateSetupCodeWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Validate the TFA code
         /// </summary>
@@ -1202,8 +1202,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>SetupCodeWrapper</returns>
-        public SetupCodeWrapper TfaAppGenerateSetupCode()
+        /// <returns>TfaSetupCodeWrapper</returns>
+        public TfaSetupCodeWrapper TfaAppGenerateSetupCode()
         {
             var localVarResponse = TfaAppGenerateSetupCodeWithHttpInfo();
             return localVarResponse.Data;
@@ -1217,8 +1217,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>ApiResponse of SetupCodeWrapper</returns>
-        public ApiResponse<SetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo()
+        /// <returns>ApiResponse of TfaSetupCodeWrapper</returns>
+        public ApiResponse<TfaSetupCodeWrapper> TfaAppGenerateSetupCodeWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1266,7 +1266,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<SetupCodeWrapper>("/api/2.0/settings/tfaapp/setup", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TfaSetupCodeWrapper>("/api/2.0/settings/tfaapp/setup", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1289,8 +1289,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>Task of SetupCodeWrapper</returns>
-        public async Task<SetupCodeWrapper> TfaAppGenerateSetupCodeAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TfaSetupCodeWrapper</returns>
+        public async Task<TfaSetupCodeWrapper> TfaAppGenerateSetupCodeAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await TfaAppGenerateSetupCodeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1305,8 +1305,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
-        /// <returns>Task of ApiResponse (SetupCodeWrapper)</returns>
-        public async Task<ApiResponse<SetupCodeWrapper>> TfaAppGenerateSetupCodeWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TfaSetupCodeWrapper)</returns>
+        public async Task<ApiResponse<TfaSetupCodeWrapper>> TfaAppGenerateSetupCodeWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1356,7 +1356,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<SetupCodeWrapper>("/api/2.0/settings/tfaapp/setup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TfaSetupCodeWrapper>("/api/2.0/settings/tfaapp/setup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

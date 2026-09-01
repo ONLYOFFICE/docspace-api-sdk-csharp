@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// EncryptionKeyRequestDto
+    /// The request parameters for storing the encryption key pair of a user.
     /// </summary>
     [DataContract(Name = "EncryptionKeyRequestDto")]
     public partial class EncryptionKeyRequestDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EncryptionKeyRequestDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="publicKey">publicKey.</param>
-        /// <param name="privateKeyEnc">privateKeyEnc.</param>
+        /// <param name="id">The identifier of the key pair..</param>
+        /// <param name="publicKey">The public key of the pair, used to encrypt the file keys..</param>
+        /// <param name="privateKeyEnc">The private key of the pair, encrypted with the user password..</param>
         public EncryptionKeyRequestDto(Guid id = default, string publicKey = default, string privateKeyEnc = default)
         {
             this.Id = id;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The identifier of the key pair.
         /// </summary>
+        /// <example>9924256B-447C-4F19-9dbd-8ad8c39e8ff5</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets PublicKey
+        /// The public key of the pair, used to encrypt the file keys.
         /// </summary>
+        /// <example>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A...</example>
         [DataMember(Name = "publicKey", EmitDefaultValue = true)]
         public string PublicKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets PrivateKeyEnc
+        /// The private key of the pair, encrypted with the user password.
         /// </summary>
+        /// <example>U2FsdGVkX1+Lm3s...</example>
         [DataMember(Name = "privateKeyEnc", EmitDefaultValue = true)]
         public string PrivateKeyEnc { get; set; }
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The theme type.
+        /// The portal theme settings type.
         /// </summary>
         [DataMember(Name = "theme", IsRequired = true, EmitDefaultValue = true)]
         public DarkThemeSettingsType Theme { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DarkThemeSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="theme">The theme type. (required).</param>
+        /// <param name="theme">The portal theme settings type. (required).</param>
         public DarkThemeSettingsRequestDto(DarkThemeSettingsType theme = default)
         {
             this.Theme = theme;

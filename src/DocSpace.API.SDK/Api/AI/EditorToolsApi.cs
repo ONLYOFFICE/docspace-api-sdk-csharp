@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
         /// <remarks>
-        /// 
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -53,6 +56,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
@@ -62,7 +68,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
@@ -81,7 +87,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
         /// <remarks>
-        /// 
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -94,7 +100,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
         /// <remarks>
-        /// 
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -106,7 +112,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -118,7 +124,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -343,6 +349,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
@@ -356,6 +365,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
@@ -400,6 +412,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -414,6 +429,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Execute a DocSpace tool on behalf of the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -461,6 +479,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
@@ -473,6 +494,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
@@ -511,6 +535,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
@@ -524,6 +551,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Sanitized DocSpace tool catalog for the editor AI plugin
         /// </summary>
+        /// <remarks>
+        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>

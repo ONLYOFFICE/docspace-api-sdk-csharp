@@ -32,50 +32,59 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The API date and time parameters.
+    /// The successful API response containing the CompanyWhiteLabelSettingsDto object.
     /// </summary>
-    [DataContract(Name = "AiApiDateTime")]
-    public partial class AiApiDateTime : IValidatableObject
+    [DataContract(Name = "CompanyWhiteLabelSettingsDtoWrapper")]
+    public partial class CompanyWhiteLabelSettingsDtoWrapper : IValidatableObject
     {
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="AiApiDateTime" /> class.
+        /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsDtoWrapper" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public AiApiDateTime()
+        /// <param name="response">The CompanyWhiteLabelSettingsDto object returned by the operation..</param>
+        /// <param name="count">The total number of items in the response.</param>
+        /// <param name="links">List of links related to the response.</param>
+        /// <param name="status">HTTP status code of the response.</param>
+        /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
+        public CompanyWhiteLabelSettingsDtoWrapper(CompanyWhiteLabelSettingsDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
+            this.Response = response;
+            this.Count = count;
+            this.Links = links;
+            this.Status = status;
+            this.StatusCode = statusCode;
         }
 
         /// <summary>
-        /// The time in UTC format.
+        /// The CompanyWhiteLabelSettingsDto object returned by the operation.
         /// </summary>
-        /// <example>2018-01-01T00:00:00.0000000Z</example>
-        [DataMember(Name = "utcTime", EmitDefaultValue = false)]
-        public DateTime UtcTime { get; private set; }
+        [DataMember(Name = "response", EmitDefaultValue = false)]
+        public CompanyWhiteLabelSettingsDto Response { get; set; }
 
         /// <summary>
-        /// Returns false as UtcTime should not be serialized given that it's read-only.
+        /// The total number of items in the response
         /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUtcTime()
-        {
-            return false;
-        }
-        /// <summary>
-        /// The time zone offset.
-        /// </summary>
-        /// <example>00:00:00</example>
-        [DataMember(Name = "timeZoneOffset", EmitDefaultValue = false)]
-        public string TimeZoneOffset { get; private set; }
+        [DataMember(Name = "count", EmitDefaultValue = false)]
+        public int Count { get; set; }
 
         /// <summary>
-        /// Returns false as TimeZoneOffset should not be serialized given that it's read-only.
+        /// List of links related to the response
         /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeTimeZoneOffset()
-        {
-            return false;
-        }
+        [DataMember(Name = "links", EmitDefaultValue = false)]
+        public List<GetPortalPrices200ResponseLinksInner> Links { get; set; }
+
+        /// <summary>
+        /// HTTP status code of the response
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public int Status { get; set; }
+
+        /// <summary>
+        /// HTTP status code of the response (duplicate of status)
+        /// </summary>
+        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
+        public int StatusCode { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -83,9 +92,12 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AiApiDateTime {\n");
-            sb.Append("  UtcTime: ").Append(UtcTime).Append("\n");
-            sb.Append("  TimeZoneOffset: ").Append(TimeZoneOffset).Append("\n");
+            sb.Append("class CompanyWhiteLabelSettingsDtoWrapper {\n");
+            sb.Append("  Response: ").Append(Response).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

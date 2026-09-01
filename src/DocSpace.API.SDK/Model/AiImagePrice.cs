@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiImagePrice
+    /// The price of an image model: per prompt token and per generated image.
     /// </summary>
     [DataContract(Name = "AiImagePrice")]
     public partial class AiImagePrice : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiImagePrice" /> class.
         /// </summary>
-        /// <param name="prompt">prompt.</param>
-        /// <param name="completion">completion.</param>
-        /// <param name="image">image.</param>
+        /// <param name="prompt">The price of a single prompt token..</param>
+        /// <param name="completion">The cost associated with the completion of a prompt in an AI model..</param>
+        /// <param name="image">The price of a single generated image..</param>
         public AiImagePrice(double prompt = default, double completion = default, double image = default)
         {
             this.Prompt = prompt;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Prompt
+        /// The price of a single prompt token.
         /// </summary>
+        /// <example>1.0E-5</example>
         [DataMember(Name = "prompt", EmitDefaultValue = false)]
         public double Prompt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Completion
+        /// The cost associated with the completion of a prompt in an AI model.
         /// </summary>
+        /// <example>1.0E-5</example>
         [DataMember(Name = "completion", EmitDefaultValue = false)]
         public double Completion { get; set; }
 
         /// <summary>
-        /// Gets or Sets Image
+        /// The price of a single generated image.
         /// </summary>
+        /// <example>0.04</example>
         [DataMember(Name = "image", EmitDefaultValue = false)]
         public double Image { get; set; }
 

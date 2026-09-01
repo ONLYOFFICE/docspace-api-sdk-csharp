@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// IconRequest
+    /// The icon to set on a room group.
     /// </summary>
     [DataContract(Name = "IconRequest")]
     public partial class IconRequest : IValidatableObject

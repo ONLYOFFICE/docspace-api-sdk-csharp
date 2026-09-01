@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiAgentNewItemsDto" /> class.
         /// </summary>
-        /// <param name="agent">The file entry information. (required).</param>
+        /// <param name="agent">The agent file entry. (required).</param>
         /// <param name="items">The list of file entry items. (required).</param>
         public AiAgentNewItemsDto(AiFileEntryBaseDto agent = default, List<AiFileEntryBaseDto> items = default)
         {
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file entry information.
+        /// The agent file entry.
         /// </summary>
         [DataMember(Name = "agent", IsRequired = true, EmitDefaultValue = true)]
         public AiFileEntryBaseDto Agent { get; set; }

@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="order">The order of the file entry..</param>
         /// <param name="isFavorite">Specifies if the file is a favorite or not..</param>
         /// <param name="fileEntryType">The file entry type..</param>
-        public AiFileEntryBaseDto(string title = default, AiFileShare? access = default, AiEmployeeDto sharedBy = default, AiEmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool sharedExternal = default, bool parentShared = default, string shortWebUrl = default, AiApiDateTime created = default, AiEmployeeDto createdBy = default, AiApiDateTime updated = default, AiApiDateTime autoDelete = default, AiFolderType? rootFolderType = default, AiFolderType? parentRoomType = default, AiEmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, AiFileEntryType? fileEntryType = default)
+        public AiFileEntryBaseDto(string title = default, AiFileShare? access = default, AiEmployeeDto sharedBy = default, AiEmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool sharedExternal = default, bool parentShared = default, string shortWebUrl = default, DateTime? created = default, AiEmployeeDto createdBy = default, DateTime? updated = default, DateTime? autoDelete = default, AiFolderType? rootFolderType = default, AiFolderType? parentRoomType = default, AiEmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, AiFileEntryType? fileEntryType = default)
         {
             this.Title = title;
             this.Access = access;
@@ -170,8 +170,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The creation date and time of the file entry.
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public AiApiDateTime Created { get; set; }
+        /// <example>2021-01-01T00:00:00Z</example>
+        [DataMember(Name = "created", EmitDefaultValue = true)]
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// The file entry author.
@@ -182,14 +183,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The last date and time when the file entry was updated.
         /// </summary>
-        [DataMember(Name = "updated", EmitDefaultValue = false)]
-        public AiApiDateTime Updated { get; set; }
+        /// <example>2021-01-01T00:00:00Z</example>
+        [DataMember(Name = "updated", EmitDefaultValue = true)]
+        public DateTime? Updated { get; set; }
 
         /// <summary>
         /// The date and time when the file entry will be automatically deleted.
         /// </summary>
-        [DataMember(Name = "autoDelete", EmitDefaultValue = false)]
-        public AiApiDateTime AutoDelete { get; set; }
+        /// <example>2021-01-01T00:00:00Z</example>
+        [DataMember(Name = "autoDelete", EmitDefaultValue = true)]
+        public DateTime? AutoDelete { get; set; }
 
         /// <summary>
         /// The user who updated the file entry.

@@ -1754,12 +1754,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td><a href="docs/FilesSharingApi.md#setfilesecurityinfo"><strong>SetFileSecurityInfo</strong></a></td>
-        <td><strong>PUT</strong> /api/2.0/files/file/{fileId}/share</td>
+        <td><strong>PUT</strong> /api/2.0/files/file/{id}/share</td>
         <td>Share a file</td>
       </tr>
       <tr>
         <td><a href="docs/FilesSharingApi.md#setfoldersecurityinfo"><strong>SetFolderSecurityInfo</strong></a></td>
-        <td><strong>PUT</strong> /api/2.0/files/folder/{folderId}/share</td>
+        <td><strong>PUT</strong> /api/2.0/files/folder/{id}/share</td>
         <td>Share a folder</td>
       </tr>
       <tr>
@@ -2770,48 +2770,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 </details>
 <details>
-  <summary>Privacyroom</summary>
-
-  <table>
-    <tbody>
-      <tr>
-        <th>Method</th>
-        <th>HTTP request</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td colspan="3" style="text-align: center;"><strong>PrivacyroomApi</strong></td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#deletekeys"><strong>DeleteKeys</strong></a></td>
-        <td><strong>DELETE</strong> /api/2.0/privacyroom/keys/{id}</td>
-        <td>Deletes an encryption key and removes it from the system.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#getuserkeys"><strong>GetUserKeys</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/privacyroom/keys</td>
-        <td>Retrieves encryption keys associated with the current user.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#getuserkeysforroom"><strong>GetUserKeysForRoom</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/privacyroom/{roomId}/access</td>
-        <td>Retrieves the encryption keys associated with a specific privacy room.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#replacekey"><strong>ReplaceKey</strong></a></td>
-        <td><strong>PUT</strong> /api/2.0/privacyroom/keys</td>
-        <td>Replaces an existing encryption key with a new one for the user.</td>
-      </tr>
-      <tr>
-        <td><a href="docs/PrivacyroomApi.md#setkeys"><strong>SetKeys</strong></a></td>
-        <td><strong>POST</strong> /api/2.0/privacyroom/keys</td>
-        <td>Creates and sets encryption keys for the user.</td>
-      </tr>
-    </tbody>
-  </table>
-
-</details>
-<details>
   <summary>Rooms</summary>
 
   <table>
@@ -3066,6 +3024,34 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/RoomsGroupsApi.md#updateroomgroup"><strong>UpdateRoomGroup</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/group/{id}</td>
         <td>Update room group</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>PrivacyRoomApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#deletekeys"><strong>DeleteKeys</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/privacyroom/keys/{id}</td>
+        <td>Deletes an encryption key and removes it from the system.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#getuserkeys"><strong>GetUserKeys</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/privacyroom/keys</td>
+        <td>Retrieves encryption keys associated with the current user.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#getuserkeysforroom"><strong>GetUserKeysForRoom</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/privacyroom/{roomId}/access</td>
+        <td>Retrieves the encryption keys associated with a specific privacy room.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#replacekey"><strong>ReplaceKey</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/privacyroom/keys</td>
+        <td>Replaces an existing encryption key with a new one for the user.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsPrivacyRoomApi.md#setkeys"><strong>SetKeys</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/privacyroom/keys</td>
+        <td>Creates and sets encryption keys for the user.</td>
       </tr>
     </tbody>
   </table>
@@ -4101,6 +4087,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ActiveServiceDto](docs/ActiveServiceDto.md)
  - [Model.AdditionalWhiteLabelSettings](docs/AdditionalWhiteLabelSettings.md)
  - [Model.AdditionalWhiteLabelSettingsDto](docs/AdditionalWhiteLabelSettingsDto.md)
+ - [Model.AdditionalWhiteLabelSettingsDtoWrapper](docs/AdditionalWhiteLabelSettingsDtoWrapper.md)
+ - [Model.AdditionalWhiteLabelSettingsResponseWrapper](docs/AdditionalWhiteLabelSettingsResponseWrapper.md)
  - [Model.AdditionalWhiteLabelSettingsWrapper](docs/AdditionalWhiteLabelSettingsWrapper.md)
  - [Model.AdminMessageBaseSettingsRequestsDto](docs/AdminMessageBaseSettingsRequestsDto.md)
  - [Model.AdminMessageSettingsRequestsDto](docs/AdminMessageSettingsRequestsDto.md)
@@ -4124,7 +4112,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiAiToolCallData](docs/AiAiToolCallData.md)
  - [Model.AiAiUserSettingsDto](docs/AiAiUserSettingsDto.md)
  - [Model.AiAiUserSettingsWrapper](docs/AiAiUserSettingsWrapper.md)
- - [Model.AiApiDateTime](docs/AiApiDateTime.md)
  - [Model.AiAssignmentMutationResult](docs/AiAssignmentMutationResult.md)
  - [Model.AiAssignmentsAssignRequest](docs/AiAssignmentsAssignRequest.md)
  - [Model.AiAttachment](docs/AiAttachment.md)
@@ -4245,7 +4232,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiWebSearchMutationResult](docs/AiWebSearchMutationResult.md)
  - [Model.AiWebSearchPricing](docs/AiWebSearchPricing.md)
  - [Model.AnonymousConfigDto](docs/AnonymousConfigDto.md)
- - [Model.ApiDateTime](docs/ApiDateTime.md)
  - [Model.ApiKeyResponseArrayWrapper](docs/ApiKeyResponseArrayWrapper.md)
  - [Model.ApiKeyResponseDto](docs/ApiKeyResponseDto.md)
  - [Model.ApiKeyResponseWrapper](docs/ApiKeyResponseWrapper.md)
@@ -4327,6 +4313,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.CompanyWhiteLabelSettings](docs/CompanyWhiteLabelSettings.md)
  - [Model.CompanyWhiteLabelSettingsArrayWrapper](docs/CompanyWhiteLabelSettingsArrayWrapper.md)
  - [Model.CompanyWhiteLabelSettingsDto](docs/CompanyWhiteLabelSettingsDto.md)
+ - [Model.CompanyWhiteLabelSettingsDtoWrapper](docs/CompanyWhiteLabelSettingsDtoWrapper.md)
+ - [Model.CompanyWhiteLabelSettingsResponseWrapper](docs/CompanyWhiteLabelSettingsResponseWrapper.md)
  - [Model.CompanyWhiteLabelSettingsWrapper](docs/CompanyWhiteLabelSettingsWrapper.md)
  - [Model.ConfigurationDtoInteger](docs/ConfigurationDtoInteger.md)
  - [Model.ConfigurationIntegerWrapper](docs/ConfigurationIntegerWrapper.md)
@@ -4488,6 +4476,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.EncryptionSettings](docs/EncryptionSettings.md)
  - [Model.EncryptionSettingsWrapper](docs/EncryptionSettingsWrapper.md)
  - [Model.EntryType](docs/EntryType.md)
+ - [Model.ErrorApiResponse](docs/ErrorApiResponse.md)
+ - [Model.ErrorApiResponseError](docs/ErrorApiResponseError.md)
  - [Model.ExchangeToken200Response](docs/ExchangeToken200Response.md)
  - [Model.ExternalDatabaseSettings](docs/ExternalDatabaseSettings.md)
  - [Model.ExternalDatabaseType](docs/ExternalDatabaseType.md)
@@ -4536,6 +4526,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FileShareDto](docs/FileShareDto.md)
  - [Model.FileShareLink](docs/FileShareLink.md)
  - [Model.FileShareParams](docs/FileShareParams.md)
+ - [Model.FileShareResponseArrayWrapper](docs/FileShareResponseArrayWrapper.md)
  - [Model.FileShareWrapper](docs/FileShareWrapper.md)
  - [Model.FileStatus](docs/FileStatus.md)
  - [Model.FileType](docs/FileType.md)
@@ -4598,7 +4589,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.HistoryData](docs/HistoryData.md)
  - [Model.HistoryDto](docs/HistoryDto.md)
  - [Model.ICompressWrapper](docs/ICompressWrapper.md)
- - [Model.IMagickGeometry](docs/IMagickGeometry.md)
  - [Model.IPRestriction](docs/IPRestriction.md)
  - [Model.IPRestrictionArrayWrapper](docs/IPRestrictionArrayWrapper.md)
  - [Model.IPRestrictionsSettings](docs/IPRestrictionsSettings.md)
@@ -4620,12 +4610,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.IsDefaultWhiteLabelLogosArrayWrapper](docs/IsDefaultWhiteLabelLogosArrayWrapper.md)
  - [Model.IsDefaultWhiteLabelLogosDto](docs/IsDefaultWhiteLabelLogosDto.md)
  - [Model.IsDefaultWhiteLabelLogosWrapper](docs/IsDefaultWhiteLabelLogosWrapper.md)
+ - [Model.ItemKeyValuePairBooleanString](docs/ItemKeyValuePairBooleanString.md)
+ - [Model.ItemKeyValuePairBooleanStringWrapper](docs/ItemKeyValuePairBooleanStringWrapper.md)
  - [Model.ItemKeyValuePairObjectObject](docs/ItemKeyValuePairObjectObject.md)
  - [Model.ItemKeyValuePairStringBoolean](docs/ItemKeyValuePairStringBoolean.md)
  - [Model.ItemKeyValuePairStringLogoRequestsDto](docs/ItemKeyValuePairStringLogoRequestsDto.md)
  - [Model.ItemKeyValuePairStringString](docs/ItemKeyValuePairStringString.md)
- - [Model.KeyValuePairBooleanString](docs/KeyValuePairBooleanString.md)
- - [Model.KeyValuePairBooleanStringWrapper](docs/KeyValuePairBooleanStringWrapper.md)
  - [Model.LinkAccountRequestDto](docs/LinkAccountRequestDto.md)
  - [Model.LinkType](docs/LinkType.md)
  - [Model.Location](docs/Location.md)
@@ -4665,8 +4655,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.NewItemsDtoRoomNewItemsDto](docs/NewItemsDtoRoomNewItemsDto.md)
  - [Model.NewItemsFileEntryBaseArrayWrapper](docs/NewItemsFileEntryBaseArrayWrapper.md)
  - [Model.NewItemsRoomNewItemsArrayWrapper](docs/NewItemsRoomNewItemsArrayWrapper.md)
- - [Model.NoContentResult](docs/NoContentResult.md)
- - [Model.NoContentResultWrapper](docs/NoContentResultWrapper.md)
  - [Model.NotificationChannelDto](docs/NotificationChannelDto.md)
  - [Model.NotificationChannelStatusDto](docs/NotificationChannelStatusDto.md)
  - [Model.NotificationChannelStatusWrapper](docs/NotificationChannelStatusWrapper.md)
@@ -4781,8 +4769,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.SettingsDto](docs/SettingsDto.md)
  - [Model.SettingsRequestDto](docs/SettingsRequestDto.md)
  - [Model.SettingsWrapper](docs/SettingsWrapper.md)
- - [Model.SetupCode](docs/SetupCode.md)
- - [Model.SetupCodeWrapper](docs/SetupCodeWrapper.md)
  - [Model.ShareFilterType](docs/ShareFilterType.md)
  - [Model.SignupAccountRequestDto](docs/SignupAccountRequestDto.md)
  - [Model.Size](docs/Size.md)
@@ -4836,6 +4822,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TenantAiAgentQuotaSettings](docs/TenantAiAgentQuotaSettings.md)
  - [Model.TenantAiAgentQuotaSettingsWrapper](docs/TenantAiAgentQuotaSettingsWrapper.md)
  - [Model.TenantAuditSettings](docs/TenantAuditSettings.md)
+ - [Model.TenantAuditSettingsResponseWrapper](docs/TenantAuditSettingsResponseWrapper.md)
  - [Model.TenantAuditSettingsWrapper](docs/TenantAuditSettingsWrapper.md)
  - [Model.TenantBannerSettings](docs/TenantBannerSettings.md)
  - [Model.TenantBannerSettingsDto](docs/TenantBannerSettingsDto.md)
@@ -4868,6 +4855,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TenantWalletServiceSettings](docs/TenantWalletServiceSettings.md)
  - [Model.TenantWalletServiceSettingsWrapper](docs/TenantWalletServiceSettingsWrapper.md)
  - [Model.TenantWalletSettings](docs/TenantWalletSettings.md)
+ - [Model.TenantWalletSettingsResponseWrapper](docs/TenantWalletSettingsResponseWrapper.md)
  - [Model.TenantWalletSettingsWrapper](docs/TenantWalletSettingsWrapper.md)
  - [Model.TenantWrapper](docs/TenantWrapper.md)
  - [Model.TerminateRequestDto](docs/TerminateRequestDto.md)
@@ -4879,6 +4867,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TfaRequestsDtoType](docs/TfaRequestsDtoType.md)
  - [Model.TfaSettingsArrayWrapper](docs/TfaSettingsArrayWrapper.md)
  - [Model.TfaSettingsDto](docs/TfaSettingsDto.md)
+ - [Model.TfaSetupCodeDto](docs/TfaSetupCodeDto.md)
+ - [Model.TfaSetupCodeWrapper](docs/TfaSetupCodeWrapper.md)
  - [Model.TfaValidateRequestsDto](docs/TfaValidateRequestsDto.md)
  - [Model.ThirdPartyBackupRequestDto](docs/ThirdPartyBackupRequestDto.md)
  - [Model.ThirdPartyParams](docs/ThirdPartyParams.md)
@@ -4955,6 +4945,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.WhiteLabelItemArrayWrapper](docs/WhiteLabelItemArrayWrapper.md)
  - [Model.WhiteLabelItemDto](docs/WhiteLabelItemDto.md)
  - [Model.WhiteLabelItemPathDto](docs/WhiteLabelItemPathDto.md)
+ - [Model.WhiteLabelItemSizeDto](docs/WhiteLabelItemSizeDto.md)
  - [Model.WhiteLabelLogoType](docs/WhiteLabelLogoType.md)
  - [Model.WhiteLabelRequestsDto](docs/WhiteLabelRequestsDto.md)
  - [Model.WizardRequestsDto](docs/WizardRequestsDto.md)

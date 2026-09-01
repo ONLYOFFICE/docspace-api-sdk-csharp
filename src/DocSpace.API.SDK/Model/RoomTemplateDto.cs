@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="roomId">The room template ID. (required).</param>
         /// <param name="title">The room template title. (required).</param>
-        /// <param name="logo">The logo request parameters..</param>
+        /// <param name="logo">The room template logo..</param>
         /// <param name="copyLogo">Specifies whether to copy room logo or not..</param>
         /// <param name="share">The collection of email addresses of users with whom to share a room..</param>
         /// <param name="groups">The collection of groups with whom to share a room..</param>
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// The logo request parameters.
+        /// The room template logo.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }

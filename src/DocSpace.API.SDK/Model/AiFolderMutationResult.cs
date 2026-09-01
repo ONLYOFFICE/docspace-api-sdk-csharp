@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiFolderMutationResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="folder">folder.</param>
-        /// <param name="error">error.</param>
+        /// <param name="success">True when the folder was persisted. (required).</param>
+        /// <param name="folder">The persisted folder. Present on success..</param>
+        /// <param name="error">Why the folder was rejected. Present on failure..</param>
         public AiFolderMutationResult(bool success = default, AiPromptFolder folder = default, AiTErrorData error = default)
         {
             this.Success = success;
@@ -57,19 +57,19 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when the folder was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Folder
+        /// The persisted folder. Present on success.
         /// </summary>
         [DataMember(Name = "folder", EmitDefaultValue = false)]
         public AiPromptFolder Folder { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the folder was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public AiTErrorData Error { get; set; }

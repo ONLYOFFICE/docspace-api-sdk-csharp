@@ -6,7 +6,7 @@ The result of file convertion operation.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The conversion operation ID. | 
-**Operation** | **FileOperationType** | The file operation type. | 
+**Operation** | **FileOperationType** | The conversion operation type. | 
 **Progress** | **int** | The conversion operation progress. | 
 **Source** | **string** | The source file for the conversion. | [optional] 
 **Result** | **Object** |  | [optional] 

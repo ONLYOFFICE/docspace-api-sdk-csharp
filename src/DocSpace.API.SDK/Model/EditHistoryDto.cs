@@ -45,12 +45,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="key">The document identifier used to unambiguously identify the document file..</param>
         /// <param name="version">The document version number..</param>
         /// <param name="versionGroup">The document version group..</param>
-        /// <param name="user">The information about the file editing history author..</param>
-        /// <param name="created">The API date and time parameters..</param>
+        /// <param name="user">The user who updated a file..</param>
+        /// <param name="created">The document version creation date..</param>
         /// <param name="changesHistory">The file history changes in the string format..</param>
         /// <param name="changes">The list of file history changes..</param>
         /// <param name="serverVersion">The current server version number..</param>
-        public EditHistoryDto(int id = default, string key = default, int version = default, int versionGroup = default, EditHistoryAuthor user = default, ApiDateTime created = default, string changesHistory = default, List<EditHistoryChangesWrapper> changes = default, string serverVersion = default)
+        public EditHistoryDto(int id = default, string key = default, int version = default, int versionGroup = default, EditHistoryAuthor user = default, DateTime? created = default, string changesHistory = default, List<EditHistoryChangesWrapper> changes = default, string serverVersion = default)
         {
             this.Id = id;
             this.Key = key;
@@ -92,16 +92,17 @@ namespace DocSpace.API.SDK.Model
         public int VersionGroup { get; set; }
 
         /// <summary>
-        /// The information about the file editing history author.
+        /// The user who updated a file.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public EditHistoryAuthor User { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The document version creation date.
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public ApiDateTime Created { get; set; }
+        /// <example>2021-01-01T00:00:00.0000000Z</example>
+        [DataMember(Name = "created", EmitDefaultValue = true)]
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// The file history changes in the string format.

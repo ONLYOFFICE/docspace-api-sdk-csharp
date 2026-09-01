@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Reports the portal's combined AI configuration and readiness.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
         /// <returns>AiAiSettingsWrapper</returns>
@@ -42,7 +45,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reports the portal's combined AI configuration and readiness.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
@@ -51,6 +54,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get user AI settings
         /// </summary>
+        /// <remarks>
+        /// Returns the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
         /// <returns>AiAiUserSettingsWrapper</returns>
@@ -60,7 +66,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the current user's AI settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
@@ -69,6 +75,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
         /// <returns>AiVectorizationSettingsWrapper</returns>
@@ -78,7 +87,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the portal's vectorization settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
@@ -87,6 +96,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update user AI settings
         /// </summary>
+        /// <remarks>
+        /// Updates the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
@@ -97,7 +109,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the current user's AI settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -107,6 +119,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
@@ -117,7 +132,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the portal's vectorization settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -137,7 +152,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reports the portal's combined AI configuration and readiness.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -149,7 +164,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reports the portal's combined AI configuration and readiness.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -160,7 +175,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the current user's AI settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -172,7 +187,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the current user's AI settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -183,7 +198,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the portal's vectorization settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -195,7 +210,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the portal's vectorization settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -206,7 +221,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the current user's AI settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -219,7 +234,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the current user's AI settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -231,7 +246,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the portal's vectorization settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -244,7 +259,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the portal's vectorization settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -470,6 +485,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Reports the portal's combined AI configuration and readiness.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
         /// <returns>AiAiSettingsWrapper</returns>
@@ -482,6 +500,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Reports the portal's combined AI configuration and readiness.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
         /// <returns>ApiResponse of AiAiSettingsWrapper</returns>
@@ -520,6 +541,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Reports the portal's combined AI configuration and readiness.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
@@ -533,6 +557,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Reports the portal's combined AI configuration and readiness.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
@@ -574,6 +601,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get user AI settings
         /// </summary>
+        /// <remarks>
+        /// Returns the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
         /// <returns>AiAiUserSettingsWrapper</returns>
@@ -586,6 +616,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get user AI settings
         /// </summary>
+        /// <remarks>
+        /// Returns the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
         /// <returns>ApiResponse of AiAiUserSettingsWrapper</returns>
@@ -624,6 +657,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get user AI settings
         /// </summary>
+        /// <remarks>
+        /// Returns the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
@@ -637,6 +673,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get user AI settings
         /// </summary>
+        /// <remarks>
+        /// Returns the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
@@ -678,6 +717,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
         /// <returns>AiVectorizationSettingsWrapper</returns>
@@ -690,6 +732,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
         /// <returns>ApiResponse of AiVectorizationSettingsWrapper</returns>
@@ -728,6 +773,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
@@ -741,6 +789,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Returns the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
@@ -782,6 +833,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update user AI settings
         /// </summary>
+        /// <remarks>
+        /// Updates the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
@@ -795,6 +849,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update user AI settings
         /// </summary>
+        /// <remarks>
+        /// Updates the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
@@ -839,6 +896,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update user AI settings
         /// </summary>
+        /// <remarks>
+        /// Updates the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -853,6 +913,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update user AI settings
         /// </summary>
+        /// <remarks>
+        /// Updates the current user's AI settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -900,6 +963,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
@@ -913,6 +979,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
@@ -957,6 +1026,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -971,6 +1043,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Updates the portal's vectorization settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The file operation type.
+        /// The conversion operation type.
         /// </summary>
         [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
         public FileOperationType Operation { get; set; }
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ConversationResultDto" /> class.
         /// </summary>
         /// <param name="id">The conversion operation ID. (required).</param>
-        /// <param name="operation">The file operation type. (required).</param>
+        /// <param name="operation">The conversion operation type. (required).</param>
         /// <param name="progress">The conversion operation progress. (required).</param>
         /// <param name="source">The source file for the conversion..</param>
         /// <param name="result">result.</param>

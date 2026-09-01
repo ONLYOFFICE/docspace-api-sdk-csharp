@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Folder** | **string** | The folder of the file. | [optional] 
 **Owner** | **string** | The file owner. | [optional] 
 **SharingSettings** | [**List&lt;AceShortWrapper&gt;**](AceShortWrapper.md) | The sharing settings of the file. | [optional] 
-**Type** | **EditorType** | The editor type. | [optional] 
+**Type** | **EditorType** | The editor type of the file. | [optional] 
 **Uploaded** | **string** | The uploaded file. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

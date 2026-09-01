@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -53,6 +56,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete many
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes a batch of attachments in a single round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
@@ -63,7 +69,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes a batch of attachments in a single round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -73,6 +79,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get
         /// </summary>
+        /// <remarks>
+        /// Returns one attachment by identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
@@ -83,7 +92,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one attachment by identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -93,6 +102,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get many
         /// </summary>
+        /// <remarks>
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
@@ -103,7 +115,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -113,6 +125,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Link to message
         /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
@@ -123,7 +138,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Link to message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
@@ -133,6 +148,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save file
         /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
@@ -143,7 +161,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
@@ -153,6 +171,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save files many
         /// </summary>
+        /// <remarks>
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
@@ -163,7 +184,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save files many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
@@ -183,7 +204,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -196,7 +217,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -208,7 +229,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes a batch of attachments in a single round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -221,7 +242,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes a batch of attachments in a single round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -233,7 +254,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one attachment by identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -246,7 +267,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one attachment by identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -258,7 +279,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -271,7 +292,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -283,7 +304,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Link to message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
@@ -296,7 +317,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Link to message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
@@ -308,7 +329,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
@@ -321,7 +342,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
@@ -333,7 +354,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save files many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
@@ -346,7 +367,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save files many
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
@@ -572,6 +593,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
@@ -585,6 +609,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
@@ -629,6 +656,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -643,6 +673,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already linked to a message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -690,6 +723,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete many
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes a batch of attachments in a single round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
@@ -703,6 +739,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete many
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes a batch of attachments in a single round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
@@ -747,6 +786,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete many
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes a batch of attachments in a single round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -761,6 +803,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete many
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes a batch of attachments in a single round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -808,6 +853,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get
         /// </summary>
+        /// <remarks>
+        /// Returns one attachment by identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
@@ -821,6 +869,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get
         /// </summary>
+        /// <remarks>
+        /// Returns one attachment by identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
@@ -865,6 +916,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get
         /// </summary>
+        /// <remarks>
+        /// Returns one attachment by identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -879,6 +933,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get
         /// </summary>
+        /// <remarks>
+        /// Returns one attachment by identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -926,6 +983,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get many
         /// </summary>
+        /// <remarks>
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
@@ -939,6 +999,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get many
         /// </summary>
+        /// <remarks>
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
@@ -983,6 +1046,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get many
         /// </summary>
+        /// <remarks>
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -997,6 +1063,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get many
         /// </summary>
+        /// <remarks>
+        /// Returns a batch of attachments, preserving the requested order; an identifier that no longer exists comes back empty.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1044,6 +1113,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Link to message
         /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
@@ -1057,6 +1129,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Link to message
         /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
@@ -1101,6 +1176,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Link to message
         /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1115,6 +1193,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Link to message
         /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, once that message has been persisted, so deleting the message removes them too. Identifiers that no longer exist are skipped.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsLinkToMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1162,6 +1243,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save file
         /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
@@ -1175,6 +1259,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save file
         /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
@@ -1219,6 +1306,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save file
         /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1233,6 +1323,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save file
         /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft, carrying the host-extracted text of the file. Prefer `save-files-many` when adding several files at once so they land as one round trip.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFileRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1280,6 +1373,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save files many
         /// </summary>
+        /// <remarks>
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
@@ -1293,6 +1389,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save files many
         /// </summary>
+        /// <remarks>
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
@@ -1337,6 +1436,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save files many
         /// </summary>
+        /// <remarks>
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1351,6 +1453,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Save files many
         /// </summary>
+        /// <remarks>
+        /// Stores a batch of file attachments as drafts in a single round trip. The returned records keep the order of the input.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The type of the tenant trusted domains.
+        /// Defines how trusted domains are handled and validated.
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TenantTrustedDomainsType Type { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MailDomainSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">The type of the tenant trusted domains. (required).</param>
+        /// <param name="type">Defines how trusted domains are handled and validated. (required).</param>
         /// <param name="domains">The list of authorized email domains that are considered trusted. (required).</param>
         /// <param name="inviteUsersAsVisitors">Specifies the default permission level for the invited users (visitors or not). (required).</param>
         public MailDomainSettingsRequestsDto(TenantTrustedDomainsType type = default, List<string> domains = default, bool inviteUsersAsVisitors = default)

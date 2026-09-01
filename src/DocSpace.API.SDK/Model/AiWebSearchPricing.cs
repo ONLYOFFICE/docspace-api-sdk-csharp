@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiWebSearchPricing
+    /// The pricing of a single web search provider, per request.
     /// </summary>
     [DataContract(Name = "AiWebSearchPricing")]
     public partial class AiWebSearchPricing : IValidatableObject
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiWebSearchPricing" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="provider">provider.</param>
-        /// <param name="price">price.</param>
-        /// <param name="link">link.</param>
+        /// <param name="id">The identifier of the web search provider..</param>
+        /// <param name="provider">The provider that serves the web search requests..</param>
+        /// <param name="price">The price of a single web search request..</param>
+        /// <param name="link">The link to the pricing page of the provider..</param>
         public AiWebSearchPricing(string id = default, string provider = default, double price = default, string link = default)
         {
             this.Id = id;
@@ -54,26 +54,30 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The identifier of the web search provider.
         /// </summary>
+        /// <example>brave</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// The provider that serves the web search requests.
         /// </summary>
+        /// <example>brave</example>
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
-        /// Gets or Sets Price
+        /// The price of a single web search request.
         /// </summary>
+        /// <example>0.005</example>
         [DataMember(Name = "price", EmitDefaultValue = false)]
         public double Price { get; set; }
 
         /// <summary>
-        /// Gets or Sets Link
+        /// The link to the pricing page of the provider.
         /// </summary>
+        /// <example>https://brave.com/search/api</example>
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 

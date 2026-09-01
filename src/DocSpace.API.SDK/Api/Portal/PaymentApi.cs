@@ -639,8 +639,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsWrapper</returns>
-        TenantWalletSettingsWrapper GetTenantWalletSettings();
+        /// <returns>TenantWalletSettingsResponseWrapper</returns>
+        TenantWalletSettingsResponseWrapper GetTenantWalletSettings();
 
         /// <summary>
         /// Gets the tenant wallet auto top up settings
@@ -650,8 +650,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
-        ApiResponse<TenantWalletSettingsWrapper> GetTenantWalletSettingsWithHttpInfo();
+        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
+        ApiResponse<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsWithHttpInfo();
         /// <summary>
         /// Get wallet service
         /// </summary>
@@ -774,8 +774,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsWrapper</returns>
-        TenantWalletSettingsWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
+        /// <returns>TenantWalletSettingsResponseWrapper</returns>
+        TenantWalletSettingsResponseWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
 
         /// <summary>
         /// Set the wallet auto top up settings
@@ -786,8 +786,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
-        ApiResponse<TenantWalletSettingsWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
+        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
+        ApiResponse<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
         /// <summary>
         /// Terminate the customer monthly usage report generation
         /// </summary>
@@ -1589,8 +1589,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsWrapper</returns>
-        Task<TenantWalletSettingsWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
+        Task<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the tenant wallet auto top up settings
@@ -1601,8 +1601,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
-        Task<ApiResponse<TenantWalletSettingsWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
+        Task<ApiResponse<TenantWalletSettingsResponseWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get wallet service
         /// </summary>
@@ -1736,8 +1736,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsWrapper</returns>
-        Task<TenantWalletSettingsWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
+        Task<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set the wallet auto top up settings
@@ -1749,8 +1749,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
-        Task<ApiResponse<TenantWalletSettingsWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
+        Task<ApiResponse<TenantWalletSettingsResponseWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Terminate the customer monthly usage report generation
         /// </summary>
@@ -6941,8 +6941,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsWrapper</returns>
-        public TenantWalletSettingsWrapper GetTenantWalletSettings()
+        /// <returns>TenantWalletSettingsResponseWrapper</returns>
+        public TenantWalletSettingsResponseWrapper GetTenantWalletSettings()
         {
             var localVarResponse = GetTenantWalletSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -6956,8 +6956,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
-        public ApiResponse<TenantWalletSettingsWrapper> GetTenantWalletSettingsWithHttpInfo()
+        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
+        public ApiResponse<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -7005,7 +7005,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -7028,8 +7028,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsWrapper</returns>
-        public async Task<TenantWalletSettingsWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
+        public async Task<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetTenantWalletSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7044,8 +7044,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantWalletSettingsWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
+        public async Task<ApiResponse<TenantWalletSettingsResponseWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -7095,7 +7095,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -7681,7 +7681,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -7771,7 +7771,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -8020,8 +8020,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsWrapper</returns>
-        public TenantWalletSettingsWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
+        /// <returns>TenantWalletSettingsResponseWrapper</returns>
+        public TenantWalletSettingsResponseWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
         {
             var localVarResponse = SetTenantWalletSettingsWithHttpInfo(tenantWalletSettingsWrapper);
             return localVarResponse.Data;
@@ -8036,8 +8036,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
-        public ApiResponse<TenantWalletSettingsWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
+        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
+        public ApiResponse<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8086,7 +8086,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -8110,8 +8110,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsWrapper</returns>
-        public async Task<TenantWalletSettingsWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
+        public async Task<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetTenantWalletSettingsWithHttpInfoAsync(tenantWalletSettingsWrapper, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8127,8 +8127,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantWalletSettingsWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
+        public async Task<ApiResponse<TenantWalletSettingsResponseWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8179,7 +8179,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -8223,7 +8223,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -8310,7 +8310,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -8397,7 +8397,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -8484,7 +8484,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -8571,7 +8571,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -8658,7 +8658,7 @@ namespace DocSpace.API.SDK.Api.Portal
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

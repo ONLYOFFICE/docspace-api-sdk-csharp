@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The user type.
+        /// The type of employee role for the invitation link.
         /// </summary>
         [DataMember(Name = "employeeType", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeType EmployeeType { get; set; }
@@ -53,13 +53,13 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="InvitationLinkDto" /> class.
         /// </summary>
         /// <param name="id">The ID of the invitation link..</param>
-        /// <param name="employeeType">The user type. (required).</param>
-        /// <param name="expiration">The API date and time parameters..</param>
+        /// <param name="employeeType">The type of employee role for the invitation link. (required).</param>
+        /// <param name="expiration">The expiration date of the invitation link..</param>
         /// <param name="isExpired">Indicates whether the invitation link has expired..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
         /// <param name="url">The URL of the invitation link..</param>
-        public InvitationLinkDto(Guid id = default, EmployeeType employeeType = default, ApiDateTime expiration = default, bool isExpired = default, int? maxUseCount = default, int currentUseCount = default, string url = default)
+        public InvitationLinkDto(Guid id = default, EmployeeType employeeType = default, DateTime? expiration = default, bool isExpired = default, int? maxUseCount = default, int currentUseCount = default, string url = default)
         {
             this.EmployeeType = employeeType;
             this.Id = id;
@@ -78,10 +78,11 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The expiration date of the invitation link.
         /// </summary>
-        [DataMember(Name = "expiration", EmitDefaultValue = false)]
-        public ApiDateTime Expiration { get; set; }
+        /// <example>2024-01-15T10:30:00Z</example>
+        [DataMember(Name = "expiration", EmitDefaultValue = true)]
+        public DateTime? Expiration { get; set; }
 
         /// <summary>
         /// Indicates whether the invitation link has expired.

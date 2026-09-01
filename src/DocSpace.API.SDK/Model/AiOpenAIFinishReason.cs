@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// OpenAI Chat Completions streaming shapes.   {@link  toOpenAIChatCompletionStream }  maps the engine&#39;s transport-agnostic  {@link  ChatEvent }  stream onto these chunks so a host can expose an OpenAI-compatible &#x60;POST /v1/chat/completions&#x60; (&#x60;stream: true&#x60;) endpoint backed by the same chat pipeline as the in-app widget. Only the subset of fields the engine can populate is emitted; everything else an OpenAI client tolerates as absent.
+    /// OpenAI Chat Completions streaming shapes.   &#x60;toOpenAIChatCompletionStream&#x60; maps the engine&#39;s transport-agnostic &#x60;ChatEvent&#x60; stream onto these chunks so a host can expose an OpenAI-compatible &#x60;POST /v1/chat/completions&#x60; (&#x60;stream: true&#x60;) endpoint backed by the same chat pipeline as the in-app widget. Only the subset of fields the engine can populate is emitted; everything else an OpenAI client tolerates as absent.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AiOpenAIFinishReason

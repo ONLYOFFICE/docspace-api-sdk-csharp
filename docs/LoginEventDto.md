@@ -6,12 +6,12 @@ The login event parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The login event ID. | [optional] 
-**Date** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. | [optional] 
+**Date** | **DateTime?** | The login event date. | [optional] 
 **User** | **string** | The user name of the login event. | [optional] 
 **UserId** | **Guid** | The user ID of the login event. | [optional] 
 **Login** | **string** | The user login of the login event. | [optional] 
 **Action** | **string** | The login event action. | [optional] 
-**ActionId** | **MessageAction** | The event action ID. | [optional] 
+**ActionId** | **MessageAction** | The login-related action to filter events by. | [optional] 
 **Ip** | **string** | The login event IP. | [optional] 
 **Country** | **string** | The login event country. | [optional] 
 **City** | **string** | The login event city. | [optional] 

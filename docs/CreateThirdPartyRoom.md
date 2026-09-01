@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreateAsNewFolder** | **bool** | Specifies whether to create a third-party room as a new folder or not. | [optional] 
 **Title** | **string** | The third-party room name to be created. | 
-**RoomType** | **RoomType** | The room type. | 
+**RoomType** | **RoomType** | The third-party room type to be created. | 
 **Private** | **bool** | Specifies whether to create the private third-party room or not. | [optional] 
 **Indexing** | **bool** | Specifies whether to create the third-party room with indexing. | [optional] 
 **DenyDownload** | **bool** | Specifies whether to deny downloads from the third-party room. | [optional] 
 **Color** | **string** | The color of the third-party room. | [optional] 
 **Cover** | **string** | The cover of the third-party room. | [optional] 
 **Tags** | **List&lt;string&gt;** | The list of tags of the third-party room. | [optional] 
-**Logo** | [**LogoRequest**](LogoRequest.md) | The logo request parameters. | [optional] 
+**Logo** | [**LogoRequest**](LogoRequest.md) | The logo request parameters of the third-party room. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

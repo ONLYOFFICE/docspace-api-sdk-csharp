@@ -334,7 +334,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>HistoryArrayWrapper</returns>
-        HistoryArrayWrapper GetFolderHistory(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default);
+        HistoryArrayWrapper GetFolderHistory(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default);
 
         /// <summary>
         /// Get folder history
@@ -350,7 +350,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default);
+        ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default);
         /// <summary>
         /// Get folder information
         /// </summary>
@@ -615,7 +615,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
         DocumentBuilderTaskWrapper GetReportFolderHistory(int folderId);
@@ -627,7 +627,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         ApiResponse<DocumentBuilderTaskWrapper> GetReportFolderHistoryWithHttpInfo(int folderId);
@@ -879,7 +879,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns></returns>
         void TerminateReportFolderHistory(int folderId);
@@ -891,7 +891,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TerminateReportFolderHistoryWithHttpInfo(int folderId);
@@ -1289,7 +1289,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get folder history
@@ -1306,7 +1306,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder information
         /// </summary>
@@ -1589,7 +1589,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
@@ -1602,7 +1602,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
@@ -1869,7 +1869,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1882,7 +1882,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -4288,7 +4288,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>HistoryArrayWrapper</returns>
-        public HistoryArrayWrapper GetFolderHistory(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default)
+        public HistoryArrayWrapper GetFolderHistory(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default)
         {
             var localVarResponse = GetFolderHistoryWithHttpInfo(folderId, fromDate, toDate, count, startIndex);
             return localVarResponse.Data;
@@ -4308,7 +4308,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index from which the history records are retrieved in the request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        public ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default)
+        public ApiResponse<HistoryArrayWrapper> GetFolderHistoryWithHttpInfo(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4326,19 +4326,11 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
-                if (fromDate.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
-                if (toDate.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
             }
             if (count != null)
             {
@@ -4410,7 +4402,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        public async Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<HistoryArrayWrapper> GetFolderHistoryAsync(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetFolderHistoryWithHttpInfoAsync(folderId, fromDate, toDate, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4431,7 +4423,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-history/">REST API Reference for GetFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        public async Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<HistoryArrayWrapper>> GetFolderHistoryWithHttpInfoAsync(int folderId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6373,7 +6365,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
         public DocumentBuilderTaskWrapper GetReportFolderHistory(int folderId)
@@ -6389,7 +6381,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         public ApiResponse<DocumentBuilderTaskWrapper> GetReportFolderHistoryWithHttpInfo(int folderId)
@@ -6462,7 +6454,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
@@ -6479,7 +6471,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the status of generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/">REST API Reference for GetReportFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
@@ -8333,7 +8325,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns></returns>
         public void TerminateReportFolderHistory(int folderId)
@@ -8348,7 +8340,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> TerminateReportFolderHistoryWithHttpInfo(int folderId)
@@ -8358,7 +8350,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -8421,7 +8413,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns>Task of void</returns>
@@ -8437,7 +8429,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminates generating the folder history report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/">REST API Reference for TerminateReportFolderHistory Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -8448,7 +8440,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

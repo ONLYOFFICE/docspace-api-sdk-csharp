@@ -32,13 +32,13 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiTErrorData
+    /// A field-scoped validation error: which form field was rejected, and why.
     /// </summary>
     [DataContract(Name = "AiTErrorData")]
     public partial class AiTErrorData : IValidatableObject
     {
         /// <summary>
-        /// Defines Field
+        /// The rejected field.
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FieldEnum
@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Field
+        /// The rejected field.
         /// </summary>
         [DataMember(Name = "field", IsRequired = true, EmitDefaultValue = true)]
         public FieldEnum Field { get; set; }
@@ -76,8 +76,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiTErrorData" /> class.
         /// </summary>
-        /// <param name="field">field (required).</param>
-        /// <param name="message">message (required).</param>
+        /// <param name="field">The rejected field. (required).</param>
+        /// <param name="message">The human-readable reason the field was rejected. (required).</param>
         public AiTErrorData(FieldEnum field = default, string message = default)
         {
             this.Field = field;
@@ -90,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// The human-readable reason the field was rejected.
         /// </summary>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }

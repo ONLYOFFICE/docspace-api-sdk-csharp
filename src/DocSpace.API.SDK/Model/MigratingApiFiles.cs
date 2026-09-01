@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// MigratingApiFiles
+    /// The parameters of the migrating files.
     /// </summary>
     [DataContract(Name = "MigratingApiFiles")]
     public partial class MigratingApiFiles : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MigratingApiFiles" /> class.
         /// </summary>
-        /// <param name="foldersCount">foldersCount.</param>
-        /// <param name="filesCount">filesCount.</param>
-        /// <param name="bytesTotal">bytesTotal.</param>
+        /// <param name="foldersCount">The number of folders..</param>
+        /// <param name="filesCount">The number of files..</param>
+        /// <param name="bytesTotal">The total number of bytes..</param>
         public MigratingApiFiles(int foldersCount = default, int filesCount = default, long bytesTotal = default)
         {
             this.FoldersCount = foldersCount;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets FoldersCount
+        /// The number of folders.
         /// </summary>
+        /// <example>12</example>
         [DataMember(Name = "foldersCount", EmitDefaultValue = false)]
         public int FoldersCount { get; set; }
 
         /// <summary>
-        /// Gets or Sets FilesCount
+        /// The number of files.
         /// </summary>
+        /// <example>48</example>
         [DataMember(Name = "filesCount", EmitDefaultValue = false)]
         public int FilesCount { get; set; }
 
         /// <summary>
-        /// Gets or Sets BytesTotal
+        /// The total number of bytes.
         /// </summary>
+        /// <example>104857600</example>
         [DataMember(Name = "bytesTotal", EmitDefaultValue = false)]
         public long BytesTotal { get; set; }
 

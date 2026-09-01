@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ItemKeyValuePairStringString
+    /// A key-value pair of a list item.
     /// </summary>
     [DataContract(Name = "ItemKeyValuePairStringString")]
     public partial class ItemKeyValuePairStringString : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemKeyValuePairStringString" /> class.
         /// </summary>
-        /// <param name="key">key.</param>
-        /// <param name="value">value.</param>
+        /// <param name="key">The key that identifies the item within the list..</param>
+        /// <param name="value">The value associated with the key..</param>
         public ItemKeyValuePairStringString(string key = default, string value = default)
         {
             this.Key = key;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// The key that identifies the item within the list.
         /// </summary>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The value associated with the key.
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }

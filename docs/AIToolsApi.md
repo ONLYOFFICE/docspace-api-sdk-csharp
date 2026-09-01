@@ -22,7 +22,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiToolsAddCustomServer**
 > AiToolsMutationResult AiToolsAddCustomServer (AiToolsAddCustomServerRequest aiToolsAddCustomServerRequest)
 
-
+Registers a custom MCP server in the scope under the given name.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-add-custom-server/).
 
@@ -116,9 +116,9 @@ catch (ApiException e)
 
 <a id="aitoolsgetallowalways"></a>
 # **AiToolsGetAllowAlways**
-> List&lt;string&gt; AiToolsGetAllowAlways (string entityId)
+> List&lt;string&gt; AiToolsGetAllowAlways (string? entityId = null)
 
-
+Lists the tools on the always-allow list of the scope.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-allow-always/).
 
@@ -126,7 +126,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -157,7 +157,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ToolsApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -212,9 +212,9 @@ catch (ApiException e)
 
 <a id="aitoolsgetcustomserver"></a>
 # **AiToolsGetCustomServer**
-> Object AiToolsGetCustomServer (string name, string entityId)
+> Object AiToolsGetCustomServer (string name, string? entityId = null)
 
-
+Returns the configuration of one custom MCP server, or an empty result when it is not registered.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-custom-server/).
 
@@ -222,8 +222,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **name** | **string** |  |  |
-| **entityId** | **string** |  |  |
+| **name** | **string** | The custom MCP server name. |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -254,8 +254,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ToolsApi(httpClient, config, httpClientHandler);
-            var name = "name_example";  // string | 
-            var entityId = "entityId_example";  // string | 
+            var name = "name_example";  // string | The custom MCP server name.
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -310,9 +310,9 @@ catch (ApiException e)
 
 <a id="aitoolsgetdisabled"></a>
 # **AiToolsGetDisabled**
-> Dictionary&lt;string, List&lt;string&gt;&gt; AiToolsGetDisabled (string entityId)
+> Dictionary&lt;string, List&lt;string&gt;&gt; AiToolsGetDisabled (string? entityId = null)
 
-
+Returns the switched-off tools of the scope, grouped by server type.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-get-disabled/).
 
@@ -320,7 +320,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -351,7 +351,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ToolsApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -406,9 +406,9 @@ catch (ApiException e)
 
 <a id="aitoolsisallowalways"></a>
 # **AiToolsIsAllowAlways**
-> bool AiToolsIsAllowAlways (string serverType, string toolName, string entityId)
+> bool AiToolsIsAllowAlways (string serverType, string toolName, string? entityId = null)
 
-
+Tells whether one tool is on the always-allow list.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-allow-always/).
 
@@ -416,9 +416,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **serverType** | **string** |  |  |
-| **toolName** | **string** |  |  |
-| **entityId** | **string** |  |  |
+| **serverType** | **string** | The MCP server type the tool belongs to. |  |
+| **toolName** | **string** | The tool name. |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -449,9 +449,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ToolsApi(httpClient, config, httpClientHandler);
-            var serverType = "serverType_example";  // string | 
-            var toolName = "toolName_example";  // string | 
-            var entityId = "entityId_example";  // string | 
+            var serverType = "serverType_example";  // string | The MCP server type the tool belongs to.
+            var toolName = "toolName_example";  // string | The tool name.
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -506,9 +506,9 @@ catch (ApiException e)
 
 <a id="aitoolsistooldisabled"></a>
 # **AiToolsIsToolDisabled**
-> bool AiToolsIsToolDisabled (string serverType, string toolName, string entityId)
+> bool AiToolsIsToolDisabled (string serverType, string toolName, string? entityId = null)
 
-
+Tells whether one tool of a server type is switched off.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-is-tool-disabled/).
 
@@ -516,9 +516,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **serverType** | **string** |  |  |
-| **toolName** | **string** |  |  |
-| **entityId** | **string** |  |  |
+| **serverType** | **string** | The MCP server type the tool belongs to. |  |
+| **toolName** | **string** | The tool name. |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -549,9 +549,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ToolsApi(httpClient, config, httpClientHandler);
-            var serverType = "serverType_example";  // string | 
-            var toolName = "toolName_example";  // string | 
-            var entityId = "entityId_example";  // string | 
+            var serverType = "serverType_example";  // string | The MCP server type the tool belongs to.
+            var toolName = "toolName_example";  // string | The tool name.
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -606,9 +606,9 @@ catch (ApiException e)
 
 <a id="aitoolslistcustomservers"></a>
 # **AiToolsListCustomServers**
-> Dictionary&lt;string, Object&gt; AiToolsListCustomServers (string entityId)
+> Dictionary&lt;string, Object&gt; AiToolsListCustomServers (string? entityId = null)
 
-
+Lists the custom MCP servers registered in the scope, keyed by name.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-custom-servers/).
 
@@ -616,7 +616,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -647,7 +647,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ToolsApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -702,9 +702,9 @@ catch (ApiException e)
 
 <a id="aitoolslistsystemtools"></a>
 # **AiToolsListSystemTools**
-> Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt; AiToolsListSystemTools (string entityId)
+> Dictionary&lt;string, List&lt;AiTMCPItem&gt;&gt; AiToolsListSystemTools (string? entityId = null)
 
-
+Lists the tools of the host-configured system MCP servers, grouped by server type. The servers are connected and listed server-side, so the client renders its permission cards from one request and never opens an MCP connection of its own.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-list-system-tools/).
 
@@ -712,7 +712,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -743,7 +743,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ToolsApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -800,7 +800,7 @@ catch (ApiException e)
 # **AiToolsRemoveCustomServer**
 > AiSuccessResponse AiToolsRemoveCustomServer (AiToolsRemoveCustomServerRequest aiToolsRemoveCustomServerRequest)
 
-
+Removes a custom MCP server from the registry.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-remove-custom-server/).
 
@@ -896,7 +896,7 @@ catch (ApiException e)
 # **AiToolsReplaceAllCustomServers**
 > AiToolsBulkResult AiToolsReplaceAllCustomServers (AiToolsReplaceAllCustomServersRequest aiToolsReplaceAllCustomServersRequest)
 
-
+Replaces the whole custom MCP server registry of the scope with the supplied map.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-replace-all-custom-servers/).
 
@@ -992,7 +992,7 @@ catch (ApiException e)
 # **AiToolsSetAllowAlways**
 > AiSuccessResponse AiToolsSetAllowAlways (AiToolsSetAllowAlwaysRequest aiToolsSetAllowAlwaysRequest)
 
-
+Adds a tool to the always-allow list, or removes it - the tools on that list run without an approval dialog.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-allow-always/).
 
@@ -1088,7 +1088,7 @@ catch (ApiException e)
 # **AiToolsSetDisabled**
 > AiSuccessResponse AiToolsSetDisabled (AiToolsSetDisabledRequest aiToolsSetDisabledRequest)
 
-
+Marks the listed tools of one server type as switched off, so the model is no longer offered them.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-set-disabled/).
 
@@ -1184,7 +1184,7 @@ catch (ApiException e)
 # **AiToolsUpdateCustomServer**
 > AiToolsMutationResult AiToolsUpdateCustomServer (AiToolsUpdateCustomServerRequest aiToolsUpdateCustomServerRequest)
 
-
+Updates the configuration of a registered custom MCP server.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-tools-update-custom-server/).
 

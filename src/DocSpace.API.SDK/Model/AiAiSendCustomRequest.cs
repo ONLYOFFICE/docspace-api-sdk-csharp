@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isStream">Stream the reply (ndjson) when true, else return a single message. (required).</param>
         /// <param name="systemPrompt">Caller-supplied system prompt for this one-turn call. (required).</param>
         /// <param name="userMessage">userMessage (required).</param>
-        /// <param name="actionArgs">actionArgs.</param>
+        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
         public AiAiSendCustomRequest(bool isStream = default, string systemPrompt = default, AiThreadMessageLike userMessage = default, AiAiActionArgs actionArgs = default)
         {
             this.IsStream = isStream;
@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLike UserMessage { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActionArgs
+        /// Per-request engine options: extra tools, reasoning, prompt override.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiAiActionArgs ActionArgs { get; set; }

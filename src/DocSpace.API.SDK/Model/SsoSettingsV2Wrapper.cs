@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// SsoSettingsV2Wrapper
+    /// The successful API response containing the SsoSettingsV2 object.
     /// </summary>
     [DataContract(Name = "SsoSettingsV2Wrapper")]
     public partial class SsoSettingsV2Wrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SsoSettingsV2Wrapper" /> class.
         /// </summary>
-        /// <param name="response">response.</param>
+        /// <param name="response">The SsoSettingsV2 object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Response
+        /// The SsoSettingsV2 object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public SsoSettingsV2 Response { get; set; }

@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiSuccessResponse" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
+        /// <param name="success">Always true — the mutation completed. (required).</param>
         public AiSuccessResponse(bool success = default)
         {
             this.Success = success;
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// Always true — the mutation completed.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }

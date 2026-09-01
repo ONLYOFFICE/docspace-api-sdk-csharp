@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 **HideConfirmConvertSave** | **bool** | Specifies whether to hide the confirmation dialog  for saving the file copy in the original format when converting a file. | [optional] 
 **HideConfirmConvertOpen** | **bool** | Specifies whether to hide the confirmation dialog  for opening the conversion result. | [optional] 
 **HideConfirmRoomLifetime** | **bool** | Specifies whether to hide the confirmation dialog about the file lifetime in the room. | [optional] 
-**DefaultOrder** | [**OrderBy**](OrderBy.md) | The sorting parameters. | [optional] 
+**DefaultOrder** | [**OrderBy**](OrderBy.md) | The default order of files. | [optional] 
 **Forcesave** | **bool** | Specifies whether to forcesave the files or not. | [optional] 
 **StoreForcesave** | **bool** | Specifies whether to store the forcesaved file versions or not. | [optional] 
 **RecentSection** | **bool** | Specifies if the Recent section is displayed or not. | [optional] 

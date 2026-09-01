@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.AccessRequestKeyDto
+The encryption key granting one user access to a file.
 
 ## Properties
 

@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.DocServiceUrlWrapper
+The successful API response containing the DocServiceUrlDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**DocServiceUrlDto**](DocServiceUrlDto.md) |  | [optional] 
+**Response** | [**DocServiceUrlDto**](DocServiceUrlDto.md) | The DocServiceUrlDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

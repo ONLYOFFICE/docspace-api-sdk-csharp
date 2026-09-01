@@ -345,11 +345,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>FileShareArrayWrapper</returns>
-        FileShareArrayWrapper SetFileSecurityInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+        FileShareArrayWrapper SetFileSecurityInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
 
         /// <summary>
         /// Share a file
@@ -358,11 +358,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        ApiResponse<FileShareArrayWrapper> SetFileSecurityInfoWithHttpInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+        ApiResponse<FileShareArrayWrapper> SetFileSecurityInfoWithHttpInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
         /// <summary>
         /// Share a folder
         /// </summary>
@@ -370,11 +370,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>FileShareArrayWrapper</returns>
-        FileShareArrayWrapper SetFolderSecurityInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+        FileShareArrayWrapper SetFolderSecurityInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
 
         /// <summary>
         /// Share a folder
@@ -383,11 +383,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        ApiResponse<FileShareArrayWrapper> SetFolderSecurityInfoWithHttpInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+        ApiResponse<FileShareArrayWrapper> SetFolderSecurityInfoWithHttpInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
         /// <summary>
         /// Set the sharing rights
         /// </summary>
@@ -759,12 +759,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        Task<FileShareArrayWrapper> SetFileSecurityInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+        Task<FileShareArrayWrapper> SetFileSecurityInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Share a file
@@ -773,12 +773,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        Task<ApiResponse<FileShareArrayWrapper>> SetFileSecurityInfoWithHttpInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareArrayWrapper>> SetFileSecurityInfoWithHttpInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
         /// Share a folder
         /// </summary>
@@ -786,12 +786,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        Task<FileShareArrayWrapper> SetFolderSecurityInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+        Task<FileShareArrayWrapper> SetFolderSecurityInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Share a folder
@@ -800,12 +800,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        Task<ApiResponse<FileShareArrayWrapper>> SetFolderSecurityInfoWithHttpInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareArrayWrapper>> SetFolderSecurityInfoWithHttpInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set the sharing rights
         /// </summary>
@@ -3309,13 +3309,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>FileShareArrayWrapper</returns>
-        public FileShareArrayWrapper SetFileSecurityInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        public FileShareArrayWrapper SetFileSecurityInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
         {
-            var localVarResponse = SetFileSecurityInfoWithHttpInfo(fileId, securityInfoSimpleRequestDto);
+            var localVarResponse = SetFileSecurityInfoWithHttpInfo(id, securityInfoSimpleRequestDto);
             return localVarResponse.Data;
         }
 
@@ -3326,11 +3326,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public ApiResponse<FileShareArrayWrapper> SetFileSecurityInfoWithHttpInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        public ApiResponse<FileShareArrayWrapper> SetFileSecurityInfoWithHttpInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
         {
             // verify the required parameter 'securityInfoSimpleRequestDto' is set
             if (securityInfoSimpleRequestDto == null)
@@ -3349,7 +3349,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
             // authentication (Basic) required
@@ -3384,7 +3384,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/file/{fileId}/share", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/file/{id}/share", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3405,14 +3405,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        public async Task<FileShareArrayWrapper> SetFileSecurityInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        public async Task<FileShareArrayWrapper> SetFileSecurityInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetFileSecurityInfoWithHttpInfoAsync(fileId, securityInfoSimpleRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetFileSecurityInfoWithHttpInfoAsync(id, securityInfoSimpleRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3423,12 +3423,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID.</param>
+        /// <param name="id">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async Task<ApiResponse<FileShareArrayWrapper>> SetFileSecurityInfoWithHttpInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareArrayWrapper>> SetFileSecurityInfoWithHttpInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'securityInfoSimpleRequestDto' is set
             if (securityInfoSimpleRequestDto == null)
@@ -3448,7 +3448,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
             // authentication (Basic) required
@@ -3484,7 +3484,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/file/{fileId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/file/{id}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3505,13 +3505,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>FileShareArrayWrapper</returns>
-        public FileShareArrayWrapper SetFolderSecurityInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        public FileShareArrayWrapper SetFolderSecurityInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
         {
-            var localVarResponse = SetFolderSecurityInfoWithHttpInfo(folderId, securityInfoSimpleRequestDto);
+            var localVarResponse = SetFolderSecurityInfoWithHttpInfo(id, securityInfoSimpleRequestDto);
             return localVarResponse.Data;
         }
 
@@ -3522,11 +3522,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public ApiResponse<FileShareArrayWrapper> SetFolderSecurityInfoWithHttpInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        public ApiResponse<FileShareArrayWrapper> SetFolderSecurityInfoWithHttpInfo(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
         {
             // verify the required parameter 'securityInfoSimpleRequestDto' is set
             if (securityInfoSimpleRequestDto == null)
@@ -3545,7 +3545,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
             // authentication (Basic) required
@@ -3580,7 +3580,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/folder/{folderId}/share", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/folder/{id}/share", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3601,14 +3601,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>Task of FileShareArrayWrapper</returns>
-        public async Task<FileShareArrayWrapper> SetFolderSecurityInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        public async Task<FileShareArrayWrapper> SetFolderSecurityInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetFolderSecurityInfoWithHttpInfoAsync(folderId, securityInfoSimpleRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetFolderSecurityInfoWithHttpInfoAsync(id, securityInfoSimpleRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3619,12 +3619,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID.</param>
+        /// <param name="id">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async Task<ApiResponse<FileShareArrayWrapper>> SetFolderSecurityInfoWithHttpInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareArrayWrapper>> SetFolderSecurityInfoWithHttpInfoAsync(int id, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'securityInfoSimpleRequestDto' is set
             if (securityInfoSimpleRequestDto == null)
@@ -3644,7 +3644,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
             // authentication (Basic) required
@@ -3680,7 +3680,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/folder/{folderId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/folder/{id}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of  {@link  AssignmentsEngine.assign }  /  {@link  AssignmentsEngine.unassign } . Either a success or a field-scoped error suitable for displaying in the profile editor.
+    /// Outcome of &#x60;AssignmentsEngine.assign&#x60; / &#x60;AssignmentsEngine.unassign&#x60;. Either a success or a field-scoped error suitable for displaying in the profile editor.
     /// </summary>
     [DataContract(Name = "AiAssignmentMutationResult")]
     public partial class AiAssignmentMutationResult : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiAssignmentMutationResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="error">error.</param>
+        /// <param name="success">True when the assignment was persisted. (required).</param>
+        /// <param name="error">Why the assignment was rejected. Present on failure..</param>
         public AiAssignmentMutationResult(bool success = default, AiTErrorData error = default)
         {
             this.Success = success;
@@ -55,13 +55,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when the assignment was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the assignment was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public AiTErrorData Error { get; set; }

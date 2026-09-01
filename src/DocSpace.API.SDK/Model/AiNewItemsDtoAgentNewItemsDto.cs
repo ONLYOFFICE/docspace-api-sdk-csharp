@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="date">The date and time when the new item was created. (required).</param>
         /// <param name="items">The list of items. (required).</param>
-        public AiNewItemsDtoAgentNewItemsDto(AiApiDateTime date = default, List<AiAgentNewItemsDto> items = default)
+        public AiNewItemsDtoAgentNewItemsDto(DateTime? date = default, List<AiAgentNewItemsDto> items = default)
         {
             // to ensure "date" is required (not null)
             if (date == null)
@@ -67,8 +67,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when the new item was created.
         /// </summary>
+        /// <example>2025-01-01T00:00:00Z</example>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
-        public AiApiDateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// The list of items.

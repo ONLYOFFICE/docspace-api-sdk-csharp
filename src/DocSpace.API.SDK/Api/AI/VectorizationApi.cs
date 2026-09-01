@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -63,7 +66,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -76,7 +79,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -302,6 +305,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
@@ -315,6 +321,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/">REST API Reference for AiVectorizationStartTask Operation</seealso>
@@ -359,6 +368,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -373,6 +385,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

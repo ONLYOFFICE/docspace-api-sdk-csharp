@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.EmployeeWrapper
+The successful API response containing the EmployeeDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
+**Response** | [**EmployeeDto**](EmployeeDto.md) | The EmployeeDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **UnitOfMeasure** | **string** | The quota unit of measure. | [optional] 
 **Quantity** | **int** | The quantity that will be charged (the next quantity if set, otherwise the current quantity). | [optional] 
 **Wallet** | **bool** | The quota applies to the wallet or not. | [optional] 
-**DueDate** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. | [optional] 
+**DueDate** | **DateTime?** | The due date of the upcoming payment in the portal time zone. | [optional] 
 **Amount** | **double** | The amount that will be charged (unit price multiplied by the quantity). | [optional] 
 **Currency** | **string** | The three-character ISO 4217 currency symbol of the amount. | [optional] 
 

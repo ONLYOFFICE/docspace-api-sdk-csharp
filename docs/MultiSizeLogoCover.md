@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.MultiSizeLogoCover
+The logo cover information, with the cover data in every available size.
 
 ## Properties
 

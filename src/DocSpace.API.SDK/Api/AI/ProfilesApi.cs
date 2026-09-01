@@ -33,8 +33,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>AiProfileMutationResult</returns>
         AiProfileMutationResult AiProfilesCreate(AiCreateProfileInput aiCreateProfileInput);
@@ -43,16 +46,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>ApiResponse of AiProfileMutationResult</returns>
         ApiResponse<AiProfileMutationResult> AiProfilesCreateWithHttpInfo(AiCreateProfileInput aiCreateProfileInput);
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
@@ -63,7 +69,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -73,8 +79,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>AiProfilesGetById200Response</returns>
         AiProfilesGetById200Response AiProfilesGetById(string id);
@@ -83,16 +92,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>ApiResponse of AiProfilesGetById200Response</returns>
         ApiResponse<AiProfilesGetById200Response> AiProfilesGetByIdWithHttpInfo(string id);
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
         /// <returns>List&lt;AiProfile&gt;</returns>
@@ -102,7 +114,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI provider profiles.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
@@ -111,8 +123,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>List&lt;AiModel&gt;</returns>
         List<AiModel> AiProfilesListModels(string profileId);
@@ -121,16 +136,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// List models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiModel&gt;</returns>
         ApiResponse<List<AiModel>> AiProfilesListModelsWithHttpInfo(string profileId);
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/">REST API Reference for AiProfilesListProviderModels Operation</seealso>
@@ -141,7 +159,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List provider models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
@@ -151,6 +169,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
@@ -161,7 +182,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Test connection
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -171,6 +192,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/">REST API Reference for AiProfilesUpdate Operation</seealso>
@@ -181,7 +205,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
@@ -201,10 +225,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of AiProfileMutationResult</returns>
@@ -214,10 +238,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfileMutationResult)</returns>
@@ -226,7 +250,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -239,7 +263,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -251,10 +275,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>Task of AiProfilesGetById200Response</returns>
@@ -264,10 +288,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfilesGetById200Response)</returns>
@@ -276,7 +300,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI provider profiles.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -288,7 +312,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI provider profiles.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -299,10 +323,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// List models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of List&lt;AiModel&gt;</returns>
@@ -312,10 +336,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// List models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiModel&gt;)</returns>
@@ -324,7 +348,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List provider models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
@@ -337,7 +361,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List provider models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
@@ -349,7 +373,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Test connection
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -362,7 +386,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Test connection
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -374,7 +398,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
@@ -387,7 +411,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
@@ -613,8 +637,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>AiProfileMutationResult</returns>
         public AiProfileMutationResult AiProfilesCreate(AiCreateProfileInput aiCreateProfileInput)
@@ -626,8 +653,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>ApiResponse of AiProfileMutationResult</returns>
         public ApiResponse<AiProfileMutationResult> AiProfilesCreateWithHttpInfo(AiCreateProfileInput aiCreateProfileInput)
@@ -670,8 +700,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of AiProfileMutationResult</returns>
@@ -684,8 +717,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates an AI provider profile. The name must be unique and the credentials are validated against the provider before the profile is stored; the portal's first profile also takes the `Default` assignment slot.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (`id`, `createdAt`).</param>
+        /// <param name="aiCreateProfileInput">Input for creating a new profile — the same shape as `Profile` without the engine-generated fields (`id`, `createdAt`).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-create/">REST API Reference for AiProfilesCreate Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfileMutationResult)</returns>
@@ -731,6 +767,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
@@ -744,6 +783,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
@@ -788,6 +830,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -802,6 +847,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI provider profile and cleans up the assignments pointing at it - the `Default` slot moves to the first remaining profile, the other slots are unbound.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -849,8 +897,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>AiProfilesGetById200Response</returns>
         public AiProfilesGetById200Response AiProfilesGetById(string id)
@@ -862,8 +913,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>ApiResponse of AiProfilesGetById200Response</returns>
         public ApiResponse<AiProfilesGetById200Response> AiProfilesGetByIdWithHttpInfo(string id)
@@ -906,8 +960,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>Task of AiProfilesGetById200Response</returns>
@@ -920,8 +977,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one AI provider profile, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-get-by-id/">REST API Reference for AiProfilesGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfilesGetById200Response)</returns>
@@ -967,6 +1027,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
         /// <returns>List&lt;AiProfile&gt;</returns>
@@ -979,6 +1042,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiProfile&gt;</returns>
@@ -1017,6 +1083,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
@@ -1030,6 +1099,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI provider profiles.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/">REST API Reference for AiProfilesList Operation</seealso>
@@ -1071,8 +1143,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>List&lt;AiModel&gt;</returns>
         public List<AiModel> AiProfilesListModels(string profileId)
@@ -1084,8 +1159,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiModel&gt;</returns>
         public ApiResponse<List<AiModel>> AiProfilesListModelsWithHttpInfo(string profileId)
@@ -1128,8 +1206,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of List&lt;AiModel&gt;</returns>
@@ -1142,8 +1223,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List models
         /// </summary>
+        /// <remarks>
+        /// Lists the models the given profile's provider offers, as reported by the provider itself.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/">REST API Reference for AiProfilesListModels Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiModel&gt;)</returns>
@@ -1189,6 +1273,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/">REST API Reference for AiProfilesListProviderModels Operation</seealso>
@@ -1202,6 +1289,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/">REST API Reference for AiProfilesListProviderModels Operation</seealso>
@@ -1246,6 +1336,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1260,6 +1353,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List provider models
         /// </summary>
+        /// <remarks>
+        /// Lists the models a provider offers for the supplied endpoint and key, before any profile is created from them.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfilesListProviderModelsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1307,6 +1403,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
@@ -1320,6 +1419,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
@@ -1364,6 +1466,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1378,6 +1483,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a stored profile's credentials against its provider and reports the provider's own error when the call fails. Nothing is written.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1425,6 +1533,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/">REST API Reference for AiProfilesUpdate Operation</seealso>
@@ -1438,6 +1549,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-update/">REST API Reference for AiProfilesUpdate Operation</seealso>
@@ -1482,6 +1596,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1496,6 +1613,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update
         /// </summary>
+        /// <remarks>
+        /// Updates an AI provider profile, re-checking name uniqueness and the provider credentials.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiProfile">Complete AI provider + model configuration saved by the user. Profiles are the primary way users save and reuse provider configurations.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

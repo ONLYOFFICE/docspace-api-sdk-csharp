@@ -16,7 +16,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiAiApproveToolCall**
 > AiChatEvent AiAiApproveToolCall (AiAiApproveToolCallRequest aiAiApproveToolCallRequest)
 
-
+Resumes a chat round paused on a tool call. The supplied result is persisted onto the assistant message that issued the call and the stream continues with the augmented history.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-approve-tool-call/).
 
@@ -112,7 +112,7 @@ catch (ApiException e)
 # **AiAiDenyToolCall**
 > AiChatEvent AiAiDenyToolCall (AiAiToolCallData aiAiToolCallData)
 
-
+Denies the pending tool call and resumes the chat immediately, with `User deny tool call` standing in for the tool result.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-deny-tool-call/).
 
@@ -120,7 +120,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiAiToolCallData** | [**AiAiToolCallData**](AiAiToolCallData.md) |  |  |
+| **aiAiToolCallData** | [**AiAiToolCallData**](AiAiToolCallData.md) | Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields). |  |
 
 ### Return type
 
@@ -151,7 +151,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AIApi(httpClient, config, httpClientHandler);
-            var aiAiToolCallData = new AiAiToolCallData(); // AiAiToolCallData | 
+            var aiAiToolCallData = new AiAiToolCallData(); // AiAiToolCallData | Identifies a pending tool call to resume — mirrors the library `ToolCallData` (its serializable fields).
 
             try
             {
@@ -208,7 +208,7 @@ catch (ApiException e)
 # **AiAiRegenerateStream**
 > AiChatEvent AiAiRegenerateStream (AiAiRegenerateStreamRequest aiAiRegenerateStreamRequest)
 
-
+Re-rolls the last assistant reply in an existing thread: every message after the last user message (the previous reply plus any tool-call hops) is dropped and a fresh reply is streamed against the unchanged prompt. The thread must already exist and no title is generated.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-regenerate-stream/).
 
@@ -304,7 +304,7 @@ catch (ApiException e)
 # **AiAiSend**
 > AiThreadMessageLike AiAiSend (AiAiSendRequest aiAiSendRequest)
 
-
+Runs one AI action: the profile bound to `actionType` (falling back to the `Default` slot) is dispatched against a single-message history. Nothing is persisted - no thread, no title generation, no storage writes.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send/).
 
@@ -400,7 +400,7 @@ catch (ApiException e)
 # **AiAiSendCustom**
 > AiThreadMessageLike AiAiSendCustom (AiAiSendCustomRequest aiAiSendCustomRequest)
 
-
+Runs a free-form one-turn call against a caller-supplied system prompt. No thread, no history and no persistence. The profile is the explicit `profileId` when it resolves, otherwise the `Default` assignment slot.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-custom/).
 
@@ -496,7 +496,7 @@ catch (ApiException e)
 # **AiAiSendWithStream**
 > AiChatEvent AiAiSendWithStream (AiAiSendStreamBody aiAiSendStreamBody)
 
-
+Starts a chat round and streams it back as newline-delimited `ChatEvent` objects. The thread is opened or created, the user message and the reply are persisted, a new thread gets a generated title, and a tool call pauses the round until it is approved or denied.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream/).
 
@@ -504,7 +504,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiAiSendStreamBody** | [**AiAiSendStreamBody**](AiAiSendStreamBody.md) |  |  |
+| **aiAiSendStreamBody** | [**AiAiSendStreamBody**](AiAiSendStreamBody.md) | Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`. |  |
 
 ### Return type
 
@@ -535,7 +535,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AIApi(httpClient, config, httpClientHandler);
-            var aiAiSendStreamBody = new AiAiSendStreamBody(); // AiAiSendStreamBody | 
+            var aiAiSendStreamBody = new AiAiSendStreamBody(); // AiAiSendStreamBody | Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.
 
             try
             {
@@ -592,7 +592,7 @@ catch (ApiException e)
 # **AiAiSendWithStreamOpenAI**
 > AiOpenAIStreamChunk AiAiSendWithStreamOpenAI (AiAiSendStreamBody aiAiSendStreamBody)
 
-
+The same chat round as `send-with-stream`, re-encoded as an OpenAI Chat Completions stream of `chat.completion.chunk` objects. Storage, title generation and tool-call pauses are identical - only the wire shape differs; a tool call ends the stream with `finish_reason: tool_calls`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-ai-send-with-stream-open-ai/).
 
@@ -600,7 +600,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiAiSendStreamBody** | [**AiAiSendStreamBody**](AiAiSendStreamBody.md) |  |  |
+| **aiAiSendStreamBody** | [**AiAiSendStreamBody**](AiAiSendStreamBody.md) | Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`. |  |
 
 ### Return type
 
@@ -631,7 +631,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AIApi(httpClient, config, httpClientHandler);
-            var aiAiSendStreamBody = new AiAiSendStreamBody(); // AiAiSendStreamBody | 
+            var aiAiSendStreamBody = new AiAiSendStreamBody(); // AiAiSendStreamBody | Shared body of the two streaming send endpoints (`sendWithStream` and its OpenAI-framed twin) — the `Chat` action is implied, so there is no `actionType`.
 
             try
             {

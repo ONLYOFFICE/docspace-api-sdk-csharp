@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// CurrencyCode
+    /// The currency an amount is expressed in.
     /// </summary>
     [DataContract(Name = "CurrencyCode")]
     public partial class CurrencyCode : IValidatableObject

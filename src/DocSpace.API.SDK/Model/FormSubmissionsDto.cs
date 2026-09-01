@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// FormSubmissionsDto
+    /// All submissions of a form, together with the metadata of its fields.
     /// </summary>
     [DataContract(Name = "FormSubmissionsDto")]
     public partial class FormSubmissionsDto : IValidatableObject

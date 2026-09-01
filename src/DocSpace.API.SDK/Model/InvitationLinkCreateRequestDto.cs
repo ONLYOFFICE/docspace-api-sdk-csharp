@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The user type.
+        /// The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
         /// </summary>
         [DataMember(Name = "employeeType", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeType EmployeeType { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationLinkCreateRequestDto" /> class.
         /// </summary>
-        /// <param name="employeeType">The user type. (required).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User). (required).</param>
         /// <param name="expiration">The expiration date of the invitation link..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         public InvitationLinkCreateRequestDto(EmployeeType employeeType = default, DateTime? expiration = default, int? maxUseCount = default)

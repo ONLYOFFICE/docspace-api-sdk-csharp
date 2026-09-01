@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XlsxReportResponseDto" /> class.
         /// </summary>
-        /// <param name="form">The file parameters..</param>
-        /// <param name="task">The Document Builder task parameters..</param>
+        /// <param name="form">The original form file information..</param>
+        /// <param name="task">The Document Builder task information..</param>
         /// <param name="isNewFile">Specifies whether the XLSX report file is newly created or an existing file will be updated..</param>
         public XlsxReportResponseDto(FileDtoInteger form = default, DocumentBuilderTaskDto task = default, bool isNewFile = default)
         {
@@ -52,13 +52,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file parameters.
+        /// The original form file information.
         /// </summary>
         [DataMember(Name = "form", EmitDefaultValue = false)]
         public FileDtoInteger Form { get; set; }
 
         /// <summary>
-        /// The Document Builder task parameters.
+        /// The Document Builder task information.
         /// </summary>
         [DataMember(Name = "task", EmitDefaultValue = false)]
         public DocumentBuilderTaskDto Task { get; set; }

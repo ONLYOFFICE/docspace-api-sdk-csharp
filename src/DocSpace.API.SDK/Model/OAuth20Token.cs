@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// OAuth20Token
+    /// The OAuth 2.0 token issued by a third-party provider.
     /// </summary>
     [DataContract(Name = "OAuth20Token")]
     public partial class OAuth20Token : IValidatableObject
@@ -41,13 +41,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuth20Token" /> class.
         /// </summary>
-        /// <param name="accessToken">accessToken.</param>
-        /// <param name="refreshToken">refreshToken.</param>
-        /// <param name="expiresIn">expiresIn.</param>
-        /// <param name="clientId">clientId.</param>
-        /// <param name="clientSecret">clientSecret.</param>
-        /// <param name="redirectUri">redirectUri.</param>
-        /// <param name="timestamp">timestamp.</param>
+        /// <param name="accessToken">Access token.</param>
+        /// <param name="refreshToken">Refresh token.</param>
+        /// <param name="expiresIn">Expires in.</param>
+        /// <param name="clientId">Client id.</param>
+        /// <param name="clientSecret">Client secret.</param>
+        /// <param name="redirectUri">Redirect uri.</param>
+        /// <param name="timestamp">Timestamp.</param>
         public OAuth20Token(string accessToken = default, string refreshToken = default, long expiresIn = default, string clientId = default, string clientSecret = default, string redirectUri = default, DateTime timestamp = default)
         {
             this.AccessToken = accessToken;
@@ -60,50 +60,58 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets AccessToken
+        /// Access token
         /// </summary>
+        /// <example>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</example>
         [DataMember(Name = "access_token", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// Gets or Sets RefreshToken
+        /// Refresh token
         /// </summary>
+        /// <example>def50200a1b2c3d4e5f6...</example>
         [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpiresIn
+        /// Expires in
         /// </summary>
+        /// <example>3600</example>
         [DataMember(Name = "expires_in", EmitDefaultValue = false)]
         public long ExpiresIn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ClientId
+        /// Client id
         /// </summary>
+        /// <example>my-client-id</example>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ClientSecret
+        /// Client secret
         /// </summary>
+        /// <example>my-client-secret</example>
         [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
 
         /// <summary>
-        /// Gets or Sets RedirectUri
+        /// Redirect uri
         /// </summary>
+        /// <example>https://app.example.com/callback</example>
         [DataMember(Name = "redirect_uri", EmitDefaultValue = true)]
         public string RedirectUri { get; set; }
 
         /// <summary>
-        /// Gets or Sets Timestamp
+        /// Timestamp
         /// </summary>
+        /// <example>2026-01-01T00:00:00Z</example>
         [DataMember(Name = "timestamp", EmitDefaultValue = false)]
         public DateTime Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsExpired
+        /// Is expired
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
         public bool IsExpired { get; private set; }
 

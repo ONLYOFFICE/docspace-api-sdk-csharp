@@ -17,7 +17,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiAssignmentsAssign**
 > AiAssignmentMutationResult AiAssignmentsAssign (AiAssignmentsAssignRequest aiAssignmentsAssignRequest)
 
-
+Binds a profile to an AI action, creating the assignment or updating it in place. The profile's declared capabilities are validated against the action, except for the `Default` slot.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-assign/).
 
@@ -113,7 +113,7 @@ catch (ApiException e)
 # **AiAssignmentsBulkAssign**
 > AiBulkAssignmentResult AiAssignmentsBulkAssign (Dictionary<string, string> requestBody)
 
-
+Applies many action-to-profile bindings at once. Every entry is validated first and nothing is written if any of them fails, so the assignment set is never left half-written.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-bulk-assign/).
 
@@ -209,7 +209,7 @@ catch (ApiException e)
 # **AiAssignmentsCascadeProfileDelete**
 > AiSuccessResponse AiAssignmentsCascadeProfileDelete (string body)
 
-
+Cleans up the assignments pointing at a profile that is about to be deleted: the `Default` slot is promoted to the first remaining profile (or dropped when none is left), and every other slot holding that profile is unbound.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-cascade-profile-delete/).
 
@@ -303,9 +303,9 @@ catch (ApiException e)
 
 <a id="aiassignmentsgetallassignments"></a>
 # **AiAssignmentsGetAllAssignments**
-> Dictionary&lt;string, string&gt; AiAssignmentsGetAllAssignments (string entityId)
+> Dictionary&lt;string, string&gt; AiAssignmentsGetAllAssignments (string? entityId = null)
 
-
+Returns the full action-to-profile assignment map of the scope.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-all-assignments/).
 
@@ -313,7 +313,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -344,7 +344,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AssignmentsApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -401,7 +401,7 @@ catch (ApiException e)
 # **AiAssignmentsGetAssignment**
 > string AiAssignmentsGetAssignment (string actionType)
 
-
+Returns the profile bound to one AI action, without the `Default` fallback.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-get-assignment/).
 
@@ -409,7 +409,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **actionType** | **string** |  |  |
+| **actionType** | **string** | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. |  |
 
 ### Return type
 
@@ -440,7 +440,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AssignmentsApi(httpClient, config, httpClientHandler);
-            var actionType = "actionType_example";  // string | 
+            var actionType = "actionType_example";  // string | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision.
 
             try
             {
@@ -495,9 +495,9 @@ catch (ApiException e)
 
 <a id="aiassignmentsresolveforaction"></a>
 # **AiAssignmentsResolveForAction**
-> AiResolvedAssignment AiAssignmentsResolveForAction (string actionType, string entityId)
+> AiResolvedAssignment AiAssignmentsResolveForAction (string actionType, string? entityId = null)
 
-
+Resolves the profile bound to an AI action, falling back to the `Default` slot when the action itself has none. Fails when neither slot is set or the bound profile no longer exists - use `try-resolve-for-action` for an empty answer instead.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/).
 
@@ -505,8 +505,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **actionType** | **string** |  |  |
-| **entityId** | **string** |  |  |
+| **actionType** | **string** | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -537,8 +537,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AssignmentsApi(httpClient, config, httpClientHandler);
-            var actionType = "actionType_example";  // string | 
-            var entityId = "entityId_example";  // string | 
+            var actionType = "actionType_example";  // string | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision.
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -593,9 +593,9 @@ catch (ApiException e)
 
 <a id="aiassignmentstryresolveforaction"></a>
 # **AiAssignmentsTryResolveForAction**
-> AiResolvedAssignment AiAssignmentsTryResolveForAction (string actionType, string entityId)
+> AiResolvedAssignment AiAssignmentsTryResolveForAction (string actionType, string? entityId = null)
 
-
+Resolves the profile bound to an AI action exactly like `resolve-for-action`, but answers with an empty result instead of failing when nothing is configured.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/).
 
@@ -603,8 +603,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **actionType** | **string** |  |  |
-| **entityId** | **string** |  |  |
+| **actionType** | **string** | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision. |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -635,8 +635,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AssignmentsApi(httpClient, config, httpClientHandler);
-            var actionType = "actionType_example";  // string | 
-            var entityId = "entityId_example";  // string | 
+            var actionType = "actionType_example";  // string | The AI action the request applies to - one of Default, Chat, Code, Summarization, Translation, TextAnalyze, ImageGeneration, OCR, Vision.
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -693,7 +693,7 @@ catch (ApiException e)
 # **AiAssignmentsUnassign**
 > AiSuccessResponse AiAssignmentsUnassign (string body)
 
-
+Removes the profile binding of an AI action. Does nothing when that slot is already empty.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-unassign/).
 

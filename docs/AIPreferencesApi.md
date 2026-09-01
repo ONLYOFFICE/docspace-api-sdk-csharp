@@ -13,7 +13,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiPreferencesClearDeepMode**
 > AiSuccessResponse AiPreferencesClearDeepMode (string body)
 
-
+Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/).
 
@@ -107,9 +107,9 @@ catch (ApiException e)
 
 <a id="aipreferencesgetdeepmode"></a>
 # **AiPreferencesGetDeepMode**
-> bool AiPreferencesGetDeepMode (string entityId)
+> bool AiPreferencesGetDeepMode (string? entityId = null)
 
-
+Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/).
 
@@ -117,7 +117,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -148,7 +148,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PreferencesApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -203,9 +203,9 @@ catch (ApiException e)
 
 <a id="aipreferencesisdeepmodeset"></a>
 # **AiPreferencesIsDeepModeSet**
-> bool AiPreferencesIsDeepModeSet (string entityId)
+> bool AiPreferencesIsDeepModeSet (string? entityId = null)
 
-
+Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/).
 
@@ -213,7 +213,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
 
 ### Return type
 
@@ -244,7 +244,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PreferencesApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
 
             try
             {
@@ -301,7 +301,7 @@ catch (ApiException e)
 # **AiPreferencesSetDeepMode**
 > AiSuccessResponse AiPreferencesSetDeepMode (AiPreferencesSetDeepModeRequest aiPreferencesSetDeepModeRequest)
 
-
+Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/).
 

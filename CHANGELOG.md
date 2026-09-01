@@ -6,7 +6,7 @@
 
 - Added the reworked AI API surface in `src/DocSpace.API.SDK/Api/AI/`: `AIApi`, `AssignmentsApi`, `AttachmentsApi`, `EditorToolsApi`, `ExportApi`, `OpenAIPassthroughApi`, `PreferencesApi`, `ProfilesApi`, `PromptsApi`, `ThreadsApi`, `ToolsApi`, `WebSearchApi`
 - Added per-user AI settings endpoints and the matching models `AiAiUserSettingsDto`, `AiAiUserSettingsWrapper`, `AiAiSettingsDto`, `AiAiSettingsWrapper`
-- Added the `AppsApi` (`Api/Apps/`), `PrivacyroomApi` (`Api/Privacyroom/`) and `DocsCloudApi` (`Api/Settings/`) APIs
+- Added the `AppsApi` (`Api/Apps/`), `PrivacyRoomApi` (`Api/Rooms/`) and `DocsCloudApi` (`Api/Settings/`) APIs
 
 ### Changed
 

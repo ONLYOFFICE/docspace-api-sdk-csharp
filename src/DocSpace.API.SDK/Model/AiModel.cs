@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">Human-readable model name for display in the UI. (required).</param>
         /// <param name="provider">Provider that offers this model. (required).</param>
         /// <param name="reasoning">Whether this model supports extended thinking / chain-of-thought reasoning..</param>
-        /// <param name="capabilities">Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per  {@link  ActionType  } ..</param>
+        /// <param name="capabilities">Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per &#x60;ActionType&#x60;..</param>
         public AiModel(string id = default, string name = default, AiProviderType provider = default, bool reasoning = default, decimal capabilities = default)
         {
             // to ensure "id" is required (not null)
@@ -100,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         public bool Reasoning { get; set; }
 
         /// <summary>
-        /// Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per  {@link  ActionType  } .
+        /// Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per &#x60;ActionType&#x60;.
         /// </summary>
         [DataMember(Name = "capabilities", EmitDefaultValue = false)]
         public decimal Capabilities { get; set; }

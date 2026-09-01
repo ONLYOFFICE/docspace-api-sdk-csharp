@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiProfileMutationResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="profile">profile.</param>
-        /// <param name="error">error.</param>
+        /// <param name="success">True when the profile was persisted. (required).</param>
+        /// <param name="profile">The persisted profile. Present on success..</param>
+        /// <param name="error">Why the profile was rejected - the name check or the provider credential check. Present on failure..</param>
         public AiProfileMutationResult(bool success = default, AiProfile profile = default, AiTErrorData error = default)
         {
             this.Success = success;
@@ -57,19 +57,19 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when the profile was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Profile
+        /// The persisted profile. Present on success.
         /// </summary>
         [DataMember(Name = "profile", EmitDefaultValue = false)]
         public AiProfile Profile { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the profile was rejected - the name check or the provider credential check. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public AiTErrorData Error { get; set; }

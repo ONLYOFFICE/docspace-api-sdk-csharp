@@ -17,7 +17,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiAgentsCreate**
 > AiFolderIntegerWrapper AiAgentsCreate (AiAgentsCreateRequest aiAgentsCreateRequest)
 
-
+Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/).
 
@@ -113,7 +113,7 @@ catch (ApiException e)
 # **AiAgentsDelete**
 > AiFileOperationWrapper AiAgentsDelete (string id, AiAgentsDeleteRequest aiAgentsDeleteRequest)
 
-
+Deletes an AI agent room.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/).
 
@@ -121,7 +121,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** |  |  |
+| **id** | **string** | The agent identifier. |  |
 | **aiAgentsDeleteRequest** | [**AiAgentsDeleteRequest**](AiAgentsDeleteRequest.md) |  |  |
 
 ### Return type
@@ -153,7 +153,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // string | 
+            var id = "id_example";  // string | The agent identifier.
             var aiAgentsDeleteRequest = new AiAgentsDeleteRequest(); // AiAgentsDeleteRequest | 
 
             try
@@ -211,7 +211,7 @@ catch (ApiException e)
 # **AiAgentsGet**
 > AiFolderIntegerWrapper AiAgentsGet (string id)
 
-
+Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/).
 
@@ -219,7 +219,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** |  |  |
+| **id** | **string** | The agent identifier. |  |
 
 ### Return type
 
@@ -250,7 +250,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // string | 
+            var id = "id_example";  // string | The agent identifier.
 
             try
             {
@@ -307,7 +307,7 @@ catch (ApiException e)
 # **AiAgentsList**
 > AiFolderContentIntegerWrapper AiAgentsList ()
 
-
+Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/).
 
@@ -398,7 +398,7 @@ catch (ApiException e)
 # **AiAgentsNews**
 > AiNewItemsAgentNewItemsArrayWrapper AiAgentsNews ()
 
-
+Lists the new items across the caller's AI agent rooms.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/).
 
@@ -489,7 +489,7 @@ catch (ApiException e)
 # **AiAgentsResetQuota**
 > AiFolderIntegerArrayWrapper AiAgentsResetQuota (AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
 
-
+Resets the storage quota of the given AI agent rooms.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/).
 
@@ -585,7 +585,7 @@ catch (ApiException e)
 # **AiAgentsUpdate**
 > AiFolderIntegerWrapper AiAgentsUpdate (string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
 
-
+Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/).
 
@@ -593,7 +593,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** |  |  |
+| **id** | **string** | The agent identifier. |  |
 | **aiAgentsUpdateRequest** | [**AiAgentsUpdateRequest**](AiAgentsUpdateRequest.md) |  |  |
 
 ### Return type
@@ -625,7 +625,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // string | 
+            var id = "id_example";  // string | The agent identifier.
             var aiAgentsUpdateRequest = new AiAgentsUpdateRequest(); // AiAgentsUpdateRequest | 
 
             try
@@ -683,7 +683,7 @@ catch (ApiException e)
 # **AiAgentsUpdateQuota**
 > AiFolderIntegerArrayWrapper AiAgentsUpdateQuota (AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
 
-
+Changes the storage quota of the given AI agent rooms.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/).
 

@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiPromptMutationResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="prompt">prompt.</param>
-        /// <param name="error">error.</param>
+        /// <param name="success">True when the prompt was persisted. (required).</param>
+        /// <param name="prompt">The persisted prompt. Present on success..</param>
+        /// <param name="error">Why the prompt was rejected. Present on failure..</param>
         public AiPromptMutationResult(bool success = default, AiPrompt prompt = default, AiTErrorData error = default)
         {
             this.Success = success;
@@ -57,19 +57,19 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when the prompt was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Prompt
+        /// The persisted prompt. Present on success.
         /// </summary>
         [DataMember(Name = "prompt", EmitDefaultValue = false)]
         public AiPrompt Prompt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the prompt was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public AiTErrorData Error { get; set; }

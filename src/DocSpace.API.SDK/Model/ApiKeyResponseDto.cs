@@ -51,12 +51,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="key">The full API key value (only returned when creating a new key). (required).</param>
         /// <param name="keyPostfix">The API key postfix (used for identification)..</param>
         /// <param name="permissions">The list of permissions granted to the API key. (required).</param>
-        /// <param name="lastUsed">The API date and time parameters..</param>
-        /// <param name="createOn">The API date and time parameters..</param>
-        /// <param name="createBy">The user parameters..</param>
-        /// <param name="expiresAt">The API date and time parameters..</param>
+        /// <param name="lastUsed">The date and time when the API key was last used..</param>
+        /// <param name="createOn">The date and time when the API key was created..</param>
+        /// <param name="createBy">The identifier of the user who created the API key..</param>
+        /// <param name="expiresAt">The date and time when the API key expires..</param>
         /// <param name="isActive">Indicates whether the API key is active or not. (required).</param>
-        public ApiKeyResponseDto(Guid id = default, string name = default, string key = default, string keyPostfix = default, List<string> permissions = default, ApiDateTime lastUsed = default, ApiDateTime createOn = default, EmployeeDto createBy = default, ApiDateTime expiresAt = default, bool isActive = default)
+        public ApiKeyResponseDto(Guid id = default, string name = default, string key = default, string keyPostfix = default, List<string> permissions = default, DateTime? lastUsed = default, DateTime? createOn = default, EmployeeDto createBy = default, DateTime? expiresAt = default, bool isActive = default)
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -121,28 +121,31 @@ namespace DocSpace.API.SDK.Model
         public List<string> Permissions { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The date and time when the API key was last used.
         /// </summary>
-        [DataMember(Name = "lastUsed", EmitDefaultValue = false)]
-        public ApiDateTime LastUsed { get; set; }
+        /// <example>2025-06-15T10:30:00.0000000Z</example>
+        [DataMember(Name = "lastUsed", EmitDefaultValue = true)]
+        public DateTime? LastUsed { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The date and time when the API key was created.
         /// </summary>
-        [DataMember(Name = "createOn", EmitDefaultValue = false)]
-        public ApiDateTime CreateOn { get; set; }
+        /// <example>2025-06-15T10:30:00.0000000Z</example>
+        [DataMember(Name = "createOn", EmitDefaultValue = true)]
+        public DateTime? CreateOn { get; set; }
 
         /// <summary>
-        /// The user parameters.
+        /// The identifier of the user who created the API key.
         /// </summary>
         [DataMember(Name = "createBy", EmitDefaultValue = false)]
         public EmployeeDto CreateBy { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The date and time when the API key expires.
         /// </summary>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
-        public ApiDateTime ExpiresAt { get; set; }
+        /// <example>2025-06-15T10:30:00.0000000Z</example>
+        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
+        public DateTime? ExpiresAt { get; set; }
 
         /// <summary>
         /// Indicates whether the API key is active or not.

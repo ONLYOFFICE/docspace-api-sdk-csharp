@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// FileEncryptionInfoDto
+    /// The encryption information of a file: the user key pairs and the per-user file keys.
     /// </summary>
     [DataContract(Name = "FileEncryptionInfoDto")]
     public partial class FileEncryptionInfoDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileEncryptionInfoDto" /> class.
         /// </summary>
-        /// <param name="userKeys">userKeys.</param>
-        /// <param name="fileKeys">fileKeys.</param>
+        /// <param name="userKeys">The key pairs of the users who have access to the file..</param>
+        /// <param name="fileKeys">The file keys issued to those users..</param>
         public FileEncryptionInfoDto(List<EncryptionKeyDto> userKeys = default, List<FileKeys> fileKeys = default)
         {
             this.UserKeys = userKeys;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets UserKeys
+        /// The key pairs of the users who have access to the file.
         /// </summary>
         [DataMember(Name = "userKeys", EmitDefaultValue = true)]
         public List<EncryptionKeyDto> UserKeys { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileKeys
+        /// The file keys issued to those users.
         /// </summary>
         [DataMember(Name = "fileKeys", EmitDefaultValue = true)]
         public List<FileKeys> FileKeys { get; set; }

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Human-readable model name for display in the UI. | 
 **Provider** | [**AiProviderType**](AiProviderType.md) | Provider that offers this model. | 
 **Reasoning** | **bool** | Whether this model supports extended thinking / chain-of-thought reasoning. | [optional] 
-**Capabilities** | **decimal** | Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per  {@link  ActionType  } . | [optional] 
+**Capabilities** | **decimal** | Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per `ActionType`. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

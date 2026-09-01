@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The editor type.
+        /// The editor type of the file.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EditorType? Type { get; set; }
@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="folder">The folder of the file..</param>
         /// <param name="owner">The file owner..</param>
         /// <param name="sharingSettings">The sharing settings of the file..</param>
-        /// <param name="type">The editor type..</param>
+        /// <param name="type">The editor type of the file..</param>
         /// <param name="uploaded">The uploaded file..</param>
         public InfoConfigDto(bool? favorite = default, string folder = default, string owner = default, List<AceShortWrapper> sharingSettings = default, EditorType? type = default, string uploaded = default)
         {

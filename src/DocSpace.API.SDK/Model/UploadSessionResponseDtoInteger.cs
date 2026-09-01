@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="title">The file title..</param>
         /// <param name="providerKey">The third-party provider key..</param>
         /// <param name="uploaded">Specifies whether the file has been uploaded..</param>
-        /// <param name="file">The file parameters..</param>
+        /// <param name="file">The uploaded file information..</param>
         public UploadSessionResponseDtoInteger(int id = default, int folderId = default, int version = default, string title = default, string providerKey = default, bool uploaded = default, FileDtoInteger file = default)
         {
             this.Id = id;
@@ -102,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         public bool Uploaded { get; set; }
 
         /// <summary>
-        /// The file parameters.
+        /// The uploaded file information.
         /// </summary>
         [DataMember(Name = "file", EmitDefaultValue = false)]
         public FileDtoInteger File { get; set; }

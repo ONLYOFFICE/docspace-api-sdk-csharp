@@ -22,12 +22,12 @@ using System.Net.Http;
 using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
-namespace DocSpace.API.SDK.Api.Privacyroom
+namespace DocSpace.API.SDK.Api.Rooms
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPrivacyroomApiSync : IApiAccessor
+    public interface IPrivacyRoomApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -149,7 +149,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPrivacyroomApiAsync : IApiAccessor
+    public interface IPrivacyRoomApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -281,7 +281,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPrivacyroomApi : IPrivacyroomApiSync, IPrivacyroomApiAsync
+    public interface IPrivacyRoomApi : IPrivacyRoomApiSync, IPrivacyRoomApiAsync
     {
 
     }
@@ -289,29 +289,29 @@ namespace DocSpace.API.SDK.Api.Privacyroom
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public class PrivacyroomApi : IDisposable, IPrivacyroomApi
+    public class PrivacyRoomApi : IDisposable, IPrivacyRoomApi
     {
         private ExceptionFactory _exceptionFactory = (_, _) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrivacyroomApi"/> class.
+        /// Initializes a new instance of the <see cref="PrivacyRoomApi"/> class.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
-        public PrivacyroomApi() : this((string)null)
+        public PrivacyRoomApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrivacyroomApi"/> class.
+        /// Initializes a new instance of the <see cref="PrivacyRoomApi"/> class.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="basePath">The target service's base path in URL format.</param>
         /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
-        public PrivacyroomApi(string basePath)
+        public PrivacyRoomApi(string basePath)
         {
             Configuration = DocSpace.API.SDK.Client.Configuration.MergeConfigurations(
                 GlobalConfiguration.Instance,
@@ -324,14 +324,14 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrivacyroomApi"/> class using a Configuration object.
+        /// Initializes a new instance of the <see cref="PrivacyRoomApi"/> class using a Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public PrivacyroomApi(Configuration configuration)
+        public PrivacyRoomApi(Configuration configuration)
         {
             ArgumentNullException.ThrowIfNull(configuration);
 
@@ -346,7 +346,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrivacyroomApi"/> class.
+        /// Initializes a new instance of the <see cref="PrivacyRoomApi"/> class.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
@@ -356,12 +356,12 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PrivacyroomApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        public PrivacyRoomApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrivacyroomApi"/> class.
+        /// Initializes a new instance of the <see cref="PrivacyRoomApi"/> class.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="basePath">The target service's base path in URL format.</param>
@@ -373,7 +373,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PrivacyroomApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        public PrivacyRoomApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
             ArgumentNullException.ThrowIfNull(client);
 
@@ -388,7 +388,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrivacyroomApi"/> class using a Configuration object.
+        /// Initializes a new instance of the <see cref="PrivacyRoomApi"/> class using a Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -399,7 +399,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PrivacyroomApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
+        public PrivacyRoomApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
         {
             ArgumentNullException.ThrowIfNull(configuration);
             ArgumentNullException.ThrowIfNull(client);
@@ -415,14 +415,14 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrivacyroomApi"/> class
+        /// Initializes a new instance of the <see cref="PrivacyRoomApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public PrivacyroomApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public PrivacyRoomApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
         {
             ArgumentNullException.ThrowIfNull(client);
             ArgumentNullException.ThrowIfNull(asyncClient);
@@ -522,7 +522,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -612,7 +612,7 @@ namespace DocSpace.API.SDK.Api.Privacyroom
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

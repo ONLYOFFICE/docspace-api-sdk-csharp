@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.LoginSettingsWrapper
+The successful API response containing the LoginSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**LoginSettingsDto**](LoginSettingsDto.md) |  | [optional] 
+**Response** | [**LoginSettingsDto**](LoginSettingsDto.md) | The LoginSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>DocsCloudTenantWrapper</returns>
         DocsCloudTenantWrapper GetTenant(bool? refresh = default);
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>ApiResponse of DocsCloudTenantWrapper</returns>
         ApiResponse<DocsCloudTenantWrapper> GetTenantWithHttpInfo(bool? refresh = default);
@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>DocsCloudConfigWrapper</returns>
         DocsCloudConfigWrapper GetTenantConfig(bool? refresh = default);
@@ -116,7 +116,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>ApiResponse of DocsCloudConfigWrapper</returns>
         ApiResponse<DocsCloudConfigWrapper> GetTenantConfigWithHttpInfo(bool? refresh = default);
@@ -127,7 +127,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>DocsCloudTenantInfoWrapper</returns>
         DocsCloudTenantInfoWrapper GetTenantInfo(bool? refresh = default);
@@ -139,7 +139,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>ApiResponse of DocsCloudTenantInfoWrapper</returns>
         ApiResponse<DocsCloudTenantInfoWrapper> GetTenantInfoWithHttpInfo(bool? refresh = default);
@@ -150,7 +150,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>DocsCloudQuotaWrapper</returns>
         DocsCloudQuotaWrapper GetTenantQuota(bool? refresh = default);
@@ -162,7 +162,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>ApiResponse of DocsCloudQuotaWrapper</returns>
         ApiResponse<DocsCloudQuotaWrapper> GetTenantQuotaWithHttpInfo(bool? refresh = default);
@@ -194,7 +194,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>DocsCloudUsageWrapper</returns>
         DocsCloudUsageWrapper GetTenantUsage(bool? refresh = default);
@@ -206,7 +206,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>ApiResponse of DocsCloudUsageWrapper</returns>
         ApiResponse<DocsCloudUsageWrapper> GetTenantUsageWithHttpInfo(bool? refresh = default);
@@ -362,7 +362,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>Task of DocsCloudTenantWrapper</returns>
@@ -375,7 +375,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudTenantWrapper)</returns>
@@ -387,7 +387,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>Task of DocsCloudConfigWrapper</returns>
@@ -400,7 +400,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudConfigWrapper)</returns>
@@ -412,7 +412,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>Task of DocsCloudTenantInfoWrapper</returns>
@@ -425,7 +425,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudTenantInfoWrapper)</returns>
@@ -437,7 +437,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>Task of DocsCloudQuotaWrapper</returns>
@@ -450,7 +450,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudQuotaWrapper)</returns>
@@ -485,7 +485,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>Task of DocsCloudUsageWrapper</returns>
@@ -498,7 +498,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudUsageWrapper)</returns>
@@ -1179,7 +1179,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>DocsCloudTenantWrapper</returns>
         public DocsCloudTenantWrapper GetTenant(bool? refresh = default)
@@ -1195,7 +1195,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>ApiResponse of DocsCloudTenantWrapper</returns>
         public ApiResponse<DocsCloudTenantWrapper> GetTenantWithHttpInfo(bool? refresh = default)
@@ -1271,7 +1271,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>Task of DocsCloudTenantWrapper</returns>
@@ -1288,7 +1288,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant/">REST API Reference for GetTenant Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudTenantWrapper)</returns>
@@ -1367,7 +1367,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>DocsCloudConfigWrapper</returns>
         public DocsCloudConfigWrapper GetTenantConfig(bool? refresh = default)
@@ -1383,7 +1383,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>ApiResponse of DocsCloudConfigWrapper</returns>
         public ApiResponse<DocsCloudConfigWrapper> GetTenantConfigWithHttpInfo(bool? refresh = default)
@@ -1459,7 +1459,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>Task of DocsCloudConfigWrapper</returns>
@@ -1476,7 +1476,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud tenant configuration of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant configuration from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-config/">REST API Reference for GetTenantConfig Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudConfigWrapper)</returns>
@@ -1555,7 +1555,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>DocsCloudTenantInfoWrapper</returns>
         public DocsCloudTenantInfoWrapper GetTenantInfo(bool? refresh = default)
@@ -1571,7 +1571,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>ApiResponse of DocsCloudTenantInfoWrapper</returns>
         public ApiResponse<DocsCloudTenantInfoWrapper> GetTenantInfoWithHttpInfo(bool? refresh = default)
@@ -1647,7 +1647,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>Task of DocsCloudTenantInfoWrapper</returns>
@@ -1664,7 +1664,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud license and server information with usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the tenant information from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-info/">REST API Reference for GetTenantInfo Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudTenantInfoWrapper)</returns>
@@ -1743,7 +1743,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>DocsCloudQuotaWrapper</returns>
         public DocsCloudQuotaWrapper GetTenantQuota(bool? refresh = default)
@@ -1759,7 +1759,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>ApiResponse of DocsCloudQuotaWrapper</returns>
         public ApiResponse<DocsCloudQuotaWrapper> GetTenantQuotaWithHttpInfo(bool? refresh = default)
@@ -1835,7 +1835,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>Task of DocsCloudQuotaWrapper</returns>
@@ -1852,7 +1852,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud user quota (active users) of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the user quota from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-quota/">REST API Reference for GetTenantQuota Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudQuotaWrapper)</returns>
@@ -2107,7 +2107,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>DocsCloudUsageWrapper</returns>
         public DocsCloudUsageWrapper GetTenantUsage(bool? refresh = default)
@@ -2123,7 +2123,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>ApiResponse of DocsCloudUsageWrapper</returns>
         public ApiResponse<DocsCloudUsageWrapper> GetTenantUsageWithHttpInfo(bool? refresh = default)
@@ -2199,7 +2199,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>Task of DocsCloudUsageWrapper</returns>
@@ -2216,7 +2216,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns the DocsCloud usage statistics of the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="refresh"> (optional, default to false)</param>
+        /// <param name="refresh">Specifies whether to bypass the cache and request the usage statistics from DocsCloud again. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-usage/">REST API Reference for GetTenantUsage Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudUsageWrapper)</returns>
@@ -2676,7 +2676,7 @@ namespace DocSpace.API.SDK.Api.Settings
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -2763,7 +2763,7 @@ namespace DocSpace.API.SDK.Api.Settings
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

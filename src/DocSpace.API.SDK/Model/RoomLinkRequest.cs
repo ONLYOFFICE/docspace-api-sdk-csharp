@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The access rights type.
+        /// The link sharing rights.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -54,8 +54,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="RoomLinkRequest" /> class.
         /// </summary>
         /// <param name="linkId">The room link ID..</param>
-        /// <param name="access">The access rights type..</param>
-        /// <param name="expirationDate">The API date and time parameters..</param>
+        /// <param name="access">The link sharing rights..</param>
+        /// <param name="expirationDate">The link expiration date..</param>
         /// <param name="internal">The link scope, whether it is internal or not..</param>
         /// <param name="title">The link name..</param>
         /// <param name="linkType">The link type..</param>
@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
-        public RoomLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default, int? maxUseCount = default, int currentUseCount = default)
+        public RoomLinkRequest(Guid linkId = default, FileShare? access = default, DateTime? expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default, int? maxUseCount = default, int currentUseCount = default)
         {
             this.LinkId = linkId;
             this.Access = access;
@@ -85,10 +85,11 @@ namespace DocSpace.API.SDK.Model
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The link expiration date.
         /// </summary>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
-        public ApiDateTime ExpirationDate { get; set; }
+        /// <example>2026-12-31T23:59:59.0000000+00:00</example>
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// The link scope, whether it is internal or not.

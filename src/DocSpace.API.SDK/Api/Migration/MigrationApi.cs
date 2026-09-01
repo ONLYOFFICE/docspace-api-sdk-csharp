@@ -165,7 +165,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns></returns>
         void StartMigration(MigrationApiInfo? migrationApiInfo = default);
@@ -177,7 +177,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> StartMigrationWithHttpInfo(MigrationApiInfo? migrationApiInfo = default);
@@ -360,7 +360,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -373,7 +373,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -648,7 +648,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -735,7 +735,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -822,7 +822,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -909,7 +909,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -998,7 +998,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1088,7 +1088,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1176,7 +1176,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1263,7 +1263,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1679,7 +1679,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns></returns>
         public void StartMigration(MigrationApiInfo? migrationApiInfo = default)
@@ -1694,7 +1694,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> StartMigrationWithHttpInfo(MigrationApiInfo? migrationApiInfo = default)
@@ -1704,7 +1704,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1767,7 +1767,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1783,7 +1783,7 @@ namespace DocSpace.API.SDK.Api.Migration
         /// Starts the migration process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="migrationApiInfo"> (optional)</param>
+        /// <param name="migrationApiInfo">The migration API information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-migration/">REST API Reference for StartMigration Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1794,7 +1794,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1888,7 +1888,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1982,7 +1982,7 @@ namespace DocSpace.API.SDK.Api.Migration
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

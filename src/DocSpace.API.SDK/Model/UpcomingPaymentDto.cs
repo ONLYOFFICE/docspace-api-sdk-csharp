@@ -47,10 +47,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="unitOfMeasure">The quota unit of measure..</param>
         /// <param name="quantity">The quantity that will be charged (the next quantity if set, otherwise the current quantity)..</param>
         /// <param name="wallet">The quota applies to the wallet or not..</param>
-        /// <param name="dueDate">The API date and time parameters..</param>
+        /// <param name="dueDate">The due date of the upcoming payment in the portal time zone..</param>
         /// <param name="amount">The amount that will be charged (unit price multiplied by the quantity)..</param>
         /// <param name="currency">The three-character ISO 4217 currency symbol of the amount..</param>
-        public UpcomingPaymentDto(int id = default, string name = default, string title = default, string unitOfMeasure = default, int quantity = default, bool wallet = default, ApiDateTime dueDate = default, double amount = default, string currency = default)
+        public UpcomingPaymentDto(int id = default, string name = default, string title = default, string unitOfMeasure = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, double amount = default, string currency = default)
         {
             this.Id = id;
             this.Name = name;
@@ -106,10 +106,11 @@ namespace DocSpace.API.SDK.Model
         public bool Wallet { get; set; }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The due date of the upcoming payment in the portal time zone.
         /// </summary>
-        [DataMember(Name = "dueDate", EmitDefaultValue = false)]
-        public ApiDateTime DueDate { get; set; }
+        /// <example>2026-07-08T11:39:43.0000000+03:00</example>
+        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
+        public DateTime? DueDate { get; set; }
 
         /// <summary>
         /// The amount that will be charged (unit price multiplied by the quantity).

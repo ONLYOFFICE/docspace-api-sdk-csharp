@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeepLinkConfigurationRequestsDto" /> class.
         /// </summary>
-        /// <param name="deepLinkSettings">The deep link settings..</param>
+        /// <param name="deepLinkSettings">The deep link settings for the specified tenant..</param>
         public DeepLinkConfigurationRequestsDto(TenantDeepLinkSettings deepLinkSettings = default)
         {
             this.DeepLinkSettings = deepLinkSettings;
         }
 
         /// <summary>
-        /// The deep link settings.
+        /// The deep link settings for the specified tenant.
         /// </summary>
         [DataMember(Name = "deepLinkSettings", EmitDefaultValue = false)]
         public TenantDeepLinkSettings DeepLinkSettings { get; set; }

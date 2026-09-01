@@ -5,7 +5,7 @@ The request parameters for configuring trusted mail domains and visitor invitati
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **TenantTrustedDomainsType** | The type of the tenant trusted domains. | 
+**Type** | **TenantTrustedDomainsType** | Defines how trusted domains are handled and validated. | 
 **Domains** | **List&lt;string&gt;** | The list of authorized email domains that are considered trusted. | 
 **InviteUsersAsVisitors** | **bool** | Specifies the default permission level for the invited users (visitors or not). | 
 

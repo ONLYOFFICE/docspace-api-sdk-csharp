@@ -5,7 +5,7 @@ Represents an operation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. | [optional] 
+**Date** | **DateTime?** | The date when the operation took place. | [optional] 
 **Service** | **string** | The service related to the operation. | [optional] 
 **Description** | **string** | The brief operation description. | [optional] 
 **Details** | **string** | The detailed information about the operation. | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **ParticipantDisplayName** | **string** | The participant display name. | [optional] 
 **AgentId** | **string** | AI Agent id. | [optional] 
 **AgentTitle** | **string** | AI Agent name. | [optional] 
-**Type** | **OperationType** | The operation type | [optional] 
+**Type** | **OperationType** | Type of the operation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

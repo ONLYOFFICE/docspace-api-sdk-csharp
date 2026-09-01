@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.SmtpSettingsWrapper
+The successful API response containing the SmtpSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**SmtpSettingsDto**](SmtpSettingsDto.md) |  | [optional] 
+**Response** | [**SmtpSettingsDto**](SmtpSettingsDto.md) | The SmtpSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

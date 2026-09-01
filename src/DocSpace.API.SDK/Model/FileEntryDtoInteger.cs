@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="external">Specifies if the folder can be accessed via an external link or not..</param>
         /// <param name="expirationDate">Represents the expiration date of the file entry..</param>
         /// <param name="isLinkExpired">Indicates whether the shareable link associated with the file or folder has expired..</param>
-        public FileEntryDtoInteger(int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default)
+        public FileEntryDtoInteger(int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, DateTime? expirationDate = default, bool? isLinkExpired = default)
         {
             this.Id = id;
             this.RootFolderId = rootFolderId;
@@ -157,8 +157,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Represents the expiration date of the file entry.
         /// </summary>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
-        public ApiDateTime ExpirationDate { get; set; }
+        /// <example>2021-01-01T00:00:00Z</example>
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// Indicates whether the shareable link associated with the file or folder has expired.

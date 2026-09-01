@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// MultiSizeLogoCover
+    /// The logo cover information, with the cover data in every available size.
     /// </summary>
     [DataContract(Name = "MultiSizeLogoCover")]
     public partial class MultiSizeLogoCover : IValidatableObject

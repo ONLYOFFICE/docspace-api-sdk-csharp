@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.AiPricesResponseWrapper
+The successful API response containing the AiPricesResponse object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**AiPricesResponse**](AiPricesResponse.md) |  | [optional] 
+**Response** | [**AiPricesResponse**](AiPricesResponse.md) | The AiPricesResponse object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

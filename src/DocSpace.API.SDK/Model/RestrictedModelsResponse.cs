@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// RestrictedModelsResponse
+    /// The AI models the portal is not allowed to use.
     /// </summary>
     [DataContract(Name = "RestrictedModelsResponse")]
     public partial class RestrictedModelsResponse : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RestrictedModelsResponse" /> class.
         /// </summary>
-        /// <param name="models">models (required).</param>
+        /// <param name="models">The identifiers of the models the portal is not allowed to use. (required).</param>
         public RestrictedModelsResponse(List<string> models = default)
         {
             // to ensure "models" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Models
+        /// The identifiers of the models the portal is not allowed to use.
         /// </summary>
         [DataMember(Name = "models", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Models { get; set; }

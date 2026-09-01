@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// MigratingApiUser
+    /// The migrating user parameters.
     /// </summary>
     [DataContract(Name = "MigratingApiUser")]
     public partial class MigratingApiUser : ImportableApiEntity, IValidatableObject
@@ -47,13 +47,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MigratingApiUser" /> class.
         /// </summary>
-        /// <param name="key">key.</param>
-        /// <param name="email">email.</param>
-        /// <param name="displayName">displayName.</param>
-        /// <param name="firstName">firstName.</param>
-        /// <param name="lastName">lastName.</param>
+        /// <param name="key">The user key..</param>
+        /// <param name="email">The user email..</param>
+        /// <param name="displayName">The user display name..</param>
+        /// <param name="firstName">The user first name..</param>
+        /// <param name="lastName">The user last name..</param>
         /// <param name="userType">The user type..</param>
-        /// <param name="migratingFiles">migratingFiles.</param>
+        /// <param name="migratingFiles">The user&#39;s migrating files..</param>
         public MigratingApiUser(string key = default, string email = default, string displayName = default, string firstName = default, string lastName = default, EmployeeType? userType = default, MigratingApiFiles migratingFiles = default)
         {
             this.Key = key;
@@ -66,37 +66,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// The user key.
         /// </summary>
+        /// <example>abcd1234</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// The user email.
         /// </summary>
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// The user display name.
         /// </summary>
+        /// <example>John Doe</example>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or Sets FirstName
+        /// The user first name.
         /// </summary>
+        /// <example>John</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
+        /// The user last name.
         /// </summary>
+        /// <example>Doe</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets MigratingFiles
+        /// The user&#39;s migrating files.
         /// </summary>
         [DataMember(Name = "migratingFiles", EmitDefaultValue = false)]
         public MigratingApiFiles MigratingFiles { get; set; }

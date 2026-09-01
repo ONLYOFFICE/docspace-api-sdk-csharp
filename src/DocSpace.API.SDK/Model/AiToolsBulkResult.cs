@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of  {@link  ToolsEngine.replaceAllCustomServers }  — either every entry persisted, or no entries persisted plus a per-key error report.
+    /// Outcome of &#x60;ToolsEngine.replaceAllCustomServers&#x60; — either every entry persisted, or no entries persisted plus a per-key error report.
     /// </summary>
     [DataContract(Name = "AiToolsBulkResult")]
     public partial class AiToolsBulkResult : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiToolsBulkResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="errors">errors.</param>
+        /// <param name="success">True when every custom MCP server was persisted. (required).</param>
+        /// <param name="errors">What was rejected, per server. Present on failure - and then no server was persisted..</param>
         public AiToolsBulkResult(bool success = default, List<AiToolsBulkResultErrorsInner> errors = default)
         {
             this.Success = success;
@@ -55,13 +55,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when every custom MCP server was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// What was rejected, per server. Present on failure - and then no server was persisted.
         /// </summary>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<AiToolsBulkResultErrorsInner> Errors { get; set; }

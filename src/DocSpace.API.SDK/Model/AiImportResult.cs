@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of  {@link  PromptsEngine.importBundle } . Either every entry persisted with counts, or no entries persisted plus a per-entry error report.
+    /// Outcome of &#x60;PromptsEngine.importBundle&#x60;. Either every entry persisted with counts, or no entries persisted plus a per-entry error report.
     /// </summary>
     [DataContract(Name = "AiImportResult")]
     public partial class AiImportResult : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiImportResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
+        /// <param name="success">True when the whole bundle was imported. (required).</param>
         /// <param name="imported">imported.</param>
-        /// <param name="errors">errors.</param>
+        /// <param name="errors">What was rejected, per entry. Present on failure - and then nothing was imported..</param>
         public AiImportResult(bool success = default, AiImportResultImported imported = default, List<AiImportError> errors = default)
         {
             this.Success = success;
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when the whole bundle was imported.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         public AiImportResultImported Imported { get; set; }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// What was rejected, per entry. Present on failure - and then nothing was imported.
         /// </summary>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<AiImportError> Errors { get; set; }

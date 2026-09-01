@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The payment method status.
+        /// The customer&#39;s payment method.
         /// </summary>
         [DataMember(Name = "paymentMethodStatus", EmitDefaultValue = false)]
         public PaymentMethodStatus? PaymentMethodStatus { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerInfoDto" /> class.
         /// </summary>
-        /// <param name="paymentMethodStatus">The payment method status..</param>
-        /// <param name="payer">The user parameters..</param>
+        /// <param name="paymentMethodStatus">The customer&#39;s payment method..</param>
+        /// <param name="payer">The paying user..</param>
         public CustomerInfoDto(PaymentMethodStatus? paymentMethodStatus = default, EmployeeDto payer = default)
         {
             this.PaymentMethodStatus = paymentMethodStatus;
@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The user parameters.
+        /// The paying user.
         /// </summary>
         [DataMember(Name = "payer", EmitDefaultValue = false)]
         public EmployeeDto Payer { get; set; }

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ExternalDatabaseSettings
+    /// The connection parameters of an external database.
     /// </summary>
     [DataContract(Name = "ExternalDatabaseSettings")]
     public partial class ExternalDatabaseSettings : IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets DatabaseTypeEnum
+        /// The engine of an external database.
         /// </summary>
         [DataMember(Name = "databaseTypeEnum", EmitDefaultValue = false)]
         public ExternalDatabaseType? DatabaseTypeEnum { get; set; }
@@ -47,15 +47,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalDatabaseSettings" /> class.
         /// </summary>
-        /// <param name="databaseType">databaseType.</param>
-        /// <param name="databaseTypeEnum">databaseTypeEnum.</param>
-        /// <param name="dbHost">dbHost.</param>
-        /// <param name="dbPort">dbPort.</param>
-        /// <param name="dbName">dbName.</param>
-        /// <param name="dbUser">dbUser.</param>
-        /// <param name="dbPassword">dbPassword.</param>
-        /// <param name="dbSsl">dbSsl.</param>
-        /// <param name="sqliteFilePath">sqliteFilePath.</param>
+        /// <param name="databaseType">The engine of the external database..</param>
+        /// <param name="databaseTypeEnum">The engine of an external database..</param>
+        /// <param name="dbHost">The host name or the IP address of the database server..</param>
+        /// <param name="dbPort">The port the database server listens on..</param>
+        /// <param name="dbName">The name of the database to connect to..</param>
+        /// <param name="dbUser">The user name to connect with..</param>
+        /// <param name="dbPassword">The password to connect with..</param>
+        /// <param name="dbSsl">Specifies whether the connection to the database is secured with SSL..</param>
+        /// <param name="sqliteFilePath">The path to the database file, used by the SQLite engine only..</param>
         public ExternalDatabaseSettings(string databaseType = default, ExternalDatabaseType? databaseTypeEnum = default, string dbHost = default, int dbPort = default, string dbName = default, string dbUser = default, string dbPassword = default, bool dbSsl = default, string sqliteFilePath = default)
         {
             this.DatabaseType = databaseType;
@@ -70,50 +70,58 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets DatabaseType
+        /// The engine of the external database.
         /// </summary>
+        /// <example>mysql</example>
         [DataMember(Name = "databaseType", EmitDefaultValue = true)]
         public string DatabaseType { get; set; }
 
         /// <summary>
-        /// Gets or Sets DbHost
+        /// The host name or the IP address of the database server.
         /// </summary>
+        /// <example>localhost</example>
         [DataMember(Name = "dbHost", EmitDefaultValue = true)]
         public string DbHost { get; set; }
 
         /// <summary>
-        /// Gets or Sets DbPort
+        /// The port the database server listens on.
         /// </summary>
+        /// <example>3306</example>
         [DataMember(Name = "dbPort", EmitDefaultValue = false)]
         public int DbPort { get; set; }
 
         /// <summary>
-        /// Gets or Sets DbName
+        /// The name of the database to connect to.
         /// </summary>
+        /// <example>docspace</example>
         [DataMember(Name = "dbName", EmitDefaultValue = true)]
         public string DbName { get; set; }
 
         /// <summary>
-        /// Gets or Sets DbUser
+        /// The user name to connect with.
         /// </summary>
+        /// <example>root</example>
         [DataMember(Name = "dbUser", EmitDefaultValue = true)]
         public string DbUser { get; set; }
 
         /// <summary>
-        /// Gets or Sets DbPassword
+        /// The password to connect with.
         /// </summary>
+        /// <example>my-secret-password</example>
         [DataMember(Name = "dbPassword", EmitDefaultValue = true)]
         public string DbPassword { get; set; }
 
         /// <summary>
-        /// Gets or Sets DbSsl
+        /// Specifies whether the connection to the database is secured with SSL.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "dbSsl", EmitDefaultValue = true)]
         public bool DbSsl { get; set; }
 
         /// <summary>
-        /// Gets or Sets SqliteFilePath
+        /// The path to the database file, used by the SQLite engine only.
         /// </summary>
+        /// <example>/var/lib/docspace/external.db</example>
         [DataMember(Name = "sqliteFilePath", EmitDefaultValue = true)]
         public string SqliteFilePath { get; set; }
 

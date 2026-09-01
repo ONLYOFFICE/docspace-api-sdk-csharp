@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Input for creating a new profile — the same shape as  {@link  Profile }  without the engine-generated fields (&#x60;id&#x60;, &#x60;createdAt&#x60;).
+    /// Input for creating a new profile — the same shape as &#x60;Profile&#x60; without the engine-generated fields (&#x60;id&#x60;, &#x60;createdAt&#x60;).
     /// </summary>
     [DataContract(Name = "AiCreateProfileInput")]
     public partial class AiCreateProfileInput : IValidatableObject
@@ -53,18 +53,18 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiCreateProfileInput" /> class.
         /// </summary>
         /// <param name="name">User-defined profile display name. (required).</param>
-        /// <param name="providerType">Provider type for this profile. Use &#x60;external&#x60; to delegate all HTTP transport to  {@link  PlatformAdapter.externalFetch  }  while reusing an existing provider&#39;s response parser — see  {@link  Profile.basedOn }  for the format selector. (required).</param>
+        /// <param name="providerType">Provider type for this profile. Use &#x60;external&#x60; to delegate all HTTP transport to &#x60;PlatformAdapter.externalFetch&#x60; while reusing an existing provider&#39;s response parser — see &#x60;Profile.basedOn&#x60; for the format selector. (required).</param>
         /// <param name="basedOn">Selects the response-format parser used by the &#x60;external&#x60; provider. Ignored for any other &#x60;providerType&#x60;.  Supported values are &#x60;openai&#x60;, &#x60;anthropic&#x60;, &#x60;mistral&#x60; and &#x60;openrouter&#x60;. Remaining values (&#x60;genai&#x60;, &#x60;stabilityai&#x60;, …) are accepted by the type but not yet implemented; passing one raises an error at request time..</param>
         /// <param name="baseUrl">Base URL of the provider API. (required).</param>
         /// <param name="key">API key or token. Optional for local providers..</param>
-        /// <param name="headers">Extra HTTP headers sent with every request to this provider. Merged into the SDK client&#39;s default headers; an explicit &#x60;Authorization&#x60; here wins over the one derived from  {@link  key  } . Honoured by the OpenAI-family providers..</param>
+        /// <param name="headers">Extra HTTP headers sent with every request to this provider. Merged into the SDK client&#39;s default headers; an explicit &#x60;Authorization&#x60; here wins over the one derived from &#x60;key&#x60;. Honoured by the OpenAI-family providers..</param>
         /// <param name="modelId">Selected model ID within this provider. (required).</param>
         /// <param name="reasoning">Whether extended thinking is enabled for this profile&#39;s model..</param>
         /// <param name="capabilities">Bitmask of capabilities supported by the selected model..</param>
         /// <param name="canUseTool">Result of the live tool-capability probe performed at create time and on changes to &#x60;modelId&#x60; / &#x60;providerType&#x60; / &#x60;baseUrl&#x60;. &#x60;undefined&#x60; means the probe has never run for this profile (legacy record)..</param>
-        /// <param name="useResponsesApi">Result of the live Responses-API probe (parallel to  {@link  canUseTool  } ). &#x60;true&#x60; means the model speaks &#x60;/v1/responses&#x60; and the OpenAI provider must route through &#x60;client.responses.create&#x60; — required for gpt-5+ reasoning models that reject &#x60;reasoning_effort&#x60; together with &#x60;tools&#x60; on &#x60;/v1/chat/completions&#x60;. Probed at create time and whenever &#x60;modelId&#x60; / &#x60;providerType&#x60; / &#x60;baseUrl&#x60; change. &#x60;undefined&#x60; means the probe never ran (legacy record) — readers treat that as &#x60;false&#x60;..</param>
+        /// <param name="useResponsesApi">Result of the live Responses-API probe (parallel to &#x60;canUseTool&#x60;). &#x60;true&#x60; means the model speaks &#x60;/v1/responses&#x60; and the OpenAI provider must route through &#x60;client.responses.create&#x60; — required for gpt-5+ reasoning models that reject &#x60;reasoning_effort&#x60; together with &#x60;tools&#x60; on &#x60;/v1/chat/completions&#x60;. Probed at create time and whenever &#x60;modelId&#x60; / &#x60;providerType&#x60; / &#x60;baseUrl&#x60; change. &#x60;undefined&#x60; means the probe never ran (legacy record) — readers treat that as &#x60;false&#x60;..</param>
         /// <param name="isCloudProvider">Whether this profile uses a cloud-hosted provider (e.g. ONLYOFFICE DocSpace)..</param>
-        /// <param name="useProxy">Route every provider request through the host&#39;s &#x60;fetchProxy&#x60; instead of the global &#x60;fetch&#x60;. Useful when the host runs the widget in a sandbox without direct network access (CORS, custom auth, etc.). Has no effect when the  {@link  PlatformAdapter.fetchProxy  }  is not configured..</param>
+        /// <param name="useProxy">Route every provider request through the host&#39;s &#x60;fetchProxy&#x60; instead of the global &#x60;fetch&#x60;. Useful when the host runs the widget in a sandbox without direct network access (CORS, custom auth, etc.). Has no effect when the &#x60;PlatformAdapter.fetchProxy&#x60; is not configured..</param>
         public AiCreateProfileInput(string name = default, AiProviderType providerType = default, AiBuiltinProviderType? basedOn = default, string baseUrl = default, string key = default, Dictionary<string, string> headers = default, string modelId = default, bool reasoning = default, decimal capabilities = default, bool canUseTool = default, bool useResponsesApi = default, bool isCloudProvider = default, bool useProxy = default)
         {
             // to ensure "name" is required (not null)
@@ -109,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Provider type for this profile. Use &#x60;external&#x60; to delegate all HTTP transport to  {@link  PlatformAdapter.externalFetch  }  while reusing an existing provider&#39;s response parser — see  {@link  Profile.basedOn }  for the format selector.
+        /// Provider type for this profile. Use &#x60;external&#x60; to delegate all HTTP transport to &#x60;PlatformAdapter.externalFetch&#x60; while reusing an existing provider&#39;s response parser — see &#x60;Profile.basedOn&#x60; for the format selector.
         /// </summary>
         [DataMember(Name = "providerType", IsRequired = true, EmitDefaultValue = true)]
         public AiProviderType ProviderType { get; set; }
@@ -127,7 +127,7 @@ namespace DocSpace.API.SDK.Model
         public string Key { get; set; }
 
         /// <summary>
-        /// Extra HTTP headers sent with every request to this provider. Merged into the SDK client&#39;s default headers; an explicit &#x60;Authorization&#x60; here wins over the one derived from  {@link  key  } . Honoured by the OpenAI-family providers.
+        /// Extra HTTP headers sent with every request to this provider. Merged into the SDK client&#39;s default headers; an explicit &#x60;Authorization&#x60; here wins over the one derived from &#x60;key&#x60;. Honoured by the OpenAI-family providers.
         /// </summary>
         [DataMember(Name = "headers", EmitDefaultValue = false)]
         public Dictionary<string, string> Headers { get; set; }
@@ -157,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         public bool CanUseTool { get; set; }
 
         /// <summary>
-        /// Result of the live Responses-API probe (parallel to  {@link  canUseTool  } ). &#x60;true&#x60; means the model speaks &#x60;/v1/responses&#x60; and the OpenAI provider must route through &#x60;client.responses.create&#x60; — required for gpt-5+ reasoning models that reject &#x60;reasoning_effort&#x60; together with &#x60;tools&#x60; on &#x60;/v1/chat/completions&#x60;. Probed at create time and whenever &#x60;modelId&#x60; / &#x60;providerType&#x60; / &#x60;baseUrl&#x60; change. &#x60;undefined&#x60; means the probe never ran (legacy record) — readers treat that as &#x60;false&#x60;.
+        /// Result of the live Responses-API probe (parallel to &#x60;canUseTool&#x60;). &#x60;true&#x60; means the model speaks &#x60;/v1/responses&#x60; and the OpenAI provider must route through &#x60;client.responses.create&#x60; — required for gpt-5+ reasoning models that reject &#x60;reasoning_effort&#x60; together with &#x60;tools&#x60; on &#x60;/v1/chat/completions&#x60;. Probed at create time and whenever &#x60;modelId&#x60; / &#x60;providerType&#x60; / &#x60;baseUrl&#x60; change. &#x60;undefined&#x60; means the probe never ran (legacy record) — readers treat that as &#x60;false&#x60;.
         /// </summary>
         [DataMember(Name = "useResponsesApi", EmitDefaultValue = true)]
         public bool UseResponsesApi { get; set; }
@@ -169,7 +169,7 @@ namespace DocSpace.API.SDK.Model
         public bool IsCloudProvider { get; set; }
 
         /// <summary>
-        /// Route every provider request through the host&#39;s &#x60;fetchProxy&#x60; instead of the global &#x60;fetch&#x60;. Useful when the host runs the widget in a sandbox without direct network access (CORS, custom auth, etc.). Has no effect when the  {@link  PlatformAdapter.fetchProxy  }  is not configured.
+        /// Route every provider request through the host&#39;s &#x60;fetchProxy&#x60; instead of the global &#x60;fetch&#x60;. Useful when the host runs the widget in a sandbox without direct network access (CORS, custom auth, etc.). Has no effect when the &#x60;PlatformAdapter.fetchProxy&#x60; is not configured.
         /// </summary>
         [DataMember(Name = "useProxy", EmitDefaultValue = true)]
         public bool UseProxy { get; set; }

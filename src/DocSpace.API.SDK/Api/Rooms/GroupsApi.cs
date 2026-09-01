@@ -135,11 +135,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>RoomGroupArrayWrapper</returns>
-        RoomGroupArrayWrapper GetRoomGroups(int id, bool? includeMembers = default);
+        RoomGroupArrayWrapper GetRoomGroups(bool? includeMembers = default);
 
         /// <summary>
         /// List room groups
@@ -148,11 +147,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>ApiResponse of RoomGroupArrayWrapper</returns>
-        ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(int id, bool? includeMembers = default);
+        ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(bool? includeMembers = default);
         /// <summary>
         /// Update room group
         /// </summary>
@@ -300,12 +298,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of RoomGroupArrayWrapper</returns>
-        Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(int id, bool? includeMembers = default, CancellationToken cancellationToken = default);
+        Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(bool? includeMembers = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List room groups
@@ -314,12 +311,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of ApiResponse (RoomGroupArrayWrapper)</returns>
-        Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(int id, bool? includeMembers = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(bool? includeMembers = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update room group
         /// </summary>
@@ -966,7 +962,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1062,7 +1058,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1325,13 +1321,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>RoomGroupArrayWrapper</returns>
-        public RoomGroupArrayWrapper GetRoomGroups(int id, bool? includeMembers = default)
+        public RoomGroupArrayWrapper GetRoomGroups(bool? includeMembers = default)
         {
-            var localVarResponse = GetRoomGroupsWithHttpInfo(id, includeMembers);
+            var localVarResponse = GetRoomGroupsWithHttpInfo(includeMembers);
             return localVarResponse.Data;
         }
 
@@ -1342,11 +1337,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>ApiResponse of RoomGroupArrayWrapper</returns>
-        public ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(int id, bool? includeMembers = default)
+        public ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(bool? includeMembers = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1361,7 +1355,6 @@ namespace DocSpace.API.SDK.Api.Rooms
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (includeMembers != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
@@ -1420,14 +1413,13 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of RoomGroupArrayWrapper</returns>
-        public async Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(int id, bool? includeMembers = default, CancellationToken cancellationToken = default)
+        public async Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(bool? includeMembers = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRoomGroupsWithHttpInfoAsync(id, includeMembers, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRoomGroupsWithHttpInfoAsync(includeMembers, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1438,12 +1430,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Returns a list of all room groups for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The group unique identifier.</param>
         /// <param name="includeMembers">Whether to include group members. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of ApiResponse (RoomGroupArrayWrapper)</returns>
-        public async Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(int id, bool? includeMembers = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(bool? includeMembers = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1459,7 +1450,6 @@ namespace DocSpace.API.SDK.Api.Rooms
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (includeMembers != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));

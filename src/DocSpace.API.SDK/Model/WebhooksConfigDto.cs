@@ -59,9 +59,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="ssl">The webhook SSL verification (enabled or not)..</param>
         /// <param name="triggers">The webhook trigger type..</param>
         /// <param name="targetId">The webhook target ID..</param>
-        /// <param name="createdBy">The user parameters..</param>
+        /// <param name="createdBy">The user who created the webhook..</param>
         /// <param name="createdOn">The date and time when the webhook was created..</param>
-        /// <param name="modifiedBy">The user parameters..</param>
+        /// <param name="modifiedBy">The user who modified the webhook..</param>
         /// <param name="modifiedOn">The date and time when the webhook was modified..</param>
         /// <param name="lastFailureOn">The date and time of the webhook last failure..</param>
         /// <param name="lastFailureContent">The webhook last failure content..</param>
@@ -127,7 +127,7 @@ namespace DocSpace.API.SDK.Model
         public string TargetId { get; set; }
 
         /// <summary>
-        /// The user parameters.
+        /// The user who created the webhook.
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public EmployeeDto CreatedBy { get; set; }
@@ -140,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         public DateTime? CreatedOn { get; set; }
 
         /// <summary>
-        /// The user parameters.
+        /// The user who modified the webhook.
         /// </summary>
         [DataMember(Name = "modifiedBy", EmitDefaultValue = false)]
         public EmployeeDto ModifiedBy { get; set; }

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The operation type
+        /// Type of the operation
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public OperationType? Type { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OperationDto" /> class.
         /// </summary>
-        /// <param name="date">The API date and time parameters..</param>
+        /// <param name="date">The date when the operation took place..</param>
         /// <param name="service">The service related to the operation..</param>
         /// <param name="description">The brief operation description..</param>
         /// <param name="details">The detailed information about the operation..</param>
@@ -60,8 +60,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="participantDisplayName">The participant display name..</param>
         /// <param name="agentId">AI Agent id..</param>
         /// <param name="agentTitle">AI Agent name..</param>
-        /// <param name="type">The operation type.</param>
-        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string agentId = default, string agentTitle = default, OperationType? type = default)
+        /// <param name="type">Type of the operation.</param>
+        public OperationDto(DateTime? date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string agentId = default, string agentTitle = default, OperationType? type = default)
         {
             this.Date = date;
             this.Service = service;
@@ -80,10 +80,11 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The API date and time parameters.
+        /// The date when the operation took place.
         /// </summary>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
-        public ApiDateTime Date { get; set; }
+        /// <example>2024-01-15T10:30:00Z</example>
+        [DataMember(Name = "date", EmitDefaultValue = true)]
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// The service related to the operation.

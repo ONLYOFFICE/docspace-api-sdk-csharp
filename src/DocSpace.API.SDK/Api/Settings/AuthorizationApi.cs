@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ConnectionTestResultWrapper</returns>
         ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseSettings? externalDatabaseSettings = default);
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ApiResponse of ConnectionTestResultWrapper</returns>
         ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseSettings? externalDatabaseSettings = default);
@@ -161,7 +161,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ConnectionTestResultWrapper</returns>
@@ -174,7 +174,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ApiResponse (ConnectionTestResultWrapper)</returns>
@@ -759,7 +759,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ConnectionTestResultWrapper</returns>
         public ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseSettings? externalDatabaseSettings = default)
@@ -775,7 +775,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ApiResponse of ConnectionTestResultWrapper</returns>
         public ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseSettings? externalDatabaseSettings = default)
@@ -848,7 +848,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ConnectionTestResultWrapper</returns>
@@ -865,7 +865,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Tests an external database connection with the provided settings without saving them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ApiResponse (ConnectionTestResultWrapper)</returns>

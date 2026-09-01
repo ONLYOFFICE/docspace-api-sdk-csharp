@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiPricesResponse
+    /// The AI price list: per-model pricing for every model kind, in a single currency.
     /// </summary>
     [DataContract(Name = "AiPricesResponse")]
     public partial class AiPricesResponse : IValidatableObject
@@ -46,11 +46,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiPricesResponse" /> class.
         /// </summary>
-        /// <param name="chat">chat (required).</param>
-        /// <param name="embedding">embedding (required).</param>
-        /// <param name="image">image (required).</param>
-        /// <param name="search">search (required).</param>
-        /// <param name="currency">currency (required).</param>
+        /// <param name="chat">The pricing of every available chat model. (required).</param>
+        /// <param name="embedding">The pricing of every available embedding model. (required).</param>
+        /// <param name="image">The pricing of every available image model. (required).</param>
+        /// <param name="search">The pricing of every available web search provider. (required).</param>
+        /// <param name="currency">The currency the AI prices are quoted in. (required).</param>
         public AiPricesResponse(List<AiChatModelPricing> chat = default, List<AiEmbeddingModelPricing> embedding = default, List<AiImageModelPricing> image = default, List<AiWebSearchPricing> search = default, CurrencyInfo currency = default)
         {
             // to ensure "chat" is required (not null)
@@ -86,31 +86,31 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Chat
+        /// The pricing of every available chat model.
         /// </summary>
         [DataMember(Name = "chat", IsRequired = true, EmitDefaultValue = true)]
         public List<AiChatModelPricing> Chat { get; set; }
 
         /// <summary>
-        /// Gets or Sets Embedding
+        /// The pricing of every available embedding model.
         /// </summary>
         [DataMember(Name = "embedding", IsRequired = true, EmitDefaultValue = true)]
         public List<AiEmbeddingModelPricing> Embedding { get; set; }
 
         /// <summary>
-        /// Gets or Sets Image
+        /// The pricing of every available image model.
         /// </summary>
         [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
         public List<AiImageModelPricing> Image { get; set; }
 
         /// <summary>
-        /// Gets or Sets Search
+        /// The pricing of every available web search provider.
         /// </summary>
         [DataMember(Name = "search", IsRequired = true, EmitDefaultValue = true)]
         public List<AiWebSearchPricing> Search { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// The currency the AI prices are quoted in.
         /// </summary>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public CurrencyInfo Currency { get; set; }

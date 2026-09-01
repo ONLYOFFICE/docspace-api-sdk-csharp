@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ICompressWrapper
+    /// The successful API response containing the ICompress object.
     /// </summary>
     [DataContract(Name = "ICompressWrapper")]
     public partial class ICompressWrapper : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ICompressWrapper" /> class.
         /// </summary>
-        /// <param name="response">The archiving class unification interface..</param>
+        /// <param name="response">The ICompress object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The archiving class unification interface.
+        /// The ICompress object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
         public Object Response { get; set; }

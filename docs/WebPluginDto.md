@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **PluginName** | **string** | The name by which the web plugin is registered in the window object. | 
 **Scopes** | **string** | The web plugin scopes. | 
 **Image** | **string** | The web plugin image. | 
-**CreateBy** | [**EmployeeDto**](EmployeeDto.md) | The user parameters. | 
+**CreateBy** | [**EmployeeDto**](EmployeeDto.md) | The user who created the web plugin. | 
 **CreateOn** | **DateTime** | The date and time when the web plugin was created. | 
 **Enabled** | **bool** | Specifies if the web plugin is enabled or not. | 
 **System** | **bool** | Specifies if the web plugin is system or not. | 

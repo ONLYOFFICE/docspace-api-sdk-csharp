@@ -57,8 +57,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="indexing">Specifies whether to create a room with indexing..</param>
         /// <param name="denyDownload">Specifies whether to deny downloads from the room..</param>
         /// <param name="lifetime">The room data lifetime information..</param>
-        /// <param name="watermark">The request parameters for adding watermarks..</param>
-        /// <param name="logo">The logo request parameters..</param>
+        /// <param name="watermark">The watermark settings..</param>
+        /// <param name="logo">The room logo..</param>
         /// <param name="tags">The list of tags..</param>
         /// <param name="color">The room color, as a six-digit hexadecimal value without a leading &#39;#&#39;..</param>
         /// <param name="cover">The room cover..</param>
@@ -128,13 +128,13 @@ namespace DocSpace.API.SDK.Model
         public RoomDataLifetimeDto Lifetime { get; set; }
 
         /// <summary>
-        /// The request parameters for adding watermarks.
+        /// The watermark settings.
         /// </summary>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public WatermarkRequestDto Watermark { get; set; }
 
         /// <summary>
-        /// The logo request parameters.
+        /// The room logo.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }

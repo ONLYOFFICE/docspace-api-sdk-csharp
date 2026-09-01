@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ChunkedUploadSessionResponseWrapperInteger" /> class.
         /// </summary>
         /// <param name="success">Gets or sets a value indicating whether the operation was successful..</param>
-        /// <param name="data">Represents the response returned from a chunked upload session..</param>
+        /// <param name="data">Gets or sets the data of the chunked upload session response..</param>
         public ChunkedUploadSessionResponseWrapperInteger(bool success = default, ChunkedUploadSessionResponseInteger data = default)
         {
             this.Success = success;
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         public bool Success { get; set; }
 
         /// <summary>
-        /// Represents the response returned from a chunked upload session.
+        /// Gets or sets the data of the chunked upload session response.
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public ChunkedUploadSessionResponseInteger Data { get; set; }

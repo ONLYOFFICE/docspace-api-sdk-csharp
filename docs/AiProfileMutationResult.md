@@ -5,9 +5,9 @@ Outcome of `create` / `update` — either a success carrying the persisted profi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Success** | **bool** |  | 
-**Profile** | [**AiProfile**](AiProfile.md) |  | [optional] 
-**Error** | [**AiTErrorData**](AiTErrorData.md) |  | [optional] 
+**Success** | **bool** | True when the profile was persisted. | 
+**Profile** | [**AiProfile**](AiProfile.md) | The persisted profile. Present on success. | [optional] 
+**Error** | [**AiTErrorData**](AiTErrorData.md) | Why the profile was rejected - the name check or the provider credential check. Present on failure. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

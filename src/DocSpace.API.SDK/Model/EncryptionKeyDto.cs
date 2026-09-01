@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// EncryptionKeyDto
+    /// The encryption key pair of a user.
     /// </summary>
     [DataContract(Name = "EncryptionKeyDto")]
     public partial class EncryptionKeyDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EncryptionKeyDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="userId">userId.</param>
-        /// <param name="date">date.</param>
-        /// <param name="publicKey">publicKey.</param>
-        /// <param name="privateKeyEnc">privateKeyEnc.</param>
-        /// <param name="cryptoEngineId">cryptoEngineId.</param>
+        /// <param name="id">The identifier of the key pair..</param>
+        /// <param name="userId">The identifier of the user the key pair belongs to..</param>
+        /// <param name="date">The date and time when the key pair was created..</param>
+        /// <param name="publicKey">The public key of the pair, used to encrypt the file keys..</param>
+        /// <param name="privateKeyEnc">The private key of the pair, encrypted with the user password..</param>
+        /// <param name="cryptoEngineId">The identifier of the crypto engine the key pair was issued for..</param>
         public EncryptionKeyDto(Guid id = default, Guid userId = default, DateTime date = default, string publicKey = default, string privateKeyEnc = default, string cryptoEngineId = default)
         {
             this.Id = id;
@@ -58,38 +58,44 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The identifier of the key pair.
         /// </summary>
+        /// <example>9924256B-447C-4F19-9dbd-8ad8c39e8ff5</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserId
+        /// The identifier of the user the key pair belongs to.
         /// </summary>
+        /// <example>9924256B-447C-4F19-9dbd-8ad8c39e8ff5</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// The date and time when the key pair was created.
         /// </summary>
+        /// <example>2025-01-01T00:00:00</example>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets PublicKey
+        /// The public key of the pair, used to encrypt the file keys.
         /// </summary>
+        /// <example>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A...</example>
         [DataMember(Name = "publicKey", EmitDefaultValue = true)]
         public string PublicKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets PrivateKeyEnc
+        /// The private key of the pair, encrypted with the user password.
         /// </summary>
+        /// <example>U2FsdGVkX1+Lm3s...</example>
         [DataMember(Name = "privateKeyEnc", EmitDefaultValue = true)]
         public string PrivateKeyEnc { get; set; }
 
         /// <summary>
-        /// Gets or Sets CryptoEngineId
+        /// The identifier of the crypto engine the key pair was issued for.
         /// </summary>
+        /// <example>{DC522726-5E0E-43E5-AA02-8EA156BECBC5}</example>
         [DataMember(Name = "cryptoEngineId", EmitDefaultValue = true)]
         public string CryptoEngineId { get; set; }
 

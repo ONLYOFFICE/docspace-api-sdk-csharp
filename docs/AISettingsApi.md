@@ -14,7 +14,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiSettingsGet**
 > AiAiSettingsWrapper AiSettingsGet ()
 
-
+Reports the portal's combined AI configuration and readiness.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/).
 
@@ -105,7 +105,7 @@ catch (ApiException e)
 # **AiSettingsGetUser**
 > AiAiUserSettingsWrapper AiSettingsGetUser ()
 
-
+Returns the current user's AI settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/).
 
@@ -196,7 +196,7 @@ catch (ApiException e)
 # **AiSettingsGetVectorization**
 > AiVectorizationSettingsWrapper AiSettingsGetVectorization ()
 
-
+Returns the portal's vectorization settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/).
 
@@ -287,7 +287,7 @@ catch (ApiException e)
 # **AiSettingsSetUser**
 > AiAiUserSettingsWrapper AiSettingsSetUser (Dictionary<string, Object> requestBody)
 
-
+Updates the current user's AI settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/).
 
@@ -383,7 +383,7 @@ catch (ApiException e)
 # **AiSettingsSetVectorization**
 > AiVectorizationSettingsWrapper AiSettingsSetVectorization (Dictionary<string, Object> requestBody)
 
-
+Updates the portal's vectorization settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/).
 

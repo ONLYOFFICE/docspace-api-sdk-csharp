@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The folder type.
+        /// The ID of the product to be set as default.
         /// </summary>
         [DataMember(Name = "defaultFolderType", IsRequired = true, EmitDefaultValue = true)]
         public FolderType DefaultFolderType { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultProductRequestDto" /> class.
         /// </summary>
-        /// <param name="defaultFolderType">The folder type. (required).</param>
+        /// <param name="defaultFolderType">The ID of the product to be set as default. (required).</param>
         public DefaultProductRequestDto(FolderType defaultFolderType = default)
         {
             this.DefaultFolderType = defaultFolderType;

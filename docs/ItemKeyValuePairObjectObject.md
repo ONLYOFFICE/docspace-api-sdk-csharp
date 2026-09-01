@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.ItemKeyValuePairObjectObject
+A key-value pair of a list item.
 
 ## Properties
 

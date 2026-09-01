@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiOpenAIStreamErrorError
+    /// The error that ended the stream: its message, type, code and the offending parameter.
     /// </summary>
     [DataContract(Name = "AiOpenAIStreamError_error")]
     public partial class AiOpenAIStreamErrorError : IValidatableObject

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The room type.
+        /// The third-party room type to be created.
         /// </summary>
         [DataMember(Name = "roomType", IsRequired = true, EmitDefaultValue = true)]
         public RoomType RoomType { get; set; }
@@ -54,14 +54,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="createAsNewFolder">Specifies whether to create a third-party room as a new folder or not..</param>
         /// <param name="title">The third-party room name to be created. (required).</param>
-        /// <param name="roomType">The room type. (required).</param>
+        /// <param name="roomType">The third-party room type to be created. (required).</param>
         /// <param name="private">Specifies whether to create the private third-party room or not..</param>
         /// <param name="indexing">Specifies whether to create the third-party room with indexing..</param>
         /// <param name="denyDownload">Specifies whether to deny downloads from the third-party room..</param>
         /// <param name="color">The color of the third-party room..</param>
         /// <param name="cover">The cover of the third-party room..</param>
         /// <param name="tags">The list of tags of the third-party room..</param>
-        /// <param name="logo">The logo request parameters..</param>
+        /// <param name="logo">The logo request parameters of the third-party room..</param>
         public CreateThirdPartyRoom(bool createAsNewFolder = default, string title = default, RoomType roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, string color = default, string cover = default, List<string> tags = default, LogoRequest logo = default)
         {
             // to ensure "title" is required (not null)
@@ -138,7 +138,7 @@ namespace DocSpace.API.SDK.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// The logo request parameters.
+        /// The logo request parameters of the third-party room.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }

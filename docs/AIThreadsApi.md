@@ -23,7 +23,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiThreadsAppendUserMessage**
 > AiThreadMessageLike AiThreadsAppendUserMessage (AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest)
 
-
+Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/).
 
@@ -119,7 +119,7 @@ catch (ApiException e)
 # **AiThreadsClearMessages**
 > AiSuccessResponse AiThreadsClearMessages (string body)
 
-
+Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/).
 
@@ -215,7 +215,7 @@ catch (ApiException e)
 # **AiThreadsCreate**
 > AiThread AiThreadsCreate (AiThreadsCreateRequest aiThreadsCreateRequest)
 
-
+Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/).
 
@@ -311,7 +311,7 @@ catch (ApiException e)
 # **AiThreadsDelete**
 > AiSuccessResponse AiThreadsDelete (string body)
 
-
+Deletes a chat thread together with its messages.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/).
 
@@ -407,7 +407,7 @@ catch (ApiException e)
 # **AiThreadsDeleteMessage**
 > AiSuccessResponse AiThreadsDeleteMessage (string body)
 
-
+Deletes one chat message, leaving the rest of the thread untouched.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/).
 
@@ -503,7 +503,7 @@ catch (ApiException e)
 # **AiThreadsGetById**
 > AiThread AiThreadsGetById (string threadId)
 
-
+Returns one chat thread, or an empty result when the identifier is unknown.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/).
 
@@ -511,7 +511,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **threadId** | **string** |  |  |
+| **threadId** | **string** | The chat thread identifier. |  |
 
 ### Return type
 
@@ -542,7 +542,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThreadsApi(httpClient, config, httpClientHandler);
-            var threadId = "threadId_example";  // string | 
+            var threadId = "threadId_example";  // string | The chat thread identifier.
 
             try
             {
@@ -599,7 +599,7 @@ catch (ApiException e)
 # **AiThreadsGetMessageById**
 > AiThreadMessageLike AiThreadsGetMessageById (string messageId)
 
-
+Returns one chat message by its globally unique identifier.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/).
 
@@ -607,7 +607,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **messageId** | **string** |  |  |
+| **messageId** | **string** | The globally unique chat message identifier. |  |
 
 ### Return type
 
@@ -638,7 +638,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThreadsApi(httpClient, config, httpClientHandler);
-            var messageId = "messageId_example";  // string | 
+            var messageId = "messageId_example";  // string | The globally unique chat message identifier.
 
             try
             {
@@ -693,9 +693,9 @@ catch (ApiException e)
 
 <a id="aithreadslist"></a>
 # **AiThreadsList**
-> List&lt;AiThread&gt; AiThreadsList (string entityId, string count, string cursor, string query)
+> List&lt;AiThread&gt; AiThreadsList (string? entityId = null, string? count = null, string? cursor = null, string? query = null)
 
-
+Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/).
 
@@ -703,10 +703,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **entityId** | **string** |  |  |
-| **count** | **string** |  |  |
-| **cursor** | **string** |  |  |
-| **query** | **string** |  |  |
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
+| **count** | **string?** | The maximum number of items to return in one page. | [optional]  |
+| **cursor** | **string?** | The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. | [optional]  |
+| **query** | **string?** | The full-text query the thread list is filtered by. | [optional]  |
 
 ### Return type
 
@@ -737,10 +737,10 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThreadsApi(httpClient, config, httpClientHandler);
-            var entityId = "entityId_example";  // string | 
-            var count = "count_example";  // string | 
-            var cursor = "cursor_example";  // string | 
-            var query = "query_example";  // string | 
+            var entityId = "entityId_example";  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
+            var count = "count_example";  // string? | The maximum number of items to return in one page. (optional) 
+            var cursor = "cursor_example";  // string? | The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional) 
+            var query = "query_example";  // string? | The full-text query the thread list is filtered by. (optional) 
 
             try
             {
@@ -797,7 +797,7 @@ catch (ApiException e)
 # **AiThreadsOpenOrCreate**
 > AiOpenOrCreateResult AiThreadsOpenOrCreate (AiThreadsOpenOrCreateRequest aiThreadsOpenOrCreateRequest)
 
-
+Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/).
 
@@ -891,9 +891,9 @@ catch (ApiException e)
 
 <a id="aithreadsreadmessages"></a>
 # **AiThreadsReadMessages**
-> List&lt;AiThreadMessageLike&gt; AiThreadsReadMessages (string threadId, string count, string cursor, string direction)
+> List&lt;AiThreadMessageLike&gt; AiThreadsReadMessages (string threadId, string? count = null, string? cursor = null, string? direction = null)
 
-
+Reads the messages of a thread, with the same cursor pagination as the thread list.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/).
 
@@ -901,10 +901,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **threadId** | **string** |  |  |
-| **count** | **string** |  |  |
-| **cursor** | **string** |  |  |
-| **direction** | **string** |  |  |
+| **threadId** | **string** | The chat thread identifier. |  |
+| **count** | **string?** | The maximum number of items to return in one page. | [optional]  |
+| **cursor** | **string?** | The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. | [optional]  |
+| **direction** | **string?** | The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. | [optional]  |
 
 ### Return type
 
@@ -935,10 +935,10 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThreadsApi(httpClient, config, httpClientHandler);
-            var threadId = "threadId_example";  // string | 
-            var count = "count_example";  // string | 
-            var cursor = "cursor_example";  // string | 
-            var direction = "direction_example";  // string | 
+            var threadId = "threadId_example";  // string | The chat thread identifier.
+            var count = "count_example";  // string? | The maximum number of items to return in one page. (optional) 
+            var cursor = "cursor_example";  // string? | The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional) 
+            var direction = "direction_example";  // string? | The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional) 
 
             try
             {
@@ -995,7 +995,7 @@ catch (ApiException e)
 # **AiThreadsRegenerateTitle**
 > string AiThreadsRegenerateTitle (AiThreadsRegenerateTitleRequest aiThreadsRegenerateTitleRequest)
 
-
+Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/).
 
@@ -1091,7 +1091,7 @@ catch (ApiException e)
 # **AiThreadsRename**
 > AiSuccessResponse AiThreadsRename (AiThreadsRenameRequest aiThreadsRenameRequest)
 
-
+Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/).
 
@@ -1187,7 +1187,7 @@ catch (ApiException e)
 # **AiThreadsTouch**
 > AiSuccessResponse AiThreadsTouch (AiThreadsTouchRequest aiThreadsTouchRequest)
 
-
+Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/).
 
@@ -1283,7 +1283,7 @@ catch (ApiException e)
 # **AiThreadsUpdateMessage**
 > AiSuccessResponse AiThreadsUpdateMessage (AiThreadsUpdateMessageRequest aiThreadsUpdateMessageRequest)
 
-
+Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/).
 

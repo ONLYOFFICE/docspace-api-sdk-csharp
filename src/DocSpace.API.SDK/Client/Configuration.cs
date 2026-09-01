@@ -132,7 +132,7 @@ namespace DocSpace.API.SDK.Client
                 {
                     new Dictionary<string, object> {
                         {"url", "{baseUrl}"},
-                        {"description", "Server configuration"},
+                        {"description", "The production DocSpace portal, at the customer's own domain."},
                         {
                             "variables", new Dictionary<string, object> {
                                 {

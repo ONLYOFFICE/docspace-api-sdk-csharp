@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.IconRequest
+The icon to set on a room group.
 
 ## Properties
 

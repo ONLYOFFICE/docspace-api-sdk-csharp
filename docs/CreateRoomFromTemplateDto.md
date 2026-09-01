@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Indexing** | **bool?** | Specifies whether to create a room with indexing. | [optional] 
 **DenyDownload** | **bool?** | Specifies whether to deny downloads from the room. | [optional] 
 **Lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) | The room data lifetime information. | [optional] 
-**Watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) | The request parameters for adding watermarks. | [optional] 
+**Watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) | The watermark settings. | [optional] 
 **Private** | **bool?** | Specifies whether the room to be created is private or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

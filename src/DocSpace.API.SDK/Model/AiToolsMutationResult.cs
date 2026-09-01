@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiToolsMutationResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="error">error.</param>
+        /// <param name="success">True when the MCP server was persisted. (required).</param>
+        /// <param name="error">Why the MCP server was rejected. Present on failure..</param>
         public AiToolsMutationResult(bool success = default, AiTErrorData error = default)
         {
             this.Success = success;
@@ -55,13 +55,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when the MCP server was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// Why the MCP server was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public AiTErrorData Error { get; set; }

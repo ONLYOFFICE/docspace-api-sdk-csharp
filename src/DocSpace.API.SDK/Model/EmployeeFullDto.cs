@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         public EmployeeActivationStatus? ActivationStatus { get; set; }
 
         /// <summary>
-        /// The user mobile phone activation status.
+        /// The mobile phone activation status.
         /// </summary>
         [DataMember(Name = "mobilePhoneActivationStatus", EmitDefaultValue = false)]
         public MobilePhoneActivationStatus? MobilePhoneActivationStatus { get; set; }
@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isCollaborator">Specifies if the user is a portal collaborator or not..</param>
         /// <param name="cultureName">The user culture code..</param>
         /// <param name="mobilePhone">The user mobile phone number..</param>
-        /// <param name="mobilePhoneActivationStatus">The user mobile phone activation status..</param>
+        /// <param name="mobilePhoneActivationStatus">The mobile phone activation status..</param>
         /// <param name="isSSO">Specifies if the SSO settings are enabled for the user or not..</param>
         /// <param name="theme">The user theme settings..</param>
         /// <param name="quotaLimit">The user quota limit..</param>
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="registrationDate">The user registration date..</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, DateTime? terminated = default, string department = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, DateTime? registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -175,8 +175,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date when the user account was terminated.
         /// </summary>
-        [DataMember(Name = "terminated", EmitDefaultValue = false)]
-        public ApiDateTime Terminated { get; set; }
+        /// <example>2025-06-01T00:00:00.0000000Z</example>
+        [DataMember(Name = "terminated", EmitDefaultValue = true)]
+        public DateTime? Terminated { get; set; }
 
         /// <summary>
         /// The user department.
@@ -327,8 +328,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The user registration date.
         /// </summary>
-        [DataMember(Name = "registrationDate", EmitDefaultValue = false)]
-        public ApiDateTime RegistrationDate { get; set; }
+        /// <example>2020-01-01T00:00:00.0000000Z</example>
+        [DataMember(Name = "registrationDate", EmitDefaultValue = true)]
+        public DateTime? RegistrationDate { get; set; }
 
         /// <summary>
         /// Specifies if the user has a personal folder or not.

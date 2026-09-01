@@ -33,8 +33,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
@@ -44,10 +47,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
@@ -55,8 +58,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
@@ -66,10 +72,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
@@ -87,10 +93,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
@@ -101,10 +107,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
@@ -114,10 +120,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
@@ -128,10 +134,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
@@ -355,8 +361,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
@@ -369,8 +378,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
@@ -419,8 +431,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
@@ -434,8 +449,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible chat completions proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
@@ -487,8 +505,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
@@ -501,8 +522,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
@@ -551,8 +575,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
@@ -566,8 +593,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// OpenAI-compatible image generation proxied to the profile's provider
         /// </summary>
+        /// <remarks>
+        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="profileId"></param>
+        /// <param name="profileId">The AI provider profile identifier.</param>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>

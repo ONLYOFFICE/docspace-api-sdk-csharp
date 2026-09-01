@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create an agent
         /// </summary>
+        /// <remarks>
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -53,8 +56,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete an agent
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI agent room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
         /// <returns>AiFileOperationWrapper</returns>
@@ -64,10 +70,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI agent room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
         /// <returns>ApiResponse of AiFileOperationWrapper</returns>
@@ -75,8 +81,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get an agent
         /// </summary>
+        /// <remarks>
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>AiFolderIntegerWrapper</returns>
         AiFolderIntegerWrapper AiAgentsGet(string id);
@@ -85,16 +94,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
         ApiResponse<AiFolderIntegerWrapper> AiAgentsGetWithHttpInfo(string id);
         /// <summary>
         /// List agents
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>AiFolderContentIntegerWrapper</returns>
@@ -104,7 +116,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agents
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
@@ -113,6 +125,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agent news items
         /// </summary>
+        /// <remarks>
+        /// Lists the new items across the caller's AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
         /// <returns>AiNewItemsAgentNewItemsArrayWrapper</returns>
@@ -122,7 +137,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the new items across the caller's AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
@@ -131,6 +146,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Reset agents' quota
         /// </summary>
+        /// <remarks>
+        /// Resets the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
@@ -141,7 +159,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resets the storage quota of the given AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -151,8 +169,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update an agent
         /// </summary>
+        /// <remarks>
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
         /// <returns>AiFolderIntegerWrapper</returns>
@@ -162,10 +183,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
         /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
@@ -173,6 +194,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update agents' quota
         /// </summary>
+        /// <remarks>
+        /// Changes the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
@@ -183,7 +207,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the storage quota of the given AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -203,7 +227,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -216,7 +240,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -228,10 +252,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI agent room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
@@ -242,10 +266,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an AI agent room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
@@ -255,10 +279,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>Task of AiFolderIntegerWrapper</returns>
@@ -268,10 +292,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
@@ -280,7 +304,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agents
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -292,7 +316,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agents
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -303,7 +327,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the new items across the caller's AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -315,7 +339,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the new items across the caller's AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -326,7 +350,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resets the storage quota of the given AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -339,7 +363,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resets the storage quota of the given AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -351,10 +375,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
@@ -365,10 +389,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
@@ -378,7 +402,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the storage quota of the given AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -391,7 +415,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the storage quota of the given AI agent rooms.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -617,6 +641,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create an agent
         /// </summary>
+        /// <remarks>
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
@@ -630,6 +657,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create an agent
         /// </summary>
+        /// <remarks>
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
@@ -674,6 +704,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create an agent
         /// </summary>
+        /// <remarks>
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -688,6 +721,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create an agent
         /// </summary>
+        /// <remarks>
+        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -735,8 +771,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete an agent
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI agent room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
         /// <returns>AiFileOperationWrapper</returns>
@@ -749,8 +788,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete an agent
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI agent room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
         /// <returns>ApiResponse of AiFileOperationWrapper</returns>
@@ -799,8 +841,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete an agent
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI agent room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
@@ -814,8 +859,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete an agent
         /// </summary>
+        /// <remarks>
+        /// Deletes an AI agent room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsDeleteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/">REST API Reference for AiAgentsDelete Operation</seealso>
@@ -867,8 +915,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get an agent
         /// </summary>
+        /// <remarks>
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>AiFolderIntegerWrapper</returns>
         public AiFolderIntegerWrapper AiAgentsGet(string id)
@@ -880,8 +931,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get an agent
         /// </summary>
+        /// <remarks>
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
         public ApiResponse<AiFolderIntegerWrapper> AiAgentsGetWithHttpInfo(string id)
@@ -924,8 +978,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get an agent
         /// </summary>
+        /// <remarks>
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>Task of AiFolderIntegerWrapper</returns>
@@ -938,8 +995,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get an agent
         /// </summary>
+        /// <remarks>
+        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
@@ -985,6 +1045,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agents
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>AiFolderContentIntegerWrapper</returns>
@@ -997,6 +1060,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agents
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>ApiResponse of AiFolderContentIntegerWrapper</returns>
@@ -1035,6 +1101,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agents
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
@@ -1048,6 +1117,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agents
         /// </summary>
+        /// <remarks>
+        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
@@ -1089,6 +1161,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agent news items
         /// </summary>
+        /// <remarks>
+        /// Lists the new items across the caller's AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
         /// <returns>AiNewItemsAgentNewItemsArrayWrapper</returns>
@@ -1101,6 +1176,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agent news items
         /// </summary>
+        /// <remarks>
+        /// Lists the new items across the caller's AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
         /// <returns>ApiResponse of AiNewItemsAgentNewItemsArrayWrapper</returns>
@@ -1139,6 +1217,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agent news items
         /// </summary>
+        /// <remarks>
+        /// Lists the new items across the caller's AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
@@ -1152,6 +1233,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List agent news items
         /// </summary>
+        /// <remarks>
+        /// Lists the new items across the caller's AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
@@ -1193,6 +1277,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Reset agents' quota
         /// </summary>
+        /// <remarks>
+        /// Resets the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
@@ -1206,6 +1293,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Reset agents' quota
         /// </summary>
+        /// <remarks>
+        /// Resets the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
@@ -1250,6 +1340,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Reset agents' quota
         /// </summary>
+        /// <remarks>
+        /// Resets the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1264,6 +1357,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Reset agents' quota
         /// </summary>
+        /// <remarks>
+        /// Resets the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1311,8 +1407,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update an agent
         /// </summary>
+        /// <remarks>
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
         /// <returns>AiFolderIntegerWrapper</returns>
@@ -1325,8 +1424,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update an agent
         /// </summary>
+        /// <remarks>
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
         /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
@@ -1375,8 +1477,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update an agent
         /// </summary>
+        /// <remarks>
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
@@ -1390,8 +1495,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update an agent
         /// </summary>
+        /// <remarks>
+        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
@@ -1443,6 +1551,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update agents' quota
         /// </summary>
+        /// <remarks>
+        /// Changes the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
@@ -1456,6 +1567,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update agents' quota
         /// </summary>
+        /// <remarks>
+        /// Changes the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
@@ -1500,6 +1614,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update agents' quota
         /// </summary>
+        /// <remarks>
+        /// Changes the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1514,6 +1631,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update agents' quota
         /// </summary>
+        /// <remarks>
+        /// Changes the storage quota of the given AI agent rooms.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

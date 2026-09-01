@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// IPRestriction
+    /// The IP restiction parameters.
     /// </summary>
     [DataContract(Name = "IPRestriction")]
     public partial class IPRestriction : IpRestrictionBase, IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IPRestriction" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="tenantId">tenantId.</param>
+        /// <param name="id">The IP restiction ID..</param>
+        /// <param name="tenantId">The tenant ID..</param>
         public IPRestriction(int id = default, int tenantId = default)
         {
             this.Id = id;
@@ -55,14 +55,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The IP restiction ID.
         /// </summary>
+        /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets TenantId
+        /// The tenant ID.
         /// </summary>
+        /// <example>1</example>
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
 

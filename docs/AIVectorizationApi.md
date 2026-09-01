@@ -10,7 +10,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiVectorizationStartTask**
 > AiSuccessResponse AiVectorizationStartTask (Dictionary<string, Object> requestBody)
 
-
+Starts a vectorization task over the supplied portal files. The indexing itself runs asynchronously on the .NET side.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-vectorization-start-task/).
 

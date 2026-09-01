@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -53,6 +56,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
@@ -63,7 +69,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -73,6 +79,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/">REST API Reference for AiThreadsCreate Operation</seealso>
@@ -83,7 +92,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
@@ -93,6 +102,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a chat thread together with its messages.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
@@ -103,7 +115,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a chat thread together with its messages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -113,6 +125,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one chat message, leaving the rest of the thread untouched.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
@@ -123,7 +138,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one chat message, leaving the rest of the thread untouched.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -133,8 +148,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>AiThread</returns>
         AiThread AiThreadsGetById(string threadId);
@@ -143,18 +161,21 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>ApiResponse of AiThread</returns>
         ApiResponse<AiThread> AiThreadsGetByIdWithHttpInfo(string threadId);
         /// <summary>
         /// Get message by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat message by its globally unique identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>AiThreadMessageLike</returns>
         AiThreadMessageLike AiThreadsGetMessageById(string messageId);
@@ -163,42 +184,48 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get message by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one chat message by its globally unique identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>ApiResponse of AiThreadMessageLike</returns>
         ApiResponse<AiThreadMessageLike> AiThreadsGetMessageByIdWithHttpInfo(string messageId);
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>List&lt;AiThread&gt;</returns>
-        List<AiThread> AiThreadsList(string entityId, string count, string cursor, string query);
+        List<AiThread> AiThreadsList(string? entityId = default, string? count = default, string? cursor = default, string? query = default);
 
         /// <summary>
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThread&gt;</returns>
-        ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string entityId, string count, string cursor, string query);
+        ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string? entityId = default, string? count = default, string? cursor = default, string? query = default);
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
@@ -209,7 +236,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Open or create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
@@ -219,32 +246,38 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>List&lt;AiThreadMessageLike&gt;</returns>
-        List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, string count, string cursor, string direction);
+        List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, string? count = default, string? cursor = default, string? direction = default);
 
         /// <summary>
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThreadMessageLike&gt;</returns>
-        ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, string count, string cursor, string direction);
+        ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, string? count = default, string? cursor = default, string? direction = default);
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
@@ -255,7 +288,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Regenerate title
         /// </summary>
         /// <remarks>
-        /// 
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
@@ -265,6 +298,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename
         /// </summary>
+        /// <remarks>
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/">REST API Reference for AiThreadsRename Operation</seealso>
@@ -275,7 +311,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
@@ -285,6 +321,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Touch
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/">REST API Reference for AiThreadsTouch Operation</seealso>
@@ -295,7 +334,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Touch
         /// </summary>
         /// <remarks>
-        /// 
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
@@ -305,6 +344,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/">REST API Reference for AiThreadsUpdateMessage Operation</seealso>
@@ -315,7 +357,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -335,7 +377,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -348,7 +390,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -360,7 +402,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -373,7 +415,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -385,7 +427,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
@@ -398,7 +440,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
@@ -410,7 +452,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a chat thread together with its messages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -423,7 +465,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a chat thread together with its messages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -435,7 +477,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one chat message, leaving the rest of the thread untouched.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -448,7 +490,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes one chat message, leaving the rest of the thread untouched.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -460,10 +502,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of AiThread</returns>
@@ -473,10 +515,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThread)</returns>
@@ -485,10 +527,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get message by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one chat message by its globally unique identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of AiThreadMessageLike</returns>
@@ -498,10 +540,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get message by id
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns one chat message by its globally unique identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThreadMessageLike)</returns>
@@ -510,38 +552,38 @@ namespace DocSpace.API.SDK.Api.AI
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of List&lt;AiThread&gt;</returns>
-        Task<List<AiThread>> AiThreadsListAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default);
+        Task<List<AiThread>> AiThreadsListAsync(string? entityId = default, string? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List
         /// </summary>
         /// <remarks>
-        /// 
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThread&gt;)</returns>
-        Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default);
+        Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string? entityId = default, string? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Open or create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
@@ -554,7 +596,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Open or create
         /// </summary>
         /// <remarks>
-        /// 
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
@@ -566,38 +608,38 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of List&lt;AiThreadMessageLike&gt;</returns>
-        Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, string count, string cursor, string direction, CancellationToken cancellationToken = default);
+        Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, string? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThreadMessageLike&gt;)</returns>
-        Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, string count, string cursor, string direction, CancellationToken cancellationToken = default);
+        Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, string? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Regenerate title
         /// </summary>
         /// <remarks>
-        /// 
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
@@ -610,7 +652,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Regenerate title
         /// </summary>
         /// <remarks>
-        /// 
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
@@ -622,7 +664,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
@@ -635,7 +677,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename
         /// </summary>
         /// <remarks>
-        /// 
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
@@ -647,7 +689,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Touch
         /// </summary>
         /// <remarks>
-        /// 
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
@@ -660,7 +702,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Touch
         /// </summary>
         /// <remarks>
-        /// 
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
@@ -672,7 +714,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -685,7 +727,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -924,6 +966,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
@@ -937,6 +982,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/">REST API Reference for AiThreadsAppendUserMessage Operation</seealso>
@@ -981,6 +1029,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -995,6 +1046,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Append user message
         /// </summary>
+        /// <remarks>
+        /// Persists a user message in a thread and bumps the thread's last-edit date so it resurfaces in the sidebar. Optionally rebinds the thread to another profile when the model changed mid-conversation.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1042,6 +1096,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
@@ -1055,6 +1112,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
@@ -1099,6 +1159,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1113,6 +1176,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear messages
         /// </summary>
+        /// <remarks>
+        /// Drops every message of a thread while keeping the thread itself, and bumps its last-edit date.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1160,6 +1226,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/">REST API Reference for AiThreadsCreate Operation</seealso>
@@ -1173,6 +1242,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-create/">REST API Reference for AiThreadsCreate Operation</seealso>
@@ -1217,6 +1289,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1231,6 +1306,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Create
         /// </summary>
+        /// <remarks>
+        /// Creates a chat thread with a caller-supplied title. Use `open-or-create` instead when the title should be generated from the first user message.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1278,6 +1356,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a chat thread together with its messages.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
@@ -1291,6 +1372,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a chat thread together with its messages.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
@@ -1335,6 +1419,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a chat thread together with its messages.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1349,6 +1436,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete
         /// </summary>
+        /// <remarks>
+        /// Deletes a chat thread together with its messages.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1396,6 +1486,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one chat message, leaving the rest of the thread untouched.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
@@ -1409,6 +1502,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one chat message, leaving the rest of the thread untouched.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
@@ -1453,6 +1549,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one chat message, leaving the rest of the thread untouched.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1467,6 +1566,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Delete message
         /// </summary>
+        /// <remarks>
+        /// Deletes one chat message, leaving the rest of the thread untouched.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1514,8 +1616,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>AiThread</returns>
         public AiThread AiThreadsGetById(string threadId)
@@ -1527,8 +1632,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>ApiResponse of AiThread</returns>
         public ApiResponse<AiThread> AiThreadsGetByIdWithHttpInfo(string threadId)
@@ -1571,8 +1679,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of AiThread</returns>
@@ -1585,8 +1696,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat thread, or an empty result when the identifier is unknown.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-by-id/">REST API Reference for AiThreadsGetById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThread)</returns>
@@ -1632,8 +1746,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get message by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat message by its globally unique identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>AiThreadMessageLike</returns>
         public AiThreadMessageLike AiThreadsGetMessageById(string messageId)
@@ -1645,8 +1762,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get message by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat message by its globally unique identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>ApiResponse of AiThreadMessageLike</returns>
         public ApiResponse<AiThreadMessageLike> AiThreadsGetMessageByIdWithHttpInfo(string messageId)
@@ -1689,8 +1809,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get message by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat message by its globally unique identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of AiThreadMessageLike</returns>
@@ -1703,8 +1826,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get message by id
         /// </summary>
+        /// <remarks>
+        /// Returns one chat message by its globally unique identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
+        /// <param name="messageId">The globally unique chat message identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/">REST API Reference for AiThreadsGetMessageById Operation</seealso>
         /// <returns>Task of ApiResponse (AiThreadMessageLike)</returns>
@@ -1750,14 +1876,17 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>List&lt;AiThread&gt;</returns>
-        public List<AiThread> AiThreadsList(string entityId, string count, string cursor, string query)
+        public List<AiThread> AiThreadsList(string? entityId = default, string? count = default, string? cursor = default, string? query = default)
         {
             var localVarResponse = AiThreadsListWithHttpInfo(entityId, count, cursor, query);
             return localVarResponse.Data;
@@ -1766,31 +1895,18 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThread&gt;</returns>
-        public ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string entityId, string count, string cursor, string query)
+        public ApiResponse<List<AiThread>> AiThreadsListWithHttpInfo(string? entityId = default, string? count = default, string? cursor = default, string? query = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'query' is set
-            if (query == null)
-                throw new ApiException(400, "Missing required parameter 'query' when calling ThreadsApi->AiThreadsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1804,10 +1920,22 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            }
             if (_fields != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
@@ -1832,15 +1960,18 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of List&lt;AiThread&gt;</returns>
-        public async Task<List<AiThread>> AiThreadsListAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default)
+        public async Task<List<AiThread>> AiThreadsListAsync(string? entityId = default, string? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiThreadsListWithHttpInfoAsync(entityId, count, cursor, query, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1849,32 +1980,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// List
         /// </summary>
+        /// <remarks>
+        /// Lists the chat threads of the scope, most recently edited first. Supports cursor pagination and a server-side case-insensitive title search.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="query"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="query">The full-text query the thread list is filtered by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-list/">REST API Reference for AiThreadsList Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThread&gt;)</returns>
-        public async Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string entityId, string count, string cursor, string query, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<AiThread>>> AiThreadsListWithHttpInfoAsync(string? entityId = default, string? count = default, string? cursor = default, string? query = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsList");
-
-            // verify the required parameter 'query' is set
-            if (query == null)
-                throw new ApiException(400, "Missing required parameter 'query' when calling ThreadsApi->AiThreadsList");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1889,10 +2007,22 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "query", query));
+            }
 
 
             // make the HTTP request
@@ -1914,6 +2044,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
@@ -1927,6 +2060,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-open-or-create/">REST API Reference for AiThreadsOpenOrCreate Operation</seealso>
@@ -1971,6 +2107,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1985,6 +2124,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Open or create
         /// </summary>
+        /// <remarks>
+        /// Opens a chat thread and returns its history, or creates one with a title generated from the supplied first message. That first message is not persisted - the caller decides whether to follow up with `append-user-message`.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsOpenOrCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2032,14 +2174,17 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>List&lt;AiThreadMessageLike&gt;</returns>
-        public List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, string count, string cursor, string direction)
+        public List<AiThreadMessageLike> AiThreadsReadMessages(string threadId, string? count = default, string? cursor = default, string? direction = default)
         {
             var localVarResponse = AiThreadsReadMessagesWithHttpInfo(threadId, count, cursor, direction);
             return localVarResponse.Data;
@@ -2048,30 +2193,21 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>ApiResponse of List&lt;AiThreadMessageLike&gt;</returns>
-        public ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, string count, string cursor, string direction)
+        public ApiResponse<List<AiThreadMessageLike>> AiThreadsReadMessagesWithHttpInfo(string threadId, string? count = default, string? cursor = default, string? direction = default)
         {
             // verify the required parameter 'threadId' is set
             if (threadId == null)
                 throw new ApiException(400, "Missing required parameter 'threadId' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'direction' is set
-            if (direction == null)
-                throw new ApiException(400, "Missing required parameter 'direction' when calling ThreadsApi->AiThreadsReadMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -2087,9 +2223,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "threadId", threadId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "direction", direction));
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
             if (_fields != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
@@ -2114,15 +2259,18 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of List&lt;AiThreadMessageLike&gt;</returns>
-        public async Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, string count, string cursor, string direction, CancellationToken cancellationToken = default)
+        public async Task<List<AiThreadMessageLike>> AiThreadsReadMessagesAsync(string threadId, string? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiThreadsReadMessagesWithHttpInfoAsync(threadId, count, cursor, direction, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2131,31 +2279,22 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Read messages
         /// </summary>
+        /// <remarks>
+        /// Reads the messages of a thread, with the same cursor pagination as the thread list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="threadId"></param>
-        /// <param name="count"></param>
-        /// <param name="cursor"></param>
-        /// <param name="direction"></param>
+        /// <param name="threadId">The chat thread identifier.</param>
+        /// <param name="count">The maximum number of items to return in one page. (optional)</param>
+        /// <param name="cursor">The keyset pagination cursor: the JSON-encoded sort key of the last item already received. Omit for the first page. (optional)</param>
+        /// <param name="direction">The order the message page is read in. Only desc turns the read around and pages back from the newest message; omit for the forward read. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/">REST API Reference for AiThreadsReadMessages Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiThreadMessageLike&gt;)</returns>
-        public async Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, string count, string cursor, string direction, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<AiThreadMessageLike>>> AiThreadsReadMessagesWithHttpInfoAsync(string threadId, string? count = default, string? cursor = default, string? direction = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'threadId' is set
             if (threadId == null)
                 throw new ApiException(400, "Missing required parameter 'threadId' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'count' is set
-            if (count == null)
-                throw new ApiException(400, "Missing required parameter 'count' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'cursor' is set
-            if (cursor == null)
-                throw new ApiException(400, "Missing required parameter 'cursor' when calling ThreadsApi->AiThreadsReadMessages");
-
-            // verify the required parameter 'direction' is set
-            if (direction == null)
-                throw new ApiException(400, "Missing required parameter 'direction' when calling ThreadsApi->AiThreadsReadMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -2172,9 +2311,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "threadId", threadId));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "direction", direction));
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (direction != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "direction", direction));
+            }
 
 
             // make the HTTP request
@@ -2196,6 +2344,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
@@ -2209,6 +2360,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-regenerate-title/">REST API Reference for AiThreadsRegenerateTitle Operation</seealso>
@@ -2253,6 +2407,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2267,6 +2424,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Regenerate title
         /// </summary>
+        /// <remarks>
+        /// Generates a fresh title from the thread's first user message and persists it. Fails when the thread has no user message yet.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRegenerateTitleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2314,6 +2474,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename
         /// </summary>
+        /// <remarks>
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/">REST API Reference for AiThreadsRename Operation</seealso>
@@ -2327,6 +2490,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename
         /// </summary>
+        /// <remarks>
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-rename/">REST API Reference for AiThreadsRename Operation</seealso>
@@ -2371,6 +2537,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename
         /// </summary>
+        /// <remarks>
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2385,6 +2554,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Rename
         /// </summary>
+        /// <remarks>
+        /// Renames a chat thread and bumps its last-edit date so the new title shows up in the sidebar.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsRenameRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2432,6 +2604,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Touch
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/">REST API Reference for AiThreadsTouch Operation</seealso>
@@ -2445,6 +2620,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Touch
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-touch/">REST API Reference for AiThreadsTouch Operation</seealso>
@@ -2489,6 +2667,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Touch
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2503,6 +2684,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Touch
         /// </summary>
+        /// <remarks>
+        /// Bumps a thread's last-edit date, and optionally rebinds it to another profile, when something other than a new message - a model switch, say - should resurface it.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsTouchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2550,6 +2734,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/">REST API Reference for AiThreadsUpdateMessage Operation</seealso>
@@ -2563,6 +2750,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/">REST API Reference for AiThreadsUpdateMessage Operation</seealso>
@@ -2607,6 +2797,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2621,6 +2814,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Update message
         /// </summary>
+        /// <remarks>
+        /// Replaces the content of a chat message - used by the edit and regenerate flows that change a message outside the streaming lifecycle.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

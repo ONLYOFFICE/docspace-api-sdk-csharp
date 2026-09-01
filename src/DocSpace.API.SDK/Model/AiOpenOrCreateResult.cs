@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Resolved thread state returned by  {@link  ThreadsEngine.openOrCreate } .
+    /// Resolved thread state returned by &#x60;ThreadsEngine.openOrCreate&#x60;.
     /// </summary>
     [DataContract(Name = "AiOpenOrCreateResult")]
     public partial class AiOpenOrCreateResult : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiOpenOrCreateResult" /> class.
         /// </summary>
-        /// <param name="threadId">threadId (required).</param>
+        /// <param name="threadId">The thread that was opened, or the one just created. (required).</param>
         /// <param name="title">Empty string for existing threads — the engine doesn&#39;t re-fetch. (required).</param>
-        /// <param name="priorMessages">priorMessages (required).</param>
+        /// <param name="priorMessages">The messages already in the thread - empty for a thread that was just created. (required).</param>
         public AiOpenOrCreateResult(string threadId = default, string title = default, List<AiThreadMessageLike> priorMessages = default)
         {
             // to ensure "threadId" is required (not null)
@@ -72,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets ThreadId
+        /// The thread that was opened, or the one just created.
         /// </summary>
         [DataMember(Name = "threadId", IsRequired = true, EmitDefaultValue = true)]
         public string ThreadId { get; set; }
@@ -84,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets PriorMessages
+        /// The messages already in the thread - empty for a thread that was just created.
         /// </summary>
         [DataMember(Name = "priorMessages", IsRequired = true, EmitDefaultValue = true)]
         public List<AiThreadMessageLike> PriorMessages { get; set; }

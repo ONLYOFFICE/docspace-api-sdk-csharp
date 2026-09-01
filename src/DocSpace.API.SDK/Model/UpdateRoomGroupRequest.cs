@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// UpdateRoomGroupRequest
+    /// The changes to apply to a room group: its name and the rooms to add or remove.
     /// </summary>
     [DataContract(Name = "UpdateRoomGroupRequest")]
     public partial class UpdateRoomGroupRequest : IValidatableObject

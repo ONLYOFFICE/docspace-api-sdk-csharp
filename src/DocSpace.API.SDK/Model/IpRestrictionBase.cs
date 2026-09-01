@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// IpRestrictionBase
+    /// The IP restiction base parameters.
     /// </summary>
     [DataContract(Name = "IpRestrictionBase")]
     public partial class IpRestrictionBase : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IpRestrictionBase" /> class.
         /// </summary>
-        /// <param name="ip">ip (required).</param>
-        /// <param name="forAdmin">forAdmin.</param>
+        /// <param name="ip">The IP address. (required).</param>
+        /// <param name="forAdmin">Specifies if the IP address is for administrator users only or not..</param>
         public IpRestrictionBase(string ip = default, bool forAdmin = default)
         {
             // to ensure "ip" is required (not null)
@@ -60,14 +60,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Ip
+        /// The IP address.
         /// </summary>
+        /// <example>192.0.2.1</example>
         [DataMember(Name = "ip", IsRequired = true, EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
-        /// Gets or Sets ForAdmin
+        /// Specifies if the IP address is for administrator users only or not.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "forAdmin", EmitDefaultValue = true)]
         public bool ForAdmin { get; set; }
 

@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
@@ -230,7 +230,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
@@ -244,7 +244,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
@@ -715,7 +715,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
@@ -732,7 +732,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
@@ -781,7 +781,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
@@ -799,7 +799,7 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// Authenticates the current user by SMS or two-factor authentication code.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code"></param>
+        /// <param name="code">The two-factor authentication code. Send the same value as the `code` of the request body, which is the one the handler reads.</param>
         /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>

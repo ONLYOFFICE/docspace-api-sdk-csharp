@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiChatModelPricing
+    /// The pricing of a single chat model.
     /// </summary>
     [DataContract(Name = "AiChatModelPricing")]
     public partial class AiChatModelPricing : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiChatModelPricing" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="alias">alias.</param>
-        /// <param name="ownedBy">ownedBy.</param>
-        /// <param name="provider">provider.</param>
-        /// <param name="link">link.</param>
-        /// <param name="price">price (required).</param>
+        /// <param name="id">The identifier of the model, as the provider expects it on the wire. (required).</param>
+        /// <param name="alias">The display name of the model..</param>
+        /// <param name="ownedBy">The owner of the model, as reported by the provider..</param>
+        /// <param name="provider">The provider that serves the model..</param>
+        /// <param name="link">The link to the pricing page of the model..</param>
+        /// <param name="price">The price of a chat model, per token. (required).</param>
         public AiChatModelPricing(string id = default, string alias = default, string ownedBy = default, string provider = default, string link = default, AiChatPrice price = default)
         {
             // to ensure "id" is required (not null)
@@ -73,37 +73,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The identifier of the model, as the provider expects it on the wire.
         /// </summary>
+        /// <example>gpt-4o</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Alias
+        /// The display name of the model.
         /// </summary>
+        /// <example>GPT-4o</example>
         [DataMember(Name = "alias", EmitDefaultValue = true)]
         public string Alias { get; set; }
 
         /// <summary>
-        /// Gets or Sets OwnedBy
+        /// The owner of the model, as reported by the provider.
         /// </summary>
+        /// <example>openai</example>
         [DataMember(Name = "ownedBy", EmitDefaultValue = true)]
         public string OwnedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// The provider that serves the model.
         /// </summary>
+        /// <example>openai</example>
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
-        /// Gets or Sets Link
+        /// The link to the pricing page of the model.
         /// </summary>
+        /// <example>https://openai.com/api/pricing</example>
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
-        /// Gets or Sets Price
+        /// The price of a chat model, per token.
         /// </summary>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
         public AiChatPrice Price { get; set; }

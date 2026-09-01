@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The notification type.
+        /// The notification to be configured.
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public NotificationType Type { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">The notification type. (required).</param>
+        /// <param name="type">The notification to be configured. (required).</param>
         /// <param name="isEnabled">Specifies if the specified notification type is enabled or not..</param>
         public NotificationSettingsRequestsDto(NotificationType type = default, bool isEnabled = default)
         {

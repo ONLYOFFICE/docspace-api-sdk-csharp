@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AiAiRegenerateStreamRequest" /> class.
         /// </summary>
         /// <param name="threadId">Target thread (must already exist). (required).</param>
-        /// <param name="actionArgs">actionArgs.</param>
-        /// <param name="entityId">entityId.</param>
-        /// <param name="profileId">profileId.</param>
+        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
+        /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
+        /// <param name="profileId">Session-level profile override for this request only..</param>
         public AiAiRegenerateStreamRequest(string threadId = default, AiAiActionArgs actionArgs = default, string entityId = default, string profileId = default)
         {
             // to ensure "threadId" is required (not null)
@@ -70,19 +70,19 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActionArgs
+        /// Per-request engine options: extra tools, reasoning, prompt override.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiAiActionArgs ActionArgs { get; set; }
 
         /// <summary>
-        /// Gets or Sets EntityId
+        /// Optional entity (room) scope for profile resolution.
         /// </summary>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProfileId
+        /// Session-level profile override for this request only.
         /// </summary>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }

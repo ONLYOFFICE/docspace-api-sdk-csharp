@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiAiSendStreamBody
+    /// Shared body of the two streaming send endpoints (&#x60;sendWithStream&#x60; and its OpenAI-framed twin) — the &#x60;Chat&#x60; action is implied, so there is no &#x60;actionType&#x60;.
     /// </summary>
     [DataContract(Name = "AiAiSendStreamBody")]
     public partial class AiAiSendStreamBody : IValidatableObject
@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="threadId">Target thread; a new one is created (with an auto title) when omitted..</param>
         /// <param name="userMessage">The user turn to send. (required).</param>
-        /// <param name="actionArgs">actionArgs.</param>
+        /// <param name="actionArgs">Per-request engine options: extra tools, reasoning, prompt override..</param>
         /// <param name="entityId">Optional entity (room) scope for profile resolution..</param>
         /// <param name="profileId">Session-level profile override for this request only..</param>
         public AiAiSendStreamBody(string threadId = default, AiThreadMessageLike userMessage = default, AiAiActionArgs actionArgs = default, string entityId = default, string profileId = default)
@@ -78,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         public AiThreadMessageLike UserMessage { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActionArgs
+        /// Per-request engine options: extra tools, reasoning, prompt override.
         /// </summary>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiAiActionArgs ActionArgs { get; set; }

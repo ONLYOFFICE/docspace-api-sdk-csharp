@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.ConnectionTestResultWrapper
+The successful API response containing the ConnectionTestResult object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**ConnectionTestResult**](ConnectionTestResult.md) |  | [optional] 
+**Response** | [**ConnectionTestResult**](ConnectionTestResult.md) | The ConnectionTestResult object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

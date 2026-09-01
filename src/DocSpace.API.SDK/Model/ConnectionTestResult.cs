@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ConnectionTestResult
+    /// The outcome of a connection test against an external database.
     /// </summary>
     [DataContract(Name = "ConnectionTestResult")]
     public partial class ConnectionTestResult : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectionTestResult" /> class.
         /// </summary>
-        /// <param name="success">success.</param>
-        /// <param name="error">error.</param>
+        /// <param name="success">Specifies whether the connection to the database succeeded..</param>
+        /// <param name="error">The reason the connection failed, or null when it succeeded..</param>
         public ConnectionTestResult(bool success = default, string error = default)
         {
             this.Success = success;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// Specifies whether the connection to the database succeeded.
         /// </summary>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// The reason the connection failed, or null when it succeeded.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }

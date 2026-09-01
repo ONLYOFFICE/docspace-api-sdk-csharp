@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="lastEditDate">Timestamp (ms since epoch) of the last message in this thread. Used for sorting..</param>
         /// <param name="provider">Provider configuration at the time of last message. Used for thread-level provider display..</param>
         /// <param name="model">Model info at the time of last message..</param>
-        /// <param name="profileId">ID of the profile used for this thread. Links to  {@link  Profile.id } ..</param>
+        /// <param name="profileId">ID of the profile used for this thread. Links to &#x60;Profile.id&#x60;..</param>
         public AiThread(string threadId = default, string title = default, decimal lastEditDate = default, AiTProvider provider = default, AiModel model = default, string profileId = default)
         {
             // to ensure "threadId" is required (not null)
@@ -98,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         public AiModel Model { get; set; }
 
         /// <summary>
-        /// ID of the profile used for this thread. Links to  {@link  Profile.id } .
+        /// ID of the profile used for this thread. Links to &#x60;Profile.id&#x60;.
         /// </summary>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }

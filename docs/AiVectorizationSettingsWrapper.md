@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.AiVectorizationSettingsWrapper
+The successful API response containing the VectorizationSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**AiVectorizationSettingsDto**](AiVectorizationSettingsDto.md) |  | [optional] 
+**Response** | [**AiVectorizationSettingsDto**](AiVectorizationSettingsDto.md) | The VectorizationSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

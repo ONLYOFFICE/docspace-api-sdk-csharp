@@ -72,7 +72,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
-        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default);
+        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default);
 
         /// <summary>
         /// Get filtered audit trail data
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default);
+        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default);
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -102,8 +102,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsWrapper</returns>
-        TenantAuditSettingsWrapper GetAuditSettings();
+        /// <returns>TenantAuditSettingsResponseWrapper</returns>
+        TenantAuditSettingsResponseWrapper GetAuditSettings();
 
         /// <summary>
         /// Get the audit trail settings
@@ -113,8 +113,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
-        ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo();
+        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
+        ApiResponse<TenantAuditSettingsResponseWrapper> GetAuditSettingsWithHttpInfo();
         /// <summary>
         /// Get audit trail mappers
         /// </summary>
@@ -212,8 +212,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsWrapper</returns>
-        TenantAuditSettingsWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
+        /// <returns>TenantAuditSettingsResponseWrapper</returns>
+        TenantAuditSettingsResponseWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
 
         /// <summary>
         /// Set the audit trail settings
@@ -224,8 +224,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
-        ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
+        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
+        ApiResponse<TenantAuditSettingsResponseWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
         /// <summary>
         /// Terminate the audit trail report generation
         /// </summary>
@@ -301,7 +301,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get filtered audit trail data
@@ -323,7 +323,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -333,8 +333,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsWrapper</returns>
-        Task<TenantAuditSettingsWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
+        Task<TenantAuditSettingsResponseWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the audit trail settings
@@ -345,8 +345,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
-        Task<ApiResponse<TenantAuditSettingsWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
+        Task<ApiResponse<TenantAuditSettingsResponseWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get audit trail mappers
         /// </summary>
@@ -453,8 +453,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsWrapper</returns>
-        Task<TenantAuditSettingsWrapper> SetAuditSettingsAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
+        Task<TenantAuditSettingsResponseWrapper> SetAuditSettingsAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set the audit trail settings
@@ -466,8 +466,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
-        Task<ApiResponse<TenantAuditSettingsWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
+        Task<ApiResponse<TenantAuditSettingsResponseWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Terminate the audit trail report generation
         /// </summary>
@@ -926,7 +926,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
-        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
+        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default)
         {
             var localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
             return localVarResponse.Data;
@@ -951,7 +951,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        public ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
+        public ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -992,19 +992,11 @@ namespace DocSpace.API.SDK.Api.Security
             }
             if (from != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", from.UtcTime));
-                if (from.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", from.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
             }
             if (to != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", to.UtcTime));
-                if (to.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", to.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
             if (count != null)
             {
@@ -1085,7 +1077,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        public async Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1111,7 +1103,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        public async Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, DateTime? from = default, DateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1223,8 +1215,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsWrapper</returns>
-        public TenantAuditSettingsWrapper GetAuditSettings()
+        /// <returns>TenantAuditSettingsResponseWrapper</returns>
+        public TenantAuditSettingsResponseWrapper GetAuditSettings()
         {
             var localVarResponse = GetAuditSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -1238,8 +1230,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
-        public ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo()
+        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
+        public ApiResponse<TenantAuditSettingsResponseWrapper> GetAuditSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1287,7 +1279,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1310,8 +1302,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsWrapper</returns>
-        public async Task<TenantAuditSettingsWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
+        public async Task<TenantAuditSettingsResponseWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuditSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1326,8 +1318,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantAuditSettingsWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
+        public async Task<ApiResponse<TenantAuditSettingsResponseWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1377,7 +1369,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2128,8 +2120,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsWrapper</returns>
-        public TenantAuditSettingsWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
+        /// <returns>TenantAuditSettingsResponseWrapper</returns>
+        public TenantAuditSettingsResponseWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
         {
             var localVarResponse = SetAuditSettingsWithHttpInfo(tenantAuditSettingsWrapper);
             return localVarResponse.Data;
@@ -2144,8 +2136,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
-        public ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
+        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
+        public ApiResponse<TenantAuditSettingsResponseWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2194,7 +2186,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2218,8 +2210,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsWrapper</returns>
-        public async Task<TenantAuditSettingsWrapper> SetAuditSettingsAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
+        public async Task<TenantAuditSettingsResponseWrapper> SetAuditSettingsAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetAuditSettingsWithHttpInfoAsync(tenantAuditSettingsWrapper, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2235,8 +2227,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantAuditSettingsWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
+        public async Task<ApiResponse<TenantAuditSettingsResponseWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2287,7 +2279,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2331,7 +2323,7 @@ namespace DocSpace.API.SDK.Api.Security
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -2418,7 +2410,7 @@ namespace DocSpace.API.SDK.Api.Security
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

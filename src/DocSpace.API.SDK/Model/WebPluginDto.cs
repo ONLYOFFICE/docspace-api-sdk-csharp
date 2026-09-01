@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="pluginName">The name by which the web plugin is registered in the window object. (required).</param>
         /// <param name="scopes">The web plugin scopes. (required).</param>
         /// <param name="image">The web plugin image. (required).</param>
-        /// <param name="createBy">The user parameters. (required).</param>
+        /// <param name="createBy">The user who created the web plugin. (required).</param>
         /// <param name="createOn">The date and time when the web plugin was created. (required).</param>
         /// <param name="enabled">Specifies if the web plugin is enabled or not. (required).</param>
         /// <param name="system">Specifies if the web plugin is system or not. (required).</param>
@@ -226,7 +226,7 @@ namespace DocSpace.API.SDK.Model
         public string Image { get; set; }
 
         /// <summary>
-        /// The user parameters.
+        /// The user who created the web plugin.
         /// </summary>
         [DataMember(Name = "createBy", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeDto CreateBy { get; set; }

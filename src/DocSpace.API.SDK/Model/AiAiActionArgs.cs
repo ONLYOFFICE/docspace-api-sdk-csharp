@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiAiActionArgs
+    /// Wire-serializable subset of the engine&#39;s &#x60;ActionArgs&#x60; — drops the engine-injected &#x60;signal&#x60;/&#x60;fetch&#x60;; &#x60;profile&#x60;/&#x60;messages&#x60; are owned by the engine and never sent by the caller.
     /// </summary>
     [DataContract(Name = "AiAiActionArgs")]
     public partial class AiAiActionArgs : IValidatableObject

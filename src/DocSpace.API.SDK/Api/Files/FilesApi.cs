@@ -404,8 +404,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>NoContentResultWrapper</returns>
-        NoContentResultWrapper DeleteRecent(BaseBatchRequestDto? baseBatchRequestDto = default);
+        /// <returns></returns>
+        void DeleteRecent(BaseBatchRequestDto? baseBatchRequestDto = default);
 
         /// <summary>
         /// Delete recent files
@@ -416,8 +416,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>ApiResponse of NoContentResultWrapper</returns>
-        ApiResponse<NoContentResultWrapper> DeleteRecentWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteRecentWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
         /// <summary>
         /// Delete template files
         /// </summary>
@@ -542,7 +542,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>FileEncryptionInfoWrapper</returns>
         FileEncryptionInfoWrapper GetEncryptionInfo(int fileId);
@@ -554,7 +554,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>ApiResponse of FileEncryptionInfoWrapper</returns>
         ApiResponse<FileEncryptionInfoWrapper> GetEncryptionInfoWithHttpInfo(int fileId);
@@ -572,7 +572,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>HistoryArrayWrapper</returns>
-        HistoryArrayWrapper GetFileHistory(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default);
+        HistoryArrayWrapper GetFileHistory(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default);
 
         /// <summary>
         /// Get file history
@@ -588,7 +588,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default);
+        ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default);
         /// <summary>
         /// Get file information
         /// </summary>
@@ -907,7 +907,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns></returns>
@@ -920,7 +920,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1048,7 +1048,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns></returns>
@@ -1061,7 +1061,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -1274,8 +1274,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>KeyValuePairBooleanStringWrapper</returns>
-        KeyValuePairBooleanStringWrapper TrackEditFile(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default);
+        /// <returns>ItemKeyValuePairBooleanStringWrapper</returns>
+        ItemKeyValuePairBooleanStringWrapper TrackEditFile(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default);
 
         /// <summary>
         /// Track file editing
@@ -1289,8 +1289,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>ApiResponse of KeyValuePairBooleanStringWrapper</returns>
-        ApiResponse<KeyValuePairBooleanStringWrapper> TrackEditFileWithHttpInfo(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default);
+        /// <returns>ApiResponse of ItemKeyValuePairBooleanStringWrapper</returns>
+        ApiResponse<ItemKeyValuePairBooleanStringWrapper> TrackEditFileWithHttpInfo(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default);
         /// <summary>
         /// Update a file
         /// </summary>
@@ -1730,8 +1730,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>Task of NoContentResultWrapper</returns>
-        Task<NoContentResultWrapper> DeleteRecentAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task DeleteRecentAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete recent files
@@ -1743,8 +1743,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
-        Task<ApiResponse<NoContentResultWrapper>> DeleteRecentWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> DeleteRecentWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete template files
         /// </summary>
@@ -1879,7 +1879,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>Task of FileEncryptionInfoWrapper</returns>
@@ -1892,7 +1892,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileEncryptionInfoWrapper)</returns>
@@ -1912,7 +1912,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get file history
@@ -1929,7 +1929,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        Task<ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get file information
         /// </summary>
@@ -2274,7 +2274,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
@@ -2288,7 +2288,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
@@ -2425,7 +2425,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
@@ -2439,7 +2439,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
@@ -2670,8 +2670,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>Task of KeyValuePairBooleanStringWrapper</returns>
-        Task<KeyValuePairBooleanStringWrapper> TrackEditFileAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ItemKeyValuePairBooleanStringWrapper</returns>
+        Task<ItemKeyValuePairBooleanStringWrapper> TrackEditFileAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Track file editing
@@ -2686,8 +2686,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>Task of ApiResponse (KeyValuePairBooleanStringWrapper)</returns>
-        Task<ApiResponse<KeyValuePairBooleanStringWrapper>> TrackEditFileWithHttpInfoAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ItemKeyValuePairBooleanStringWrapper)</returns>
+        Task<ApiResponse<ItemKeyValuePairBooleanStringWrapper>> TrackEditFileWithHttpInfoAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a file
         /// </summary>
@@ -5685,11 +5685,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>NoContentResultWrapper</returns>
-        public NoContentResultWrapper DeleteRecent(BaseBatchRequestDto? baseBatchRequestDto = default)
+        /// <returns></returns>
+        public void DeleteRecent(BaseBatchRequestDto? baseBatchRequestDto = default)
         {
-            var localVarResponse = DeleteRecentWithHttpInfo(baseBatchRequestDto);
-            return localVarResponse.Data;
+            DeleteRecentWithHttpInfo(baseBatchRequestDto);
         }
 
         /// <summary>
@@ -5701,8 +5700,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>ApiResponse of NoContentResultWrapper</returns>
-        public ApiResponse<NoContentResultWrapper> DeleteRecentWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteRecentWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5751,7 +5750,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<NoContentResultWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<Object>("/api/2.0/files/recent", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -5775,11 +5774,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>Task of NoContentResultWrapper</returns>
-        public async Task<NoContentResultWrapper> DeleteRecentAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task DeleteRecentAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DeleteRecentWithHttpInfoAsync(baseBatchRequestDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await DeleteRecentWithHttpInfoAsync(baseBatchRequestDto, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -5792,8 +5790,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
-        /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
-        public async Task<ApiResponse<NoContentResultWrapper>> DeleteRecentWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> DeleteRecentWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5844,7 +5842,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<NoContentResultWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/files/recent", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -6667,7 +6665,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>FileEncryptionInfoWrapper</returns>
         public FileEncryptionInfoWrapper GetEncryptionInfo(int fileId)
@@ -6683,7 +6681,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>ApiResponse of FileEncryptionInfoWrapper</returns>
         public ApiResponse<FileEncryptionInfoWrapper> GetEncryptionInfoWithHttpInfo(int fileId)
@@ -6756,7 +6754,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>Task of FileEncryptionInfoWrapper</returns>
@@ -6773,7 +6771,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileEncryptionInfoWrapper)</returns>
@@ -6856,7 +6854,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>HistoryArrayWrapper</returns>
-        public HistoryArrayWrapper GetFileHistory(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default)
+        public HistoryArrayWrapper GetFileHistory(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default)
         {
             var localVarResponse = GetFileHistoryWithHttpInfo(fileId, fromDate, toDate, count, startIndex);
             return localVarResponse.Data;
@@ -6876,7 +6874,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">The starting index for retrieving a subset of file history entries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
-        public ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default)
+        public ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6894,19 +6892,11 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
-                if (fromDate.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
-                if (toDate.TimeZoneOffset != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
             }
             if (count != null)
             {
@@ -6978,7 +6968,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>Task of HistoryArrayWrapper</returns>
-        public async Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetFileHistoryWithHttpInfoAsync(fileId, fromDate, toDate, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6999,7 +6989,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-history/">REST API Reference for GetFileHistory Operation</seealso>
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
-        public async Task<ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, DateTime? fromDate = default, DateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9293,7 +9283,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns></returns>
@@ -9309,7 +9299,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -9324,7 +9314,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -9388,7 +9378,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
@@ -9405,7 +9395,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Performs the specified form filling action.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the action applies to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/manage-form-filling/">REST API Reference for ManageFormFilling Operation</seealso>
@@ -9421,7 +9411,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -10241,7 +10231,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns></returns>
@@ -10257,7 +10247,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -10272,7 +10262,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -10336,7 +10326,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
@@ -10353,7 +10343,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Saves the form role mapping.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId"></param>
+        /// <param name="fileId">The form the role mapping belongs to. Send the same value as the `formId` of the request body, which is the one the handler reads.</param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
@@ -10369,7 +10359,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -10658,7 +10648,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -10751,7 +10741,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -11900,8 +11890,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>KeyValuePairBooleanStringWrapper</returns>
-        public KeyValuePairBooleanStringWrapper TrackEditFile(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default)
+        /// <returns>ItemKeyValuePairBooleanStringWrapper</returns>
+        public ItemKeyValuePairBooleanStringWrapper TrackEditFile(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default)
         {
             var localVarResponse = TrackEditFileWithHttpInfo(fileId, tabId, docKeyForTrack, isFinish);
             return localVarResponse.Data;
@@ -11919,8 +11909,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="docKeyForTrack">The document key for tracking changes. (optional)</param>
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>ApiResponse of KeyValuePairBooleanStringWrapper</returns>
-        public ApiResponse<KeyValuePairBooleanStringWrapper> TrackEditFileWithHttpInfo(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default)
+        /// <returns>ApiResponse of ItemKeyValuePairBooleanStringWrapper</returns>
+        public ApiResponse<ItemKeyValuePairBooleanStringWrapper> TrackEditFileWithHttpInfo(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -11951,7 +11941,7 @@ namespace DocSpace.API.SDK.Api.Files
 
 
             // make the HTTP request
-            var localVarResponse = Client.Get<KeyValuePairBooleanStringWrapper>("/api/2.0/files/file/{fileId}/trackeditfile", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ItemKeyValuePairBooleanStringWrapper>("/api/2.0/files/file/{fileId}/trackeditfile", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -11978,8 +11968,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>Task of KeyValuePairBooleanStringWrapper</returns>
-        public async Task<KeyValuePairBooleanStringWrapper> TrackEditFileAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ItemKeyValuePairBooleanStringWrapper</returns>
+        public async Task<ItemKeyValuePairBooleanStringWrapper> TrackEditFileAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await TrackEditFileWithHttpInfoAsync(fileId, tabId, docKeyForTrack, isFinish, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -11998,8 +11988,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="isFinish">Specifies whether to finish file tracking or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/track-edit-file/">REST API Reference for TrackEditFile Operation</seealso>
-        /// <returns>Task of ApiResponse (KeyValuePairBooleanStringWrapper)</returns>
-        public async Task<ApiResponse<KeyValuePairBooleanStringWrapper>> TrackEditFileWithHttpInfoAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ItemKeyValuePairBooleanStringWrapper)</returns>
+        public async Task<ApiResponse<ItemKeyValuePairBooleanStringWrapper>> TrackEditFileWithHttpInfoAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -12032,7 +12022,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<KeyValuePairBooleanStringWrapper>("/api/2.0/files/file/{fileId}/trackeditfile", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ItemKeyValuePairBooleanStringWrapper>("/api/2.0/files/file/{fileId}/trackeditfile", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The webhook trigger type.
+        /// Defines which events will trigger webhook notifications.
         /// </summary>
         [DataMember(Name = "triggers", EmitDefaultValue = false)]
         public WebhookTrigger? Triggers { get; set; }
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="secretKey">The webhook secret key used to sign the webhook payloads for the security verification..</param>
         /// <param name="enabled">Specifies whether the webhook configuration is active or not..</param>
         /// <param name="ssl">Specifies whether the SSL certificate verification is required or not..</param>
-        /// <param name="triggers">The webhook trigger type..</param>
+        /// <param name="triggers">Defines which events will trigger webhook notifications..</param>
         /// <param name="targetId">Target ID.</param>
         public CreateWebhooksConfigRequestsDto(string name = default, string uri = default, string secretKey = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default)
         {

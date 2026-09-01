@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The user type.
+        /// The new user type.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EmployeeType? Type { get; set; }
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StartUpdateUserTypeDto" /> class.
         /// </summary>
-        /// <param name="type">The user type..</param>
+        /// <param name="type">The new user type..</param>
         /// <param name="userId">The user ID..</param>
         /// <param name="reassignUserId">The user ID to reassign..</param>
         public StartUpdateUserTypeDto(EmployeeType? type = default, Guid userId = default, Guid? reassignUserId = default)

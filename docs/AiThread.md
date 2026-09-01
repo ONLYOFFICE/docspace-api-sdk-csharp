@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **LastEditDate** | **decimal** | Timestamp (ms since epoch) of the last message in this thread. Used for sorting. | [optional] 
 **Provider** | [**AiTProvider**](AiTProvider.md) | Provider configuration at the time of last message. Used for thread-level provider display. | [optional] 
 **Model** | [**AiModel**](AiModel.md) | Model info at the time of last message. | [optional] 
-**ProfileId** | **string** | ID of the profile used for this thread. Links to  {@link  Profile.id } . | [optional] 
+**ProfileId** | **string** | ID of the profile used for this thread. Links to `Profile.id`. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

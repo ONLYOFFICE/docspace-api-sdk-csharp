@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The white label file name..</param>
         /// <param name="size">The white label file size..</param>
         /// <param name="path">The white label file path..</param>
-        public WhiteLabelItemDto(WhiteLabelLogoType? type = default, string name = default, IMagickGeometry size = default, WhiteLabelItemPathDto path = default)
+        public WhiteLabelItemDto(WhiteLabelLogoType? type = default, string name = default, WhiteLabelItemSizeDto size = default, WhiteLabelItemPathDto path = default)
         {
             this.Type = type;
             this.Name = name;
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// The white label file size.
         /// </summary>
         [DataMember(Name = "size", EmitDefaultValue = false)]
-        public IMagickGeometry Size { get; set; }
+        public WhiteLabelItemSizeDto Size { get; set; }
 
         /// <summary>
         /// The white label file path.

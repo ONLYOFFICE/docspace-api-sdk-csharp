@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ItemKeyValuePairObjectObject
+    /// A key-value pair of a list item.
     /// </summary>
     [DataContract(Name = "ItemKeyValuePairObjectObject")]
     public partial class ItemKeyValuePairObjectObject : IValidatableObject

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Outcome of  {@link  AssignmentsEngine.bulkAssign } . Either every entry persisted, or no entries persisted and a per-key error report. The engine validates first and writes second so a single bad entry never leaves the assignment table in a half-written state.
+    /// Outcome of &#x60;AssignmentsEngine.bulkAssign&#x60;. Either every entry persisted, or no entries persisted and a per-key error report. The engine validates first and writes second so a single bad entry never leaves the assignment table in a half-written state.
     /// </summary>
     [DataContract(Name = "AiBulkAssignmentResult")]
     public partial class AiBulkAssignmentResult : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiBulkAssignmentResult" /> class.
         /// </summary>
-        /// <param name="success">success (required).</param>
-        /// <param name="errors">errors.</param>
+        /// <param name="success">True when every entry was persisted. (required).</param>
+        /// <param name="errors">What was rejected, per action. Present on failure - and then no entry was persisted..</param>
         public AiBulkAssignmentResult(bool success = default, List<AiBulkAssignmentResultErrorsInner> errors = default)
         {
             this.Success = success;
@@ -55,13 +55,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// True when every entry was persisted.
         /// </summary>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// What was rejected, per action. Present on failure - and then no entry was persisted.
         /// </summary>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<AiBulkAssignmentResultErrorsInner> Errors { get; set; }

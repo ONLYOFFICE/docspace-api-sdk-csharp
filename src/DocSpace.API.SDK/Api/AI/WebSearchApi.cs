@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear
         /// </summary>
+        /// <remarks>
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -53,6 +56,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Configure
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/">REST API Reference for AiWebSearchConfigure Operation</seealso>
@@ -63,7 +69,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Configure
         /// </summary>
         /// <remarks>
-        /// 
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -73,46 +79,55 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>AiWebSearchConfig</returns>
-        AiWebSearchConfig AiWebSearchGetActiveConfig(string entityId);
+        AiWebSearchConfig AiWebSearchGetActiveConfig(string? entityId = default);
 
         /// <summary>
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>ApiResponse of AiWebSearchConfig</returns>
-        ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string entityId);
+        ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is configured in the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>bool</returns>
-        bool AiWebSearchIsConfigured(string entityId);
+        bool AiWebSearchIsConfigured(string? entityId = default);
 
         /// <summary>
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether web search is configured in the scope.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string entityId);
+        ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
@@ -123,7 +138,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -133,6 +148,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
@@ -143,7 +161,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -153,6 +171,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
@@ -163,7 +184,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -173,6 +194,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/">REST API Reference for AiWebSearchTestConnection Operation</seealso>
@@ -183,7 +207,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Test connection
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -203,7 +227,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -216,7 +240,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -228,7 +252,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Configure
         /// </summary>
         /// <remarks>
-        /// 
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -241,7 +265,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Configure
         /// </summary>
         /// <remarks>
-        /// 
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -253,57 +277,57 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of AiWebSearchConfig</returns>
-        Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of ApiResponse (AiWebSearchConfig)</returns>
-        Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether web search is configured in the scope.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of bool</returns>
-        Task<bool> AiWebSearchIsConfiguredAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<bool> AiWebSearchIsConfiguredAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether web search is configured in the scope.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -316,7 +340,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -328,7 +352,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -341,7 +365,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
@@ -353,7 +377,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -366,7 +390,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// 
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -378,7 +402,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Test connection
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -391,7 +415,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Test connection
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -617,6 +641,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear
         /// </summary>
+        /// <remarks>
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
@@ -630,6 +657,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear
         /// </summary>
+        /// <remarks>
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
@@ -674,6 +704,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear
         /// </summary>
+        /// <remarks>
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -688,6 +721,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear
         /// </summary>
+        /// <remarks>
+        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -735,6 +771,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Configure
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/">REST API Reference for AiWebSearchConfigure Operation</seealso>
@@ -748,6 +787,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Configure
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-configure/">REST API Reference for AiWebSearchConfigure Operation</seealso>
@@ -792,6 +834,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Configure
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -806,6 +851,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Configure
         /// </summary>
+        /// <remarks>
+        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -853,11 +901,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>AiWebSearchConfig</returns>
-        public AiWebSearchConfig AiWebSearchGetActiveConfig(string entityId)
+        public AiWebSearchConfig AiWebSearchGetActiveConfig(string? entityId = default)
         {
             var localVarResponse = AiWebSearchGetActiveConfigWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -866,16 +917,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>ApiResponse of AiWebSearchConfig</returns>
-        public ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string entityId)
+        public ApiResponse<AiWebSearchConfig> AiWebSearchGetActiveConfigWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchGetActiveConfig");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -889,7 +939,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -910,12 +963,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of AiWebSearchConfig</returns>
-        public async Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<AiWebSearchConfig> AiWebSearchGetActiveConfigAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiWebSearchGetActiveConfigWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -924,17 +980,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get active config
         /// </summary>
+        /// <remarks>
+        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-get-active-config/">REST API Reference for AiWebSearchGetActiveConfig Operation</seealso>
         /// <returns>Task of ApiResponse (AiWebSearchConfig)</returns>
-        public async Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiWebSearchConfig>> AiWebSearchGetActiveConfigWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchGetActiveConfig");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -949,7 +1004,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -971,11 +1029,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is configured in the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>bool</returns>
-        public bool AiWebSearchIsConfigured(string entityId)
+        public bool AiWebSearchIsConfigured(string? entityId = default)
         {
             var localVarResponse = AiWebSearchIsConfiguredWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -984,16 +1045,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is configured in the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        public ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string entityId)
+        public ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchIsConfigured");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1007,7 +1067,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1028,12 +1091,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is configured in the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of bool</returns>
-        public async Task<bool> AiWebSearchIsConfiguredAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<bool> AiWebSearchIsConfiguredAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiWebSearchIsConfiguredWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1042,17 +1108,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is configured
         /// </summary>
+        /// <remarks>
+        /// Tells whether web search is configured in the scope.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-is-configured/">REST API Reference for AiWebSearchIsConfigured Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        public async Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling WebSearchApi->AiWebSearchIsConfigured");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1067,7 +1132,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -1089,6 +1157,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
@@ -1102,6 +1173,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
@@ -1146,6 +1220,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1160,6 +1237,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web page contents proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1207,6 +1287,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
@@ -1220,6 +1303,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
@@ -1264,6 +1350,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1278,6 +1367,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Web search proxied to the portal's active web-search provider
         /// </summary>
+        /// <remarks>
+        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1325,6 +1417,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
@@ -1338,6 +1433,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-set-active-config/">REST API Reference for AiWebSearchSetActiveConfig Operation</seealso>
@@ -1382,6 +1480,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1396,6 +1497,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set active config
         /// </summary>
+        /// <remarks>
+        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1443,6 +1547,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/">REST API Reference for AiWebSearchTestConnection Operation</seealso>
@@ -1456,6 +1563,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-test-connection/">REST API Reference for AiWebSearchTestConnection Operation</seealso>
@@ -1500,6 +1610,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1514,6 +1627,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Test connection
         /// </summary>
+        /// <remarks>
+        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

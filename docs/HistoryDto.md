@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The unique identifier for the file history entry. | 
 **Action** | [**HistoryAction**](HistoryAction.md) | The action performed on the file. | 
-**Initiator** | [**EmployeeDto**](EmployeeDto.md) | The user parameters. | 
-**Date** | [**ApiDateTime**](ApiDateTime.md) | The API date and time parameters. | 
+**Initiator** | [**EmployeeDto**](EmployeeDto.md) | The action initiator. | 
+**Date** | **DateTime?** | The date and time when an action on the file was performed. | 
 **Data** | [**HistoryData**](HistoryData.md) | The history data. | 
 **Related** | [**List&lt;HistoryDto&gt;**](HistoryDto.md) | The list of related history. | [optional] 
 

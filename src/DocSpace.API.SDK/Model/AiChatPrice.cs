@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiChatPrice
+    /// The price of a chat model, per token.
     /// </summary>
     [DataContract(Name = "AiChatPrice")]
     public partial class AiChatPrice : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiChatPrice" /> class.
         /// </summary>
-        /// <param name="prompt">prompt.</param>
-        /// <param name="completion">completion.</param>
+        /// <param name="prompt">The price of a single prompt token..</param>
+        /// <param name="completion">The price of a single completion token..</param>
         public AiChatPrice(double prompt = default, double completion = default)
         {
             this.Prompt = prompt;
@@ -50,14 +50,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Prompt
+        /// The price of a single prompt token.
         /// </summary>
+        /// <example>2.5E-6</example>
         [DataMember(Name = "prompt", EmitDefaultValue = false)]
         public double Prompt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Completion
+        /// The price of a single completion token.
         /// </summary>
+        /// <example>1.0E-5</example>
         [DataMember(Name = "completion", EmitDefaultValue = false)]
         public double Completion { get; set; }
 

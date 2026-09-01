@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// StudioDefaultPageSettings
+    /// The settings that define the folder opened by default after sign-in.
     /// </summary>
     [DataContract(Name = "StudioDefaultPageSettings")]
     public partial class StudioDefaultPageSettings : IValidatableObject

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// PasswordHasher
+    /// The password hash parameters.
     /// </summary>
     [DataContract(Name = "PasswordHasher")]
     public partial class PasswordHasher : IValidatableObject
@@ -47,8 +47,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Size
+        /// The password hash size.
         /// </summary>
+        /// <example>32</example>
         [DataMember(Name = "size", EmitDefaultValue = false)]
         public int Size { get; private set; }
 
@@ -61,8 +62,9 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Iterations
+        /// The number of iterations to generate the ppassword hash.
         /// </summary>
+        /// <example>1000</example>
         [DataMember(Name = "iterations", EmitDefaultValue = false)]
         public int Iterations { get; private set; }
 
@@ -75,8 +77,9 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets Salt
+        /// The salt to generate the ppassword hash.
         /// </summary>
+        /// <example>random_salt_value</example>
         [DataMember(Name = "salt", EmitDefaultValue = true)]
         public string Salt { get; private set; }
 

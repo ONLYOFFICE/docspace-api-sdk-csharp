@@ -38,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
-        AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings();
+        /// <returns>AdditionalWhiteLabelSettingsResponseWrapper</returns>
+        AdditionalWhiteLabelSettingsResponseWrapper DeleteAdditionalWhiteLabelSettings();
 
         /// <summary>
         /// Delete the additional white label settings
@@ -49,8 +49,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
-        ApiResponse<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo();
+        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsResponseWrapper</returns>
+        ApiResponse<AdditionalWhiteLabelSettingsResponseWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo();
         /// <summary>
         /// Delete the company white label settings
         /// </summary>
@@ -59,8 +59,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
-        CompanyWhiteLabelSettingsWrapper DeleteCompanyWhiteLabelSettings();
+        /// <returns>CompanyWhiteLabelSettingsResponseWrapper</returns>
+        CompanyWhiteLabelSettingsResponseWrapper DeleteCompanyWhiteLabelSettings();
 
         /// <summary>
         /// Delete the company white label settings
@@ -70,8 +70,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
-        ApiResponse<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo();
+        /// <returns>ApiResponse of CompanyWhiteLabelSettingsResponseWrapper</returns>
+        ApiResponse<CompanyWhiteLabelSettingsResponseWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo();
         /// <summary>
         /// Get the additional white label settings
         /// </summary>
@@ -80,8 +80,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
-        AdditionalWhiteLabelSettingsWrapper GetAdditionalWhiteLabelSettings();
+        /// <returns>AdditionalWhiteLabelSettingsDtoWrapper</returns>
+        AdditionalWhiteLabelSettingsDtoWrapper GetAdditionalWhiteLabelSettings();
 
         /// <summary>
         /// Get the additional white label settings
@@ -91,8 +91,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
-        ApiResponse<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo();
+        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsDtoWrapper</returns>
+        ApiResponse<AdditionalWhiteLabelSettingsDtoWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo();
         /// <summary>
         /// Get the company white label settings
         /// </summary>
@@ -101,8 +101,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
-        CompanyWhiteLabelSettingsWrapper GetCompanyWhiteLabelSettings();
+        /// <returns>CompanyWhiteLabelSettingsDtoWrapper</returns>
+        CompanyWhiteLabelSettingsDtoWrapper GetCompanyWhiteLabelSettings();
 
         /// <summary>
         /// Get the company white label settings
@@ -112,8 +112,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
-        ApiResponse<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo();
+        /// <returns>ApiResponse of CompanyWhiteLabelSettingsDtoWrapper</returns>
+        ApiResponse<CompanyWhiteLabelSettingsDtoWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo();
         /// <summary>
         /// Check the white label availability
         /// </summary>
@@ -449,8 +449,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
-        Task<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AdditionalWhiteLabelSettingsResponseWrapper</returns>
+        Task<AdditionalWhiteLabelSettingsResponseWrapper> DeleteAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete the additional white label settings
@@ -461,8 +461,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
-        Task<ApiResponse<AdditionalWhiteLabelSettingsWrapper>> DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsResponseWrapper)</returns>
+        Task<ApiResponse<AdditionalWhiteLabelSettingsResponseWrapper>> DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete the company white label settings
         /// </summary>
@@ -472,8 +472,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
-        Task<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of CompanyWhiteLabelSettingsResponseWrapper</returns>
+        Task<CompanyWhiteLabelSettingsResponseWrapper> DeleteCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete the company white label settings
@@ -484,8 +484,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
-        Task<ApiResponse<CompanyWhiteLabelSettingsWrapper>> DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsResponseWrapper)</returns>
+        Task<ApiResponse<CompanyWhiteLabelSettingsResponseWrapper>> DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the additional white label settings
         /// </summary>
@@ -495,8 +495,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
-        Task<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AdditionalWhiteLabelSettingsDtoWrapper</returns>
+        Task<AdditionalWhiteLabelSettingsDtoWrapper> GetAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the additional white label settings
@@ -507,8 +507,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
-        Task<ApiResponse<AdditionalWhiteLabelSettingsWrapper>> GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsDtoWrapper)</returns>
+        Task<ApiResponse<AdditionalWhiteLabelSettingsDtoWrapper>> GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the company white label settings
         /// </summary>
@@ -518,8 +518,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
-        Task<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of CompanyWhiteLabelSettingsDtoWrapper</returns>
+        Task<CompanyWhiteLabelSettingsDtoWrapper> GetCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the company white label settings
@@ -530,8 +530,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
-        Task<ApiResponse<CompanyWhiteLabelSettingsWrapper>> GetCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsDtoWrapper)</returns>
+        Task<ApiResponse<CompanyWhiteLabelSettingsDtoWrapper>> GetCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Check the white label availability
         /// </summary>
@@ -1098,8 +1098,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
-        public AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings()
+        /// <returns>AdditionalWhiteLabelSettingsResponseWrapper</returns>
+        public AdditionalWhiteLabelSettingsResponseWrapper DeleteAdditionalWhiteLabelSettings()
         {
             var localVarResponse = DeleteAdditionalWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -1113,8 +1113,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
-        public ApiResponse<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo()
+        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsResponseWrapper</returns>
+        public ApiResponse<AdditionalWhiteLabelSettingsResponseWrapper> DeleteAdditionalWhiteLabelSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1162,7 +1162,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<AdditionalWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<AdditionalWhiteLabelSettingsResponseWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1185,8 +1185,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
-        public async Task<AdditionalWhiteLabelSettingsWrapper> DeleteAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AdditionalWhiteLabelSettingsResponseWrapper</returns>
+        public async Task<AdditionalWhiteLabelSettingsResponseWrapper> DeleteAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1201,8 +1201,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/">REST API Reference for DeleteAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
-        public async Task<ApiResponse<AdditionalWhiteLabelSettingsWrapper>> DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsResponseWrapper)</returns>
+        public async Task<ApiResponse<AdditionalWhiteLabelSettingsResponseWrapper>> DeleteAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1252,7 +1252,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<AdditionalWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<AdditionalWhiteLabelSettingsResponseWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1274,8 +1274,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
-        public CompanyWhiteLabelSettingsWrapper DeleteCompanyWhiteLabelSettings()
+        /// <returns>CompanyWhiteLabelSettingsResponseWrapper</returns>
+        public CompanyWhiteLabelSettingsResponseWrapper DeleteCompanyWhiteLabelSettings()
         {
             var localVarResponse = DeleteCompanyWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -1289,8 +1289,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
-        public ApiResponse<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo()
+        /// <returns>ApiResponse of CompanyWhiteLabelSettingsResponseWrapper</returns>
+        public ApiResponse<CompanyWhiteLabelSettingsResponseWrapper> DeleteCompanyWhiteLabelSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1338,7 +1338,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<CompanyWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<CompanyWhiteLabelSettingsResponseWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1361,8 +1361,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
-        public async Task<CompanyWhiteLabelSettingsWrapper> DeleteCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of CompanyWhiteLabelSettingsResponseWrapper</returns>
+        public async Task<CompanyWhiteLabelSettingsResponseWrapper> DeleteCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1377,8 +1377,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/">REST API Reference for DeleteCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
-        public async Task<ApiResponse<CompanyWhiteLabelSettingsWrapper>> DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsResponseWrapper)</returns>
+        public async Task<ApiResponse<CompanyWhiteLabelSettingsResponseWrapper>> DeleteCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1428,7 +1428,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<CompanyWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<CompanyWhiteLabelSettingsResponseWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1450,8 +1450,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>AdditionalWhiteLabelSettingsWrapper</returns>
-        public AdditionalWhiteLabelSettingsWrapper GetAdditionalWhiteLabelSettings()
+        /// <returns>AdditionalWhiteLabelSettingsDtoWrapper</returns>
+        public AdditionalWhiteLabelSettingsDtoWrapper GetAdditionalWhiteLabelSettings()
         {
             var localVarResponse = GetAdditionalWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -1465,8 +1465,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsWrapper</returns>
-        public ApiResponse<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo()
+        /// <returns>ApiResponse of AdditionalWhiteLabelSettingsDtoWrapper</returns>
+        public ApiResponse<AdditionalWhiteLabelSettingsDtoWrapper> GetAdditionalWhiteLabelSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1514,7 +1514,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AdditionalWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AdditionalWhiteLabelSettingsDtoWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1537,8 +1537,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of AdditionalWhiteLabelSettingsWrapper</returns>
-        public async Task<AdditionalWhiteLabelSettingsWrapper> GetAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AdditionalWhiteLabelSettingsDtoWrapper</returns>
+        public async Task<AdditionalWhiteLabelSettingsDtoWrapper> GetAdditionalWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1553,8 +1553,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/">REST API Reference for GetAdditionalWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsWrapper)</returns>
-        public async Task<ApiResponse<AdditionalWhiteLabelSettingsWrapper>> GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AdditionalWhiteLabelSettingsDtoWrapper)</returns>
+        public async Task<ApiResponse<AdditionalWhiteLabelSettingsDtoWrapper>> GetAdditionalWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1604,7 +1604,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AdditionalWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AdditionalWhiteLabelSettingsDtoWrapper>("/api/2.0/settings/rebranding/additional", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1626,8 +1626,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>CompanyWhiteLabelSettingsWrapper</returns>
-        public CompanyWhiteLabelSettingsWrapper GetCompanyWhiteLabelSettings()
+        /// <returns>CompanyWhiteLabelSettingsDtoWrapper</returns>
+        public CompanyWhiteLabelSettingsDtoWrapper GetCompanyWhiteLabelSettings()
         {
             var localVarResponse = GetCompanyWhiteLabelSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -1641,8 +1641,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>ApiResponse of CompanyWhiteLabelSettingsWrapper</returns>
-        public ApiResponse<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo()
+        /// <returns>ApiResponse of CompanyWhiteLabelSettingsDtoWrapper</returns>
+        public ApiResponse<CompanyWhiteLabelSettingsDtoWrapper> GetCompanyWhiteLabelSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1690,7 +1690,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<CompanyWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<CompanyWhiteLabelSettingsDtoWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1713,8 +1713,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of CompanyWhiteLabelSettingsWrapper</returns>
-        public async Task<CompanyWhiteLabelSettingsWrapper> GetCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of CompanyWhiteLabelSettingsDtoWrapper</returns>
+        public async Task<CompanyWhiteLabelSettingsDtoWrapper> GetCompanyWhiteLabelSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetCompanyWhiteLabelSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1729,8 +1729,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/">REST API Reference for GetCompanyWhiteLabelSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsWrapper)</returns>
-        public async Task<ApiResponse<CompanyWhiteLabelSettingsWrapper>> GetCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (CompanyWhiteLabelSettingsDtoWrapper)</returns>
+        public async Task<ApiResponse<CompanyWhiteLabelSettingsDtoWrapper>> GetCompanyWhiteLabelSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1780,7 +1780,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<CompanyWhiteLabelSettingsWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<CompanyWhiteLabelSettingsDtoWrapper>("/api/2.0/settings/rebranding/company", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

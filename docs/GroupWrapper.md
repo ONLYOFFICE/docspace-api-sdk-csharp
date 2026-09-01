@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.GroupWrapper
+The successful API response containing the GroupDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**GroupDto**](GroupDto.md) |  | [optional] 
+**Response** | [**GroupDto**](GroupDto.md) | The GroupDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

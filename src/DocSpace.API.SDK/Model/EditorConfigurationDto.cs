@@ -50,15 +50,15 @@ namespace DocSpace.API.SDK.Model
         /// <param name="coEditing">The co-editing configuration parameters..</param>
         /// <param name="createUrl">The creation URL of the editor..</param>
         /// <param name="customization">The customization configuration..</param>
-        /// <param name="embedded">The configuration parameters for the embedded document type..</param>
+        /// <param name="embedded">The embedded configuration parameters for embedded documents..</param>
         /// <param name="encryptionKeys">The encryption keys of the editor configuration..</param>
         /// <param name="lang">The language of the editor configuration. (required).</param>
         /// <param name="mode">The mode of the editor configuration. (required).</param>
         /// <param name="modeWrite">Specifies if the mode is write of the editor configuration..</param>
-        /// <param name="plugins">The configuration settings to connect the special add-ons..</param>
+        /// <param name="plugins">The plugins configuration..</param>
         /// <param name="recent">The recent configuration of the editor..</param>
         /// <param name="templates">The templates of the editor configuration..</param>
-        /// <param name="user">The configuration parameters of the user currently viewing or editing the document..</param>
+        /// <param name="user">The user configuration of the editor..</param>
         public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, List<EncryptionKeyDto> encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
         {
             // to ensure "lang" is required (not null)
@@ -113,7 +113,7 @@ namespace DocSpace.API.SDK.Model
         public CustomizationConfigDto Customization { get; set; }
 
         /// <summary>
-        /// The configuration parameters for the embedded document type.
+        /// The embedded configuration parameters for embedded documents.
         /// </summary>
         [DataMember(Name = "embedded", EmitDefaultValue = false)]
         public EmbeddedConfig Embedded { get; set; }
@@ -146,7 +146,7 @@ namespace DocSpace.API.SDK.Model
         public bool ModeWrite { get; set; }
 
         /// <summary>
-        /// The configuration settings to connect the special add-ons.
+        /// The plugins configuration.
         /// </summary>
         [DataMember(Name = "plugins", EmitDefaultValue = false)]
         public PluginsConfig Plugins { get; set; }
@@ -166,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         public List<TemplatesConfig> Templates { get; set; }
 
         /// <summary>
-        /// The configuration parameters of the user currently viewing or editing the document.
+        /// The user configuration of the editor.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public UserConfig User { get; set; }

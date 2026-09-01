@@ -33,6 +33,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear deep mode
         /// </summary>
+        /// <remarks>
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
@@ -43,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -53,46 +56,55 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get deep mode
         /// </summary>
+        /// <remarks>
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>bool</returns>
-        bool AiPreferencesGetDeepMode(string entityId);
+        bool AiPreferencesGetDeepMode(string? entityId = default);
 
         /// <summary>
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        ApiResponse<bool> AiPreferencesGetDeepModeWithHttpInfo(string entityId);
+        ApiResponse<bool> AiPreferencesGetDeepModeWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Is deep mode set
         /// </summary>
+        /// <remarks>
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>bool</returns>
-        bool AiPreferencesIsDeepModeSet(string entityId);
+        bool AiPreferencesIsDeepModeSet(string? entityId = default);
 
         /// <summary>
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        ApiResponse<bool> AiPreferencesIsDeepModeSetWithHttpInfo(string entityId);
+        ApiResponse<bool> AiPreferencesIsDeepModeSetWithHttpInfo(string? entityId = default);
         /// <summary>
         /// Set deep mode
         /// </summary>
+        /// <remarks>
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/">REST API Reference for AiPreferencesSetDeepMode Operation</seealso>
@@ -103,7 +115,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -123,7 +135,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -136,7 +148,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -148,57 +160,57 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>Task of bool</returns>
-        Task<bool> AiPreferencesGetDeepModeAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<bool> AiPreferencesGetDeepModeAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        Task<ApiResponse<bool>> AiPreferencesGetDeepModeWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<bool>> AiPreferencesGetDeepModeWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>Task of bool</returns>
-        Task<bool> AiPreferencesIsDeepModeSetAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<bool> AiPreferencesIsDeepModeSetAsync(string? entityId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// 
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        Task<ApiResponse<bool>> AiPreferencesIsDeepModeSetWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default);
+        Task<ApiResponse<bool>> AiPreferencesIsDeepModeSetWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -211,7 +223,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// 
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -437,6 +449,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear deep mode
         /// </summary>
+        /// <remarks>
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
@@ -450,6 +465,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear deep mode
         /// </summary>
+        /// <remarks>
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
@@ -494,6 +512,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear deep mode
         /// </summary>
+        /// <remarks>
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -508,6 +529,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Clear deep mode
         /// </summary>
+        /// <remarks>
+        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -555,11 +579,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get deep mode
         /// </summary>
+        /// <remarks>
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>bool</returns>
-        public bool AiPreferencesGetDeepMode(string entityId)
+        public bool AiPreferencesGetDeepMode(string? entityId = default)
         {
             var localVarResponse = AiPreferencesGetDeepModeWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -568,16 +595,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get deep mode
         /// </summary>
+        /// <remarks>
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        public ApiResponse<bool> AiPreferencesGetDeepModeWithHttpInfo(string entityId)
+        public ApiResponse<bool> AiPreferencesGetDeepModeWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling PreferencesApi->AiPreferencesGetDeepMode");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -591,7 +617,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -612,12 +641,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get deep mode
         /// </summary>
+        /// <remarks>
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>Task of bool</returns>
-        public async Task<bool> AiPreferencesGetDeepModeAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<bool> AiPreferencesGetDeepModeAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiPreferencesGetDeepModeWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -626,17 +658,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Get deep mode
         /// </summary>
+        /// <remarks>
+        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-deep-mode/">REST API Reference for AiPreferencesGetDeepMode Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        public async Task<ApiResponse<bool>> AiPreferencesGetDeepModeWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<bool>> AiPreferencesGetDeepModeWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling PreferencesApi->AiPreferencesGetDeepMode");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -651,7 +682,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -673,11 +707,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is deep mode set
         /// </summary>
+        /// <remarks>
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>bool</returns>
-        public bool AiPreferencesIsDeepModeSet(string entityId)
+        public bool AiPreferencesIsDeepModeSet(string? entityId = default)
         {
             var localVarResponse = AiPreferencesIsDeepModeSetWithHttpInfo(entityId);
             return localVarResponse.Data;
@@ -686,16 +723,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is deep mode set
         /// </summary>
+        /// <remarks>
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>ApiResponse of bool</returns>
-        public ApiResponse<bool> AiPreferencesIsDeepModeSetWithHttpInfo(string entityId)
+        public ApiResponse<bool> AiPreferencesIsDeepModeSetWithHttpInfo(string? entityId = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling PreferencesApi->AiPreferencesIsDeepModeSet");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -709,7 +745,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -730,12 +769,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is deep mode set
         /// </summary>
+        /// <remarks>
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>Task of bool</returns>
-        public async Task<bool> AiPreferencesIsDeepModeSetAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<bool> AiPreferencesIsDeepModeSetAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiPreferencesIsDeepModeSetWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -744,17 +786,16 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Is deep mode set
         /// </summary>
+        /// <remarks>
+        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="entityId"></param>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-is-deep-mode-set/">REST API Reference for AiPreferencesIsDeepModeSet Operation</seealso>
         /// <returns>Task of ApiResponse (bool)</returns>
-        public async Task<ApiResponse<bool>> AiPreferencesIsDeepModeSetWithHttpInfoAsync(string entityId, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<bool>> AiPreferencesIsDeepModeSetWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'entityId' is set
-            if (entityId == null)
-                throw new ApiException(400, "Missing required parameter 'entityId' when calling PreferencesApi->AiPreferencesIsDeepModeSet");
-
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -769,7 +810,10 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
 
 
             // make the HTTP request
@@ -791,6 +835,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set deep mode
         /// </summary>
+        /// <remarks>
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/">REST API Reference for AiPreferencesSetDeepMode Operation</seealso>
@@ -804,6 +851,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set deep mode
         /// </summary>
+        /// <remarks>
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/">REST API Reference for AiPreferencesSetDeepMode Operation</seealso>
@@ -848,6 +898,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set deep mode
         /// </summary>
+        /// <remarks>
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -862,6 +915,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <summary>
         /// Set deep mode
         /// </summary>
+        /// <remarks>
+        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -1,4 +1,4 @@
-# DocSpace.API.SDK.Api.PrivacyroomApi
+# DocSpace.API.SDK.Api.PrivacyRoomApi
 
 All URIs are relative to *https://your-docspace.onlyoffice.com*
 
@@ -68,7 +68,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PrivacyRoomApi(httpClient, config, httpClientHandler);
             var id = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the encryption key to be deleted.
 
             try
@@ -78,7 +78,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PrivacyroomApi.DeleteKeys: " + e.Message);
+                Debug.Print("Exception when calling PrivacyRoomApi.DeleteKeys: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -98,7 +98,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PrivacyroomApi.DeleteKeysWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PrivacyRoomApi.DeleteKeysWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -107,7 +107,7 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -117,7 +117,8 @@ catch (ApiException e)
 | **400** | The key identifier is not a valid GUID |  -  |
 | **404** | The encryption key is not found |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -177,7 +178,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PrivacyRoomApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -187,7 +188,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PrivacyroomApi.GetUserKeys: " + e.Message);
+                Debug.Print("Exception when calling PrivacyRoomApi.GetUserKeys: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -210,7 +211,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PrivacyroomApi.GetUserKeysWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PrivacyRoomApi.GetUserKeysWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -225,9 +226,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -291,7 +293,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PrivacyRoomApi(httpClient, config, httpClientHandler);
             var roomId = 56;  // int | The identifier of the privacy room.
 
             try
@@ -302,7 +304,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PrivacyroomApi.GetUserKeysForRoom: " + e.Message);
+                Debug.Print("Exception when calling PrivacyRoomApi.GetUserKeysForRoom: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -325,7 +327,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PrivacyroomApi.GetUserKeysForRoomWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PrivacyRoomApi.GetUserKeysForRoomWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -340,9 +342,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -406,7 +410,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PrivacyRoomApi(httpClient, config, httpClientHandler);
             var encryptionKeyRequestDto = new EncryptionKeyRequestDto?(); // EncryptionKeyRequestDto? | The request object containing the public and private key information to replace the existing key. (optional) 
 
             try
@@ -417,7 +421,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PrivacyroomApi.ReplaceKey: " + e.Message);
+                Debug.Print("Exception when calling PrivacyRoomApi.ReplaceKey: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -440,7 +444,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PrivacyroomApi.ReplaceKeyWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PrivacyRoomApi.ReplaceKeyWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -455,11 +459,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The encryption key is replaced |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The encryption key is replaced |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The key material is missing, blank or too large to be stored |  -  |
 | **404** | The encryption key to replace is not found |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -523,7 +528,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PrivacyRoomApi(httpClient, config, httpClientHandler);
             var encryptionKeyRequestDto = new EncryptionKeyRequestDto?(); // EncryptionKeyRequestDto? | The request object containing public and private key information. (optional) 
 
             try
@@ -534,7 +539,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PrivacyroomApi.SetKeys: " + e.Message);
+                Debug.Print("Exception when calling PrivacyRoomApi.SetKeys: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -557,7 +562,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PrivacyroomApi.SetKeysWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PrivacyRoomApi.SetKeysWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -576,7 +581,8 @@ catch (ApiException e)
 | **400** | The key material is missing, blank or too large to be stored |  -  |
 | **409** | A key with the same identifier already exists |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

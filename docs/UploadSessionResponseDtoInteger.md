@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Title** | **string** | The file title. | [optional] 
 **ProviderKey** | **string** | The third-party provider key. | [optional] 
 **Uploaded** | **bool** | Specifies whether the file has been uploaded. | [optional] 
-**File** | [**FileDtoInteger**](FileDtoInteger.md) | The file parameters. | [optional] 
+**File** | [**FileDtoInteger**](FileDtoInteger.md) | The uploaded file information. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
