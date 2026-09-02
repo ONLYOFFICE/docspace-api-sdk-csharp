@@ -302,8 +302,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>FileOperationWrapper</returns>
-        FileOperationWrapper DeleteFileVersions(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default);
+        /// <returns>FileOperationArrayWrapper</returns>
+        FileOperationArrayWrapper DeleteFileVersions(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default);
 
         /// <summary>
         /// Delete file versions
@@ -314,8 +314,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>ApiResponse of FileOperationWrapper</returns>
-        ApiResponse<FileOperationWrapper> DeleteFileVersionsWithHttpInfo(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default);
+        /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
+        ApiResponse<FileOperationArrayWrapper> DeleteFileVersionsWithHttpInfo(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default);
         /// <summary>
         /// Duplicate files and folders
         /// </summary>
@@ -916,8 +916,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>Task of FileOperationWrapper</returns>
-        Task<FileOperationWrapper> DeleteFileVersionsAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileOperationArrayWrapper</returns>
+        Task<FileOperationArrayWrapper> DeleteFileVersionsAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete file versions
@@ -929,8 +929,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
-        Task<ApiResponse<FileOperationWrapper>> DeleteFileVersionsWithHttpInfoAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
+        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFileVersionsWithHttpInfoAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Duplicate files and folders
         /// </summary>
@@ -3485,8 +3485,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>FileOperationWrapper</returns>
-        public FileOperationWrapper DeleteFileVersions(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default)
+        /// <returns>FileOperationArrayWrapper</returns>
+        public FileOperationArrayWrapper DeleteFileVersions(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default)
         {
             var localVarResponse = DeleteFileVersionsWithHttpInfo(deleteVersionBatchRequestDto);
             return localVarResponse.Data;
@@ -3501,8 +3501,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>ApiResponse of FileOperationWrapper</returns>
-        public ApiResponse<FileOperationWrapper> DeleteFileVersionsWithHttpInfo(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default)
+        /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
+        public ApiResponse<FileOperationArrayWrapper> DeleteFileVersionsWithHttpInfo(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3551,7 +3551,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FileOperationWrapper>("/api/2.0/files/fileops/deleteversion", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileOperationArrayWrapper>("/api/2.0/files/fileops/deleteversion", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3575,8 +3575,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>Task of FileOperationWrapper</returns>
-        public async Task<FileOperationWrapper> DeleteFileVersionsAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileOperationArrayWrapper</returns>
+        public async Task<FileOperationArrayWrapper> DeleteFileVersionsAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await DeleteFileVersionsWithHttpInfoAsync(deleteVersionBatchRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3592,8 +3592,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="deleteVersionBatchRequestDto">The request parameters for deleting file versions. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/">REST API Reference for DeleteFileVersions Operation</seealso>
-        /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
-        public async Task<ApiResponse<FileOperationWrapper>> DeleteFileVersionsWithHttpInfoAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
+        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFileVersionsWithHttpInfoAsync(DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3644,7 +3644,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FileOperationWrapper>("/api/2.0/files/fileops/deleteversion", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileOperationArrayWrapper>("/api/2.0/files/fileops/deleteversion", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

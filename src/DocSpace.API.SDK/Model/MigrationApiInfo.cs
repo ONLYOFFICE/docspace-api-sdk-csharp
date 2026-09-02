@@ -103,24 +103,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The list of migrating users.
         /// </summary>
+        /// <example>[{"id":"9924256B-447C-4F19-9dbd-8ad8c39e8ff5","email":"user@example.com","shouldImport":true}]</example>
         [DataMember(Name = "users", EmitDefaultValue = true)]
         public List<MigratingApiUser> Users { get; set; }
 
         /// <summary>
         /// The list of migrating users without email.
         /// </summary>
+        /// <example>[{"id":"9924256B-447C-4F19-9dbd-8ad8c39e8ff5","shouldImport":false}]</example>
         [DataMember(Name = "withoutEmailUsers", EmitDefaultValue = true)]
         public List<MigratingApiUser> WithoutEmailUsers { get; set; }
 
         /// <summary>
         /// The list of existing migrating users.
         /// </summary>
+        /// <example>[{"id":"9924256B-447C-4F19-9dbd-8ad8c39e8ff5","email":"existing@example.com","shouldImport":true}]</example>
         [DataMember(Name = "existUsers", EmitDefaultValue = true)]
         public List<MigratingApiUser> ExistUsers { get; set; }
 
         /// <summary>
         /// The list of migrating groups.
         /// </summary>
+        /// <example>[{"id":"1","name":"Group1","shouldImport":true}]</example>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<MigratingApiGroup> Groups { get; set; }
 

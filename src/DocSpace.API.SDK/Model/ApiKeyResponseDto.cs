@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createBy">The identifier of the user who created the API key..</param>
         /// <param name="expiresAt">The date and time when the API key expires..</param>
         /// <param name="isActive">Indicates whether the API key is active or not. (required).</param>
-        public ApiKeyResponseDto(Guid id = default, string name = default, string key = default, string keyPostfix = default, List<string> permissions = default, DateTime? lastUsed = default, DateTime? createOn = default, EmployeeDto createBy = default, DateTime? expiresAt = default, bool isActive = default)
+        public ApiKeyResponseDto(Guid id = default, string name = default, string key = default, string keyPostfix = default, List<string> permissions = default, ApiDateTime lastUsed = default, ApiDateTime createOn = default, EmployeeDto createBy = default, ApiDateTime expiresAt = default, bool isActive = default)
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -123,16 +123,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when the API key was last used.
         /// </summary>
-        /// <example>2025-06-15T10:30:00.0000000Z</example>
-        [DataMember(Name = "lastUsed", EmitDefaultValue = true)]
-        public DateTime? LastUsed { get; set; }
+        [DataMember(Name = "lastUsed", EmitDefaultValue = false)]
+        public ApiDateTime LastUsed { get; set; }
 
         /// <summary>
         /// The date and time when the API key was created.
         /// </summary>
-        /// <example>2025-06-15T10:30:00.0000000Z</example>
-        [DataMember(Name = "createOn", EmitDefaultValue = true)]
-        public DateTime? CreateOn { get; set; }
+        [DataMember(Name = "createOn", EmitDefaultValue = false)]
+        public ApiDateTime CreateOn { get; set; }
 
         /// <summary>
         /// The identifier of the user who created the API key.
@@ -143,9 +141,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when the API key expires.
         /// </summary>
-        /// <example>2025-06-15T10:30:00.0000000Z</example>
-        [DataMember(Name = "expiresAt", EmitDefaultValue = true)]
-        public DateTime? ExpiresAt { get; set; }
+        [DataMember(Name = "expiresAt", EmitDefaultValue = false)]
+        public ApiDateTime ExpiresAt { get; set; }
 
         /// <summary>
         /// Indicates whether the API key is active or not.

@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="dueDate">The due date of the upcoming payment in the portal time zone..</param>
         /// <param name="amount">The amount that will be charged (unit price multiplied by the quantity)..</param>
         /// <param name="currency">The three-character ISO 4217 currency symbol of the amount..</param>
-        public UpcomingPaymentDto(int id = default, string name = default, string title = default, string unitOfMeasure = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, double amount = default, string currency = default)
+        public UpcomingPaymentDto(int id = default, string name = default, string title = default, string unitOfMeasure = default, int quantity = default, bool wallet = default, ApiDateTime dueDate = default, double amount = default, string currency = default)
         {
             this.Id = id;
             this.Name = name;
@@ -108,9 +108,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The due date of the upcoming payment in the portal time zone.
         /// </summary>
-        /// <example>2026-07-08T11:39:43.0000000+03:00</example>
-        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
-        public DateTime? DueDate { get; set; }
+        [DataMember(Name = "dueDate", EmitDefaultValue = false)]
+        public ApiDateTime DueDate { get; set; }
 
         /// <summary>
         /// The amount that will be charged (unit price multiplied by the quantity).

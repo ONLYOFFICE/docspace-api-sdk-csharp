@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="target">The list of target objects affected by the audit event (e.g., document ID, user account)..</param>
         /// <param name="entries">The list of audit entry types (e.g., Folder, User, File)..</param>
         /// <param name="context">The audit event context..</param>
-        public AuditEventDto(int id = default, DateTime? date = default, string user = default, Guid userId = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default, ActionType? actionType = default, ProductType? product = default, LocationType? location = default, List<string> target = default, List<EntryType> entries = default, string context = default)
+        public AuditEventDto(int id = default, ApiDateTime date = default, string user = default, Guid userId = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default, ActionType? actionType = default, ProductType? product = default, LocationType? location = default, List<string> target = default, List<EntryType> entries = default, string context = default)
         {
             this.Id = id;
             this.Date = date;
@@ -115,9 +115,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The audit event date.
         /// </summary>
-        /// <example>2024-01-15T10:30:00Z</example>
-        [DataMember(Name = "date", EmitDefaultValue = true)]
-        public DateTime? Date { get; set; }
+        [DataMember(Name = "date", EmitDefaultValue = false)]
+        public ApiDateTime Date { get; set; }
 
         /// <summary>
         /// The name of the user who triggered the audit event.

@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
         /// <param name="url">The URL of the invitation link..</param>
-        public InvitationLinkDto(Guid id = default, EmployeeType employeeType = default, DateTime? expiration = default, bool isExpired = default, int? maxUseCount = default, int currentUseCount = default, string url = default)
+        public InvitationLinkDto(Guid id = default, EmployeeType employeeType = default, ApiDateTime expiration = default, bool isExpired = default, int? maxUseCount = default, int currentUseCount = default, string url = default)
         {
             this.EmployeeType = employeeType;
             this.Id = id;
@@ -80,9 +80,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The expiration date of the invitation link.
         /// </summary>
-        /// <example>2024-01-15T10:30:00Z</example>
-        [DataMember(Name = "expiration", EmitDefaultValue = true)]
-        public DateTime? Expiration { get; set; }
+        [DataMember(Name = "expiration", EmitDefaultValue = false)]
+        public ApiDateTime Expiration { get; set; }
 
         /// <summary>
         /// Indicates whether the invitation link has expired.

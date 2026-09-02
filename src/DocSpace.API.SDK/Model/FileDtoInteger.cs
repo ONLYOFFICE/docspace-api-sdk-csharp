@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="vectorizationStatus">The vectorization status of the file..</param>
         /// <param name="externalDbTableName">The name of the table in the external database that corresponds to this form..</param>
         /// <param name="dimensions">The dimensions (width and height) of the image file in pixels.  This property is populated only for image files that can be viewed (supported formats like PNG, JPEG, GIF, BMP, etc.).  For non-image files, this property remains null..</param>
-        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, int? resultsFolderId = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, DateTime? lastOpened = default, DateTime? expired = default, VectorizationStatus? vectorizationStatus = default, string externalDbTableName = default, Size dimensions = default)
+        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, int? resultsFolderId = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, string externalDbTableName = default, Size dimensions = default)
         {
             this.FolderId = folderId;
             this.@Version = version;
@@ -328,16 +328,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The time when the file was last opened.
         /// </summary>
-        /// <example>2021-01-01T00:00:00Z</example>
-        [DataMember(Name = "lastOpened", EmitDefaultValue = true)]
-        public DateTime? LastOpened { get; set; }
+        [DataMember(Name = "lastOpened", EmitDefaultValue = false)]
+        public ApiDateTime LastOpened { get; set; }
 
         /// <summary>
         /// The date when the file will be expired.
         /// </summary>
-        /// <example>2025-12-31T23:59:59Z</example>
-        [DataMember(Name = "expired", EmitDefaultValue = true)]
-        public DateTime? Expired { get; set; }
+        [DataMember(Name = "expired", EmitDefaultValue = false)]
+        public ApiDateTime Expired { get; set; }
 
         /// <summary>
         /// The name of the table in the external database that corresponds to this form.

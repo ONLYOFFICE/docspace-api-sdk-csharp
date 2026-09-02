@@ -6,7 +6,7 @@ The login event parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The login event ID. | [optional] 
-**Date** | **DateTime?** | The login event date. | [optional] 
+**Date** | [**ApiDateTime**](ApiDateTime.md) | The login event date. | [optional] 
 **User** | **string** | The user name of the login event. | [optional] 
 **UserId** | **Guid** | The user ID of the login event. | [optional] 
 **Login** | **string** | The user login of the login event. | [optional] 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of user contacts. | [optional] 
 **Status** | **EmployeeStatus** | The user status. | [optional] 
 **ActivationStatus** | **EmployeeActivationStatus** | The user activation status. | [optional] 
-**Terminated** | **DateTime?** | The date when the user account was terminated. | [optional] 
+**Terminated** | [**ApiDateTime**](ApiDateTime.md) | The date when the user account was terminated. | [optional] 
 **Department** | **string** | The user department. | [optional] 
 **Groups** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of user groups. | [optional] 
 **Location** | **string** | The user location. | [optional] 
@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **LoginEventId** | **int?** | The current login event ID. | [optional] 
 **AuthCookieLifetime** | **double?** | The auth cookie lifetime in seconds. | [optional] 
 **CreatedBy** | [**EmployeeDto**](EmployeeDto.md) | The user who created the current user. | [optional] 
-**RegistrationDate** | **DateTime?** | The user registration date. | [optional] 
+**RegistrationDate** | [**ApiDateTime**](ApiDateTime.md) | The user registration date. | [optional] 
 **HasPersonalFolder** | **bool?** | Specifies if the user has a personal folder or not. | [optional] 
 **TfaAppEnabled** | **bool?** | Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app. | [optional] 
 

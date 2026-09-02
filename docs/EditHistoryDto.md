@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **@Version** | **int** | The document version number. | [optional] 
 **VersionGroup** | **int** | The document version group. | [optional] 
 **User** | [**EditHistoryAuthor**](EditHistoryAuthor.md) | The user who updated a file. | [optional] 
-**Created** | **DateTime?** | The document version creation date. | [optional] 
+**Created** | [**ApiDateTime**](ApiDateTime.md) | The document version creation date. | [optional] 
 **ChangesHistory** | **string** | The file history changes in the string format. | [optional] 
 **Changes** | [**List&lt;EditHistoryChangesWrapper&gt;**](EditHistoryChangesWrapper.md) | The list of file history changes. | [optional] 
 **ServerVersion** | **string** | The current server version number. | [optional] 

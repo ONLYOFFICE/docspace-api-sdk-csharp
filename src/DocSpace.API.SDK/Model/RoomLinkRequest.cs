@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
-        public RoomLinkRequest(Guid linkId = default, FileShare? access = default, DateTime? expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default, int? maxUseCount = default, int currentUseCount = default)
+        public RoomLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default, int? maxUseCount = default, int currentUseCount = default)
         {
             this.LinkId = linkId;
             this.Access = access;
@@ -87,9 +87,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The link expiration date.
         /// </summary>
-        /// <example>2026-12-31T23:59:59.0000000+00:00</example>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
-        public DateTime? ExpirationDate { get; set; }
+        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
+        public ApiDateTime ExpirationDate { get; set; }
 
         /// <summary>
         /// The link scope, whether it is internal or not.

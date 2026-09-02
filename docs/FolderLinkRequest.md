@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LinkId** | **Guid** | The folder link ID. | [optional] 
 **Access** | **FileShare** | The link sharing rights. | [optional] 
-**ExpirationDate** | **DateTime?** | The link expiration date. | [optional] 
+**ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) | The link expiration date. | [optional] 
 **Title** | **string** | The link name. | [optional] 
 **Password** | **string** | The link password. | [optional] 
 **DenyDownload** | **bool** | Specifies if downloading the file from the link is disabled or not. | [optional] 

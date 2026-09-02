@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="platform">The active connection platform..</param>
         /// <param name="date">The active connection date..</param>
         /// <param name="page">The active connection page..</param>
-        public ActiveConnectionsItemDto(int id = default, int tenantId = default, Guid userId = default, bool mobile = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, DateTime? date = default, string page = default)
+        public ActiveConnectionsItemDto(int id = default, int tenantId = default, Guid userId = default, bool mobile = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, ApiDateTime date = default, string page = default)
         {
             this.Id = id;
             this.TenantId = tenantId;
@@ -138,9 +138,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The active connection date.
         /// </summary>
-        /// <example>2024-01-15T10:30:00Z</example>
-        [DataMember(Name = "date", EmitDefaultValue = true)]
-        public DateTime? Date { get; set; }
+        [DataMember(Name = "date", EmitDefaultValue = false)]
+        public ApiDateTime Date { get; set; }
 
         /// <summary>
         /// The active connection page.

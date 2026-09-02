@@ -5,7 +5,7 @@ Represents an operation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **DateTime?** | The date when the operation took place. | [optional] 
+**Date** | [**ApiDateTime**](ApiDateTime.md) | The date when the operation took place. | [optional] 
 **Service** | **string** | The service related to the operation. | [optional] 
 **Description** | **string** | The brief operation description. | [optional] 
 **Details** | **string** | The detailed information about the operation. | [optional] 

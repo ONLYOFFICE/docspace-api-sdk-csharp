@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
         /// <param name="internal">The link scope, whether it is internal or not..</param>
         /// <param name="primary">Specifies whether the folder link is primary or not..</param>
-        public FolderLinkRequest(Guid linkId = default, FileShare? access = default, DateTime? expirationDate = default, string title = default, string password = default, bool denyDownload = default, bool @internal = default, bool primary = default)
+        public FolderLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, string title = default, string password = default, bool denyDownload = default, bool @internal = default, bool primary = default)
         {
             this.LinkId = linkId;
             this.Access = access;
@@ -77,9 +77,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The link expiration date.
         /// </summary>
-        /// <example>2021-01-01T00:00:00Z</example>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
-        public DateTime? ExpirationDate { get; set; }
+        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
+        public ApiDateTime ExpirationDate { get; set; }
 
         /// <summary>
         /// The link name.

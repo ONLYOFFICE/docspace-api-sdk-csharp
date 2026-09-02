@@ -319,6 +319,7 @@ catch (ApiException e)
 | **200** | Message about sending a link to confirm joining the DocSpace |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Incorrect email or email already exists |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **405** | Joining the portal is not available |  -  |
 | **429** | Request limit is exceeded |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |

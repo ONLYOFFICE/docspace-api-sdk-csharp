@@ -48,13 +48,8 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="date">The date and time when the new item was created. (required).</param>
         /// <param name="items">The list of items. (required).</param>
-        public AiNewItemsDtoAgentNewItemsDto(DateTime? date = default, List<AiAgentNewItemsDto> items = default)
+        public AiNewItemsDtoAgentNewItemsDto(DateTime date = default, List<AiAgentNewItemsDto> items = default)
         {
-            // to ensure "date" is required (not null)
-            if (date == null)
-            {
-                throw new ArgumentNullException("date is a required property for AiNewItemsDtoAgentNewItemsDto and cannot be null");
-            }
             this.Date = date;
             // to ensure "items" is required (not null)
             if (items == null)
@@ -67,9 +62,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when the new item was created.
         /// </summary>
-        /// <example>2025-01-01T00:00:00Z</example>
+        /// <example>2021-01-01T00:00:00.0000000Z</example>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// The list of items.

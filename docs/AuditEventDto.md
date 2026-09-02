@@ -6,7 +6,7 @@ The audit event parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The audit event ID. | [optional] 
-**Date** | **DateTime?** | The audit event date. | [optional] 
+**Date** | [**ApiDateTime**](ApiDateTime.md) | The audit event date. | [optional] 
 **User** | **string** | The name of the user who triggered the audit event. | [optional] 
 **UserId** | **Guid** | The ID of the user who triggered the audit event. | [optional] 
 **Action** | **string** | The audit event action. | [optional] 

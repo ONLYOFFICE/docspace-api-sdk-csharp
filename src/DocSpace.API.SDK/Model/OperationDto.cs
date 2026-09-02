@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="agentId">AI Agent id..</param>
         /// <param name="agentTitle">AI Agent name..</param>
         /// <param name="type">Type of the operation.</param>
-        public OperationDto(DateTime? date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string agentId = default, string agentTitle = default, OperationType? type = default)
+        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string agentId = default, string agentTitle = default, OperationType? type = default)
         {
             this.Date = date;
             this.Service = service;
@@ -82,9 +82,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date when the operation took place.
         /// </summary>
-        /// <example>2024-01-15T10:30:00Z</example>
-        [DataMember(Name = "date", EmitDefaultValue = true)]
-        public DateTime? Date { get; set; }
+        [DataMember(Name = "date", EmitDefaultValue = false)]
+        public ApiDateTime Date { get; set; }
 
         /// <summary>
         /// The service related to the operation.

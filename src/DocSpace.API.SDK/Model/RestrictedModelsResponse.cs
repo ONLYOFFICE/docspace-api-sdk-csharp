@@ -60,6 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The identifiers of the models the portal is not allowed to use.
         /// </summary>
+        /// <example>["gpt-4o","claude-3-opus"]</example>
         [DataMember(Name = "models", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Models { get; set; }
 

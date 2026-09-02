@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** | The ID of the invitation link. | [optional] 
 **EmployeeType** | **EmployeeType** | The type of employee role for the invitation link. | 
-**Expiration** | **DateTime?** | The expiration date of the invitation link. | [optional] 
+**Expiration** | [**ApiDateTime**](ApiDateTime.md) | The expiration date of the invitation link. | [optional] 
 **IsExpired** | **bool** | Indicates whether the invitation link has expired. | [optional] 
 **MaxUseCount** | **int?** | The maximum number of times the invitation link can be used. | [optional] 
 **CurrentUseCount** | **int** | The current number of times the invitation link has been used. | [optional] 

@@ -2164,22 +2164,22 @@ paths:
           type: integer
         style: simple
       - description: The start date of the history.
+        example: 2025-01-01T00:00:00.0000000Z
         explode: true
         in: query
         name: fromDate
         required: false
         schema:
-          example: 2025-01-01T00:00:00.0000000Z
           format: date-time
           type: string
         style: form
       - description: The end date of the history.
+        example: 2025-12-31T23:59:59.0000000Z
         explode: true
         in: query
         name: toDate
         required: false
         schema:
-          example: 2025-12-31T23:59:59.0000000Z
           format: date-time
           type: string
         style: form
@@ -5644,22 +5644,22 @@ paths:
           type: integer
         style: simple
       - description: The start date of the history request.
+        example: 2025-01-01T00:00:00.0000000Z
         explode: true
         in: query
         name: fromDate
         required: false
         schema:
-          example: 2025-01-01T00:00:00.0000000Z
           format: date-time
           type: string
         style: form
       - description: The end date of the history request.
+        example: 2025-12-31T23:59:59.0000000Z
         explode: true
         in: query
         name: toDate
         required: false
         schema:
-          example: 2025-12-31T23:59:59.0000000Z
           format: date-time
           type: string
         style: form
@@ -9167,7 +9167,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/FileOperationWrapper"
+                $ref: "#/components/schemas/FileOperationArrayWrapper"
           description: List of file operations
           headers:
             X-RateLimit-Limit:
@@ -36864,22 +36864,22 @@ paths:
           type: string
         style: form
       - description: The starting date and time for filtering audit events.
+        example: 2024-01-01T00:00:00Z
         explode: true
         in: query
         name: from
         required: false
         schema:
-          example: 2024-01-01T00:00:00Z
           format: date-time
           type: string
         style: form
       - description: The ending date and time for filtering audit events.
+        example: 2024-01-31T23:59:59Z
         explode: true
         in: query
         name: to
         required: false
         schema:
-          example: 2024-01-31T23:59:59Z
           format: date-time
           type: string
         style: form
@@ -37906,22 +37906,22 @@ paths:
           $ref: "#/components/schemas/MessageAction"
         style: form
       - description: The starting date and time for filtering login events.
+        example: 2024-01-15T10:30:00Z
         explode: true
         in: query
         name: from
         required: false
         schema:
-          example: 2024-01-15T10:30:00Z
           format: date-time
           type: string
         style: form
       - description: The ending date and time for filtering login events.
+        example: 2024-01-15T10:30:00Z
         explode: true
         in: query
         name: to
         required: false
         schema:
-          example: 2024-01-15T10:30:00Z
           format: date-time
           type: string
         style: form
@@ -42373,6 +42373,8 @@ paths:
           description: Incorrect email or email already exists
         "403":
           description: No permissions to perform this action
+        "405":
+          description: Joining the portal is not available
         "429":
           content:
             application/json:
@@ -44384,8 +44386,7 @@ paths:
         required: false
         schema:
           example:
-          - item1
-          - item2
+          - 00000000-0000-0000-0000-000000000000
           items:
             type: string
           type: array
@@ -48782,6 +48783,21 @@ components:
           type: boolean
       required:
       - request
+    ApiDateTime:
+      description: The API date and time parameters.
+      properties:
+        utcTime:
+          description: The time in UTC format.
+          example: 2018-01-01T00:00:00.0000000Z
+          format: date-time
+          readOnly: true
+          type: string
+        timeZoneOffset:
+          description: The time zone offset.
+          example: 00:00:00
+          format: date-span
+          readOnly: true
+          type: string
     ApplyFilterOption:
       description: "[0 - All, 1 - Files, 2 - Folders]"
       enum:
@@ -50975,7 +50991,7 @@ components:
           version: 2
           versionGroup: 1
           user: ""
-          created: 2021-01-01T00:00:00.0000000Z
+          created: ""
           changesHistory: Changes history text
           changes:
           - user:
@@ -50988,7 +51004,7 @@ components:
           version: 2
           versionGroup: 1
           user: ""
-          created: 2021-01-01T00:00:00.0000000Z
+          created: ""
           changesHistory: Changes history text
           changes:
           - user:
@@ -51052,10 +51068,9 @@ components:
           - $ref: "#/components/schemas/EditHistoryAuthor"
           description: The user who edited the file.
         created:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The creation date and time of the file version.
-          format: date-time
-          nullable: true
-          type: string
         documentSha256:
           description: The document hash generated by the SHA-256 algorithm.
           example: a1b2c3d4e5f6g7h8i9j0
@@ -51150,7 +51165,7 @@ components:
         version: 2
         versionGroup: 1
         user: ""
-        created: 2021-01-01T00:00:00.0000000Z
+        created: ""
         changesHistory: Changes history text
         changes:
         - user:
@@ -51185,11 +51200,9 @@ components:
           - $ref: "#/components/schemas/EditHistoryAuthor"
           description: The user who updated a file.
         created:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The document version creation date.
-          example: 2021-01-01T00:00:00.0000000Z
-          format: date-time
-          nullable: true
-          type: string
         changesHistory:
           description: The file history changes in the string format.
           example: Changes history text
@@ -51505,11 +51518,9 @@ components:
             - $ref: "#/components/schemas/EmployeeActivationStatus"
             description: The user activation status.
           terminated:
+            allOf:
+            - $ref: "#/components/schemas/ApiDateTime"
             description: The date when the user account was terminated.
-            example: 2025-06-01T00:00:00.0000000Z
-            format: date-time
-            nullable: true
-            type: string
           department:
             description: The user department.
             example: Marketing
@@ -51632,11 +51643,9 @@ components:
             - $ref: "#/components/schemas/EmployeeDto"
             description: The user who created the current user.
           registrationDate:
+            allOf:
+            - $ref: "#/components/schemas/ApiDateTime"
             description: The user registration date.
-            example: 2020-01-01T00:00:00.0000000Z
-            format: date-time
-            nullable: true
-            type: string
           hasPersonalFolder:
             description: Specifies if the user has a personal folder or not.
             example: true
@@ -51669,7 +51678,7 @@ components:
           value: user@example.com
         status: ""
         activationStatus: ""
-        terminated: 2025-06-01T00:00:00.0000000Z
+        terminated: ""
         department: Marketing
         groups:
         - id: 00000000-0000-0000-0000-000000000000
@@ -51697,7 +51706,7 @@ components:
         loginEventId: 123
         authCookieLifetime: 3600
         createdBy: ""
-        registrationDate: 2020-01-01T00:00:00.0000000Z
+        registrationDate: ""
         hasPersonalFolder: true
         tfaAppEnabled: false
     EmployeeStatus:
@@ -52326,17 +52335,13 @@ components:
           viewAccessibility:
             $ref: "#/components/schemas/FileDtoInteger_allOf_viewAccessibility"
           lastOpened:
+            allOf:
+            - $ref: "#/components/schemas/ApiDateTime"
             description: The time when the file was last opened.
-            example: 2021-01-01T00:00:00Z
-            format: date-time
-            nullable: true
-            type: string
           expired:
+            allOf:
+            - $ref: "#/components/schemas/ApiDateTime"
             description: The date when the file will be expired.
-            example: 2025-12-31T23:59:59Z
-            format: date-time
-            nullable: true
-            type: string
           vectorizationStatus:
             allOf:
             - $ref: "#/components/schemas/VectorizationStatus"
@@ -52365,10 +52370,10 @@ components:
         sharedExternal: false
         parentShared: false
         shortWebUrl: http://localhost/s/abc123
-        created: 2021-01-01T00:00:00Z
+        created: ""
         createdBy: ""
-        updated: 2021-01-01T00:00:00Z
-        autoDelete: 2021-01-01T00:00:00Z
+        updated: ""
+        autoDelete: ""
         rootFolderType: ""
         parentRoomType: ""
         updatedBy: ""
@@ -52390,7 +52395,7 @@ components:
         availableShareRights: "{ExternalLink=[Read, Edit]}"
         requestToken: token-abc-123
         external: false
-        expirationDate: 2021-01-01T00:00:00Z
+        expirationDate: ""
         isLinkExpired: false
         folderId: 10
         version: 3
@@ -52423,8 +52428,8 @@ components:
         resultsFolderId: 55
         draftLocation: ""
         viewAccessibility: "{ImageView=true, MediaView=true, WebView=true}"
-        lastOpened: 2021-01-01T00:00:00Z
-        expired: 2025-12-31T23:59:59Z
+        lastOpened: ""
+        expired: ""
         vectorizationStatus: ""
         externalDbTableName: form_123_v1
         dimensions: ""
@@ -52434,6 +52439,15 @@ components:
       properties:
         userKeys:
           description: The key pairs of the users who have access to the file.
+          example:
+          - id: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+            userId: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+            date: 2025-01-01T00:00:00
+            publicKey: |-
+              -----BEGIN PUBLIC KEY-----
+              MIIBIjANBg...
+            privateKeyEnc: U2FsdGVkX1+Lm3s...
+            cryptoEngineId: defaultCryptoEngine
           items:
             $ref: "#/components/schemas/EncryptionKeyDto"
           nullable: true
@@ -52441,6 +52455,13 @@ components:
           default: null
         fileKeys:
           description: The file keys issued to those users.
+          example:
+          - userId: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+            publicKeyId: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+            privateKeyEnc: U2FsdGVkX1+Lm3s...
+            tenantId: 1
+            fileId: 9846
+            createOn: 2025-01-01T00:00:00
           items:
             $ref: "#/components/schemas/FileKeys"
           nullable: true
@@ -52496,10 +52517,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -52518,10 +52539,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -52576,10 +52597,10 @@ components:
         sharedExternal: false
         parentShared: false
         shortWebUrl: http://localhost/s/abc123
-        created: 2021-01-01T00:00:00Z
+        created: ""
         createdBy: ""
-        updated: 2021-01-01T00:00:00Z
-        autoDelete: 2021-01-01T00:00:00Z
+        updated: ""
+        autoDelete: ""
         rootFolderType: ""
         parentRoomType: ""
         updatedBy: ""
@@ -52632,28 +52653,22 @@ components:
           nullable: true
           type: string
         created:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The creation date and time of the file entry.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         createdBy:
           allOf:
           - $ref: "#/components/schemas/EmployeeDto"
           description: The file entry author.
         updated:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The last date and time when the file entry was updated.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         autoDelete:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when the file entry will be automatically
             deleted.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         rootFolderType:
           allOf:
           - $ref: "#/components/schemas/FolderType"
@@ -52793,11 +52808,9 @@ components:
             nullable: true
             type: boolean
           expirationDate:
+            allOf:
+            - $ref: "#/components/schemas/ApiDateTime"
             description: Represents the expiration date of the file entry.
-            example: 2021-01-01T00:00:00Z
-            format: date-time
-            nullable: true
-            type: string
           isLinkExpired:
             description: Indicates whether the shareable link associated with the
               file or folder has expired.
@@ -52815,10 +52828,10 @@ components:
         sharedExternal: false
         parentShared: false
         shortWebUrl: http://localhost/s/abc123
-        created: 2021-01-01T00:00:00Z
+        created: ""
         createdBy: ""
-        updated: 2021-01-01T00:00:00Z
-        autoDelete: 2021-01-01T00:00:00Z
+        updated: ""
+        autoDelete: ""
         rootFolderType: ""
         parentRoomType: ""
         updatedBy: ""
@@ -52840,7 +52853,7 @@ components:
         availableShareRights: "{ExternalLink=[Read, Edit]}"
         requestToken: token-abc-123
         external: false
-        expirationDate: 2021-01-01T00:00:00Z
+        expirationDate: ""
         isLinkExpired: false
     FileEntryDtoString:
       allOf:
@@ -52898,11 +52911,9 @@ components:
             nullable: true
             type: boolean
           expirationDate:
+            allOf:
+            - $ref: "#/components/schemas/ApiDateTime"
             description: Represents the expiration date of the file entry.
-            example: 2021-01-01T00:00:00Z
-            format: date-time
-            nullable: true
-            type: string
           isLinkExpired:
             description: Indicates whether the shareable link associated with the
               file or folder has expired.
@@ -52924,10 +52935,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -52949,7 +52960,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
         - title: Some title.txt
           access: ""
@@ -52960,10 +52971,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -52985,7 +52996,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
         count: 0
         links:
@@ -53044,10 +53055,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -53069,7 +53080,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           folderId: 10
           version: 3
@@ -53102,8 +53113,8 @@ components:
           resultsFolderId: 55
           draftLocation: ""
           viewAccessibility: "{ImageView=true, MediaView=true, WebView=true}"
-          lastOpened: 2021-01-01T00:00:00Z
-          expired: 2025-12-31T23:59:59Z
+          lastOpened: ""
+          expired: ""
           vectorizationStatus: ""
           externalDbTableName: form_123_v1
           dimensions: ""
@@ -53116,10 +53127,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -53141,7 +53152,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           folderId: 10
           version: 3
@@ -53174,8 +53185,8 @@ components:
           resultsFolderId: 55
           draftLocation: ""
           viewAccessibility: "{ImageView=true, MediaView=true, WebView=true}"
-          lastOpened: 2021-01-01T00:00:00Z
-          expired: 2025-12-31T23:59:59Z
+          lastOpened: ""
+          expired: ""
           vectorizationStatus: ""
           externalDbTableName: form_123_v1
           dimensions: ""
@@ -53309,7 +53320,7 @@ components:
       example:
         linkId: 00000000-0000-0000-0000-000000000000
         access: ""
-        expirationDate: 2021-01-01T00:00:00Z
+        expirationDate: ""
         title: My Document
         internal: false
         primary: true
@@ -53326,11 +53337,9 @@ components:
           - $ref: "#/components/schemas/FileShare"
           description: The link sharing rights.
         expirationDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The link expiration date.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         title:
           description: The link name.
           example: My Document
@@ -53906,10 +53915,9 @@ components:
           nullable: true
           type: string
         expirationDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date when the shared link expires.
-          format: date-time
-          nullable: true
-          type: string
         linkType:
           allOf:
           - $ref: "#/components/schemas/LinkType"
@@ -55124,10 +55132,10 @@ components:
         sharedExternal: false
         parentShared: false
         shortWebUrl: http://localhost/s/abc123
-        created: 2021-01-01T00:00:00Z
+        created: ""
         createdBy: ""
-        updated: 2021-01-01T00:00:00Z
-        autoDelete: 2021-01-01T00:00:00Z
+        updated: ""
+        autoDelete: ""
         rootFolderType: ""
         parentRoomType: ""
         updatedBy: ""
@@ -55149,7 +55157,7 @@ components:
         availableShareRights: "{ExternalLink=[Read, Edit]}"
         requestToken: token-abc-123
         external: false
-        expirationDate: 2021-01-01T00:00:00Z
+        expirationDate: ""
         isLinkExpired: false
         parentId: 10
         filesCount: 5
@@ -55335,10 +55343,10 @@ components:
         sharedExternal: false
         parentShared: false
         shortWebUrl: http://localhost/s/abc123
-        created: 2021-01-01T00:00:00Z
+        created: ""
         createdBy: ""
-        updated: 2021-01-01T00:00:00Z
-        autoDelete: 2021-01-01T00:00:00Z
+        updated: ""
+        autoDelete: ""
         rootFolderType: ""
         parentRoomType: ""
         updatedBy: ""
@@ -55360,7 +55368,7 @@ components:
         availableShareRights: "{ExternalLink=[Read, Edit]}"
         requestToken: token-abc-123
         external: false
-        expirationDate: 2021-01-01T00:00:00Z
+        expirationDate: ""
         isLinkExpired: false
         parentId: "10"
         filesCount: 5
@@ -55405,10 +55413,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -55430,7 +55438,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           parentId: 10
           filesCount: 5
@@ -55470,10 +55478,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -55495,7 +55503,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           parentId: 10
           filesCount: 5
@@ -55599,7 +55607,7 @@ components:
       example:
         linkId: 00000000-0000-0000-0000-000000000000
         access: ""
-        expirationDate: 2021-01-01T00:00:00Z
+        expirationDate: ""
         title: My Document
         password: p@ssw0rd
         denyDownload: false
@@ -55616,11 +55624,9 @@ components:
           - $ref: "#/components/schemas/FileShare"
           description: The link sharing rights.
         expirationDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The link expiration date.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         title:
           description: The link name.
           example: My Document
@@ -55662,10 +55668,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -55687,7 +55693,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           parentId: "10"
           filesCount: 5
@@ -55727,10 +55733,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -55752,7 +55758,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           parentId: "10"
           filesCount: 5
@@ -56487,7 +56493,7 @@ components:
         - id: 123
           action: ""
           initiator: ""
-          date: 2021-01-01T00:00:00Z
+          date: ""
           data: ""
           related:
           - id: 124
@@ -56495,7 +56501,7 @@ components:
         - id: 123
           action: ""
           initiator: ""
-          date: 2021-01-01T00:00:00Z
+          date: ""
           data: ""
           related:
           - id: 124
@@ -56566,7 +56572,7 @@ components:
         id: 123
         action: ""
         initiator: ""
-        date: 2021-01-01T00:00:00Z
+        date: ""
         data: ""
         related:
         - id: 124
@@ -56586,11 +56592,9 @@ components:
           - $ref: "#/components/schemas/EmployeeDto"
           description: The action initiator.
         date:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when an action on the file was performed.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         data:
           allOf:
           - $ref: "#/components/schemas/HistoryData"
@@ -58009,7 +58013,7 @@ components:
     NewItemsDtoFileEntryBaseDto:
       description: The new item parameters.
       example:
-        date: 2025-01-01T00:00:00Z
+        date: ""
         items:
         - title: Some title.txt
           access: ""
@@ -58020,10 +58024,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -58042,10 +58046,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -58057,11 +58061,9 @@ components:
           fileEntryType: ""
       properties:
         date:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when the new item was created.
-          example: 2025-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         items:
           description: The list of items.
           items:
@@ -58075,7 +58077,7 @@ components:
     NewItemsDtoRoomNewItemsDto:
       description: The new item parameters.
       example:
-        date: 2025-01-01T00:00:00Z
+        date: ""
         items:
         - room: ""
           items:
@@ -58088,10 +58090,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58110,10 +58112,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58134,10 +58136,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58156,10 +58158,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58171,11 +58173,9 @@ components:
             fileEntryType: ""
       properties:
         date:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when the new item was created.
-          example: 2025-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         items:
           description: The list of items.
           items:
@@ -58191,7 +58191,7 @@ components:
         objects.
       example:
         response:
-        - date: 2025-01-01T00:00:00Z
+        - date: ""
           items:
           - title: Some title.txt
             access: ""
@@ -58202,10 +58202,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58224,10 +58224,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58237,7 +58237,7 @@ components:
             order: "1"
             isFavorite: false
             fileEntryType: ""
-        - date: 2025-01-01T00:00:00Z
+        - date: ""
           items:
           - title: Some title.txt
             access: ""
@@ -58248,10 +58248,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58270,10 +58270,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -58322,7 +58322,7 @@ components:
         objects.
       example:
         response:
-        - date: 2025-01-01T00:00:00Z
+        - date: ""
           items:
           - room: ""
             items:
@@ -58335,10 +58335,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -58357,10 +58357,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -58381,10 +58381,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -58403,10 +58403,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -58416,7 +58416,7 @@ components:
               order: "1"
               isFavorite: false
               fileEntryType: ""
-        - date: 2025-01-01T00:00:00Z
+        - date: ""
           items:
           - room: ""
             items:
@@ -58429,10 +58429,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -58451,10 +58451,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -58475,10 +58475,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -58497,10 +58497,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -59300,7 +59300,7 @@ components:
       example:
         linkId: 00000000-0000-0000-0000-000000000000
         access: ""
-        expirationDate: 2026-12-31T23:59:59.0000000+00:00
+        expirationDate: ""
         internal: false
         title: My Document
         linkType: ""
@@ -59319,11 +59319,9 @@ components:
           - $ref: "#/components/schemas/FileShare"
           description: The link sharing rights.
         expirationDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The link expiration date.
-          example: 2026-12-31T23:59:59.0000000+00:00
-          format: date-time
-          nullable: true
-          type: string
         internal:
           description: "The link scope, whether it is internal or not."
           example: false
@@ -59378,10 +59376,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -59400,10 +59398,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -59918,7 +59916,7 @@ components:
         fileName: My Document.docx
         fileSize: 10485760
         relativePath: subfolder/documents
-        createOn: 2025-01-01T00:00:00Z
+        createOn: ""
         encrypted: false
         createNewIfExist: true
       properties:
@@ -59938,11 +59936,9 @@ components:
           nullable: true
           type: string
         createOn:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when the file was created.
-          example: 2025-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         encrypted:
           description: Specifies whether the file is encrypted or not.
           example: false
@@ -62701,10 +62697,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -62726,7 +62722,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           parentId: 10
           filesCount: 5
@@ -62766,10 +62762,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -62791,7 +62787,7 @@ components:
           availableShareRights: "{ExternalLink=[Read, Edit]}"
           requestToken: token-abc-123
           external: false
-          expirationDate: 2021-01-01T00:00:00Z
+          expirationDate: ""
           isLinkExpired: false
           parentId: 10
           filesCount: 5
@@ -63010,10 +63006,10 @@ components:
         sharedExternal: false
         parentShared: false
         shortWebUrl: http://localhost/s/abc123
-        created: 2021-01-01T00:00:00Z
+        created: ""
         createdBy: ""
-        updated: 2021-01-01T00:00:00Z
-        autoDelete: 2021-01-01T00:00:00Z
+        updated: ""
+        autoDelete: ""
         rootFolderType: ""
         parentRoomType: ""
         updatedBy: ""
@@ -63035,7 +63031,7 @@ components:
         availableShareRights: "{ExternalLink=[Read, Edit]}"
         requestToken: token-abc-123
         external: false
-        expirationDate: 2021-01-01T00:00:00Z
+        expirationDate: ""
         isLinkExpired: false
         parentId: 10
         filesCount: 5
@@ -63373,11 +63369,9 @@ components:
             nullable: true
             type: boolean
           expirationDate:
+            allOf:
+            - $ref: "#/components/schemas/AiApiDateTime"
             description: Represents the expiration date of the file entry.
-            example: 2021-01-01T00:00:00Z
-            format: date-time
-            nullable: true
-            type: string
           isLinkExpired:
             description: Indicates whether the shareable link associated with the
               file or folder has expired.
@@ -63385,6 +63379,11 @@ components:
             nullable: true
             type: boolean
       description: The generic file entry information.
+    AiApiDateTime:
+      description: The API date and time parameters.
+      example: 2021-01-01T00:00:00.0000000Z
+      format: date-time
+      type: string
     AiFileEntryBaseDto:
       description: The file entry information.
       example:
@@ -63397,10 +63396,10 @@ components:
         sharedExternal: false
         parentShared: false
         shortWebUrl: http://localhost/s/abc123
-        created: 2021-01-01T00:00:00Z
+        created: ""
         createdBy: ""
-        updated: 2021-01-01T00:00:00Z
-        autoDelete: 2021-01-01T00:00:00Z
+        updated: ""
+        autoDelete: ""
         rootFolderType: ""
         parentRoomType: ""
         updatedBy: ""
@@ -63453,28 +63452,22 @@ components:
           nullable: true
           type: string
         created:
+          allOf:
+          - $ref: "#/components/schemas/AiApiDateTime"
           description: The creation date and time of the file entry.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         createdBy:
           allOf:
           - $ref: "#/components/schemas/AiEmployeeDto"
           description: The file entry author.
         updated:
+          allOf:
+          - $ref: "#/components/schemas/AiApiDateTime"
           description: The last date and time when the file entry was updated.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         autoDelete:
+          allOf:
+          - $ref: "#/components/schemas/AiApiDateTime"
           description: The date and time when the file entry will be automatically
             deleted.
-          example: 2021-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         rootFolderType:
           allOf:
           - $ref: "#/components/schemas/AiFolderType"
@@ -63775,7 +63768,7 @@ components:
         objects.
       example:
         response:
-        - date: 2025-01-01T00:00:00Z
+        - date: ""
           items:
           - agent: ""
             items:
@@ -63788,10 +63781,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -63810,10 +63803,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -63834,10 +63827,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -63856,10 +63849,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -63869,7 +63862,7 @@ components:
               order: "1"
               isFavorite: false
               fileEntryType: ""
-        - date: 2025-01-01T00:00:00Z
+        - date: ""
           items:
           - agent: ""
             items:
@@ -63882,10 +63875,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -63904,10 +63897,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -63928,10 +63921,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -63950,10 +63943,10 @@ components:
               sharedExternal: false
               parentShared: false
               shortWebUrl: http://localhost/s/abc123
-              created: 2021-01-01T00:00:00Z
+              created: ""
               createdBy: ""
-              updated: 2021-01-01T00:00:00Z
-              autoDelete: 2021-01-01T00:00:00Z
+              updated: ""
+              autoDelete: ""
               rootFolderType: ""
               parentRoomType: ""
               updatedBy: ""
@@ -64000,7 +63993,7 @@ components:
     AiNewItemsDtoAgentNewItemsDto:
       description: The new item parameters.
       example:
-        date: 2025-01-01T00:00:00Z
+        date: ""
         items:
         - agent: ""
           items:
@@ -64013,10 +64006,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -64035,10 +64028,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -64059,10 +64052,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -64081,10 +64074,10 @@ components:
             sharedExternal: false
             parentShared: false
             shortWebUrl: http://localhost/s/abc123
-            created: 2021-01-01T00:00:00Z
+            created: ""
             createdBy: ""
-            updated: 2021-01-01T00:00:00Z
-            autoDelete: 2021-01-01T00:00:00Z
+            updated: ""
+            autoDelete: ""
             rootFolderType: ""
             parentRoomType: ""
             updatedBy: ""
@@ -64096,11 +64089,9 @@ components:
             fileEntryType: ""
       properties:
         date:
+          allOf:
+          - $ref: "#/components/schemas/AiApiDateTime"
           description: The date and time when the new item was created.
-          example: 2025-01-01T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
         items:
           description: The list of items.
           items:
@@ -64125,10 +64116,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -64147,10 +64138,10 @@ components:
           sharedExternal: false
           parentShared: false
           shortWebUrl: http://localhost/s/abc123
-          created: 2021-01-01T00:00:00Z
+          created: ""
           createdBy: ""
-          updated: 2021-01-01T00:00:00Z
-          autoDelete: 2021-01-01T00:00:00Z
+          updated: ""
+          autoDelete: ""
           rootFolderType: ""
           parentRoomType: ""
           updatedBy: ""
@@ -64883,10 +64874,10 @@ components:
           - read
           - write
           - delete
-          lastUsed: 2025-06-15T10:30:00.0000000Z
-          createOn: 2025-06-15T10:30:00.0000000Z
+          lastUsed: ""
+          createOn: ""
           createBy: ""
-          expiresAt: 2025-06-15T10:30:00.0000000Z
+          expiresAt: ""
           isActive: true
         - id: 00000000-0000-0000-0000-000000000000
           name: My API Key
@@ -64896,10 +64887,10 @@ components:
           - read
           - write
           - delete
-          lastUsed: 2025-06-15T10:30:00.0000000Z
-          createOn: 2025-06-15T10:30:00.0000000Z
+          lastUsed: ""
+          createOn: ""
           createBy: ""
-          expiresAt: 2025-06-15T10:30:00.0000000Z
+          expiresAt: ""
           isActive: true
         count: 0
         links:
@@ -64945,10 +64936,10 @@ components:
         - read
         - write
         - delete
-        lastUsed: 2025-06-15T10:30:00.0000000Z
-        createOn: 2025-06-15T10:30:00.0000000Z
+        lastUsed: ""
+        createOn: ""
         createBy: ""
-        expiresAt: 2025-06-15T10:30:00.0000000Z
+        expiresAt: ""
         isActive: true
       properties:
         id:
@@ -64983,27 +64974,21 @@ components:
           type: array
           default: null
         lastUsed:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when the API key was last used.
-          example: 2025-06-15T10:30:00.0000000Z
-          format: date-time
-          nullable: true
-          type: string
         createOn:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when the API key was created.
-          example: 2025-06-15T10:30:00.0000000Z
-          format: date-time
-          nullable: true
-          type: string
         createBy:
           allOf:
           - $ref: "#/components/schemas/EmployeeDto"
           description: The identifier of the user who created the API key.
         expiresAt:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date and time when the API key expires.
-          example: 2025-06-15T10:30:00.0000000Z
-          format: date-time
-          nullable: true
-          type: string
         isActive:
           description: Indicates whether the API key is active or not.
           example: true
@@ -65309,7 +65294,7 @@ components:
             value: user@example.com
           status: ""
           activationStatus: ""
-          terminated: 2025-06-01T00:00:00.0000000Z
+          terminated: ""
           department: Marketing
           groups:
           - id: 00000000-0000-0000-0000-000000000000
@@ -65337,7 +65322,7 @@ components:
           loginEventId: 123
           authCookieLifetime: 3600
           createdBy: ""
-          registrationDate: 2020-01-01T00:00:00.0000000Z
+          registrationDate: ""
           hasPersonalFolder: true
           tfaAppEnabled: false
         - id: 00000000-0000-0000-0000-000000000000
@@ -65359,7 +65344,7 @@ components:
             value: user@example.com
           status: ""
           activationStatus: ""
-          terminated: 2025-06-01T00:00:00.0000000Z
+          terminated: ""
           department: Marketing
           groups:
           - id: 00000000-0000-0000-0000-000000000000
@@ -65387,7 +65372,7 @@ components:
           loginEventId: 123
           authCookieLifetime: 3600
           createdBy: ""
-          registrationDate: 2020-01-01T00:00:00.0000000Z
+          registrationDate: ""
           hasPersonalFolder: true
           tfaAppEnabled: false
         count: 0
@@ -66711,11 +66696,9 @@ components:
           nullable: true
           type: string
         date:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The active connection date.
-          example: 2024-01-15T10:30:00Z
-          format: date-time
-          nullable: true
-          type: string
         page:
           description: The active connection page.
           example: /rooms/shared
@@ -67430,7 +67413,7 @@ components:
       example:
         response:
         - id: 1
-          date: 2024-01-15T10:30:00Z
+          date: ""
           user: John Doe
           userId: 00000000-0000-0000-0000-000000000001
           action: User logged in
@@ -67452,7 +67435,7 @@ components:
           - Folder
           context: Security settings updated
         - id: 1
-          date: 2024-01-15T10:30:00Z
+          date: ""
           user: John Doe
           userId: 00000000-0000-0000-0000-000000000001
           action: User logged in
@@ -67510,7 +67493,7 @@ components:
       description: The audit event parameters.
       example:
         id: 1
-        date: 2024-01-15T10:30:00Z
+        date: ""
         user: John Doe
         userId: 00000000-0000-0000-0000-000000000001
         action: User logged in
@@ -67538,11 +67521,9 @@ components:
           format: int32
           type: integer
         date:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The audit event date.
-          example: 2024-01-15T10:30:00Z
-          format: date-time
-          nullable: true
-          type: string
         user:
           description: The name of the user who triggered the audit event.
           example: John Doe
@@ -70995,11 +70976,9 @@ components:
           - $ref: "#/components/schemas/EmployeeType"
           description: The type of employee role for the invitation link.
         expiration:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The expiration date of the invitation link.
-          example: 2024-01-15T10:30:00Z
-          format: date-time
-          nullable: true
-          type: string
         isExpired:
           description: Indicates whether the invitation link has expired.
           example: true
@@ -71318,7 +71297,7 @@ components:
       example:
         response:
         - id: 1
-          date: 2024-01-15T10:30:00Z
+          date: ""
           user: John Doe
           userId: "{}"
           login: user@example.com
@@ -71331,7 +71310,7 @@ components:
           platform: Windows
           page: /login
         - id: 1
-          date: 2024-01-15T10:30:00Z
+          date: ""
           user: John Doe
           userId: "{}"
           login: user@example.com
@@ -71380,7 +71359,7 @@ components:
       description: The login event parameters.
       example:
         id: 1
-        date: 2024-01-15T10:30:00Z
+        date: ""
         user: John Doe
         userId: "{}"
         login: user@example.com
@@ -71399,11 +71378,9 @@ components:
           format: int32
           type: integer
         date:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The login event date.
-          example: 2024-01-15T10:30:00Z
-          format: date-time
-          nullable: true
-          type: string
         user:
           description: The user name of the login event.
           example: John Doe
@@ -71682,13 +71659,6 @@ components:
             type: array
             default: null
       description: The migrating group parameters.
-      example:
-        shouldImport: true
-        groupName: Marketing Team
-        moduleName: Projects
-        userUidList:
-        - user1-uid
-        - user2-uid
     MigratingApiUser:
       allOf:
       - $ref: "#/components/schemas/ImportableApiEntity"
@@ -71728,15 +71698,6 @@ components:
             - $ref: "#/components/schemas/MigratingApiFiles"
             description: The user's migrating files.
       description: The migrating user parameters.
-      example:
-        shouldImport: true
-        key: abcd1234
-        email: john.doe@example.com
-        displayName: John Doe
-        firstName: John
-        lastName: Doe
-        userType: ""
-        migratingFiles: ""
     MigrationApiInfo:
       description: The migration API information.
       example:
@@ -71746,69 +71707,20 @@ components:
         - archive1.zip
         - archive2.zip
         users:
-        - shouldImport: true
-          key: abcd1234
-          email: john.doe@example.com
-          displayName: John Doe
-          firstName: John
-          lastName: Doe
-          userType: ""
-          migratingFiles: ""
-        - shouldImport: true
-          key: abcd1234
-          email: john.doe@example.com
-          displayName: John Doe
-          firstName: John
-          lastName: Doe
-          userType: ""
-          migratingFiles: ""
+        - id: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          email: user@example.com
+          shouldImport: true
         withoutEmailUsers:
-        - shouldImport: true
-          key: abcd1234
-          email: john.doe@example.com
-          displayName: John Doe
-          firstName: John
-          lastName: Doe
-          userType: ""
-          migratingFiles: ""
-        - shouldImport: true
-          key: abcd1234
-          email: john.doe@example.com
-          displayName: John Doe
-          firstName: John
-          lastName: Doe
-          userType: ""
-          migratingFiles: ""
+        - id: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          shouldImport: false
         existUsers:
-        - shouldImport: true
-          key: abcd1234
-          email: john.doe@example.com
-          displayName: John Doe
-          firstName: John
-          lastName: Doe
-          userType: ""
-          migratingFiles: ""
-        - shouldImport: true
-          key: abcd1234
-          email: john.doe@example.com
-          displayName: John Doe
-          firstName: John
-          lastName: Doe
-          userType: ""
-          migratingFiles: ""
+        - id: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+          email: existing@example.com
+          shouldImport: true
         groups:
-        - shouldImport: true
-          groupName: Marketing Team
-          moduleName: Projects
-          userUidList:
-          - user1-uid
-          - user2-uid
-        - shouldImport: true
-          groupName: Marketing Team
-          moduleName: Projects
-          userUidList:
-          - user1-uid
-          - user2-uid
+        - id: "1"
+          name: Group1
+          shouldImport: true
         importPersonalFiles: true
         importSharedFiles: true
         importSharedFolders: true
@@ -71846,6 +71758,10 @@ components:
           default: null
         users:
           description: The list of migrating users.
+          example:
+          - id: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+            email: user@example.com
+            shouldImport: true
           items:
             $ref: "#/components/schemas/MigratingApiUser"
           nullable: true
@@ -71853,6 +71769,9 @@ components:
           default: null
         withoutEmailUsers:
           description: The list of migrating users without email.
+          example:
+          - id: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+            shouldImport: false
           items:
             $ref: "#/components/schemas/MigratingApiUser"
           nullable: true
@@ -71860,6 +71779,10 @@ components:
           default: null
         existUsers:
           description: The list of existing migrating users.
+          example:
+          - id: 9924256B-447C-4F19-9dbd-8ad8c39e8ff5
+            email: existing@example.com
+            shouldImport: true
           items:
             $ref: "#/components/schemas/MigratingApiUser"
           nullable: true
@@ -71867,6 +71790,10 @@ components:
           default: null
         groups:
           description: The list of migrating groups.
+          example:
+          - id: "1"
+            name: Group1
+            shouldImport: true
           items:
             $ref: "#/components/schemas/MigratingApiGroup"
           nullable: true
@@ -72138,11 +72065,9 @@ components:
       description: Represents an operation.
       properties:
         date:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The date when the operation took place.
-          example: 2024-01-15T10:30:00Z
-          format: date-time
-          nullable: true
-          type: string
         service:
           description: The service related to the operation.
           example: Storage
@@ -73144,6 +73069,9 @@ components:
         models:
           description: The identifiers of the models the portal is not allowed to
             use.
+          example:
+          - gpt-4o
+          - claude-3-opus
           items:
             type: string
           nullable: true
@@ -76460,7 +76388,7 @@ components:
           unitOfMeasure: admins
           quantity: 100
           wallet: true
-          dueDate: 2026-07-08T11:39:43.0000000+03:00
+          dueDate: ""
           amount: 14
           currency: USD
         - id: -11
@@ -76469,7 +76397,7 @@ components:
           unitOfMeasure: admins
           quantity: 100
           wallet: true
-          dueDate: 2026-07-08T11:39:43.0000000+03:00
+          dueDate: ""
           amount: 14
           currency: USD
         count: 0
@@ -76514,7 +76442,7 @@ components:
         unitOfMeasure: admins
         quantity: 100
         wallet: true
-        dueDate: 2026-07-08T11:39:43.0000000+03:00
+        dueDate: ""
         amount: 14
         currency: USD
       properties:
@@ -76549,11 +76477,9 @@ components:
           example: true
           type: boolean
         dueDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The due date of the upcoming payment in the portal time zone.
-          example: 2026-07-08T11:39:43.0000000+03:00
-          format: date-time
-          nullable: true
-          type: string
         amount:
           description: The amount that will be charged (unit price multiplied by the
             quantity).
@@ -76932,14 +76858,14 @@ components:
         multiple web modules.
       example:
         items:
-        - item1
-        - item2
+        - key: 00000000-0000-0000-0000-000000000000
+          value: true
       properties:
         items:
           description: The list of module security configurations.
           example:
-          - item1
-          - item2
+          - key: 00000000-0000-0000-0000-000000000000
+            value: true
           items:
             $ref: "#/components/schemas/ItemKeyValuePairStringBoolean"
           nullable: true

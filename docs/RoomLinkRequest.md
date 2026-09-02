@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LinkId** | **Guid** | The room link ID. | [optional] 
 **Access** | **FileShare** | The link sharing rights. | [optional] 
-**ExpirationDate** | **DateTime?** | The link expiration date. | [optional] 
+**ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) | The link expiration date. | [optional] 
 **Internal** | **bool** | The link scope, whether it is internal or not. | [optional] 
 **Title** | **string** | The link name. | [optional] 
 **LinkType** | **LinkType** | The link type. | [optional] 

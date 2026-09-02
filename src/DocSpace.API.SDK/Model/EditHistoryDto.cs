@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="changesHistory">The file history changes in the string format..</param>
         /// <param name="changes">The list of file history changes..</param>
         /// <param name="serverVersion">The current server version number..</param>
-        public EditHistoryDto(int id = default, string key = default, int version = default, int versionGroup = default, EditHistoryAuthor user = default, DateTime? created = default, string changesHistory = default, List<EditHistoryChangesWrapper> changes = default, string serverVersion = default)
+        public EditHistoryDto(int id = default, string key = default, int version = default, int versionGroup = default, EditHistoryAuthor user = default, ApiDateTime created = default, string changesHistory = default, List<EditHistoryChangesWrapper> changes = default, string serverVersion = default)
         {
             this.Id = id;
             this.Key = key;
@@ -100,9 +100,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The document version creation date.
         /// </summary>
-        /// <example>2021-01-01T00:00:00.0000000Z</example>
-        [DataMember(Name = "created", EmitDefaultValue = true)]
-        public DateTime? Created { get; set; }
+        [DataMember(Name = "created", EmitDefaultValue = false)]
+        public ApiDateTime Created { get; set; }
 
         /// <summary>
         /// The file history changes in the string format.

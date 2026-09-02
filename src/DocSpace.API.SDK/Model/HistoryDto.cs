@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="date">The date and time when an action on the file was performed. (required).</param>
         /// <param name="data">The history data. (required).</param>
         /// <param name="related">The list of related history..</param>
-        public HistoryDto(int id = default, HistoryAction action = default, EmployeeDto initiator = default, DateTime? date = default, HistoryData data = default, List<HistoryDto> related = default)
+        public HistoryDto(int id = default, HistoryAction action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryData data = default, List<HistoryDto> related = default)
         {
             this.Id = id;
             // to ensure "action" is required (not null)
@@ -104,9 +104,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The date and time when an action on the file was performed.
         /// </summary>
-        /// <example>2021-01-01T00:00:00Z</example>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime? Date { get; set; }
+        public ApiDateTime Date { get; set; }
 
         /// <summary>
         /// The history data.

@@ -1312,7 +1312,7 @@ catch (ApiException e)
 
 <a id="deletefileversions"></a>
 # **DeleteFileVersions**
-> FileOperationWrapper DeleteFileVersions (DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = null)
+> FileOperationArrayWrapper DeleteFileVersions (DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = null)
 
 Deletes the file versions with the IDs specified in the request.
 
@@ -1326,7 +1326,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**FileOperationWrapper**](FileOperationWrapper.md)
+[**FileOperationArrayWrapper**](FileOperationArrayWrapper.md)
 
 ### Authorization
 
@@ -1374,7 +1374,7 @@ namespace Example
             try
             {
                 // Delete file versions
-                FileOperationWrapper result = apiInstance.DeleteFileVersions(deleteVersionBatchRequestDto);
+                FileOperationArrayWrapper result = apiInstance.DeleteFileVersions(deleteVersionBatchRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1395,7 +1395,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete file versions
-    ApiResponse<FileOperationWrapper> response = apiInstance.DeleteFileVersionsWithHttpInfo(deleteVersionBatchRequestDto);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFileVersionsWithHttpInfo(deleteVersionBatchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

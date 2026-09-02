@@ -4232,6 +4232,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiWebSearchMutationResult](docs/AiWebSearchMutationResult.md)
  - [Model.AiWebSearchPricing](docs/AiWebSearchPricing.md)
  - [Model.AnonymousConfigDto](docs/AnonymousConfigDto.md)
+ - [Model.ApiDateTime](docs/ApiDateTime.md)
  - [Model.ApiKeyResponseArrayWrapper](docs/ApiKeyResponseArrayWrapper.md)
  - [Model.ApiKeyResponseDto](docs/ApiKeyResponseDto.md)
  - [Model.ApiKeyResponseWrapper](docs/ApiKeyResponseWrapper.md)
