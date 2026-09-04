@@ -12,7 +12,7 @@ info:
     name: AGPL-3.0-only
     url: https://www.gnu.org/licenses/agpl-3.0.html
   title: Api
-  version: 3.7.0
+  version: 4.0.0
   x-scalar-sdk-installation:
   - lang: Node
     description: "Install our **ONLYOFFICE SDK** for Node.js from npm:"
@@ -10199,7 +10199,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ChunkedUploadSessionResponseIntegerWrapper"
-          description: OK
+          description: Information about created session
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -10379,7 +10379,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/UploadSessionResponseIntegerWrapper"
-          description: OK
+          description: "Current state of the upload session and, once the upload is\
+            \ complete, the uploaded file"
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -10488,7 +10489,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ChunkedUploadSessionResponseIntegerWrapper"
-          description: OK
+          description: "Updated information about the upload session, including the\
+            \ current progress"
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -10575,7 +10577,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/UploadSessionResponseIntegerWrapper"
-          description: OK
+          description: "Details about the completed upload session, including the\
+            \ file metadata"
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -17313,7 +17316,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectArrayWrapper"
+                $ref: "#/components/schemas/STRINGArrayWrapper"
           description: List of tag names
           headers:
             X-RateLimit-Limit:
@@ -17927,7 +17930,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RoomGroupArrayWrapper"
-          description: OK
+          description: List of room groups
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -17997,7 +18000,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
+          description: The newly created room group
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -18158,7 +18161,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
+          description: The room group with the detailed information
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -18240,7 +18243,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
+          description: The updated room group
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -18322,7 +18325,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
+          description: The room group with the updated icon
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -18385,7 +18388,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/EncryptionKeyArrayWrapper"
-          description: OK
+          description: The encryption keys of the current user
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -18586,7 +18589,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/EncryptionKeyArrayWrapper"
-          description: OK
+          description: The encryption keys associated with the privacy room
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -25602,7 +25605,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/TokenDiagnosticsWrapper"
           description: Claims
           headers:
             X-RateLimit-Limit:
@@ -26893,7 +26896,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectArrayWrapper"
+                $ref: "#/components/schemas/IAccountEntryArrayWrapper"
           description: Ok
           headers:
             X-RateLimit-Limit:
@@ -27091,7 +27094,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectArrayWrapper"
+                $ref: "#/components/schemas/IAccountEntryArrayWrapper"
           description: Ok
           headers:
             X-RateLimit-Limit:
@@ -27289,7 +27292,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectArrayWrapper"
+                $ref: "#/components/schemas/IAccountEntryArrayWrapper"
           description: Ok
           headers:
             X-RateLimit-Limit:
@@ -29066,7 +29069,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/EmployeeWrapper"
-          description: Ok
+          description: The newly created user linked to the third-party account
           headers:
             X-RateLimit-Limit:
               $ref: "#/components/headers/X-RateLimit-Limit"
@@ -30729,7 +30732,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/UnknownNullableWrapper"
           description: Application settings JSON
           headers:
             X-RateLimit-Limit:
@@ -34413,6 +34416,94 @@ paths:
       summary: Start the customer monthly usage report generation
       tags:
       - Portal / Payment
+  /api/2.0/portal/payment/accounting/prices/{serviceName}:
+    get:
+      description: Returns the list of prices of the specified service from the accounting
+        service.
+      operationId: getAccountingServicePrices
+      parameters:
+      - description: The service name.
+        explode: false
+        in: path
+        name: serviceName
+        required: true
+        schema:
+          example: ai-tools
+          maxLength: 255
+          minLength: 0
+          type: string
+        style: simple
+      - description: Specifies whether to return only the active prices. The default
+          value is false.
+        explode: true
+        in: query
+        name: active
+        required: false
+        schema:
+          example: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServicePriceInfoArrayWrapper"
+          description: The list of the service prices
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+            X-RateLimit-Remaining:
+              $ref: "#/components/headers/X-RateLimit-Remaining"
+            X-RateLimit-Reset:
+              $ref: "#/components/headers/X-RateLimit-Reset"
+        "403":
+          description: No permissions to perform this action
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Unauthorized
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Too Many Requests.
+          headers:
+            Retry-After:
+              $ref: "#/components/headers/Retry-After"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Internal Server Error.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApiResponse"
+          description: Bad Request.
+        "502":
+          description: "Bad Gateway. Returned by the reverse proxy, response body\
+            \ may be HTML and not JSON."
+        "503":
+          description: "Service Unavailable. Returned by the reverse proxy, response\
+            \ body may be HTML and not JSON."
+      security:
+      - asc_auth_key: []
+      - Bearer: []
+      - ApiKeyBearer: []
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get the service prices from the accounting service
+      tags:
+      - Portal / Payment
   /api/2.0/portal/payment/topupsettings:
     get:
       description: Returns the wallet auto top up settings for the current tenant.
@@ -34698,7 +34789,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AiPricesResponseWrapper"
+                $ref: "#/components/schemas/AiPricesWrapper"
           description: Prices for AI models
           headers:
             X-RateLimit-Limit:
@@ -35289,7 +35380,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/StringWrapper"
           description: Portal path
           headers:
             X-RateLimit-Limit:
@@ -36978,7 +37069,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/AuditTrailTypesWrapper"
           description: Audit trail types
           headers:
             X-RateLimit-Limit:
@@ -37056,7 +37147,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/AuditTrailProductMapperArrayWrapper"
           description: Audit trail mappers
           headers:
             X-RateLimit-Limit:
@@ -39148,7 +39239,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/StringWrapper"
           description: Portal hostname
           headers:
             X-RateLimit-Limit:
@@ -39785,7 +39876,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/SocketSettingsWrapper"
           description: "Socket settings: hub URL"
           headers:
             X-RateLimit-Limit:
@@ -41286,7 +41377,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/StringWrapper"
           description: "Greeting settings: tenant name"
           headers:
             X-RateLimit-Limit:
@@ -44609,7 +44700,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/EnabledModuleArrayWrapper"
           description: List of enabled modules
           headers:
             X-RateLimit-Limit:
@@ -45321,7 +45412,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/SsoSettingsV2ConstantsWrapper"
           description: "The SSO settings constants: SSO name ID format type, SSO binding\
             \ type, SSO signing algorithm type, SSO SP certificate action type, SSO\
             \ IDP certificate action type"
@@ -45952,7 +46043,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/AmazonS3RegionArrayWrapper"
           description: List of the Amazon regions
           headers:
             X-RateLimit-Limit:
@@ -47931,7 +48022,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/StringWrapper"
           description: Code request
           headers:
             X-RateLimit-Limit:
@@ -51320,7 +51411,16 @@ components:
       - mode
     EditorToolCallParametersDto:
       description: The editor tool call parameters.
-      type: object
+      oneOf:
+      - allOf:
+        - $ref: "#/components/schemas/GenerateDocxToolCallParametersDto"
+        description: The generate docx tool call parameters.
+      - allOf:
+        - $ref: "#/components/schemas/GenerateFormToolCallParametersDto"
+        description: The generate form tool call parameters.
+      - allOf:
+        - $ref: "#/components/schemas/GeneratePresentationToolCallParametersDto"
+        description: The generate presentation tool call parameters.
       x-derived: true
       x-derived-types:
       - GenerateDocxToolCallParametersDto
@@ -56291,6 +56391,39 @@ components:
           type: string
         type:
           description: "The form item type.\r\n            <example>text</example>"
+          nullable: true
+          type: string
+    GenerateDocxToolCallParametersDto:
+      description: The generate docx tool call parameters.
+      properties:
+        description:
+          description: The description of the document to generate.
+          nullable: true
+          type: string
+      required:
+      - description
+    GenerateFormToolCallParametersDto:
+      description: The generate form tool call parameters.
+      properties:
+        description:
+          description: The description of the form to generate.
+          nullable: true
+          type: string
+      required:
+      - description
+    GeneratePresentationToolCallParametersDto:
+      description: The generate presentation tool call parameters.
+      properties:
+        topic:
+          description: The presentation topic.
+          nullable: true
+          type: string
+        slideCount:
+          description: The number of slides.
+          nullable: true
+          type: string
+        style:
+          description: The visual style.
           nullable: true
           type: string
     GetReferenceDataDtoInteger:
@@ -63381,9 +63514,19 @@ components:
       description: The generic file entry information.
     AiApiDateTime:
       description: The API date and time parameters.
-      example: 2021-01-01T00:00:00.0000000Z
-      format: date-time
-      type: string
+      properties:
+        utcTime:
+          description: The time in UTC format.
+          example: 2018-01-01T00:00:00.0000000Z
+          format: date-time
+          readOnly: true
+          type: string
+        timeZoneOffset:
+          description: The time zone offset.
+          example: 00:00:00
+          format: date-span
+          readOnly: true
+          type: string
     AiFileEntryBaseDto:
       description: The file entry information.
       example:
@@ -65786,6 +65929,59 @@ components:
           description: HTTP status code of the response (duplicate of status)
           format: int32
           type: integer
+    IAccountEntryArrayWrapper:
+      description: The successful API response containing the list of IAccountEntryDto
+        objects.
+      example:
+        response:
+        - ""
+        - ""
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          description: The list of IAccountEntryDto objects returned by the operation.
+          items:
+            $ref: "#/components/schemas/IAccountEntryDto"
+          type: array
+          default: null
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+    IAccountEntryDto:
+      description: "One entry of an account search: either a user or a group."
+      oneOf:
+      - allOf:
+        - $ref: "#/components/schemas/EmployeeFullDto"
+        description: The full list of user parameters.
+      - allOf:
+        - $ref: "#/components/schemas/GroupDto"
+        description: The group parameters.
+      x-derived: true
+      x-derived-types:
+      - EmployeeFullDto
+      - GroupDto
     InviteUsersRequestDto:
       description: The request parameters for inviting users.
       example:
@@ -65963,40 +66159,6 @@ components:
           nullable: true
           type: array
           default: null
-    ObjectWrapper:
-      description: The successful API response.
-      example:
-        response: "{}"
-        count: 0
-        links:
-        - href: href
-          action: action
-        - href: href
-          action: action
-        status: 6
-        statusCode: 1
-      properties:
-        response:
-          description: The response payload.
-          type: object
-        count:
-          description: The total number of items in the response
-          format: int32
-          type: integer
-        links:
-          description: List of links related to the response
-          items:
-            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
-          type: array
-          default: null
-        status:
-          description: HTTP status code of the response
-          format: int32
-          type: integer
-        statusCode:
-          description: HTTP status code of the response (duplicate of status)
-          format: int32
-          type: integer
     Payments:
       description: "[0 - Paid, 1 - Free]"
       enum:
@@ -66291,6 +66453,59 @@ components:
         height:
           description: The thumbnail height.
           example: 200
+          format: int32
+          type: integer
+    TokenDiagnosticsDto:
+      description: "What the current token carries, for diagnostics."
+      properties:
+        name:
+          description: The name of the authenticated identity.
+          example: user@example.com
+          nullable: true
+          type: string
+        claims:
+          description: "The claims of the identity, each formatted as type:value."
+          example:
+          - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name:user@example.com
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
+    TokenDiagnosticsWrapper:
+      description: The successful API response containing the TokenDiagnosticsDto
+        object.
+      example:
+        response: ""
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          allOf:
+          - $ref: "#/components/schemas/TokenDiagnosticsDto"
+          description: The TokenDiagnosticsDto object returned by the operation.
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
           format: int32
           type: integer
     UpdateApiKeyRequest:
@@ -67054,200 +67269,296 @@ components:
       required:
       - email
       - message
-    AiChatModelPricing:
-      description: The pricing of a single chat model.
-      properties:
-        id:
-          description: "The identifier of the model, as the provider expects it on\
-            \ the wire."
-          example: gpt-4o
-          nullable: true
-          type: string
-        alias:
-          description: The display name of the model.
-          example: GPT-4o
-          nullable: true
-          type: string
-        ownedBy:
-          description: "The owner of the model, as reported by the provider."
-          example: openai
-          nullable: true
-          type: string
-        provider:
-          description: The provider that serves the model.
-          example: openai
-          nullable: true
-          type: string
-        link:
-          description: The link to the pricing page of the model.
-          example: https://openai.com/api/pricing
-          nullable: true
-          type: string
-        price:
-          allOf:
-          - $ref: "#/components/schemas/AiChatPrice"
-          description: "The price of a chat model, per token."
-      required:
-      - id
-      - price
-    AiChatPrice:
-      description: "The price of a chat model, per token."
+    AiChatPriceDto:
+      description: Data transfer object that represents the pricing information for
+        an AI chat interaction.
       properties:
         prompt:
-          description: The price of a single prompt token.
-          example: 2.5E-6
+          description: Gets the price per one million prompt tokens.
+          example: 5.0
           format: double
           type: number
         completion:
-          description: The price of a single completion token.
-          example: 1.0E-5
+          description: Gets the price per one million completion tokens.
+          example: 15.0
           format: double
           type: number
-    AiEmbeddingModelPricing:
-      description: The pricing of a single embedding model.
+    AiEmbeddingPriceDto:
+      description: "Represents a data transfer object that encapsulates pricing information\
+        \ for AI embedding operations.\r\nThis DTO is used to transport cost-related\
+        \ details associated with generating embeddings through AI models."
+      properties:
+        prompt:
+          description: Gets the price per one million tokens for embedding generation.
+          example: 0.13
+          format: double
+          type: number
+    AiEntryPricingDtoAiChatPriceDto:
+      description: "Data transfer object that represents pricing information for a\
+        \ specific AI service entry.\r\nContains identification details, provider\
+        \ information, and associated pricing data of generic type T."
       properties:
         id:
-          description: "The identifier of the model, as the provider expects it on\
-            \ the wire."
+          description: Gets the unique identifier for the AI pricing entry.
           example: gpt-4o
           nullable: true
           type: string
         alias:
-          description: The display name of the model.
+          description: Gets the display name (alias) for the AI model or service entry.
           example: GPT-4o
           nullable: true
           type: string
-        ownedBy:
-          description: "The owner of the model, as reported by the provider."
-          example: openai
-          nullable: true
-          type: string
         provider:
-          description: The provider that serves the model.
+          description: Gets the provider name for the AI service or model.
           example: openai
           nullable: true
           type: string
-        link:
-          description: The link to the pricing page of the model.
-          example: https://openai.com/api/pricing
+        image:
+          description: Gets the image URL or identifier associated with the AI model
+            entry.
+          example: https://cdn.example.com/providers/openai.png
           nullable: true
           type: string
         price:
           allOf:
-          - $ref: "#/components/schemas/AiEmbeddingPrice"
-          description: "The price of an embedding model, per token."
+          - $ref: "#/components/schemas/AiChatPriceDto"
+          description: Gets the pricing information for the AI entry.
+        link:
+          description: Gets the URL link to the AI model or service entry.
+          example: https://openai.com/pricing
+          nullable: true
+          type: string
       required:
+      - alias
       - id
+      - image
+      - link
       - price
-    AiEmbeddingPrice:
-      description: "The price of an embedding model, per token."
-      properties:
-        prompt:
-          description: The price of a single input token.
-          example: 2.0E-8
-          format: double
-          type: number
-    AiImageModelPricing:
-      description: The pricing of a single image model.
+      - provider
+    AiEntryPricingDtoAiEmbeddingPriceDto:
+      description: "Data transfer object that represents pricing information for a\
+        \ specific AI service entry.\r\nContains identification details, provider\
+        \ information, and associated pricing data of generic type T."
       properties:
         id:
-          description: "The identifier of the model, as the provider expects it on\
-            \ the wire."
+          description: Gets the unique identifier for the AI pricing entry.
           example: gpt-4o
           nullable: true
           type: string
         alias:
-          description: The display name of the model.
+          description: Gets the display name (alias) for the AI model or service entry.
           example: GPT-4o
           nullable: true
           type: string
-        ownedBy:
-          description: "The owner of the model, as reported by the provider."
-          example: openai
-          nullable: true
-          type: string
         provider:
-          description: The provider that serves the model.
+          description: Gets the provider name for the AI service or model.
           example: openai
           nullable: true
           type: string
-        link:
-          description: The link to the pricing page of the model.
-          example: https://openai.com/api/pricing
+        image:
+          description: Gets the image URL or identifier associated with the AI model
+            entry.
+          example: https://cdn.example.com/providers/openai.png
           nullable: true
           type: string
         price:
           allOf:
-          - $ref: "#/components/schemas/AiImagePrice"
-          description: "The price of an image model: per prompt token and per generated\
-            \ image."
+          - $ref: "#/components/schemas/AiEmbeddingPriceDto"
+          description: Gets the pricing information for the AI entry.
+        link:
+          description: Gets the URL link to the AI model or service entry.
+          example: https://openai.com/pricing
+          nullable: true
+          type: string
       required:
+      - alias
       - id
+      - image
+      - link
       - price
-    AiImagePrice:
-      description: "The price of an image model: per prompt token and per generated\
-        \ image."
+      - provider
+    AiEntryPricingDtoAiImagePriceDto:
+      description: "Data transfer object that represents pricing information for a\
+        \ specific AI service entry.\r\nContains identification details, provider\
+        \ information, and associated pricing data of generic type T."
+      properties:
+        id:
+          description: Gets the unique identifier for the AI pricing entry.
+          example: gpt-4o
+          nullable: true
+          type: string
+        alias:
+          description: Gets the display name (alias) for the AI model or service entry.
+          example: GPT-4o
+          nullable: true
+          type: string
+        provider:
+          description: Gets the provider name for the AI service or model.
+          example: openai
+          nullable: true
+          type: string
+        image:
+          description: Gets the image URL or identifier associated with the AI model
+            entry.
+          example: https://cdn.example.com/providers/openai.png
+          nullable: true
+          type: string
+        price:
+          allOf:
+          - $ref: "#/components/schemas/AiImagePriceDto"
+          description: Gets the pricing information for the AI entry.
+        link:
+          description: Gets the URL link to the AI model or service entry.
+          example: https://openai.com/pricing
+          nullable: true
+          type: string
+      required:
+      - alias
+      - id
+      - image
+      - link
+      - price
+      - provider
+    AiEntryPricingDtoDecimal:
+      description: "Data transfer object that represents pricing information for a\
+        \ specific AI service entry.\r\nContains identification details, provider\
+        \ information, and associated pricing data of generic type T."
+      properties:
+        id:
+          description: Gets the unique identifier for the AI pricing entry.
+          example: gpt-4o
+          nullable: true
+          type: string
+        alias:
+          description: Gets the display name (alias) for the AI model or service entry.
+          example: GPT-4o
+          nullable: true
+          type: string
+        provider:
+          description: Gets the provider name for the AI service or model.
+          example: openai
+          nullable: true
+          type: string
+        image:
+          description: Gets the image URL or identifier associated with the AI model
+            entry.
+          example: https://cdn.example.com/providers/openai.png
+          nullable: true
+          type: string
+        price:
+          description: Gets the pricing information for the AI entry.
+          example:
+            prompt: 5.0
+            completion: 15.0
+          format: double
+          type: number
+        link:
+          description: Gets the URL link to the AI model or service entry.
+          example: https://openai.com/pricing
+          nullable: true
+          type: string
+      required:
+      - alias
+      - id
+      - image
+      - link
+      - price
+      - provider
+    AiImagePriceDto:
+      description: Data transfer object that represents the pricing information for
+        an AI image generation.
       properties:
         prompt:
-          description: The price of a single prompt token.
-          example: 1.0E-5
+          description: Gets the price per one million prompt tokens.
+          example: 8.0
           format: double
           type: number
         completion:
-          description: The cost associated with the completion of a prompt in an AI
-            model.
-          example: 1.0E-5
+          description: Gets the price per one million completion tokens.
+          example: 15.0
           format: double
           type: number
         image:
-          description: The price of a single generated image.
-          example: 0.04
+          description: Gets the price per generated image.
+          example: 30.0
           format: double
           type: number
-    AiPricesResponse:
-      description: "The AI price list: per-model pricing for every model kind, in\
-        \ a single currency."
+    AiPricesDto:
+      description: "Data transfer object that encapsulates comprehensive pricing information\
+        \ for various AI services.\r\nProvides organized collections of pricing details\
+        \ for chat models, embedding services, and web search functionality,\r\nalong\
+        \ with the currency in which prices are denominated."
       properties:
         chat:
-          description: The pricing of every available chat model.
+          description: Gets the list of pricing entries for AI chat models.
+          example:
+          - id: gpt-4o
+            alias: GPT-4o
+            provider: openai
+            image: https://cdn.example.com/providers/openai.png
+            price:
+              prompt: 5.0
+              completion: 15.0
           items:
-            $ref: "#/components/schemas/AiChatModelPricing"
+            $ref: "#/components/schemas/AiEntryPricingDtoAiChatPriceDto"
           nullable: true
           type: array
           default: null
         embedding:
-          description: The pricing of every available embedding model.
+          description: Gets the list of pricing entries for AI embedding models.
+          example:
+          - id: text-embedding-3-large
+            alias: Text Embedding 3 Large
+            provider: openai
+            image: https://cdn.example.com/providers/openai.png
+            price:
+              prompt: 0.13
           items:
-            $ref: "#/components/schemas/AiEmbeddingModelPricing"
+            $ref: "#/components/schemas/AiEntryPricingDtoAiEmbeddingPriceDto"
           nullable: true
           type: array
           default: null
         image:
-          description: The pricing of every available image model.
+          description: Gets the list of pricing entries for AI image models.
+          example:
+          - id: gpt-5.4-image-2
+            alias: GPT 5.4 Image 2
+            provider: OpenRouter
+            image: https://cdn.example.com/providers/openai.png
+            price:
+              prompt: 8.0
+              completion: 15.0
+              image: 30.0
           items:
-            $ref: "#/components/schemas/AiImageModelPricing"
+            $ref: "#/components/schemas/AiEntryPricingDtoAiImagePriceDto"
           nullable: true
           type: array
           default: null
-        search:
-          description: The pricing of every available web search provider.
+        webSearch:
+          description: Gets the list of pricing entries for AI web search operations.
+          example:
+          - id: web-search
+            alias: Web Search
+            provider: tavily
+            image: https://cdn.example.com/providers/tavily.png
+            price: 0.01
           items:
-            $ref: "#/components/schemas/AiWebSearchPricing"
+            $ref: "#/components/schemas/AiEntryPricingDtoDecimal"
           nullable: true
           type: array
           default: null
         currency:
           allOf:
           - $ref: "#/components/schemas/CurrencyInfo"
-          description: The currency the AI prices are quoted in.
+          description: Gets the currency information for the AI pricing data.
       required:
       - chat
       - currency
       - embedding
       - image
-      - search
-    AiPricesResponseWrapper:
-      description: The successful API response containing the AiPricesResponse object.
+      - webSearch
+    AiPricesWrapper:
+      description: The successful API response containing the AiPricesDto object.
       example:
         response: ""
         count: 0
@@ -67261,8 +67572,8 @@ components:
       properties:
         response:
           allOf:
-          - $ref: "#/components/schemas/AiPricesResponse"
-          description: The AiPricesResponse object returned by the operation.
+          - $ref: "#/components/schemas/AiPricesDto"
+          description: The AiPricesDto object returned by the operation.
         count:
           description: The total number of items in the response
           format: int32
@@ -67281,27 +67592,95 @@ components:
           description: HTTP status code of the response (duplicate of status)
           format: int32
           type: integer
-    AiWebSearchPricing:
-      description: "The pricing of a single web search provider, per request."
+    AmazonS3RegionArrayWrapper:
+      description: The successful API response containing the list of AmazonS3RegionDto
+        objects.
+      example:
+        response:
+        - systemName: eu-west-1
+          displayName: Europe (Ireland)
+          partitionName: aws
+          partitionDnsSuffix: amazonaws.com
+          partitionRegionRegex: ^(us|eu|ap|sa|ca|me|af|il|mx)\-\w+\-\d+$
+          hostnameTemplate: "{service}.{region}.{dnsSuffix}"
+        - systemName: eu-west-1
+          displayName: Europe (Ireland)
+          partitionName: aws
+          partitionDnsSuffix: amazonaws.com
+          partitionRegionRegex: ^(us|eu|ap|sa|ca|me|af|il|mx)\-\w+\-\d+$
+          hostnameTemplate: "{service}.{region}.{dnsSuffix}"
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
       properties:
-        id:
-          description: The identifier of the web search provider.
-          example: brave
+        response:
+          description: The list of AmazonS3RegionDto objects returned by the operation.
+          items:
+            $ref: "#/components/schemas/AmazonS3RegionDto"
+          type: array
+          default: null
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+    AmazonS3RegionDto:
+      description: An Amazon S3 region.
+      example:
+        systemName: eu-west-1
+        displayName: Europe (Ireland)
+        partitionName: aws
+        partitionDnsSuffix: amazonaws.com
+        partitionRegionRegex: ^(us|eu|ap|sa|ca|me|af|il|mx)\-\w+\-\d+$
+        hostnameTemplate: "{service}.{region}.{dnsSuffix}"
+      properties:
+        systemName:
+          description: The region system name.
+          example: eu-west-1
           nullable: true
           type: string
-        provider:
-          description: The provider that serves the web search requests.
-          example: brave
+        displayName:
+          description: The human-readable region name.
+          example: Europe (Ireland)
           nullable: true
           type: string
-        price:
-          description: The price of a single web search request.
-          example: 0.005
-          format: double
-          type: number
-        link:
-          description: The link to the pricing page of the provider.
-          example: https://brave.com/search/api
+        partitionName:
+          description: The name of the AWS partition the region belongs to.
+          example: aws
+          nullable: true
+          type: string
+        partitionDnsSuffix:
+          description: The DNS suffix of the partition.
+          example: amazonaws.com
+          nullable: true
+          type: string
+        partitionRegionRegex:
+          description: The pattern the region names of the partition match.
+          example: ^(us|eu|ap|sa|ca|me|af|il|mx)\-\w+\-\d+$
+          nullable: true
+          type: string
+        hostnameTemplate:
+          description: The template the partition builds service endpoint hostnames
+            from.
+          example: "{service}.{region}.{dnsSuffix}"
           nullable: true
           type: string
     AppArrayWrapper:
@@ -67612,6 +67991,245 @@ components:
           example: Security settings updated
           nullable: true
           type: string
+    AuditTrailActionMapperDto:
+      description: One audit trail action and what it does to what.
+      example:
+        messageAction: FileCreated
+        actionType: Create
+        entity: File
+      properties:
+        messageAction:
+          description: The audit event action name.
+          example: FileCreated
+          nullable: true
+          type: string
+        actionType:
+          description: The action type name.
+          example: Create
+          nullable: true
+          type: string
+        entity:
+          description: The name of the entry type the action targets.
+          example: File
+          nullable: true
+          type: string
+    AuditTrailModuleMapperDto:
+      description: The audit trail actions of one module.
+      example:
+        moduleType: Files
+        actions:
+        - messageAction: FileCreated
+          actionType: Create
+          entity: File
+        - messageAction: FileCreated
+          actionType: Create
+          entity: File
+      properties:
+        moduleType:
+          description: The module name.
+          example: Files
+          nullable: true
+          type: string
+        actions:
+          description: The actions of the module.
+          items:
+            $ref: "#/components/schemas/AuditTrailActionMapperDto"
+          nullable: true
+          type: array
+          default: null
+    AuditTrailProductMapperArrayWrapper:
+      description: The successful API response containing the list of AuditTrailProductMapperDto
+        objects.
+      example:
+        response:
+        - productType: Documents
+          modules:
+          - moduleType: Files
+            actions:
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+          - moduleType: Files
+            actions:
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+        - productType: Documents
+          modules:
+          - moduleType: Files
+            actions:
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+          - moduleType: Files
+            actions:
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+            - messageAction: FileCreated
+              actionType: Create
+              entity: File
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          description: The list of AuditTrailProductMapperDto objects returned by
+            the operation.
+          items:
+            $ref: "#/components/schemas/AuditTrailProductMapperDto"
+          type: array
+          default: null
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+    AuditTrailProductMapperDto:
+      description: "The audit trail actions of one product, grouped by module."
+      example:
+        productType: Documents
+        modules:
+        - moduleType: Files
+          actions:
+          - messageAction: FileCreated
+            actionType: Create
+            entity: File
+          - messageAction: FileCreated
+            actionType: Create
+            entity: File
+        - moduleType: Files
+          actions:
+          - messageAction: FileCreated
+            actionType: Create
+            entity: File
+          - messageAction: FileCreated
+            actionType: Create
+            entity: File
+      properties:
+        productType:
+          description: The product name.
+          example: Documents
+          nullable: true
+          type: string
+        modules:
+          description: The modules of the product.
+          items:
+            $ref: "#/components/schemas/AuditTrailModuleMapperDto"
+          nullable: true
+          type: array
+          default: null
+    AuditTrailTypesDto:
+      description: "The names of every audit trail type, one array per dimension of\
+        \ an audit event."
+      properties:
+        actions:
+          description: The names of the audit event actions.
+          example:
+          - FileCreated
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
+        actionTypes:
+          description: The names of the audit event action types.
+          example:
+          - Create
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
+        productTypes:
+          description: The names of the products an audit event can belong to.
+          example:
+          - Documents
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
+        moduleTypes:
+          description: The names of the modules an audit event can belong to.
+          example:
+          - Files
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
+        entryTypes:
+          description: The names of the entry types an audit event can target.
+          example:
+          - File
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
+    AuditTrailTypesWrapper:
+      description: The successful API response containing the AuditTrailTypesDto object.
+      example:
+        response: ""
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          allOf:
+          - $ref: "#/components/schemas/AuditTrailTypesDto"
+          description: The AuditTrailTypesDto object returned by the operation.
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
     AuthKey:
       description: The authorization key parameters.
       properties:
@@ -69650,6 +70268,29 @@ components:
           description: The ID of the product to be set as default.
       required:
       - defaultFolderType
+    DiscountCategory:
+      description: Represents a discount category applied to the price.
+      properties:
+        id:
+          description: The discount category unique identifier.
+          example: 12345
+          format: int32
+          type: integer
+        valueDiscount:
+          description: The discount value.
+          example: 10.5
+          format: double
+          type: number
+        description:
+          description: The discount category description.
+          example: Annual subscription discount
+          nullable: true
+          type: string
+        created:
+          description: The date and time when the discount category was created.
+          example: 2024-01-15T10:30:00Z
+          format: date-time
+          type: string
     DnsSettingsRequestsDto:
       description: The request parameters for managing the DNS (Domain Name System)
         settings.
@@ -70384,6 +71025,64 @@ components:
         roomId:
           description: The room ID.
           example: "1"
+          nullable: true
+          type: string
+    EnabledModuleArrayWrapper:
+      description: The successful API response containing the list of EnabledModuleDto
+        objects.
+      example:
+        response:
+        - id: ASC.Web.Files.Configuration.FilesSpaceUsageStatManager
+          title: Documents
+        - id: ASC.Web.Files.Configuration.FilesSpaceUsageStatManager
+          title: Documents
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          description: The list of EnabledModuleDto objects returned by the operation.
+          items:
+            $ref: "#/components/schemas/EnabledModuleDto"
+          type: array
+          default: null
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+    EnabledModuleDto:
+      description: An enabled portal module.
+      example:
+        id: ASC.Web.Files.Configuration.FilesSpaceUsageStatManager
+        title: Documents
+      properties:
+        id:
+          description: "The module ID, which is the name of its product class."
+          example: ASC.Web.Files.Configuration.FilesSpaceUsageStatManager
+          nullable: true
+          type: string
+        title:
+          description: The module title.
+          example: Documents
           nullable: true
           type: string
     EncryprtionStatus:
@@ -72622,6 +73321,39 @@ components:
           example: USD
           nullable: true
           type: string
+    PriceStatus:
+      description: "[0 - Draft, 1 - Approved, 2 - Rejected]"
+      enum:
+      - 0
+      - 1
+      - 2
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - Draft
+      - Approved
+      - Rejected
+    PriceTimeUnit:
+      description: "[0 - None, 1 - Hour, 2 - Day, 3 - Week, 4 - Month, 5 - Year, 6\
+        \ - ThreeYears]"
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - None
+      - Hour
+      - Day
+      - Week
+      - Month
+      - Year
+      - ThreeYears
     ProductAdministratorDto:
       description: The product administrator parameters.
       properties:
@@ -72726,51 +73458,6 @@ components:
           minLength: 1
       required:
       - quantity
-    Quota:
-      description: "The quota parameters.\r\n<example>\r\n{\r\n  id: 1,\r\n  quantity:\
-        \ 50,\r\n  wallet: false,\r\n  additional: false,\r\n  dueDate: 2026-03-31T00:00:00Z,\r\
-        \n  nextQuantity: 100,\r\n  state: Active\r\n}\r\n</example>"
-      properties:
-        id:
-          description: The quota ID.
-          example: ""
-          format: int32
-          type: integer
-        quantity:
-          description: The quota quantity.
-          example: 50
-          format: int32
-          type: integer
-        wallet:
-          description: The quota applies to the wallet or not
-          example: false
-          type: boolean
-        dueDate:
-          description: The quota due date.
-          example: 2026-03-31T00:00:00Z
-          format: date-time
-          nullable: true
-          type: string
-        nextQuantity:
-          description: The quota next quantity.
-          example: 100
-          format: int32
-          nullable: true
-          type: integer
-        additional:
-          description: Indicates whether the quota is primary or additional.
-          example: false
-          type: boolean
-        nextQuota:
-          description: The quota ID to switch to at the next period.
-          example: ""
-          format: int32
-          nullable: true
-          type: integer
-        state:
-          allOf:
-          - $ref: "#/components/schemas/QuotaState"
-          description: The quota state.
     QuotaArrayWrapper:
       description: The successful API response containing the list of QuotaDto objects.
       example:
@@ -73330,6 +74017,150 @@ components:
       required:
       - productId
       - userId
+    ServicePriceInfo:
+      description: Represents a price of the service.
+      example:
+        id: 12345
+        accountNumber: 1010
+        serviceId: 12345
+        timeUnit: ""
+        costPrice: 1500.75
+        extraCharge: 1500.75
+        servicePrice: 1500.75
+        quota: 100
+        timeBound: ""
+        status: ""
+        created: 2024-01-15T10:30:00Z
+        discountCategoryId: 12345
+        discountCategory: ""
+      properties:
+        id:
+          description: The price unique identifier.
+          example: 12345
+          format: int32
+          type: integer
+        accountNumber:
+          description: The account number.
+          example: 1010
+          format: int32
+          type: integer
+        serviceId:
+          description: The service ID.
+          example: 12345
+          format: int32
+          type: integer
+        timeUnit:
+          allOf:
+          - $ref: "#/components/schemas/PriceTimeUnit"
+          description: The time unit the price is bound to.
+        costPrice:
+          description: The cost price.
+          example: 1500.75
+          format: double
+          type: number
+        extraCharge:
+          description: The extra charge added to the cost price.
+          example: 1500.75
+          format: double
+          type: number
+        servicePrice:
+          description: The resulting service price.
+          example: 1500.75
+          format: double
+          type: number
+        quota:
+          description: The quota the price is set for.
+          example: 100
+          format: double
+          nullable: true
+          type: number
+        timeBound:
+          allOf:
+          - $ref: "#/components/schemas/TimeBound"
+          description: The period the price is effective in.
+        status:
+          allOf:
+          - $ref: "#/components/schemas/PriceStatus"
+          description: The price status.
+        created:
+          description: The date and time when the price was created.
+          example: 2024-01-15T10:30:00Z
+          format: date-time
+          type: string
+        discountCategoryId:
+          description: The discount category ID.
+          example: 12345
+          format: int32
+          nullable: true
+          type: integer
+        discountCategory:
+          allOf:
+          - $ref: "#/components/schemas/DiscountCategory"
+          description: The discount category.
+    ServicePriceInfoArrayWrapper:
+      description: The successful API response containing the list of ServicePriceInfo
+        objects.
+      example:
+        response:
+        - id: 12345
+          accountNumber: 1010
+          serviceId: 12345
+          timeUnit: ""
+          costPrice: 1500.75
+          extraCharge: 1500.75
+          servicePrice: 1500.75
+          quota: 100
+          timeBound: ""
+          status: ""
+          created: 2024-01-15T10:30:00Z
+          discountCategoryId: 12345
+          discountCategory: ""
+        - id: 12345
+          accountNumber: 1010
+          serviceId: 12345
+          timeUnit: ""
+          costPrice: 1500.75
+          extraCharge: 1500.75
+          servicePrice: 1500.75
+          quota: 100
+          timeBound: ""
+          status: ""
+          created: 2024-01-15T10:30:00Z
+          discountCategoryId: 12345
+          discountCategory: ""
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          description: The list of ServicePriceInfo objects returned by the operation.
+          items:
+            $ref: "#/components/schemas/ServicePriceInfo"
+          type: array
+          default: null
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
     SetAppEnabledBody:
       description: Request body for toggling an application enabled state.
       example:
@@ -73800,6 +74631,65 @@ components:
           description: HTTP status code of the response (duplicate of status)
           format: int32
           type: integer
+    SocketSettingsDto:
+      description: The socket settings.
+      properties:
+        url:
+          description: "The hub URL, with a trailing slash, or empty when no hub is\
+            \ configured."
+          example: https://example.com/socket.io/
+          nullable: true
+          type: string
+    SocketSettingsWrapper:
+      description: The successful API response containing the SocketSettingsDto object.
+      example:
+        response: ""
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          allOf:
+          - $ref: "#/components/schemas/SocketSettingsDto"
+          description: The SocketSettingsDto object returned by the operation.
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+    SsoBindingTypeDto:
+      description: The SAML bindings the SSO settings accept.
+      properties:
+        saml20HttpPost:
+          description: The SAML 2.0 HTTP POST binding.
+          example: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+          nullable: true
+          readOnly: true
+          type: string
+        saml20HttpRedirect:
+          description: The SAML 2.0 HTTP redirect binding.
+          example: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+          nullable: true
+          readOnly: true
+          type: string
     SsoCertificate:
       description: The SSO certificate parameters.
       properties:
@@ -73837,6 +74727,27 @@ components:
           example: 2024-01-01T00:00:00Z
           format: date-time
           type: string
+    SsoEncryptAlgorithmTypeDto:
+      description: The encryption algorithms the SSO settings accept.
+      properties:
+        aes128:
+          description: The AES-128-CBC encryption algorithm.
+          example: http://www.w3.org/2001/04/xmlenc#aes128-cbc
+          nullable: true
+          readOnly: true
+          type: string
+        aes256:
+          description: The AES-256-CBC encryption algorithm.
+          example: http://www.w3.org/2001/04/xmlenc#aes256-cbc
+          nullable: true
+          readOnly: true
+          type: string
+        triDec:
+          description: The Triple DES CBC encryption algorithm.
+          example: http://www.w3.org/2001/04/xmlenc#tripledes-cbc
+          nullable: true
+          readOnly: true
+          type: string
     SsoFieldMapping:
       description: The SSO field mapping.
       properties:
@@ -73870,6 +74781,27 @@ components:
           description: The phone number.
           example: "+14155552671"
           nullable: true
+          type: string
+    SsoIdpCertificateActionTypeDto:
+      description: What an IDP certificate can be used for.
+      properties:
+        verification:
+          description: Verification only.
+          example: verification
+          nullable: true
+          readOnly: true
+          type: string
+        decrypt:
+          description: Decryption only.
+          example: decrypt
+          nullable: true
+          readOnly: true
+          type: string
+        verificationAndDecrypt:
+          description: Both verification and decryption.
+          example: verification and decrypt
+          nullable: true
+          readOnly: true
           type: string
     SsoIdpCertificateAdvanced:
       description: The IdP advanced certificate parameters.
@@ -73935,6 +74867,69 @@ components:
           description: The name ID format.
           example: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
           nullable: true
+          type: string
+    SsoNameIdFormatTypeDto:
+      description: The SAML name ID formats the SSO settings accept.
+      properties:
+        saml11Unspecified:
+          description: The SAML 1.1 unspecified name ID format.
+          example: urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+          nullable: true
+          readOnly: true
+          type: string
+        saml11EmailAddress:
+          description: The SAML 1.1 email address name ID format.
+          example: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+          nullable: true
+          readOnly: true
+          type: string
+        saml20Entity:
+          description: The SAML 2.0 entity name ID format.
+          example: urn:oasis:names:tc:SAML:2.0:nameid-format:entity
+          nullable: true
+          readOnly: true
+          type: string
+        saml20Transient:
+          description: The SAML 2.0 transient name ID format.
+          example: urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+          nullable: true
+          readOnly: true
+          type: string
+        saml20Persistent:
+          description: The SAML 2.0 persistent name ID format.
+          example: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+          nullable: true
+          readOnly: true
+          type: string
+        saml20Encrypted:
+          description: The SAML 2.0 encrypted name ID format.
+          example: urn:oasis:names:tc:SAML:2.0:nameid-format:encrypted
+          nullable: true
+          readOnly: true
+          type: string
+        saml20Unspecified:
+          description: The SAML 2.0 unspecified name ID format.
+          example: urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified
+          nullable: true
+          readOnly: true
+          type: string
+        saml11X509SubjectName:
+          description: The SAML 1.1 X.509 subject name name ID format.
+          example: urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName
+          nullable: true
+          readOnly: true
+          type: string
+        saml11WindowsDomainQualifiedName:
+          description: The SAML 1.1 Windows domain qualified name name ID format.
+          example: urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName
+          nullable: true
+          readOnly: true
+          type: string
+        saml20Kerberos:
+          description: The SAML 2.0 Kerberos name ID format.
+          example: urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos
+          nullable: true
+          readOnly: true
           type: string
     SsoSettingsRequestsDto:
       description: The request parameters for the Single Sign-On (SSO) configuration
@@ -74018,6 +75013,70 @@ components:
           description: Specifies if the email verification is disabled or not.
           example: false
           type: boolean
+    SsoSettingsV2ConstantsDto:
+      description: "The SSO settings constants: every value the settings accept, by\
+        \ name."
+      properties:
+        ssoNameIdFormatType:
+          allOf:
+          - $ref: "#/components/schemas/SsoNameIdFormatTypeDto"
+          description: The SAML name ID formats the SSO settings accept.
+        ssoBindingType:
+          allOf:
+          - $ref: "#/components/schemas/SsoBindingTypeDto"
+          description: The SAML bindings the SSO settings accept.
+        ssoSigningAlgorithmType:
+          allOf:
+          - $ref: "#/components/schemas/SsoSigningAlgorithmTypeDto"
+          description: The signing algorithms the SSO settings accept.
+        ssoEncryptAlgorithmType:
+          allOf:
+          - $ref: "#/components/schemas/SsoEncryptAlgorithmTypeDto"
+          description: The encryption algorithms the SSO settings accept.
+        ssoSpCertificateActionType:
+          allOf:
+          - $ref: "#/components/schemas/SsoSpCertificateActionTypeDto"
+          description: What an SP certificate can be used for.
+        ssoIdpCertificateActionType:
+          allOf:
+          - $ref: "#/components/schemas/SsoIdpCertificateActionTypeDto"
+          description: What an IDP certificate can be used for.
+    SsoSettingsV2ConstantsWrapper:
+      description: The successful API response containing the SsoSettingsV2ConstantsDto
+        object.
+      example:
+        response: ""
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          allOf:
+          - $ref: "#/components/schemas/SsoSettingsV2ConstantsDto"
+          description: The SsoSettingsV2ConstantsDto object returned by the operation.
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
     SsoSettingsV2Wrapper:
       description: The successful API response containing the SsoSettingsV2 object.
       example:
@@ -74053,6 +75112,48 @@ components:
           description: HTTP status code of the response (duplicate of status)
           format: int32
           type: integer
+    SsoSigningAlgorithmTypeDto:
+      description: The signing algorithms the SSO settings accept.
+      properties:
+        rsaSha1:
+          description: The RSA-SHA1 signing algorithm.
+          example: http://www.w3.org/2000/09/xmldsig#rsa-sha1
+          nullable: true
+          readOnly: true
+          type: string
+        rsaSha256:
+          description: The RSA-SHA256 signing algorithm.
+          example: http://www.w3.org/2001/04/xmldsig-more#rsa-sha256
+          nullable: true
+          readOnly: true
+          type: string
+        rsaSha512:
+          description: The RSA-SHA512 signing algorithm.
+          example: http://www.w3.org/2001/04/xmldsig-more#rsa-sha512
+          nullable: true
+          readOnly: true
+          type: string
+    SsoSpCertificateActionTypeDto:
+      description: What an SP certificate can be used for.
+      properties:
+        signing:
+          description: Signing only.
+          example: signing
+          nullable: true
+          readOnly: true
+          type: string
+        encrypt:
+          description: Encryption only.
+          example: encrypt
+          nullable: true
+          readOnly: true
+          type: string
+        signingAndEncrypt:
+          description: Both signing and encryption.
+          example: signing and encrypt
+          nullable: true
+          readOnly: true
+          type: string
     SsoSpCertificateAdvanced:
       description: The SP advanced certificate parameters.
       properties:
@@ -74427,9 +75528,24 @@ components:
           description: HTTP status code of the response (duplicate of status)
           format: int32
           type: integer
-    Tariff:
+    TariffDto:
       description: The tariff parameters.
       properties:
+        openSource:
+          description: Specifies whether the tariff is Community or not.
+          example: true
+          nullable: true
+          type: boolean
+        enterprise:
+          description: Specifies whether the tariff is Enterprise or not.
+          example: true
+          nullable: true
+          type: boolean
+        developer:
+          description: Specifies whether the tariff is Developer or not.
+          example: true
+          nullable: true
+          type: boolean
         id:
           description: The tariff ID.
           example: 1
@@ -74440,48 +75556,74 @@ components:
           - $ref: "#/components/schemas/TariffState"
           description: The tariff state.
         dueDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The tariff due date.
-          example: 2026-03-31T00:00:00Z
-          format: date-time
-          type: string
         delayDueDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The tariff delay due date.
-          example: 2026-04-07T00:00:00Z
-          format: date-time
-          type: string
         licenseDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
           description: The tariff license date.
-          example: 2026-03-01T00:00:00Z
-          format: date-time
-          type: string
         customerId:
-          description: The tariff customer ID.
-          example: cus_123
+          description: The customer ID.
+          example: 00000000-0000-0000-0000-000000000001
           nullable: true
           type: string
         quotas:
-          description: The list of tariff quotas.
+          description: The list of quotas.
           example:
-            quotas:
-            - id: 1
-              quantity: 50
-              wallet: false
+          - id: 1
+            title: Basic Plan
           items:
-            $ref: "#/components/schemas/Quota"
+            $ref: "#/components/schemas/TariffQuotaDto"
           nullable: true
           type: array
           default: null
-        overdueQuotas:
-          description: The list of overdue tariff quotas.
-          example: []
-          items:
-            $ref: "#/components/schemas/Quota"
+    TariffQuotaDto:
+      description: The tariff quota parameters.
+      properties:
+        id:
+          description: The quota ID.
+          example: -11
+          format: int32
+          type: integer
+        quantity:
+          description: The quota quantity.
+          example: 500
+          format: int32
+          type: integer
+        wallet:
+          description: The quota applies to the wallet or not.
+          example: true
+          type: boolean
+        additional:
+          description: Indicates whether the quota is primary or additional.
+          example: true
+          type: boolean
+        dueDate:
+          allOf:
+          - $ref: "#/components/schemas/ApiDateTime"
+          description: The quota due date in the portal time zone. Falls back to the
+            tariff due date when the quota has none.
+        nextQuantity:
+          description: The quota next quantity.
+          example: 100
+          format: int32
           nullable: true
-          type: array
-          default: null
-      required:
-      - dueDate
-      - quotas
+          type: integer
+        nextQuota:
+          description: The quota ID to switch to at the next period.
+          example: ""
+          format: int32
+          nullable: true
+          type: integer
+        state:
+          allOf:
+          - $ref: "#/components/schemas/QuotaState"
+          description: The quota state.
     TariffState:
       description: "[0 - Trial, 1 - Paid, 2 - Delay, 3 - Not paid]"
       enum:
@@ -74497,7 +75639,7 @@ components:
       - Delay
       - NotPaid
     TariffWrapper:
-      description: The successful API response containing the Tariff object.
+      description: The successful API response containing the TariffDto object.
       example:
         response: ""
         count: 0
@@ -74511,8 +75653,8 @@ components:
       properties:
         response:
           allOf:
-          - $ref: "#/components/schemas/Tariff"
-          description: The Tariff object returned by the operation.
+          - $ref: "#/components/schemas/TariffDto"
+          description: The TariffDto object returned by the operation.
         count:
           description: The total number of items in the response
           format: int32
@@ -76276,6 +77418,20 @@ components:
           type: boolean
       required:
       - code
+    TimeBound:
+      description: Represents the period the price is effective in.
+      properties:
+        startDate:
+          description: The date and time when the period starts.
+          example: 2024-01-15T10:30:00Z
+          format: date-time
+          type: string
+        endDate:
+          description: The date and time when the period ends.
+          example: 2024-01-15T10:30:00Z
+          format: date-time
+          nullable: true
+          type: string
     TimezonesRequestsArrayWrapper:
       description: The successful API response containing the list of TimezonesRequestsDto
         objects.
@@ -76377,6 +77533,38 @@ components:
           description: The global switch for the administrator messaging functionality.
           example: true
           type: boolean
+    UnknownNullableWrapper:
+      description: The successful API response.
+      example:
+        response: ""
+        count: 0
+        links:
+        - href: href
+          action: action
+        - href: href
+          action: action
+        status: 6
+        statusCode: 1
+      properties:
+        response: {}
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+          default: null
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
     UpcomingPaymentArrayWrapper:
       description: The successful API response containing the list of UpcomingPaymentDto
         objects.

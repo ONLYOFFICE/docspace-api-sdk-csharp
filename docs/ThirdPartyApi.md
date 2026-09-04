@@ -8,7 +8,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="getthirdpartycode"></a>
 # **GetThirdPartyCode**
-> ObjectWrapper GetThirdPartyCode (LoginProvider provider)
+> StringWrapper GetThirdPartyCode (LoginProvider provider)
 
 Returns a request to get the confirmation code from URL.
 
@@ -22,7 +22,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ namespace Example
             try
             {
                 // Get the code request
-                ObjectWrapper result = apiInstance.GetThirdPartyCode(provider);
+                StringWrapper result = apiInstance.GetThirdPartyCode(provider);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -91,7 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the code request
-    ApiResponse<ObjectWrapper> response = apiInstance.GetThirdPartyCodeWithHttpInfo(provider);
+    ApiResponse<StringWrapper> response = apiInstance.GetThirdPartyCodeWithHttpInfo(provider);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

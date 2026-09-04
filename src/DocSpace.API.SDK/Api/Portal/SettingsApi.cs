@@ -102,8 +102,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetPortalPath(string? virtualPath = default);
+        /// <returns>StringWrapper</returns>
+        StringWrapper GetPortalPath(string? virtualPath = default);
 
         /// <summary>
         /// Get a path to the portal
@@ -114,8 +114,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetPortalPathWithHttpInfo(string? virtualPath = default);
+        /// <returns>ApiResponse of StringWrapper</returns>
+        ApiResponse<StringWrapper> GetPortalPathWithHttpInfo(string? virtualPath = default);
         /// <summary>
         /// Send removal instructions
         /// </summary>
@@ -267,8 +267,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetPortalPathAsync(string? virtualPath = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of StringWrapper</returns>
+        Task<StringWrapper> GetPortalPathAsync(string? virtualPath = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a path to the portal
@@ -280,8 +280,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetPortalPathWithHttpInfoAsync(string? virtualPath = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        Task<ApiResponse<StringWrapper>> GetPortalPathWithHttpInfoAsync(string? virtualPath = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Send removal instructions
         /// </summary>
@@ -1101,8 +1101,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetPortalPath(string? virtualPath = default)
+        /// <returns>StringWrapper</returns>
+        public StringWrapper GetPortalPath(string? virtualPath = default)
         {
             var localVarResponse = GetPortalPathWithHttpInfo(virtualPath);
             return localVarResponse.Data;
@@ -1117,8 +1117,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetPortalPathWithHttpInfo(string? virtualPath = default)
+        /// <returns>ApiResponse of StringWrapper</returns>
+        public ApiResponse<StringWrapper> GetPortalPathWithHttpInfo(string? virtualPath = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1170,7 +1170,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/portal/path", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/portal/path", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1194,8 +1194,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetPortalPathAsync(string? virtualPath = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of StringWrapper</returns>
+        public async Task<StringWrapper> GetPortalPathAsync(string? virtualPath = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetPortalPathWithHttpInfoAsync(virtualPath, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1211,8 +1211,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="virtualPath">The virtual path for the portal resource access. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-path/">REST API Reference for GetPortalPath Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetPortalPathWithHttpInfoAsync(string? virtualPath = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        public async Task<ApiResponse<StringWrapper>> GetPortalPathWithHttpInfoAsync(string? virtualPath = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1266,7 +1266,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/portal/path", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/portal/path", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -358,7 +358,7 @@ catch (ApiException e)
 
 <a id="getamazons3regions"></a>
 # **GetAmazonS3Regions**
-> ObjectWrapper GetAmazonS3Regions ()
+> AmazonS3RegionArrayWrapper GetAmazonS3Regions ()
 
 Returns a list of all Amazon regions.
 
@@ -368,7 +368,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**AmazonS3RegionArrayWrapper**](AmazonS3RegionArrayWrapper.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ namespace Example
             try
             {
                 // Get Amazon regions
-                ObjectWrapper result = apiInstance.GetAmazonS3Regions();
+                AmazonS3RegionArrayWrapper result = apiInstance.GetAmazonS3Regions();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -436,7 +436,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Amazon regions
-    ApiResponse<ObjectWrapper> response = apiInstance.GetAmazonS3RegionsWithHttpInfo();
+    ApiResponse<AmazonS3RegionArrayWrapper> response = apiInstance.GetAmazonS3RegionsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

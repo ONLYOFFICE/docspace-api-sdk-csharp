@@ -241,7 +241,7 @@ catch (ApiException e)
 
 <a id="getsettings"></a>
 # **GetSettings**
-> ObjectWrapper GetSettings (string id)
+> UnknownNullableWrapper GetSettings (string id)
 
 Returns the JSON settings document saved for the specified application, or null if no overrides exist.
 
@@ -255,7 +255,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**UnknownNullableWrapper**](UnknownNullableWrapper.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ namespace Example
             try
             {
                 // Get app settings
-                ObjectWrapper result = apiInstance.GetSettings(id);
+                UnknownNullableWrapper result = apiInstance.GetSettings(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -324,7 +324,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get app settings
-    ApiResponse<ObjectWrapper> response = apiInstance.GetSettingsWithHttpInfo(id);
+    ApiResponse<UnknownNullableWrapper> response = apiInstance.GetSettingsWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

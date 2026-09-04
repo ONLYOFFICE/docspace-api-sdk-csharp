@@ -146,6 +146,31 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         ApiResponse<DocumentBuilderTaskWrapper> CreateCustomerServiceUsageReportWithHttpInfo(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default);
         /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>ServicePriceInfoArrayWrapper</returns>
+        ServicePriceInfoArrayWrapper GetAccountingServicePrices(string serviceName, bool? active = default);
+
+        /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>ApiResponse of ServicePriceInfoArrayWrapper</returns>
+        ApiResponse<ServicePriceInfoArrayWrapper> GetAccountingServicePricesWithHttpInfo(string serviceName, bool? active = default);
+        /// <summary>
         /// Get the active wallet services
         /// </summary>
         /// <remarks>
@@ -174,8 +199,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>AiPricesResponseWrapper</returns>
-        AiPricesResponseWrapper GetAiPrices();
+        /// <returns>AiPricesWrapper</returns>
+        AiPricesWrapper GetAiPrices();
 
         /// <summary>
         /// Get AI model prices
@@ -185,8 +210,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>ApiResponse of AiPricesResponseWrapper</returns>
-        ApiResponse<AiPricesResponseWrapper> GetAiPricesWithHttpInfo();
+        /// <returns>ApiResponse of AiPricesWrapper</returns>
+        ApiResponse<AiPricesWrapper> GetAiPricesWithHttpInfo();
         /// <summary>
         /// Get the checkout setup page URL
         /// </summary>
@@ -1055,6 +1080,33 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
         Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateCustomerServiceUsageReportWithHttpInfoAsync(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>Task of ServicePriceInfoArrayWrapper</returns>
+        Task<ServicePriceInfoArrayWrapper> GetAccountingServicePricesAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>Task of ApiResponse (ServicePriceInfoArrayWrapper)</returns>
+        Task<ApiResponse<ServicePriceInfoArrayWrapper>> GetAccountingServicePricesWithHttpInfoAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get the active wallet services
         /// </summary>
         /// <remarks>
@@ -1086,8 +1138,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>Task of AiPricesResponseWrapper</returns>
-        Task<AiPricesResponseWrapper> GetAiPricesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AiPricesWrapper</returns>
+        Task<AiPricesWrapper> GetAiPricesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get AI model prices
@@ -1098,8 +1150,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>Task of ApiResponse (AiPricesResponseWrapper)</returns>
-        Task<ApiResponse<AiPricesResponseWrapper>> GetAiPricesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiPricesWrapper)</returns>
+        Task<ApiResponse<AiPricesWrapper>> GetAiPricesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the checkout setup page URL
         /// </summary>
@@ -3021,6 +3073,208 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>ServicePriceInfoArrayWrapper</returns>
+        public ServicePriceInfoArrayWrapper GetAccountingServicePrices(string serviceName, bool? active = default)
+        {
+            var localVarResponse = GetAccountingServicePricesWithHttpInfo(serviceName, active);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>ApiResponse of ServicePriceInfoArrayWrapper</returns>
+        public ApiResponse<ServicePriceInfoArrayWrapper> GetAccountingServicePricesWithHttpInfo(string serviceName, bool? active = default)
+        {
+            // verify the required parameter 'serviceName' is set
+            if (serviceName == null)
+                throw new ApiException(400, "Missing required parameter 'serviceName' when calling PaymentApi->GetAccountingServicePrices");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("serviceName", ClientUtils.ParameterToString(serviceName)); // path parameter
+            if (active != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "active", active));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<ServicePriceInfoArrayWrapper>("/api/2.0/portal/payment/accounting/prices/{serviceName}", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAccountingServicePrices", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>Task of ServicePriceInfoArrayWrapper</returns>
+        public async Task<ServicePriceInfoArrayWrapper> GetAccountingServicePricesAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetAccountingServicePricesWithHttpInfoAsync(serviceName, active, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the service prices from the accounting service
+        /// </summary>
+        /// <remarks>
+        /// Returns the list of prices of the specified service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="active">Specifies whether to return only the active prices. The default value is false. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
+        /// <returns>Task of ApiResponse (ServicePriceInfoArrayWrapper)</returns>
+        public async Task<ApiResponse<ServicePriceInfoArrayWrapper>> GetAccountingServicePricesWithHttpInfoAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'serviceName' is set
+            if (serviceName == null)
+                throw new ApiException(400, "Missing required parameter 'serviceName' when calling PaymentApi->GetAccountingServicePrices");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("serviceName", ClientUtils.ParameterToString(serviceName)); // path parameter
+            if (active != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "active", active));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<ServicePriceInfoArrayWrapper>("/api/2.0/portal/payment/accounting/prices/{serviceName}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAccountingServicePrices", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get the active wallet services
         /// </summary>
         /// <remarks>
@@ -3204,8 +3458,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>AiPricesResponseWrapper</returns>
-        public AiPricesResponseWrapper GetAiPrices()
+        /// <returns>AiPricesWrapper</returns>
+        public AiPricesWrapper GetAiPrices()
         {
             var localVarResponse = GetAiPricesWithHttpInfo();
             return localVarResponse.Data;
@@ -3219,8 +3473,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>ApiResponse of AiPricesResponseWrapper</returns>
-        public ApiResponse<AiPricesResponseWrapper> GetAiPricesWithHttpInfo()
+        /// <returns>ApiResponse of AiPricesWrapper</returns>
+        public ApiResponse<AiPricesWrapper> GetAiPricesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3268,7 +3522,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiPricesResponseWrapper>("/api/2.0/portal/payment/ai-prices", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiPricesWrapper>("/api/2.0/portal/payment/ai-prices", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3291,8 +3545,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>Task of AiPricesResponseWrapper</returns>
-        public async Task<AiPricesResponseWrapper> GetAiPricesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AiPricesWrapper</returns>
+        public async Task<AiPricesWrapper> GetAiPricesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAiPricesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3307,8 +3561,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-prices/">REST API Reference for GetAiPrices Operation</seealso>
-        /// <returns>Task of ApiResponse (AiPricesResponseWrapper)</returns>
-        public async Task<ApiResponse<AiPricesResponseWrapper>> GetAiPricesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiPricesWrapper)</returns>
+        public async Task<ApiResponse<AiPricesWrapper>> GetAiPricesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3358,7 +3612,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiPricesResponseWrapper>("/api/2.0/portal/payment/ai-prices", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiPricesWrapper>("/api/2.0/portal/payment/ai-prices", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

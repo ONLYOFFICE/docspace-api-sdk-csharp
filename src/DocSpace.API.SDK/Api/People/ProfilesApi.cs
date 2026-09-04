@@ -167,8 +167,8 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetClaims();
+        /// <returns>TokenDiagnosticsWrapper</returns>
+        TokenDiagnosticsWrapper GetClaims();
 
         /// <summary>
         /// Get user claims
@@ -178,8 +178,8 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetClaimsWithHttpInfo();
+        /// <returns>ApiResponse of TokenDiagnosticsWrapper</returns>
+        ApiResponse<TokenDiagnosticsWrapper> GetClaimsWithHttpInfo();
         /// <summary>
         /// Get a profile by user email
         /// </summary>
@@ -527,8 +527,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetClaimsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TokenDiagnosticsWrapper</returns>
+        Task<TokenDiagnosticsWrapper> GetClaimsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get user claims
@@ -539,8 +539,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetClaimsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TokenDiagnosticsWrapper)</returns>
+        Task<ApiResponse<TokenDiagnosticsWrapper>> GetClaimsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a profile by user email
         /// </summary>
@@ -2007,8 +2007,8 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetClaims()
+        /// <returns>TokenDiagnosticsWrapper</returns>
+        public TokenDiagnosticsWrapper GetClaims()
         {
             var localVarResponse = GetClaimsWithHttpInfo();
             return localVarResponse.Data;
@@ -2022,8 +2022,8 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetClaimsWithHttpInfo()
+        /// <returns>ApiResponse of TokenDiagnosticsWrapper</returns>
+        public ApiResponse<TokenDiagnosticsWrapper> GetClaimsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2071,7 +2071,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/people/tokendiagnostics", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TokenDiagnosticsWrapper>("/api/2.0/people/tokendiagnostics", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2094,8 +2094,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetClaimsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TokenDiagnosticsWrapper</returns>
+        public async Task<TokenDiagnosticsWrapper> GetClaimsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetClaimsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2110,8 +2110,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-claims/">REST API Reference for GetClaims Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetClaimsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TokenDiagnosticsWrapper)</returns>
+        public async Task<ApiResponse<TokenDiagnosticsWrapper>> GetClaimsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2161,7 +2161,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/people/tokendiagnostics", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TokenDiagnosticsWrapper>("/api/2.0/people/tokendiagnostics", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

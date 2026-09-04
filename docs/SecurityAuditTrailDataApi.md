@@ -385,7 +385,7 @@ catch (ApiException e)
 
 <a id="getaudittrailmappers"></a>
 # **GetAuditTrailMappers**
-> ObjectWrapper GetAuditTrailMappers (ProductType? productType = null, LocationType? moduleType = null)
+> AuditTrailProductMapperArrayWrapper GetAuditTrailMappers (ProductType? productType = null, LocationType? moduleType = null)
 
 Returns the mappers for the audit trail types.
 
@@ -400,7 +400,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**AuditTrailProductMapperArrayWrapper**](AuditTrailProductMapperArrayWrapper.md)
 
 ### Authorization
 
@@ -449,7 +449,7 @@ namespace Example
             try
             {
                 // Get audit trail mappers
-                ObjectWrapper result = apiInstance.GetAuditTrailMappers(productType, moduleType);
+                AuditTrailProductMapperArrayWrapper result = apiInstance.GetAuditTrailMappers(productType, moduleType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -470,7 +470,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get audit trail mappers
-    ApiResponse<ObjectWrapper> response = apiInstance.GetAuditTrailMappersWithHttpInfo(productType, moduleType);
+    ApiResponse<AuditTrailProductMapperArrayWrapper> response = apiInstance.GetAuditTrailMappersWithHttpInfo(productType, moduleType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -618,7 +618,7 @@ catch (ApiException e)
 
 <a id="getaudittrailtypes"></a>
 # **GetAuditTrailTypes**
-> ObjectWrapper GetAuditTrailTypes ()
+> AuditTrailTypesWrapper GetAuditTrailTypes ()
 
 Returns all the available audit trail types.
 
@@ -628,7 +628,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**AuditTrailTypesWrapper**](AuditTrailTypesWrapper.md)
 
 ### Authorization
 
@@ -675,7 +675,7 @@ namespace Example
             try
             {
                 // Get audit trail types
-                ObjectWrapper result = apiInstance.GetAuditTrailTypes();
+                AuditTrailTypesWrapper result = apiInstance.GetAuditTrailTypes();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -696,7 +696,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get audit trail types
-    ApiResponse<ObjectWrapper> response = apiInstance.GetAuditTrailTypesWithHttpInfo();
+    ApiResponse<AuditTrailTypesWrapper> response = apiInstance.GetAuditTrailTypesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

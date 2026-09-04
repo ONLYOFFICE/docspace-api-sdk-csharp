@@ -6,7 +6,7 @@ The editor tool call state. Used to run the agent flow in the editor.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ToolName** | **string** | The tool name. | 
-**Parameters** | **Object** | The tool call parameters. | 
+**Parameters** | [**EditorToolCallParametersDto**](EditorToolCallParametersDto.md) | The tool call parameters. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

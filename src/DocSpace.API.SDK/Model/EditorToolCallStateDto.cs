@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="toolName">The tool name. (required).</param>
         /// <param name="parameters">The tool call parameters. (required).</param>
-        public EditorToolCallStateDto(string toolName = default, Object parameters = default)
+        public EditorToolCallStateDto(string toolName = default, EditorToolCallParametersDto parameters = default)
         {
             // to ensure "toolName" is required (not null)
             if (toolName == null)
@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// The tool call parameters.
         /// </summary>
         [DataMember(Name = "parameters", IsRequired = true, EmitDefaultValue = true)]
-        public Object Parameters { get; set; }
+        public EditorToolCallParametersDto Parameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

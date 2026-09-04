@@ -217,7 +217,7 @@ catch (ApiException e)
 
 <a id="getssosettingsv2constants"></a>
 # **GetSsoSettingsV2Constants**
-> ObjectWrapper GetSsoSettingsV2Constants ()
+> SsoSettingsV2ConstantsWrapper GetSsoSettingsV2Constants ()
 
 Returns the SSO settings constants.
 
@@ -227,7 +227,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**SsoSettingsV2ConstantsWrapper**](SsoSettingsV2ConstantsWrapper.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ namespace Example
             try
             {
                 // Get the SSO settings constants
-                ObjectWrapper result = apiInstance.GetSsoSettingsV2Constants();
+                SsoSettingsV2ConstantsWrapper result = apiInstance.GetSsoSettingsV2Constants();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -295,7 +295,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the SSO settings constants
-    ApiResponse<ObjectWrapper> response = apiInstance.GetSsoSettingsV2ConstantsWithHttpInfo();
+    ApiResponse<SsoSettingsV2ConstantsWrapper> response = apiInstance.GetSsoSettingsV2ConstantsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

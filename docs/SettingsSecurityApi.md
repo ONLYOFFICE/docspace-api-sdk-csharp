@@ -17,7 +17,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="getenabledmodules"></a>
 # **GetEnabledModules**
-> ObjectWrapper GetEnabledModules ()
+> EnabledModuleArrayWrapper GetEnabledModules ()
 
 Returns a list of all the enabled modules.
 
@@ -27,7 +27,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**EnabledModuleArrayWrapper**](EnabledModuleArrayWrapper.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ namespace Example
             try
             {
                 // Get the enabled modules
-                ObjectWrapper result = apiInstance.GetEnabledModules();
+                EnabledModuleArrayWrapper result = apiInstance.GetEnabledModules();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -95,7 +95,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the enabled modules
-    ApiResponse<ObjectWrapper> response = apiInstance.GetEnabledModulesWithHttpInfo();
+    ApiResponse<EnabledModuleArrayWrapper> response = apiInstance.GetEnabledModulesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

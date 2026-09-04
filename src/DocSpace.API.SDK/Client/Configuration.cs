@@ -554,7 +554,7 @@ namespace DocSpace.API.SDK.Client
             string report = "C# SDK (DocSpace.API.SDK) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 3.7.0\n";
+            report += "    Version of the API: 4.0.0\n";
             report += "    SDK Package Version: 4.0.0\n";
 
             return report;

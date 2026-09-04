@@ -39,8 +39,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetThirdPartyCode(LoginProvider provider);
+        /// <returns>StringWrapper</returns>
+        StringWrapper GetThirdPartyCode(LoginProvider provider);
 
         /// <summary>
         /// Get the code request
@@ -51,8 +51,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetThirdPartyCodeWithHttpInfo(LoginProvider provider);
+        /// <returns>ApiResponse of StringWrapper</returns>
+        ApiResponse<StringWrapper> GetThirdPartyCodeWithHttpInfo(LoginProvider provider);
         #endregion Synchronous Operations
     }
 
@@ -72,8 +72,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetThirdPartyCodeAsync(LoginProvider provider, CancellationToken cancellationToken = default);
+        /// <returns>Task of StringWrapper</returns>
+        Task<StringWrapper> GetThirdPartyCodeAsync(LoginProvider provider, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the code request
@@ -85,8 +85,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetThirdPartyCodeWithHttpInfoAsync(LoginProvider provider, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        Task<ApiResponse<StringWrapper>> GetThirdPartyCodeWithHttpInfoAsync(LoginProvider provider, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -311,8 +311,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetThirdPartyCode(LoginProvider provider)
+        /// <returns>StringWrapper</returns>
+        public StringWrapper GetThirdPartyCode(LoginProvider provider)
         {
             var localVarResponse = GetThirdPartyCodeWithHttpInfo(provider);
             return localVarResponse.Data;
@@ -327,8 +327,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetThirdPartyCodeWithHttpInfo(LoginProvider provider)
+        /// <returns>ApiResponse of StringWrapper</returns>
+        public ApiResponse<StringWrapper> GetThirdPartyCodeWithHttpInfo(LoginProvider provider)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -377,7 +377,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/thirdparty/{provider}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/thirdparty/{provider}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -401,8 +401,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetThirdPartyCodeAsync(LoginProvider provider, CancellationToken cancellationToken = default)
+        /// <returns>Task of StringWrapper</returns>
+        public async Task<StringWrapper> GetThirdPartyCodeAsync(LoginProvider provider, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetThirdPartyCodeWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -418,8 +418,8 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// <param name="provider">The identity provider used for authentication.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/">REST API Reference for GetThirdPartyCode Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetThirdPartyCodeWithHttpInfoAsync(LoginProvider provider, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        public async Task<ApiResponse<StringWrapper>> GetThirdPartyCodeWithHttpInfoAsync(LoginProvider provider, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -470,7 +470,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/thirdparty/{provider}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/thirdparty/{provider}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

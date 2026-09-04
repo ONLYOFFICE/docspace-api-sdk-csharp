@@ -2616,7 +2616,7 @@ catch (ApiException e)
 
 <a id="getroomtagsinfo"></a>
 # **GetRoomTagsInfo**
-> ObjectArrayWrapper GetRoomTagsInfo (int? count = null, int? startIndex = null, string? filterValue = null)
+> STRINGArrayWrapper GetRoomTagsInfo (int? count = null, int? startIndex = null, string? filterValue = null)
 
 Returns a list of custom tags.
 
@@ -2632,7 +2632,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
 
 ### Authorization
 
@@ -2682,7 +2682,7 @@ namespace Example
             try
             {
                 // Get the room tags
-                ObjectArrayWrapper result = apiInstance.GetRoomTagsInfo(count, startIndex, filterValue);
+                STRINGArrayWrapper result = apiInstance.GetRoomTagsInfo(count, startIndex, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2703,7 +2703,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the room tags
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
+    ApiResponse<STRINGArrayWrapper> response = apiInstance.GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

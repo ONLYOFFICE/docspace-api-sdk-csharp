@@ -11,7 +11,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="getgreetingsettings"></a>
 # **GetGreetingSettings**
-> ObjectWrapper GetGreetingSettings ()
+> StringWrapper GetGreetingSettings ()
 
 Returns the greeting settings for the current portal.
 
@@ -21,7 +21,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ namespace Example
             try
             {
                 // Get greeting settings
-                ObjectWrapper result = apiInstance.GetGreetingSettings();
+                StringWrapper result = apiInstance.GetGreetingSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -89,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get greeting settings
-    ApiResponse<ObjectWrapper> response = apiInstance.GetGreetingSettingsWithHttpInfo();
+    ApiResponse<StringWrapper> response = apiInstance.GetGreetingSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

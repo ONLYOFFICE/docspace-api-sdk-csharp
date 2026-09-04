@@ -343,7 +343,7 @@ catch (ApiException e)
 
 <a id="getportalpath"></a>
 # **GetPortalPath**
-> ObjectWrapper GetPortalPath (string? virtualPath = null)
+> StringWrapper GetPortalPath (string? virtualPath = null)
 
 Returns the full absolute path to the current portal.
 
@@ -357,7 +357,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ namespace Example
             try
             {
                 // Get a path to the portal
-                ObjectWrapper result = apiInstance.GetPortalPath(virtualPath);
+                StringWrapper result = apiInstance.GetPortalPath(virtualPath);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -426,7 +426,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a path to the portal
-    ApiResponse<ObjectWrapper> response = apiInstance.GetPortalPathWithHttpInfo(virtualPath);
+    ApiResponse<StringWrapper> response = apiInstance.GetPortalPathWithHttpInfo(virtualPath);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

@@ -788,7 +788,7 @@ catch (ApiException e)
 
 <a id="getportalhostname"></a>
 # **GetPortalHostname**
-> ObjectWrapper GetPortalHostname ()
+> StringWrapper GetPortalHostname ()
 
 Returns the portal hostname.
 
@@ -798,7 +798,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 
@@ -845,7 +845,7 @@ namespace Example
             try
             {
                 // Get hostname
-                ObjectWrapper result = apiInstance.GetPortalHostname();
+                StringWrapper result = apiInstance.GetPortalHostname();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -866,7 +866,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get hostname
-    ApiResponse<ObjectWrapper> response = apiInstance.GetPortalHostnameWithHttpInfo();
+    ApiResponse<StringWrapper> response = apiInstance.GetPortalHostnameWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1110,7 +1110,7 @@ catch (ApiException e)
 
 <a id="getsocketsettings"></a>
 # **GetSocketSettings**
-> ObjectWrapper GetSocketSettings ()
+> SocketSettingsWrapper GetSocketSettings ()
 
 Returns the socket settings.
 
@@ -1120,7 +1120,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**SocketSettingsWrapper**](SocketSettingsWrapper.md)
 
 ### Authorization
 
@@ -1167,7 +1167,7 @@ namespace Example
             try
             {
                 // Get the socket settings
-                ObjectWrapper result = apiInstance.GetSocketSettings();
+                SocketSettingsWrapper result = apiInstance.GetSocketSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1188,7 +1188,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the socket settings
-    ApiResponse<ObjectWrapper> response = apiInstance.GetSocketSettingsWithHttpInfo();
+    ApiResponse<SocketSettingsWrapper> response = apiInstance.GetSocketSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

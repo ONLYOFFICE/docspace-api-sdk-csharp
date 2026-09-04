@@ -80,8 +80,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetSsoSettingsV2Constants();
+        /// <returns>SsoSettingsV2ConstantsWrapper</returns>
+        SsoSettingsV2ConstantsWrapper GetSsoSettingsV2Constants();
 
         /// <summary>
         /// Get the SSO settings constants
@@ -91,8 +91,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo();
+        /// <returns>ApiResponse of SsoSettingsV2ConstantsWrapper</returns>
+        ApiResponse<SsoSettingsV2ConstantsWrapper> GetSsoSettingsV2ConstantsWithHttpInfo();
         /// <summary>
         /// Reset the SSO settings
         /// </summary>
@@ -201,8 +201,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of SsoSettingsV2ConstantsWrapper</returns>
+        Task<SsoSettingsV2ConstantsWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the SSO settings constants
@@ -213,8 +213,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SsoSettingsV2ConstantsWrapper)</returns>
+        Task<ApiResponse<SsoSettingsV2ConstantsWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Reset the SSO settings
         /// </summary>
@@ -778,8 +778,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetSsoSettingsV2Constants()
+        /// <returns>SsoSettingsV2ConstantsWrapper</returns>
+        public SsoSettingsV2ConstantsWrapper GetSsoSettingsV2Constants()
         {
             var localVarResponse = GetSsoSettingsV2ConstantsWithHttpInfo();
             return localVarResponse.Data;
@@ -793,8 +793,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo()
+        /// <returns>ApiResponse of SsoSettingsV2ConstantsWrapper</returns>
+        public ApiResponse<SsoSettingsV2ConstantsWrapper> GetSsoSettingsV2ConstantsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -842,7 +842,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<SsoSettingsV2ConstantsWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -865,8 +865,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of SsoSettingsV2ConstantsWrapper</returns>
+        public async Task<SsoSettingsV2ConstantsWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSsoSettingsV2ConstantsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -881,8 +881,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SsoSettingsV2ConstantsWrapper)</returns>
+        public async Task<ApiResponse<SsoSettingsV2ConstantsWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -932,7 +932,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SsoSettingsV2ConstantsWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

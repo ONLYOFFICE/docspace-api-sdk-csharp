@@ -9,6 +9,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**CreateCustomerMonthlyUsageReport**](#createcustomermonthlyusagereport) | **POST** /api/2.0/portal/payment/customer/usage/monthly/report | Start the customer monthly usage report generation |
 | [**CreateCustomerOperationsReport**](#createcustomeroperationsreport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Start the customer operations report generation |
 | [**CreateCustomerServiceUsageReport**](#createcustomerserviceusagereport) | **POST** /api/2.0/portal/payment/customer/usage/report | Start the customer service usage report generation |
+| [**GetAccountingServicePrices**](#getaccountingserviceprices) | **GET** /api/2.0/portal/payment/accounting/prices/{serviceName} | Get the service prices from the accounting service |
 | [**GetActiveServices**](#getactiveservices) | **GET** /api/2.0/portal/payment/activeservices | Get the active wallet services |
 | [**GetAiPrices**](#getaiprices) | **GET** /api/2.0/portal/payment/ai-prices | Get AI model prices |
 | [**GetCheckoutSetupUrl**](#getcheckoutsetupurl) | **GET** /api/2.0/portal/payment/checkoutsetupurl | Get the checkout setup page URL |
@@ -638,6 +639,126 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getaccountingserviceprices"></a>
+# **GetAccountingServicePrices**
+> ServicePriceInfoArrayWrapper GetAccountingServicePrices (string serviceName, bool? active = null)
+
+Returns the list of prices of the specified service from the accounting service.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **serviceName** | **string** | The service name. |  |
+| **active** | **bool?** | Specifies whether to return only the active prices. The default value is false. | [optional]  |
+
+### Return type
+
+[**ServicePriceInfoArrayWrapper**](ServicePriceInfoArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetAccountingServicePricesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
+            var serviceName = ai-tools;  // string | The service name.
+            var active = false;  // bool? | Specifies whether to return only the active prices. The default value is false. (optional) 
+
+            try
+            {
+                // Get the service prices from the accounting service
+                ServicePriceInfoArrayWrapper result = apiInstance.GetAccountingServicePrices(serviceName, active);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PaymentApi.GetAccountingServicePrices: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAccountingServicePricesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get the service prices from the accounting service
+    ApiResponse<ServicePriceInfoArrayWrapper> response = apiInstance.GetAccountingServicePricesWithHttpInfo(serviceName, active);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PaymentApi.GetAccountingServicePricesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The list of the service prices |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getactiveservices"></a>
 # **GetActiveServices**
 > ActiveServiceArrayWrapper GetActiveServices ()
@@ -752,7 +873,7 @@ catch (ApiException e)
 
 <a id="getaiprices"></a>
 # **GetAiPrices**
-> AiPricesResponseWrapper GetAiPrices ()
+> AiPricesWrapper GetAiPrices ()
 
 Retrieves the pricing information for AI models including chat, embedding, and web search services.  The prices are returned in the configured currency and normalized per million tokens.  Requires administrator permissions to access.
 
@@ -762,7 +883,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiPricesResponseWrapper**](AiPricesResponseWrapper.md)
+[**AiPricesWrapper**](AiPricesWrapper.md)
 
 ### Authorization
 
@@ -809,7 +930,7 @@ namespace Example
             try
             {
                 // Get AI model prices
-                AiPricesResponseWrapper result = apiInstance.GetAiPrices();
+                AiPricesWrapper result = apiInstance.GetAiPrices();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -830,7 +951,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get AI model prices
-    ApiResponse<AiPricesResponseWrapper> response = apiInstance.GetAiPricesWithHttpInfo();
+    ApiResponse<AiPricesWrapper> response = apiInstance.GetAiPricesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

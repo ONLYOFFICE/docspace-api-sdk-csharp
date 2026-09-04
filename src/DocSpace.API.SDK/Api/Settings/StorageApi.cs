@@ -103,8 +103,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetAmazonS3Regions();
+        /// <returns>AmazonS3RegionArrayWrapper</returns>
+        AmazonS3RegionArrayWrapper GetAmazonS3Regions();
 
         /// <summary>
         /// Get Amazon regions
@@ -114,8 +114,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetAmazonS3RegionsWithHttpInfo();
+        /// <returns>ApiResponse of AmazonS3RegionArrayWrapper</returns>
+        ApiResponse<AmazonS3RegionArrayWrapper> GetAmazonS3RegionsWithHttpInfo();
         /// <summary>
         /// Get the storage progress
         /// </summary>
@@ -314,8 +314,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetAmazonS3RegionsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AmazonS3RegionArrayWrapper</returns>
+        Task<AmazonS3RegionArrayWrapper> GetAmazonS3RegionsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Amazon regions
@@ -326,8 +326,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetAmazonS3RegionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AmazonS3RegionArrayWrapper)</returns>
+        Task<ApiResponse<AmazonS3RegionArrayWrapper>> GetAmazonS3RegionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the storage progress
         /// </summary>
@@ -1210,8 +1210,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetAmazonS3Regions()
+        /// <returns>AmazonS3RegionArrayWrapper</returns>
+        public AmazonS3RegionArrayWrapper GetAmazonS3Regions()
         {
             var localVarResponse = GetAmazonS3RegionsWithHttpInfo();
             return localVarResponse.Data;
@@ -1225,8 +1225,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetAmazonS3RegionsWithHttpInfo()
+        /// <returns>ApiResponse of AmazonS3RegionArrayWrapper</returns>
+        public ApiResponse<AmazonS3RegionArrayWrapper> GetAmazonS3RegionsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1274,7 +1274,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/settings/storage/s3/regions", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AmazonS3RegionArrayWrapper>("/api/2.0/settings/storage/s3/regions", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1297,8 +1297,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetAmazonS3RegionsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AmazonS3RegionArrayWrapper</returns>
+        public async Task<AmazonS3RegionArrayWrapper> GetAmazonS3RegionsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAmazonS3RegionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1313,8 +1313,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-amazon-s3regions/">REST API Reference for GetAmazonS3Regions Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetAmazonS3RegionsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AmazonS3RegionArrayWrapper)</returns>
+        public async Task<ApiResponse<AmazonS3RegionArrayWrapper>> GetAmazonS3RegionsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1364,7 +1364,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/storage/s3/regions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AmazonS3RegionArrayWrapper>("/api/2.0/settings/storage/s3/regions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

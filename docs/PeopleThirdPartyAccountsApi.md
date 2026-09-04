@@ -320,7 +320,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The newly created user linked to the third-party account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Incorrect email |  -  |
 | **403** | The invitation link is invalid or its validity has expired |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

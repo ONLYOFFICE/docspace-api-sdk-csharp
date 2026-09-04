@@ -565,8 +565,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>STRINGArrayWrapper</returns>
+        STRINGArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
         /// Get the room tags
@@ -579,8 +579,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
+        ApiResponse<STRINGArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
         /// Get status of room template creation
         /// </summary>
@@ -1645,8 +1645,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of STRINGArrayWrapper</returns>
+        Task<STRINGArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the room tags
@@ -1660,8 +1660,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
+        Task<ApiResponse<STRINGArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get status of room template creation
         /// </summary>
@@ -6480,8 +6480,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>STRINGArrayWrapper</returns>
+        public STRINGArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarResponse = GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
             return localVarResponse.Data;
@@ -6498,8 +6498,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
+        public ApiResponse<STRINGArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6563,7 +6563,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<STRINGArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -6589,8 +6589,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        public async Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of STRINGArrayWrapper</returns>
+        public async Task<STRINGArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6608,8 +6608,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
+        public async Task<ApiResponse<STRINGArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6671,7 +6671,7 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<STRINGArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

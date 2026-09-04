@@ -38,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetEnabledModules();
+        /// <returns>EnabledModuleArrayWrapper</returns>
+        EnabledModuleArrayWrapper GetEnabledModules();
 
         /// <summary>
         /// Get the enabled modules
@@ -49,8 +49,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetEnabledModulesWithHttpInfo();
+        /// <returns>ApiResponse of EnabledModuleArrayWrapper</returns>
+        ApiResponse<EnabledModuleArrayWrapper> GetEnabledModulesWithHttpInfo();
         /// <summary>
         /// Check a product administrator
         /// </summary>
@@ -276,8 +276,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetEnabledModulesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of EnabledModuleArrayWrapper</returns>
+        Task<EnabledModuleArrayWrapper> GetEnabledModulesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the enabled modules
@@ -288,8 +288,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetEnabledModulesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (EnabledModuleArrayWrapper)</returns>
+        Task<ApiResponse<EnabledModuleArrayWrapper>> GetEnabledModulesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Check a product administrator
         /// </summary>
@@ -738,8 +738,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetEnabledModules()
+        /// <returns>EnabledModuleArrayWrapper</returns>
+        public EnabledModuleArrayWrapper GetEnabledModules()
         {
             var localVarResponse = GetEnabledModulesWithHttpInfo();
             return localVarResponse.Data;
@@ -753,8 +753,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetEnabledModulesWithHttpInfo()
+        /// <returns>ApiResponse of EnabledModuleArrayWrapper</returns>
+        public ApiResponse<EnabledModuleArrayWrapper> GetEnabledModulesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -802,7 +802,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/settings/security/modules", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<EnabledModuleArrayWrapper>("/api/2.0/settings/security/modules", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -825,8 +825,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetEnabledModulesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of EnabledModuleArrayWrapper</returns>
+        public async Task<EnabledModuleArrayWrapper> GetEnabledModulesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetEnabledModulesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -841,8 +841,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enabled-modules/">REST API Reference for GetEnabledModules Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetEnabledModulesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (EnabledModuleArrayWrapper)</returns>
+        public async Task<ApiResponse<EnabledModuleArrayWrapper>> GetEnabledModulesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -892,7 +892,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/security/modules", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<EnabledModuleArrayWrapper>("/api/2.0/settings/security/modules", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

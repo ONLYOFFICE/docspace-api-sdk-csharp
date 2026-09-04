@@ -125,8 +125,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default);
+        /// <returns>AuditTrailProductMapperArrayWrapper</returns>
+        AuditTrailProductMapperArrayWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default);
 
         /// <summary>
         /// Get audit trail mappers
@@ -138,8 +138,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default);
+        /// <returns>ApiResponse of AuditTrailProductMapperArrayWrapper</returns>
+        ApiResponse<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default);
         /// <summary>
         /// Get the audit trail report generation status
         /// </summary>
@@ -169,8 +169,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetAuditTrailTypes();
+        /// <returns>AuditTrailTypesWrapper</returns>
+        AuditTrailTypesWrapper GetAuditTrailTypes();
 
         /// <summary>
         /// Get audit trail types
@@ -180,8 +180,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo();
+        /// <returns>ApiResponse of AuditTrailTypesWrapper</returns>
+        ApiResponse<AuditTrailTypesWrapper> GetAuditTrailTypesWithHttpInfo();
         /// <summary>
         /// Get audit trail data
         /// </summary>
@@ -358,8 +358,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AuditTrailProductMapperArrayWrapper</returns>
+        Task<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get audit trail mappers
@@ -372,8 +372,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AuditTrailProductMapperArrayWrapper)</returns>
+        Task<ApiResponse<AuditTrailProductMapperArrayWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the audit trail report generation status
         /// </summary>
@@ -406,8 +406,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetAuditTrailTypesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AuditTrailTypesWrapper</returns>
+        Task<AuditTrailTypesWrapper> GetAuditTrailTypesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get audit trail types
@@ -418,8 +418,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetAuditTrailTypesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AuditTrailTypesWrapper)</returns>
+        Task<ApiResponse<AuditTrailTypesWrapper>> GetAuditTrailTypesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get audit trail data
         /// </summary>
@@ -1393,8 +1393,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default)
+        /// <returns>AuditTrailProductMapperArrayWrapper</returns>
+        public AuditTrailProductMapperArrayWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default)
         {
             var localVarResponse = GetAuditTrailMappersWithHttpInfo(productType, moduleType);
             return localVarResponse.Data;
@@ -1410,8 +1410,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default)
+        /// <returns>ApiResponse of AuditTrailProductMapperArrayWrapper</returns>
+        public ApiResponse<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1467,7 +1467,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AuditTrailProductMapperArrayWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1492,8 +1492,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AuditTrailProductMapperArrayWrapper</returns>
+        public async Task<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuditTrailMappersWithHttpInfoAsync(productType, moduleType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1510,8 +1510,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AuditTrailProductMapperArrayWrapper)</returns>
+        public async Task<ApiResponse<AuditTrailProductMapperArrayWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1569,7 +1569,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AuditTrailProductMapperArrayWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1767,8 +1767,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetAuditTrailTypes()
+        /// <returns>AuditTrailTypesWrapper</returns>
+        public AuditTrailTypesWrapper GetAuditTrailTypes()
         {
             var localVarResponse = GetAuditTrailTypesWithHttpInfo();
             return localVarResponse.Data;
@@ -1782,8 +1782,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetAuditTrailTypesWithHttpInfo()
+        /// <returns>ApiResponse of AuditTrailTypesWrapper</returns>
+        public ApiResponse<AuditTrailTypesWrapper> GetAuditTrailTypesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1831,7 +1831,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AuditTrailTypesWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1854,8 +1854,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetAuditTrailTypesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AuditTrailTypesWrapper</returns>
+        public async Task<AuditTrailTypesWrapper> GetAuditTrailTypesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuditTrailTypesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1870,8 +1870,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-types/">REST API Reference for GetAuditTrailTypes Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetAuditTrailTypesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AuditTrailTypesWrapper)</returns>
+        public async Task<ApiResponse<AuditTrailTypesWrapper>> GetAuditTrailTypesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1921,7 +1921,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AuditTrailTypesWrapper>("/api/2.0/security/audit/types", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

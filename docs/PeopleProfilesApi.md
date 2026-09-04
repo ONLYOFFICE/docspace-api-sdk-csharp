@@ -621,7 +621,7 @@ catch (ApiException e)
 
 <a id="getclaims"></a>
 # **GetClaims**
-> ObjectWrapper GetClaims ()
+> TokenDiagnosticsWrapper GetClaims ()
 
 Returns the user claims.
 
@@ -631,7 +631,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**TokenDiagnosticsWrapper**](TokenDiagnosticsWrapper.md)
 
 ### Authorization
 
@@ -678,7 +678,7 @@ namespace Example
             try
             {
                 // Get user claims
-                ObjectWrapper result = apiInstance.GetClaims();
+                TokenDiagnosticsWrapper result = apiInstance.GetClaims();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -699,7 +699,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get user claims
-    ApiResponse<ObjectWrapper> response = apiInstance.GetClaimsWithHttpInfo();
+    ApiResponse<TokenDiagnosticsWrapper> response = apiInstance.GetClaimsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
