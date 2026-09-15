@@ -32,32 +32,32 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The audit event parameters.
+    /// One entry of the portal audit trail: who changed what, from where, and where it belongs in the product.
     /// </summary>
     [DataContract(Name = "AuditEventDto")]
     public partial class AuditEventDto : IValidatableObject
     {
 
         /// <summary>
-        /// The specific action that occurred within the audit event.
+        /// The action itself, as the &#x60;action&#x60; filter of this operation spells it and as  &#x60;GET api/2.0/security/audit/mappers&#x60; lists it under &#x60;messageAction&#x60;. Use this rather than parsing &#x60;action&#x60;,  which is prose and changes with the portal language.
         /// </summary>
         [DataMember(Name = "actionId", EmitDefaultValue = false)]
         public MessageAction? ActionId { get; set; }
 
         /// <summary>
-        /// The type of action performed in the audit event (e.g., Create, Update, Delete).
+        /// The kind of change the action stands for, as the &#x60;actionType&#x60; filter of this operation spells it. It is  derived from &#x60;actionId&#x60;, not stored per entry, so it is the same on every entry of one action.
         /// </summary>
         [DataMember(Name = "actionType", EmitDefaultValue = false)]
         public ActionType? ActionType { get; set; }
 
         /// <summary>
-        /// The type of product related to the audit event.
+        /// The product the action belongs to. It cannot be filtered on here; the tree that groups actions by product  is &#x60;GET api/2.0/security/audit/mappers&#x60;.
         /// </summary>
         [DataMember(Name = "product", EmitDefaultValue = false)]
         public ProductType? Product { get; set; }
 
         /// <summary>
-        /// The location where the audit event occurred.
+        /// The location inside that product, as the &#x60;moduleType&#x60; filter of this operation spells it. It is also  derived from &#x60;actionId&#x60; rather than stored per entry.
         /// </summary>
         [DataMember(Name = "location", EmitDefaultValue = false)]
         public LocationType? Location { get; set; }
@@ -65,24 +65,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditEventDto" /> class.
         /// </summary>
-        /// <param name="id">The audit event ID..</param>
-        /// <param name="date">The audit event date..</param>
-        /// <param name="user">The name of the user who triggered the audit event..</param>
-        /// <param name="userId">The ID of the user who triggered the audit event..</param>
-        /// <param name="action">The audit event action..</param>
-        /// <param name="actionId">The specific action that occurred within the audit event..</param>
-        /// <param name="ip">The audit event IP..</param>
-        /// <param name="country">The audit event country..</param>
-        /// <param name="city">The audit event city..</param>
-        /// <param name="browser">The audit event browser..</param>
-        /// <param name="platform">The audit event platform..</param>
-        /// <param name="page">The audit event page..</param>
-        /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete)..</param>
-        /// <param name="product">The type of product related to the audit event..</param>
-        /// <param name="location">The location where the audit event occurred..</param>
-        /// <param name="target">The list of target objects affected by the audit event (e.g., document ID, user account)..</param>
-        /// <param name="entries">The list of audit entry types (e.g., Folder, User, File)..</param>
-        /// <param name="context">The audit event context..</param>
+        /// <param name="id">The ID of the recorded entry. Nothing accepts it as an argument - no operation fetches a single audit event  - so it serves only to tell two otherwise identical entries apart..</param>
+        /// <param name="date">When the action happened, in the portal time zone. The &#x60;from&#x60; and &#x60;to&#x60; filters are read as UTC instants, so  the two do not line up on a portal that is not on UTC..</param>
+        /// <param name="user">The display name of the user who acted, taken from the account as it stands now rather than as it stood  when the entry was written. A localised placeholder stands in when there is no account to read: a portal  background job, an anonymous guest, or a user who has since been deleted..</param>
+        /// <param name="userId">The ID of the user who acted, which is what the &#x60;userId&#x60; filter of this operation matches on. It stays  readable after the account is deleted, which is when &#x60;user&#x60; falls back to a placeholder..</param>
+        /// <param name="action">The whole event as a readable sentence in the portal language, with the names of the objects involved  substituted into it. On the two &#x60;audit/.../last&#x60; operations each substituted value is cut to 50 characters;  the filtered operations substitute them in full. It is empty when the build has no wording for the action..</param>
+        /// <param name="actionId">The action itself, as the &#x60;action&#x60; filter of this operation spells it and as  &#x60;GET api/2.0/security/audit/mappers&#x60; lists it under &#x60;messageAction&#x60;. Use this rather than parsing &#x60;action&#x60;,  which is prose and changes with the portal language..</param>
+        /// <param name="ip">The IP address the request came from, with the port stripped off. It is empty for an action a portal  background job performed, which has no request behind it..</param>
+        /// <param name="country">The English name of the country the IP address is located in, empty when the address cannot be located -  the normal outcome for private and loopback addresses..</param>
+        /// <param name="city">The city the IP address is located in, empty under the same conditions as &#x60;country&#x60;..</param>
+        /// <param name="browser">The browser and its version as parsed from the user agent of the request, empty when the client sent none  that could be parsed or when no request was involved..</param>
+        /// <param name="platform">The operating system as parsed from the same user agent, empty under the same conditions as &#x60;browser&#x60;..</param>
+        /// <param name="page">Where in the portal the action was made from: the referrer of the request, or that request&#39;s own path when  it carried no referrer. Long values are cut off at 512 characters..</param>
+        /// <param name="actionType">The kind of change the action stands for, as the &#x60;actionType&#x60; filter of this operation spells it. It is  derived from &#x60;actionId&#x60;, not stored per entry, so it is the same on every entry of one action..</param>
+        /// <param name="product">The product the action belongs to. It cannot be filtered on here; the tree that groups actions by product  is &#x60;GET api/2.0/security/audit/mappers&#x60;..</param>
+        /// <param name="location">The location inside that product, as the &#x60;moduleType&#x60; filter of this operation spells it. It is also  derived from &#x60;actionId&#x60; rather than stored per entry..</param>
+        /// <param name="target">The objects the action was applied to, as the trail recorded them - a title, an account, an ID - one string  each. It is empty for an action that targets nothing, such as a settings change, and the &#x60;target&#x60; filter of  this operation matches one of these values in full..</param>
+        /// <param name="entries">The kinds of object the action applies to, holding at most two entries and none at all for an action that  targets nothing. Only the first of them can be filtered on, through &#x60;entryType&#x60;..</param>
+        /// <param name="context">Where the action took place, spelled out in the portal language rather than as a code: for a Documents  event the room or the root folder it happened in, and for anything else the name of the module. Nothing  filters on it..</param>
         public AuditEventDto(int id = default, ApiDateTime date = default, string user = default, Guid userId = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default, ActionType? actionType = default, ProductType? product = default, LocationType? location = default, List<string> target = default, List<EntryType> entries = default, string context = default)
         {
             this.Id = id;
@@ -106,97 +106,97 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The audit event ID.
+        /// The ID of the recorded entry. Nothing accepts it as an argument - no operation fetches a single audit event  - so it serves only to tell two otherwise identical entries apart.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The audit event date.
+        /// When the action happened, in the portal time zone. The &#x60;from&#x60; and &#x60;to&#x60; filters are read as UTC instants, so  the two do not line up on a portal that is not on UTC.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// The name of the user who triggered the audit event.
+        /// The display name of the user who acted, taken from the account as it stands now rather than as it stood  when the entry was written. A localised placeholder stands in when there is no account to read: a portal  background job, an anonymous guest, or a user who has since been deleted.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
-        /// The ID of the user who triggered the audit event.
+        /// The ID of the user who acted, which is what the &#x60;userId&#x60; filter of this operation matches on. It stays  readable after the account is deleted, which is when &#x60;user&#x60; falls back to a placeholder.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// The audit event action.
+        /// The whole event as a readable sentence in the portal language, with the names of the objects involved  substituted into it. On the two &#x60;audit/.../last&#x60; operations each substituted value is cut to 50 characters;  the filtered operations substitute them in full. It is empty when the build has no wording for the action.
         /// </summary>
         /// <example>User logged in</example>
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
-        /// The audit event IP.
+        /// The IP address the request came from, with the port stripped off. It is empty for an action a portal  background job performed, which has no request behind it.
         /// </summary>
         /// <example>192.0.2.1</example>
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
-        /// The audit event country.
+        /// The English name of the country the IP address is located in, empty when the address cannot be located -  the normal outcome for private and loopback addresses.
         /// </summary>
         /// <example>United States</example>
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
-        /// The audit event city.
+        /// The city the IP address is located in, empty under the same conditions as &#x60;country&#x60;.
         /// </summary>
         /// <example>New York</example>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// The audit event browser.
+        /// The browser and its version as parsed from the user agent of the request, empty when the client sent none  that could be parsed or when no request was involved.
         /// </summary>
         /// <example>Chrome 120.0</example>
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
 
         /// <summary>
-        /// The audit event platform.
+        /// The operating system as parsed from the same user agent, empty under the same conditions as &#x60;browser&#x60;.
         /// </summary>
         /// <example>Windows</example>
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
-        /// The audit event page.
+        /// Where in the portal the action was made from: the referrer of the request, or that request&#39;s own path when  it carried no referrer. Long values are cut off at 512 characters.
         /// </summary>
         /// <example>/rooms/shared</example>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public string Page { get; set; }
 
         /// <summary>
-        /// The list of target objects affected by the audit event (e.g., document ID, user account).
+        /// The objects the action was applied to, as the trail recorded them - a title, an account, an ID - one string  each. It is empty for an action that targets nothing, such as a settings change, and the &#x60;target&#x60; filter of  this operation matches one of these values in full.
         /// </summary>
         /// <example>["item1","item2"]</example>
         [DataMember(Name = "target", EmitDefaultValue = true)]
         public List<string> Target { get; set; }
 
         /// <summary>
-        /// The list of audit entry types (e.g., Folder, User, File).
+        /// The kinds of object the action applies to, holding at most two entries and none at all for an action that  targets nothing. Only the first of them can be filtered on, through &#x60;entryType&#x60;.
         /// </summary>
         /// <example>["File","Folder"]</example>
         [DataMember(Name = "entries", EmitDefaultValue = true)]
         public List<EntryType> Entries { get; set; }
 
         /// <summary>
-        /// The audit event context.
+        /// Where the action took place, spelled out in the portal language rather than as a code: for a Documents  event the room or the root folder it happened in, and for anything else the name of the module. Nothing  filters on it.
         /// </summary>
         /// <example>Security settings updated</example>
         [DataMember(Name = "context", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The current license information.
+    /// The two facts about the subscription in force that a payment page needs.
     /// </summary>
     [DataContract(Name = "CurrentLicenseInfo")]
     public partial class CurrentLicenseInfo : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentLicenseInfo" /> class.
         /// </summary>
-        /// <param name="trial">Specifies whether the license is trial or not. (required).</param>
-        /// <param name="dueDate">The date when the license expires. (required).</param>
+        /// <param name="trial">Whether the portal is on a trial rather than a paid subscription. A trial expires at &#x60;dueDate&#x60; and is not  extended by paying - a plan has to be bought instead. (required).</param>
+        /// <param name="dueDate">The day the subscription runs out, with the time of day cut off. The largest value a date can hold means  it never runs out, which is how a free or unlimited plan is expressed. (required).</param>
         public CurrentLicenseInfo(bool trial = default, DateTime dueDate = default)
         {
             this.Trial = trial;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether the license is trial or not.
+        /// Whether the portal is on a trial rather than a paid subscription. A trial expires at &#x60;dueDate&#x60; and is not  extended by paying - a plan has to be bought instead.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "trial", IsRequired = true, EmitDefaultValue = true)]
         public bool Trial { get; set; }
 
         /// <summary>
-        /// The date when the license expires.
+        /// The day the subscription runs out, with the time of day cut off. The largest value a date can hold means  it never runs out, which is how a free or unlimited plan is expressed.
         /// </summary>
         /// <example>2025-06-15T10:30:00.0000000Z</example>
         [DataMember(Name = "dueDate", IsRequired = true, EmitDefaultValue = true)]

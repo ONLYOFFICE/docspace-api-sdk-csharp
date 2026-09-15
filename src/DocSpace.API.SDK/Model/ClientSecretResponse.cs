@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The response containing the regenerated client secret.
+    /// The response carrying a regenerated client secret.
     /// </summary>
     [DataContract(Name = "ClientSecretResponse")]
     public partial class ClientSecretResponse : IValidatableObject
@@ -41,15 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientSecretResponse" /> class.
         /// </summary>
-        /// <param name="clientSecret">The newly generated client secret..</param>
+        /// <param name="clientSecret">The newly generated client secret. It replaces the previous one immediately, so every deployed copy of the client has to be updated with this value..</param>
         public ClientSecretResponse(string clientSecret = default)
         {
             this.ClientSecret = clientSecret;
         }
 
         /// <summary>
-        /// The newly generated client secret.
+        /// The newly generated client secret. It replaces the previous one immediately, so every deployed copy of the client has to be updated with this value.
         /// </summary>
+        /// <example>6c7cf17b-1bd3-47d5-94c6-be2d3570e168</example>
         [DataMember(Name = "client_secret", EmitDefaultValue = false)]
         public string ClientSecret { get; set; }
 

@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateDocxToolCallParametersDto" /> class.
         /// </summary>
-        /// <param name="description">The description of the document to generate. (required).</param>
+        /// <param name="description">What the generated text document should contain, in the words the request was made in. (required).</param>
         public GenerateDocxToolCallParametersDto(string description = default)
         {
             // to ensure "description" is required (not null)
@@ -58,8 +58,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The description of the document to generate.
+        /// What the generated text document should contain, in the words the request was made in.
         /// </summary>
+        /// <example>A quarterly report on sales with a summary table</example>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 

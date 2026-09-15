@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Aggregated customer spending for a single calendar month.
+    /// What the portal spent from its wallet in one calendar month, added up across every service.
     /// </summary>
     [DataContract(Name = "CustomerMonthlyUsageDto")]
     public partial class CustomerMonthlyUsageDto : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerMonthlyUsageDto" /> class.
         /// </summary>
-        /// <param name="year">The calendar year..</param>
-        /// <param name="month">The calendar month (1-12)..</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol of the amounts..</param>
-        /// <param name="totalAmount">The total amount charged across all services in this month..</param>
-        /// <param name="operationCount">The number of individual purchase operations in this month..</param>
+        /// <param name="year">The year the month belongs to. Months are cut in the portal time zone, so a movement at the edge of a  month falls where the portal sees it and not where UTC does..</param>
+        /// <param name="month">The month itself, January being 1. Only months that had spending appear at all, so a gap in the list is a  month with nothing in it rather than missing data..</param>
+        /// <param name="currency">The currency &#x60;totalAmount&#x60; is expressed in, as a three-letter ISO 4217 code - the accounting currency of  the wallet..</param>
+        /// <param name="totalAmount">What the month came to across every service, as a positive amount spent rather than a signed balance..</param>
+        /// <param name="operationCount">How many separate movements that total was added up from, for a client that wants to show the weight  behind a figure. The movements themselves are in &#x60;GET api/2.0/portal/payment/customer/operations&#x60;..</param>
         public CustomerMonthlyUsageDto(int year = default, int month = default, string currency = default, double totalAmount = default, int operationCount = default)
         {
             this.Year = year;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The calendar year.
+        /// The year the month belongs to. Months are cut in the portal time zone, so a movement at the edge of a  month falls where the portal sees it and not where UTC does.
         /// </summary>
         /// <example>2025</example>
         [DataMember(Name = "year", EmitDefaultValue = false)]
         public int Year { get; set; }
 
         /// <summary>
-        /// The calendar month (1-12).
+        /// The month itself, January being 1. Only months that had spending appear at all, so a gap in the list is a  month with nothing in it rather than missing data.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "month", EmitDefaultValue = false)]
         public int Month { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol of the amounts.
+        /// The currency &#x60;totalAmount&#x60; is expressed in, as a three-letter ISO 4217 code - the accounting currency of  the wallet.
         /// </summary>
         /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The total amount charged across all services in this month.
+        /// What the month came to across every service, as a positive amount spent rather than a signed balance.
         /// </summary>
         /// <example>199.98</example>
         [DataMember(Name = "totalAmount", EmitDefaultValue = false)]
         public double TotalAmount { get; set; }
 
         /// <summary>
-        /// The number of individual purchase operations in this month.
+        /// How many separate movements that total was added up from, for a client that wants to show the weight  behind a figure. The movements themselves are in &#x60;GET api/2.0/portal/payment/customer/operations&#x60;.
         /// </summary>
         /// <example>3</example>
         [DataMember(Name = "operationCount", EmitDefaultValue = false)]

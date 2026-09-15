@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the DNS (Domain Name System) settings.
+    /// The custom domain the portal answers on, and whether that mapping is in force.
     /// </summary>
     [DataContract(Name = "DnsSettingsRequestsDto")]
     public partial class DnsSettingsRequestsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DnsSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="dnsName">The DNS (Domain Name System) configuration name..</param>
-        /// <param name="enable">Specifies whether the DNS settings are enabled..</param>
+        /// <param name="dnsName">The domain the portal is to be reachable under, as a bare hostname without a scheme. It must not collide with  the reserved base domain of the installation, and a name that fails validation is refused without disturbing  the mapping in force. It is read only while &#x60;enable&#x60; is true..</param>
+        /// <param name="enable">Whether the custom domain is put in force. Setting it false clears the mapping and ignores &#x60;dnsName&#x60;; setting  it true also stops the previous domain from answering and rewrites any Content Security Policy entry that  named it..</param>
         public DnsSettingsRequestsDto(string dnsName = default, bool enable = default)
         {
             this.DnsName = dnsName;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The DNS (Domain Name System) configuration name.
+        /// The domain the portal is to be reachable under, as a bare hostname without a scheme. It must not collide with  the reserved base domain of the installation, and a name that fails validation is refused without disturbing  the mapping in force. It is read only while &#x60;enable&#x60; is true.
         /// </summary>
         /// <example>example.com</example>
         [DataMember(Name = "dnsName", EmitDefaultValue = true)]
         public string DnsName { get; set; }
 
         /// <summary>
-        /// Specifies whether the DNS settings are enabled.
+        /// Whether the custom domain is put in force. Setting it false clears the mapping and ignores &#x60;dnsName&#x60;; setting  it true also stops the previous domain from answering and rewrites any Content Security Policy entry that  named it.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enable", EmitDefaultValue = true)]

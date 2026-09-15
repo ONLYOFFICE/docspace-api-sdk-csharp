@@ -31,55 +31,55 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> requestBody);
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        Dictionary<string, Object> AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> requestBody);
 
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody);
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        ApiResponse<Dictionary<string, Object>> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody);
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> requestBody);
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        Dictionary<string, Object> AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> requestBody);
 
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody);
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        ApiResponse<Dictionary<string, Object>> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody);
         #endregion Synchronous Operations
     }
 
@@ -90,59 +90,59 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        Task<Dictionary<string, Object>> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        Task<Dictionary<string, Object>> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -359,34 +359,34 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> requestBody)
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        public Dictionary<string, Object> AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> requestBody)
         {
             var localVarResponse = AiOpenaiChatCompletionsWithHttpInfo(profileId, requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody)
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        public ApiResponse<Dictionary<string, Object>> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -414,7 +414,7 @@ namespace DocSpace.API.SDK.Api.AI
 
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/openai/{profileId}/v1/chat/completions", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/openai/{profileId}/v1/chat/completions", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -429,36 +429,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        public async Task<Dictionary<string, Object>> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiOpenaiChatCompletionsWithHttpInfoAsync(profileId, requestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// OpenAI-compatible chat completions proxied to the profile's provider
+        /// OpenAI chat completions passthrough
         /// </summary>
         /// <remarks>
         /// OpenAI-compatible chat completions for the document editor's AI plugin. The profile is resolved server-side, its credentials are attached, and the body is forwarded to the provider verbatim - the payload is owned by the plugin's SDK on one end and the provider on the other. A client disconnect cancels the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -488,7 +488,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/openai/{profileId}/v1/chat/completions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<Dictionary<string, Object>>("/api/2.0/ai/openai/{profileId}/v1/chat/completions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -503,34 +503,34 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> requestBody)
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        public Dictionary<string, Object> AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> requestBody)
         {
             var localVarResponse = AiOpenaiImagesGenerationsWithHttpInfo(profileId, requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody)
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        public ApiResponse<Dictionary<string, Object>> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -558,7 +558,7 @@ namespace DocSpace.API.SDK.Api.AI
 
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/openai/{profileId}/v1/images/generations", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/openai/{profileId}/v1/images/generations", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -573,36 +573,36 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        public async Task<Dictionary<string, Object>> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiOpenaiImagesGenerationsWithHttpInfoAsync(profileId, requestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// OpenAI-compatible image generation proxied to the profile's provider
+        /// OpenAI image generation passthrough
         /// </summary>
         /// <remarks>
-        /// OpenAI-compatible image generation for the document editor's AI plugin. As with the chat-completions passthrough, the profile's credentials are attached server-side and the body reaches the provider unchanged.
+        /// OpenAI-compatible image generation for the document editor's AI plugin, working exactly as the chat-completions passthrough does: the profile named by `profileId` is resolved server-side, its credentials are attached, and the body reaches the provider unchanged. The provider's status and body are relayed verbatim, so its 429 and its own error envelope surface as they stand. A body larger than this route accepts is refused before it is forwarded. A client disconnect aborts the provider call.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
@@ -632,7 +632,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/openai/{profileId}/v1/images/generations", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<Dictionary<string, Object>>("/api/2.0/ai/openai/{profileId}/v1/images/generations", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

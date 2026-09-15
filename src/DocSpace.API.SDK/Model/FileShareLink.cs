@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// A shareable link for a file with its configuration and status.
+    /// A sharing link of a file, a folder or a room, with everything set on it.
     /// </summary>
     [DataContract(Name = "FileShareLink")]
     public partial class FileShareLink : IValidatableObject
     {
 
         /// <summary>
-        /// The sharing link type (e.g., Invitation).
+        /// Which of the two jobs the link does: letting somebody into the room as a member, or handing out the entry  itself. The counters of uses are filled in for the first kind only.
         /// </summary>
         [DataMember(Name = "linkType", EmitDefaultValue = false)]
         public LinkType? LinkType { get; set; }
@@ -47,19 +47,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileShareLink" /> class.
         /// </summary>
-        /// <param name="id">The unique identifier of the shared link..</param>
-        /// <param name="title">The title of the shared content..</param>
-        /// <param name="shareLink">The URL for accessing the shared content..</param>
-        /// <param name="expirationDate">The date when the shared link expires..</param>
-        /// <param name="linkType">The sharing link type (e.g., Invitation)..</param>
-        /// <param name="password">The password protection for accessing the shared content..</param>
-        /// <param name="denyDownload">Indicates whether downloading of the shared content is prohibited..</param>
-        /// <param name="isExpired">Indicates whether the shared link has expired..</param>
-        /// <param name="primary">Indicates whether this is the primary shared link..</param>
-        /// <param name="internal">Indicates whether the link is for the internal sharing only..</param>
-        /// <param name="requestToken">The token for validating access requests..</param>
-        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
-        /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
+        /// <param name="id">The identifier of the link, the one to send back as &#x60;linkId&#x60; to change or delete it..</param>
+        /// <param name="title">The name the link is listed under, which its author is free to choose and to leave empty..</param>
+        /// <param name="shareLink">The shortened address to hand out. Opening it is what turns the link into access; the address stays the same  while the link exists..</param>
+        /// <param name="expirationDate">The moment the link stops working, written with the offset of the portal time zone. Null when the link was  left without an end..</param>
+        /// <param name="linkType">Which of the two jobs the link does: letting somebody into the room as a member, or handing out the entry  itself. The counters of uses are filled in for the first kind only..</param>
+        /// <param name="password">The password a visitor has to send before the link resolves, readable only by those who may manage the link.  Empty when the link asks for none..</param>
+        /// <param name="denyDownload">Whether visitors coming through this link may only read the entry in the editor and not download or print it..</param>
+        /// <param name="isExpired">Whether the moment in &#x60;expirationDate&#x60; has already passed, which leaves the link in place but refuses  everybody who opens it..</param>
+        /// <param name="primary">Whether this is the one link the entry always keeps: a public or a form-filling room is given it at creation,  and deleting it there only makes a new one..</param>
+        /// <param name="internal">Whether the visitor has to sign in to the portal before the link resolves, as opposed to it being open to  anybody who has the address..</param>
+        /// <param name="requestToken">The key that stands for this link in the calls that resolve it, such as &#x60;GET api/2.0/files/share/{key}&#x60;. It is  filled in for links that hand out the entry, and empty for the ones that invite into a room..</param>
+        /// <param name="maxUseCount">How many accounts may still join the room through this invitation link in total. Null on a link that hands out  the entry, where nothing is counted..</param>
+        /// <param name="currentUseCount">How many accounts have already joined through this invitation link. Once it reaches &#x60;maxUseCount&#x60; the link  stops letting anybody else in. Null on a link that hands out the entry..</param>
         public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default, int? maxUseCount = default, int? currentUseCount = default)
         {
             this.Id = id;
@@ -78,83 +78,83 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The unique identifier of the shared link.
+        /// The identifier of the link, the one to send back as &#x60;linkId&#x60; to change or delete it.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>9a2c1b3e-6d47-4f10-9b52-ac7d3e5f0812</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The title of the shared content.
+        /// The name the link is listed under, which its author is free to choose and to leave empty.
         /// </summary>
-        /// <example>Shared Document</example>
+        /// <example>Shared document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The URL for accessing the shared content.
+        /// The shortened address to hand out. Opening it is what turns the link into access; the address stays the same  while the link exists.
         /// </summary>
-        /// <example>http://localhost/share/abc123</example>
+        /// <example>https://portal.example.com/s/a1b2c3d4</example>
         [DataMember(Name = "shareLink", EmitDefaultValue = true)]
         public string ShareLink { get; set; }
 
         /// <summary>
-        /// The date when the shared link expires.
+        /// The moment the link stops working, written with the offset of the portal time zone. Null when the link was  left without an end.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
 
         /// <summary>
-        /// The password protection for accessing the shared content.
+        /// The password a visitor has to send before the link resolves, readable only by those who may manage the link.  Empty when the link asks for none.
         /// </summary>
-        /// <example>password123</example>
+        /// <example>S3cretPhrase</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// Indicates whether downloading of the shared content is prohibited.
+        /// Whether visitors coming through this link may only read the entry in the editor and not download or print it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
 
         /// <summary>
-        /// Indicates whether the shared link has expired.
+        /// Whether the moment in &#x60;expirationDate&#x60; has already passed, which leaves the link in place but refuses  everybody who opens it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
         public bool? IsExpired { get; set; }
 
         /// <summary>
-        /// Indicates whether this is the primary shared link.
+        /// Whether this is the one link the entry always keeps: a public or a form-filling room is given it at creation,  and deleting it there only makes a new one.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "primary", EmitDefaultValue = true)]
         public bool Primary { get; set; }
 
         /// <summary>
-        /// Indicates whether the link is for the internal sharing only.
+        /// Whether the visitor has to sign in to the portal before the link resolves, as opposed to it being open to  anybody who has the address.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool? Internal { get; set; }
 
         /// <summary>
-        /// The token for validating access requests.
+        /// The key that stands for this link in the calls that resolve it, such as &#x60;GET api/2.0/files/share/{key}&#x60;. It is  filled in for links that hand out the entry, and empty for the ones that invite into a room.
         /// </summary>
-        /// <example>token-abc-123</example>
+        /// <example>gg9J4mBW7pW9Wk0HqQoQ9L2mS1x6bK8vTnQ0aZ3</example>
         [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
 
         /// <summary>
-        /// The maximum number of times the invitation link can be used.
+        /// How many accounts may still join the room through this invitation link in total. Null on a link that hands out  the entry, where nothing is counted.
         /// </summary>
         /// <example>10</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 
         /// <summary>
-        /// The current number of times the invitation link has been used.
+        /// How many accounts have already joined through this invitation link. Once it reaches &#x60;maxUseCount&#x60; the link  stops letting anybody else in. Null on a link that hands out the entry.
         /// </summary>
         /// <example>5</example>
         [DataMember(Name = "currentUseCount", EmitDefaultValue = true)]

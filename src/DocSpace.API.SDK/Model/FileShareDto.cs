@@ -32,20 +32,20 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file sharing information and access rights.
+    /// One access entry on a file, a folder or a room: who holds it, at which level, and what the caller may change about  it.
     /// </summary>
     [DataContract(Name = "FileShareDto")]
     public partial class FileShareDto : IValidatableObject
     {
 
         /// <summary>
-        /// The access rights type.
+        /// The level the subject holds on the entry. On a link entry it is the level the link hands to whoever opens it,  and in a batch answer &#x60;Varies&#x60; means the subject holds different levels on the listed entries.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
 
         /// <summary>
-        /// The subject type.
+        /// What the entry was given to, which tells which of the three subject fields is filled in: an account, a group,  or one of the kinds of link.
         /// </summary>
         [DataMember(Name = "subjectType", IsRequired = true, EmitDefaultValue = true)]
         public SubjectType SubjectType { get; set; }
@@ -58,19 +58,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileShareDto" /> class.
         /// </summary>
-        /// <param name="access">The access rights type..</param>
+        /// <param name="access">The level the subject holds on the entry. On a link entry it is the level the link hands to whoever opens it,  and in a batch answer &#x60;Varies&#x60; means the subject holds different levels on the listed entries..</param>
         /// <param name="sharedTo">sharedTo.</param>
-        /// <param name="sharedToUser">The user who has the access to the specified file..</param>
-        /// <param name="sharedToGroup">The user who has the access to the specified file..</param>
-        /// <param name="sharedLink">The user who has the access to the specified file..</param>
-        /// <param name="isLocked">Specifies if the access right is locked or not. (required).</param>
-        /// <param name="isOwner">Specifies if the user is an owner of the specified file or not. (required).</param>
-        /// <param name="canEditAccess">Specifies if the user can edit the access to the specified file or not. (required).</param>
-        /// <param name="canEditInternal">Indicates whether internal editing permissions are granted. (required).</param>
-        /// <param name="canEditDenyDownload">Determines whether the user has permission to modify the deny download setting for the file share. (required).</param>
-        /// <param name="canEditExpirationDate">Indicates whether the expiration date of access permissions can be edited. (required).</param>
-        /// <param name="canRevoke">Specifies whether the file sharing access can be revoked by the current user. (required).</param>
-        /// <param name="subjectType">The subject type. (required).</param>
+        /// <param name="sharedToUser">The account the entry belongs to. It is filled in only when &#x60;subjectType&#x60; says an account, and is null for a  group entry and for a link..</param>
+        /// <param name="sharedToGroup">The portal group the entry belongs to, which hands the level to everybody in it. It is filled in only for a  group entry, and is null otherwise..</param>
+        /// <param name="sharedLink">The sharing link the entry stands for, together with everything set on it. It is filled in only for a link  entry, and is null for an account or a group..</param>
+        /// <param name="isLocked">Whether this entry is the caller&#39;s own, which is why they cannot change its level. Link entries never report  it. (required).</param>
+        /// <param name="isOwner">Whether the subject created the entry the access is given on, and so cannot be removed from it. (required).</param>
+        /// <param name="canEditAccess">Whether the caller may change the level of this entry. It is false on the caller&#39;s own entry, on every link,  and whenever the caller may not hand out access at all. (required).</param>
+        /// <param name="canEditInternal">Whether the caller may switch this link between being open to anybody and asking the visitor to sign in to the  portal first. (required).</param>
+        /// <param name="canEditDenyDownload">Whether the caller may forbid downloading through this link. Only a link of a virtual data room reports true,  and only while the room itself still allows downloads. (required).</param>
+        /// <param name="canEditExpirationDate">Whether the caller may move the moment this link stops working. (required).</param>
+        /// <param name="canRevoke">Whether the caller may take this entry away altogether, which for a link means deleting the link. (required).</param>
+        /// <param name="subjectType">What the entry was given to, which tells which of the three subject fields is filled in: an account, a group,  or one of the kinds of link. (required).</param>
         public FileShareDto(FileShare? access = default, Object sharedTo = default, EmployeeFullDto sharedToUser = default, GroupSummaryDto sharedToGroup = default, FileShareLink sharedLink = default, bool isLocked = default, bool isOwner = default, bool canEditAccess = default, bool canEditInternal = default, bool canEditDenyDownload = default, bool canEditExpirationDate = default, bool canRevoke = default, SubjectType subjectType = default)
         {
             this.IsLocked = isLocked;
@@ -95,67 +95,67 @@ namespace DocSpace.API.SDK.Model
         public Object SharedTo { get; set; }
 
         /// <summary>
-        /// The user who has the access to the specified file.
+        /// The account the entry belongs to. It is filled in only when &#x60;subjectType&#x60; says an account, and is null for a  group entry and for a link.
         /// </summary>
         [DataMember(Name = "sharedToUser", EmitDefaultValue = false)]
         public EmployeeFullDto SharedToUser { get; set; }
 
         /// <summary>
-        /// The user who has the access to the specified file.
+        /// The portal group the entry belongs to, which hands the level to everybody in it. It is filled in only for a  group entry, and is null otherwise.
         /// </summary>
         [DataMember(Name = "sharedToGroup", EmitDefaultValue = false)]
         public GroupSummaryDto SharedToGroup { get; set; }
 
         /// <summary>
-        /// The user who has the access to the specified file.
+        /// The sharing link the entry stands for, together with everything set on it. It is filled in only for a link  entry, and is null for an account or a group.
         /// </summary>
         [DataMember(Name = "sharedLink", EmitDefaultValue = false)]
         public FileShareLink SharedLink { get; set; }
 
         /// <summary>
-        /// Specifies if the access right is locked or not.
+        /// Whether this entry is the caller&#39;s own, which is why they cannot change its level. Link entries never report  it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isLocked", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
 
         /// <summary>
-        /// Specifies if the user is an owner of the specified file or not.
+        /// Whether the subject created the entry the access is given on, and so cannot be removed from it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isOwner", IsRequired = true, EmitDefaultValue = true)]
         public bool IsOwner { get; set; }
 
         /// <summary>
-        /// Specifies if the user can edit the access to the specified file or not.
+        /// Whether the caller may change the level of this entry. It is false on the caller&#39;s own entry, on every link,  and whenever the caller may not hand out access at all.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "canEditAccess", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditAccess { get; set; }
 
         /// <summary>
-        /// Indicates whether internal editing permissions are granted.
+        /// Whether the caller may switch this link between being open to anybody and asking the visitor to sign in to the  portal first.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "canEditInternal", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditInternal { get; set; }
 
         /// <summary>
-        /// Determines whether the user has permission to modify the deny download setting for the file share.
+        /// Whether the caller may forbid downloading through this link. Only a link of a virtual data room reports true,  and only while the room itself still allows downloads.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "canEditDenyDownload", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditDenyDownload { get; set; }
 
         /// <summary>
-        /// Indicates whether the expiration date of access permissions can be edited.
+        /// Whether the caller may move the moment this link stops working.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "canEditExpirationDate", IsRequired = true, EmitDefaultValue = true)]
         public bool CanEditExpirationDate { get; set; }
 
         /// <summary>
-        /// Specifies whether the file sharing access can be revoked by the current user.
+        /// Whether the caller may take this entry away altogether, which for a link means deleting the link.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "canRevoke", IsRequired = true, EmitDefaultValue = true)]

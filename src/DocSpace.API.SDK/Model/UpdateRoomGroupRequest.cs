@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The changes to apply to a room group: its name and the rooms to add or remove.
+    /// The changes to apply to a room group: a new name, rooms to attach and rooms to detach, in any combination.
     /// </summary>
     [DataContract(Name = "UpdateRoomGroupRequest")]
     public partial class UpdateRoomGroupRequest : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRoomGroupRequest" /> class.
         /// </summary>
-        /// <param name="roomsToAdd">The list of room IDs to add to the group..</param>
-        /// <param name="roomsToRemove">The list of room IDs to remove from the group..</param>
-        /// <param name="groupName">The group name..</param>
+        /// <param name="roomsToAdd">The rooms to attach to the group, each given as a number for a room stored in the portal or as a string for a  room on a connected third-party account. Every identifier has to name a room the caller can read; repeats and  rooms the group already holds are collapsed rather than refused..</param>
+        /// <param name="roomsToRemove">The rooms to detach from the group, in the same two forms. Detaching leaves the room and its content  untouched, and a room the group already holds can be detached even when the caller has lost access to it in  the meantime..</param>
+        /// <param name="groupName">The new name of the group, trimmed of surrounding spaces before it is stored. Leaving the member out keeps the  current name, and a name that is blank once trimmed is refused..</param>
         public UpdateRoomGroupRequest(List<DuplicateRequestDtoAllOfFileIds> roomsToAdd = default, List<DuplicateRequestDtoAllOfFileIds> roomsToRemove = default, string groupName = default)
         {
             this.RoomsToAdd = roomsToAdd;
@@ -52,23 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of room IDs to add to the group.
+        /// The rooms to attach to the group, each given as a number for a room stored in the portal or as a string for a  room on a connected third-party account. Every identifier has to name a room the caller can read; repeats and  rooms the group already holds are collapsed rather than refused.
         /// </summary>
-        /// <example>[1,2,3]</example>
+        /// <example>[12,15]</example>
         [DataMember(Name = "roomsToAdd", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> RoomsToAdd { get; set; }
 
         /// <summary>
-        /// The list of room IDs to remove from the group.
+        /// The rooms to detach from the group, in the same two forms. Detaching leaves the room and its content  untouched, and a room the group already holds can be detached even when the caller has lost access to it in  the meantime.
         /// </summary>
-        /// <example>[1,2,3]</example>
+        /// <example>[7]</example>
         [DataMember(Name = "roomsToRemove", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> RoomsToRemove { get; set; }
 
         /// <summary>
-        /// The group name.
+        /// The new name of the group, trimmed of surrounding spaces before it is stored. Leaving the member out keeps the  current name, and a name that is blank once trimmed is refused.
         /// </summary>
-        /// <example>New Group Name</example>
+        /// <example>Client projects</example>
         [DataMember(Name = "groupName", EmitDefaultValue = true)]
         public string GroupName { get; set; }
 

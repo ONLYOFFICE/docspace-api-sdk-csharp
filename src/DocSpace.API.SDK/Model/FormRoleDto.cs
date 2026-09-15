@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The form role parameters.
+    /// One role of a PDF form, with the state the turn of that role is in.
     /// </summary>
     [DataContract(Name = "FormRoleDto")]
     public partial class FormRoleDto : IValidatableObject
     {
 
         /// <summary>
-        /// The role status.
+        /// Where the role stands in the queue: roles of earlier turns are reported as complete, roles of later turns as a  draft, and the role whose turn it is as either yours to fill or in progress, depending on whether that person  has already opened the form. The role the filling was stopped at is reported as stopped whatever its turn.
         /// </summary>
         [DataMember(Name = "roleStatus", EmitDefaultValue = false)]
         public FormFillingStatus? RoleStatus { get; set; }
@@ -52,14 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormRoleDto" /> class.
         /// </summary>
-        /// <param name="roleName">The role name. (required).</param>
-        /// <param name="roleColor">The role color..</param>
-        /// <param name="user">The user of the role..</param>
-        /// <param name="sequence">The role sequence. (required).</param>
-        /// <param name="submitted">Specifies if the role is submitted. (required).</param>
-        /// <param name="stopedBy">The user who stopped the role..</param>
-        /// <param name="history">The role history..</param>
-        /// <param name="roleStatus">The role status..</param>
+        /// <param name="roleName">The name the role was given when the form was laid out, unique within that form. It is the value that names  the role in the calls which change or stop the filling. (required).</param>
+        /// <param name="roleColor">The colour a client paints the role with, as a hexadecimal RGB value; empty when the role mapping assigned  none..</param>
+        /// <param name="user">The account the role was assigned to, which is the person expected to fill this part of the form..</param>
+        /// <param name="sequence">The turn this role takes: the roles come back ordered by this number, roles sharing a number are filled in  parallel, and a role with a higher number waits until every lower one has been submitted. (required).</param>
+        /// <param name="submitted">Reports whether this role has already handed in its part. The lowest sequence number that still holds an  unsubmitted role is the turn the form as a whole is waiting on. (required).</param>
+        /// <param name="stopedBy">The account that interrupted the filling. It is filled in on the one role the filling was stopped at and stays  empty on every other role, and on all of them while the filling runs normally..</param>
+        /// <param name="history">When the role passed through the stages of its turn, keyed by stage: 0 is the moment the form was opened for  it, 1 the moment it was submitted and 2 the moment the filling was stopped at it. The times are given in the  time zone of the portal, and only the stages that have actually happened are present, so an empty object means  the role has not been opened yet..</param>
+        /// <param name="roleStatus">Where the role stands in the queue: roles of earlier turns are reported as complete, roles of later turns as a  draft, and the role whose turn it is as either yours to fill or in progress, depending on whether that person  has already opened the form. The role the filling was stopped at is reported as stopped whatever its turn..</param>
         public FormRoleDto(string roleName = default, string roleColor = default, EmployeeFullDto user = default, int sequence = default, bool submitted = default, EmployeeFullDto stopedBy = default, Dictionary<string, DateTime> history = default, FormFillingStatus? roleStatus = default)
         {
             // to ensure "roleName" is required (not null)
@@ -78,49 +78,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The role name.
+        /// The name the role was given when the form was laid out, unique within that form. It is the value that names  the role in the calls which change or stop the filling.
         /// </summary>
         /// <example>Approver</example>
         [DataMember(Name = "roleName", IsRequired = true, EmitDefaultValue = true)]
         public string RoleName { get; set; }
 
         /// <summary>
-        /// The role color.
+        /// The colour a client paints the role with, as a hexadecimal RGB value; empty when the role mapping assigned  none.
         /// </summary>
         /// <example>#FF5733</example>
         [DataMember(Name = "roleColor", EmitDefaultValue = true)]
         public string RoleColor { get; set; }
 
         /// <summary>
-        /// The user of the role.
+        /// The account the role was assigned to, which is the person expected to fill this part of the form.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public EmployeeFullDto User { get; set; }
 
         /// <summary>
-        /// The role sequence.
+        /// The turn this role takes: the roles come back ordered by this number, roles sharing a number are filled in  parallel, and a role with a higher number waits until every lower one has been submitted.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "sequence", IsRequired = true, EmitDefaultValue = true)]
         public int Sequence { get; set; }
 
         /// <summary>
-        /// Specifies if the role is submitted.
+        /// Reports whether this role has already handed in its part. The lowest sequence number that still holds an  unsubmitted role is the turn the form as a whole is waiting on.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "submitted", IsRequired = true, EmitDefaultValue = true)]
         public bool Submitted { get; set; }
 
         /// <summary>
-        /// The user who stopped the role.
+        /// The account that interrupted the filling. It is filled in on the one role the filling was stopped at and stays  empty on every other role, and on all of them while the filling runs normally.
         /// </summary>
         [DataMember(Name = "stopedBy", EmitDefaultValue = false)]
         public EmployeeFullDto StopedBy { get; set; }
 
         /// <summary>
-        /// The role history.
+        /// When the role passed through the stages of its turn, keyed by stage: 0 is the moment the form was opened for  it, 1 the moment it was submitted and 2 the moment the filling was stopped at it. The times are given in the  time zone of the portal, and only the stages that have actually happened are present, so an empty object means  the role has not been opened yet.
         /// </summary>
-        /// <example>{"0":"2025-01-15T10:30:00Z"}</example>
+        /// <example>{"0":"2025-01-15T10:30:00"}</example>
         [DataMember(Name = "history", EmitDefaultValue = false)]
         public Dictionary<string, DateTime> History { get; set; }
 

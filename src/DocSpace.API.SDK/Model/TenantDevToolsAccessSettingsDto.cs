@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the Developer Tools access settings for the current tenant.
+    /// Whether the &#x60;User&#x60; role is barred from the portal developer tools.
     /// </summary>
     [DataContract(Name = "TenantDevToolsAccessSettingsDto")]
     public partial class TenantDevToolsAccessSettingsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantDevToolsAccessSettingsDto" /> class.
         /// </summary>
-        /// <param name="limitedAccessForUsers">Determines if users have restricted access to the Developer Tools..</param>
+        /// <param name="limitedAccessForUsers">Whether members holding the &#x60;User&#x60; role are barred from the developer tools - API keys, OAuth applications  and webhooks. Room administrators and DocSpace administrators keep their access either way..</param>
         public TenantDevToolsAccessSettingsDto(bool limitedAccessForUsers = default)
         {
             this.LimitedAccessForUsers = limitedAccessForUsers;
         }
 
         /// <summary>
-        /// Determines if users have restricted access to the Developer Tools.
+        /// Whether members holding the &#x60;User&#x60; role are barred from the developer tools - API keys, OAuth applications  and webhooks. Room administrators and DocSpace administrators keep their access either way.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "limitedAccessForUsers", EmitDefaultValue = true)]

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room data lifetime information.
+    /// The rule by which the files of a room are removed once they have been lying in it for too long.
     /// </summary>
     [DataContract(Name = "AiRoomDataLifetimeDto")]
     public partial class AiRoomDataLifetimeDto : IValidatableObject
     {
 
         /// <summary>
-        /// Specifies the time period type of the room data lifetime.
+        /// The unit the age is counted in. Months and years are counted as calendar ones, so the same number of them  covers a different number of days depending on when the clean-up runs.
         /// </summary>
         [DataMember(Name = "period", EmitDefaultValue = false)]
         public AiRoomDataLifetimePeriod? Period { get; set; }
@@ -47,10 +47,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiRoomDataLifetimeDto" /> class.
         /// </summary>
-        /// <param name="deletePermanently">Specifies whether to permanently delete the room data or not..</param>
-        /// <param name="period">Specifies the time period type of the room data lifetime..</param>
-        /// <param name="value">Specifies the time period value of the room data lifetime..</param>
-        /// <param name="enabled">Specifies whether the room data lifetime setting is enabled or not..</param>
+        /// <param name="deletePermanently">Decides what happens to a file that has grown too old: it is erased outright, or it is moved to the trash of  the account that created the room, from where it can still be brought back..</param>
+        /// <param name="period">The unit the age is counted in. Months and years are counted as calendar ones, so the same number of them  covers a different number of days depending on when the clean-up runs..</param>
+        /// <param name="value">How many periods a file may stay in the room, counted from the moment it was last changed rather than from the  moment the rule was set. Files that are already older than this are removed by the next clean-up..</param>
+        /// <param name="enabled">Switches the rule on and off. Switching it off erases the rule instead of keeping it aside, so afterwards the  room reports no rule at all and the other three values have to be sent again to bring it back..</param>
         public AiRoomDataLifetimeDto(bool deletePermanently = default, AiRoomDataLifetimePeriod? period = default, int? value = default, bool? enabled = default)
         {
             this.DeletePermanently = deletePermanently;
@@ -60,21 +60,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to permanently delete the room data or not.
+        /// Decides what happens to a file that has grown too old: it is erased outright, or it is moved to the trash of  the account that created the room, from where it can still be brought back.
         /// </summary>
-        /// <example>true</example>
+        /// <example>false</example>
         [DataMember(Name = "deletePermanently", EmitDefaultValue = true)]
         public bool DeletePermanently { get; set; }
 
         /// <summary>
-        /// Specifies the time period value of the room data lifetime.
+        /// How many periods a file may stay in the room, counted from the moment it was last changed rather than from the  moment the rule was set. Files that are already older than this are removed by the next clean-up.
         /// </summary>
-        /// <example>33</example>
+        /// <example>12</example>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public int? Value { get; set; }
 
         /// <summary>
-        /// Specifies whether the room data lifetime setting is enabled or not.
+        /// Switches the rule on and off. Switching it off erases the rule instead of keeping it aside, so afterwards the  room reports no rule at all and the other three values have to be sent again to bring it back.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]

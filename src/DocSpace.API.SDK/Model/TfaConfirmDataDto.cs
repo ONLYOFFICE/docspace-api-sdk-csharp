@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The TFA confirmation data.
+    /// The confirmation link the caller has to follow to pass the two-factor step, and the cookie it depends on.
     /// </summary>
     [DataContract(Name = "TfaConfirmDataDto")]
     public partial class TfaConfirmDataDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaConfirmDataDto" /> class.
         /// </summary>
-        /// <param name="url">The confirmation URL..</param>
-        /// <param name="cookieName">The confirmation cookie name..</param>
-        /// <param name="cookieValue">The confirmation cookie value..</param>
+        /// <param name="url">The link to open. Its &#x60;type&#x60; shows which step it is: phone activation or phone authorization for the SMS  method, and authenticator activation or re-verification for the application method. The whole body is empty  when the portal requires no second factor of the caller..</param>
+        /// <param name="cookieName">The name of the confirmation cookie the link is validated against. It is filled in only for the  authenticator-application method; the SMS method returns &#x60;url&#x60; alone..</param>
+        /// <param name="cookieValue">The value of that cookie. The call already set it on the response, so it is repeated here only for a client  that does not keep cookies of its own; it is filled in under the same condition as &#x60;cookieName&#x60;, and a  later call to this operation replaces it..</param>
         public TfaConfirmDataDto(string url = default, string cookieName = default, string cookieValue = default)
         {
             this.Url = url;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The confirmation URL.
+        /// The link to open. Its &#x60;type&#x60; shows which step it is: phone activation or phone authorization for the SMS  method, and authenticator activation or re-verification for the application method. The whole body is empty  when the portal requires no second factor of the caller.
         /// </summary>
         /// <example>https://example.com/confirm?type=TfaAuth&amp;key=abc123</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// The confirmation cookie name.
+        /// The name of the confirmation cookie the link is validated against. It is filled in only for the  authenticator-application method; the SMS method returns &#x60;url&#x60; alone.
         /// </summary>
         /// <example>asc_confirm_key_TfaAuth</example>
         [DataMember(Name = "cookieName", EmitDefaultValue = true)]
         public string CookieName { get; set; }
 
         /// <summary>
-        /// The confirmation cookie value.
+        /// The value of that cookie. The call already set it on the response, so it is repeated here only for a client  that does not keep cookies of its own; it is filled in under the same condition as &#x60;cookieName&#x60;, and a  later call to this operation replaces it.
         /// </summary>
         /// <example>1234567890.abcdef</example>
         [DataMember(Name = "cookieValue", EmitDefaultValue = true)]

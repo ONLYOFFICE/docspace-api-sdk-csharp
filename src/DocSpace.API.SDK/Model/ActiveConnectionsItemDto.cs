@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The active connection item parameters.
+    /// One open connection of a user: where the sign-in behind it came from, and the ID it can be closed by.
     /// </summary>
     [DataContract(Name = "ActiveConnectionsItemDto")]
     public partial class ActiveConnectionsItemDto : IValidatableObject
@@ -46,17 +46,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActiveConnectionsItemDto" /> class.
         /// </summary>
-        /// <param name="id">The active connection ID. (required).</param>
-        /// <param name="tenantId">The tenant ID. (required).</param>
-        /// <param name="userId">The user ID. (required).</param>
-        /// <param name="mobile">Specifies if the active connection has a mobile phone or not..</param>
-        /// <param name="ip">The IP address of the active connection..</param>
-        /// <param name="country">The active connection country..</param>
-        /// <param name="city">The active connection city..</param>
-        /// <param name="browser">The active connection browser..</param>
-        /// <param name="platform">The active connection platform..</param>
-        /// <param name="date">The active connection date..</param>
-        /// <param name="page">The active connection page..</param>
+        /// <param name="id">The ID of the sign-in this connection was opened by. Pass it as &#x60;loginEventId&#x60; to  &#x60;PUT api/2.0/security/activeconnections/logout/{loginEventId}&#x60; to end this one connection; the item whose  value equals &#x60;loginEvent&#x60; is the connection the current request uses. (required).</param>
+        /// <param name="tenantId">The portal the sign-in was made on. The operation never crosses portals, so it is the current one on every  item. (required).</param>
+        /// <param name="userId">The user the connection belongs to, which is the calling user on every item - the operation cannot report  anyone else&#39;s connections. (required).</param>
+        /// <param name="mobile">Whether the sign-in came from a mobile client. No mobile marker is stored with a connection, so the value  is &#x60;false&#x60; on every item and tells a caller nothing about the device..</param>
+        /// <param name="ip">The IP address the sign-in came from, with the port stripped off. On the item that matches &#x60;loginEvent&#x60; it  is taken from the address the current request arrives from instead of the one stored at sign-in..</param>
+        /// <param name="country">The English name of the country the IP address is located in. It is empty when the address cannot be  located, which is the normal outcome for private and loopback addresses..</param>
+        /// <param name="city">The city the IP address is located in, empty under the same conditions as &#x60;country&#x60;..</param>
+        /// <param name="browser">The browser and its version as parsed from the user agent of the sign-in, empty when the client sent no  recognisable one. It is refreshed from the current request on the item that matches &#x60;loginEvent&#x60;..</param>
+        /// <param name="platform">The operating system as parsed from the user agent of the sign-in, refreshed and left empty under the same  conditions as &#x60;browser&#x60;..</param>
+        /// <param name="date">When the sign-in happened, in the portal time zone rather than in UTC..</param>
+        /// <param name="page">Where in the portal the sign-in was made from: the referrer of the request that created it, or that  request&#39;s own path when it carried no referrer. Long values are cut off at 512 characters..</param>
         public ActiveConnectionsItemDto(int id = default, int tenantId = default, Guid userId = default, bool mobile = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, ApiDateTime date = default, string page = default)
         {
             this.Id = id;
@@ -73,76 +73,76 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The active connection ID.
+        /// The ID of the sign-in this connection was opened by. Pass it as &#x60;loginEventId&#x60; to  &#x60;PUT api/2.0/security/activeconnections/logout/{loginEventId}&#x60; to end this one connection; the item whose  value equals &#x60;loginEvent&#x60; is the connection the current request uses.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The tenant ID.
+        /// The portal the sign-in was made on. The operation never crosses portals, so it is the current one on every  item.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
-        /// The user ID.
+        /// The user the connection belongs to, which is the calling user on every item - the operation cannot report  anyone else&#39;s connections.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Specifies if the active connection has a mobile phone or not.
+        /// Whether the sign-in came from a mobile client. No mobile marker is stored with a connection, so the value  is &#x60;false&#x60; on every item and tells a caller nothing about the device.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "mobile", EmitDefaultValue = true)]
         public bool Mobile { get; set; }
 
         /// <summary>
-        /// The IP address of the active connection.
+        /// The IP address the sign-in came from, with the port stripped off. On the item that matches &#x60;loginEvent&#x60; it  is taken from the address the current request arrives from instead of the one stored at sign-in.
         /// </summary>
         /// <example>192.0.2.1</example>
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
-        /// The active connection country.
+        /// The English name of the country the IP address is located in. It is empty when the address cannot be  located, which is the normal outcome for private and loopback addresses.
         /// </summary>
         /// <example>United States</example>
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
-        /// The active connection city.
+        /// The city the IP address is located in, empty under the same conditions as &#x60;country&#x60;.
         /// </summary>
         /// <example>New York</example>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// The active connection browser.
+        /// The browser and its version as parsed from the user agent of the sign-in, empty when the client sent no  recognisable one. It is refreshed from the current request on the item that matches &#x60;loginEvent&#x60;.
         /// </summary>
         /// <example>Chrome 120.0</example>
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
 
         /// <summary>
-        /// The active connection platform.
+        /// The operating system as parsed from the user agent of the sign-in, refreshed and left empty under the same  conditions as &#x60;browser&#x60;.
         /// </summary>
         /// <example>Windows</example>
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
-        /// The active connection date.
+        /// When the sign-in happened, in the portal time zone rather than in UTC.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// The active connection page.
+        /// Where in the portal the sign-in was made from: the referrer of the request that created it, or that  request&#39;s own path when it carried no referrer. Long values are cut off at 512 characters.
         /// </summary>
         /// <example>/rooms/shared</example>
         [DataMember(Name = "page", EmitDefaultValue = true)]

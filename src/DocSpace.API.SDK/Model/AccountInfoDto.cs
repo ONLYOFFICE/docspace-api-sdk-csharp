@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountInfoDto" /> class.
         /// </summary>
-        /// <param name="provider">The account provider. (required).</param>
-        /// <param name="url">The account URL. (required).</param>
-        /// <param name="linked">Specifies if an account is linked with other profiles or not. (required).</param>
+        /// <param name="provider">The name of the identity provider, in lowercase, as every other operation of this group expects it: &#x60;google&#x60;,  &#x60;zoom&#x60;, &#x60;linkedin&#x60;, &#x60;facebook&#x60;, &#x60;twitter&#x60;, &#x60;microsoft&#x60;, &#x60;appleid&#x60;, &#x60;weixin&#x60; or &#x60;nextcloud&#x60;. (required).</param>
+        /// <param name="url">The URL that starts the login with this provider. Open it as it is - it already carries the provider and the  popup or redirect mode the request asked for. (required).</param>
+        /// <param name="linked">Whether this provider is already linked to the calling profile. It is always false for an anonymous caller,  because there is no profile to compare against. (required).</param>
         public AccountInfoDto(string provider = default, string url = default, bool linked = default)
         {
             // to ensure "provider" is required (not null)
@@ -67,21 +67,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The account provider.
+        /// The name of the identity provider, in lowercase, as every other operation of this group expects it: &#x60;google&#x60;,  &#x60;zoom&#x60;, &#x60;linkedin&#x60;, &#x60;facebook&#x60;, &#x60;twitter&#x60;, &#x60;microsoft&#x60;, &#x60;appleid&#x60;, &#x60;weixin&#x60; or &#x60;nextcloud&#x60;.
         /// </summary>
-        /// <example>Google</example>
+        /// <example>google</example>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
-        /// The account URL.
+        /// The URL that starts the login with this provider. Open it as it is - it already carries the provider and the  popup or redirect mode the request asked for.
         /// </summary>
-        /// <example>https://example.com/account</example>
+        /// <example>/login.ashx?auth=google&amp;mode=popup&amp;callback=onAuthCallback</example>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// Specifies if an account is linked with other profiles or not.
+        /// Whether this provider is already linked to the calling profile. It is always false for an anonymous caller,  because there is no profile to compare against.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "linked", IsRequired = true, EmitDefaultValue = true)]

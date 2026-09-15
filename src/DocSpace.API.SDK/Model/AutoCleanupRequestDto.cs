@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for updating the trash bin auto-clearing setting.
+    /// The trash auto-clearing setting to store: the on/off flag together with the interval.
     /// </summary>
     [DataContract(Name = "AutoCleanupRequestDto")]
     public partial class AutoCleanupRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// The time interval when the auto-clearing will be performed.
+        /// How long an item may stay in the trash before it is removed for good. It is written from every request,  including one that switches clearing off, so send it together with the flag instead of expecting the stored  interval to be kept.
         /// </summary>
         [DataMember(Name = "gap", EmitDefaultValue = false)]
         public DateToAutoCleanUp? Gap { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoCleanupRequestDto" /> class.
         /// </summary>
-        /// <param name="set">Specifies whether to enable the auto-clearing or not..</param>
-        /// <param name="gap">The time interval when the auto-clearing will be performed..</param>
+        /// <param name="set">Whether the caller&#39;s trash is cleared automatically: with true an item is removed for good once it has been in  the trash longer than the interval below, with false the portal removes nothing and waits for the trash to be  emptied by hand..</param>
+        /// <param name="gap">How long an item may stay in the trash before it is removed for good. It is written from every request,  including one that switches clearing off, so send it together with the flag instead of expecting the stored  interval to be kept..</param>
         public AutoCleanupRequestDto(bool set = default, DateToAutoCleanUp? gap = default)
         {
             this.Set = set;
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to enable the auto-clearing or not.
+        /// Whether the caller&#39;s trash is cleared automatically: with true an item is removed for good once it has been in  the trash longer than the interval below, with false the portal removes nothing and waits for the trash to be  emptied by hand.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "set", EmitDefaultValue = true)]

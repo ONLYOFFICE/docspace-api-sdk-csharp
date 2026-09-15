@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The result of file convertion operation.
+    /// The progress of one file conversion, together with the converted file once it exists.
     /// </summary>
     [DataContract(Name = "ConversationResultDto")]
     public partial class ConversationResultDto : IValidatableObject
     {
 
         /// <summary>
-        /// The conversion operation type.
+        /// Tells which kind of file operation the entry describes, so that a conversion can be told apart from the copy,  move and download entries that share this envelope. A conversion entry reports the conversion type.
         /// </summary>
         [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
         public FileOperationType Operation { get; set; }
@@ -52,13 +52,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationResultDto" /> class.
         /// </summary>
-        /// <param name="id">The conversion operation ID. (required).</param>
-        /// <param name="operation">The conversion operation type. (required).</param>
-        /// <param name="progress">The conversion operation progress. (required).</param>
-        /// <param name="source">The source file for the conversion..</param>
+        /// <param name="id">The identifier of the conversion entry. The portal leaves it empty for file conversions, so a caller follows  its own conversion by the file it queued rather than by this value. (required).</param>
+        /// <param name="operation">Tells which kind of file operation the entry describes, so that a conversion can be told apart from the copy,  move and download entries that share this envelope. A conversion entry reports the conversion type. (required).</param>
+        /// <param name="progress">How far the conversion has got, counted in percent from 0 while it is only queued to 100 once it is over -  whether it ended with a converted file or with an error. 100 is the value a polling caller waits for. (required).</param>
+        /// <param name="source">Describes what is being converted: the identifier of the source file, the version that was taken and whether  an existing result may be overwritten, packed as a JSON object inside a string. It is what identifies the  entry when several conversions of the same caller are in flight..</param>
         /// <param name="result">result.</param>
-        /// <param name="error">The conversion operation error message..</param>
-        /// <param name="processed">Specifies if the conversion operation is processed or not..</param>
+        /// <param name="error">The reason the conversion stopped, in the language of the caller, and empty while it is running and after it  has succeeded. &#x60;progress&#x60; reaches 100 for a failure as well, so this field is what separates a converted file  from a broken conversion; a conversion still unfinished after ten minutes ends with a timeout reported here..</param>
+        /// <param name="processed">Reports whether the portal has taken the entry as far as it goes: &#x60;1&#x60; once the conversion has finished or  failed, and empty while it is still queued or still being converted. It is the bookkeeping of the conversion  queue rather than a result - what happened is in &#x60;progress&#x60;, &#x60;error&#x60; and &#x60;result&#x60;..</param>
         public ConversationResultDto(string id = default, FileOperationType operation = default, int progress = default, string source = default, Object result = default, string error = default, string processed = default)
         {
             // to ensure "id" is required (not null)
@@ -76,23 +76,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The conversion operation ID.
+        /// The identifier of the conversion entry. The portal leaves it empty for file conversions, so a caller follows  its own conversion by the file it queued rather than by this value.
         /// </summary>
         /// <example>12345</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The conversion operation progress.
+        /// How far the conversion has got, counted in percent from 0 while it is only queued to 100 once it is over -  whether it ended with a converted file or with an error. 100 is the value a polling caller waits for.
         /// </summary>
         /// <example>50</example>
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public int Progress { get; set; }
 
         /// <summary>
-        /// The source file for the conversion.
+        /// Describes what is being converted: the identifier of the source file, the version that was taken and whether  an existing result may be overwritten, packed as a JSON object inside a string. It is what identifies the  entry when several conversions of the same caller are in flight.
         /// </summary>
-        /// <example>document.docx</example>
+        /// <example>{"id":9846,"version":1,"updateIfExist":false}</example>
         [DataMember(Name = "source", EmitDefaultValue = true)]
         public string Source { get; set; }
 
@@ -103,16 +103,16 @@ namespace DocSpace.API.SDK.Model
         public Object Result { get; set; }
 
         /// <summary>
-        /// The conversion operation error message.
+        /// The reason the conversion stopped, in the language of the caller, and empty while it is running and after it  has succeeded. &#x60;progress&#x60; reaches 100 for a failure as well, so this field is what separates a converted file  from a broken conversion; a conversion still unfinished after ten minutes ends with a timeout reported here.
         /// </summary>
         /// <example>Conversion failed</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// Specifies if the conversion operation is processed or not.
+        /// Reports whether the portal has taken the entry as far as it goes: &#x60;1&#x60; once the conversion has finished or  failed, and empty while it is still queued or still being converted. It is the bookkeeping of the conversion  queue rather than a result - what happened is in &#x60;progress&#x60;, &#x60;error&#x60; and &#x60;result&#x60;.
         /// </summary>
-        /// <example>true</example>
+        /// <example>1</example>
         [DataMember(Name = "processed", EmitDefaultValue = true)]
         public string Processed { get; set; }
 

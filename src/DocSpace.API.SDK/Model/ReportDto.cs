@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents a report containing a collection of operations.
+    /// One page of the portal wallet&#39;s money movements, with the paging figures needed to walk the rest.
     /// </summary>
     [DataContract(Name = "ReportDto")]
     public partial class ReportDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDto" /> class.
         /// </summary>
-        /// <param name="collection">A collection of operations..</param>
-        /// <param name="offset">The report data offset..</param>
-        /// <param name="limit">The report data limit..</param>
-        /// <param name="totalQuantity">The total quantity of operations in the report..</param>
-        /// <param name="totalPage">The total number of pages in the report..</param>
-        /// <param name="currentPage">The current page number of the report..</param>
+        /// <param name="collection">The movements on this page - top-ups, charges, refunds and corrections alike, newest first. It is empty  for a page past the end of the report as well as for a period in which nothing happened..</param>
+        /// <param name="offset">How many movements were skipped before this page, echoed from the request so a client need not remember  what it asked for..</param>
+        /// <param name="limit">How many movements one page may hold, echoed from the request; it is 25 unless another value was asked  for. A full page is not proof that more exist - compare &#x60;currentPage&#x60; with &#x60;totalPage&#x60;..</param>
+        /// <param name="totalQuantity">How many movements match the filters in total, across every page..</param>
+        /// <param name="totalPage">How many pages those movements come to at the current &#x60;limit&#x60;..</param>
+        /// <param name="currentPage">Which of those pages this one is, as the billing service numbers them. Page through by advancing &#x60;offset&#x60;  rather than this value, which nothing accepts as an argument..</param>
         public ReportDto(List<OperationDto> collection = default, int offset = default, int limit = default, long totalQuantity = default, int totalPage = default, int currentPage = default)
         {
             this.Collection = collection;
@@ -58,42 +58,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// A collection of operations.
+        /// The movements on this page - top-ups, charges, refunds and corrections alike, newest first. It is empty  for a page past the end of the report as well as for a period in which nothing happened.
         /// </summary>
-        /// <example>[{"id":"op1","type":"payment"}]</example>
+        /// <example>[{"service":"disk-storage","debit":14.0}]</example>
         [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<OperationDto> Collection { get; set; }
 
         /// <summary>
-        /// The report data offset.
+        /// How many movements were skipped before this page, echoed from the request so a client need not remember  what it asked for.
         /// </summary>
-        /// <example>1</example>
+        /// <example>0</example>
         [DataMember(Name = "offset", EmitDefaultValue = false)]
         public int Offset { get; set; }
 
         /// <summary>
-        /// The report data limit.
+        /// How many movements one page may hold, echoed from the request; it is 25 unless another value was asked  for. A full page is not proof that more exist - compare &#x60;currentPage&#x60; with &#x60;totalPage&#x60;.
         /// </summary>
-        /// <example>1</example>
+        /// <example>25</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
         /// <summary>
-        /// The total quantity of operations in the report.
+        /// How many movements match the filters in total, across every page.
         /// </summary>
-        /// <example>1</example>
+        /// <example>137</example>
         [DataMember(Name = "totalQuantity", EmitDefaultValue = false)]
         public long TotalQuantity { get; set; }
 
         /// <summary>
-        /// The total number of pages in the report.
+        /// How many pages those movements come to at the current &#x60;limit&#x60;.
         /// </summary>
-        /// <example>1</example>
+        /// <example>6</example>
         [DataMember(Name = "totalPage", EmitDefaultValue = false)]
         public int TotalPage { get; set; }
 
         /// <summary>
-        /// The current page number of the report.
+        /// Which of those pages this one is, as the billing service numbers them. Page through by advancing &#x60;offset&#x60;  rather than this value, which nothing accepts as an argument.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "currentPage", EmitDefaultValue = false)]

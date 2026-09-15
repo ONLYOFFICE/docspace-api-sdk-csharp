@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The currencies parameters.
+    /// One currency the portal&#39;s subscription prices can be quoted in, with the region it belongs to.
     /// </summary>
     [DataContract(Name = "CurrenciesDto")]
     public partial class CurrenciesDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrenciesDto" /> class.
         /// </summary>
-        /// <param name="isoCountryCode">The ISO country code..</param>
-        /// <param name="isoCurrencySymbol">The ISO currency symbol..</param>
-        /// <param name="currencyNativeName">The currency native name..</param>
+        /// <param name="isoCountryCode">The two-letter ISO code of the country the currency is that of, which is the region the price list was  picked for rather than the country of the caller..</param>
+        /// <param name="isoCurrencySymbol">The three-letter ISO 4217 code of the currency. On the first item of the answer it is the currency the  amounts from &#x60;GET api/2.0/portal/payment/prices&#x60; are expressed in..</param>
+        /// <param name="currencyNativeName">The currency name in the language of its own region - not in the portal language, and not a symbol..</param>
         public CurrenciesDto(string isoCountryCode = default, string isoCurrencySymbol = default, string currencyNativeName = default)
         {
             this.IsoCountryCode = isoCountryCode;
@@ -52,23 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ISO country code.
+        /// The two-letter ISO code of the country the currency is that of, which is the region the price list was  picked for rather than the country of the caller.
         /// </summary>
         /// <example>US</example>
         [DataMember(Name = "isoCountryCode", EmitDefaultValue = true)]
         public string IsoCountryCode { get; set; }
 
         /// <summary>
-        /// The ISO currency symbol.
+        /// The three-letter ISO 4217 code of the currency. On the first item of the answer it is the currency the  amounts from &#x60;GET api/2.0/portal/payment/prices&#x60; are expressed in.
         /// </summary>
         /// <example>USD</example>
         [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = true)]
         public string IsoCurrencySymbol { get; set; }
 
         /// <summary>
-        /// The currency native name.
+        /// The currency name in the language of its own region - not in the portal language, and not a symbol.
         /// </summary>
-        /// <example>Example Name</example>
+        /// <example>US Dollar</example>
         [DataMember(Name = "currencyNativeName", EmitDefaultValue = true)]
         public string CurrencyNativeName { get; set; }
 

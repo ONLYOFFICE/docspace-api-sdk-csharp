@@ -68,30 +68,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Provider identifier (e.g. &#x60;exa&#x60;).
         /// </summary>
+        /// <example>exa</example>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
         /// API key for the provider. Optional for self-hosted or keyless setups.
         /// </summary>
+        /// <example>your-web-search-api-key</example>
         [DataMember(Name = "key", EmitDefaultValue = false)]
         public string Key { get; set; }
 
         /// <summary>
         /// Optional override for the provider&#39;s base URL.
         /// </summary>
+        /// <example>https://api.exa.ai</example>
         [DataMember(Name = "baseUrl", EmitDefaultValue = false)]
         public string BaseUrl { get; set; }
 
         /// <summary>
         /// Whether this provider is cloud-hosted (vs. self-hosted).
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "isCloudProvider", EmitDefaultValue = true)]
         public bool IsCloudProvider { get; set; }
 
         /// <summary>
         /// Extra HTTP headers sent with each request to the ONLYOFFICE / cloud backend (e.g. &#x60;X-Tenant&#x60;). Merged after the derived &#x60;Authorization&#x60; header, so a custom header of the same name wins.
         /// </summary>
+        /// <example>{}</example>
         [DataMember(Name = "headers", EmitDefaultValue = false)]
         public Dictionary<string, string> Headers { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The presence or absence of the documents in the Open Recent... menu option.
+    /// One entry of the recent-documents list the editor offers.
     /// </summary>
     [DataContract(Name = "RecentConfig")]
     public partial class RecentConfig : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecentConfig" /> class.
         /// </summary>
-        /// <param name="folder">The folder where the document is stored..</param>
-        /// <param name="title">The document title that will be displayed in the Open Recent... menu option..</param>
-        /// <param name="url">The absolute URL to the document where it is stored..</param>
+        /// <param name="folder">The folder shown next to the entry, as a readable name rather than an id..</param>
+        /// <param name="title">The name shown for the entry..</param>
+        /// <param name="url">Where the entry opens..</param>
         public RecentConfig(string folder = default, string title = default, string url = default)
         {
             this.Folder = folder;
@@ -52,23 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The folder where the document is stored.
+        /// The folder shown next to the entry, as a readable name rather than an id.
         /// </summary>
-        /// <example>folder_123</example>
+        /// <example>My documents</example>
         [DataMember(Name = "folder", EmitDefaultValue = true)]
         public string Folder { get; set; }
 
         /// <summary>
-        /// The document title that will be displayed in the Open Recent... menu option.
+        /// The name shown for the entry.
         /// </summary>
-        /// <example>Report 2026</example>
+        /// <example>Report 2026.docx</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The absolute URL to the document where it is stored.
+        /// Where the entry opens.
         /// </summary>
-        /// <example>https://portal.example.com/files/recent/report2026.docx</example>
+        /// <example>https://portal.example.com/doceditor?fileid=512</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

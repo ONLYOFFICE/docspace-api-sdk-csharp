@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring the white label branding settings.
+    /// The branding a portal is given: the wordmark, the logo images, or both.
     /// </summary>
     [DataContract(Name = "WhiteLabelRequestsDto")]
     public partial class WhiteLabelRequestsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WhiteLabelRequestsDto" /> class.
         /// </summary>
-        /// <param name="logoText">The text to display alongside or in place of the logo..</param>
-        /// <param name="logo">The white label tenant IDs with their logos (light or dark)..</param>
+        /// <param name="logoText">The wordmark printed next to or instead of a logo image, on the login page, in the editors and in  notification letters. An empty or blank value, and the built-in &#x60;ONLYOFFICE&#x60; itself, clear the setting rather  than store it. The text is not rendered into the logo images, which carry their own wordmark..</param>
+        /// <param name="logo">The logo images to store, each entry naming a logo slot in its &#x60;key&#x60; - the numeric &#x60;type&#x60; published by  &#x60;GET api/2.0/settings/whitelabel/logos&#x60; - and carrying the two theme images in its value. A slot left out of  the list keeps the image it has, so this is a partial update rather than a replacement of the whole branding.  Saving the login-page slot also rebuilds the notification logo from it..</param>
         public WhiteLabelRequestsDto(string logoText = default, List<ItemKeyValuePairStringLogoRequestsDto> logo = default)
         {
             this.LogoText = logoText;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The text to display alongside or in place of the logo.
+        /// The wordmark printed next to or instead of a logo image, on the login page, in the editors and in  notification letters. An empty or blank value, and the built-in &#x60;ONLYOFFICE&#x60; itself, clear the setting rather  than store it. The text is not rendered into the logo images, which carry their own wordmark.
         /// </summary>
         /// <example>Company Name</example>
         [DataMember(Name = "logoText", EmitDefaultValue = true)]
         public string LogoText { get; set; }
 
         /// <summary>
-        /// The white label tenant IDs with their logos (light or dark).
+        /// The logo images to store, each entry naming a logo slot in its &#x60;key&#x60; - the numeric &#x60;type&#x60; published by  &#x60;GET api/2.0/settings/whitelabel/logos&#x60; - and carrying the two theme images in its value. A slot left out of  the list keeps the image it has, so this is a partial update rather than a replacement of the whole branding.  Saving the login-page slot also rebuilds the notification logo from it.
         /// </summary>
         /// <example>["item1","item2"]</example>
         [DataMember(Name = "logo", EmitDefaultValue = true)]

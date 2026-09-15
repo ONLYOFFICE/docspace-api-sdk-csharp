@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for deleting a file.
+    /// The parameters of a single file deletion.
     /// </summary>
     [DataContract(Name = "Delete")]
     public partial class Delete : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Delete" /> class.
         /// </summary>
-        /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not..</param>
-        /// <param name="immediately">Specifies whether to move a file to the \\Trash\\ folder or delete it immediately..</param>
+        /// <param name="deleteAfter">When to delete: &#x60;true&#x60; waits until the editing session on the file has ended, &#x60;false&#x60; deletes at once, pulling  the file away from whoever is working on it..</param>
+        /// <param name="immediately">Where the file goes: &#x60;false&#x60; moves it to Trash, from where it can be restored, &#x60;true&#x60; deletes it for good.  Inside a room, where there is no Trash, deletion is always final..</param>
         public Delete(bool deleteAfter = default, bool immediately = default)
         {
             this.DeleteAfter = deleteAfter;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to delete a file after the editing session is finished or not.
+        /// When to delete: &#x60;true&#x60; waits until the editing session on the file has ended, &#x60;false&#x60; deletes at once, pulling  the file away from whoever is working on it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
-        /// Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.
+        /// Where the file goes: &#x60;false&#x60; moves it to Trash, from where it can be restored, &#x60;true&#x60; deletes it for good.  Inside a room, where there is no Trash, deletion is always final.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "immediately", EmitDefaultValue = true)]

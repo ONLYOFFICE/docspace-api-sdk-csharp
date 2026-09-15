@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The user type.
+        /// The type the invitation link is looked up as, defaulting to &#x60;RoomAdmin&#x60;. It does not decide the resulting  type: the link itself does, and this value only has to match the kind of link that was issued.
         /// </summary>
         [DataMember(Name = "employeeType", EmitDefaultValue = false)]
         public EmployeeType? EmployeeType { get; set; }
@@ -52,10 +52,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignupAccountRequestDto" /> class.
         /// </summary>
-        /// <param name="employeeType">The user type..</param>
-        /// <param name="key">The user link key. (required).</param>
-        /// <param name="culture">The user culture code..</param>
-        /// <param name="serializedProfile">The third-party profile in the serialized format (required).</param>
+        /// <param name="employeeType">The type the invitation link is looked up as, defaulting to &#x60;RoomAdmin&#x60;. It does not decide the resulting  type: the link itself does, and this value only has to match the kind of link that was issued..</param>
+        /// <param name="key">The key of the invitation link being accepted, taken from the link the invitation email or the room  invitation contains. An expired or already used key is rejected with 403. (required).</param>
+        /// <param name="culture">The culture to set on the new profile, as a culture code. It is applied only when the portal has that culture  enabled, and otherwise the portal default is kept..</param>
+        /// <param name="serializedProfile">The profile a completed provider authorization produced, in the serialized form the login flow hands back.  Pass that value unchanged; the first name, the last name, the email and the avatar of the new profile are  taken from it. (required).</param>
         public SignupAccountRequestDto(EmployeeType? employeeType = default, string key = default, string culture = default, string serializedProfile = default)
         {
             // to ensure "key" is required (not null)
@@ -75,23 +75,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user link key.
+        /// The key of the invitation link being accepted, taken from the link the invitation email or the room  invitation contains. An expired or already used key is rejected with 403.
         /// </summary>
         /// <example>invite_key_123456</example>
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The user culture code.
+        /// The culture to set on the new profile, as a culture code. It is applied only when the portal has that culture  enabled, and otherwise the portal default is kept.
         /// </summary>
         /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
-        /// The third-party profile in the serialized format
+        /// The profile a completed provider authorization produced, in the serialized form the login flow hands back.  Pass that value unchanged; the first name, the last name, the email and the avatar of the new profile are  taken from it.
         /// </summary>
-        /// <example>{"provider":"Google","id":"123456"}</example>
+        /// <example>{"provider":"google","id":"123456"}</example>
         [DataMember(Name = "serializedProfile", IsRequired = true, EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 

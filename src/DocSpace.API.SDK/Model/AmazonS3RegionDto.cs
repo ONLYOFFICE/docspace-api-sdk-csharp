@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AmazonS3RegionDto" /> class.
         /// </summary>
-        /// <param name="systemName">The region system name..</param>
-        /// <param name="displayName">The human-readable region name..</param>
-        /// <param name="partitionName">The name of the AWS partition the region belongs to..</param>
-        /// <param name="partitionDnsSuffix">The DNS suffix of the partition..</param>
-        /// <param name="partitionRegionRegex">The pattern the region names of the partition match..</param>
-        /// <param name="hostnameTemplate">The template the partition builds service endpoint hostnames from..</param>
+        /// <param name="systemName">The region code to send as the region value when configuring an Amazon S3 storage or backup target. It is  the one field of this object that is an argument elsewhere; a code the server does not list here cannot be  reached, so pick one from this list rather than typing it..</param>
+        /// <param name="displayName">The region name as Amazon writes it, in English regardless of the portal language, for showing in a  picker next to &#x60;systemName&#x60;..</param>
+        /// <param name="partitionName">The Amazon partition the region sits in - the ordinary commercial cloud, the Chinese one, or a government  one. Regions of different partitions are not reachable with the same credentials..</param>
+        /// <param name="partitionDnsSuffix">The domain the partition&#39;s service host names end in, which differs from partition to partition..</param>
+        /// <param name="partitionRegionRegex">The pattern every region code of this partition matches, for validating a code before sending it..</param>
+        /// <param name="hostnameTemplate">How a service host name of the partition is assembled, with &#x60;{service}&#x60;, &#x60;{region}&#x60; and &#x60;{dnsSuffix}&#x60; to  be filled in. It is reference material - the portal builds its own endpoints from &#x60;systemName&#x60;..</param>
         public AmazonS3RegionDto(string systemName = default, string displayName = default, string partitionName = default, string partitionDnsSuffix = default, string partitionRegionRegex = default, string hostnameTemplate = default)
         {
             this.SystemName = systemName;
@@ -58,42 +58,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The region system name.
+        /// The region code to send as the region value when configuring an Amazon S3 storage or backup target. It is  the one field of this object that is an argument elsewhere; a code the server does not list here cannot be  reached, so pick one from this list rather than typing it.
         /// </summary>
         /// <example>eu-west-1</example>
         [DataMember(Name = "systemName", EmitDefaultValue = true)]
         public string SystemName { get; set; }
 
         /// <summary>
-        /// The human-readable region name.
+        /// The region name as Amazon writes it, in English regardless of the portal language, for showing in a  picker next to &#x60;systemName&#x60;.
         /// </summary>
         /// <example>Europe (Ireland)</example>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The name of the AWS partition the region belongs to.
+        /// The Amazon partition the region sits in - the ordinary commercial cloud, the Chinese one, or a government  one. Regions of different partitions are not reachable with the same credentials.
         /// </summary>
         /// <example>aws</example>
         [DataMember(Name = "partitionName", EmitDefaultValue = true)]
         public string PartitionName { get; set; }
 
         /// <summary>
-        /// The DNS suffix of the partition.
+        /// The domain the partition&#39;s service host names end in, which differs from partition to partition.
         /// </summary>
         /// <example>amazonaws.com</example>
         [DataMember(Name = "partitionDnsSuffix", EmitDefaultValue = true)]
         public string PartitionDnsSuffix { get; set; }
 
         /// <summary>
-        /// The pattern the region names of the partition match.
+        /// The pattern every region code of this partition matches, for validating a code before sending it.
         /// </summary>
         /// <example>^(us|eu|ap|sa|ca|me|af|il|mx)\-\w+\-\d+$</example>
         [DataMember(Name = "partitionRegionRegex", EmitDefaultValue = true)]
         public string PartitionRegionRegex { get; set; }
 
         /// <summary>
-        /// The template the partition builds service endpoint hostnames from.
+        /// How a service host name of the partition is assembled, with &#x60;{service}&#x60;, &#x60;{region}&#x60; and &#x60;{dnsSuffix}&#x60; to  be filled in. It is reference material - the portal builds its own endpoints from &#x60;systemName&#x60;.
         /// </summary>
         /// <example>{service}.{region}.{dnsSuffix}</example>
         [DataMember(Name = "hostnameTemplate", EmitDefaultValue = true)]

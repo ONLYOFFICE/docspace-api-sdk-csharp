@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditTrailModuleMapperDto" /> class.
         /// </summary>
-        /// <param name="moduleType">The module name..</param>
-        /// <param name="actions">The actions of the module..</param>
+        /// <param name="moduleType">The location inside the product, as the &#x60;moduleType&#x60; filter of &#x60;GET api/2.0/security/audit/events/filter&#x60;  spells it..</param>
+        /// <param name="actions">Every action this module can record. Each action appears under exactly one module, so this tree is where a  caller learns which module a given action belongs to..</param>
         public AuditTrailModuleMapperDto(string moduleType = default, List<AuditTrailActionMapperDto> actions = default)
         {
             this.ModuleType = moduleType;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The module name.
+        /// The location inside the product, as the &#x60;moduleType&#x60; filter of &#x60;GET api/2.0/security/audit/events/filter&#x60;  spells it.
         /// </summary>
         /// <example>Files</example>
         [DataMember(Name = "moduleType", EmitDefaultValue = true)]
         public string ModuleType { get; set; }
 
         /// <summary>
-        /// The actions of the module.
+        /// Every action this module can record. Each action appears under exactly one module, so this tree is where a  caller learns which module a given action belongs to.
         /// </summary>
         [DataMember(Name = "actions", EmitDefaultValue = true)]
         public List<AuditTrailActionMapperDto> Actions { get; set; }

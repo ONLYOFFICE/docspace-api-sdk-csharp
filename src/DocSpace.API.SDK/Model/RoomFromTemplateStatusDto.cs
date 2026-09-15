@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The progress parameters of creating a room from the template.
+    /// The progress of the job that creates a room out of a room template.
     /// </summary>
     [DataContract(Name = "RoomFromTemplateStatusDto")]
     public partial class RoomFromTemplateStatusDto : IValidatableObject
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomFromTemplateStatusDto" /> class.
         /// </summary>
-        /// <param name="roomId">The room ID. (required).</param>
-        /// <param name="progress">The progress of creating a room from the template. (required).</param>
-        /// <param name="error">The error message that is sent when a room is not created successfully from the template. (required).</param>
-        /// <param name="isCompleted">Specifies whether the process of creating a room from the template is completed. (required).</param>
+        /// <param name="roomId">The room the job is creating. It is meaningful once the room exists, which is guaranteed only after  &#x60;isCompleted&#x60; turns true and &#x60;error&#x60; stays empty; until then it carries no usable id. (required).</param>
+        /// <param name="progress">How far the job has got. The value climbs while the contents of the template are being copied into the new  room and reaches its maximum at the very end. (required).</param>
+        /// <param name="error">Why the job stopped. It is empty while the job runs and after a successful one, and a filled value means that  no room was created, so the request has to be repeated rather than waited out. (required).</param>
+        /// <param name="isCompleted">Whether the job has ended. It is set both after a successful creation and after a failure, so it is the flag  to poll for, while &#x60;error&#x60; is what separates the two outcomes. (required).</param>
         public RoomFromTemplateStatusDto(int roomId = default, double progress = default, string error = default, bool isCompleted = default)
         {
             this.RoomId = roomId;
@@ -64,28 +64,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The room ID.
+        /// The room the job is creating. It is meaningful once the room exists, which is guaranteed only after  &#x60;isCompleted&#x60; turns true and &#x60;error&#x60; stays empty; until then it carries no usable id.
         /// </summary>
         /// <example>456</example>
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>
-        /// The progress of creating a room from the template.
+        /// How far the job has got. The value climbs while the contents of the template are being copied into the new  room and reaches its maximum at the very end.
         /// </summary>
         /// <example>50.0</example>
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public double Progress { get; set; }
 
         /// <summary>
-        /// The error message that is sent when a room is not created successfully from the template.
+        /// Why the job stopped. It is empty while the job runs and after a successful one, and a filled value means that  no room was created, so the request has to be repeated rather than waited out.
         /// </summary>
         /// <example>Room creation failed</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// Specifies whether the process of creating a room from the template is completed.
+        /// Whether the job has ended. It is set both after a successful creation and after a failure, so it is the flag  to poll for, while &#x60;error&#x60; is what separates the two outcomes.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]

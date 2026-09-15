@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for changing version history.
+    /// The change to make to a revision group of a file.
     /// </summary>
     [DataContract(Name = "ChangeHistory")]
     public partial class ChangeHistory : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeHistory" /> class.
         /// </summary>
-        /// <param name="version">The file version of the change history. (required).</param>
-        /// <param name="continueVersion">Specifies whether to start a new version or continue revision of the change history..</param>
+        /// <param name="version">The version the change applies to; 0 means the current version of the file. (required).</param>
+        /// <param name="continueVersion">What to do with the revision group: &#x60;false&#x60; completes the named version, storing its content again as a fresh  version that opens a new group, while &#x60;true&#x60; folds the last group back into the group before it, so the next  save continues that revision..</param>
         public ChangeHistory(int version = default, bool continueVersion = default)
         {
             this.@Version = version;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file version of the change history.
+        /// The version the change applies to; 0 means the current version of the file.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>
-        /// Specifies whether to start a new version or continue revision of the change history.
+        /// What to do with the revision group: &#x60;false&#x60; completes the named version, storing its content again as a fresh  version that opens a new group, while &#x60;true&#x60; folds the last group back into the group before it, so the next  save continues that revision.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "continueVersion", EmitDefaultValue = true)]

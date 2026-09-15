@@ -41,16 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IconRequest" /> class.
         /// </summary>
-        /// <param name="icon">Group icon.</param>
+        /// <param name="icon">The identifier of one of the built-in covers listed by &#x60;GET api/2.0/files/rooms/covers&#x60;. An empty string  clears the icon of the group, null or a missing member keeps the current one, and anything else is refused..</param>
         public IconRequest(string icon = default)
         {
             this.Icon = icon;
         }
 
         /// <summary>
-        /// Group icon
+        /// The identifier of one of the built-in covers listed by &#x60;GET api/2.0/files/rooms/covers&#x60;. An empty string  clears the icon of the group, null or a missing member keeps the current one, and anything else is refused.
         /// </summary>
-        /// <example>https://example.com/image.png</example>
+        /// <example>heart</example>
         [DataMember(Name = "icon", EmitDefaultValue = true)]
         public string Icon { get; set; }
 

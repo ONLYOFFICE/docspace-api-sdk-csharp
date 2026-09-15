@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for managing form filling.
+    /// The action to apply to the filling of a PDF form.
     /// </summary>
     [DataContract(Name = "ManageFormFillingDtoInteger")]
     public partial class ManageFormFillingDtoInteger : IValidatableObject
     {
 
         /// <summary>
-        /// The action to perform on the form.
+        /// The action to apply.
         /// </summary>
         [DataMember(Name = "action", EmitDefaultValue = false)]
         public FormFillingManageAction? Action { get; set; }
@@ -52,8 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManageFormFillingDtoInteger" /> class.
         /// </summary>
-        /// <param name="formId">The ID of the form to manage. (required).</param>
-        /// <param name="action">The action to perform on the form..</param>
+        /// <param name="formId">The PDF form the action applies to. This is the value the operation reads, rather than the identifier in its  route, and the two are to be sent the same. (required).</param>
+        /// <param name="action">The action to apply..</param>
         public ManageFormFillingDtoInteger(int formId = default, FormFillingManageAction? action = default)
         {
             this.FormId = formId;
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the form to manage.
+        /// The PDF form the action applies to. This is the value the operation reads, rather than the identifier in its  route, and the two are to be sent the same.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "formId", IsRequired = true, EmitDefaultValue = true)]

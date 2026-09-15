@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the tenant storage quota settings in a multi-tenant system.
+    /// The storage limit set on one tenant of a self-hosted installation.
     /// </summary>
     [DataContract(Name = "TenantQuotaSettingsRequestsDto")]
     public partial class TenantQuotaSettingsRequestsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantQuotaSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="tenantId">The ID of the tenant whose quota is being configured. (required).</param>
-        /// <param name="quota">The storage quota limit in bytes allocated to the tenant..</param>
+        /// <param name="tenantId">The tenant the limit applies to, by tenant ID. Only a self-hosted installation has more than one, which is  why the operation is refused on SaaS. (required).</param>
+        /// <param name="quota">The limit in bytes. A negative value is not a smaller limit but the absence of one: it removes whatever limit  the tenant had. The value is a ceiling on stored data and says nothing about how much of it is already used..</param>
         public TenantQuotaSettingsRequestsDto(int tenantId = default, long quota = default)
         {
             this.TenantId = tenantId;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the tenant whose quota is being configured.
+        /// The tenant the limit applies to, by tenant ID. Only a self-hosted installation has more than one, which is  why the operation is refused on SaaS.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
-        /// The storage quota limit in bytes allocated to the tenant.
+        /// The limit in bytes. A negative value is not a smaller limit but the absence of one: it removes whatever limit  the tenant had. The value is a ceiling on stored data and says nothing about how much of it is already used.
         /// </summary>
         /// <example>1048576</example>
         [DataMember(Name = "quota", EmitDefaultValue = false)]

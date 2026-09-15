@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for locking a file.
+    /// The lock state a file is to be put into.
     /// </summary>
     [DataContract(Name = "LockFileParameters")]
     public partial class LockFileParameters : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LockFileParameters" /> class.
         /// </summary>
-        /// <param name="lockFile">Specifies whether to lock a file or not..</param>
+        /// <param name="lockFile">The state to reach: &#x60;true&#x60; locks the file, which blocks editing, renaming and deleting for everybody but the  account that locked it and the room admins, and drops the others out of a running editing session; &#x60;false&#x60;  releases the lock..</param>
         public LockFileParameters(bool lockFile = default)
         {
             this.LockFile = lockFile;
         }
 
         /// <summary>
-        /// Specifies whether to lock a file or not.
+        /// The state to reach: &#x60;true&#x60; locks the file, which blocks editing, renaming and deleting for everybody but the  account that locked it and the room admins, and drops the others out of a running editing session; &#x60;false&#x60;  releases the lock.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "lockFile", EmitDefaultValue = true)]

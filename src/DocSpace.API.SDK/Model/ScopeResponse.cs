@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The response containing the scope information.
+    /// One scope from the tenant scope catalogue, as it may be requested by a client.
     /// </summary>
     [DataContract(Name = "ScopeResponse")]
     public partial class ScopeResponse : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScopeResponse" /> class.
         /// </summary>
-        /// <param name="name">The scope name..</param>
-        /// <param name="group">The group the scope belongs to..</param>
-        /// <param name="type">The scope type..</param>
+        /// <param name="name">The scope exactly as it is written in an authorization request, for example files:read or openid..</param>
+        /// <param name="group">The area of the portal the scope belongs to, which is what groups the scopes on the consent screen: files, rooms, contacts, profiles or openid..</param>
+        /// <param name="type">What the scope allows inside its group: read for read-only access, write for changes, and openid for the identity scope itself..</param>
         public ScopeResponse(string name = default, string group = default, string type = default)
         {
             this.Name = name;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The scope name.
+        /// The scope exactly as it is written in an authorization request, for example files:read or openid.
         /// </summary>
+        /// <example>files:read</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The group the scope belongs to.
+        /// The area of the portal the scope belongs to, which is what groups the scopes on the consent screen: files, rooms, contacts, profiles or openid.
         /// </summary>
+        /// <example>files</example>
         [DataMember(Name = "group", EmitDefaultValue = false)]
         public string Group { get; set; }
 
         /// <summary>
-        /// The scope type.
+        /// What the scope allows inside its group: read for read-only access, write for changes, and openid for the identity scope itself.
         /// </summary>
+        /// <example>read</example>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 

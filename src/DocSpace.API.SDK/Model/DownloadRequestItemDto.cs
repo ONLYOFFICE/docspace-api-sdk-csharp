@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The download request item with conversion parameters and security settings.
+    /// One file of a bulk download, together with the format it is converted to.
     /// </summary>
     [DataContract(Name = "DownloadRequestItemDto")]
     public partial class DownloadRequestItemDto : IValidatableObject
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="DownloadRequestItemDto" /> class.
         /// </summary>
         /// <param name="key">key (required).</param>
-        /// <param name="value">The target format or conversion type for the file download. (required).</param>
-        /// <param name="password">The optional password for accessing protected files..</param>
+        /// <param name="value">The format the file is converted to before it is packed, as a file extension without a leading dot. (required).</param>
+        /// <param name="password">The password that opens the source file, for a file protected with one; a protected file cannot be converted  without it..</param>
         public DownloadRequestItemDto(DownloadRequestItemDtoKey key = default, string value = default, string password = default)
         {
             // to ensure "key" is required (not null)
@@ -73,14 +73,14 @@ namespace DocSpace.API.SDK.Model
         public DownloadRequestItemDtoKey Key { get; set; }
 
         /// <summary>
-        /// The target format or conversion type for the file download.
+        /// The format the file is converted to before it is packed, as a file extension without a leading dot.
         /// </summary>
         /// <example>pdf</example>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
-        /// The optional password for accessing protected files.
+        /// The password that opens the source file, for a file protected with one; a protected file cannot be converted  without it.
         /// </summary>
         /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]

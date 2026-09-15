@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for requesting the webhook delivery retries.
+    /// Which past webhook deliveries are sent again.
     /// </summary>
     [DataContract(Name = "WebhookRetryRequestsDto")]
     public partial class WebhookRetryRequestsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookRetryRequestsDto" /> class.
         /// </summary>
-        /// <param name="ids">The list of webhook delivery IDs to retry..</param>
+        /// <param name="ids">The delivery records to send again, by the identifiers &#x60;GET api/2.0/settings/webhooks/log&#x60; reports. An  identifier that exists nowhere, and one belonging to another member subscription when the caller is not a  DocSpace administrator, is skipped in silence rather than failing the call, so compare the number of records  that come back against the number sent. An empty list is accepted and queues nothing..</param>
         public WebhookRetryRequestsDto(List<int> ids = default)
         {
             this.Ids = ids;
         }
 
         /// <summary>
-        /// The list of webhook delivery IDs to retry.
+        /// The delivery records to send again, by the identifiers &#x60;GET api/2.0/settings/webhooks/log&#x60; reports. An  identifier that exists nowhere, and one belonging to another member subscription when the caller is not a  DocSpace administrator, is skipped in silence rather than failing the call, so compare the number of records  that come back against the number sent. An empty list is accepted and queues nothing.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "ids", EmitDefaultValue = true)]

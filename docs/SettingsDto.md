@@ -1,56 +1,56 @@
 # DocSpace.API.SDK.Model.SettingsDto
-The settings information.
+The general configuration of the current portal, as the client shell needs it before and after sign-in.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timezone** | **string** | The time zone. | [optional] 
-**TrustedDomains** | **List&lt;string&gt;** | The list of the trusted domains. | [optional] 
-**TrustedDomainsType** | **TenantTrustedDomainsType** | The type of the trusted domains. | [optional] 
-**Culture** | **string** | The language. | 
-**UtcOffset** | **string** | The UTC offset in the TimeSpan format. | [optional] 
-**UtcHoursOffset** | **double** | The UTC offset in hours. | [optional] 
-**GreetingSettings** | **string** | The greeting settings. | [optional] 
-**OwnerId** | **Guid** | The owner ID. | [optional] 
-**NameSchemaId** | **string** | The team template ID. | [optional] 
-**EnabledJoin** | **bool?** | Specifies if a user can join the portal or not. | [optional] 
-**EnableAdmMess** | **bool?** | Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not. | [optional] 
-**ThirdpartyEnable** | **bool?** | Specifies if a user can connect third-party providers to the portal or not. | [optional] 
-**DocSpace** | **bool** | Specifies if this portal is a DocSpace portal or not. | [optional] 
-**Standalone** | **bool** | Indicates whether the system is running in standalone mode. | [optional] 
-**IsAmi** | **bool** | Specifies if this portal is the AMI instance or not. | [optional] 
-**BaseDomain** | **string** | The base domain. | 
-**WizardToken** | **string** | The wizard token. | [optional] 
-**PasswordHash** | [**PasswordHasher**](PasswordHasher.md) | The password hash. | [optional] 
-**Firebase** | [**FirebaseDto**](FirebaseDto.md) | The Firebase parameters. | [optional] 
-**@Version** | **string** | The portal version. | [optional] 
-**RecaptchaType** | **RecaptchaType** | The type of CAPTCHA validation used. | [optional] 
-**RecaptchaPublicKey** | **string** | The ReCAPTCHA public key. | [optional] 
-**DebugInfo** | **bool** | Specifies if the debug information will be sent or not. | [optional] 
-**SocketUrl** | **string** | The socket URL. | [optional] 
-**TenantStatus** | **TenantStatus** | The tenant status. | [optional] 
-**TenantAlias** | **string** | The tenant alias. | [optional] 
-**DisplayAbout** | **bool** | Specifies whether to display the About portal section. | [optional] 
-**DomainValidator** | [**TenantDomainValidator**](TenantDomainValidator.md) | The domain validator. | [optional] 
-**ZendeskKey** | **string** | The Zendesk key. | [optional] 
-**TagManagerId** | **string** | The tag manager ID. | [optional] 
-**CookieSettingsEnabled** | **bool** | Specifies whether the cookie settings are enabled. | 
-**LimitedAccessSpace** | **bool** | Specifies whether the access to the space management is limited or not. | [optional] 
-**LimitedAccessDevToolsForUsers** | **bool** | Specifies whether the access to the Developer Tools is limited for users or not. | [optional] 
-**DisplayBanners** | **bool** | Specifies whether to display the promotional banners. | [optional] 
-**AiEnabled** | **bool** | Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden. | [optional] 
-**WalletLowBalance** | **bool?** | Specifies whether the tenant wallet balance is currently below the low-balance threshold. Only returned to portal administrators. | [optional] 
-**UserNameRegex** | **string** | The user name validation regex. | [optional] 
-**InvitationLimit** | **int?** | The maximum number of invitations to the portal. | [optional] 
-**Plugins** | [**PluginsDto**](PluginsDto.md) | The plugins settings. | [optional] 
-**DeepLink** | [**DeepLinkDto**](DeepLinkDto.md) | The deep link settings. | 
-**FormGallery** | [**FormGalleryDto**](FormGalleryDto.md) | The form gallery settings. | [optional] 
-**MaxImageUploadSize** | **long** | The maximum image upload size. | [optional] 
-**LogoText** | **string** | The white label logo text. | [optional] 
-**ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) | The external resources settings. | [optional] 
-**DefaultFolderType** | **FolderType** | Specifies the default folder type for the current settings. | [optional] 
-**ExternalDbEnabled** | **bool** | Specifies if an external database is connected for storing form results. | [optional] 
+**Timezone** | **string** | The portal time zone as an IANA identifier, which is the zone every date this API returns in portal time  is expressed in. Filled in for a signed-in caller only. | [optional] 
+**TrustedDomains** | **List&lt;string&gt;** | The mail domains a new member may register or be invited from without confirming the address. It is filled  in for a signed-in caller, and for an anonymous one only while `enabledJoin` is `true`; it is empty  whenever `trustedDomainsType` is not `Custom`. | [optional] 
+**TrustedDomainsType** | **TenantTrustedDomainsType** | How the mail domains above are applied: no domain trusted, every domain trusted, or only the listed ones.  Filled in under the same conditions as `trustedDomains`. | [optional] 
+**Culture** | **string** | The default language of the portal as a culture name, which is what unauthenticated pages are rendered in.  A signed-in member may have a language of their own, and that one is not reported here. | 
+**UtcOffset** | **string** | The portal's offset from UTC as a time span, positive east of UTC. Filled in for a signed-in caller only,  and taken at the moment of the call, so it already reflects daylight saving time. | [optional] 
+**UtcHoursOffset** | **double** | The same offset in hours, fractional for a zone that is not on a whole hour. It is there so a client does  not have to parse `utcOffset`. | [optional] 
+**GreetingSettings** | **string** | The portal title shown on the login page and in letters. It falls back to the product name in the portal  language while the portal has been given no title of its own. | [optional] 
+**OwnerId** | **Guid** | The portal owner, the one account that cannot be removed or demoted. Filled in for a signed-in caller  only, and the empty GUID for an anonymous one. | [optional] 
+**NameSchemaId** | **string** | The naming scheme the portal uses for its own vocabulary - what a member, a group or a room is called in  the interface. `GET api/2.0/settings/customschemas/{id}` spells that vocabulary out. Filled in for a  signed-in caller only. | [optional] 
+**EnabledJoin** | **bool?** | Whether someone who is not invited may still register, which is the case when the portal trusts every mail  domain or a list of them. It is computed for an anonymous caller only and left out entirely for a  signed-in one, so a missing value is not a `false`. | [optional] 
+**EnableAdmMess** | **bool?** | Whether the login page may offer the form for writing to the portal administrators. It is also `true`  while the portal's payment has lapsed, whatever the setting says, so it can be set on a portal where an  administrator switched the form off. | [optional] 
+**ThirdpartyEnable** | **bool?** | Whether the login page may offer sign-in through an external identity provider. It is computed for an  anonymous caller only; `GET api/2.0/capabilities` reports the same thing with the list of providers. | [optional] 
+**DocSpace** | **bool** | Always `true` in this product. It exists so a client that also talks to older ONLYOFFICE portals can tell  them apart, and is not a feature switch. | [optional] 
+**Standalone** | **bool** | Whether this is a server installation someone administers themselves rather than a portal in the cloud.  Several fields below and a number of operations behave differently in the two, so a client that has to  branch on the deployment reads it here. | [optional] 
+**IsAmi** | **bool** | Whether the installation runs from an Amazon machine image, which is a server installation that can read  its own instance metadata. It is `false` on every cloud portal. | [optional] 
+**BaseDomain** | **string** | The domain new portals of this installation are created under, which is what a portal name is checked  against and appended to. It is empty on an installation that serves a single portal on a fixed address. | 
+**WizardToken** | **string** | The token that authorizes the first-run setup wizard. It is handed out to anonymous callers only, and only  while the wizard has not been completed; once it has, the field stays empty for good. | [optional] 
+**PasswordHash** | [**PasswordHasher**](PasswordHasher.md) | The parameters for hashing a password in the client before it is sent - the salt, the iteration count and  the hash size. It is filled in for an anonymous caller and, for a signed-in one, only when  `withPassword=true` is asked for. Hash with exactly these parameters and send the result as  `passwordHash`, since the portal cannot reproduce the hash from a different set. | [optional] 
+**Firebase** | [**FirebaseDto**](FirebaseDto.md) | The Firebase project a mobile or web client sends push registrations to. Filled in for a signed-in caller  only, and its own fields are empty strings on an installation that configures no Firebase project. | [optional] 
+**@Version** | **string** | The product version of the portal, empty when the installation does not publish one. It is the version of  the server, not of this API, whose own version is fixed at 2.0. | [optional] 
+**RecaptchaType** | **RecaptchaType** | Which CAPTCHA the login form has to render, decided by the installation's configuration. Computed for an  anonymous caller only. | [optional] 
+**RecaptchaPublicKey** | **string** | The site key for the CAPTCHA named by `recaptchaType`, safe to embed in a page. It is empty when the  installation configures no CAPTCHA, in which case the login form asks for none. | [optional] 
+**DebugInfo** | **bool** | Whether the client may collect and send diagnostic information. Filled in for a signed-in caller only, and  `false` unless the installation switched it on. | [optional] 
+**SocketUrl** | **string** | The address of the socket service that pushes live updates to a client. It is filled in for a signed-in  caller and for an anonymous one who arrives with an external sharing link, and is empty when the  installation runs no socket service - a client then has to poll. | [optional] 
+**TenantStatus** | **TenantStatus** | The lifecycle state of the portal. Anything other than active means most operations are refused for the  moment, because the portal is being transferred, restored, encrypted or removed. | [optional] 
+**TenantAlias** | **string** | The portal's own name within the installation, which together with `baseDomain` forms the address it is  reached at. `PUT api/2.0/portal/portalrename` changes it. | [optional] 
+**DisplayAbout** | **bool** | Whether the interface may show the About page. A cloud portal always may; a server installation may unless  its plan includes branding and the vendor details hide the page. | [optional] 
+**DomainValidator** | [**TenantDomainValidator**](TenantDomainValidator.md) | The rules a portal name is checked against - its length limits and the pattern it has to match - so a  client can validate a rename before sending it. Filled in for a signed-in caller only. | [optional] 
+**ZendeskKey** | **string** | The key that lets the client open the vendor's support chat, empty when the installation configures none.  Filled in for a signed-in caller only. | [optional] 
+**TagManagerId** | **string** | The Google Tag Manager container the client should load, empty when the installation configures none.  Filled in for a signed-in caller only. | [optional] 
+**CookieSettingsEnabled** | **bool** | Whether the portal limits how long an authentication session stays valid. The limit itself is read with  `GET api/2.0/settings/cookiesettings`; while this is `false` a session is honoured for a year. | 
+**LimitedAccessSpace** | **bool** | Whether the space-management section is restricted to the portal owner. Filled in for a signed-in caller  only. | [optional] 
+**LimitedAccessDevToolsForUsers** | **bool** | Whether the Developer Tools section is hidden from members who are not administrators. Filled in for a  signed-in caller only. | [optional] 
+**DisplayBanners** | **bool** | Whether the interface may show the vendor's promotional banners. A cloud portal always reports `true`; on  a server installation it follows the banner setting. Filled in for a signed-in caller only. | [optional] 
+**AiEnabled** | **bool** | Whether the AI features - chat, agents and vectorisation - may be used on this portal. While it is  `false` the AI Agents folder is hidden and the AI operations are refused. Filled in for a signed-in caller  only. | [optional] 
+**WalletLowBalance** | **bool?** | Whether the portal wallet has already dropped below its low-balance threshold, so a client can warn about  AI operations being cut off. It is reported to DocSpace administrators only and left empty for everyone  else, which is not the same as a healthy balance. | [optional] 
+**UserNameRegex** | **string** | The pattern a member's first and last name has to match, so a client can validate a name before sending  it. It is a .NET regular expression and is applied to each name part separately. | [optional] 
+**InvitationLimit** | **int?** | How many invitations the portal may still send in the current window. Filled in for a signed-in caller  only, and set to the maximum value of a 32-bit integer on an installation that limits nothing. | [optional] 
+**Plugins** | [**PluginsDto**](PluginsDto.md) | What the installation allows to be done with web plugins. Filled in for a signed-in caller only, with all  three flags `false` unless the installation switched plugins on. | [optional] 
+**DeepLink** | [**DeepLinkDto**](DeepLinkDto.md) | What a mobile client needs to hand a document link over to the installed application instead of opening it  in the browser. Its fields are empty strings when the installation configures no application. | 
+**FormGallery** | [**FormGalleryDto**](FormGalleryDto.md) | Where the ready-made form templates are served from and which extension they carry. Filled in for a  signed-in caller only. | [optional] 
+**MaxImageUploadSize** | **long** | The largest image the portal accepts as a logo or an avatar, in bytes. Filled in for a signed-in caller  only, and a larger upload is refused rather than resized. | [optional] 
+**LogoText** | **string** | The wordmark to print next to the portal logo. It falls back to the built-in one while the portal has  stored no text of its own, so it is never empty. | [optional] 
+**ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) | The addresses of the vendor's help, support, forum and video resources, already picked for the portal  language. An entry is missing when the installation configures no address for it or the resource is  switched off, which `GET api/2.0/settings/rebranding/additional` reports flag by flag. | [optional] 
+**DefaultFolderType** | **FolderType** | The section the client should open after sign-in, which is the caller's own preference rather than a  portal-wide one. Filled in for a signed-in caller only. | [optional] 
+**ExternalDbEnabled** | **bool** | Whether the installation has an external database wired up for form results, without which the operations  that write form results there are refused. Filled in for a signed-in caller only. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

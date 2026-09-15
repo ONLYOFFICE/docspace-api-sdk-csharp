@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The confirmation parameters.
+    /// Whether a confirmation link may still be used, and what it leads to when it invites into a room.
     /// </summary>
     [DataContract(Name = "ConfirmDto")]
     public partial class ConfirmDto : IValidatableObject
     {
 
         /// <summary>
-        /// The confirmation result.
+        /// The outcome of the check. Only &#x60;Ok&#x60; means the action behind the link may be carried out: &#x60;Invalid&#x60; and  &#x60;Expired&#x60; fault the key itself, while &#x60;UserExisted&#x60;, &#x60;UserExcluded&#x60;, &#x60;TariffLimit&#x60; and &#x60;QuotaFailed&#x60; mean  the key is sound but the invitation behind it cannot be accepted as it stands.
         /// </summary>
         [DataMember(Name = "result", IsRequired = true, EmitDefaultValue = true)]
         public ValidationResult Result { get; set; }
@@ -52,11 +52,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmDto" /> class.
         /// </summary>
-        /// <param name="result">The confirmation result. (required).</param>
-        /// <param name="roomId">The confirmation room ID..</param>
-        /// <param name="title">The confirmation title..</param>
-        /// <param name="email">The confirmation email..</param>
-        /// <param name="isAgent">The confirmation is agent..</param>
+        /// <param name="result">The outcome of the check. Only &#x60;Ok&#x60; means the action behind the link may be carried out: &#x60;Invalid&#x60; and  &#x60;Expired&#x60; fault the key itself, while &#x60;UserExisted&#x60;, &#x60;UserExcluded&#x60;, &#x60;TariffLimit&#x60; and &#x60;QuotaFailed&#x60; mean  the key is sound but the invitation behind it cannot be accepted as it stands. (required).</param>
+        /// <param name="roomId">The room the invitation leads into - a numeric folder ID for a room of the portal, a provider-specific  string for a third-party one. It is empty for an invitation to the portal as a whole, for a room that has  been removed or that the invited account may not see, and whenever &#x60;result&#x60; is neither &#x60;Ok&#x60; nor  &#x60;UserExisted&#x60;..</param>
+        /// <param name="title">The title of that room, present exactly when &#x60;roomId&#x60; is and meant to be shown on the confirmation page..</param>
+        /// <param name="email">The address the link was issued for, echoed back only when &#x60;result&#x60; is &#x60;Ok&#x60; so that a sign-up form can be  prefilled with it. Every other outcome leaves it empty, &#x60;UserExisted&#x60; included..</param>
+        /// <param name="isAgent">Whether the room behind the link is an AI room rather than an ordinary one, which decides where the invited  person is taken. It is &#x60;false&#x60; whenever &#x60;roomId&#x60; is empty..</param>
         public ConfirmDto(ValidationResult result = default, string roomId = default, string title = default, string email = default, bool isAgent = default)
         {
             this.Result = result;
@@ -67,28 +67,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The confirmation room ID.
+        /// The room the invitation leads into - a numeric folder ID for a room of the portal, a provider-specific  string for a third-party one. It is empty for an invitation to the portal as a whole, for a room that has  been removed or that the invited account may not see, and whenever &#x60;result&#x60; is neither &#x60;Ok&#x60; nor  &#x60;UserExisted&#x60;.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "roomId", EmitDefaultValue = true)]
         public string RoomId { get; set; }
 
         /// <summary>
-        /// The confirmation title.
+        /// The title of that room, present exactly when &#x60;roomId&#x60; is and meant to be shown on the confirmation page.
         /// </summary>
         /// <example>Conference Room</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The confirmation email.
+        /// The address the link was issued for, echoed back only when &#x60;result&#x60; is &#x60;Ok&#x60; so that a sign-up form can be  prefilled with it. Every other outcome leaves it empty, &#x60;UserExisted&#x60; included.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// The confirmation is agent.
+        /// Whether the room behind the link is an AI room rather than an ordinary one, which decides where the invited  person is taken. It is &#x60;false&#x60; whenever &#x60;roomId&#x60; is empty.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isAgent", EmitDefaultValue = true)]

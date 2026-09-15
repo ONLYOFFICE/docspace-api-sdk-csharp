@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The response containing paginated data.
+    /// One page of results together with the cursor that asks for the next page.
     /// </summary>
     [DataContract(Name = "PageableResponse")]
     public partial class PageableResponse : IValidatableObject
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PageableResponse" /> class.
         /// </summary>
-        /// <param name="data">The paginated data..</param>
-        /// <param name="limit">The maximum number of results returned per page..</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client..</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client..</param>
+        /// <param name="data">data.</param>
+        /// <param name="limit">The page size that was applied to this request, between 1 and 50..</param>
+        /// <param name="lastClientId">The cursor to send back as last_client_id to ask for the next page, together with last_created_on. It is null when the page is empty..</param>
+        /// <param name="lastCreatedOn">The cursor to send back as last_created_on to ask for the next page, together with last_client_id. It is null when the page is empty..</param>
         public PageableResponse(Object data = default, int limit = default, string lastClientId = default, DateTime lastCreatedOn = default)
         {
             this.Data = data;
@@ -54,26 +54,29 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The paginated data.
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }
 
         /// <summary>
-        /// The maximum number of results returned per page.
+        /// The page size that was applied to this request, between 1 and 50.
         /// </summary>
+        /// <example>50</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
         /// <summary>
-        /// The identifier of the last retrieved client.
+        /// The cursor to send back as last_client_id to ask for the next page, together with last_created_on. It is null when the page is empty.
         /// </summary>
+        /// <example>6c7cf17b-1bd3-47d5-94c6-be2d3570e168</example>
         [DataMember(Name = "last_client_id", EmitDefaultValue = false)]
         public string LastClientId { get; set; }
 
         /// <summary>
-        /// The creation date of the last retrieved client.
+        /// The cursor to send back as last_created_on to ask for the next page, together with last_client_id. It is null when the page is empty.
         /// </summary>
+        /// <example>2024-04-04T12:00:00Z</example>
         [DataMember(Name = "last_created_on", EmitDefaultValue = false)]
         public DateTime LastCreatedOn { get; set; }
 

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for creating a third-party room.
+    /// The room to be created out of a folder of a connected third-party storage account.
     /// </summary>
     [DataContract(Name = "CreateThirdPartyRoom")]
     public partial class CreateThirdPartyRoom : IValidatableObject
     {
 
         /// <summary>
-        /// The third-party room type to be created.
+        /// The kind of room the folder becomes, which decides the default access rules of its members and cannot be  changed afterwards.
         /// </summary>
         [DataMember(Name = "roomType", IsRequired = true, EmitDefaultValue = true)]
         public RoomType RoomType { get; set; }
@@ -52,16 +52,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateThirdPartyRoom" /> class.
         /// </summary>
-        /// <param name="createAsNewFolder">Specifies whether to create a third-party room as a new folder or not..</param>
-        /// <param name="title">The third-party room name to be created. (required).</param>
-        /// <param name="roomType">The third-party room type to be created. (required).</param>
-        /// <param name="private">Specifies whether to create the private third-party room or not..</param>
-        /// <param name="indexing">Specifies whether to create the third-party room with indexing..</param>
-        /// <param name="denyDownload">Specifies whether to deny downloads from the third-party room..</param>
-        /// <param name="color">The color of the third-party room..</param>
-        /// <param name="cover">The cover of the third-party room..</param>
-        /// <param name="tags">The list of tags of the third-party room..</param>
-        /// <param name="logo">The logo request parameters of the third-party room..</param>
+        /// <param name="createAsNewFolder">Creates a new folder named after &#x60;title&#x60; inside the folder named in the path and turns that subfolder into the  room, leaving the named folder itself untouched. When omitted, the named folder becomes the room and keeps  everything it already holds..</param>
+        /// <param name="title">The name the room is shown under. It is stored on the connected account, so it does not have to match the name  of the folder in the storage; with &#x60;createAsNewFolder&#x60; it is also the name given to the created subfolder. (required).</param>
+        /// <param name="roomType">The kind of room the folder becomes, which decides the default access rules of its members and cannot be  changed afterwards. (required).</param>
+        /// <param name="private">Restricts the room to the members explicitly invited into it. The flag is kept on the connected storage  account rather than on the folder, so every folder read through that account reports the same value..</param>
+        /// <param name="indexing">Keeps the contents of the room in an explicit numbered order, the one reported as &#x60;order&#x60; on every entry,  instead of leaving the order to the reader..</param>
+        /// <param name="denyDownload">Forbids downloading and printing the contents of the room, which leaves the members with viewing and editing  in the editor only..</param>
+        /// <param name="color">The background colour drawn behind the cover of the room, as six hexadecimal digits without a leading number  sign. An empty value restores the colour the portal picks by default..</param>
+        /// <param name="cover">The drawing shown on the room tile, named by one of the built-in cover identifiers returned by  &#x60;GET api/2.0/files/rooms/covers&#x60;. An empty value leaves the room without a cover, and any other unknown value  is rejected as an invalid request..</param>
+        /// <param name="tags">The tags to attach to the room, named by their text. A name that is not in the portal tag catalogue yet is  added to it, and &#x60;GET api/2.0/files/tags&#x60; lists the names already there..</param>
+        /// <param name="logo">The picture to use as the room logo, which has to be uploaded with &#x60;POST api/2.0/files/logos&#x60; first; leaving  it out keeps the room on its cover and colour..</param>
         public CreateThirdPartyRoom(bool createAsNewFolder = default, string title = default, RoomType roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, string color = default, string cover = default, List<string> tags = default, LogoRequest logo = default)
         {
             // to ensure "title" is required (not null)
@@ -82,63 +82,63 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to create a third-party room as a new folder or not.
+        /// Creates a new folder named after &#x60;title&#x60; inside the folder named in the path and turns that subfolder into the  room, leaving the named folder itself untouched. When omitted, the named folder becomes the room and keeps  everything it already holds.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "createAsNewFolder", EmitDefaultValue = true)]
         public bool CreateAsNewFolder { get; set; }
 
         /// <summary>
-        /// The third-party room name to be created.
+        /// The name the room is shown under. It is stored on the connected account, so it does not have to match the name  of the folder in the storage; with &#x60;createAsNewFolder&#x60; it is also the name given to the created subfolder.
         /// </summary>
-        /// <example>My Third-Party Room</example>
+        /// <example>Third-party project room</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Specifies whether to create the private third-party room or not.
+        /// Restricts the room to the members explicitly invited into it. The flag is kept on the connected storage  account rather than on the folder, so every folder read through that account reports the same value.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool Private { get; set; }
 
         /// <summary>
-        /// Specifies whether to create the third-party room with indexing.
+        /// Keeps the contents of the room in an explicit numbered order, the one reported as &#x60;order&#x60; on every entry,  instead of leaving the order to the reader.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool Indexing { get; set; }
 
         /// <summary>
-        /// Specifies whether to deny downloads from the third-party room.
+        /// Forbids downloading and printing the contents of the room, which leaves the members with viewing and editing  in the editor only.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
-        /// The color of the third-party room.
+        /// The background colour drawn behind the cover of the room, as six hexadecimal digits without a leading number  sign. An empty value restores the colour the portal picks by default.
         /// </summary>
-        /// <example>#FF0000</example>
+        /// <example>FF5733</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
-        /// The cover of the third-party room.
+        /// The drawing shown on the room tile, named by one of the built-in cover identifiers returned by  &#x60;GET api/2.0/files/rooms/covers&#x60;. An empty value leaves the room without a cover, and any other unknown value  is rejected as an invalid request.
         /// </summary>
-        /// <example>cover1.jpg</example>
+        /// <example>bookmark</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
-        /// The list of tags of the third-party room.
+        /// The tags to attach to the room, named by their text. A name that is not in the portal tag catalogue yet is  added to it, and &#x60;GET api/2.0/files/tags&#x60; lists the names already there.
         /// </summary>
-        /// <example>["tag1","tag2","tag3"]</example>
+        /// <example>["Marketing","Q3"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// The logo request parameters of the third-party room.
+        /// The picture to use as the room logo, which has to be uploaded with &#x60;POST api/2.0/files/logos&#x60; first; leaving  it out keeps the room on its cover and colour.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }

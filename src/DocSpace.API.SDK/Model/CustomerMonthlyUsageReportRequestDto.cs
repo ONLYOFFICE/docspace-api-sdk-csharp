@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for generating a customer monthly usage report.
+    /// The period covered by the monthly wallet spending report.
     /// </summary>
     [DataContract(Name = "CustomerMonthlyUsageReportRequestDto")]
     public partial class CustomerMonthlyUsageReportRequestDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerMonthlyUsageReportRequestDto" /> class.
         /// </summary>
-        /// <param name="startDate">The report start date..</param>
-        /// <param name="endDate">The report end date..</param>
+        /// <param name="startDate">The beginning of the reported period, inclusive. The months are cut in the portal time zone rather than in  UTC, so spending at the turn of a month falls where the portal sees it; defaults to the portal creation date..</param>
+        /// <param name="endDate">The end of the reported period, inclusive. Cut in the portal time zone in the same way as &#x60;startDate&#x60;, and  defaults to the moment the call is made..</param>
         public CustomerMonthlyUsageReportRequestDto(DateTime? startDate = default, DateTime? endDate = default)
         {
             this.StartDate = startDate;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The report start date.
+        /// The beginning of the reported period, inclusive. The months are cut in the portal time zone rather than in  UTC, so spending at the turn of a month falls where the portal sees it; defaults to the portal creation date.
         /// </summary>
         /// <example>2025-01-01T00:00:00Z</example>
         [DataMember(Name = "startDate", EmitDefaultValue = true)]
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// The report end date.
+        /// The end of the reported period, inclusive. Cut in the portal time zone in the same way as &#x60;startDate&#x60;, and  defaults to the moment the call is made.
         /// </summary>
         /// <example>2025-12-31T23:59:59Z</example>
         [DataMember(Name = "endDate", EmitDefaultValue = true)]

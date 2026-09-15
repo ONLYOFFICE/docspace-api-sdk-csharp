@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for duplicating files and fodlers.
+    /// The files and folders to duplicate.
     /// </summary>
     [DataContract(Name = "DuplicateRequestDto")]
     public partial class DuplicateRequestDto : FileOperationRequestBaseDto, IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DuplicateRequestDto" /> class.
         /// </summary>
-        /// <param name="folderIds">The list of folder IDs..</param>
-        /// <param name="fileIds">The list of file IDs..</param>
+        /// <param name="folderIds">The folders to duplicate, by id; the copy of each one is created in the folder that already holds it. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list..</param>
+        /// <param name="fileIds">The files to duplicate, by id; the copy of each one is created in the folder that already holds it. A number  addresses a file stored in the portal itself, a string addresses a file on a connected third-party account,  and both kinds may be sent in one list..</param>
         public DuplicateRequestDto(List<DuplicateRequestDtoAllOfFolderIds> folderIds = default, List<DuplicateRequestDtoAllOfFileIds> fileIds = default)
         {
             this.FolderIds = folderIds;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of folder IDs.
+        /// The folders to duplicate, by id; the copy of each one is created in the folder that already holds it. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
-        /// The list of file IDs.
+        /// The files to duplicate, by id; the copy of each one is created in the folder that already holds it. A number  addresses a file stored in the portal itself, a string addresses a file on a connected third-party account,  and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]

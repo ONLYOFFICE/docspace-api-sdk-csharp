@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for updating an invitation link.
+    /// The invitation link being changed, with the deadline and use limit it is to have afterwards.
     /// </summary>
     [DataContract(Name = "InvitationLinkUpdateRequestDto")]
     public partial class InvitationLinkUpdateRequestDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationLinkUpdateRequestDto" /> class.
         /// </summary>
-        /// <param name="id">The ID of the invitation link. (required).</param>
-        /// <param name="expiration">The expiration date of the invitation link..</param>
-        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
+        /// <param name="id">The link to change, by the &#x60;id&#x60; that creating or reading it returned. The role behind that id cannot be  changed here. (required).</param>
+        /// <param name="expiration">The new deadline, read in the portal time zone. The body is applied as a whole, so leaving it out clears the  deadline rather than keeping the current one; a moment in the past is refused..</param>
+        /// <param name="maxUseCount">The new total number of accounts that may join through the link. It may not be lower than the uses already  spent, which the link reports as &#x60;currentUseCount&#x60;, and leaving it out removes the limit rather than keeping  the current one..</param>
         public InvitationLinkUpdateRequestDto(Guid id = default, DateTime? expiration = default, int? maxUseCount = default)
         {
             this.Id = id;
@@ -57,21 +57,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the invitation link.
+        /// The link to change, by the &#x60;id&#x60; that creating or reading it returned. The role behind that id cannot be  changed here.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The expiration date of the invitation link.
+        /// The new deadline, read in the portal time zone. The body is applied as a whole, so leaving it out clears the  deadline rather than keeping the current one; a moment in the past is refused.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public DateTime? Expiration { get; set; }
 
         /// <summary>
-        /// The maximum number of times the invitation link can be used.
+        /// The new total number of accounts that may join through the link. It may not be lower than the uses already  spent, which the link reports as &#x60;currentUseCount&#x60;, and leaving it out removes the limit rather than keeping  the current one.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]

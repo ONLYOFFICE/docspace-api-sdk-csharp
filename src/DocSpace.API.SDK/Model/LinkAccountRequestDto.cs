@@ -41,16 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LinkAccountRequestDto" /> class.
         /// </summary>
-        /// <param name="serializedProfile">The third-party profile in the serialized format..</param>
+        /// <param name="serializedProfile">The profile a completed provider authorization produced, in the serialized form the login flow hands back.  Pass that value unchanged; it carries the provider, the third-party account ID and the authorization result,  and a hand-written object is not accepted..</param>
         public LinkAccountRequestDto(string serializedProfile = default)
         {
             this.SerializedProfile = serializedProfile;
         }
 
         /// <summary>
-        /// The third-party profile in the serialized format.
+        /// The profile a completed provider authorization produced, in the serialized form the login flow hands back.  Pass that value unchanged; it carries the provider, the third-party account ID and the authorization result,  and a hand-written object is not accepted.
         /// </summary>
-        /// <example>{"provider":"Google","id":"123456"}</example>
+        /// <example>{"provider":"google","id":"123456"}</example>
         [DataMember(Name = "serializedProfile", EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 

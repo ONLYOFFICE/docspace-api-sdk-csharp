@@ -59,6 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// True when the whole bundle was imported.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
@@ -71,6 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// What was rejected, per entry. Present on failure - and then nothing was imported.
         /// </summary>
+        /// <example>[]</example>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<AiImportError> Errors { get; set; }
 

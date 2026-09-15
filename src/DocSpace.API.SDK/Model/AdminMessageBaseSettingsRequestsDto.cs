@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for the administrator message configuration.
+    /// Who is invited to join the portal, and in which language the invitation is written.
     /// </summary>
     [DataContract(Name = "AdminMessageBaseSettingsRequestsDto")]
     public partial class AdminMessageBaseSettingsRequestsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdminMessageBaseSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="email">The email address used for sending administrator messages. (required).</param>
-        /// <param name="culture">The locale identifier for message localization..</param>
+        /// <param name="email">The address the join link is sent to. It has to be a well-formed ASCII address rather than an  internationalized one, must not already belong to a member of the portal, and, where the portal trusts named  domains only, has to end with one of them; any of these faults is refused with 400. (required).</param>
+        /// <param name="culture">The language the letter is written in, as a culture name such as &#x60;en-US&#x60;. A culture the installation does not  have falls back to the portal language rather than failing the call..</param>
         public AdminMessageBaseSettingsRequestsDto(string email = default, string culture = default)
         {
             // to ensure "email" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The email address used for sending administrator messages.
+        /// The address the join link is sent to. It has to be a well-formed ASCII address rather than an  internationalized one, must not already belong to a member of the portal, and, where the portal trusts named  domains only, has to end with one of them; any of these faults is refused with 400.
         /// </summary>
         /// <example>admin@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// The locale identifier for message localization.
+        /// The language the letter is written in, as a culture name such as &#x60;en-US&#x60;. A culture the installation does not  have falls back to the portal language rather than failing the call.
         /// </summary>
         /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]

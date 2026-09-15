@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The auto-clearing setting parameters.
+    /// The trash auto-clearing setting of an account.
     /// </summary>
     [DataContract(Name = "AutoCleanUpData")]
     public partial class AutoCleanUpData : IValidatableObject
     {
 
         /// <summary>
-        /// The period when the trash bin will be cleared.
+        /// How long an item may stay in the trash before it is removed for good. It is reported even while clearing is  off, and it is what the moment in the &#x60;autoDelete&#x60; field of a trashed entry is computed from.
         /// </summary>
         [DataMember(Name = "gap", EmitDefaultValue = false)]
         public DateToAutoCleanUp? Gap { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoCleanUpData" /> class.
         /// </summary>
-        /// <param name="isAutoCleanUp">Specifies whether to permanently delete files in the Trash folder..</param>
-        /// <param name="gap">The period when the trash bin will be cleared..</param>
+        /// <param name="isAutoCleanUp">Whether the trash of the account is cleared automatically. While it is false nothing is removed by the portal  and the interval below is kept but unused..</param>
+        /// <param name="gap">How long an item may stay in the trash before it is removed for good. It is reported even while clearing is  off, and it is what the moment in the &#x60;autoDelete&#x60; field of a trashed entry is computed from..</param>
         public AutoCleanUpData(bool isAutoCleanUp = default, DateToAutoCleanUp? gap = default)
         {
             this.IsAutoCleanUp = isAutoCleanUp;
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to permanently delete files in the Trash folder.
+        /// Whether the trash of the account is cleared automatically. While it is false nothing is removed by the portal  and the interval below is kept but unused.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isAutoCleanUp", EmitDefaultValue = true)]

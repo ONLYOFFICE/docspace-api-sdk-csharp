@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for archiving a room.
+    /// The body of a room archiving request.
     /// </summary>
     [DataContract(Name = "ArchiveRoomRequest")]
     public partial class ArchiveRoomRequest : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ArchiveRoomRequest" /> class.
         /// </summary>
-        /// <param name="deleteAfter">Specifies whether to archive a room after the editing session is finished or not..</param>
+        /// <param name="deleteAfter">Whether the record of the finished job may be dropped without being read. With it off the record waits for the  first poll, which is what lets the caller learn how the move ended; it has no effect on the room itself..</param>
         public ArchiveRoomRequest(bool deleteAfter = default)
         {
             this.DeleteAfter = deleteAfter;
         }
 
         /// <summary>
-        /// Specifies whether to archive a room after the editing session is finished or not.
+        /// Whether the record of the finished job may be dropped without being read. With it off the record waits for the  first poll, which is what lets the caller learn how the move ended; it has no effect on the room itself.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The editor tool call state. Used to run the agent flow in the editor.
+    /// A generation the editor is expected to run as soon as the document opens, left behind by an AI agent that created  the file but not its content.
     /// </summary>
     [DataContract(Name = "EditorToolCallStateDto")]
     public partial class EditorToolCallStateDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EditorToolCallStateDto" /> class.
         /// </summary>
-        /// <param name="toolName">The tool name. (required).</param>
-        /// <param name="parameters">The tool call parameters. (required).</param>
+        /// <param name="toolName">Which generation to run, which also decides the shape of the parameters below. (required).</param>
+        /// <param name="parameters">The arguments of the generation named above. (required).</param>
         public EditorToolCallStateDto(string toolName = default, EditorToolCallParametersDto parameters = default)
         {
             // to ensure "toolName" is required (not null)
@@ -65,14 +65,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The tool name.
+        /// Which generation to run, which also decides the shape of the parameters below.
         /// </summary>
         /// <example>GenerateDocx</example>
         [DataMember(Name = "toolName", IsRequired = true, EmitDefaultValue = true)]
         public string ToolName { get; set; }
 
         /// <summary>
-        /// The tool call parameters.
+        /// The arguments of the generation named above.
         /// </summary>
         [DataMember(Name = "parameters", IsRequired = true, EmitDefaultValue = true)]
         public EditorToolCallParametersDto Parameters { get; set; }

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The collection of items to be ordered.
+    /// The request that moves several files and folders to given positions.
     /// </summary>
     [DataContract(Name = "OrdersRequestDtoInteger")]
     public partial class OrdersRequestDtoInteger : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrdersRequestDtoInteger" /> class.
         /// </summary>
-        /// <param name="items">The list of items with their ordering information. (required).</param>
+        /// <param name="items">The entries to move, applied one after another in the order they are sent, so each of them shifts the  neighbours the ones before it left behind. (required).</param>
         public OrdersRequestDtoInteger(List<OrdersItemRequestDtoInteger> items = default)
         {
             // to ensure "items" is required (not null)
@@ -58,9 +58,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of items with their ordering information.
+        /// The entries to move, applied one after another in the order they are sent, so each of them shifts the  neighbours the ones before it left behind.
         /// </summary>
-        /// <example>[{"entryId":1,"order":1}]</example>
+        /// <example>[{"entryId":1,"entryType":2,"order":1},{"entryId":4,"entryType":1,"order":2}]</example>
         [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
         public List<OrdersItemRequestDtoInteger> Items { get; set; }
 

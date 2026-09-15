@@ -68,30 +68,35 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Target thread; a new one is created (with an auto title) when omitted.
         /// </summary>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "threadId", EmitDefaultValue = false)]
         public string ThreadId { get; set; }
 
         /// <summary>
         /// The user turn to send.
         /// </summary>
+        /// <example>{"role":"user","content":"Summarise the attached contract."}</example>
         [DataMember(Name = "userMessage", IsRequired = true, EmitDefaultValue = true)]
         public AiThreadMessageLike UserMessage { get; set; }
 
         /// <summary>
         /// Per-request engine options: extra tools, reasoning, prompt override.
         /// </summary>
+        /// <example>{"isReasoning":false}</example>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiAiActionArgs ActionArgs { get; set; }
 
         /// <summary>
         /// Optional entity (room) scope for profile resolution.
         /// </summary>
+        /// <example>1234</example>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// Session-level profile override for this request only.
         /// </summary>
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }
 

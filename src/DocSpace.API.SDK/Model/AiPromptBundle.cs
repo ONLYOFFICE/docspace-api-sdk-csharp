@@ -53,6 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The bundle format version, so an import can migrate an older export.
         /// </summary>
+        /// <example>1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public VersionEnum @Version { get; set; }
     
@@ -87,12 +88,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Every exported prompt folder.
         /// </summary>
+        /// <example>[]</example>
         [DataMember(Name = "folders", IsRequired = true, EmitDefaultValue = true)]
         public List<AiPromptFolder> Folders { get; set; }
 
         /// <summary>
         /// Every exported prompt.
         /// </summary>
+        /// <example>[]</example>
         [DataMember(Name = "prompts", IsRequired = true, EmitDefaultValue = true)]
         public List<AiPrompt> Prompts { get; set; }
 

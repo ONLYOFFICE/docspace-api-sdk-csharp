@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The folder link parameters.
+    /// The external link of a folder, as it is to be created or rewritten.
     /// </summary>
     [DataContract(Name = "FolderLinkRequest")]
     public partial class FolderLinkRequest : IValidatableObject
     {
 
         /// <summary>
-        /// The link sharing rights.
+        /// The rights a visitor following the link is given. The value that grants nothing revokes the link instead of  setting it, and the answer is then empty.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -47,14 +47,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderLinkRequest" /> class.
         /// </summary>
-        /// <param name="linkId">The folder link ID..</param>
-        /// <param name="access">The link sharing rights..</param>
-        /// <param name="expirationDate">The link expiration date..</param>
-        /// <param name="title">The link name..</param>
-        /// <param name="password">The link password..</param>
-        /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
-        /// <param name="internal">The link scope, whether it is internal or not..</param>
-        /// <param name="primary">Specifies whether the folder link is primary or not..</param>
+        /// <param name="linkId">Which link the request addresses: the identifier of an existing link rewrites that link, while an identifier  that is not in use, the empty one included, creates a new link. Take an existing identifier from  &#x60;GET api/2.0/files/folder/{id}/links&#x60;..</param>
+        /// <param name="access">The rights a visitor following the link is given. The value that grants nothing revokes the link instead of  setting it, and the answer is then empty..</param>
+        /// <param name="expirationDate">The moment the link stops working, sent as an ISO-8601 stamp. A moment that lies in the past is ignored,  and leaving the field out gives the link no expiry..</param>
+        /// <param name="title">The name the link is listed under for the people who manage the folder; a visitor following it never sees the  name..</param>
+        /// <param name="password">The secret a visitor has to enter before the link opens. Leave it out for a link that opens without one; the  secret itself is never given back, only the fact that one is set..</param>
+        /// <param name="denyDownload">Whether visitors are left with viewing alone: with true downloading and copying through the link are blocked,  with false they are allowed..</param>
+        /// <param name="internal">Whether the link admits signed-in portal members only: with true a visitor has to sign in before the link  opens, with false anyone holding the address may follow it..</param>
+        /// <param name="primary">Whether this link becomes the primary link of the folder, the one the Copy link action of a client hands  out; a folder has one primary link at a time..</param>
         public FolderLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, string title = default, string password = default, bool denyDownload = default, bool @internal = default, bool primary = default)
         {
             this.LinkId = linkId;
@@ -68,48 +68,48 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The folder link ID.
+        /// Which link the request addresses: the identifier of an existing link rewrites that link, while an identifier  that is not in use, the empty one included, creates a new link. Take an existing identifier from  &#x60;GET api/2.0/files/folder/{id}/links&#x60;.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "linkId", EmitDefaultValue = false)]
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// The link expiration date.
+        /// The moment the link stops working, sent as an ISO-8601 stamp. A moment that lies in the past is ignored,  and leaving the field out gives the link no expiry.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
 
         /// <summary>
-        /// The link name.
+        /// The name the link is listed under for the people who manage the folder; a visitor following it never sees the  name.
         /// </summary>
-        /// <example>My Document</example>
+        /// <example>Public link</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The link password.
+        /// The secret a visitor has to enter before the link opens. Leave it out for a link that opens without one; the  secret itself is never given back, only the fact that one is set.
         /// </summary>
         /// <example>p@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// Specifies if downloading the file from the link is disabled or not.
+        /// Whether visitors are left with viewing alone: with true downloading and copying through the link are blocked,  with false they are allowed.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
-        /// The link scope, whether it is internal or not.
+        /// Whether the link admits signed-in portal members only: with true a visitor has to sign in before the link  opens, with false anyone holding the address may follow it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool Internal { get; set; }
 
         /// <summary>
-        /// Specifies whether the folder link is primary or not.
+        /// Whether this link becomes the primary link of the folder, the one the Copy link action of a client hands  out; a folder has one primary link at a time.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "primary", EmitDefaultValue = true)]

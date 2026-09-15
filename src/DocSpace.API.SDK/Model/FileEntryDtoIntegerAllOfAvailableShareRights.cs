@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The available external rights of the file entry.
+    /// Which access levels may be handed out on this entry, listed per kind of recipient, so that a client offers  only levels the entry actually supports - a room for filling forms and a plain folder do not accept the same  ones.
     /// </summary>
     [DataContract(Name = "FileEntryDtoInteger_allOf_availableShareRights")]
     public partial class FileEntryDtoIntegerAllOfAvailableShareRights : IValidatableObject

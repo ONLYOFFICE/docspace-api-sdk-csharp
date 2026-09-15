@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the visibility settings of the promotional banners for the current tenant.
+    /// Whether the portal promotional banners are hidden.
     /// </summary>
     [DataContract(Name = "TenantBannerSettingsDto")]
     public partial class TenantBannerSettingsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantBannerSettingsDto" /> class.
         /// </summary>
-        /// <param name="hidden">The banners visibility flag..</param>
+        /// <param name="hidden">Whether the promotional banners are hidden from every user of the portal. The flag is only honoured on a  self-hosted installation; a SaaS portal keeps showing the banners whatever is stored here..</param>
         public TenantBannerSettingsDto(bool hidden = default)
         {
             this.Hidden = hidden;
         }
 
         /// <summary>
-        /// The banners visibility flag.
+        /// Whether the promotional banners are hidden from every user of the portal. The flag is only honoured on a  self-hosted installation; a SaaS portal keeps showing the banners whatever is stored here.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "hidden", EmitDefaultValue = true)]

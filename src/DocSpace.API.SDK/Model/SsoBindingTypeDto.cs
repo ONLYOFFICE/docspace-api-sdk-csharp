@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The SAML 2.0 HTTP POST binding.
+        /// The SAML 2.0 HTTP POST binding, which carries the request in a self-submitting form. It is what the  built-in configuration uses and the one to pick when requests are signed, since it has no length limit.
         /// </summary>
         /// <example>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST</example>
         [DataMember(Name = "saml20HttpPost", EmitDefaultValue = true)]
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The SAML 2.0 HTTP redirect binding.
+        /// The SAML 2.0 HTTP redirect binding, which carries the request in the query string and is therefore bound  by the length a URL may have.
         /// </summary>
         /// <example>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect</example>
         [DataMember(Name = "saml20HttpRedirect", EmitDefaultValue = true)]

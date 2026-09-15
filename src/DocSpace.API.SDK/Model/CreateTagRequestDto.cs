@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for creating a tag.
+    /// The parameters for adding a custom tag to the portal catalog of room tags.
     /// </summary>
     [DataContract(Name = "CreateTagRequestDto")]
     public partial class CreateTagRequestDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTagRequestDto" /> class.
         /// </summary>
-        /// <param name="name">The tag name. (required).</param>
+        /// <param name="name">The name of the tag to create, which is also its identity: tags are addressed by name everywhere, there is no  separate identifier. It is stored exactly as sent, spacing and case included, and a name that is already in  the catalog gives back that tag instead of a second one. (required).</param>
         public CreateTagRequestDto(string name = default)
         {
             // to ensure "name" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The tag name.
+        /// The name of the tag to create, which is also its identity: tags are addressed by name everywhere, there is no  separate identifier. It is stored exactly as sent, spacing and case included, and a name that is already in  the catalog gives back that tag instead of a second one.
         /// </summary>
         /// <example>Important</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]

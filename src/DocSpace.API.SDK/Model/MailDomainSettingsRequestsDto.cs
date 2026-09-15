@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring trusted mail domains and visitor invitation settings.
+    /// Which email domains the portal treats as already verified, and how their users join.
     /// </summary>
     [DataContract(Name = "MailDomainSettingsRequestsDto")]
     public partial class MailDomainSettingsRequestsDto : IValidatableObject
     {
 
         /// <summary>
-        /// Defines how trusted domains are handled and validated.
+        /// How trusted domains are decided: no domain is trusted, every domain is, or only the ones listed in &#x60;domains&#x60;.  Only the custom mode reads &#x60;domains&#x60;; under the other two the list is ignored rather than refused.
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TenantTrustedDomainsType Type { get; set; }
@@ -52,9 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MailDomainSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">Defines how trusted domains are handled and validated. (required).</param>
-        /// <param name="domains">The list of authorized email domains that are considered trusted. (required).</param>
-        /// <param name="inviteUsersAsVisitors">Specifies the default permission level for the invited users (visitors or not). (required).</param>
+        /// <param name="type">How trusted domains are decided: no domain is trusted, every domain is, or only the ones listed in &#x60;domains&#x60;.  Only the custom mode reads &#x60;domains&#x60;; under the other two the list is ignored rather than refused. (required).</param>
+        /// <param name="domains">The trusted domains, as bare hostnames such as &#x60;example.com&#x60; without a scheme or an &#x60;@&#x60;. This is the whole  list that is to hold afterwards and not a list of additions. Each entry is lowercased before it is stored,  and one entry that is not a valid hostname - or an empty list in the custom mode - fails the whole call  without saving anything. (required).</param>
+        /// <param name="inviteUsersAsVisitors">What a user joining through a trusted domain becomes: &#x60;true&#x60; admits them as a guest, &#x60;false&#x60; as a full  member. It applies to joins made from now on and does not change anybody who has already joined. (required).</param>
         public MailDomainSettingsRequestsDto(TenantTrustedDomainsType type = default, List<string> domains = default, bool inviteUsersAsVisitors = default)
         {
             this.Type = type;
@@ -68,14 +68,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of authorized email domains that are considered trusted.
+        /// The trusted domains, as bare hostnames such as &#x60;example.com&#x60; without a scheme or an &#x60;@&#x60;. This is the whole  list that is to hold afterwards and not a list of additions. Each entry is lowercased before it is stored,  and one entry that is not a valid hostname - or an empty list in the custom mode - fails the whole call  without saving anything.
         /// </summary>
         /// <example>["example.com","company.com"]</example>
         [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
 
         /// <summary>
-        /// Specifies the default permission level for the invited users (visitors or not).
+        /// What a user joining through a trusted domain becomes: &#x60;true&#x60; admits them as a guest, &#x60;false&#x60; as a full  member. It applies to joins made from now on and does not change anybody who has already joined.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "inviteUsersAsVisitors", IsRequired = true, EmitDefaultValue = true)]

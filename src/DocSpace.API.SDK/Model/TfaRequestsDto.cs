@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring the Two-Factor Authentication (TFA) settings.
+    /// The portal two-factor policy: which method is in force, who must pass it, and from where it is waived.
     /// </summary>
     [DataContract(Name = "TfaRequestsDto")]
     public partial class TfaRequestsDto : IValidatableObject
     {
 
         /// <summary>
-        /// The two-factor authentication type.
+        /// The second factor the portal demands. The two methods are mutually exclusive, so switching one on switches  the other off, and any value outside the defined set is read as switching TFA off rather than refused.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public TfaRequestsDtoType? Type { get; set; }
@@ -47,11 +47,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">The two-factor authentication type..</param>
-        /// <param name="id">The ID of the user for whom the TFA settings are being configured..</param>
-        /// <param name="trustedIps">The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block..</param>
-        /// <param name="mandatoryUsers">The list of user IDs for whom TFA is mandatory..</param>
-        /// <param name="mandatoryGroups">The list group IDs whose members must use TFA..</param>
+        /// <param name="type">The second factor the portal demands. The two methods are mutually exclusive, so switching one on switches  the other off, and any value outside the defined set is read as switching TFA off rather than refused..</param>
+        /// <param name="id">The account the request concerns, by portal user ID. Naming the portal owner is refused unless it is the  caller&#39;s own account. Where an operation detaches an authenticator application, the empty GUID and the  caller&#39;s own ID both mean the caller..</param>
+        /// <param name="trustedIps">The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block. This is the whole list that is to hold afterwards, so send the addresses  already trusted along with a new one; an entry that cannot be parsed fails the call with 400, and accounts  named as mandatory still have to pass the challenge even from a trusted address..</param>
+        /// <param name="mandatoryUsers">The accounts that must pass the challenge whatever their address, by portal user ID. This is the whole list  that is to hold afterwards - leaving it out clears it rather than keeping it - and naming the portal owner is  refused unless the caller is the owner..</param>
+        /// <param name="mandatoryGroups">The groups whose members must pass the challenge whatever their address, by group ID. This is the whole list  that is to hold afterwards - leaving it out clears it rather than keeping it..</param>
         public TfaRequestsDto(TfaRequestsDtoType? type = default, Guid id = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
         {
             this.Type = type;
@@ -62,28 +62,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the user for whom the TFA settings are being configured.
+        /// The account the request concerns, by portal user ID. Naming the portal owner is refused unless it is the  caller&#39;s own account. Where an operation detaches an authenticator application, the empty GUID and the  caller&#39;s own ID both mean the caller.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block.
+        /// The list of IP addresses that bypass TFA verification. Each entry is a single address, an inclusive  from-to range or a CIDR block. This is the whole list that is to hold afterwards, so send the addresses  already trusted along with a new one; an entry that cannot be parsed fails the call with 400, and accounts  named as mandatory still have to pass the challenge even from a trusted address.
         /// </summary>
         /// <example>["192.0.2.1","198.51.100.1-198.51.100.20","203.0.113.0/24"]</example>
         [DataMember(Name = "trustedIps", EmitDefaultValue = true)]
         public List<string> TrustedIps { get; set; }
 
         /// <summary>
-        /// The list of user IDs for whom TFA is mandatory.
+        /// The accounts that must pass the challenge whatever their address, by portal user ID. This is the whole list  that is to hold afterwards - leaving it out clears it rather than keeping it - and naming the portal owner is  refused unless the caller is the owner.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryUsers", EmitDefaultValue = true)]
         public List<Guid> MandatoryUsers { get; set; }
 
         /// <summary>
-        /// The list group IDs whose members must use TFA.
+        /// The groups whose members must pass the challenge whatever their address, by group ID. This is the whole list  that is to hold afterwards - leaving it out clears it rather than keeping it.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryGroups", EmitDefaultValue = true)]

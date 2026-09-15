@@ -50,8 +50,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">Human-readable model name for display in the UI. (required).</param>
         /// <param name="provider">Provider that offers this model. (required).</param>
         /// <param name="reasoning">Whether this model supports extended thinking / chain-of-thought reasoning..</param>
+        /// <param name="reasoningSupport">What the model can do with extended thinking, when the provider&#39;s catalogue says so (OpenRouter and the ONLYOFFICE route report a per-model &#x60;reasoning&#x60; object). Copied onto the profile at save time; absent, the widget falls back to the provider&#39;s id-based table..</param>
         /// <param name="capabilities">Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per &#x60;ActionType&#x60;..</param>
-        public AiModel(string id = default, string name = default, AiProviderType provider = default, bool reasoning = default, decimal capabilities = default)
+        public AiModel(string id = default, string name = default, AiProviderType provider = default, bool reasoning = default, AiReasoningSupport reasoningSupport = default, decimal capabilities = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -72,36 +73,48 @@ namespace DocSpace.API.SDK.Model
             }
             this.Provider = provider;
             this.Reasoning = reasoning;
+            this.ReasoningSupport = reasoningSupport;
             this.Capabilities = capabilities;
         }
 
         /// <summary>
         /// Model identifier as used by the provider API (e.g. &#x60;gpt-4o&#x60;, &#x60;claude-sonnet-4-20250514&#x60;).
         /// </summary>
+        /// <example>gpt-4o</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Human-readable model name for display in the UI.
         /// </summary>
+        /// <example>GPT-4o</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Provider that offers this model.
         /// </summary>
+        /// <example>openai</example>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
         public AiProviderType Provider { get; set; }
 
         /// <summary>
         /// Whether this model supports extended thinking / chain-of-thought reasoning.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "reasoning", EmitDefaultValue = true)]
         public bool Reasoning { get; set; }
 
         /// <summary>
+        /// What the model can do with extended thinking, when the provider&#39;s catalogue says so (OpenRouter and the ONLYOFFICE route report a per-model &#x60;reasoning&#x60; object). Copied onto the profile at save time; absent, the widget falls back to the provider&#39;s id-based table.
+        /// </summary>
+        [DataMember(Name = "reasoningSupport", EmitDefaultValue = false)]
+        public AiReasoningSupport ReasoningSupport { get; set; }
+
+        /// <summary>
         /// Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per &#x60;ActionType&#x60;.
         /// </summary>
+        /// <example>7</example>
         [DataMember(Name = "capabilities", EmitDefaultValue = false)]
         public decimal Capabilities { get; set; }
 
@@ -117,6 +130,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  Reasoning: ").Append(Reasoning).Append("\n");
+            sb.Append("  ReasoningSupport: ").Append(ReasoningSupport).Append("\n");
             sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

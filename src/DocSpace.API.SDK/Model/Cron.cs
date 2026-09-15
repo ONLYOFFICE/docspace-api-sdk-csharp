@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The backup cron parameters.
+    /// The request parameters for the time the scheduled backup runs.
     /// </summary>
     [DataContract(Name = "Cron")]
     public partial class Cron : IValidatableObject
     {
 
         /// <summary>
-        /// The backup period type.
+        /// How often the backup runs: &#x60;EveryDay&#x60;, &#x60;EveryWeek&#x60; or &#x60;EveryMonth&#x60;. It defaults to &#x60;EveryDay&#x60;.
         /// </summary>
         [DataMember(Name = "period", EmitDefaultValue = false)]
         public BackupPeriod? Period { get; set; }
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Cron" /> class.
         /// </summary>
-        /// <param name="period">The backup period type..</param>
-        /// <param name="hour">The time of the day to start the backup process..</param>
-        /// <param name="day">The day of the week to start the backup process..</param>
+        /// <param name="period">How often the backup runs: &#x60;EveryDay&#x60;, &#x60;EveryWeek&#x60; or &#x60;EveryMonth&#x60;. It defaults to &#x60;EveryDay&#x60;..</param>
+        /// <param name="hour">The hour of the day the backup starts at, from 0 to 23. Minutes cannot be chosen - it always starts  on the hour..</param>
+        /// <param name="day">The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for &#x60;EveryWeek&#x60;, and the  day of the month from 1 to 31 for &#x60;EveryMonth&#x60;. Leave it out for &#x60;EveryDay&#x60; only - an omitted value is  stored as 0, which neither of the other two periods accepts, so a weekly or monthly schedule sent  without it fails..</param>
         public Cron(BackupPeriod? period = default, int hour = default, int? day = default)
         {
             this.Period = period;
@@ -58,16 +58,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The time of the day to start the backup process.
+        /// The hour of the day the backup starts at, from 0 to 23. Minutes cannot be chosen - it always starts  on the hour.
         /// </summary>
-        /// <example>0</example>
+        /// <example>2</example>
         [DataMember(Name = "hour", EmitDefaultValue = false)]
         public int Hour { get; set; }
 
         /// <summary>
-        /// The day of the week to start the backup process.
+        /// The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for &#x60;EveryWeek&#x60;, and the  day of the month from 1 to 31 for &#x60;EveryMonth&#x60;. Leave it out for &#x60;EveryDay&#x60; only - an omitted value is  stored as 0, which neither of the other two periods accepts, so a weekly or monthly schedule sent  without it fails.
         /// </summary>
-        /// <example>0</example>
+        /// <example>1</example>
         [DataMember(Name = "day", EmitDefaultValue = true)]
         public int? Day { get; set; }
 

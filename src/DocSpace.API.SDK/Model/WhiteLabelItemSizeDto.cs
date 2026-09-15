@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The white label logo size parameters.
+    /// The pixel box a logo slot is drawn in, in the shape the imaging library reports a geometry.
     /// </summary>
     [DataContract(Name = "WhiteLabelItemSizeDto")]
     public partial class WhiteLabelItemSizeDto : IValidatableObject
@@ -41,17 +41,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WhiteLabelItemSizeDto" /> class.
         /// </summary>
-        /// <param name="aspectRatio">Specifies whether the size is an aspect ratio..</param>
-        /// <param name="fillArea">Specifies whether the logo is resized based on the smallest fitting dimension..</param>
-        /// <param name="greater">Specifies whether the logo is resized only if it is greater than the size..</param>
-        /// <param name="height">The logo height, in pixels..</param>
-        /// <param name="ignoreAspectRatio">Specifies whether the logo is resized without preserving the aspect ratio..</param>
-        /// <param name="isPercentage">Specifies whether the width and height are expressed as percentages..</param>
-        /// <param name="less">Specifies whether the logo is resized only if it is less than the size..</param>
-        /// <param name="limitPixels">Specifies whether the logo is resized using a pixel area count limit..</param>
-        /// <param name="width">The logo width, in pixels..</param>
-        /// <param name="x">The X offset from the origin, in pixels..</param>
-        /// <param name="y">The Y offset from the origin, in pixels..</param>
+        /// <param name="aspectRatio">Whether the numbers are to be read as an aspect ratio rather than as pixels. Always &#x60;false&#x60; on the sizes  this API reports..</param>
+        /// <param name="fillArea">Whether an image would be scaled to cover the box rather than to fit inside it. Always &#x60;false&#x60; here..</param>
+        /// <param name="greater">Whether scaling would apply only to an image larger than the box. Always &#x60;false&#x60; here..</param>
+        /// <param name="height">The height of the box in pixels - one of the two fields of this object that carry information..</param>
+        /// <param name="ignoreAspectRatio">Whether scaling would be allowed to distort the image. Always &#x60;false&#x60; here..</param>
+        /// <param name="isPercentage">Whether &#x60;width&#x60; and &#x60;height&#x60; are to be read as percentages. Always &#x60;false&#x60; here, so both are pixels..</param>
+        /// <param name="less">Whether scaling would apply only to an image smaller than the box. Always &#x60;false&#x60; here..</param>
+        /// <param name="limitPixels">Whether the box is to be read as a total pixel-area budget instead of as two dimensions. Always &#x60;false&#x60;  here..</param>
+        /// <param name="width">The width of the box in pixels - the other field of this object that carries information..</param>
+        /// <param name="x">The horizontal offset of the box from the origin. Always &#x60;0&#x60; here..</param>
+        /// <param name="y">The vertical offset of the box from the origin. Always &#x60;0&#x60; here..</param>
         public WhiteLabelItemSizeDto(bool aspectRatio = default, bool fillArea = default, bool greater = default, int height = default, bool ignoreAspectRatio = default, bool isPercentage = default, bool less = default, bool limitPixels = default, int width = default, int x = default, int y = default)
         {
             this.AspectRatio = aspectRatio;
@@ -68,77 +68,77 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether the size is an aspect ratio.
+        /// Whether the numbers are to be read as an aspect ratio rather than as pixels. Always &#x60;false&#x60; on the sizes  this API reports.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "aspectRatio", EmitDefaultValue = true)]
         public bool AspectRatio { get; set; }
 
         /// <summary>
-        /// Specifies whether the logo is resized based on the smallest fitting dimension.
+        /// Whether an image would be scaled to cover the box rather than to fit inside it. Always &#x60;false&#x60; here.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "fillArea", EmitDefaultValue = true)]
         public bool FillArea { get; set; }
 
         /// <summary>
-        /// Specifies whether the logo is resized only if it is greater than the size.
+        /// Whether scaling would apply only to an image larger than the box. Always &#x60;false&#x60; here.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "greater", EmitDefaultValue = true)]
         public bool Greater { get; set; }
 
         /// <summary>
-        /// The logo height, in pixels.
+        /// The height of the box in pixels - one of the two fields of this object that carry information.
         /// </summary>
         /// <example>48</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 
         /// <summary>
-        /// Specifies whether the logo is resized without preserving the aspect ratio.
+        /// Whether scaling would be allowed to distort the image. Always &#x60;false&#x60; here.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "ignoreAspectRatio", EmitDefaultValue = true)]
         public bool IgnoreAspectRatio { get; set; }
 
         /// <summary>
-        /// Specifies whether the width and height are expressed as percentages.
+        /// Whether &#x60;width&#x60; and &#x60;height&#x60; are to be read as percentages. Always &#x60;false&#x60; here, so both are pixels.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isPercentage", EmitDefaultValue = true)]
         public bool IsPercentage { get; set; }
 
         /// <summary>
-        /// Specifies whether the logo is resized only if it is less than the size.
+        /// Whether scaling would apply only to an image smaller than the box. Always &#x60;false&#x60; here.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "less", EmitDefaultValue = true)]
         public bool Less { get; set; }
 
         /// <summary>
-        /// Specifies whether the logo is resized using a pixel area count limit.
+        /// Whether the box is to be read as a total pixel-area budget instead of as two dimensions. Always &#x60;false&#x60;  here.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "limitPixels", EmitDefaultValue = true)]
         public bool LimitPixels { get; set; }
 
         /// <summary>
-        /// The logo width, in pixels.
+        /// The width of the box in pixels - the other field of this object that carries information.
         /// </summary>
         /// <example>422</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
         /// <summary>
-        /// The X offset from the origin, in pixels.
+        /// The horizontal offset of the box from the origin. Always &#x60;0&#x60; here.
         /// </summary>
         /// <example>0</example>
         [DataMember(Name = "x", EmitDefaultValue = false)]
         public int X { get; set; }
 
         /// <summary>
-        /// The Y offset from the origin, in pixels.
+        /// The vertical offset of the box from the origin. Always &#x60;0&#x60; here.
         /// </summary>
         /// <example>0</example>
         [DataMember(Name = "y", EmitDefaultValue = false)]

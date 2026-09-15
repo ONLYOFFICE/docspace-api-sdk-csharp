@@ -1,0 +1,122 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// AiEditorToolsCallRequest
+    /// </summary>
+    [DataContract(Name = "aiEditorToolsCall_request")]
+    public partial class AiEditorToolsCallRequest : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AiEditorToolsCallRequest" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected AiEditorToolsCallRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AiEditorToolsCallRequest" /> class.
+        /// </summary>
+        /// <param name="name">Name of the tool to run, as listed by the tools endpoint. A name that is unknown or excluded from the editor is rejected with 400. (required).</param>
+        /// <param name="arguments">Arguments for the tool, shaped by that tool&#39;s own input schema. Treated as empty when it is not an object..</param>
+        /// <param name="entityId">Room the call is scoped to. Left out for a portal-wide call..</param>
+        public AiEditorToolsCallRequest(string name = default, Dictionary<string, Object> arguments = default, string entityId = default)
+        {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for AiEditorToolsCallRequest and cannot be null");
+            }
+            this.Name = name;
+            this.Arguments = arguments;
+            this.EntityId = entityId;
+        }
+
+        /// <summary>
+        /// Name of the tool to run, as listed by the tools endpoint. A name that is unknown or excluded from the editor is rejected with 400.
+        /// </summary>
+        /// <example>docspace_get_folder</example>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Arguments for the tool, shaped by that tool&#39;s own input schema. Treated as empty when it is not an object.
+        /// </summary>
+        /// <example>{"folderId":"1234"}</example>
+        [DataMember(Name = "arguments", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Arguments { get; set; }
+
+        /// <summary>
+        /// Room the call is scoped to. Left out for a portal-wide call.
+        /// </summary>
+        /// <example>1234</example>
+        [DataMember(Name = "entityId", EmitDefaultValue = false)]
+        public string EntityId { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class AiEditorToolsCallRequest {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Arguments: ").Append(Arguments).Append("\n");
+            sb.Append("  EntityId: ").Append(EntityId).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

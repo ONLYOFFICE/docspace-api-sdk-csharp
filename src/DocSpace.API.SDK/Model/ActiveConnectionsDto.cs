@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The active connections parameters.
+    /// The connections the calling user currently has open, and which of them the request itself was made with.
     /// </summary>
     [DataContract(Name = "ActiveConnectionsDto")]
     public partial class ActiveConnectionsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActiveConnectionsDto" /> class.
         /// </summary>
-        /// <param name="loginEvent">The login event. (required).</param>
-        /// <param name="items">The list of active connection items..</param>
+        /// <param name="loginEvent">The &#x60;id&#x60; of the item in &#x60;items&#x60; that the current request is authenticated by. It is &#x60;0&#x60; when the request  carried a token in the &#x60;Authorization&#x60; header instead of the portal cookie, and in that case none of the  items is the current connection. (required).</param>
+        /// <param name="items">One item per sign-in of the caller that is still active, ordered newest sign-in first, with the connection  the request itself uses moved to the front. Sign-ins older than a year are left out, and a caller with no  stored connection gets a single item describing the current request rather than an empty list..</param>
         public ActiveConnectionsDto(int loginEvent = default, List<ActiveConnectionsItemDto> items = default)
         {
             this.LoginEvent = loginEvent;
@@ -55,16 +55,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The login event.
+        /// The &#x60;id&#x60; of the item in &#x60;items&#x60; that the current request is authenticated by. It is &#x60;0&#x60; when the request  carried a token in the &#x60;Authorization&#x60; header instead of the portal cookie, and in that case none of the  items is the current connection.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "loginEvent", IsRequired = true, EmitDefaultValue = true)]
         public int LoginEvent { get; set; }
 
         /// <summary>
-        /// The list of active connection items.
+        /// One item per sign-in of the caller that is still active, ordered newest sign-in first, with the connection  the request itself uses moved to the front. Sign-ins older than a year are left out, and a caller with no  stored connection gets a single item describing the current request rather than an empty list.
         /// </summary>
-        /// <example>[{"id":"conn1","ip":"192.168.1.1"}]</example>
+        /// <example>[{"id":1234,"ip":"192.0.2.1"}]</example>
         [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<ActiveConnectionsItemDto> Items { get; set; }
 

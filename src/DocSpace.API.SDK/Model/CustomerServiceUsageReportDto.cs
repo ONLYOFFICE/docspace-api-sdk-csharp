@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents a paged report of customer service usage statistics.
+    /// One page of the per-service consumption totals, with the paging figures needed to walk the rest.
     /// </summary>
     [DataContract(Name = "CustomerServiceUsageReportDto")]
     public partial class CustomerServiceUsageReportDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerServiceUsageReportDto" /> class.
         /// </summary>
-        /// <param name="collection">A collection of service usage statistics..</param>
-        /// <param name="offset">The report data offset..</param>
-        /// <param name="limit">The report data limit..</param>
-        /// <param name="totalQuantity">The total quantity of records in the report..</param>
-        /// <param name="totalPage">The total number of pages in the report..</param>
-        /// <param name="currentPage">The current page number of the report..</param>
+        /// <param name="collection">The services on this page, one entry per service rather than per charge. It is empty for a period in  which nothing was consumed as well as for a page past the end of the report..</param>
+        /// <param name="offset">How many entries were skipped before this page, echoed from the request..</param>
+        /// <param name="limit">How many entries one page may hold, echoed from the request; it is 25 unless another value was asked for..</param>
+        /// <param name="totalQuantity">How many services match the filters in total, across every page - services, not charges..</param>
+        /// <param name="totalPage">How many pages those entries come to at the current &#x60;limit&#x60;..</param>
+        /// <param name="currentPage">Which of those pages this one is, as the billing service numbers them. Page through by advancing &#x60;offset&#x60;  rather than this value, which nothing accepts as an argument..</param>
         public CustomerServiceUsageReportDto(List<CustomerServiceUsageDto> collection = default, int offset = default, int limit = default, long totalQuantity = default, int totalPage = default, int currentPage = default)
         {
             this.Collection = collection;
@@ -58,42 +58,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// A collection of service usage statistics.
+        /// The services on this page, one entry per service rather than per charge. It is empty for a period in  which nothing was consumed as well as for a page past the end of the report.
         /// </summary>
         /// <example>[{"service":"backup","totalAmount":49.99}]</example>
         [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<CustomerServiceUsageDto> Collection { get; set; }
 
         /// <summary>
-        /// The report data offset.
+        /// How many entries were skipped before this page, echoed from the request.
         /// </summary>
         /// <example>0</example>
         [DataMember(Name = "offset", EmitDefaultValue = false)]
         public int Offset { get; set; }
 
         /// <summary>
-        /// The report data limit.
+        /// How many entries one page may hold, echoed from the request; it is 25 unless another value was asked for.
         /// </summary>
         /// <example>25</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
         /// <summary>
-        /// The total quantity of records in the report.
+        /// How many services match the filters in total, across every page - services, not charges.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "totalQuantity", EmitDefaultValue = false)]
         public long TotalQuantity { get; set; }
 
         /// <summary>
-        /// The total number of pages in the report.
+        /// How many pages those entries come to at the current &#x60;limit&#x60;.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "totalPage", EmitDefaultValue = false)]
         public int TotalPage { get; set; }
 
         /// <summary>
-        /// The current page number of the report.
+        /// Which of those pages this one is, as the billing service numbers them. Page through by advancing &#x60;offset&#x60;  rather than this value, which nothing accepts as an argument.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "currentPage", EmitDefaultValue = false)]

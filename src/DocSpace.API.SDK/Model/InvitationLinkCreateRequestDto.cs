@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for creating an invitation link.
+    /// The role a new invitation link grants, and the limits placed on it.
     /// </summary>
     [DataContract(Name = "InvitationLinkCreateRequestDto")]
     public partial class InvitationLinkCreateRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
+        /// The role whoever follows the link joins with. Only &#x60;DocSpaceAdmin&#x60;, &#x60;RoomAdmin&#x60; and &#x60;User&#x60; are accepted, and  the role cannot be changed afterwards - delete the link and create one for the other role instead.
         /// </summary>
         [DataMember(Name = "employeeType", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeType EmployeeType { get; set; }
@@ -52,9 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationLinkCreateRequestDto" /> class.
         /// </summary>
-        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User). (required).</param>
-        /// <param name="expiration">The expiration date of the invitation link..</param>
-        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
+        /// <param name="employeeType">The role whoever follows the link joins with. Only &#x60;DocSpaceAdmin&#x60;, &#x60;RoomAdmin&#x60; and &#x60;User&#x60; are accepted, and  the role cannot be changed afterwards - delete the link and create one for the other role instead. (required).</param>
+        /// <param name="expiration">When the link stops letting anyone in, read in the portal time zone. It has to lie in the future; leaving it  out creates a link with no deadline at all..</param>
+        /// <param name="maxUseCount">How many accounts may join through the link in total. Leaving it out creates a link with no use limit; the  uses spent so far are reported as &#x60;currentUseCount&#x60;..</param>
         public InvitationLinkCreateRequestDto(EmployeeType employeeType = default, DateTime? expiration = default, int? maxUseCount = default)
         {
             this.EmployeeType = employeeType;
@@ -63,14 +63,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The expiration date of the invitation link.
+        /// When the link stops letting anyone in, read in the portal time zone. It has to lie in the future; leaving it  out creates a link with no deadline at all.
         /// </summary>
         /// <example>2025-06-15T10:30:00.0000000Z</example>
         [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public DateTime? Expiration { get; set; }
 
         /// <summary>
-        /// The maximum number of times the invitation link can be used.
+        /// How many accounts may join through the link in total. Leaving it out creates a link with no use limit; the  uses spent so far are reported as &#x60;currentUseCount&#x60;.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]

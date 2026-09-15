@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Optional entity hint (lib 0.5.64): only &#x60;entityId&#x60; is read; the pair is re-resolved server-side before reaching the provider as metadata.
+    /// Optional entity hint (lib 0.5.64): only &#x60;entityId&#x60; is read; the source (&#x60;source_id&#x60; / &#x60;source_type&#x60; / &#x60;source_title&#x60;) is re-resolved server-side before reaching the provider as metadata.
     /// </summary>
     [DataContract(Name = "aiThreadsOpenOrCreate_request_entityMeta")]
     public partial class AiThreadsOpenOrCreateRequestEntityMeta : IValidatableObject

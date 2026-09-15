@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// What an IDP certificate can be used for.
+    /// What the identity provider&#39;s certificate may be used for, as the &#x60;action&#x60; of an identity provider certificate.
     /// </summary>
     [DataContract(Name = "SsoIdpCertificateActionTypeDto")]
     public partial class SsoIdpCertificateActionTypeDto : IValidatableObject
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Verification only.
+        /// The certificate verifies the signatures on what the provider sends, and nothing else - the counterpart of  the service provider&#39;s signing action.
         /// </summary>
         /// <example>verification</example>
         [DataMember(Name = "verification", EmitDefaultValue = true)]
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Decryption only.
+        /// The certificate is used to decrypt what the provider sends, but verifies no signature.
         /// </summary>
         /// <example>decrypt</example>
         [DataMember(Name = "decrypt", EmitDefaultValue = true)]
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Both verification and decryption.
+        /// The certificate does both, which is what a single provider certificate has to be set to.
         /// </summary>
         /// <example>verification and decrypt</example>
         [DataMember(Name = "verificationAndDecrypt", EmitDefaultValue = true)]

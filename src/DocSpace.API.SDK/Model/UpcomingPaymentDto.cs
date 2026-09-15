@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The upcoming payment parameters.
+    /// One charge the portal is going to be billed for at the start of the next period.
     /// </summary>
     [DataContract(Name = "UpcomingPaymentDto")]
     public partial class UpcomingPaymentDto : IValidatableObject
@@ -41,15 +41,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpcomingPaymentDto" /> class.
         /// </summary>
-        /// <param name="id">The quota ID..</param>
-        /// <param name="name">The quota name..</param>
-        /// <param name="title">The quota title..</param>
-        /// <param name="unitOfMeasure">The quota unit of measure..</param>
-        /// <param name="quantity">The quantity that will be charged (the next quantity if set, otherwise the current quantity)..</param>
-        /// <param name="wallet">The quota applies to the wallet or not..</param>
-        /// <param name="dueDate">The due date of the upcoming payment in the portal time zone..</param>
-        /// <param name="amount">The amount that will be charged (unit price multiplied by the quantity)..</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol of the amount..</param>
+        /// <param name="id">The quota that is going to be charged. When a switch to another quota is scheduled, this is the quota  being switched to, so it can differ from what &#x60;GET api/2.0/portal/tariff&#x60; reports for today..</param>
+        /// <param name="name">The quota&#39;s stable key, which is the same identifier the wallet operations use for a service..</param>
+        /// <param name="title">The quota name in the portal language, meant to be printed on an invoice preview..</param>
+        /// <param name="unitOfMeasure">What &#x60;quantity&#x60; counts, in the portal language - seats, administrators, gigabytes. It is empty for a quota  that is simply on or off..</param>
+        /// <param name="quantity">How much is going to be charged for, which is the quantity scheduled for the next period when one has been  scheduled and today&#39;s quantity otherwise..</param>
+        /// <param name="wallet">Whether the charge is paid out of the portal wallet rather than from the subscription..</param>
+        /// <param name="dueDate">When the charge falls due, in the portal time zone..</param>
+        /// <param name="amount">What the charge comes to: the unit price of the quota multiplied by &#x60;quantity&#x60;. Taxes are not part of it,  and a quota with no price of its own is not listed at all rather than listed with a zero..</param>
+        /// <param name="currency">The currency &#x60;amount&#x60; is expressed in, as a three-letter ISO 4217 code. It follows the portal&#39;s billing  account, so every entry of one answer carries the same code..</param>
         public UpcomingPaymentDto(int id = default, string name = default, string title = default, string unitOfMeasure = default, int quantity = default, bool wallet = default, ApiDateTime dueDate = default, double amount = default, string currency = default)
         {
             this.Id = id;
@@ -64,62 +64,62 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The quota ID.
+        /// The quota that is going to be charged. When a switch to another quota is scheduled, this is the quota  being switched to, so it can differ from what &#x60;GET api/2.0/portal/tariff&#x60; reports for today.
         /// </summary>
         /// <example>-11</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The quota name.
+        /// The quota&#39;s stable key, which is the same identifier the wallet operations use for a service.
         /// </summary>
         /// <example>storage</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The quota title.
+        /// The quota name in the portal language, meant to be printed on an invoice preview.
         /// </summary>
         /// <example>Business plan</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The quota unit of measure.
+        /// What &#x60;quantity&#x60; counts, in the portal language - seats, administrators, gigabytes. It is empty for a quota  that is simply on or off.
         /// </summary>
         /// <example>admins</example>
         [DataMember(Name = "unitOfMeasure", EmitDefaultValue = true)]
         public string UnitOfMeasure { get; set; }
 
         /// <summary>
-        /// The quantity that will be charged (the next quantity if set, otherwise the current quantity).
+        /// How much is going to be charged for, which is the quantity scheduled for the next period when one has been  scheduled and today&#39;s quantity otherwise.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
         /// <summary>
-        /// The quota applies to the wallet or not.
+        /// Whether the charge is paid out of the portal wallet rather than from the subscription.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "wallet", EmitDefaultValue = true)]
         public bool Wallet { get; set; }
 
         /// <summary>
-        /// The due date of the upcoming payment in the portal time zone.
+        /// When the charge falls due, in the portal time zone.
         /// </summary>
         [DataMember(Name = "dueDate", EmitDefaultValue = false)]
         public ApiDateTime DueDate { get; set; }
 
         /// <summary>
-        /// The amount that will be charged (unit price multiplied by the quantity).
+        /// What the charge comes to: the unit price of the quota multiplied by &#x60;quantity&#x60;. Taxes are not part of it,  and a quota with no price of its own is not listed at all rather than listed with a zero.
         /// </summary>
         /// <example>14</example>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public double Amount { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol of the amount.
+        /// The currency &#x60;amount&#x60; is expressed in, as a three-letter ISO 4217 code. It follows the portal&#39;s billing  account, so every entry of one answer carries the same code.
         /// </summary>
         /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]

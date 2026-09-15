@@ -57,12 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// True when every custom MCP server was persisted.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
         /// What was rejected, per server. Present on failure - and then no server was persisted.
         /// </summary>
+        /// <example>[]</example>
         [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<AiToolsBulkResultErrorsInner> Errors { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// An enabled portal module.
+    /// One portal module the calling user may open.
     /// </summary>
     [DataContract(Name = "EnabledModuleDto")]
     public partial class EnabledModuleDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EnabledModuleDto" /> class.
         /// </summary>
-        /// <param name="id">The module ID, which is the name of its product class..</param>
-        /// <param name="title">The module title..</param>
+        /// <param name="id">The module&#39;s product class name, HTML-escaped. It is a display-oriented identifier and not the GUID the  access-settings operations work with, so it must not be passed to &#x60;GET api/2.0/settings/security/{id}&#x60;..</param>
+        /// <param name="title">The module name in the portal language, HTML-escaped and ready to be rendered as text..</param>
         public EnabledModuleDto(string id = default, string title = default)
         {
             this.Id = id;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The module ID, which is the name of its product class.
+        /// The module&#39;s product class name, HTML-escaped. It is a display-oriented identifier and not the GUID the  access-settings operations work with, so it must not be passed to &#x60;GET api/2.0/settings/security/{id}&#x60;.
         /// </summary>
         /// <example>ASC.Web.Files.Configuration.FilesSpaceUsageStatManager</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The module title.
+        /// The module name in the portal language, HTML-escaped and ready to be rendered as text.
         /// </summary>
         /// <example>Documents</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]

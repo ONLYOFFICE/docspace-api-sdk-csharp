@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room template parameters.
+    /// The parameters of a room template built from an existing room.
     /// </summary>
     [DataContract(Name = "RoomTemplateDto")]
     public partial class RoomTemplateDto : IValidatableObject
@@ -46,17 +46,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomTemplateDto" /> class.
         /// </summary>
-        /// <param name="roomId">The room template ID. (required).</param>
-        /// <param name="title">The room template title. (required).</param>
-        /// <param name="logo">The room template logo..</param>
-        /// <param name="copyLogo">Specifies whether to copy room logo or not..</param>
-        /// <param name="share">The collection of email addresses of users with whom to share a room..</param>
-        /// <param name="groups">The collection of groups with whom to share a room..</param>
-        /// <param name="public">Specifies whether the room template is public or not..</param>
-        /// <param name="tags">The collection of tags..</param>
-        /// <param name="color">The color of the room template..</param>
-        /// <param name="cover">The cover of the room template..</param>
-        /// <param name="quota">Room quota.</param>
+        /// <param name="roomId">The identifier of the room the template is built from. Take it from the room listing of  &#x60;GET api/2.0/files/rooms&#x60;; a folder identifier is not accepted. (required).</param>
+        /// <param name="title">The title the template is saved under in the Templates section. Characters that a folder name cannot contain  are replaced with an underscore on save, and two templates may share a title. (required).</param>
+        /// <param name="logo">A picture of the caller&#39;s own for the template, cropped out of an image already placed in the temporary  storage..</param>
+        /// <param name="copyLogo">Whether the template takes over the picture already set on the source room. When false the template gets no  picture from that room..</param>
+        /// <param name="share">The email addresses of the portal members who are granted read access to the finished template..</param>
+        /// <param name="groups">The identifiers of the portal groups whose members are granted read access to the finished template..</param>
+        /// <param name="public">Whether the finished template is shared with everyone allowed to create rooms. When false it stays reachable  only for the recipients named for it..</param>
+        /// <param name="tags">The labels attached to the template and shown next to it in listings..</param>
+        /// <param name="color">The accent colour of the generated cover, written as six hexadecimal digits with no leading hash sign. When it  is left empty a colour is picked at random..</param>
+        /// <param name="cover">The identifier of a built-in cover picture, as listed by &#x60;GET api/2.0/files/rooms/covers&#x60;. When it is left  empty the template gets no cover..</param>
+        /// <param name="quota">The storage limit assigned to the template, in bytes. When it is not set the template keeps the limit of the  source room..</param>
         public RoomTemplateDto(int roomId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> share = default, List<Guid> groups = default, bool @public = default, List<string> tags = default, string color = default, string cover = default, long? quota = default)
         {
             this.RoomId = roomId;
@@ -78,76 +78,76 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The room template ID.
+        /// The identifier of the room the template is built from. Take it from the room listing of  &#x60;GET api/2.0/files/rooms&#x60;; a folder identifier is not accepted.
         /// </summary>
-        /// <example>1</example>
+        /// <example>1234</example>
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>
-        /// The room template title.
+        /// The title the template is saved under in the Templates section. Characters that a folder name cannot contain  are replaced with an underscore on save, and two templates may share a title.
         /// </summary>
-        /// <example>My Document</example>
+        /// <example>Sales agreement room</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The room template logo.
+        /// A picture of the caller&#39;s own for the template, cropped out of an image already placed in the temporary  storage.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }
 
         /// <summary>
-        /// Specifies whether to copy room logo or not.
+        /// Whether the template takes over the picture already set on the source room. When false the template gets no  picture from that room.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "copyLogo", EmitDefaultValue = true)]
         public bool CopyLogo { get; set; }
 
         /// <summary>
-        /// The collection of email addresses of users with whom to share a room.
+        /// The email addresses of the portal members who are granted read access to the finished template.
         /// </summary>
         /// <example>["user1@example.com","user2@example.com"]</example>
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<string> Share { get; set; }
 
         /// <summary>
-        /// The collection of groups with whom to share a room.
+        /// The identifiers of the portal groups whose members are granted read access to the finished template.
         /// </summary>
-        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
+        /// <example>["9924256a-739c-462b-af15-e652a3b1b6eb"]</example>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<Guid> Groups { get; set; }
 
         /// <summary>
-        /// Specifies whether the room template is public or not.
+        /// Whether the finished template is shared with everyone allowed to create rooms. When false it stays reachable  only for the recipients named for it.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "public", EmitDefaultValue = true)]
         public bool Public { get; set; }
 
         /// <summary>
-        /// The collection of tags.
+        /// The labels attached to the template and shown next to it in listings.
         /// </summary>
-        /// <example>["tag1","tag2"]</example>
+        /// <example>["Contracts","Sales"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// The color of the room template.
+        /// The accent colour of the generated cover, written as six hexadecimal digits with no leading hash sign. When it  is left empty a colour is picked at random.
         /// </summary>
-        /// <example>#FF0000</example>
+        /// <example>FF5733</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
-        /// The cover of the room template.
+        /// The identifier of a built-in cover picture, as listed by &#x60;GET api/2.0/files/rooms/covers&#x60;. When it is left  empty the template gets no cover.
         /// </summary>
-        /// <example>cover1</example>
+        /// <example>bookmark</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
-        /// Room quota
+        /// The storage limit assigned to the template, in bytes. When it is not set the template keeps the limit of the  source room.
         /// </summary>
         /// <example>10485760</example>
         [DataMember(Name = "quota", EmitDefaultValue = true)]

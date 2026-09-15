@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The user type.
+        /// The type of the new account: &#x60;User&#x60;, &#x60;RoomAdmin&#x60; or &#x60;DocSpaceAdmin&#x60;. &#x60;Guest&#x60; is not accepted here, and the  value is ignored entirely when &#x60;fromInviteLink&#x60; is set, because the invitation link decides the type. When no  paid seat is free, the account is created as &#x60;User&#x60; whatever was asked for.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EmployeeType? Type { get; set; }
@@ -47,23 +47,23 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MemberRequestDto" /> class.
         /// </summary>
-        /// <param name="password">The user password..</param>
-        /// <param name="passwordHash">The user password hash..</param>
-        /// <param name="email">The user email address..</param>
-        /// <param name="type">The user type..</param>
-        /// <param name="isUser">Specifies if this is a guest or a user..</param>
-        /// <param name="firstName">The user first name..</param>
-        /// <param name="lastName">The user last name..</param>
-        /// <param name="department">The list of the user departments IDs..</param>
-        /// <param name="location">The user location..</param>
-        /// <param name="comment">The user comment..</param>
-        /// <param name="contacts">The list of the user contacts..</param>
-        /// <param name="files">The avatar photo URL..</param>
-        /// <param name="fromInviteLink">Specifies if the user is added via the invitation link or not..</param>
-        /// <param name="key">The user key..</param>
-        /// <param name="cultureName">The user culture code..</param>
-        /// <param name="target">The user target ID..</param>
-        /// <param name="spam">Specifies if tips, updates and offers are allowed to be sent to the user or not..</param>
+        /// <param name="password">The password in plain text. It is checked against the portal password policy and rejected with 400 when it is  too weak. When neither this field nor &#x60;passwordHash&#x60; is sent, a random password is generated and nobody  learns it, so the account can only be used after a password recovery..</param>
+        /// <param name="passwordHash">The password already hashed by the client, which is what the portal stores. It is a PBKDF2-HMACSHA256 hash of  the plain password, computed with the salt, the iteration count and the key size the portal settings publish,  and written as lowercase hexadecimal. When it is sent, &#x60;password&#x60; is ignored and the password policy is not  applied..</param>
+        /// <param name="email">The email address of the new account, up to 255 characters. It is required in practice and has to be a real  address, and it becomes the sign-in name of the account..</param>
+        /// <param name="type">The type of the new account: &#x60;User&#x60;, &#x60;RoomAdmin&#x60; or &#x60;DocSpaceAdmin&#x60;. &#x60;Guest&#x60; is not accepted here, and the  value is ignored entirely when &#x60;fromInviteLink&#x60; is set, because the invitation link decides the type. When no  paid seat is free, the account is created as &#x60;User&#x60; whatever was asked for..</param>
+        /// <param name="isUser">Only chooses which entry the operation writes to the audit trail - the one for a guest or the one for a  member. It does not change the type of the account; &#x60;type&#x60; and the invitation link do that..</param>
+        /// <param name="firstName">The first name, up to 255 characters. It is checked together with &#x60;lastName&#x60;, and a pair the portal does not  accept as a name answers 400..</param>
+        /// <param name="lastName">The last name, up to 255 characters. It is checked together with &#x60;firstName&#x60;, and a pair the portal does not  accept as a name answers 400..</param>
+        /// <param name="department">The groups to put the new account into, by group ID. Read the IDs from &#x60;GET api/2.0/group&#x60;; an ID that  matches no group is skipped without an error..</param>
+        /// <param name="location">The free-text location shown on the profile. It is stored as it is given and is not validated..</param>
+        /// <param name="comment">The free-text note kept with the profile, shown to administrators. It is stored as it is given..</param>
+        /// <param name="contacts">The additional ways to reach the person, each as a type and a value pair. The type is a free-text label such  as &#x60;email&#x60;, &#x60;phone&#x60;, &#x60;skype&#x60; or &#x60;telegram&#x60;, and an entry with an empty value is dropped..</param>
+        /// <param name="files">The address the portal downloads the avatar from. It has to use HTTPS unless the request itself came over  HTTP, an address the portal refuses to fetch is rejected, and passing the default avatar path means no  avatar is downloaded..</param>
+        /// <param name="fromInviteLink">Set it to true when the account is created by somebody accepting an invitation, which makes &#x60;key&#x60; required  and lets the link decide the type. With the default false the caller has to hold the permission to add an  account of the requested type..</param>
+        /// <param name="key">The key of the invitation link being accepted, taken from the link itself. It is read only when  &#x60;fromInviteLink&#x60; is true, and an expired or already used key answers 403..</param>
+        /// <param name="cultureName">The interface language of the new account, as a culture code. It is applied whether or not the portal has  that culture enabled, so send a code the portal supports..</param>
+        /// <param name="target">Not used. The handler reads nothing from this field, and it is kept only so that existing clients keep  working..</param>
+        /// <param name="spam">Whether the account agrees to receive tips, updates and offers. It defaults to false, which means no such  mail is sent..</param>
         public MemberRequestDto(string password = default, string passwordHash = default, string email = default, EmployeeType? type = default, bool? isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string location = default, string comment = default, List<Contact> contacts = default, string files = default, bool fromInviteLink = default, string key = default, string cultureName = default, Guid target = default, bool? spam = default)
         {
             this.Password = password;
@@ -86,112 +86,112 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user password.
+        /// The password in plain text. It is checked against the portal password policy and rejected with 400 when it is  too weak. When neither this field nor &#x60;passwordHash&#x60; is sent, a random password is generated and nobody  learns it, so the account can only be used after a password recovery.
         /// </summary>
         /// <example>P@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// The user password hash.
+        /// The password already hashed by the client, which is what the portal stores. It is a PBKDF2-HMACSHA256 hash of  the plain password, computed with the salt, the iteration count and the key size the portal settings publish,  and written as lowercase hexadecimal. When it is sent, &#x60;password&#x60; is ignored and the password policy is not  applied.
         /// </summary>
-        /// <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
+        /// <example>c1ba1a0bcbe0f0f42b6c86e1b41a1b4a4a9b4b0e3f2b7d2c1a0e9f8d7c6b5a49</example>
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 
         /// <summary>
-        /// The user email address.
+        /// The email address of the new account, up to 255 characters. It is required in practice and has to be a real  address, and it becomes the sign-in name of the account.
         /// </summary>
         /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Specifies if this is a guest or a user.
+        /// Only chooses which entry the operation writes to the audit trail - the one for a guest or the one for a  member. It does not change the type of the account; &#x60;type&#x60; and the invitation link do that.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isUser", EmitDefaultValue = true)]
         public bool? IsUser { get; set; }
 
         /// <summary>
-        /// The user first name.
+        /// The first name, up to 255 characters. It is checked together with &#x60;lastName&#x60;, and a pair the portal does not  accept as a name answers 400.
         /// </summary>
         /// <example>John</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// The user last name.
+        /// The last name, up to 255 characters. It is checked together with &#x60;firstName&#x60;, and a pair the portal does not  accept as a name answers 400.
         /// </summary>
         /// <example>Doe</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// The list of the user departments IDs.
+        /// The groups to put the new account into, by group ID. Read the IDs from &#x60;GET api/2.0/group&#x60;; an ID that  matches no group is skipped without an error.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public List<Guid> Department { get; set; }
 
         /// <summary>
-        /// The user location.
+        /// The free-text location shown on the profile. It is stored as it is given and is not validated.
         /// </summary>
         /// <example>New York</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
-        /// The user comment.
+        /// The free-text note kept with the profile, shown to administrators. It is stored as it is given.
         /// </summary>
         /// <example>User comment</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
-        /// The list of the user contacts.
+        /// The additional ways to reach the person, each as a type and a value pair. The type is a free-text label such  as &#x60;email&#x60;, &#x60;phone&#x60;, &#x60;skype&#x60; or &#x60;telegram&#x60;, and an entry with an empty value is dropped.
         /// </summary>
         /// <example>[{"type":"email","value":"john.doe@example.com"}]</example>
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
-        /// The avatar photo URL.
+        /// The address the portal downloads the avatar from. It has to use HTTPS unless the request itself came over  HTTP, an address the portal refuses to fetch is rejected, and passing the default avatar path means no  avatar is downloaded.
         /// </summary>
         /// <example>https://example.com/avatar.jpg</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
 
         /// <summary>
-        /// Specifies if the user is added via the invitation link or not.
+        /// Set it to true when the account is created by somebody accepting an invitation, which makes &#x60;key&#x60; required  and lets the link decide the type. With the default false the caller has to hold the permission to add an  account of the requested type.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "fromInviteLink", EmitDefaultValue = true)]
         public bool FromInviteLink { get; set; }
 
         /// <summary>
-        /// The user key.
+        /// The key of the invitation link being accepted, taken from the link itself. It is read only when  &#x60;fromInviteLink&#x60; is true, and an expired or already used key answers 403.
         /// </summary>
         /// <example>user_key_string</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The user culture code.
+        /// The interface language of the new account, as a culture code. It is applied whether or not the portal has  that culture enabled, so send a code the portal supports.
         /// </summary>
         /// <example>en-US</example>
         [DataMember(Name = "cultureName", EmitDefaultValue = true)]
         public string CultureName { get; set; }
 
         /// <summary>
-        /// The user target ID.
+        /// Not used. The handler reads nothing from this field, and it is kept only so that existing clients keep  working.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "target", EmitDefaultValue = false)]
         public Guid Target { get; set; }
 
         /// <summary>
-        /// Specifies if tips, updates and offers are allowed to be sent to the user or not.
+        /// Whether the account agrees to receive tips, updates and offers. It defaults to false, which means no such  mail is sent.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "spam", EmitDefaultValue = true)]

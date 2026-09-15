@@ -89,6 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Emitted once per &#x60;sendWithStream&#x60; call, immediately after the user message has been persisted by storage and before the assistant stream starts. Carries the storage-assigned &#x60;id&#x60; and &#x60;createdAt&#x60;. The UI uses it to render the user bubble — no client-side optimistic placeholder is needed, which keeps the runtime tree free of phantom nodes from index-fallback ids.
         /// </summary>
+        /// <example>message-delta</example>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
     
@@ -131,6 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The storage identifier of that message.
         /// </summary>
+        /// <example>22222222-2222-2222-2222-222222222222</example>
         [DataMember(Name = "messageId", EmitDefaultValue = false)]
         public string MessageId { get; set; }
 
@@ -143,6 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The thread the event belongs to.
         /// </summary>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "threadId", EmitDefaultValue = false)]
         public string ThreadId { get; set; }
 

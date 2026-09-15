@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The security information request parameters.
+    /// The entries whose sharing rights are being changed, and the rights to apply to them.
     /// </summary>
     [DataContract(Name = "SecurityInfoRequestDto")]
     public partial class SecurityInfoRequestDto : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SecurityInfoRequestDto" /> class.
         /// </summary>
-        /// <param name="folderIds">The list of the shared folder IDs..</param>
-        /// <param name="fileIds">The list of the shared file IDs..</param>
-        /// <param name="share">The collection of sharing parameters..</param>
-        /// <param name="notify">Specifies whether to notify users about the shared file or not..</param>
-        /// <param name="sharingMessage">The message to send when notifying about the shared file..</param>
+        /// <param name="folderIds">The folders and rooms whose rights are being changed, identified as a listing operation returns them - a  number on the portal, a string on a connected third-party account..</param>
+        /// <param name="fileIds">The files whose rights are being changed, identified as a listing operation returns them - a number on the  portal, a string on a connected third-party account..</param>
+        /// <param name="share">One record per account or group whose rights are being set, each naming the subject and the level it gets on  all of the listed entries; a level of &#x60;None&#x60; takes the access away. An empty collection makes the call change  nothing..</param>
+        /// <param name="notify">Set to true to have every account named in &#x60;share&#x60; emailed about the access it just received; false changes  the rights without telling anyone..</param>
+        /// <param name="sharingMessage">The text put into that email, ignored while &#x60;notify&#x60; is false. Markup is stripped before sending, so only the  plain text of the value survives..</param>
         public SecurityInfoRequestDto(List<DuplicateRequestDtoAllOfFileIds> folderIds = default, List<DuplicateRequestDtoAllOfFileIds> fileIds = default, List<FileShareParams> share = default, bool notify = default, string sharingMessage = default)
         {
             this.FolderIds = folderIds;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of the shared folder IDs.
+        /// The folders and rooms whose rights are being changed, identified as a listing operation returns them - a  number on the portal, a string on a connected third-party account.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FolderIds { get; set; }
 
         /// <summary>
-        /// The list of the shared file IDs.
+        /// The files whose rights are being changed, identified as a listing operation returns them - a number on the  portal, a string on a connected third-party account.
         /// </summary>
-        /// <example>[1,2,3]</example>
+        /// <example>[7,8]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
-        /// The collection of sharing parameters.
+        /// One record per account or group whose rights are being set, each naming the subject and the level it gets on  all of the listed entries; a level of &#x60;None&#x60; takes the access away. An empty collection makes the call change  nothing.
         /// </summary>
-        /// <example>[{"access":1,"shareTo":"00000000-0000-0000-0000-000000000000"}]</example>
+        /// <example>[{"access":2,"shareTo":"9924256a-739c-462b-af15-e652a3b1b6eb"}]</example>
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }
 
         /// <summary>
-        /// Specifies whether to notify users about the shared file or not.
+        /// Set to true to have every account named in &#x60;share&#x60; emailed about the access it just received; false changes  the rights without telling anyone.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "notify", EmitDefaultValue = true)]
         public bool Notify { get; set; }
 
         /// <summary>
-        /// The message to send when notifying about the shared file.
+        /// The text put into that email, ignored while &#x60;notify&#x60; is false. Markup is stripped before sending, so only the  plain text of the value survives.
         /// </summary>
         /// <example>You have been granted access to the file</example>
         [DataMember(Name = "sharingMessage", EmitDefaultValue = true)]

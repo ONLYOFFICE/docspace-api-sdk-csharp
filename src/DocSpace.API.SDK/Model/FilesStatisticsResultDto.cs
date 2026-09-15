@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file statistics result parameters.
+    /// The space that stored documents take in each section of the portal, in bytes. The figures cover every account of  the portal rather than the caller alone, and a section the portal does not have comes back as null instead of a  zero figure.
     /// </summary>
     [DataContract(Name = "FilesStatisticsResultDto")]
     public partial class FilesStatisticsResultDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesStatisticsResultDto" /> class.
         /// </summary>
-        /// <param name="myDocumentsUsedSpace">The used space of files in the \\My Documents\\ section..</param>
-        /// <param name="trashUsedSpace">The used space of files in the \\Trash\\ section..</param>
-        /// <param name="archiveUsedSpace">The used space of files in the \\Archive\\ section..</param>
-        /// <param name="roomsUsedSpace">The used space of files in the \\Rooms\\ section..</param>
-        /// <param name="aiAgentsUsedSpace">The used space of files in the \\AI agents\\ section..</param>
-        /// <param name="formsUsedSpace">The used space of files in the \\Forms\\ section..</param>
+        /// <param name="myDocumentsUsedSpace">The space taken by the personal Files sections of all accounts of the portal added together. An item deleted  to the trash keeps taking space and is counted in &#x60;trashUsedSpace&#x60; until the trash is emptied..</param>
+        /// <param name="trashUsedSpace">The space held by the items deleted to the trash from any section, which is given back only when the trash is  emptied or the items are erased for good..</param>
+        /// <param name="archiveUsedSpace">The space taken by the content of the archived rooms, the archived form filling rooms included. Restoring a  room moves its space back to &#x60;roomsUsedSpace&#x60; or &#x60;formsUsedSpace&#x60;..</param>
+        /// <param name="roomsUsedSpace">The space taken by the content of the active rooms, except the form filling rooms, whose content is reported  in &#x60;formsUsedSpace&#x60;. Archiving a room moves its space to &#x60;archiveUsedSpace&#x60;..</param>
+        /// <param name="aiAgentsUsedSpace">The space taken by the content of the AI agents section, which exists only in a portal where the AI agents  feature is active; creating an AI room is not enough to bring the section into being..</param>
+        /// <param name="formsUsedSpace">The space taken by the content of the active form filling rooms, which is kept apart from &#x60;roomsUsedSpace&#x60;  even though those rooms are listed among the rooms..</param>
         public FilesStatisticsResultDto(FilesStatisticsFolder myDocumentsUsedSpace = default, FilesStatisticsFolder trashUsedSpace = default, FilesStatisticsFolder archiveUsedSpace = default, FilesStatisticsFolder roomsUsedSpace = default, FilesStatisticsFolder aiAgentsUsedSpace = default, FilesStatisticsFolder formsUsedSpace = default)
         {
             this.MyDocumentsUsedSpace = myDocumentsUsedSpace;
@@ -58,37 +58,37 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The used space of files in the \\My Documents\\ section.
+        /// The space taken by the personal Files sections of all accounts of the portal added together. An item deleted  to the trash keeps taking space and is counted in &#x60;trashUsedSpace&#x60; until the trash is emptied.
         /// </summary>
         [DataMember(Name = "myDocumentsUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder MyDocumentsUsedSpace { get; set; }
 
         /// <summary>
-        /// The used space of files in the \\Trash\\ section.
+        /// The space held by the items deleted to the trash from any section, which is given back only when the trash is  emptied or the items are erased for good.
         /// </summary>
         [DataMember(Name = "trashUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder TrashUsedSpace { get; set; }
 
         /// <summary>
-        /// The used space of files in the \\Archive\\ section.
+        /// The space taken by the content of the archived rooms, the archived form filling rooms included. Restoring a  room moves its space back to &#x60;roomsUsedSpace&#x60; or &#x60;formsUsedSpace&#x60;.
         /// </summary>
         [DataMember(Name = "archiveUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder ArchiveUsedSpace { get; set; }
 
         /// <summary>
-        /// The used space of files in the \\Rooms\\ section.
+        /// The space taken by the content of the active rooms, except the form filling rooms, whose content is reported  in &#x60;formsUsedSpace&#x60;. Archiving a room moves its space to &#x60;archiveUsedSpace&#x60;.
         /// </summary>
         [DataMember(Name = "roomsUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder RoomsUsedSpace { get; set; }
 
         /// <summary>
-        /// The used space of files in the \\AI agents\\ section.
+        /// The space taken by the content of the AI agents section, which exists only in a portal where the AI agents  feature is active; creating an AI room is not enough to bring the section into being.
         /// </summary>
         [DataMember(Name = "aiAgentsUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder AiAgentsUsedSpace { get; set; }
 
         /// <summary>
-        /// The used space of files in the \\Forms\\ section.
+        /// The space taken by the content of the active form filling rooms, which is kept apart from &#x60;roomsUsedSpace&#x60;  even though those rooms are listed among the rooms.
         /// </summary>
         [DataMember(Name = "formsUsedSpace", EmitDefaultValue = false)]
         public FilesStatisticsFolder FormsUsedSpace { get; set; }

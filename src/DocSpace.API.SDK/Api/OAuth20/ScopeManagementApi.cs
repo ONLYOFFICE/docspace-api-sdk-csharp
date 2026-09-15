@@ -34,23 +34,23 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>ScopeResponse</returns>
-        ScopeResponse GetScopes();
+        /// <returns>List&lt;ScopeResponse&gt;</returns>
+        List<ScopeResponse> GetScopes();
 
         /// <summary>
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>ApiResponse of ScopeResponse</returns>
-        ApiResponse<ScopeResponse> GetScopesWithHttpInfo();
+        /// <returns>ApiResponse of List&lt;ScopeResponse&gt;</returns>
+        ApiResponse<List<ScopeResponse>> GetScopesWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -64,25 +64,25 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>Task of ScopeResponse</returns>
-        Task<ScopeResponse> GetScopesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of List&lt;ScopeResponse&gt;</returns>
+        Task<List<ScopeResponse>> GetScopesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>Task of ApiResponse (ScopeResponse)</returns>
-        Task<ApiResponse<ScopeResponse>> GetScopesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (List&lt;ScopeResponse&gt;)</returns>
+        Task<ApiResponse<List<ScopeResponse>>> GetScopesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -302,12 +302,12 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>ScopeResponse</returns>
-        public ScopeResponse GetScopes()
+        /// <returns>List&lt;ScopeResponse&gt;</returns>
+        public List<ScopeResponse> GetScopes()
         {
             var localVarResponse = GetScopesWithHttpInfo();
             return localVarResponse.Data;
@@ -317,12 +317,12 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>ApiResponse of ScopeResponse</returns>
-        public ApiResponse<ScopeResponse> GetScopesWithHttpInfo()
+        /// <returns>ApiResponse of List&lt;ScopeResponse&gt;</returns>
+        public ApiResponse<List<ScopeResponse>> GetScopesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -346,7 +346,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ScopeResponse>("/api/2.0/scopes", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<List<ScopeResponse>>("/api/2.0/oauth2/scopes", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -364,13 +364,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>Task of ScopeResponse</returns>
-        public async Task<ScopeResponse> GetScopesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of List&lt;ScopeResponse&gt;</returns>
+        public async Task<List<ScopeResponse>> GetScopesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetScopesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -380,13 +380,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first. It is a read-only catalogue that does not depend on which clients exist: a valid portal signature is the only requirement, with no role restriction, and every caller of the portal sees the same list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
-        /// <returns>Task of ApiResponse (ScopeResponse)</returns>
-        public async Task<ApiResponse<ScopeResponse>> GetScopesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (List&lt;ScopeResponse&gt;)</returns>
+        public async Task<ApiResponse<List<ScopeResponse>>> GetScopesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -412,7 +412,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ScopeResponse>("/api/2.0/scopes", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<List<ScopeResponse>>("/api/2.0/oauth2/scopes", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

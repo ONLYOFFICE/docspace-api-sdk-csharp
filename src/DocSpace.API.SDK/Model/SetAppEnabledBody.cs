@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Request body for toggling an application enabled state.
+    /// Whether a portal application is switched on.
     /// </summary>
     [DataContract(Name = "SetAppEnabledBody")]
     public partial class SetAppEnabledBody : IValidatableObject
@@ -41,15 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetAppEnabledBody" /> class.
         /// </summary>
-        /// <param name="enabled">Whether the application should be enabled..</param>
+        /// <param name="enabled">Whether the application is available in this portal. Switching it off leaves its settings document stored, so  switching it back on restores the configuration it had; connected clients are told of the new state without a  reload..</param>
         public SetAppEnabledBody(bool enabled = default)
         {
             this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Whether the application should be enabled.
+        /// Whether the application is available in this portal. Switching it off leaves its settings document stored, so  switching it back on restores the configuration it had; connected clients are told of the new state without a  reload.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 

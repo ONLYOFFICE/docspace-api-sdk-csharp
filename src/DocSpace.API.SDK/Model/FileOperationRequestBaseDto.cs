@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The base operation request parameters.
+    /// The parameter shared by every request that starts a background file operation.
     /// </summary>
     [DataContract(Name = "FileOperationRequestBaseDto")]
     public partial class FileOperationRequestBaseDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileOperationRequestBaseDto" /> class.
         /// </summary>
-        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: &#x60;true&#x60; returns the operation this call started and nothing else, &#x60;false&#x60;  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, &#x60;true&#x60; falls back to the full list..</param>
         public FileOperationRequestBaseDto(bool returnSingleOperation = default)
         {
             this.ReturnSingleOperation = returnSingleOperation;
         }
 
         /// <summary>
-        /// Specifies whether to return only the current operation
+        /// Which operations the answer carries: &#x60;true&#x60; returns the operation this call started and nothing else, &#x60;false&#x60;  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, &#x60;true&#x60; falls back to the full list.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]

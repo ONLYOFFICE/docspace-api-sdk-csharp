@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.FileEntryDtoIntegerAllOfShareSettings
-A dictionary representing the sharing settings for the file entry.
+How many links of each kind currently exist for the entry, counted separately for the primary link and the  additional ones. Kinds with no links are left out, and the whole field is null when the caller may not change  the access or no link exists at all.
 
 ## Properties
 

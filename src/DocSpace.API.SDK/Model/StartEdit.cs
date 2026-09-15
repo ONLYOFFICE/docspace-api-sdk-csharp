@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for starting file editing.
+    /// The body of an editing session request.
     /// </summary>
     [DataContract(Name = "StartEdit")]
     public partial class StartEdit : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StartEdit" /> class.
         /// </summary>
-        /// <param name="editingAlone">Specifies whether to share the file with other users for editing or not..</param>
+        /// <param name="editingAlone">Claims the file for this caller alone: the session is opened without asking the document service to track  co-editing, and the call is refused when anybody else already has the file open. Left off, an ordinary  co-editing session is opened and others may join it..</param>
         public StartEdit(bool editingAlone = default)
         {
             this.EditingAlone = editingAlone;
         }
 
         /// <summary>
-        /// Specifies whether to share the file with other users for editing or not.
+        /// Claims the file for this caller alone: the session is opened without asking the document service to track  co-editing, and the call is refused when anybody else already has the file open. Left off, an ordinary  co-editing session is opened and others may join it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "editingAlone", EmitDefaultValue = true)]

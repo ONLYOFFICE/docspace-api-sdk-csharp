@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for copying a file.
+    /// The parameters of a file copy that may change the format on the way.
     /// </summary>
     [DataContract(Name = "CopyAsJsonElement")]
     public partial class CopyAsJsonElement : IValidatableObject
@@ -46,11 +46,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CopyAsJsonElement" /> class.
         /// </summary>
-        /// <param name="destTitle">The copied file name. (required).</param>
+        /// <param name="destTitle">The title of the copy, extension included. That extension decides the format: the same one as the source  copies the content as it is, a different one has it converted first. (required).</param>
         /// <param name="destFolderId">destFolderId (required).</param>
-        /// <param name="enableExternalExt">Specifies whether to allow creating the copied file of an external extension or not..</param>
-        /// <param name="password">The copied file password..</param>
-        /// <param name="toForm">Specifies whether to convert the file to form or not..</param>
+        /// <param name="enableExternalExt">Whether the extension of the new title may be one the portal does not edit itself..</param>
+        /// <param name="password">The password that opens the source document, for a file that is protected by one..</param>
+        /// <param name="toForm">Whether the copy is to become a PDF form rather than a plain document, which the conversion supports for the  text formats it can read..</param>
         public CopyAsJsonElement(string destTitle = default, CopyAsJsonElementDestFolderId destFolderId = default, bool enableExternalExt = default, string password = default, bool toForm = default)
         {
             // to ensure "destTitle" is required (not null)
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The copied file name.
+        /// The title of the copy, extension included. That extension decides the format: the same one as the source  copies the content as it is, a different one has it converted first.
         /// </summary>
         /// <example>Document Copy.docx</example>
         [DataMember(Name = "destTitle", IsRequired = true, EmitDefaultValue = true)]
@@ -84,21 +84,21 @@ namespace DocSpace.API.SDK.Model
         public CopyAsJsonElementDestFolderId DestFolderId { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow creating the copied file of an external extension or not.
+        /// Whether the extension of the new title may be one the portal does not edit itself.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "enableExternalExt", EmitDefaultValue = true)]
         public bool EnableExternalExt { get; set; }
 
         /// <summary>
-        /// The copied file password.
+        /// The password that opens the source document, for a file that is protected by one.
         /// </summary>
         /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// Specifies whether to convert the file to form or not.
+        /// Whether the copy is to become a PDF form rather than a plain document, which the conversion supports for the  text formats it can read.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "toForm", EmitDefaultValue = true)]

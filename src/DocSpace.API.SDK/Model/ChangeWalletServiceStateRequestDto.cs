@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for changing the tenant wallet service state.
+    /// Which wallet service is switched, and which way.
     /// </summary>
     [DataContract(Name = "ChangeWalletServiceStateRequestDto")]
     public partial class ChangeWalletServiceStateRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// The wallet service type.
+        /// The service being switched, given by its catalogue name. Switching it on only makes it available to the  portal; its units are still bought with &#x60;PUT api/2.0/portal/payment/updatewallet&#x60;.
         /// </summary>
         [DataMember(Name = "service", EmitDefaultValue = false)]
         public TenantWalletService? Service { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeWalletServiceStateRequestDto" /> class.
         /// </summary>
-        /// <param name="service">The wallet service type..</param>
-        /// <param name="enabled">Specifies whether the wallet service is enabled..</param>
+        /// <param name="service">The service being switched, given by its catalogue name. Switching it on only makes it available to the  portal; its units are still bought with &#x60;PUT api/2.0/portal/payment/updatewallet&#x60;..</param>
+        /// <param name="enabled">Which way the service is switched: &#x60;true&#x60; makes it available to the portal, &#x60;false&#x60; withdraws it. Setting the  state the service already has changes nothing..</param>
         public ChangeWalletServiceStateRequestDto(TenantWalletService? service = default, bool enabled = default)
         {
             this.Service = service;
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether the wallet service is enabled.
+        /// Which way the service is switched: &#x60;true&#x60; makes it available to the portal, &#x60;false&#x60; withdraws it. Setting the  state the service already has changes nothing.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]

@@ -46,21 +46,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateClientRequest" /> class.
         /// </summary>
-        /// <param name="name">The client name..</param>
-        /// <param name="description">The description of the client.</param>
-        /// <param name="logo">The logo of the client in base64 format.</param>
-        /// <param name="scopes">The scopes for the client.</param>
-        /// <param name="public">@public.</param>
-        /// <param name="allowPkce">Indicates whether PKCE is allowed for the client.</param>
-        /// <param name="isPublic">Indicates if the client is public.</param>
-        /// <param name="websiteUrl">The website URL of the client.</param>
-        /// <param name="termsUrl">The terms URL of the client.</param>
-        /// <param name="policyUrl">The policy URL of the client.</param>
-        /// <param name="redirectUris">The redirect URIs for the client (required).</param>
-        /// <param name="allowedOrigins">The allowed origins for the client (required).</param>
-        /// <param name="logoutRedirectUri">The logout redirect URI for the client.</param>
-        public CreateClientRequest(string name = default, string description = default, string logo = default, List<string> scopes = default, bool @public = default, bool allowPkce = default, bool isPublic = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, List<string> redirectUris = default, List<string> allowedOrigins = default, string logoutRedirectUri = default)
+        /// <param name="name">The display name shown to the user on the consent screen. It has to be between 3 and 256 characters long. (required).</param>
+        /// <param name="description">The free-text description shown next to the name on the consent screen, at most 255 characters..</param>
+        /// <param name="logo">The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted, the whole string may not exceed 2000000 characters and the decoded image may not exceed 256000 bytes. (required).</param>
+        /// <param name="scopes">The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here. (required).</param>
+        /// <param name="allowPkce">Whether the client may use PKCE. Turning it on lets the client authenticate with the none method and prove itself with a code verifier instead of sending a secret, which is what a client that cannot keep a secret needs..</param>
+        /// <param name="websiteUrl">The URL of the client home page, offered to the user before they consent. The value has to be an http or https URL. (required).</param>
+        /// <param name="termsUrl">The URL of the client terms of service, linked from the consent screen. The value has to be an http or https URL. (required).</param>
+        /// <param name="policyUrl">The URL of the client privacy policy, linked from the consent screen. The value has to be an http or https URL. (required).</param>
+        /// <param name="redirectUris">The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses. (required).</param>
+        /// <param name="allowedOrigins">The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses. (required).</param>
+        /// <param name="logoutRedirectUri">The single URI the user may be sent back to once they have logged out. The value has to be an http or https URL. (required).</param>
+        /// <param name="isPublic">Whether the client is offered to third-party tenants rather than only to the tenant that registers it..</param>
+        public CreateClientRequest(string name = default, string description = default, string logo = default, List<string> scopes = default, bool allowPkce = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, List<string> redirectUris = default, List<string> allowedOrigins = default, string logoutRedirectUri = default, bool isPublic = default)
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for CreateClientRequest and cannot be null");
+            }
+            this.Name = name;
+            // to ensure "logo" is required (not null)
+            if (logo == null)
+            {
+                throw new ArgumentNullException("logo is a required property for CreateClientRequest and cannot be null");
+            }
+            this.Logo = logo;
+            // to ensure "scopes" is required (not null)
+            if (scopes == null)
+            {
+                throw new ArgumentNullException("scopes is a required property for CreateClientRequest and cannot be null");
+            }
+            this.Scopes = scopes;
+            // to ensure "websiteUrl" is required (not null)
+            if (websiteUrl == null)
+            {
+                throw new ArgumentNullException("websiteUrl is a required property for CreateClientRequest and cannot be null");
+            }
+            this.WebsiteUrl = websiteUrl;
+            // to ensure "termsUrl" is required (not null)
+            if (termsUrl == null)
+            {
+                throw new ArgumentNullException("termsUrl is a required property for CreateClientRequest and cannot be null");
+            }
+            this.TermsUrl = termsUrl;
+            // to ensure "policyUrl" is required (not null)
+            if (policyUrl == null)
+            {
+                throw new ArgumentNullException("policyUrl is a required property for CreateClientRequest and cannot be null");
+            }
+            this.PolicyUrl = policyUrl;
             // to ensure "redirectUris" is required (not null)
             if (redirectUris == null)
             {
@@ -73,108 +108,97 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("allowedOrigins is a required property for CreateClientRequest and cannot be null");
             }
             this.AllowedOrigins = allowedOrigins;
-            this.Name = name;
+            // to ensure "logoutRedirectUri" is required (not null)
+            if (logoutRedirectUri == null)
+            {
+                throw new ArgumentNullException("logoutRedirectUri is a required property for CreateClientRequest and cannot be null");
+            }
+            this.LogoutRedirectUri = logoutRedirectUri;
             this.Description = description;
-            this.Logo = logo;
-            this.Scopes = scopes;
-            this.Public = @public;
             this.AllowPkce = allowPkce;
             this.IsPublic = isPublic;
-            this.WebsiteUrl = websiteUrl;
-            this.TermsUrl = termsUrl;
-            this.PolicyUrl = policyUrl;
-            this.LogoutRedirectUri = logoutRedirectUri;
         }
 
         /// <summary>
-        /// The client name.
+        /// The display name shown to the user on the consent screen. It has to be between 3 and 256 characters long.
         /// </summary>
         /// <example>Example Client</example>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description of the client
+        /// The free-text description shown next to the name on the consent screen, at most 255 characters.
         /// </summary>
         /// <example>Description of the client</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The logo of the client in base64 format
+        /// The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted, the whole string may not exceed 2000000 characters and the decoded image may not exceed 256000 bytes.
         /// </summary>
-        /// <example>data:image/png;base64,...</example>
-        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        /// <example>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==</example>
+        [DataMember(Name = "logo", IsRequired = true, EmitDefaultValue = true)]
         public string Logo { get; set; }
 
         /// <summary>
-        /// The scopes for the client
+        /// The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here.
         /// </summary>
-        /// <example>["read","write"]</example>
-        [DataMember(Name = "scopes", EmitDefaultValue = false)]
+        [DataMember(Name = "scopes", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Scopes { get; set; }
 
         /// <summary>
-        /// Gets or Sets Public
-        /// </summary>
-        [DataMember(Name = "public", EmitDefaultValue = true)]
-        public bool Public { get; set; }
-
-        /// <summary>
-        /// Indicates whether PKCE is allowed for the client
+        /// Whether the client may use PKCE. Turning it on lets the client authenticate with the none method and prove itself with a code verifier instead of sending a secret, which is what a client that cannot keep a secret needs.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "allow_pkce", EmitDefaultValue = true)]
         public bool AllowPkce { get; set; }
 
         /// <summary>
-        /// Indicates if the client is public
-        /// </summary>
-        /// <example>false</example>
-        [DataMember(Name = "is_public", EmitDefaultValue = true)]
-        public bool IsPublic { get; set; }
-
-        /// <summary>
-        /// The website URL of the client
+        /// The URL of the client home page, offered to the user before they consent. The value has to be an http or https URL.
         /// </summary>
         /// <example>http://example.com</example>
-        [DataMember(Name = "website_url", EmitDefaultValue = false)]
+        [DataMember(Name = "website_url", IsRequired = true, EmitDefaultValue = true)]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
-        /// The terms URL of the client
+        /// The URL of the client terms of service, linked from the consent screen. The value has to be an http or https URL.
         /// </summary>
         /// <example>http://example.com/terms</example>
-        [DataMember(Name = "terms_url", EmitDefaultValue = false)]
+        [DataMember(Name = "terms_url", IsRequired = true, EmitDefaultValue = true)]
         public string TermsUrl { get; set; }
 
         /// <summary>
-        /// The policy URL of the client
+        /// The URL of the client privacy policy, linked from the consent screen. The value has to be an http or https URL.
         /// </summary>
         /// <example>http://example.com/policy</example>
-        [DataMember(Name = "policy_url", EmitDefaultValue = false)]
+        [DataMember(Name = "policy_url", IsRequired = true, EmitDefaultValue = true)]
         public string PolicyUrl { get; set; }
 
         /// <summary>
-        /// The redirect URIs for the client
+        /// The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses.
         /// </summary>
-        /// <example>["http://example.com/redirect"]</example>
         [DataMember(Name = "redirect_uris", IsRequired = true, EmitDefaultValue = true)]
         public List<string> RedirectUris { get; set; }
 
         /// <summary>
-        /// The allowed origins for the client
+        /// The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses.
         /// </summary>
-        /// <example>["http://example.com"]</example>
         [DataMember(Name = "allowed_origins", IsRequired = true, EmitDefaultValue = true)]
         public List<string> AllowedOrigins { get; set; }
 
         /// <summary>
-        /// The logout redirect URI for the client
+        /// The single URI the user may be sent back to once they have logged out. The value has to be an http or https URL.
         /// </summary>
         /// <example>http://example.com/logout</example>
-        [DataMember(Name = "logout_redirect_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "logout_redirect_uri", IsRequired = true, EmitDefaultValue = true)]
         public string LogoutRedirectUri { get; set; }
+
+        /// <summary>
+        /// Whether the client is offered to third-party tenants rather than only to the tenant that registers it.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "is_public", EmitDefaultValue = true)]
+        public bool IsPublic { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -188,15 +212,14 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Logo: ").Append(Logo).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
-            sb.Append("  Public: ").Append(Public).Append("\n");
             sb.Append("  AllowPkce: ").Append(AllowPkce).Append("\n");
-            sb.Append("  IsPublic: ").Append(IsPublic).Append("\n");
             sb.Append("  WebsiteUrl: ").Append(WebsiteUrl).Append("\n");
             sb.Append("  TermsUrl: ").Append(TermsUrl).Append("\n");
             sb.Append("  PolicyUrl: ").Append(PolicyUrl).Append("\n");
             sb.Append("  RedirectUris: ").Append(RedirectUris).Append("\n");
             sb.Append("  AllowedOrigins: ").Append(AllowedOrigins).Append("\n");
             sb.Append("  LogoutRedirectUri: ").Append(LogoutRedirectUri).Append("\n");
+            sb.Append("  IsPublic: ").Append(IsPublic).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

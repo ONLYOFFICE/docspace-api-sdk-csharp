@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The encryption key granting one user access to a file.
+    /// The file key issued to one account.
     /// </summary>
     [DataContract(Name = "AccessRequestKeyDto")]
     public partial class AccessRequestKeyDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccessRequestKeyDto" /> class.
         /// </summary>
-        /// <param name="userId">User ID.</param>
-        /// <param name="publicKeyId">Public key ID.</param>
-        /// <param name="privateKeyEnc">Encrypted private key.</param>
+        /// <param name="userId">The account that is to open the file with this key; it has to have read access to the file..</param>
+        /// <param name="publicKeyId">The public key the file key was encrypted with, as reported for that account by  &#x60;GET api/2.0/files/file/{fileId}/publickeys&#x60;..</param>
+        /// <param name="privateKeyEnc">The key of the file itself, encrypted by the client with that public key, so that the plain key never reaches  the portal..</param>
         public AccessRequestKeyDto(Guid userId = default, Guid publicKeyId = default, string privateKeyEnc = default)
         {
             this.UserId = userId;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// User ID
+        /// The account that is to open the file with this key; it has to have read access to the file.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Public key ID
+        /// The public key the file key was encrypted with, as reported for that account by  &#x60;GET api/2.0/files/file/{fileId}/publickeys&#x60;.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "publicKeyId", EmitDefaultValue = false)]
         public Guid PublicKeyId { get; set; }
 
         /// <summary>
-        /// Encrypted private key
+        /// The key of the file itself, encrypted by the client with that public key, so that the plain key never reaches  the portal.
         /// </summary>
         /// <example>encrypted_key_string</example>
         [DataMember(Name = "privateKeyEnc", EmitDefaultValue = true)]

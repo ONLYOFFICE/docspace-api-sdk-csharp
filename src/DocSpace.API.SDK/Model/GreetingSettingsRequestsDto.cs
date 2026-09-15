@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the greeting settings.
+    /// The greeting caption the portal shows its users.
     /// </summary>
     [DataContract(Name = "GreetingSettingsRequestsDto")]
     public partial class GreetingSettingsRequestsDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GreetingSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="title">The title of the tenant greeting settings. (required).</param>
+        /// <param name="title">The caption to store, which is kept as the portal name. An empty value clears the greeting and returns the  portal to the built-in default caption. On a cloud portal with a free or trial plan the text is also matched  against the character rule configured for the installation and a text that breaks it is refused, while a paid  cloud plan and a self-hosted installation apply no such check. (required).</param>
         public GreetingSettingsRequestsDto(string title = default)
         {
             // to ensure "title" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The title of the tenant greeting settings.
+        /// The caption to store, which is kept as the portal name. An empty value clears the greeting and returns the  portal to the built-in default caption. On a cloud portal with a free or trial plan the text is also matched  against the character rule configured for the installation and a text that breaks it is refused, while a paid  cloud plan and a self-hosted installation apply no such check.
         /// </summary>
         /// <example>Welcome to Our Portal</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]

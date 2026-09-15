@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for configuring new IP restriction settings.
+    /// The addresses allowed to reach the portal, and whether the restriction is enforced.
     /// </summary>
     [DataContract(Name = "IpRestrictionsDto")]
     public partial class IpRestrictionsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IpRestrictionsDto" /> class.
         /// </summary>
-        /// <param name="ipRestrictions">The list of IP restriction addresses. (required).</param>
-        /// <param name="enable">Specifies whether to enable IP restrictions or not..</param>
+        /// <param name="ipRestrictions">The allowed addresses, each entry pairing a single IPv4 or IPv6 address with the flag that limits it to  administrators. This is the whole list that is to hold afterwards: entries not repeated here are deleted.  Ranges written as &#x60;from-to&#x60; and CIDR blocks are refused with 400, even though the portal matches such forms  when they are already stored. Enforcement spares only the portal owner and the installation own networks, so  a list without the caller address locks the remaining administrators out. (required).</param>
+        /// <param name="enable">Whether the list is enforced. Leaving it out follows the list - on when addresses are sent, off when the list  is empty - and sending &#x60;true&#x60; with an empty list is refused with 400, since that would admit nobody..</param>
         public IpRestrictionsDto(List<IpRestrictionBase> ipRestrictions = default, bool? enable = default)
         {
             // to ensure "ipRestrictions" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of IP restriction addresses.
+        /// The allowed addresses, each entry pairing a single IPv4 or IPv6 address with the flag that limits it to  administrators. This is the whole list that is to hold afterwards: entries not repeated here are deleted.  Ranges written as &#x60;from-to&#x60; and CIDR blocks are refused with 400, even though the portal matches such forms  when they are already stored. Enforcement spares only the portal owner and the installation own networks, so  a list without the caller address locks the remaining administrators out.
         /// </summary>
         /// <example>[{"ip":"192.0.2.1","forAdmin":false}]</example>
         [DataMember(Name = "ipRestrictions", IsRequired = true, EmitDefaultValue = true)]
         public List<IpRestrictionBase> IpRestrictions { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable IP restrictions or not.
+        /// Whether the list is enforced. Leaving it out follows the list - on when addresses are sent, off when the list  is empty - and sending &#x60;true&#x60; with an empty list is refused with 400, since that would admit nobody.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enable", EmitDefaultValue = true)]

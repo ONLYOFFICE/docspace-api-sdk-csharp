@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -54,10 +54,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// <returns>ApiResponse of ClientResponse</returns>
         ApiResponse<ClientResponse> GetClientWithHttpInfo(string clientId);
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -66,10 +66,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         ClientInfoResponse GetClientInfo(string clientId);
 
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -80,84 +80,87 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>PageableResponse</returns>
-        PageableResponse GetClients(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
+        /// <returns>PageableClientResponse</returns>
+        PageableClientResponse GetClients(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default);
 
         /// <summary>
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>ApiResponse of PageableResponse</returns>
-        ApiResponse<PageableResponse> GetClientsWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
+        /// <returns>ApiResponse of PageableClientResponse</returns>
+        ApiResponse<PageableClientResponse> GetClientsWithHttpInfo(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default);
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>PageableResponseClientInfoResponse</returns>
-        PageableResponseClientInfoResponse GetClientsInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
+        /// <returns>PageableClientInfoResponse</returns>
+        PageableClientInfoResponse GetClientsInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
 
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>ApiResponse of PageableResponseClientInfoResponse</returns>
-        ApiResponse<PageableResponseClientInfoResponse> GetClientsInfoWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
+        /// <returns>ApiResponse of PageableClientInfoResponse</returns>
+        ApiResponse<PageableClientInfoResponse> GetClientsInfoWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>PageableModificationResponse</returns>
         PageableModificationResponse GetConsents(int limit, DateTime? lastModifiedOn = default);
 
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>ApiResponse of PageableModificationResponse</returns>
         ApiResponse<PageableModificationResponse> GetConsentsWithHttpInfo(int limit, DateTime? lastModifiedOn = default);
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
+        /// <remarks>
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
@@ -165,10 +168,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         ClientInfoResponse GetPublicClientInfo(string clientId);
 
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -188,7 +191,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -201,7 +204,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -210,10 +213,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// <returns>Task of ApiResponse (ClientResponse)</returns>
         Task<ApiResponse<ClientResponse>> GetClientWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -223,10 +226,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         Task<ClientInfoResponse> GetClientInfoAsync(string clientId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -238,68 +241,68 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>Task of PageableResponse</returns>
-        Task<PageableResponse> GetClientsAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of PageableClientResponse</returns>
+        Task<PageableClientResponse> GetClientsAsync(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>Task of ApiResponse (PageableResponse)</returns>
-        Task<ApiResponse<PageableResponse>> GetClientsWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (PageableClientResponse)</returns>
+        Task<ApiResponse<PageableClientResponse>> GetClientsWithHttpInfoAsync(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>Task of PageableResponseClientInfoResponse</returns>
-        Task<PageableResponseClientInfoResponse> GetClientsInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of PageableClientInfoResponse</returns>
+        Task<PageableClientInfoResponse> GetClientsInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (PageableResponseClientInfoResponse)</returns>
-        Task<ApiResponse<PageableResponseClientInfoResponse>> GetClientsInfoWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (PageableClientInfoResponse)</returns>
+        Task<ApiResponse<PageableClientInfoResponse>> GetClientsInfoWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
@@ -307,23 +310,23 @@ namespace DocSpace.API.SDK.Api.OAuth20
         Task<PageableModificationResponse> GetConsentsAsync(int limit, DateTime? lastModifiedOn = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>Task of ApiResponse (PageableModificationResponse)</returns>
         Task<ApiResponse<PageableModificationResponse>> GetConsentsWithHttpInfoAsync(int limit, DateTime? lastModifiedOn = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -333,10 +336,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         Task<ClientInfoResponse> GetPublicClientInfoAsync(string clientId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -563,7 +566,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -579,7 +582,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -614,7 +617,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ClientResponse>("/api/2.0/clients/{clientId}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ClientResponse>("/api/2.0/oauth2/clients/{clientId}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -632,7 +635,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -649,7 +652,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get client details
         /// </summary>
         /// <remarks>
-        /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
+        /// Returns the whole stored record of one client: its name and description, its secret, scopes, redirect URIs, allowed origins, logout redirect URIs and audit fields. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. Whatever the caller may not see is reported as 404 rather than 403, so absence and lack of access are deliberately indistinguishable, and an identifier that is not a valid client ID is reported the same way. The response is a single object, not a collection.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -687,7 +690,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ClientResponse>("/api/2.0/clients/{clientId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ClientResponse>("/api/2.0/oauth2/clients/{clientId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -702,10 +705,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -718,10 +721,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -756,7 +759,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ClientInfoResponse>("/api/2.0/clients/{clientId}/info", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ClientInfoResponse>("/api/2.0/oauth2/clients/{clientId}/info", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -771,10 +774,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -788,10 +791,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves detailed information for a specific client
+        /// Get client info
         /// </summary>
         /// <remarks>
-        /// Retrieves the detailed information for a client with the ID specified in the request.
+        /// Retrieves the detailed information for a client with the ID specified in the request. It returns the consent-facing subset of the client - name, description, logo, the website, terms and policy URLs, authentication methods and scopes - and deliberately omits the secret, the redirect URIs and the allowed origins, which is what makes it safe to render on a consent screen. An administrator sees any client of the tenant, a plain user only the clients they created, and a guest none of them. A client the caller may not see is reported as 404, exactly like an unknown one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
@@ -829,7 +832,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ClientInfoResponse>("/api/2.0/clients/{clientId}/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ClientInfoResponse>("/api/2.0/oauth2/clients/{clientId}/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -847,15 +850,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>PageableResponse</returns>
-        public PageableResponse GetClients(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
+        /// <returns>PageableClientResponse</returns>
+        public PageableClientResponse GetClients(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default)
         {
             var localVarResponse = GetClientsWithHttpInfo(limit, lastClientId, lastCreatedOn);
             return localVarResponse.Data;
@@ -865,15 +868,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>ApiResponse of PageableResponse</returns>
-        public ApiResponse<PageableResponse> GetClientsWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
+        /// <returns>ApiResponse of PageableClientResponse</returns>
+        public ApiResponse<PageableClientResponse> GetClientsWithHttpInfo(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -888,7 +891,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
             if (lastClientId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
@@ -906,7 +912,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<PageableResponse>("/api/2.0/clients", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<PageableClientResponse>("/api/2.0/oauth2/clients", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -924,16 +930,16 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>Task of PageableResponse</returns>
-        public async Task<PageableResponse> GetClientsAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of PageableClientResponse</returns>
+        public async Task<PageableClientResponse> GetClientsAsync(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetClientsWithHttpInfoAsync(limit, lastClientId, lastCreatedOn, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -943,16 +949,16 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
+        /// Returns one page of the tenant's clients, newest first, each in the same full form as the single-client read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based rather than offset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page to ask for the next one. The limit defaults to 30 and has to lie between 1 and 50; a value outside that range, or a last_created_on that cannot be parsed as a date, is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. Defaults to 30 when omitted. (optional, default to 30)</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
-        /// <returns>Task of ApiResponse (PageableResponse)</returns>
-        public async Task<ApiResponse<PageableResponse>> GetClientsWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (PageableClientResponse)</returns>
+        public async Task<ApiResponse<PageableClientResponse>> GetClientsWithHttpInfoAsync(int? limit = default, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -968,7 +974,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
             if (lastClientId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_client_id", lastClientId));
@@ -987,7 +996,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<PageableResponse>("/api/2.0/clients", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<PageableClientResponse>("/api/2.0/oauth2/clients", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1002,36 +1011,36 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>PageableResponseClientInfoResponse</returns>
-        public PageableResponseClientInfoResponse GetClientsInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
+        /// <returns>PageableClientInfoResponse</returns>
+        public PageableClientInfoResponse GetClientsInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
         {
             var localVarResponse = GetClientsInfoWithHttpInfo(limit, lastClientId, lastCreatedOn);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>ApiResponse of PageableResponseClientInfoResponse</returns>
-        public ApiResponse<PageableResponseClientInfoResponse> GetClientsInfoWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
+        /// <returns>ApiResponse of PageableClientInfoResponse</returns>
+        public ApiResponse<PageableClientInfoResponse> GetClientsInfoWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1064,7 +1073,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<PageableResponseClientInfoResponse>("/api/2.0/clients/info", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<PageableClientInfoResponse>("/api/2.0/oauth2/clients/info", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1079,38 +1088,38 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>Task of PageableResponseClientInfoResponse</returns>
-        public async Task<PageableResponseClientInfoResponse> GetClientsInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of PageableClientInfoResponse</returns>
+        public async Task<PageableClientInfoResponse> GetClientsInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetClientsInfoWithHttpInfoAsync(limit, lastClientId, lastCreatedOn, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieves a pageable list of client information
+        /// List client info
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of information for all clients.
+        /// Retrieves a paginated list of information for all clients, each in the same consent-facing form as the single-client info read. An administrator sees every client of the tenant, a plain user only the clients they created. Paging is keyset-based: limit sets the page size, and last_client_id and last_created_on are carried over from the previous page. Unlike the full client listing, limit has no default here - it has to be supplied on every call and has to lie between 1 and 50, and a missing or out-of-range value is rejected with 400.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
         /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (PageableResponseClientInfoResponse)</returns>
-        public async Task<ApiResponse<PageableResponseClientInfoResponse>> GetClientsInfoWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (PageableClientInfoResponse)</returns>
+        public async Task<ApiResponse<PageableClientInfoResponse>> GetClientsInfoWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1145,7 +1154,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<PageableResponseClientInfoResponse>("/api/2.0/clients/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<PageableClientInfoResponse>("/api/2.0/oauth2/clients/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1160,13 +1169,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>PageableModificationResponse</returns>
@@ -1177,13 +1186,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>ApiResponse of PageableModificationResponse</returns>
@@ -1216,7 +1225,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<PageableModificationResponse>("/api/2.0/clients/consents", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<PageableModificationResponse>("/api/2.0/oauth2/clients/consents", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1231,13 +1240,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
@@ -1249,13 +1258,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Retrieves a pageable list of consents
+        /// List user consents
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of user consents.
+        /// Retrieves a paginated list of user consents: the clients the calling user has authorized, each with the scopes granted, the moment the consent was last changed and the client's consent-facing details. It always reports the caller's own consents and nothing else - there is no role check on this endpoint, so guests may call it too, and no parameter widens it to another user. The consents are read from the authorization service over gRPC, so an authorization service that cannot be reached surfaces as 503. Paging is keyset-based on last_modified_on, and limit has no default: it has to be supplied on every call and has to lie between 1 and 50.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Pagination limit</param>
+        /// <param name="limit">How many entries to return, between 1 and 50. It has no default and has to be sent on every call.</param>
         /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
@@ -1291,7 +1300,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<PageableModificationResponse>("/api/2.0/clients/consents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<PageableModificationResponse>("/api/2.0/oauth2/clients/consents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1306,8 +1315,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
+        /// <remarks>
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
@@ -1319,8 +1331,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
+        /// <remarks>
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
@@ -1348,7 +1363,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ClientInfoResponse>("/api/2.0/clients/{clientId}/public/info", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ClientInfoResponse>("/api/2.0/oauth2/clients/{clientId}/public/info", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1363,8 +1378,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
+        /// <remarks>
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1377,8 +1395,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Handles the GET request for public client information
+        /// Get public client info
         /// </summary>
+        /// <remarks>
+        /// Returns the same consent-facing client information as the signed read, but without requiring a portal signature. It is meant for a login or consent page that has to render the client before the user is known, so it resolves the client by ID alone: there is no authentication, no tenant scoping and no creator check, and any caller who knows a client ID can read that client's public details. It still exposes no secret, no redirect URIs and no allowed origins. Being unauthenticated it is rate-limited on a separate, tighter budget than the signed endpoints. An unknown client ID, and an identifier that is not a client ID at all, are both reported as 404.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1409,7 +1430,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ClientInfoResponse>("/api/2.0/clients/{clientId}/public/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ClientInfoResponse>("/api/2.0/oauth2/clients/{clientId}/public/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

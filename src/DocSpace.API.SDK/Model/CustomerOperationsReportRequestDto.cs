@@ -32,26 +32,26 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for generating a report on client operations.
+    /// The filters that select which wallet movements are reported: the services, the period, the participant, the  direction and the outcome of the movement, and the ordering.
     /// </summary>
     [DataContract(Name = "CustomerOperationsReportRequestDto")]
     public partial class CustomerOperationsReportRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// The operation type to filter by.
+        /// The kind of movement to keep, which says what caused the money to move rather than how it ended. Every kind  is reported when it is omitted.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public OperationType? Type { get; set; }
 
         /// <summary>
-        /// The operation status to filter by.
+        /// The outcome to keep. A movement that is still being settled is reported as pending and may change later,  while the other outcomes are final; every outcome is reported when this is omitted.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public OperationStatus? Status { get; set; }
 
         /// <summary>
-        /// Order direction: Ascending or Descending.
+        /// The direction the field named in &#x60;orderBy&#x60; is sorted in. Newest or largest first is what the accounting  service does by default, so leaving this out sorts the same way as asking for descending explicitly.
         /// </summary>
         [DataMember(Name = "orderType", EmitDefaultValue = false)]
         public OperationOrderType? OrderType { get; set; }
@@ -59,16 +59,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
-        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility..</param>
-        /// <param name="startDate">The report start date..</param>
-        /// <param name="endDate">The report end date..</param>
-        /// <param name="participantName">The participant name..</param>
-        /// <param name="credit">Specifies whether to include credit operations in the report..</param>
-        /// <param name="debit">Specifies whether to include debit operations in the report..</param>
-        /// <param name="type">The operation type to filter by..</param>
-        /// <param name="status">The operation status to filter by..</param>
-        /// <param name="orderBy">The field to order by..</param>
-        /// <param name="orderType">Order direction: Ascending or Descending..</param>
+        /// <param name="serviceName">The wallet services whose movements are kept, named the way the billing catalogue names them - &#x60;backup&#x60;,  &#x60;ai-tools&#x60;, &#x60;ai-search&#x60;, &#x60;disk-storage&#x60;, &#x60;docscloud&#x60;. Take the values from the &#x60;serviceName&#x60; field of  &#x60;GET api/2.0/portal/payment/walletservices&#x60;; the match ignores case, a name this installation does not sell  fails the call with 404, and an omitted list keeps every service. A bare string is accepted in place of an  array for backward compatibility..</param>
+        /// <param name="startDate">The beginning of the reported period, inclusive. Read in the portal time zone rather than in UTC, so a  movement at the edge of the period falls where the portal sees it; defaults to the portal creation date..</param>
+        /// <param name="endDate">The end of the reported period, inclusive. Read in the portal time zone rather than in UTC, and defaults to  the moment the call is made..</param>
+        /// <param name="participantName">The participant whose movements are kept - the account the accounting service records as the cause of a  movement. A movement caused by a portal user carries that user ID here, and one caused by the portal itself  carries the customer name; surrounding whitespace is trimmed, and an omitted value keeps every participant..</param>
+        /// <param name="credit">Whether movements that add money to the wallet - top-ups, refunds and corrections in the portal&#39;s favour -  are kept. Both directions are reported when neither this nor &#x60;debit&#x60; is given..</param>
+        /// <param name="debit">Whether movements that take money out of the wallet - the charges of the wallet services - are kept. Both  directions are reported when neither this nor &#x60;credit&#x60; is given..</param>
+        /// <param name="type">The kind of movement to keep, which says what caused the money to move rather than how it ended. Every kind  is reported when it is omitted..</param>
+        /// <param name="status">The outcome to keep. A movement that is still being settled is reported as pending and may change later,  while the other outcomes are final; every outcome is reported when this is omitted..</param>
+        /// <param name="orderBy">The name of the field the movements are sorted by, spelled as the accounting service names it, such as  &#x60;StartDate&#x60; or &#x60;ServiceName&#x60;. Surrounding whitespace is trimmed, and the accounting service applies its own  ordering when this is omitted..</param>
+        /// <param name="orderType">The direction the field named in &#x60;orderBy&#x60; is sorted in. Newest or largest first is what the accounting  service does by default, so leaving this out sorts the same way as asking for descending explicitly..</param>
         public CustomerOperationsReportRequestDto(List<string> serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
         {
             this.ServiceName = serviceName;
@@ -84,49 +84,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The service name list. A single string is also accepted for backward compatibility.
+        /// The wallet services whose movements are kept, named the way the billing catalogue names them - &#x60;backup&#x60;,  &#x60;ai-tools&#x60;, &#x60;ai-search&#x60;, &#x60;disk-storage&#x60;, &#x60;docscloud&#x60;. Take the values from the &#x60;serviceName&#x60; field of  &#x60;GET api/2.0/portal/payment/walletservices&#x60;; the match ignores case, a name this installation does not sell  fails the call with 404, and an omitted list keeps every service. A bare string is accepted in place of an  array for backward compatibility.
         /// </summary>
         /// <example>[backup]</example>
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public List<string> ServiceName { get; set; }
 
         /// <summary>
-        /// The report start date.
+        /// The beginning of the reported period, inclusive. Read in the portal time zone rather than in UTC, so a  movement at the edge of the period falls where the portal sees it; defaults to the portal creation date.
         /// </summary>
         /// <example>2024-01-01T00:00:00Z</example>
         [DataMember(Name = "startDate", EmitDefaultValue = true)]
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// The report end date.
+        /// The end of the reported period, inclusive. Read in the portal time zone rather than in UTC, and defaults to  the moment the call is made.
         /// </summary>
         /// <example>2024-01-31T23:59:59Z</example>
         [DataMember(Name = "endDate", EmitDefaultValue = true)]
         public DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// The participant name.
+        /// The participant whose movements are kept - the account the accounting service records as the cause of a  movement. A movement caused by a portal user carries that user ID here, and one caused by the portal itself  carries the customer name; surrounding whitespace is trimmed, and an omitted value keeps every participant.
         /// </summary>
         /// <example>My Own Corporation</example>
         [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
 
         /// <summary>
-        /// Specifies whether to include credit operations in the report.
+        /// Whether movements that add money to the wallet - top-ups, refunds and corrections in the portal&#39;s favour -  are kept. Both directions are reported when neither this nor &#x60;debit&#x60; is given.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "credit", EmitDefaultValue = true)]
         public bool? Credit { get; set; }
 
         /// <summary>
-        /// Specifies whether to include debit operations in the report.
+        /// Whether movements that take money out of the wallet - the charges of the wallet services - are kept. Both  directions are reported when neither this nor &#x60;credit&#x60; is given.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "debit", EmitDefaultValue = true)]
         public bool? Debit { get; set; }
 
         /// <summary>
-        /// The field to order by.
+        /// The name of the field the movements are sorted by, spelled as the accounting service names it, such as  &#x60;StartDate&#x60; or &#x60;ServiceName&#x60;. Surrounding whitespace is trimmed, and the accounting service applies its own  ordering when this is omitted.
         /// </summary>
         /// <example>StartDate</example>
         [DataMember(Name = "orderBy", EmitDefaultValue = true)]

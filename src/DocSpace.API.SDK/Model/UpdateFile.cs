@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for updating a file.
+    /// The changes to make to a file: a new title, an earlier version to restore, or both.
     /// </summary>
     [DataContract(Name = "UpdateFile")]
     public partial class UpdateFile : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateFile" /> class.
         /// </summary>
-        /// <param name="title">The file title to update..</param>
-        /// <param name="lastVersion">The number of the latest file version..</param>
+        /// <param name="title">The new title of the file, without an extension - the stored extension is kept whatever the title says, so a  rename cannot change the format. Left empty, the file keeps its name..</param>
+        /// <param name="lastVersion">The version to restore on top of the history, as reported by &#x60;GET api/2.0/files/file/{fileId}/history&#x60;; 0 or  less leaves the versions untouched..</param>
         public UpdateFile(string title = default, int lastVersion = default)
         {
             this.Title = title;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file title to update.
+        /// The new title of the file, without an extension - the stored extension is kept whatever the title says, so a  rename cannot change the format. Left empty, the file keeps its name.
         /// </summary>
         /// <example>My Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The number of the latest file version.
+        /// The version to restore on top of the history, as reported by &#x60;GET api/2.0/files/file/{fileId}/history&#x60;; 0 or  less leaves the versions untouched.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "lastVersion", EmitDefaultValue = false)]

@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateMembersQuotaRequestDto" /> class.
         /// </summary>
-        /// <param name="userIds">The list of user IDs..</param>
+        /// <param name="userIds">The accounts the operation applies to. System accounts are dropped from the list without an error..</param>
         /// <param name="quota">quota.</param>
         public UpdateMembersQuotaRequestDto(List<Guid> userIds = default, UpdateMembersQuotaRequestDtoQuota quota = default)
         {
@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of user IDs.
+        /// The accounts the operation applies to. System accounts are dropped from the list without an error.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "userIds", EmitDefaultValue = true)]

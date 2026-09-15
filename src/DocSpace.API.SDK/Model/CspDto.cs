@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The CSP (Content Security Policy) parameters.
+    /// The Content Security Policy of the portal: the domains an administrator allowed, and the header built from them.
     /// </summary>
     [DataContract(Name = "CspDto")]
     public partial class CspDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CspDto" /> class.
         /// </summary>
-        /// <param name="domains">The list of CSP domains. (required).</param>
-        /// <param name="header">The CSP header. (required).</param>
+        /// <param name="domains">The external hosts an administrator has allowed, each in the form it was saved in - a bare host, a host  with a scheme, or a wildcard such as &#x60;*.example.com&#x60;. An empty list means nobody has added one, not that  the portal serves no policy. (required).</param>
+        /// <param name="header">The complete policy value the portal sends to browsers, assembled from &#x60;domains&#x60; together with the  portal&#39;s own sources and the integrations it has switched on. It is therefore wider than &#x60;domains&#x60; alone,  and is filled in even while that list is empty. (required).</param>
         public CspDto(List<string> domains = default, string header = default)
         {
             // to ensure "domains" is required (not null)
@@ -65,14 +65,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of CSP domains.
+        /// The external hosts an administrator has allowed, each in the form it was saved in - a bare host, a host  with a scheme, or a wildcard such as &#x60;*.example.com&#x60;. An empty list means nobody has added one, not that  the portal serves no policy.
         /// </summary>
         /// <example>["https://example.com","https://cdn.example.com"]</example>
         [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
 
         /// <summary>
-        /// The CSP header.
+        /// The complete policy value the portal sends to browsers, assembled from &#x60;domains&#x60; together with the  portal&#39;s own sources and the integrations it has switched on. It is therefore wider than &#x60;domains&#x60; alone,  and is filled in even while that list is empty.
         /// </summary>
         /// <example>default-src 'self'; script-src 'self' https://example.com</example>
         [DataMember(Name = "header", IsRequired = true, EmitDefaultValue = true)]

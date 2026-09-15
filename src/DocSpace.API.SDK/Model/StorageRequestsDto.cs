@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring the storage module settings.
+    /// Which storage provider the portal is pointed at, and the credentials it needs.
     /// </summary>
     [DataContract(Name = "StorageRequestsDto")]
     public partial class StorageRequestsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageRequestsDto" /> class.
         /// </summary>
-        /// <param name="module">The name for the storage module to be configured. (required).</param>
-        /// <param name="props">The list of configuration key-value pairs for the storage module..</param>
+        /// <param name="module">The storage provider to switch to, by the identifier the matching listing operation reports - &#x60;default&#x60; for  the built-in local storage. The provider has to be available on the server, which that listing reports as  &#x60;isSet&#x60;, otherwise the request is refused with 400; sending the module already in use changes nothing. (required).</param>
+        /// <param name="props">The credentials the provider expects, as the name and value pairs it defines - a bucket, a region and an  access key for an Amazon S3 storage, for instance. Read the expected names from the entry of that provider in  the listing operation; they differ per provider, so there is no fixed set..</param>
         public StorageRequestsDto(string module = default, List<ItemKeyValuePairStringString> props = default)
         {
             // to ensure "module" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The name for the storage module to be configured.
+        /// The storage provider to switch to, by the identifier the matching listing operation reports - &#x60;default&#x60; for  the built-in local storage. The provider has to be available on the server, which that listing reports as  &#x60;isSet&#x60;, otherwise the request is refused with 400; sending the module already in use changes nothing.
         /// </summary>
         /// <example>default</example>
         [DataMember(Name = "module", IsRequired = true, EmitDefaultValue = true)]
         public string Module { get; set; }
 
         /// <summary>
-        /// The list of configuration key-value pairs for the storage module.
+        /// The credentials the provider expects, as the name and value pairs it defines - a bucket, a region and an  access key for an Amazon S3 storage, for instance. Read the expected names from the entry of that provider in  the listing operation; they differ per provider, so there is no fixed set.
         /// </summary>
         /// <example>["item1","item2"]</example>
         [DataMember(Name = "props", EmitDefaultValue = true)]

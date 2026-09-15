@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Default templates settings request parameters.
+    /// The document to use as the blank the portal creates for one extension.
     /// </summary>
     [DataContract(Name = "DefaultTemplateSettingsRequestDto")]
     public partial class DefaultTemplateSettingsRequestDto : IValidatableObject
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="DefaultTemplateSettingsRequestDto" /> class.
         /// </summary>
         /// <param name="selectedFile">selectedFile (required).</param>
-        /// <param name="fileExtension">File extension of a template to replace (required).</param>
+        /// <param name="fileExtension">The extension the blank is set for, written in lower case with the leading dot. Only the extensions the  portal&#39;s built-in template set covers are accepted, and &#x60;GET api/2.0/files/settings/defaulttemplate&#x60; returns  exactly that list; an extension outside it leaves the settings unchanged instead of failing. (required).</param>
         public DefaultTemplateSettingsRequestDto(DefaultTemplateSettingsRequestDtoSelectedFile selectedFile = default, string fileExtension = default)
         {
             // to ensure "selectedFile" is required (not null)
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         public DefaultTemplateSettingsRequestDtoSelectedFile SelectedFile { get; set; }
 
         /// <summary>
-        /// File extension of a template to replace
+        /// The extension the blank is set for, written in lower case with the leading dot. Only the extensions the  portal&#39;s built-in template set covers are accepted, and &#x60;GET api/2.0/files/settings/defaulttemplate&#x60; returns  exactly that list; an extension outside it leaves the settings unchanged instead of failing.
         /// </summary>
         /// <example>.docx</example>
         [DataMember(Name = "fileExtension", IsRequired = true, EmitDefaultValue = true)]

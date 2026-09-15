@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for the theme-specific logo configurations.
+    /// The two theme variants of one branding logo.
     /// </summary>
     [DataContract(Name = "LogoRequestsDto")]
     public partial class LogoRequestsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LogoRequestsDto" /> class.
         /// </summary>
-        /// <param name="light">The URL or base64-encoded image data for the light theme logo..</param>
-        /// <param name="dark">The URL or base64-encoded image data for the dark theme logo..</param>
+        /// <param name="light">The image used on a light background, either as a &#x60;data:image/png;base64,...&#x60; payload - &#x60;png&#x60;, &#x60;jpg&#x60; and  &#x60;svg&#x60; are accepted - or as the name of a file already put in the temporary store..</param>
+        /// <param name="dark">The image used on a dark background, in the same two forms as &#x60;light&#x60;. It is only stored for the slots that  have a dark variant and is ignored for the favicon and the editor logos..</param>
         public LogoRequestsDto(string light = default, string dark = default)
         {
             this.Light = light;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The URL or base64-encoded image data for the light theme logo.
+        /// The image used on a light background, either as a &#x60;data:image/png;base64,...&#x60; payload - &#x60;png&#x60;, &#x60;jpg&#x60; and  &#x60;svg&#x60; are accepted - or as the name of a file already put in the temporary store.
         /// </summary>
         /// <example>data:image/png;base64,iVBORw0KGgoAAAANS...</example>
         [DataMember(Name = "light", EmitDefaultValue = true)]
         public string Light { get; set; }
 
         /// <summary>
-        /// The URL or base64-encoded image data for the dark theme logo.
+        /// The image used on a dark background, in the same two forms as &#x60;light&#x60;. It is only stored for the slots that  have a dark variant and is ignored for the favicon and the editor logos.
         /// </summary>
         /// <example>data:image/png;base64,iVBORw0KGgoAAAANS...</example>
         [DataMember(Name = "dark", EmitDefaultValue = true)]

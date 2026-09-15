@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The SAML 2.0 transient name ID format.
+        /// The SAML 2.0 transient name ID format, whose identifier differs from one session to the next. It is what  the built-in configuration uses.
         /// </summary>
         /// <example>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</example>
         [DataMember(Name = "saml20Transient", EmitDefaultValue = true)]
@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The SAML 2.0 persistent name ID format.
+        /// The SAML 2.0 persistent name ID format, whose identifier stays the same for one person across sessions.
         /// </summary>
         /// <example>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</example>
         [DataMember(Name = "saml20Persistent", EmitDefaultValue = true)]

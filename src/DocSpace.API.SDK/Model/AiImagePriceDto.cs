@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Data transfer object that represents the pricing information for an AI image generation.
+    /// What an image model charges: the tokens of the request and the images that come out of it.
     /// </summary>
     [DataContract(Name = "AiImagePriceDto")]
     public partial class AiImagePriceDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiImagePriceDto" /> class.
         /// </summary>
-        /// <param name="prompt">Gets the price per one million prompt tokens..</param>
-        /// <param name="completion">Gets the price per one million completion tokens..</param>
-        /// <param name="image">Gets the price per generated image..</param>
+        /// <param name="prompt">The cost of one million tokens sent to the image model, which is the prompt describing the picture..</param>
+        /// <param name="completion">The cost of one million tokens the image model writes back alongside the picture..</param>
+        /// <param name="image">The cost of one produced image, charged on top of the token amounts above..</param>
         public AiImagePriceDto(double prompt = default, double completion = default, double image = default)
         {
             this.Prompt = prompt;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets the price per one million prompt tokens.
+        /// The cost of one million tokens sent to the image model, which is the prompt describing the picture.
         /// </summary>
         /// <example>8.0</example>
         [DataMember(Name = "prompt", EmitDefaultValue = false)]
         public double Prompt { get; set; }
 
         /// <summary>
-        /// Gets the price per one million completion tokens.
+        /// The cost of one million tokens the image model writes back alongside the picture.
         /// </summary>
         /// <example>15.0</example>
         [DataMember(Name = "completion", EmitDefaultValue = false)]
         public double Completion { get; set; }
 
         /// <summary>
-        /// Gets the price per generated image.
+        /// The cost of one produced image, charged on top of the token amounts above.
         /// </summary>
         /// <example>30.0</example>
         [DataMember(Name = "image", EmitDefaultValue = false)]

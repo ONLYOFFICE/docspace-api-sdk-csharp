@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
@@ -55,10 +55,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SaveAuthKeys(AuthServiceRequestsDto? authServiceRequestsDto = default);
@@ -67,10 +67,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(AuthServiceRequestsDto? authServiceRequestsDto = default);
@@ -78,7 +78,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
@@ -90,7 +90,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
@@ -110,7 +110,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -122,7 +122,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -133,10 +133,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -146,10 +146,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -158,7 +158,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
@@ -171,7 +171,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
@@ -398,7 +398,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
@@ -413,7 +413,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
@@ -484,7 +484,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -500,7 +500,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the authorization services
         /// </summary>
         /// <remarks>
-        /// Returns the authorization services.
+        /// Returns the catalogue of third-party storage and authorization providers DocSpace can integrate with (for  example Amazon S3, Dropbox, Google, or Telegram), including whichever keys were last saved for each one that  currently has any configured. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission). This is a  read-only, idempotent call, and the list is not paginated; entries are ordered by the provider's configured  display order. Only providers that expose at least one manageable key are included, so a provider with nothing  to configure is omitted entirely. Save or change a provider's keys with `POST api/2.0/settings/authservice`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -574,10 +574,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SaveAuthKeys(AuthServiceRequestsDto? authServiceRequestsDto = default)
@@ -590,10 +590,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(AuthServiceRequestsDto? authServiceRequestsDto = default)
@@ -663,10 +663,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -680,10 +680,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the authorization keys
         /// </summary>
         /// <remarks>
-        /// Saves the authorization keys.
+        /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">The request parameters for handling the authorization service. (optional)</param>
+        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -756,7 +756,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
@@ -772,7 +772,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
@@ -845,7 +845,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
@@ -862,7 +862,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Test external database connection
         /// </summary>
         /// <remarks>
-        /// Tests an external database connection with the provided settings without saving them.
+        /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>

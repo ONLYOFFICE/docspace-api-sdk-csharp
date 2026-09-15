@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for terminating a process or operation.
+    /// Whether the finished import mails the imported people their activation links before it is cleared away.
     /// </summary>
     [DataContract(Name = "FinishDto")]
     public partial class FinishDto : IValidatableObject
@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FinishDto" /> class.
         /// </summary>
-        /// <param name="isSendWelcomeEmail">Specifies whether to send a welcome email or not. (required).</param>
+        /// <param name="isSendWelcomeEmail">Whether every imported account that has not been activated yet is mailed its activation link. Setting it  requires the finished job to still be in the queue, so the import must not have been cleared first; the  letters go out again on each call, and already active accounts are skipped either way. Setting it false ends  the import quietly and leaves inviting those people for later. (required).</param>
         public FinishDto(bool isSendWelcomeEmail = default)
         {
             this.IsSendWelcomeEmail = isSendWelcomeEmail;
         }
 
         /// <summary>
-        /// Specifies whether to send a welcome email or not.
+        /// Whether every imported account that has not been activated yet is mailed its activation link. Setting it  requires the finished job to still be in the queue, so the import must not have been cleared first; the  letters go out again on each call, and already active accounts are skipped either way. Setting it false ends  the import quietly and leaves inviting those people for later.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isSendWelcomeEmail", IsRequired = true, EmitDefaultValue = true)]

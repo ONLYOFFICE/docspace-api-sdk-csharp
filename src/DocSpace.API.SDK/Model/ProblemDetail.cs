@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ProblemDetail
+    /// RFC 7807 problem details returned by the registration API for failed requests.
     /// </summary>
     [DataContract(Name = "ProblemDetail")]
     public partial class ProblemDetail : IValidatableObject
@@ -41,13 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProblemDetail" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        /// <param name="title">title.</param>
-        /// <param name="status">status.</param>
-        /// <param name="detail">detail.</param>
-        /// <param name="instance">instance.</param>
-        /// <param name="properties">properties.</param>
-        public ProblemDetail(string type = default, string title = default, int status = default, string detail = default, string instance = default, Dictionary<string, Object> properties = default)
+        /// <param name="type">A URI reference that identifies the problem type. This service sets it to the DocSpace API getting-started page..</param>
+        /// <param name="title">A short, human-readable summary of the problem type, typically the HTTP status reason phrase..</param>
+        /// <param name="status">The HTTP status code for this occurrence of the problem..</param>
+        /// <param name="detail">A human-readable explanation specific to this occurrence of the problem..</param>
+        /// <param name="instance">A URI reference that identifies the specific occurrence, set to the request path..</param>
+        /// <param name="properties">Extension members carried on the problem. Usually empty; validation failures also surface as the top-level errors array..</param>
+        /// <param name="errors">Field-specific validation errors. Present when the request body or parameters failed validation, or when a named scope is not in the tenant catalogue..</param>
+        public ProblemDetail(string type = default, string title = default, int status = default, string detail = default, string instance = default, Dictionary<string, Object> properties = default, List<FieldError> errors = default)
         {
             this.Type = type;
             this.Title = title;
@@ -55,43 +56,50 @@ namespace DocSpace.API.SDK.Model
             this.Detail = detail;
             this.Instance = instance;
             this.Properties = properties;
+            this.Errors = errors;
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// A URI reference that identifies the problem type. This service sets it to the DocSpace API getting-started page.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// A short, human-readable summary of the problem type, typically the HTTP status reason phrase.
         /// </summary>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The HTTP status code for this occurrence of the problem.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Detail
+        /// A human-readable explanation specific to this occurrence of the problem.
         /// </summary>
         [DataMember(Name = "detail", EmitDefaultValue = false)]
         public string Detail { get; set; }
 
         /// <summary>
-        /// Gets or Sets Instance
+        /// A URI reference that identifies the specific occurrence, set to the request path.
         /// </summary>
         [DataMember(Name = "instance", EmitDefaultValue = false)]
         public string Instance { get; set; }
 
         /// <summary>
-        /// Gets or Sets Properties
+        /// Extension members carried on the problem. Usually empty; validation failures also surface as the top-level errors array.
         /// </summary>
         [DataMember(Name = "properties", EmitDefaultValue = false)]
         public Dictionary<string, Object> Properties { get; set; }
+
+        /// <summary>
+        /// Field-specific validation errors. Present when the request body or parameters failed validation, or when a named scope is not in the tenant catalogue.
+        /// </summary>
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
+        public List<FieldError> Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,6 +115,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("  Instance: ").Append(Instance).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

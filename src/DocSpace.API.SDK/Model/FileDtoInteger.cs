@@ -32,38 +32,38 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file parameters.
+    /// A stored file as the calling account sees it: where it lives, which revision this is, how it can be opened and  what the portal is currently doing with it.
     /// </summary>
     [DataContract(Name = "FileDtoInteger")]
     public partial class FileDtoInteger : FileEntryDtoInteger, IValidatableObject
     {
 
         /// <summary>
-        /// The current status of the file.
+        /// What the portal is currently doing with the file and how the caller stands towards it - open in the editor,  unread, being converted, and so on. The value is a bit mask that combines those states, so a file can report a  number that matches none of the published members on its own.
         /// </summary>
         [DataMember(Name = "fileStatus", EmitDefaultValue = false)]
         public FileStatus? FileStatus { get; set; }
 
         /// <summary>
-        /// The file type.
+        /// The broad kind of content, worked out from the extension, which is what a client uses to pick an icon or a  viewer without parsing &#x60;fileExst&#x60; itself.
         /// </summary>
         [DataMember(Name = "fileType", EmitDefaultValue = false)]
         public FileType? FileType { get; set; }
 
         /// <summary>
-        /// The current thumbnail status of the file.
+        /// How far the preview image has got. Only the created state means &#x60;thumbnailUrl&#x60; holds an address; the others  mean there is none, either because it is still being produced or because this format has no preview.
         /// </summary>
         [DataMember(Name = "thumbnailStatus", EmitDefaultValue = false)]
         public Thumbnail? ThumbnailStatus { get; set; }
 
         /// <summary>
-        /// The status of the form filling process.
+        /// How far the filling of this form has got for the calling account, and whose turn it is now. It is worked out  only inside a virtual data room, where filling runs in steps; everywhere else it stays at the none value.
         /// </summary>
         [DataMember(Name = "formFillingStatus", EmitDefaultValue = false)]
         public FormFillingStatus? FormFillingStatus { get; set; }
 
         /// <summary>
-        /// The vectorization status of the file.
+        /// How far the indexing of the file&#39;s content for AI search has got. It is null for a file that has never been  queued for indexing, which is every file while the feature is off for the portal.
         /// </summary>
         [DataMember(Name = "vectorizationStatus", EmitDefaultValue = false)]
         public VectorizationStatus? VectorizationStatus { get; set; }
@@ -71,41 +71,41 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileDtoInteger" /> class.
         /// </summary>
-        /// <param name="folderId">The folder ID where the file is located..</param>
-        /// <param name="version">The file version..</param>
-        /// <param name="versionGroup">The version group of the file..</param>
-        /// <param name="contentLength">The content length of the file..</param>
-        /// <param name="pureContentLength">The pure content length of the file..</param>
-        /// <param name="fileStatus">The current status of the file..</param>
-        /// <param name="editingBy">The list of users editing the file..</param>
-        /// <param name="mute">Specifies if the file is muted or not..</param>
-        /// <param name="viewUrl">The URL link to view the file..</param>
-        /// <param name="webUrl">The Web URL link to the file..</param>
-        /// <param name="fileType">The file type..</param>
-        /// <param name="fileExst">The file extension..</param>
-        /// <param name="comment">The comment to the file..</param>
-        /// <param name="encrypted">Specifies if the file is encrypted or not..</param>
-        /// <param name="thumbnailUrl">The thumbnail URL of the file..</param>
-        /// <param name="thumbnailStatus">The current thumbnail status of the file..</param>
-        /// <param name="locked">Specifies if the file is locked or not..</param>
-        /// <param name="lockedBy">The user ID of the person who locked the file..</param>
-        /// <param name="hasDraft">Specifies if the file has a draft or not..</param>
-        /// <param name="formFillingStatus">The status of the form filling process..</param>
-        /// <param name="isForm">Specifies if the file is a form or not..</param>
-        /// <param name="customFilterEnabled">Specifies if the Custom Filter editing mode is enabled for a file or not..</param>
-        /// <param name="customFilterEnabledBy">The name of the user who enabled a Custom Filter editing mode for a file..</param>
-        /// <param name="startFilling">Specifies if the filling has started or not..</param>
-        /// <param name="isFillingPreparing">Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed..</param>
-        /// <param name="inProcessFolderId">The InProcess folder ID of the file..</param>
-        /// <param name="inProcessFolderTitle">The InProcess folder title of the file..</param>
-        /// <param name="resultsFolderId">The ID of the FormFillingFolderDone folder that corresponds to this original form..</param>
-        /// <param name="draftLocation">The file draft information with its location..</param>
+        /// <param name="folderId">The folder the file is stored in. When the file was reached through a share and the caller cannot open its  real parent, the identifier of the Shared with me section is reported instead, so this is where the file is  visible rather than where it physically sits..</param>
+        /// <param name="version">The revision this entry describes. It starts at 1 and moves to the next number each time new content is stored  over the file, except for an editing session opened against the file itself, which replaces the content and  keeps the number. &#x60;GET api/2.0/files/file/{fileId}/history&#x60; lists them all..</param>
+        /// <param name="versionGroup">Groups revisions that belong together, which is how a history can fold a long editing session into one entry:  versions saved inside one session share this number, and an upload over the file starts a new group..</param>
+        /// <param name="contentLength">The size already formatted for display, with a unit and the separators of the caller&#39;s language. Read  &#x60;pureContentLength&#x60; for a number to calculate with..</param>
+        /// <param name="pureContentLength">The size of the stored content in bytes, and null for an empty file..</param>
+        /// <param name="fileStatus">What the portal is currently doing with the file and how the caller stands towards it - open in the editor,  unread, being converted, and so on. The value is a bit mask that combines those states, so a file can report a  number that matches none of the published members on its own..</param>
+        /// <param name="editingBy">The accounts that have the file open in the editor at this moment, as account identifier to display name, and  empty when nobody has. The all-zero identifier stands for people who came in through an external link without  signing in, and its name carries their number in brackets when there is more than one..</param>
+        /// <param name="mute">Not a property of the file at all: it repeats, inverted, the calling account&#39;s own switch for new-item badges,  so it is the same in every entry of one answer. True means that account has badges turned off..</param>
+        /// <param name="viewUrl">The address that returns the bytes of the file - a download, in spite of the name; &#x60;webUrl&#x60; is the address a  person opens. When the file was reached through an external link the address carries the key of that link, so  it keeps working without signing in..</param>
+        /// <param name="webUrl">The page that opens the file in a browser: the editor for a format the portal edits, the media viewer for  pictures, audio and video, and the download address for a format it cannot show at all..</param>
+        /// <param name="fileType">The broad kind of content, worked out from the extension, which is what a client uses to pick an icon or a  viewer without parsing &#x60;fileExst&#x60; itself..</param>
+        /// <param name="fileExst">The extension of the stored file, leading dot included and always lower case. For a format the portal keeps in  a converted shape this is the extension it is served under, not the one it was uploaded with..</param>
+        /// <param name="comment">The note kept with this revision. The portal writes it itself for revisions it creates, an upload over an  existing file among them, and an editor stores the note a person typed when saving a version..</param>
+        /// <param name="encrypted">True for a file in a private room, whose content the server never sees and which therefore cannot be converted  or taken over by an upload. Null, rather than false, for an ordinary file..</param>
+        /// <param name="thumbnailUrl">The address of the generated preview image. It is filled in only while &#x60;thumbnailStatus&#x60; says the preview has  been created, and it carries a suffix that changes with the file, so an image cached for an earlier revision  is not reused..</param>
+        /// <param name="thumbnailStatus">How far the preview image has got. Only the created state means &#x60;thumbnailUrl&#x60; holds an address; the others  mean there is none, either because it is still being produced or because this format has no preview..</param>
+        /// <param name="locked">True while the file is held under a lock that stops anyone but its holder from editing it, and null rather  than false when there is no lock. &#x60;lockedBy&#x60; names the holder unless the caller is the holder..</param>
+        /// <param name="lockedBy">The display name of the account holding the lock, and null when the caller holds it - so &#x60;locked&#x60; true  together with no name here means the lock is the caller&#39;s own..</param>
+        /// <param name="hasDraft">For a fillable PDF form, whether the caller already has a filling draft of it, in which case &#x60;draftLocation&#x60;  says where that draft lives. Null for anything that is not a form..</param>
+        /// <param name="formFillingStatus">How far the filling of this form has got for the calling account, and whose turn it is now. It is worked out  only inside a virtual data room, where filling runs in steps; everywhere else it stays at the none value..</param>
+        /// <param name="isForm">Whether the PDF is a fillable form rather than a plain document. When the stored classification does not say,  the portal opens the file to find out, so the answer is reliable for a PDF and null for anything else..</param>
+        /// <param name="customFilterEnabled">True while a spreadsheet is in the mode where each person sorts and filters their own view without changing  what the others see, and null rather than false when it is not..</param>
+        /// <param name="customFilterEnabledBy">The display name of the account that turned that mode on, and null when the caller turned it on themselves..</param>
+        /// <param name="startFilling">For a form in a room for filling, whether it has been released for filling; until then it is still being  prepared and only the people running the room work with it. Null for a file this does not apply to..</param>
+        /// <param name="isFillingPreparing">True during the short window in which a released form is still being written out by the editor. Neither  filling nor editing is accepted while it lasts, so a client should wait and read the file again..</param>
+        /// <param name="inProcessFolderId">Left empty by the portal: the folder holding the caller&#39;s draft is reported in &#x60;draftLocation&#x60; instead..</param>
+        /// <param name="inProcessFolderTitle">Left empty by the portal, like the identifier beside it; the draft&#39;s folder is named in &#x60;draftLocation&#x60;..</param>
+        /// <param name="resultsFolderId">The folder that collects the completed copies of this form. It is filled in only for the original form of a  room for filling, and only for a caller allowed to work with that form; null everywhere else..</param>
+        /// <param name="draftLocation">Where the caller&#39;s own filling draft of this form is kept. Null when there is no draft yet, which is the same  thing &#x60;hasDraft&#x60; reports..</param>
         /// <param name="viewAccessibility">viewAccessibility.</param>
-        /// <param name="lastOpened">The time when the file was last opened..</param>
-        /// <param name="expired">The date when the file will be expired..</param>
-        /// <param name="vectorizationStatus">The vectorization status of the file..</param>
-        /// <param name="externalDbTableName">The name of the table in the external database that corresponds to this form..</param>
-        /// <param name="dimensions">The dimensions (width and height) of the image file in pixels.  This property is populated only for image files that can be viewed (supported formats like PNG, JPEG, GIF, BMP, etc.).  For non-image files, this property remains null..</param>
+        /// <param name="lastOpened">The moment the caller last opened the file. It is kept per account and is what orders the Recent section, so  it is null for a file this account has never opened. Written with the offset of the portal&#39;s time zone..</param>
+        /// <param name="expired">The moment the file falls under the lifetime rule of the room holding it and is removed. It is counted from  the first revision rather than the latest one, so editing a file does not postpone it, and it is null when the  room sets no lifetime. Written with the offset of the portal&#39;s time zone..</param>
+        /// <param name="vectorizationStatus">How far the indexing of the file&#39;s content for AI search has got. It is null for a file that has never been  queued for indexing, which is every file while the feature is off for the portal..</param>
+        /// <param name="externalDbTableName">The table collecting the submitted values of this form in the external database configured for its room. The  field is left out of the answer entirely when the form has no such table..</param>
+        /// <param name="dimensions">The pixel size of the picture, measured by reading the stored file rather than taken from any stored metadata.  Null for anything that is not a picture the portal can show, and also when the file could not be read..</param>
         public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, int? resultsFolderId = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, string externalDbTableName = default, Size dimensions = default)
         {
             this.FolderId = folderId;
@@ -146,175 +146,175 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The folder ID where the file is located.
+        /// The folder the file is stored in. When the file was reached through a share and the caller cannot open its  real parent, the identifier of the Shared with me section is reported instead, so this is where the file is  visible rather than where it physically sits.
         /// </summary>
         /// <example>10</example>
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
 
         /// <summary>
-        /// The file version.
+        /// The revision this entry describes. It starts at 1 and moves to the next number each time new content is stored  over the file, except for an editing session opened against the file itself, which replaces the content and  keeps the number. &#x60;GET api/2.0/files/file/{fileId}/history&#x60; lists them all.
         /// </summary>
         /// <example>3</example>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
-        /// The version group of the file.
+        /// Groups revisions that belong together, which is how a history can fold a long editing session into one entry:  versions saved inside one session share this number, and an upload over the file starts a new group.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "versionGroup", EmitDefaultValue = false)]
         public int VersionGroup { get; set; }
 
         /// <summary>
-        /// The content length of the file.
+        /// The size already formatted for display, with a unit and the separators of the caller&#39;s language. Read  &#x60;pureContentLength&#x60; for a number to calculate with.
         /// </summary>
-        /// <example>12345</example>
+        /// <example>1.29 MB</example>
         [DataMember(Name = "contentLength", EmitDefaultValue = true)]
         public string ContentLength { get; set; }
 
         /// <summary>
-        /// The pure content length of the file.
+        /// The size of the stored content in bytes, and null for an empty file.
         /// </summary>
-        /// <example>12345</example>
+        /// <example>1352001</example>
         [DataMember(Name = "pureContentLength", EmitDefaultValue = true)]
         public long? PureContentLength { get; set; }
 
         /// <summary>
-        /// The list of users editing the file.
+        /// The accounts that have the file open in the editor at this moment, as account identifier to display name, and  empty when nobody has. The all-zero identifier stands for people who came in through an external link without  signing in, and its name carries their number in brackets when there is more than one.
         /// </summary>
-        /// <example>{"00000000-0000-0000-0000-000000000000":"John Doe"}</example>
+        /// <example>{"9a1e28c4-51f2-4f6b-b0a3-0c21e7f2a7d1":"John Doe"}</example>
         [DataMember(Name = "editingBy", EmitDefaultValue = false)]
         public Dictionary<string, string> EditingBy { get; set; }
 
         /// <summary>
-        /// Specifies if the file is muted or not.
+        /// Not a property of the file at all: it repeats, inverted, the calling account&#39;s own switch for new-item badges,  so it is the same in every entry of one answer. True means that account has badges turned off.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "mute", EmitDefaultValue = true)]
         public bool Mute { get; set; }
 
         /// <summary>
-        /// The URL link to view the file.
+        /// The address that returns the bytes of the file - a download, in spite of the name; &#x60;webUrl&#x60; is the address a  person opens. When the file was reached through an external link the address carries the key of that link, so  it keeps working without signing in.
         /// </summary>
-        /// <example>https://www.onlyoffice.com/viewfile?fileid=2221</example>
+        /// <example>https://example.com/filehandler.ashx?action=download&amp;fileid=2221</example>
         [DataMember(Name = "viewUrl", EmitDefaultValue = true)]
         public string ViewUrl { get; set; }
 
         /// <summary>
-        /// The Web URL link to the file.
+        /// The page that opens the file in a browser: the editor for a format the portal edits, the media viewer for  pictures, audio and video, and the download address for a format it cannot show at all.
         /// </summary>
-        /// <example>http://localhost/files/document.docx</example>
+        /// <example>https://example.com/doceditor?fileid=2221</example>
         [DataMember(Name = "webUrl", EmitDefaultValue = true)]
         public string WebUrl { get; set; }
 
         /// <summary>
-        /// The file extension.
+        /// The extension of the stored file, leading dot included and always lower case. For a format the portal keeps in  a converted shape this is the extension it is served under, not the one it was uploaded with.
         /// </summary>
-        /// <example>.txt</example>
+        /// <example>.docx</example>
         [DataMember(Name = "fileExst", EmitDefaultValue = true)]
         public string FileExst { get; set; }
 
         /// <summary>
-        /// The comment to the file.
+        /// The note kept with this revision. The portal writes it itself for revisions it creates, an upload over an  existing file among them, and an editor stores the note a person typed when saving a version.
         /// </summary>
-        /// <example>This is a comment</example>
+        /// <example>Uploaded file</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
-        /// Specifies if the file is encrypted or not.
+        /// True for a file in a private room, whose content the server never sees and which therefore cannot be converted  or taken over by an upload. Null, rather than false, for an ordinary file.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "encrypted", EmitDefaultValue = true)]
         public bool? Encrypted { get; set; }
 
         /// <summary>
-        /// The thumbnail URL of the file.
+        /// The address of the generated preview image. It is filled in only while &#x60;thumbnailStatus&#x60; says the preview has  been created, and it carries a suffix that changes with the file, so an image cached for an earlier revision  is not reused.
         /// </summary>
-        /// <example>http://localhost/thumbnails/file.png</example>
+        /// <example>https://example.com/filehandler.ashx?action=thumb&amp;fileid=2221</example>
         [DataMember(Name = "thumbnailUrl", EmitDefaultValue = true)]
         public string ThumbnailUrl { get; set; }
 
         /// <summary>
-        /// Specifies if the file is locked or not.
+        /// True while the file is held under a lock that stops anyone but its holder from editing it, and null rather  than false when there is no lock. &#x60;lockedBy&#x60; names the holder unless the caller is the holder.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "locked", EmitDefaultValue = true)]
         public bool? Locked { get; set; }
 
         /// <summary>
-        /// The user ID of the person who locked the file.
+        /// The display name of the account holding the lock, and null when the caller holds it - so &#x60;locked&#x60; true  together with no name here means the lock is the caller&#39;s own.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>John Doe</example>
         [DataMember(Name = "lockedBy", EmitDefaultValue = true)]
         public string LockedBy { get; set; }
 
         /// <summary>
-        /// Specifies if the file has a draft or not.
+        /// For a fillable PDF form, whether the caller already has a filling draft of it, in which case &#x60;draftLocation&#x60;  says where that draft lives. Null for anything that is not a form.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "hasDraft", EmitDefaultValue = true)]
         public bool? HasDraft { get; set; }
 
         /// <summary>
-        /// Specifies if the file is a form or not.
+        /// Whether the PDF is a fillable form rather than a plain document. When the stored classification does not say,  the portal opens the file to find out, so the answer is reliable for a PDF and null for anything else.
         /// </summary>
-        /// <example>false</example>
+        /// <example>true</example>
         [DataMember(Name = "isForm", EmitDefaultValue = true)]
         public bool? IsForm { get; set; }
 
         /// <summary>
-        /// Specifies if the Custom Filter editing mode is enabled for a file or not.
+        /// True while a spreadsheet is in the mode where each person sorts and filters their own view without changing  what the others see, and null rather than false when it is not.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "customFilterEnabled", EmitDefaultValue = true)]
         public bool? CustomFilterEnabled { get; set; }
 
         /// <summary>
-        /// The name of the user who enabled a Custom Filter editing mode for a file.
+        /// The display name of the account that turned that mode on, and null when the caller turned it on themselves.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "customFilterEnabledBy", EmitDefaultValue = true)]
         public string CustomFilterEnabledBy { get; set; }
 
         /// <summary>
-        /// Specifies if the filling has started or not.
+        /// For a form in a room for filling, whether it has been released for filling; until then it is still being  prepared and only the people running the room work with it. Null for a file this does not apply to.
         /// </summary>
-        /// <example>false</example>
+        /// <example>true</example>
         [DataMember(Name = "startFilling", EmitDefaultValue = true)]
         public bool? StartFilling { get; set; }
 
         /// <summary>
-        /// Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed.
+        /// True during the short window in which a released form is still being written out by the editor. Neither  filling nor editing is accepted while it lasts, so a client should wait and read the file again.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isFillingPreparing", EmitDefaultValue = true)]
         public bool? IsFillingPreparing { get; set; }
 
         /// <summary>
-        /// The InProcess folder ID of the file.
+        /// Left empty by the portal: the folder holding the caller&#39;s draft is reported in &#x60;draftLocation&#x60; instead.
         /// </summary>
         /// <example>10</example>
         [DataMember(Name = "inProcessFolderId", EmitDefaultValue = true)]
         public int? InProcessFolderId { get; set; }
 
         /// <summary>
-        /// The InProcess folder title of the file.
+        /// Left empty by the portal, like the identifier beside it; the draft&#39;s folder is named in &#x60;draftLocation&#x60;.
         /// </summary>
         /// <example>In Process</example>
         [DataMember(Name = "inProcessFolderTitle", EmitDefaultValue = true)]
         public string InProcessFolderTitle { get; set; }
 
         /// <summary>
-        /// The ID of the FormFillingFolderDone folder that corresponds to this original form.
+        /// The folder that collects the completed copies of this form. It is filled in only for the original form of a  room for filling, and only for a caller allowed to work with that form; null everywhere else.
         /// </summary>
         /// <example>55</example>
         [DataMember(Name = "resultsFolderId", EmitDefaultValue = true)]
         public int? ResultsFolderId { get; set; }
 
         /// <summary>
-        /// The file draft information with its location.
+        /// Where the caller&#39;s own filling draft of this form is kept. Null when there is no draft yet, which is the same  thing &#x60;hasDraft&#x60; reports.
         /// </summary>
         [DataMember(Name = "draftLocation", EmitDefaultValue = false)]
         public DraftLocationInteger DraftLocation { get; set; }
@@ -326,26 +326,26 @@ namespace DocSpace.API.SDK.Model
         public FileDtoIntegerAllOfViewAccessibility ViewAccessibility { get; set; }
 
         /// <summary>
-        /// The time when the file was last opened.
+        /// The moment the caller last opened the file. It is kept per account and is what orders the Recent section, so  it is null for a file this account has never opened. Written with the offset of the portal&#39;s time zone.
         /// </summary>
         [DataMember(Name = "lastOpened", EmitDefaultValue = false)]
         public ApiDateTime LastOpened { get; set; }
 
         /// <summary>
-        /// The date when the file will be expired.
+        /// The moment the file falls under the lifetime rule of the room holding it and is removed. It is counted from  the first revision rather than the latest one, so editing a file does not postpone it, and it is null when the  room sets no lifetime. Written with the offset of the portal&#39;s time zone.
         /// </summary>
         [DataMember(Name = "expired", EmitDefaultValue = false)]
         public ApiDateTime Expired { get; set; }
 
         /// <summary>
-        /// The name of the table in the external database that corresponds to this form.
+        /// The table collecting the submitted values of this form in the external database configured for its room. The  field is left out of the answer entirely when the form has no such table.
         /// </summary>
         /// <example>form_123_v1</example>
         [DataMember(Name = "externalDbTableName", EmitDefaultValue = true)]
         public string ExternalDbTableName { get; set; }
 
         /// <summary>
-        /// The dimensions (width and height) of the image file in pixels.  This property is populated only for image files that can be viewed (supported formats like PNG, JPEG, GIF, BMP, etc.).  For non-image files, this property remains null.
+        /// The pixel size of the picture, measured by reading the stored file rather than taken from any stored metadata.  Null for anything that is not a picture the portal can show, and also when the file could not be read.
         /// </summary>
         [DataMember(Name = "dimensions", EmitDefaultValue = false)]
         public Size Dimensions { get; set; }

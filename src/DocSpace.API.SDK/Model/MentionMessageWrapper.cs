@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The mention message parameters.
+    /// The mention notification to send: what to say, whom to tell and where in the document the mention sits.
     /// </summary>
     [DataContract(Name = "MentionMessageWrapper")]
     public partial class MentionMessageWrapper : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MentionMessageWrapper" /> class.
         /// </summary>
-        /// <param name="actionLink">The config parameter which contains the information about the action in the document that will be scrolled to..</param>
-        /// <param name="emails">A list of emails that will receive the mention message..</param>
-        /// <param name="message">The mention message..</param>
+        /// <param name="actionLink">The place in the document the notification link should open at, as the editor reports it when the mention is  made. Left out, the link opens the file at its beginning..</param>
+        /// <param name="emails">The addresses to notify. Only an address that belongs to a portal account receives a mail; an unknown address  is skipped, and the answer then carries the access list of the file so that the client can invite its owner..</param>
+        /// <param name="message">The note shown next to the link in the mail. Only its first 200 characters are sent, and a value longer than  the field allows is refused..</param>
         public MentionMessageWrapper(ActionLinkConfig actionLink = default, List<string> emails = default, string message = default)
         {
             this.ActionLink = actionLink;
@@ -52,22 +52,22 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The config parameter which contains the information about the action in the document that will be scrolled to.
+        /// The place in the document the notification link should open at, as the editor reports it when the mention is  made. Left out, the link opens the file at its beginning.
         /// </summary>
         [DataMember(Name = "actionLink", EmitDefaultValue = false)]
         public ActionLinkConfig ActionLink { get; set; }
 
         /// <summary>
-        /// A list of emails that will receive the mention message.
+        /// The addresses to notify. Only an address that belongs to a portal account receives a mail; an unknown address  is skipped, and the answer then carries the access list of the file so that the client can invite its owner.
         /// </summary>
         /// <example>["user1@example.com","user2@example.com"]</example>
         [DataMember(Name = "emails", EmitDefaultValue = true)]
         public List<string> Emails { get; set; }
 
         /// <summary>
-        /// The mention message.
+        /// The note shown next to the link in the mail. Only its first 200 characters are sent, and a value longer than  the field allows is refused.
         /// </summary>
-        /// <example>Hello</example>
+        /// <example>Please take a look at the second paragraph</example>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 

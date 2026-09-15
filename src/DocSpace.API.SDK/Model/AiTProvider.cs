@@ -76,24 +76,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Provider type identifier.
         /// </summary>
+        /// <example>openai</example>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public AiProviderType Type { get; set; }
 
         /// <summary>
         /// User-defined display name for this provider connection.
         /// </summary>
+        /// <example>OpenAI GPT-4o</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// API key or token. Optional for local providers (Ollama, LM Studio).
         /// </summary>
+        /// <example>sk-your-provider-api-key</example>
         [DataMember(Name = "key", EmitDefaultValue = false)]
         public string Key { get; set; }
 
         /// <summary>
         /// Base URL of the provider API.
         /// </summary>
+        /// <example>https://api.openai.com/v1</example>
         [DataMember(Name = "baseUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BaseUrl { get; set; }
 

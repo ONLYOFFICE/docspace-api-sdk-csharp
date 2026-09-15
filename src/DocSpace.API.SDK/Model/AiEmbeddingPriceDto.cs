@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents a data transfer object that encapsulates pricing information for AI embedding operations.  This DTO is used to transport cost-related details associated with generating embeddings through AI models.
+    /// What an embedding model charges, which has one direction only.
     /// </summary>
     [DataContract(Name = "AiEmbeddingPriceDto")]
     public partial class AiEmbeddingPriceDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiEmbeddingPriceDto" /> class.
         /// </summary>
-        /// <param name="prompt">Gets the price per one million tokens for embedding generation..</param>
+        /// <param name="prompt">The cost of one million tokens turned into vectors. Embedding produces no completion, so this single  figure is the whole price..</param>
         public AiEmbeddingPriceDto(double prompt = default)
         {
             this.Prompt = prompt;
         }
 
         /// <summary>
-        /// Gets the price per one million tokens for embedding generation.
+        /// The cost of one million tokens turned into vectors. Embedding produces no completion, so this single  figure is the whole price.
         /// </summary>
         /// <example>0.13</example>
         [DataMember(Name = "prompt", EmitDefaultValue = false)]

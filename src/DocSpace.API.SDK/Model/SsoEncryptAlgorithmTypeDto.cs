@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The AES-128-CBC encryption algorithm.
+        /// The AES-128-CBC encryption algorithm, which the built-in configuration uses.
         /// </summary>
         /// <example>http://www.w3.org/2001/04/xmlenc#aes128-cbc</example>
         [DataMember(Name = "aes128", EmitDefaultValue = true)]
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The AES-256-CBC encryption algorithm.
+        /// The AES-256-CBC encryption algorithm, the strongest of the three.
         /// </summary>
         /// <example>http://www.w3.org/2001/04/xmlenc#aes256-cbc</example>
         [DataMember(Name = "aes256", EmitDefaultValue = true)]
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The Triple DES CBC encryption algorithm.
+        /// The Triple DES CBC encryption algorithm, kept for identity providers that support nothing newer.
         /// </summary>
         /// <example>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</example>
         [DataMember(Name = "triDec", EmitDefaultValue = true)]

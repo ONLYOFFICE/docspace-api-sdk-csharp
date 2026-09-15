@@ -32,26 +32,26 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The external sharing information and validation data.
+    /// The outcome of validating an external share link and the entry it points at.
     /// </summary>
     [DataContract(Name = "ExternalShareDto")]
     public partial class ExternalShareDto : IValidatableObject
     {
 
         /// <summary>
-        /// The external data status.
+        /// How validating the link went. It is the first field to read: a refused link is reported here with the answer  still arriving as a success. A link that resolved describes both the entry and the link, one that is waiting  for its password describes only the entry, and one that failed outright leaves the rest of the object empty.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public Status Status { get; set; }
 
         /// <summary>
-        /// The type of the external data.
+        /// Whether the link points at a folder - a room counts as one - or at a single file. It is null when the link  could not be resolved.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public FileEntryType? Type { get; set; }
 
         /// <summary>
-        /// The entry type of the external data.
+        /// Whether that entry is a folder or a file, null under the same conditions as its identifier.
         /// </summary>
         [DataMember(Name = "entityType", EmitDefaultValue = false)]
         public FileEntryType? EntityType { get; set; }
@@ -64,19 +64,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalShareDto" /> class.
         /// </summary>
-        /// <param name="status">The external data status. (required).</param>
-        /// <param name="id">The external data ID..</param>
-        /// <param name="title">The external data title..</param>
-        /// <param name="type">The type of the external data..</param>
-        /// <param name="tenantId">The tenant ID. (required).</param>
-        /// <param name="entityId">The unique identifier of the shared entity..</param>
-        /// <param name="entityTitle">The title of the shared entity..</param>
-        /// <param name="entityType">The entry type of the external data..</param>
-        /// <param name="isRoom">Indicates whether the entity represents a room..</param>
-        /// <param name="shared">Specifies whether to share the external data or not. (required).</param>
-        /// <param name="linkId">The link ID of the external data. (required).</param>
-        /// <param name="isAuthenticated">Specifies whether the user is authenticated or not. (required).</param>
-        /// <param name="isRoomMember">The room ID of the external data..</param>
+        /// <param name="status">How validating the link went. It is the first field to read: a refused link is reported here with the answer  still arriving as a success. A link that resolved describes both the entry and the link, one that is waiting  for its password describes only the entry, and one that failed outright leaves the rest of the object empty. (required).</param>
+        /// <param name="id">The identifier of the room, folder or file the link points at, always rendered as a string even where the  portal stores it as a number. It is null when the link could not be resolved..</param>
+        /// <param name="title">The title of the entry the link points at, suitable for showing to the visitor before they are let in. It is  null when the link could not be resolved..</param>
+        /// <param name="type">Whether the link points at a folder - a room counts as one - or at a single file. It is null when the link  could not be resolved..</param>
+        /// <param name="tenantId">The portal the link belongs to, which matters for a client that works with more than one. It stays 0 for a  link that did not resolve. (required).</param>
+        /// <param name="entityId">The identifier of the entry that was asked about through the request&#39;s file or folder parameter, echoed back  once it was found under the link&#39;s target. It is null when nothing was asked about, or when the entry lies  outside what the link opens..</param>
+        /// <param name="entityTitle">The title of that entry, null under the same conditions as its identifier..</param>
+        /// <param name="entityType">Whether that entry is a folder or a file, null under the same conditions as its identifier..</param>
+        /// <param name="isRoom">True when the link opens a whole room rather than one entry inside it. It is null for a link to a file and for  a link that did not resolve..</param>
+        /// <param name="shared">True when the entry now sits in the calling account&#39;s own lists - it was already shared with that account, or  resolving the link has just put it there. It stays false for a visitor browsing without an account, who  reaches the entry through the link alone. (required).</param>
+        /// <param name="linkId">The link the token belongs to, which is also the subject under which the link appears among the sharing rights  of the entry. It is an empty identifier when the link did not resolve. (required).</param>
+        /// <param name="isAuthenticated">Whether the request carried a signed-in account. It says nothing about that account&#39;s rights on the entry, so  it must not be read as permission - it is false for every anonymous visitor and true for any member, even one  who is a stranger to the room. (required).</param>
+        /// <param name="isRoomMember">Whether the signed-in caller already has rights of their own on the room that holds the entry, as opposed to  reaching it through this link. It is false for an anonymous visitor and for a member who has never been  invited..</param>
         public ExternalShareDto(Status status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
         {
             this.Status = status;
@@ -95,70 +95,70 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The external data ID.
+        /// The identifier of the room, folder or file the link points at, always rendered as a string even where the  portal stores it as a number. It is null when the link could not be resolved.
         /// </summary>
-        /// <example>123</example>
+        /// <example>42</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The external data title.
+        /// The title of the entry the link points at, suitable for showing to the visitor before they are let in. It is  null when the link could not be resolved.
         /// </summary>
-        /// <example>Shared Document</example>
+        /// <example>Project documents</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The tenant ID.
+        /// The portal the link belongs to, which matters for a client that works with more than one. It stays 0 for a  link that did not resolve.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the shared entity.
+        /// The identifier of the entry that was asked about through the request&#39;s file or folder parameter, echoed back  once it was found under the link&#39;s target. It is null when nothing was asked about, or when the entry lies  outside what the link opens.
         /// </summary>
-        /// <example>456</example>
+        /// <example>9</example>
         [DataMember(Name = "entityId", EmitDefaultValue = true)]
         public string EntityId { get; set; }
 
         /// <summary>
-        /// The title of the shared entity.
+        /// The title of that entry, null under the same conditions as its identifier.
         /// </summary>
-        /// <example>Entity Title</example>
+        /// <example>Contract.docx</example>
         [DataMember(Name = "entityTitle", EmitDefaultValue = true)]
         public string EntityTitle { get; set; }
 
         /// <summary>
-        /// Indicates whether the entity represents a room.
+        /// True when the link opens a whole room rather than one entry inside it. It is null for a link to a file and for  a link that did not resolve.
         /// </summary>
-        /// <example>false</example>
+        /// <example>true</example>
         [DataMember(Name = "isRoom", EmitDefaultValue = true)]
         public bool? IsRoom { get; set; }
 
         /// <summary>
-        /// Specifies whether to share the external data or not.
+        /// True when the entry now sits in the calling account&#39;s own lists - it was already shared with that account, or  resolving the link has just put it there. It stays false for a visitor browsing without an account, who  reaches the entry through the link alone.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "shared", IsRequired = true, EmitDefaultValue = true)]
         public bool Shared { get; set; }
 
         /// <summary>
-        /// The link ID of the external data.
+        /// The link the token belongs to, which is also the subject under which the link appears among the sharing rights  of the entry. It is an empty identifier when the link did not resolve.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>b3a1f0c7-5d2e-4a19-9f38-71c6e0d4b852</example>
         [DataMember(Name = "linkId", IsRequired = true, EmitDefaultValue = true)]
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// Specifies whether the user is authenticated or not.
+        /// Whether the request carried a signed-in account. It says nothing about that account&#39;s rights on the entry, so  it must not be read as permission - it is false for every anonymous visitor and true for any member, even one  who is a stranger to the room.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isAuthenticated", IsRequired = true, EmitDefaultValue = true)]
         public bool IsAuthenticated { get; set; }
 
         /// <summary>
-        /// The room ID of the external data.
+        /// Whether the signed-in caller already has rights of their own on the room that holds the entry, as opposed to  reaching it through this link. It is false for an anonymous visitor and for a member who has never been  invited.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isRoomMember", EmitDefaultValue = true)]

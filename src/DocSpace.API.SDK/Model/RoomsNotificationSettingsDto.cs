@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The rooms notification settings.
+    /// The rooms the calling user has silenced.
     /// </summary>
     [DataContract(Name = "RoomsNotificationSettingsDto")]
     public partial class RoomsNotificationSettingsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomsNotificationSettingsDto" /> class.
         /// </summary>
-        /// <param name="disabledRooms">The list of rooms with the disabled notifications..</param>
+        /// <param name="disabledRooms">The identifiers of the silenced rooms, in the order they were added, and belonging to the caller&#39;s own  account alone. They are kept as opaque values, so a numeric identifier of a portal room and a string  identifier of a room on a connected third-party account both appear here, and an identifier stays on the  list after its room is deleted. An empty list means nothing is silenced..</param>
         public RoomsNotificationSettingsDto(List<Object> disabledRooms = default)
         {
             this.DisabledRooms = disabledRooms;
         }
 
         /// <summary>
-        /// The list of rooms with the disabled notifications.
+        /// The identifiers of the silenced rooms, in the order they were added, and belonging to the caller&#39;s own  account alone. They are kept as opaque values, so a numeric identifier of a portal room and a string  identifier of a room on a connected third-party account both appear here, and an identifier stays on the  list after its room is deleted. An empty list means nothing is silenced.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "disabledRooms", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The result of an external DB synchronization for a single form.
+    /// What happened to one original form while the room was being exported to the external database.
     /// </summary>
     [DataContract(Name = "ExternalDbSyncFormResultDto")]
     public partial class ExternalDbSyncFormResultDto : IValidatableObject
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalDbSyncFormResultDto" /> class.
         /// </summary>
-        /// <param name="id">The form file ID..</param>
-        /// <param name="title">The form file title..</param>
-        /// <param name="success">Specifies whether the synchronization succeeded for this form..</param>
-        /// <param name="error">The error message if the synchronization failed for this form..</param>
+        /// <param name="id">The file of the original form whose collected data was exported. It is the form itself, not one of the filled  copies, so the same id can be read with the file operations of the portal..</param>
+        /// <param name="title">The name of that form file at the moment of the export. It is empty when the form file no longer exists, which  is also the case in which the export of that entry fails..</param>
+        /// <param name="success">Whether the data of this form reached the external database. One rejected form does not stop the others, so a  finished job can hold both successful and failed entries..</param>
+        /// <param name="error">Why this form was not exported. It is empty for a successful entry, and for a failed one it carries either the  message of the underlying failure or the generic export error of the portal..</param>
         public ExternalDbSyncFormResultDto(int id = default, string title = default, bool success = default, string error = default)
         {
             this.Id = id;
@@ -54,28 +54,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The form file ID.
+        /// The file of the original form whose collected data was exported. It is the form itself, not one of the filled  copies, so the same id can be read with the file operations of the portal.
         /// </summary>
         /// <example>42</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The form file title.
+        /// The name of that form file at the moment of the export. It is empty when the form file no longer exists, which  is also the case in which the export of that entry fails.
         /// </summary>
         /// <example>Application.pdf</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Specifies whether the synchronization succeeded for this form.
+        /// Whether the data of this form reached the external database. One rejected form does not stop the others, so a  finished job can hold both successful and failed entries.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// The error message if the synchronization failed for this form.
+        /// Why this form was not exported. It is empty for a successful entry, and for a failed one it carries either the  message of the underlying failure or the generic export error of the portal.
         /// </summary>
         /// <example>Connection refused</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]

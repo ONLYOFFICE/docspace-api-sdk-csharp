@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The logo request parameters.
+    /// The part of an uploaded picture to use as the logo.
     /// </summary>
     [DataContract(Name = "LogoRequest")]
     public partial class LogoRequest : IValidatableObject
@@ -46,11 +46,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LogoRequest" /> class.
         /// </summary>
-        /// <param name="tmpFile">The path to the temporary image file. (required).</param>
-        /// <param name="x">The X coordinate of the rectangle starting point..</param>
-        /// <param name="y">The Y coordinate of the rectangle starting point..</param>
-        /// <param name="width">The rectangle width..</param>
-        /// <param name="height">The rectangle height..</param>
+        /// <param name="tmpFile">The picture to cut the logo out of, named by the path that &#x60;POST api/2.0/files/logos&#x60; returned for it. The  path may be used once and only by the account that uploaded it. (required).</param>
+        /// <param name="x">The left edge of the rectangle cut out of the uploaded picture, counted in pixels from its left side. The  picture itself was already scaled down to fit 1280 by 1280 pixels when it was uploaded..</param>
+        /// <param name="y">The top edge of the rectangle cut out of the uploaded picture, counted in pixels from its top..</param>
+        /// <param name="width">How wide a piece of the uploaded picture to cut out, in pixels. It has to be sent together with the height,  and the portal builds the four logo sizes out of the piece..</param>
+        /// <param name="height">How tall a piece of the uploaded picture to cut out, in pixels. It has to be sent together with the width..</param>
         public LogoRequest(string tmpFile = default, int x = default, int y = default, int width = default, int height = default)
         {
             // to ensure "tmpFile" is required (not null)
@@ -66,37 +66,37 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The path to the temporary image file.
+        /// The picture to cut the logo out of, named by the path that &#x60;POST api/2.0/files/logos&#x60; returned for it. The  path may be used once and only by the account that uploaded it.
         /// </summary>
-        /// <example>/tmp/logo.png</example>
+        /// <example>/temp/logo_a1b2c3.png</example>
         [DataMember(Name = "tmpFile", IsRequired = true, EmitDefaultValue = true)]
         public string TmpFile { get; set; }
 
         /// <summary>
-        /// The X coordinate of the rectangle starting point.
+        /// The left edge of the rectangle cut out of the uploaded picture, counted in pixels from its left side. The  picture itself was already scaled down to fit 1280 by 1280 pixels when it was uploaded.
         /// </summary>
         /// <example>0</example>
         [DataMember(Name = "x", EmitDefaultValue = false)]
         public int X { get; set; }
 
         /// <summary>
-        /// The Y coordinate of the rectangle starting point.
+        /// The top edge of the rectangle cut out of the uploaded picture, counted in pixels from its top.
         /// </summary>
         /// <example>0</example>
         [DataMember(Name = "y", EmitDefaultValue = false)]
         public int Y { get; set; }
 
         /// <summary>
-        /// The rectangle width.
+        /// How wide a piece of the uploaded picture to cut out, in pixels. It has to be sent together with the height,  and the portal builds the four logo sizes out of the piece.
         /// </summary>
-        /// <example>100</example>
+        /// <example>300</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
         /// <summary>
-        /// The rectangle height.
+        /// How tall a piece of the uploaded picture to cut out, in pixels. It has to be sent together with the width.
         /// </summary>
-        /// <example>100</example>
+        /// <example>300</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 

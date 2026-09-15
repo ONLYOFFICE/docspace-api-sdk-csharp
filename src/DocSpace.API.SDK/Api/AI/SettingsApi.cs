@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
@@ -97,10 +97,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>AiAiUserSettingsWrapper</returns>
         AiAiUserSettingsWrapper AiSettingsSetUser(Dictionary<string, Object> requestBody);
@@ -109,10 +109,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>ApiResponse of AiAiUserSettingsWrapper</returns>
         ApiResponse<AiAiUserSettingsWrapper> AiSettingsSetUserWithHttpInfo(Dictionary<string, Object> requestBody);
@@ -120,10 +120,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>AiVectorizationSettingsWrapper</returns>
         AiVectorizationSettingsWrapper AiSettingsSetVectorization(Dictionary<string, Object> requestBody);
@@ -132,10 +132,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>ApiResponse of AiVectorizationSettingsWrapper</returns>
         ApiResponse<AiVectorizationSettingsWrapper> AiSettingsSetVectorizationWithHttpInfo(Dictionary<string, Object> requestBody);
@@ -152,7 +152,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -164,7 +164,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -175,7 +175,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -187,7 +187,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -198,7 +198,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -210,7 +210,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -221,10 +221,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of AiAiUserSettingsWrapper</returns>
@@ -234,10 +234,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of ApiResponse (AiAiUserSettingsWrapper)</returns>
@@ -246,10 +246,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>Task of AiVectorizationSettingsWrapper</returns>
@@ -259,10 +259,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>Task of ApiResponse (AiVectorizationSettingsWrapper)</returns>
@@ -486,7 +486,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
@@ -501,7 +501,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get/">REST API Reference for AiSettingsGet Operation</seealso>
@@ -542,7 +542,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -558,7 +558,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// Reports the portal's combined AI configuration and readiness.
+        /// Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -602,7 +602,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
@@ -617,7 +617,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-user/">REST API Reference for AiSettingsGetUser Operation</seealso>
@@ -658,7 +658,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -674,7 +674,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user AI settings
         /// </summary>
         /// <remarks>
-        /// Returns the current user's AI settings.
+        /// Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -718,7 +718,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
@@ -733,7 +733,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-vectorization/">REST API Reference for AiSettingsGetVectorization Operation</seealso>
@@ -774,7 +774,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -790,7 +790,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's vectorization settings.
+        /// Returns the portal's vectorization settings - the embedding provider and the options used when portal content is indexed for retrieval. It takes no parameters and is proxied unchanged to the DocSpace AI service. Vectorization is a portal-wide setting, so there is no room-scoped form of it. Change it with `PUT api/2.0/ai/config/vectorization`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -834,10 +834,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>AiAiUserSettingsWrapper</returns>
         public AiAiUserSettingsWrapper AiSettingsSetUser(Dictionary<string, Object> requestBody)
@@ -850,10 +850,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>ApiResponse of AiAiUserSettingsWrapper</returns>
         public ApiResponse<AiAiUserSettingsWrapper> AiSettingsSetUserWithHttpInfo(Dictionary<string, Object> requestBody)
@@ -897,10 +897,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of AiAiUserSettingsWrapper</returns>
@@ -914,10 +914,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Updates the current user's AI settings.
+        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of ApiResponse (AiAiUserSettingsWrapper)</returns>
@@ -964,10 +964,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>AiVectorizationSettingsWrapper</returns>
         public AiVectorizationSettingsWrapper AiSettingsSetVectorization(Dictionary<string, Object> requestBody)
@@ -980,10 +980,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>ApiResponse of AiVectorizationSettingsWrapper</returns>
         public ApiResponse<AiVectorizationSettingsWrapper> AiSettingsSetVectorizationWithHttpInfo(Dictionary<string, Object> requestBody)
@@ -1027,10 +1027,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>Task of AiVectorizationSettingsWrapper</returns>
@@ -1044,10 +1044,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// Updates the portal's vectorization settings.
+        /// Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-vectorization/">REST API Reference for AiSettingsSetVectorization Operation</seealso>
         /// <returns>Task of ApiResponse (AiVectorizationSettingsWrapper)</returns>

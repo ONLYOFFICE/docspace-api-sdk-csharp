@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// A dictionary representing the sharing settings for the file entry.
+    /// How many links of each kind currently exist for the entry, counted separately for the primary link and the  additional ones. Kinds with no links are left out, and the whole field is null when the caller may not change  the access or no link exists at all.
     /// </summary>
     [DataContract(Name = "FileEntryDtoInteger_allOf_shareSettings")]
     public partial class FileEntryDtoIntegerAllOfShareSettings : IValidatableObject

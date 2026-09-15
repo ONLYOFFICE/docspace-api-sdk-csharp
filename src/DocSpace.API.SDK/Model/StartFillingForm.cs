@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters of the button that starts filling out the form.
+    /// The button the editor shows to begin filling out a form.
     /// </summary>
     [DataContract(Name = "StartFillingForm")]
     public partial class StartFillingForm : IValidatableObject
@@ -41,16 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StartFillingForm" /> class.
         /// </summary>
-        /// <param name="text">The caption of the button that starts filling out the form..</param>
+        /// <param name="text">The caption to put on the button, already translated into the language of the caller..</param>
         public StartFillingForm(string text = default)
         {
             this.Text = text;
         }
 
         /// <summary>
-        /// The caption of the button that starts filling out the form.
+        /// The caption to put on the button, already translated into the language of the caller.
         /// </summary>
-        /// <example>Start Filling</example>
+        /// <example>Start filling</example>
         [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 

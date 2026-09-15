@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The setup TFA code parameters.
+    /// The secret to enrol in an authenticator application, in both of the forms an application can take it.
     /// </summary>
     [DataContract(Name = "TfaSetupCodeDto")]
     public partial class TfaSetupCodeDto : IValidatableObject
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The account for which the setup code is generated.
+        /// The label the authenticator application will list the credential under, which is the caller&#39;s own email  address. It identifies the entry to a person, and no application checks it.
         /// </summary>
         /// <example>john.doe@onlyoffice.com</example>
         [DataMember(Name = "account", EmitDefaultValue = true)]
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The manual entry key.
+        /// The secret in the base32 form that is typed into an application by hand. It describes the very same  credential as &#x60;qrCodeSetupImageUrl&#x60;, and repeating the call hands back the same value for the account until  the credential is reset.
         /// </summary>
         /// <example>JBSWY3DPEHPK3PXP</example>
         [DataMember(Name = "manualEntryKey", EmitDefaultValue = true)]
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The QR-code setup image URL (base64-encoded PNG image).
+        /// The same secret as a scannable image, given as a &#x60;data:image/png;base64,&#x60; URL that can be rendered  directly - it is not a link to fetch.
         /// </summary>
         /// <example>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVR4nGMAAgAABAABiCEmiQAAAABJRU5ErkJggg==</example>
         [DataMember(Name = "qrCodeSetupImageUrl", EmitDefaultValue = true)]

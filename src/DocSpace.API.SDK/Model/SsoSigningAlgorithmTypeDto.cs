@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The RSA-SHA1 signing algorithm.
+        /// The RSA-SHA1 signing algorithm, which the built-in configuration uses. SHA-1 is the weakest of the three  and some identity providers no longer accept it.
         /// </summary>
         /// <example>http://www.w3.org/2000/09/xmldsig#rsa-sha1</example>
         [DataMember(Name = "rsaSha1", EmitDefaultValue = true)]

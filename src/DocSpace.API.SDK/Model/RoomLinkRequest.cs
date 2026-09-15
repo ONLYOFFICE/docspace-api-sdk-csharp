@@ -32,20 +32,20 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room link parameters.
+    /// The link of a room to create, change or revoke.
     /// </summary>
     [DataContract(Name = "RoomLinkRequest")]
     public partial class RoomLinkRequest : IValidatableObject
     {
 
         /// <summary>
-        /// The link sharing rights.
+        /// What whoever opens the link may do in the room. The value 0 revokes the link instead of changing it, and the  levels a room accepts depend on its kind.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
 
         /// <summary>
-        /// The link type.
+        /// Which kind of link to create: an invitation link makes whoever opens it a member of the room, while an  external link opens the room without an account. It is fixed when the link is created and is ignored on later  changes.
         /// </summary>
         [DataMember(Name = "linkType", EmitDefaultValue = false)]
         public LinkType? LinkType { get; set; }
@@ -53,16 +53,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomLinkRequest" /> class.
         /// </summary>
-        /// <param name="linkId">The room link ID..</param>
-        /// <param name="access">The link sharing rights..</param>
-        /// <param name="expirationDate">The link expiration date..</param>
-        /// <param name="internal">The link scope, whether it is internal or not..</param>
-        /// <param name="title">The link name..</param>
-        /// <param name="linkType">The link type..</param>
-        /// <param name="password">The link password..</param>
-        /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
-        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
-        /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
+        /// <param name="linkId">Which link to change, taken from &#x60;GET api/2.0/files/rooms/{id}/links&#x60;. Leaving it out creates a link, and an  identifier the room does not know creates a link carrying that identifier..</param>
+        /// <param name="access">What whoever opens the link may do in the room. The value 0 revokes the link instead of changing it, and the  levels a room accepts depend on its kind..</param>
+        /// <param name="expirationDate">When the link stops working, written with the offset of the portal time zone. A date already past is dropped  silently for an external link and refused for an invitation link, and a date further ahead than the portal  allows is refused as well; leaving it out means the link does not expire..</param>
+        /// <param name="internal">Whether the external link works only for people already signed in to the portal. With it off the link opens  the room for anyone who has the address, subject to the password..</param>
+        /// <param name="title">The name the link is shown under in the room. An empty value is accepted and the portal names the link itself,  so the answer is what tells the caller the name in use..</param>
+        /// <param name="linkType">Which kind of link to create: an invitation link makes whoever opens it a member of the room, while an  external link opens the room without an account. It is fixed when the link is created and is ignored on later  changes..</param>
+        /// <param name="password">The password an external link asks for before it opens the room. An empty value leaves the link open to anyone  who has the address, and the password is never returned when links are listed..</param>
+        /// <param name="denyDownload">Whether people arriving through the link are stopped from downloading and printing what they open. They can  still read the documents in the editor..</param>
+        /// <param name="maxUseCount">How many people an invitation link may still let in before it stops working. A value below the number of  people who already used it is refused, and leaving it out puts no ceiling on the link..</param>
+        /// <param name="currentUseCount">How many people have already joined through this invitation link. The value is kept by the portal: it is  reported back when links are listed and anything sent here is ignored..</param>
         public RoomLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default, int? maxUseCount = default, int currentUseCount = default)
         {
             this.LinkId = linkId;
@@ -78,55 +78,55 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The room link ID.
+        /// Which link to change, taken from &#x60;GET api/2.0/files/rooms/{id}/links&#x60;. Leaving it out creates a link, and an  identifier the room does not know creates a link carrying that identifier.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>b3f1c8de-5a64-4d1e-9f27-6c0a8d5b7e41</example>
         [DataMember(Name = "linkId", EmitDefaultValue = false)]
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// The link expiration date.
+        /// When the link stops working, written with the offset of the portal time zone. A date already past is dropped  silently for an external link and refused for an invitation link, and a date further ahead than the portal  allows is refused as well; leaving it out means the link does not expire.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
 
         /// <summary>
-        /// The link scope, whether it is internal or not.
+        /// Whether the external link works only for people already signed in to the portal. With it off the link opens  the room for anyone who has the address, subject to the password.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool Internal { get; set; }
 
         /// <summary>
-        /// The link name.
+        /// The name the link is shown under in the room. An empty value is accepted and the portal names the link itself,  so the answer is what tells the caller the name in use.
         /// </summary>
-        /// <example>My Document</example>
+        /// <example>Read-only access for auditors</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The link password.
+        /// The password an external link asks for before it opens the room. An empty value leaves the link open to anyone  who has the address, and the password is never returned when links are listed.
         /// </summary>
-        /// <example>doc_key_123</example>
+        /// <example>S3cret-Phrase</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// Specifies if downloading the file from the link is disabled or not.
+        /// Whether people arriving through the link are stopped from downloading and printing what they open. They can  still read the documents in the editor.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
-        /// The maximum number of times the invitation link can be used.
+        /// How many people an invitation link may still let in before it stops working. A value below the number of  people who already used it is refused, and leaving it out puts no ceiling on the link.
         /// </summary>
         /// <example>25</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 
         /// <summary>
-        /// The current number of times the invitation link has been used.
+        /// How many people have already joined through this invitation link. The value is kept by the portal: it is  reported back when links are listed and anything sent here is ignored.
         /// </summary>
         /// <example>0</example>
         [DataMember(Name = "currentUseCount", EmitDefaultValue = false)]

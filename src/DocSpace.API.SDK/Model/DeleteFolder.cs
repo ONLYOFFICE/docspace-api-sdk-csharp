@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for deleting a folder.
+    /// How a folder is to be deleted.
     /// </summary>
     [DataContract(Name = "DeleteFolder")]
     public partial class DeleteFolder : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteFolder" /> class.
         /// </summary>
-        /// <param name="deleteAfter">Specifies whether to delete a folder after the editing session is finished or not..</param>
-        /// <param name="immediately">Specifies whether to move a folder to the \\Trash\\ folder or delete it immediately..</param>
+        /// <param name="deleteAfter">Whether the deletion waits for the editing sessions on the contents to end: with true a folder somebody is  working in is removed once they are done, with false the deletion starts at once..</param>
+        /// <param name="immediately">Whether the folder is discarded for good instead of being moved to the Trash section: with false it can be  restored from Trash, with true it cannot be recovered. Inside a room there is no Trash and the deletion is  final either way..</param>
         public DeleteFolder(bool deleteAfter = default, bool immediately = default)
         {
             this.DeleteAfter = deleteAfter;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to delete a folder after the editing session is finished or not.
+        /// Whether the deletion waits for the editing sessions on the contents to end: with true a folder somebody is  working in is removed once they are done, with false the deletion starts at once.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
-        /// Specifies whether to move a folder to the \\Trash\\ folder or delete it immediately.
+        /// Whether the folder is discarded for good instead of being moved to the Trash section: with false it can be  restored from Trash, with true it cannot be recovered. Inside a room there is no Trash and the deletion is  final either way.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "immediately", EmitDefaultValue = true)]

@@ -33,7 +33,7 @@ using System.Reflection;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The unique identifier or reference key for the file to be downloaded.
+    /// The file to convert and pack, by id — a number for a file stored in the portal itself, a string for a file on  a connected third-party account.
     /// </summary>
     [JsonConverter(typeof(DownloadRequestItemDtoKeyJsonConverter))]
     [DataContract(Name = "DownloadRequestItemDto_key")]

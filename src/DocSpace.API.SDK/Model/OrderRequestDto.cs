@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for ordering requests.
+    /// The position an entry is to take inside its folder.
     /// </summary>
     [DataContract(Name = "OrderRequestDto")]
     public partial class OrderRequestDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderRequestDto" /> class.
         /// </summary>
-        /// <param name="order">The order value..</param>
+        /// <param name="order">The position the entry is to take, counting from 1. The entry that held it, and everything after it, is  shifted to make room. A dotted path such as 1.2.3 is accepted as well, of which only the last segment is  read..</param>
         public OrderRequestDto(int order = default)
         {
             this.Order = order;
         }
 
         /// <summary>
-        /// The order value.
+        /// The position the entry is to take, counting from 1. The entry that held it, and everything after it, is  shifted to make room. A dotted path such as 1.2.3 is accepted as well, of which only the last segment is  read.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "order", EmitDefaultValue = false)]

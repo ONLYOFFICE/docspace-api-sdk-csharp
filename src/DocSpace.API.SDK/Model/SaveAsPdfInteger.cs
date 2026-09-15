@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for saving a file as PDF.
+    /// The place and the name the PDF copy of a file is stored under.
     /// </summary>
     [DataContract(Name = "SaveAsPdfInteger")]
     public partial class SaveAsPdfInteger : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SaveAsPdfInteger" /> class.
         /// </summary>
-        /// <param name="folderId">The folder ID to save the file as PDF. (required).</param>
-        /// <param name="title">The file title to save as PDF. (required).</param>
+        /// <param name="folderId">The folder the PDF is created in; the caller has to be allowed to create files there. (required).</param>
+        /// <param name="title">The name of the PDF, without an extension - &#x60;.pdf&#x60; is appended. Left empty, the name of the source file is  reused with its extension replaced. (required).</param>
         public SaveAsPdfInteger(int folderId = default, string title = default)
         {
             this.FolderId = folderId;
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The folder ID to save the file as PDF.
+        /// The folder the PDF is created in; the caller has to be allowed to create files there.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "folderId", IsRequired = true, EmitDefaultValue = true)]
         public int FolderId { get; set; }
 
         /// <summary>
-        /// The file title to save as PDF.
+        /// The name of the PDF, without an extension - &#x60;.pdf&#x60; is appended. Left empty, the name of the source file is  reused with its extension replaced.
         /// </summary>
         /// <example>My Document</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]

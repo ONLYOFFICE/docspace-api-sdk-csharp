@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The logo config parameters.
+    /// The logo the editor shows, resolved for the file type and the layout of this opening.
     /// </summary>
     [DataContract(Name = "LogoConfigDto")]
     public partial class LogoConfigDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LogoConfigDto" /> class.
         /// </summary>
-        /// <param name="image">The image of the logo..</param>
-        /// <param name="imageDark">The dark image of the logo..</param>
-        /// <param name="imageLight">The light image of the logo..</param>
-        /// <param name="imageEmbedded">The embedded image of the logo..</param>
-        /// <param name="url">The url link of the logo..</param>
-        /// <param name="visible">Specifies if the logo is visible..</param>
+        /// <param name="image">The logo for the current layout and file type, as the portal branding defines it..</param>
+        /// <param name="imageDark">The variant for a dark interface theme..</param>
+        /// <param name="imageLight">The variant for a light interface theme..</param>
+        /// <param name="imageEmbedded">The variant for the framed viewer. It is empty in every layout but the embedded one..</param>
+        /// <param name="url">Where clicking the logo takes the user..</param>
+        /// <param name="visible">Whether the logo is shown at all; the mobile layout hides it..</param>
         public LogoConfigDto(string image = default, string imageDark = default, string imageLight = default, string imageEmbedded = default, string url = default, bool visible = default)
         {
             this.Image = image;
@@ -58,42 +58,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The image of the logo.
+        /// The logo for the current layout and file type, as the portal branding defines it.
         /// </summary>
-        /// <example>http://localhost/logo.png</example>
+        /// <example>https://portal.example.com/logo/editor.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
-        /// The dark image of the logo.
+        /// The variant for a dark interface theme.
         /// </summary>
-        /// <example>http://localhost/logo-dark.png</example>
+        /// <example>https://portal.example.com/logo/editor-dark.png</example>
         [DataMember(Name = "imageDark", EmitDefaultValue = true)]
         public string ImageDark { get; set; }
 
         /// <summary>
-        /// The light image of the logo.
+        /// The variant for a light interface theme.
         /// </summary>
-        /// <example>http://localhost/logo-light.png</example>
+        /// <example>https://portal.example.com/logo/editor-light.png</example>
         [DataMember(Name = "imageLight", EmitDefaultValue = true)]
         public string ImageLight { get; set; }
 
         /// <summary>
-        /// The embedded image of the logo.
+        /// The variant for the framed viewer. It is empty in every layout but the embedded one.
         /// </summary>
-        /// <example>http://localhost/logo-embedded.png</example>
+        /// <example>https://portal.example.com/logo/editor-embedded.png</example>
         [DataMember(Name = "imageEmbedded", EmitDefaultValue = true)]
         public string ImageEmbedded { get; set; }
 
         /// <summary>
-        /// The url link of the logo.
+        /// Where clicking the logo takes the user.
         /// </summary>
-        /// <example>http://localhost</example>
+        /// <example>https://portal.example.com</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// Specifies if the logo is visible.
+        /// Whether the logo is shown at all; the mobile layout hides it.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "visible", EmitDefaultValue = true)]

@@ -4,14 +4,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AiEditorToolsCall**](#aieditortoolscall) | **POST** /api/2.0/ai/editor-tools/call | Execute a DocSpace tool on behalf of the editor AI plugin |
-| [**AiEditorToolsList**](#aieditortoolslist) | **GET** /api/2.0/ai/editor-tools/list | Sanitized DocSpace tool catalog for the editor AI plugin |
+| [**AiEditorToolsCall**](#aieditortoolscall) | **POST** /api/2.0/ai/editor-tools/call | Call an editor tool |
+| [**AiEditorToolsList**](#aieditortoolslist) | **GET** /api/2.0/ai/editor-tools/list | List editor tools |
 
 <a id="aieditortoolscall"></a>
 # **AiEditorToolsCall**
-> AiSuccessResponse AiEditorToolsCall (Dictionary<string, Object> requestBody)
+> AiEditorToolsCall200Response AiEditorToolsCall (AiEditorToolsCallRequest aiEditorToolsCallRequest)
 
-Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/).
 
@@ -19,11 +19,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
+| **aiEditorToolsCallRequest** | [**AiEditorToolsCallRequest**](AiEditorToolsCallRequest.md) | The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in. |  |
 
 ### Return type
 
-[**AiSuccessResponse**](AiSuccessResponse.md)
+[**AiEditorToolsCall200Response**](AiEditorToolsCall200Response.md)
 
 ### Authorization
 
@@ -50,12 +50,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new EditorToolsApi(httpClient, config, httpClientHandler);
-            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
+            var aiEditorToolsCallRequest = new AiEditorToolsCallRequest(); // AiEditorToolsCallRequest | The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.
 
             try
             {
-                // Execute a DocSpace tool on behalf of the editor AI plugin
-                AiSuccessResponse result = apiInstance.AiEditorToolsCall(requestBody);
+                // Call an editor tool
+                AiEditorToolsCall200Response result = apiInstance.AiEditorToolsCall(aiEditorToolsCallRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -75,8 +75,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Execute a DocSpace tool on behalf of the editor AI plugin
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiEditorToolsCallWithHttpInfo(requestBody);
+    // Call an editor tool
+    ApiResponse<AiEditorToolsCall200Response> response = apiInstance.AiEditorToolsCallWithHttpInfo(aiEditorToolsCallRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -98,16 +98,20 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The tool's output as a string. A tool that failed reports it inside that string. |  -  |
+| **400** | The tool name is not one this portal exposes. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aieditortoolslist"></a>
 # **AiEditorToolsList**
-> AiSuccessResponse AiEditorToolsList ()
+> AiEditorToolsList200Response AiEditorToolsList ()
 
-Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/).
 
@@ -115,7 +119,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiSuccessResponse**](AiSuccessResponse.md)
+[**AiEditorToolsList200Response**](AiEditorToolsList200Response.md)
 
 ### Authorization
 
@@ -145,8 +149,8 @@ namespace Example
 
             try
             {
-                // Sanitized DocSpace tool catalog for the editor AI plugin
-                AiSuccessResponse result = apiInstance.AiEditorToolsList();
+                // List editor tools
+                AiEditorToolsList200Response result = apiInstance.AiEditorToolsList();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -166,8 +170,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Sanitized DocSpace tool catalog for the editor AI plugin
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiEditorToolsListWithHttpInfo();
+    // List editor tools
+    ApiResponse<AiEditorToolsList200Response> response = apiInstance.AiEditorToolsListWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -189,8 +193,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success. |  -  |
+| **200** | The tools the editor plugin may offer the model, four fields each. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

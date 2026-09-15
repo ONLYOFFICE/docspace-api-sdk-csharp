@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The thumbnail request.
+    /// The crop rectangle to apply to an avatar image.
     /// </summary>
     [DataContract(Name = "ThumbnailsRequest")]
     public partial class ThumbnailsRequest : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThumbnailsRequest" /> class.
         /// </summary>
-        /// <param name="tmpFile">The path to the temporary thumbnail file..</param>
-        /// <param name="x">The thumbnail horizontal coordinate..</param>
-        /// <param name="y">The thumbnail vertical coordinate..</param>
-        /// <param name="width">The thumbnail width..</param>
-        /// <param name="height">The thumbnail height..</param>
+        /// <param name="tmpFile">The temporary image to crop, as returned in the &#x60;data&#x60; of an upload made with &#x60;autosave&#x60; off. Only the file  name part of the value is used. Omit it to re-crop the photo the profile already has..</param>
+        /// <param name="x">The distance in pixels from the left edge of the original image to the left edge of the crop rectangle..</param>
+        /// <param name="y">The distance in pixels from the top edge of the original image to the top edge of the crop rectangle..</param>
+        /// <param name="width">The width of the crop rectangle in pixels. Passing 0 together with &#x60;height&#x60; and &#x60;tmpFile&#x60; keeps the whole  uploaded image instead of cropping it..</param>
+        /// <param name="height">The height of the crop rectangle in pixels. Passing 0 together with &#x60;width&#x60; and &#x60;tmpFile&#x60; keeps the whole  uploaded image instead of cropping it..</param>
         public ThumbnailsRequest(string tmpFile = default, int x = default, int y = default, int width = default, int height = default)
         {
             this.TmpFile = tmpFile;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The path to the temporary thumbnail file.
+        /// The temporary image to crop, as returned in the &#x60;data&#x60; of an upload made with &#x60;autosave&#x60; off. Only the file  name part of the value is used. Omit it to re-crop the photo the profile already has.
         /// </summary>
-        /// <example>/tmp/photo_temp_123.jpg</example>
+        /// <example>photo_temp_123.jpg</example>
         [DataMember(Name = "tmpFile", EmitDefaultValue = true)]
         public string TmpFile { get; set; }
 
         /// <summary>
-        /// The thumbnail horizontal coordinate.
+        /// The distance in pixels from the left edge of the original image to the left edge of the crop rectangle.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "x", EmitDefaultValue = false)]
         public int X { get; set; }
 
         /// <summary>
-        /// The thumbnail vertical coordinate.
+        /// The distance in pixels from the top edge of the original image to the top edge of the crop rectangle.
         /// </summary>
         /// <example>50</example>
         [DataMember(Name = "y", EmitDefaultValue = false)]
         public int Y { get; set; }
 
         /// <summary>
-        /// The thumbnail width.
+        /// The width of the crop rectangle in pixels. Passing 0 together with &#x60;height&#x60; and &#x60;tmpFile&#x60; keeps the whole  uploaded image instead of cropping it.
         /// </summary>
         /// <example>200</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
         /// <summary>
-        /// The thumbnail height.
+        /// The height of the crop rectangle in pixels. Passing 0 together with &#x60;width&#x60; and &#x60;tmpFile&#x60; keeps the whole  uploaded image instead of cropping it.
         /// </summary>
         /// <example>200</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]

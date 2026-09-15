@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for copying/moving files.
+    /// The files and folders to move or copy, the folder they go to, and the way name clashes are settled.
     /// </summary>
     [DataContract(Name = "BatchRequestDto")]
     public partial class BatchRequestDto : FileOperationRequestBaseDto, IValidatableObject
     {
 
         /// <summary>
-        /// The overwriting behavior of the file copying or moving.
+        /// What happens to an item whose name is already taken in the destination folder: &#x60;skip&#x60; leaves it where it is,  &#x60;overwrite&#x60; replaces the entry at the destination, and &#x60;duplicate&#x60; places it beside that entry under a name  with a numeric suffix. &#x60;GET api/2.0/files/fileops/move&#x60; reports which items would clash.
         /// </summary>
         [DataMember(Name = "conflictResolveType", EmitDefaultValue = false)]
         public FileConflictResolveType? ConflictResolveType { get; set; }
@@ -47,13 +47,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchRequestDto" /> class.
         /// </summary>
-        /// <param name="folderIds">The list of folder IDs to be copied/moved..</param>
-        /// <param name="fileIds">The list of file IDs to be copied/moved..</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list..</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list..</param>
         /// <param name="destFolderId">destFolderId.</param>
-        /// <param name="conflictResolveType">The overwriting behavior of the file copying or moving..</param>
-        /// <param name="deleteAfter">Specifies whether to delete the source files/folders after they are moved or copied to the destination folder..</param>
-        /// <param name="content">Specifies whether to copy or move the folder content or not..</param>
-        /// <param name="toFillOut">Specifies whether the file is copied for filling out.</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: &#x60;skip&#x60; leaves it where it is,  &#x60;overwrite&#x60; replaces the entry at the destination, and &#x60;duplicate&#x60; places it beside that entry under a name  with a numeric suffix. &#x60;GET api/2.0/files/fileops/move&#x60; reports which items would clash..</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: &#x60;false&#x60; keeps its final record readable through  &#x60;GET api/2.0/files/fileops&#x60; until it has been read once, &#x60;true&#x60; drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them..</param>
+        /// <param name="content">What is taken from a listed folder: &#x60;false&#x60; moves or copies the folder itself, &#x60;true&#x60; takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there..</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected..</param>
         public BatchRequestDto(List<BatchRequestDtoAllOfFolderIds> folderIds = default, List<BatchRequestDtoAllOfFileIds> fileIds = default, BatchRequestDtoAllOfDestFolderId destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool deleteAfter = default, bool content = default, bool toFillOut = default)
         {
             this.FolderIds = folderIds;
@@ -66,14 +66,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of folder IDs to be copied/moved.
+        /// The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<BatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
-        /// The list of file IDs to be copied/moved.
+        /// The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
@@ -86,21 +86,21 @@ namespace DocSpace.API.SDK.Model
         public BatchRequestDtoAllOfDestFolderId DestFolderId { get; set; }
 
         /// <summary>
-        /// Specifies whether to delete the source files/folders after they are moved or copied to the destination folder.
+        /// Whether the finished operation is still reported: &#x60;false&#x60; keeps its final record readable through  &#x60;GET api/2.0/files/fileops&#x60; until it has been read once, &#x60;true&#x60; drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
-        /// Specifies whether to copy or move the folder content or not.
+        /// What is taken from a listed folder: &#x60;false&#x60; moves or copies the folder itself, &#x60;true&#x60; takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public bool Content { get; set; }
 
         /// <summary>
-        /// Specifies whether the file is copied for filling out
+        /// Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "toFillOut", EmitDefaultValue = true)]

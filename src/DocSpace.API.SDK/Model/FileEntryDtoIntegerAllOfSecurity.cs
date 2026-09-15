@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The actions that can be performed with the file entry.
+    /// What the calling account may do with this entry, one flag per action, and the cheapest way to decide which  operations to offer without trying them. The flags already take the room&#39;s settings and the account&#39;s role  into account.
     /// </summary>
     [DataContract(Name = "FileEntryDtoInteger_allOf_security")]
     public partial class FileEntryDtoIntegerAllOfSecurity : IValidatableObject

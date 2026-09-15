@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for changing the file owner.
+    /// The rooms and files to hand over, together with the account that takes them.
     /// </summary>
     [DataContract(Name = "ChangeOwnerRequestDto")]
     public partial class ChangeOwnerRequestDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeOwnerRequestDto" /> class.
         /// </summary>
-        /// <param name="folderIds">The list of folder IDs to change the owner..</param>
-        /// <param name="fileIds">The list of file IDs to change the owner..</param>
-        /// <param name="userId">The new file owner ID. (required).</param>
+        /// <param name="folderIds">The rooms to hand over, identified as &#x60;GET api/2.0/files/rooms&#x60; returns them - a number for a room stored on  the portal and a string for one that lives on a connected third-party account. Only rooms belong here; a  folder inside a room is refused..</param>
+        /// <param name="fileIds">The files to hand over, identified as a listing operation returns them - a number for a file stored on the  portal and a string for one on a connected third-party account. Only a file kept in the portal&#39;s common  section is accepted..</param>
+        /// <param name="userId">The account that becomes the owner of every listed entry. It has to be an active member allowed to manage  rooms, so a deactivated account, a guest or a plain member is rejected, and for a private room the account  must have set up its encryption keys beforehand. (required).</param>
         public ChangeOwnerRequestDto(List<BatchRequestDtoAllOfFileIds> folderIds = default, List<BatchRequestDtoAllOfFileIds> fileIds = default, Guid userId = default)
         {
             this.UserId = userId;
@@ -57,23 +57,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of folder IDs to change the owner.
+        /// The rooms to hand over, identified as &#x60;GET api/2.0/files/rooms&#x60; returns them - a number for a room stored on  the portal and a string for one that lives on a connected third-party account. Only rooms belong here; a  folder inside a room is refused.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<BatchRequestDtoAllOfFileIds> FolderIds { get; set; }
 
         /// <summary>
-        /// The list of file IDs to change the owner.
+        /// The files to hand over, identified as a listing operation returns them - a number for a file stored on the  portal and a string for one on a connected third-party account. Only a file kept in the portal&#39;s common  section is accepted.
         /// </summary>
-        /// <example>[1,2,3]</example>
+        /// <example>[7,8]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
-        /// The new file owner ID.
+        /// The account that becomes the owner of every listed entry. It has to be an active member allowed to manage  rooms, so a deactivated account, a guest or a plain member is rejected, and for a private room the account  must have set up its encryption keys beforehand.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>9924256a-739c-462b-af15-e652a3b1b6eb</example>
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public Guid UserId { get; set; }
 

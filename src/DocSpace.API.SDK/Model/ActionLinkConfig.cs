@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The config parameter which contains the information about the action in the document that will be scrolled to.
+    /// The place inside a document that a link should open at.
     /// </summary>
     [DataContract(Name = "ActionLinkConfig")]
     public partial class ActionLinkConfig : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionLinkConfig" /> class.
         /// </summary>
-        /// <param name="action">The information about the action in the document that will be scrolled to..</param>
+        /// <param name="action">The anchor itself. It is passed on to the editor unchanged, so it has to be the value the editor produced for  the comment or the mention it points at..</param>
         public ActionLinkConfig(ActionConfig action = default)
         {
             this.Action = action;
         }
 
         /// <summary>
-        /// The information about the action in the document that will be scrolled to.
+        /// The anchor itself. It is passed on to the editor unchanged, so it has to be the value the editor produced for  the comment or the mention it points at.
         /// </summary>
         [DataMember(Name = "action", EmitDefaultValue = false)]
         public ActionConfig Action { get; set; }

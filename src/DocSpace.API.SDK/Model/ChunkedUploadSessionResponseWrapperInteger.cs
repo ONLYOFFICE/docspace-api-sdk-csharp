@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents a wrapper for the response of a chunked upload session operation.
+    /// The reserved chunked upload wrapped in the envelope the two older session operations answer with.
     /// </summary>
     [DataContract(Name = "ChunkedUploadSessionResponseWrapperInteger")]
     public partial class ChunkedUploadSessionResponseWrapperInteger : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChunkedUploadSessionResponseWrapperInteger" /> class.
         /// </summary>
-        /// <param name="success">Gets or sets a value indicating whether the operation was successful..</param>
-        /// <param name="data">Gets or sets the data of the chunked upload session response..</param>
+        /// <param name="success">Always true in a body that reaches the caller, because a call that does not succeed answers with an error  status and no body at all. It cannot be used to tell a refusal from a success..</param>
+        /// <param name="data">The reserved upload itself, in the same shape the newer session operations answer with directly..</param>
         public ChunkedUploadSessionResponseWrapperInteger(bool success = default, ChunkedUploadSessionResponseInteger data = default)
         {
             this.Success = success;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the operation was successful.
+        /// Always true in a body that reaches the caller, because a call that does not succeed answers with an error  status and no body at all. It cannot be used to tell a refusal from a success.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or sets the data of the chunked upload session response.
+        /// The reserved upload itself, in the same shape the newer session operations answer with directly.
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public ChunkedUploadSessionResponseInteger Data { get; set; }

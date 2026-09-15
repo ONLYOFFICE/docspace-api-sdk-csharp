@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring login security and performance settings.
+    /// The brute-force protection of the sign-in form: how many failures, over how long, cost how long a block.
     /// </summary>
     [DataContract(Name = "LoginSettingsRequestDto")]
     public partial class LoginSettingsRequestDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="attemptCount">The maximum number of consecutive failed login attempts allowed before triggering account suspension..</param>
-        /// <param name="blockTime">The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts..</param>
-        /// <param name="checkPeriod">The maximum time (in seconds) allowed for server to process and respond to login requests..</param>
+        /// <param name="attemptCount">How many failed sign-in attempts inside one window are tolerated before the offender is blocked. Attempts are  counted per user name and client address together, so one member being blocked leaves the rest of the portal  signing in normally..</param>
+        /// <param name="blockTime">How long, in seconds, a blocked user name and address pair stays refused. While the block lasts the sign-in  is refused even when the password is finally correct..</param>
+        /// <param name="checkPeriod">The length, in seconds, of the rolling window the failed attempts are counted over. A wider window makes the  same &#x60;attemptCount&#x60; stricter, because failures further apart still add up..</param>
         public LoginSettingsRequestDto(int attemptCount = default, int blockTime = default, int checkPeriod = default)
         {
             this.AttemptCount = attemptCount;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The maximum number of consecutive failed login attempts allowed before triggering account suspension.
+        /// How many failed sign-in attempts inside one window are tolerated before the offender is blocked. Attempts are  counted per user name and client address together, so one member being blocked leaves the rest of the portal  signing in normally.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "attemptCount", EmitDefaultValue = false)]
         public int AttemptCount { get; set; }
 
         /// <summary>
-        /// The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.
+        /// How long, in seconds, a blocked user name and address pair stays refused. While the block lasts the sign-in  is refused even when the password is finally correct.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "blockTime", EmitDefaultValue = false)]
         public int BlockTime { get; set; }
 
         /// <summary>
-        /// The maximum time (in seconds) allowed for server to process and respond to login requests.
+        /// The length, in seconds, of the rolling window the failed attempts are counted over. A wider window makes the  same &#x60;attemptCount&#x60; stricter, because failures further apart still add up.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "checkPeriod", EmitDefaultValue = false)]

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The webhook log parameters.
+    /// One delivery attempt of a webhook: what was sent where, and what came back.
     /// </summary>
     [DataContract(Name = "WebhooksLogDto")]
     public partial class WebhooksLogDto : IValidatableObject
     {
 
         /// <summary>
-        /// The webhook trigger type.
+        /// The event that caused the attempt, as a single bit rather than a mask - a delivery is always for one  event, even though a subscription covers several.
         /// </summary>
         [DataMember(Name = "trigger", EmitDefaultValue = false)]
         public WebhookTrigger? Trigger { get; set; }
@@ -52,18 +52,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhooksLogDto" /> class.
         /// </summary>
-        /// <param name="id">The webhook log ID. (required).</param>
-        /// <param name="configName">The webhook configuration name..</param>
-        /// <param name="trigger">The webhook trigger type..</param>
-        /// <param name="creationTime">The webhook creation time..</param>
-        /// <param name="method">The webhook method..</param>
-        /// <param name="route">The webhook route..</param>
-        /// <param name="requestHeaders">The webhook request headers..</param>
-        /// <param name="requestPayload">The webhook request payload..</param>
-        /// <param name="responseHeaders">The webhook response headers..</param>
-        /// <param name="responsePayload">The webhook response payload..</param>
-        /// <param name="status">The webhook status..</param>
-        /// <param name="delivery">The webhook delivery time..</param>
+        /// <param name="id">The identifier of this attempt, which is what the &#x60;eventId&#x60; filter of  &#x60;GET api/2.0/settings/webhooks/log&#x60; picks one record by and what  &#x60;PUT api/2.0/settings/webhook/{id}/retry&#x60; re-sends. A retry produces a new record with a new identifier  and leaves this one as it is. (required).</param>
+        /// <param name="configName">The name of the subscription the attempt belongs to. It is the name as it stands now, so it follows a  later rename of the subscription rather than recording what it was called at the time..</param>
+        /// <param name="trigger">The event that caused the attempt, as a single bit rather than a mask - a delivery is always for one  event, even though a subscription covers several..</param>
+        /// <param name="creationTime">When the attempt was queued, as a UTC instant - unlike the dates of the subscription itself, which come  in the portal time zone. Records come back newest first by this moment..</param>
+        /// <param name="method">The HTTP method the delivery was sent with, which is &#x60;POST&#x60; for every webhook the portal sends..</param>
+        /// <param name="route">The address the delivery was sent to, which is the subscription&#39;s URL as it stood at the time - so an  older record can name an address the subscription no longer uses..</param>
+        /// <param name="requestHeaders">The headers the portal sent, serialised as one string, including the signature header a receiver verifies  the payload with..</param>
+        /// <param name="requestPayload">The body the portal sent, which is the event payload as JSON text. It is stored as it was sent, so it  still describes the entity as it looked at the time of the event..</param>
+        /// <param name="responseHeaders">The headers the target answered with, serialised the same way as &#x60;requestHeaders&#x60;. It is empty while the  attempt is still on its way and on an attempt that never reached the target..</param>
+        /// <param name="responsePayload">The body the target answered with, truncated for storage. Empty under the same conditions as  &#x60;responseHeaders&#x60;, and also for a target that answers with no body at all..</param>
+        /// <param name="status">The HTTP status code the target answered. It is &#x60;0&#x60; while the attempt is still on its way and on one that  never reached the target, so &#x60;0&#x60; is not a failure code - it is the absence of an answer..</param>
+        /// <param name="delivery">When the answer came back, as a UTC instant like &#x60;creationTime&#x60;. It is empty while the attempt is still on  its way, which together with &#x60;status&#x60; is how a pending record is told from a finished one..</param>
         public WebhooksLogDto(int id = default, string configName = default, WebhookTrigger? trigger = default, DateTime creationTime = default, string method = default, string route = default, string requestHeaders = default, string requestPayload = default, string responseHeaders = default, string responsePayload = default, int status = default, DateTime? delivery = default)
         {
             this.Id = id;
@@ -81,77 +81,77 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The webhook log ID.
+        /// The identifier of this attempt, which is what the &#x60;eventId&#x60; filter of  &#x60;GET api/2.0/settings/webhooks/log&#x60; picks one record by and what  &#x60;PUT api/2.0/settings/webhook/{id}/retry&#x60; re-sends. A retry produces a new record with a new identifier  and leaves this one as it is.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The webhook configuration name.
+        /// The name of the subscription the attempt belongs to. It is the name as it stands now, so it follows a  later rename of the subscription rather than recording what it was called at the time.
         /// </summary>
-        /// <example>Example Name</example>
+        /// <example>Room activity</example>
         [DataMember(Name = "configName", EmitDefaultValue = true)]
         public string ConfigName { get; set; }
 
         /// <summary>
-        /// The webhook creation time.
+        /// When the attempt was queued, as a UTC instant - unlike the dates of the subscription itself, which come  in the portal time zone. Records come back newest first by this moment.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "creationTime", EmitDefaultValue = false)]
         public DateTime CreationTime { get; set; }
 
         /// <summary>
-        /// The webhook method.
+        /// The HTTP method the delivery was sent with, which is &#x60;POST&#x60; for every webhook the portal sends.
         /// </summary>
-        /// <example>example value</example>
+        /// <example>POST</example>
         [DataMember(Name = "method", EmitDefaultValue = true)]
         public string Method { get; set; }
 
         /// <summary>
-        /// The webhook route.
+        /// The address the delivery was sent to, which is the subscription&#39;s URL as it stood at the time - so an  older record can name an address the subscription no longer uses.
         /// </summary>
-        /// <example>example value</example>
+        /// <example>https://example.com/hooks/docspace</example>
         [DataMember(Name = "route", EmitDefaultValue = true)]
         public string Route { get; set; }
 
         /// <summary>
-        /// The webhook request headers.
+        /// The headers the portal sent, serialised as one string, including the signature header a receiver verifies  the payload with.
         /// </summary>
-        /// <example>example value</example>
+        /// <example>{"x-docspace-signature":"9f86d081884c7d65"}</example>
         [DataMember(Name = "requestHeaders", EmitDefaultValue = true)]
         public string RequestHeaders { get; set; }
 
         /// <summary>
-        /// The webhook request payload.
+        /// The body the portal sent, which is the event payload as JSON text. It is stored as it was sent, so it  still describes the entity as it looked at the time of the event.
         /// </summary>
-        /// <example>example value</example>
+        /// <example>{"id":42,"title":"report.docx"}</example>
         [DataMember(Name = "requestPayload", EmitDefaultValue = true)]
         public string RequestPayload { get; set; }
 
         /// <summary>
-        /// The webhook response headers.
+        /// The headers the target answered with, serialised the same way as &#x60;requestHeaders&#x60;. It is empty while the  attempt is still on its way and on an attempt that never reached the target.
         /// </summary>
-        /// <example>example value</example>
+        /// <example>{"content-type":"application/json"}</example>
         [DataMember(Name = "responseHeaders", EmitDefaultValue = true)]
         public string ResponseHeaders { get; set; }
 
         /// <summary>
-        /// The webhook response payload.
+        /// The body the target answered with, truncated for storage. Empty under the same conditions as  &#x60;responseHeaders&#x60;, and also for a target that answers with no body at all.
         /// </summary>
-        /// <example>example value</example>
+        /// <example>{"ok":true}</example>
         [DataMember(Name = "responsePayload", EmitDefaultValue = true)]
         public string ResponsePayload { get; set; }
 
         /// <summary>
-        /// The webhook status.
+        /// The HTTP status code the target answered. It is &#x60;0&#x60; while the attempt is still on its way and on one that  never reached the target, so &#x60;0&#x60; is not a failure code - it is the absence of an answer.
         /// </summary>
-        /// <example>1</example>
+        /// <example>200</example>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
-        /// The webhook delivery time.
+        /// When the answer came back, as a UTC instant like &#x60;creationTime&#x60;. It is empty while the attempt is still on  its way, which together with &#x60;status&#x60; is how a pending record is told from a finished one.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "delivery", EmitDefaultValue = true)]

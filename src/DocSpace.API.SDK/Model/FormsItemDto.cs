@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The forms item information.
+    /// One field of a form, offered as a filter over the copies gathered in a form-filling room.
     /// </summary>
     [DataContract(Name = "FormsItemDto")]
     public partial class FormsItemDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormsItemDto" /> class.
         /// </summary>
-        /// <param name="key">The form item key.              &lt;example&gt;field_name&lt;/example&gt;.</param>
-        /// <param name="type">The form item type.              &lt;example&gt;text&lt;/example&gt;.</param>
+        /// <param name="key">The name of the field as it is written in the form; send it back as &#x60;formsItemKey&#x60; to keep only              the completed copies whose field of that name holds a value.              &lt;example&gt;first_name&lt;/example&gt;.</param>
+        /// <param name="type">The kind of value the field holds, a text box or a checkbox for instance; send it back as              &#x60;formsItemType&#x60; beside the key.              &lt;example&gt;text&lt;/example&gt;.</param>
         public FormsItemDto(string key = default, string type = default)
         {
             this.Key = key;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The form item key.              &lt;example&gt;field_name&lt;/example&gt;
+        /// The name of the field as it is written in the form; send it back as &#x60;formsItemKey&#x60; to keep only              the completed copies whose field of that name holds a value.              &lt;example&gt;first_name&lt;/example&gt;
         /// </summary>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The form item type.              &lt;example&gt;text&lt;/example&gt;
+        /// The kind of value the field holds, a text box or a checkbox for instance; send it back as              &#x60;formsItemType&#x60; beside the key.              &lt;example&gt;text&lt;/example&gt;
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }

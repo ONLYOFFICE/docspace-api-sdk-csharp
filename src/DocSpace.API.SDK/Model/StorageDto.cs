@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The storage information.
+    /// One third-party storage provider the portal data can be kept in, with the keys it expects.
     /// </summary>
     [DataContract(Name = "StorageDto")]
     public partial class StorageDto : IValidatableObject
@@ -46,11 +46,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageDto" /> class.
         /// </summary>
-        /// <param name="id">The storage ID. (required).</param>
-        /// <param name="title">The storage title. (required).</param>
-        /// <param name="properties">The list of storage authentication keys..</param>
-        /// <param name="current">Specifies if this is the current portal storage or not. (required).</param>
-        /// <param name="isSet">Specifies if this storage can be set or not. (required).</param>
+        /// <param name="id">The provider&#39;s key, which is what &#x60;PUT api/2.0/settings/storage&#x60; and its CDN and backup counterparts take  as the storage to switch to. The built-in local storage has no entry of its own: a listing in which  nothing is &#x60;current&#x60; means the data sits locally. (required).</param>
+        /// <param name="title">The provider name in the portal language, falling back to &#x60;id&#x60; when this build ships no wording for it. (required).</param>
+        /// <param name="properties">The settings the provider expects, each with its key, its localised label and the value the server  currently holds. For the entry marked &#x60;current&#x60; the values come from the portal&#39;s saved storage settings  and for the others from the installation configuration, so a setting nobody has configured comes back with  an empty value rather than being left out..</param>
+        /// <param name="current">Whether the portal is using this provider right now. At most one entry of a listing has it set. (required).</param>
+        /// <param name="isSet">Whether the provider&#39;s keys are already filled in on the server, so it could be switched to without  sending credentials. It says nothing about whether the credentials still work. (required).</param>
         public StorageDto(string id = default, string title = default, List<AuthKey> properties = default, bool current = default, bool isSet = default)
         {
             // to ensure "id" is required (not null)
@@ -71,35 +71,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The storage ID.
+        /// The provider&#39;s key, which is what &#x60;PUT api/2.0/settings/storage&#x60; and its CDN and backup counterparts take  as the storage to switch to. The built-in local storage has no entry of its own: a listing in which  nothing is &#x60;current&#x60; means the data sits locally.
         /// </summary>
-        /// <example>storage_001</example>
+        /// <example>s3</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The storage title.
+        /// The provider name in the portal language, falling back to &#x60;id&#x60; when this build ships no wording for it.
         /// </summary>
-        /// <example>Main Storage</example>
+        /// <example>Amazon AWS S3</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The list of storage authentication keys.
+        /// The settings the provider expects, each with its key, its localised label and the value the server  currently holds. For the entry marked &#x60;current&#x60; the values come from the portal&#39;s saved storage settings  and for the others from the installation configuration, so a setting nobody has configured comes back with  an empty value rather than being left out.
         /// </summary>
-        /// <example>[{"name":"ApiKey","value":"12345"}]</example>
+        /// <example>[{"name":"acesskey","value":"AKIAIOSFODNN7EXAMPLE","title":"Access key"}]</example>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public List<AuthKey> Properties { get; set; }
 
         /// <summary>
-        /// Specifies if this is the current portal storage or not.
+        /// Whether the portal is using this provider right now. At most one entry of a listing has it set.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
         public bool Current { get; set; }
 
         /// <summary>
-        /// Specifies if this storage can be set or not.
+        /// Whether the provider&#39;s keys are already filled in on the server, so it could be switched to without  sending credentials. It says nothing about whether the credentials still work.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isSet", IsRequired = true, EmitDefaultValue = true)]

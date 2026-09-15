@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The Access Control external sharing settings request parameters.
+    /// The complete external sharing policy of the portal. Every field is written, so an omitted one is stored as  false.
     /// </summary>
     [DataContract(Name = "ExternalSharingSettingsRequestDto")]
     public partial class ExternalSharingSettingsRequestDto : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalSharingSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="externalShare">Specifies whether external (public) link creation is allowed..</param>
-        /// <param name="defaultShareLinkInternal">Specifies the default sharing link type: true &#x3D; DocSpace users only, false &#x3D; Anyone with the link.  Relevant only when ExternalShare is true..</param>
-        /// <param name="externalShareApplyToDocuments">When external sharing is restricted, specifies whether to apply the restriction to the My Documents section.  Relevant only when ExternalShare is false..</param>
-        /// <param name="externalShareApplyToRooms">When external sharing is restricted, specifies whether to apply the restriction to the Rooms section.  Relevant only when ExternalShare is false..</param>
-        /// <param name="blockExistingLinksOnRestrict">When external sharing is restricted, specifies whether to block existing public links immediately.  Relevant only when ExternalShare is false..</param>
+        /// <param name="externalShare">Whether links that open a file or a room without a portal account may be created at all. This is the master  switch of the policy: while it is false the portal keeps the default link type internal, turns sharing on  social networks off, and applies the three restriction fields below..</param>
+        /// <param name="defaultShareLinkInternal">The kind of link offered first when a new one is created: true offers a link only accounts of this portal can  open, false one that anyone holding it can open. The portal keeps it at true while external sharing is  switched off..</param>
+        /// <param name="externalShareApplyToDocuments">Whether the restriction reaches personal documents: with true, no external link can be created for an entry in  the caller&#39;s own documents while external sharing is off. It has no effect while external sharing is allowed..</param>
+        /// <param name="externalShareApplyToRooms">Whether the restriction reaches rooms: with true, no external link can be created for a room or its content  while external sharing is off, and a new room cannot be made public. It has no effect while external sharing  is allowed..</param>
+        /// <param name="blockExistingLinksOnRestrict">What happens to the links that already exist once external sharing is switched off: with true they stop  opening for the sections named above, with false they keep working and only new ones are refused. This is the  field that changes access to data that is already shared..</param>
         public ExternalSharingSettingsRequestDto(bool externalShare = default, bool defaultShareLinkInternal = default, bool externalShareApplyToDocuments = default, bool externalShareApplyToRooms = default, bool blockExistingLinksOnRestrict = default)
         {
             this.ExternalShare = externalShare;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether external (public) link creation is allowed.
+        /// Whether links that open a file or a room without a portal account may be created at all. This is the master  switch of the policy: while it is false the portal keeps the default link type internal, turns sharing on  social networks off, and applies the three restriction fields below.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "externalShare", EmitDefaultValue = true)]
         public bool ExternalShare { get; set; }
 
         /// <summary>
-        /// Specifies the default sharing link type: true &#x3D; DocSpace users only, false &#x3D; Anyone with the link.  Relevant only when ExternalShare is true.
+        /// The kind of link offered first when a new one is created: true offers a link only accounts of this portal can  open, false one that anyone holding it can open. The portal keeps it at true while external sharing is  switched off.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "defaultShareLinkInternal", EmitDefaultValue = true)]
         public bool DefaultShareLinkInternal { get; set; }
 
         /// <summary>
-        /// When external sharing is restricted, specifies whether to apply the restriction to the My Documents section.  Relevant only when ExternalShare is false.
+        /// Whether the restriction reaches personal documents: with true, no external link can be created for an entry in  the caller&#39;s own documents while external sharing is off. It has no effect while external sharing is allowed.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "externalShareApplyToDocuments", EmitDefaultValue = true)]
         public bool ExternalShareApplyToDocuments { get; set; }
 
         /// <summary>
-        /// When external sharing is restricted, specifies whether to apply the restriction to the Rooms section.  Relevant only when ExternalShare is false.
+        /// Whether the restriction reaches rooms: with true, no external link can be created for a room or its content  while external sharing is off, and a new room cannot be made public. It has no effect while external sharing  is allowed.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "externalShareApplyToRooms", EmitDefaultValue = true)]
         public bool ExternalShareApplyToRooms { get; set; }
 
         /// <summary>
-        /// When external sharing is restricted, specifies whether to block existing public links immediately.  Relevant only when ExternalShare is false.
+        /// What happens to the links that already exist once external sharing is switched off: with true they stop  opening for the sections named above, with false they keep working and only new ones are refused. This is the  field that changes access to data that is already shared.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "blockExistingLinksOnRestrict", EmitDefaultValue = true)]

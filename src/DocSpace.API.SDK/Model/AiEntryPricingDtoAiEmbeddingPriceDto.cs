@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Data transfer object that represents pricing information for a specific AI service entry.  Contains identification details, provider information, and associated pricing data of generic type T.
+    /// One AI model or service on the price list: how to name it, who provides it, and what it costs.
     /// </summary>
     [DataContract(Name = "AiEntryPricingDtoAiEmbeddingPriceDto")]
     public partial class AiEntryPricingDtoAiEmbeddingPriceDto : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiEntryPricingDtoAiEmbeddingPriceDto" /> class.
         /// </summary>
-        /// <param name="id">Gets the unique identifier for the AI pricing entry. (required).</param>
-        /// <param name="alias">Gets the display name (alias) for the AI model or service entry. (required).</param>
-        /// <param name="provider">Gets the provider name for the AI service or model. (required).</param>
-        /// <param name="image">Gets the image URL or identifier associated with the AI model entry. (required).</param>
-        /// <param name="price">Gets the pricing information for the AI entry. (required).</param>
-        /// <param name="link">Gets the URL link to the AI model or service entry. (required).</param>
+        /// <param name="id">The model identifier to send to the AI operations. It is the value to branch on, while &#x60;alias&#x60; is for display  only. (required).</param>
+        /// <param name="alias">The model name as the vendor writes it, meant to be shown to a person rather than matched on. (required).</param>
+        /// <param name="provider">Who runs the model. Two entries can share a provider, and one provider&#39;s models can be priced quite  differently, so the price always belongs to the entry and never to the provider. (required).</param>
+        /// <param name="image">The absolute URL of the provider&#39;s icon, for rendering next to the entry. (required).</param>
+        /// <param name="price">What the entry costs, in the currency the answer names. Amounts per token are normalised per million  tokens, so they are not the price of a single call. (required).</param>
+        /// <param name="link">The provider&#39;s own page for the model, for a person to read the model&#39;s terms. It is empty when the  provider publishes none. (required).</param>
         public AiEntryPricingDtoAiEmbeddingPriceDto(string id = default, string alias = default, string provider = default, string image = default, AiEmbeddingPriceDto price = default, string link = default)
         {
             // to ensure "id" is required (not null)
@@ -93,41 +93,41 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets the unique identifier for the AI pricing entry.
+        /// The model identifier to send to the AI operations. It is the value to branch on, while &#x60;alias&#x60; is for display  only.
         /// </summary>
         /// <example>gpt-4o</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets the display name (alias) for the AI model or service entry.
+        /// The model name as the vendor writes it, meant to be shown to a person rather than matched on.
         /// </summary>
         /// <example>GPT-4o</example>
         [DataMember(Name = "alias", IsRequired = true, EmitDefaultValue = true)]
         public string Alias { get; set; }
 
         /// <summary>
-        /// Gets the provider name for the AI service or model.
+        /// Who runs the model. Two entries can share a provider, and one provider&#39;s models can be priced quite  differently, so the price always belongs to the entry and never to the provider.
         /// </summary>
         /// <example>openai</example>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
-        /// Gets the image URL or identifier associated with the AI model entry.
+        /// The absolute URL of the provider&#39;s icon, for rendering next to the entry.
         /// </summary>
         /// <example>https://cdn.example.com/providers/openai.png</example>
         [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
-        /// Gets the pricing information for the AI entry.
+        /// What the entry costs, in the currency the answer names. Amounts per token are normalised per million  tokens, so they are not the price of a single call.
         /// </summary>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
         public AiEmbeddingPriceDto Price { get; set; }
 
         /// <summary>
-        /// Gets the URL link to the AI model or service entry.
+        /// The provider&#39;s own page for the model, for a person to read the model&#39;s terms. It is empty when the  provider publishes none.
         /// </summary>
         /// <example>https://openai.com/pricing</example>
         [DataMember(Name = "link", IsRequired = true, EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The module information.
+    /// The descriptor of a portal module: what it is called, where it starts and how it is pictured.
     /// </summary>
     [DataContract(Name = "Module")]
     public partial class Module : IValidatableObject
@@ -41,15 +41,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Module" /> class.
         /// </summary>
-        /// <param name="id">The module ID..</param>
-        /// <param name="appName">The module product class name..</param>
-        /// <param name="title">The module product class name..</param>
-        /// <param name="link">The URL to the module start page..</param>
-        /// <param name="iconUrl">The module icon URL..</param>
-        /// <param name="imageUrl">The module large image URL..</param>
-        /// <param name="helpUrl">The module help URL..</param>
-        /// <param name="description">The module description..</param>
-        /// <param name="isPrimary">Specifies if the module is primary or not..</param>
+        /// <param name="id">The identifier of the module. It is the same in every portal and in every language, so use it rather than the  title to tell modules apart..</param>
+        /// <param name="appName">The short system name of the module, the one that appears in its addresses and in the portal configuration.  Unlike the title it is not translated..</param>
+        /// <param name="title">The display name of the module, already translated for the calling account, so it changes with the language  and must not be compared against a fixed string..</param>
+        /// <param name="link">The address of the start page of the module, to be opened in a browser rather than called as an API..</param>
+        /// <param name="iconUrl">The address of the small icon of the module, meant for a menu entry..</param>
+        /// <param name="imageUrl">The address of the large image of the module, meant for a tile or a start screen..</param>
+        /// <param name="helpUrl">The address of the help section of the module. It is empty when the portal publishes no help for it..</param>
+        /// <param name="description">The one-line description of the module shown next to its title, translated for the calling account..</param>
+        /// <param name="isPrimary">Whether the portal opens this module first when no other destination is given..</param>
         public Module(Guid id = default, string appName = default, string title = default, string link = default, string iconUrl = default, string imageUrl = default, string helpUrl = default, string description = default, bool isPrimary = default)
         {
             this.Id = id;
@@ -64,63 +64,63 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The module ID.
+        /// The identifier of the module. It is the same in every portal and in every language, so use it rather than the  title to tell modules apart.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>e67be73d-f9ae-4ce1-8fec-1880cb518cb4</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The module product class name.
+        /// The short system name of the module, the one that appears in its addresses and in the portal configuration.  Unlike the title it is not translated.
         /// </summary>
         /// <example>files</example>
         [DataMember(Name = "appName", EmitDefaultValue = true)]
         public string AppName { get; set; }
 
         /// <summary>
-        /// The module product class name.
+        /// The display name of the module, already translated for the calling account, so it changes with the language  and must not be compared against a fixed string.
         /// </summary>
         /// <example>Documents</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The URL to the module start page.
+        /// The address of the start page of the module, to be opened in a browser rather than called as an API.
         /// </summary>
         /// <example>https://example.com</example>
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
-        /// The module icon URL.
+        /// The address of the small icon of the module, meant for a menu entry.
         /// </summary>
         /// <example>https://example.com/icon.svg</example>
         [DataMember(Name = "iconUrl", EmitDefaultValue = true)]
         public string IconUrl { get; set; }
 
         /// <summary>
-        /// The module large image URL.
+        /// The address of the large image of the module, meant for a tile or a start screen.
         /// </summary>
         /// <example>https://example.com/image.png</example>
         [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
-        /// The module help URL.
+        /// The address of the help section of the module. It is empty when the portal publishes no help for it.
         /// </summary>
         /// <example>https://example.com/help</example>
         [DataMember(Name = "helpUrl", EmitDefaultValue = true)]
         public string HelpUrl { get; set; }
 
         /// <summary>
-        /// The module description.
+        /// The one-line description of the module shown next to its title, translated for the calling account.
         /// </summary>
         /// <example>File management</example>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Specifies if the module is primary or not.
+        /// Whether the portal opens this module first when no other destination is given.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isPrimary", EmitDefaultValue = true)]

@@ -59,6 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// &#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id.
         /// </summary>
+        /// <example>prompt</example>
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public KindEnum Kind { get; set; }
     
@@ -93,12 +94,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The offending entry - its name or its id.
         /// </summary>
+        /// <example>33333333-3333-3333-3333-333333333333</example>
         [DataMember(Name = "ref", IsRequired = true, EmitDefaultValue = true)]
         public string Ref { get; set; }
 
         /// <summary>
         /// Why the entry was rejected.
         /// </summary>
+        /// <example>a prompt of that name already exists</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public AiTErrorData Error { get; set; }
 

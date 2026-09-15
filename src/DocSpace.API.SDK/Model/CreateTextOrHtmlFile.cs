@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for creating an HTML or text file.
+    /// The parameters of a text or HTML file created from content sent in the request.
     /// </summary>
     [DataContract(Name = "CreateTextOrHtmlFile")]
     public partial class CreateTextOrHtmlFile : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTextOrHtmlFile" /> class.
         /// </summary>
-        /// <param name="title">The file title for text or HTML file. (required).</param>
-        /// <param name="content">The text or HTML file contents..</param>
-        /// <param name="createNewIfExist">Specifies whether to create a new text or HTML file if it exists or not..</param>
+        /// <param name="title">The title of the file. The extension the operation stands for is appended unless the title already ends with  it, so Notes becomes Notes.txt or Notes.html. (required).</param>
+        /// <param name="content">The content of the file, as plain text or as HTML markup. A request carrying none is rejected as an invalid  request, and for a text file content that looks like markup makes the portal store it as HTML instead..</param>
+        /// <param name="createNewIfExist">What to do when the folder already holds a file of this title, the other way round than the name reads: &#x60;true&#x60;  updates that file and adds a version to its history, &#x60;false&#x60; creates another file and makes its title unique,  as in Notes (1).txt..</param>
         public CreateTextOrHtmlFile(string title = default, string content = default, bool createNewIfExist = default)
         {
             // to ensure "title" is required (not null)
@@ -62,21 +62,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file title for text or HTML file.
+        /// The title of the file. The extension the operation stands for is appended unless the title already ends with  it, so Notes becomes Notes.txt or Notes.html.
         /// </summary>
         /// <example>Document.txt</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The text or HTML file contents.
+        /// The content of the file, as plain text or as HTML markup. A request carrying none is rejected as an invalid  request, and for a text file content that looks like markup makes the portal store it as HTML instead.
         /// </summary>
         /// <example>This is the file content</example>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
 
         /// <summary>
-        /// Specifies whether to create a new text or HTML file if it exists or not.
+        /// What to do when the folder already holds a file of this title, the other way round than the name reads: &#x60;true&#x60;  updates that file and adds a version to its history, &#x60;false&#x60; creates another file and makes its title unique,  as in Notes (1).txt.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "createNewIfExist", EmitDefaultValue = true)]

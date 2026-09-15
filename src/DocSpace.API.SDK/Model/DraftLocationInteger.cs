@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file draft parameters.
+    /// Where the caller&#39;s own filling draft of a form is kept.
     /// </summary>
     [DataContract(Name = "DraftLocationInteger")]
     public partial class DraftLocationInteger : IValidatableObject
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DraftLocationInteger" /> class.
         /// </summary>
-        /// <param name="folderId">The InProcess folder ID of the draft..</param>
-        /// <param name="folderTitle">The InProcess folder title of the draft..</param>
-        /// <param name="fileId">The draft ID..</param>
-        /// <param name="fileTitle">The draft title..</param>
+        /// <param name="folderId">The folder holding the draft: the sub-folder that the room for filling keeps for drafts of this particular  form..</param>
+        /// <param name="folderTitle">The title of that folder, which the portal takes from the form itself when the form is released for filling..</param>
+        /// <param name="fileId">The draft itself - the copy the caller fills in, not the original form, and the identifier to pass to the file  operations while filling..</param>
+        /// <param name="fileTitle">The title of the draft, which the portal builds from the name of the person filling it and the name of the  form. Null when the draft the record points at no longer exists..</param>
         public DraftLocationInteger(int folderId = default, string folderTitle = default, int fileId = default, string fileTitle = default)
         {
             this.FolderId = folderId;
@@ -54,30 +54,30 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The InProcess folder ID of the draft.
+        /// The folder holding the draft: the sub-folder that the room for filling keeps for drafts of this particular  form.
         /// </summary>
         /// <example>10</example>
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
 
         /// <summary>
-        /// The InProcess folder title of the draft.
+        /// The title of that folder, which the portal takes from the form itself when the form is released for filling.
         /// </summary>
-        /// <example>Draft Folder</example>
+        /// <example>Application</example>
         [DataMember(Name = "folderTitle", EmitDefaultValue = true)]
         public string FolderTitle { get; set; }
 
         /// <summary>
-        /// The draft ID.
+        /// The draft itself - the copy the caller fills in, not the original form, and the identifier to pass to the file  operations while filling.
         /// </summary>
         /// <example>123</example>
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public int FileId { get; set; }
 
         /// <summary>
-        /// The draft title.
+        /// The title of the draft, which the portal builds from the name of the person filling it and the name of the  form. Null when the draft the record points at no longer exists.
         /// </summary>
-        /// <example>Draft Document</example>
+        /// <example>John Doe - Application.pdf</example>
         [DataMember(Name = "fileTitle", EmitDefaultValue = true)]
         public string FileTitle { get; set; }
 

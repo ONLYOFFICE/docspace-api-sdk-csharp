@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for creating a room from a template.
+    /// The parameters of a room built from a room template.
     /// </summary>
     [DataContract(Name = "CreateRoomFromTemplateDto")]
     public partial class CreateRoomFromTemplateDto : IValidatableObject
@@ -46,19 +46,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRoomFromTemplateDto" /> class.
         /// </summary>
-        /// <param name="templateId">The template ID from which the room to be created. (required).</param>
-        /// <param name="title">The room title. (required).</param>
-        /// <param name="logo">The logo request parameters..</param>
-        /// <param name="copyLogo">Specifies whether to copy a logo or not..</param>
-        /// <param name="tags">The collection of tags..</param>
-        /// <param name="color">The color of the room to be created..</param>
-        /// <param name="cover">The cover of the room to be created..</param>
-        /// <param name="quota">The room quota..</param>
-        /// <param name="indexing">Specifies whether to create a room with indexing..</param>
-        /// <param name="denyDownload">Specifies whether to deny downloads from the room..</param>
-        /// <param name="lifetime">The room data lifetime information..</param>
-        /// <param name="watermark">The watermark settings..</param>
-        /// <param name="private">Specifies whether the room to be created is private or not..</param>
+        /// <param name="templateId">The room template to copy. Templates live in their own section and are listed by &#x60;GET api/2.0/files/rooms&#x60;  with a search area of 4; an ordinary room id is rejected here. (required).</param>
+        /// <param name="title">The name of the room to create. It is sanitised and truncated the way a room title is, and a blank value is  rejected; the title of the template is not reused. (required).</param>
+        /// <param name="logo">The picture to use as the room logo, named by the path that &#x60;POST api/2.0/files/logos&#x60; returned for an image  uploaded beforehand, plus the crop to take from it. Leaving the field out keeps the room on its cover and  colour. It is ignored when the logo of the template is copied instead..</param>
+        /// <param name="copyLogo">Whether the new room keeps the logo of the template. With it on the uploaded picture is ignored; with it off  the room starts with no logo unless one is supplied..</param>
+        /// <param name="tags">The labels to attach to the room, by name. Names the portal tag catalogue does not hold yet are added to it,  and &#x60;GET api/2.0/files/tags&#x60; lists what already exists. Leaving the field out keeps the tags of the template..</param>
+        /// <param name="color">The background colour the room is drawn with while it has no logo, as six hexadecimal digits with no leading  number sign. An empty value restores the default colour of the room type..</param>
+        /// <param name="cover">The picture drawn on the room while it has no logo, named by an identifier from  &#x60;GET api/2.0/files/rooms/covers&#x60;. Any other value is rejected, and an empty value leaves the room without a  cover..</param>
+        /// <param name="quota">The storage the room may take, in bytes. It is accepted only while the per-room quota feature is on for the  portal and must stay inside the portal own limit; leaving it out lets the room follow the portal default..</param>
+        /// <param name="indexing">Whether the room keeps a manual order of its contents. With it on every file and folder carries a position  that listings follow and that &#x60;PUT api/2.0/files/rooms/{id}/reorder&#x60; compacts; with it off the contents are  ordered by the sorting of the request. Leaving it out keeps the setting of the template..</param>
+        /// <param name="denyDownload">Whether members without editing rights are stopped from downloading and printing the contents of the room.  They can still open the documents in the editor. Leaving it out keeps the setting of the template..</param>
+        /// <param name="lifetime">How long files may stay in the room before they are deleted automatically. The countdown starts when the  setting is saved, and leaving the field out keeps the files forever. Leaving the field out keeps the setting  of the template..</param>
+        /// <param name="watermark">The watermark drawn over documents opened in the room. Leaving the field out adds no watermark, and sending it  with the switch turned off removes the one the room has. Leaving the field out keeps the setting of the  template..</param>
+        /// <param name="private">Whether the room is end-to-end encrypted. Its files can then be opened only in the desktop application by  members whose encryption keys are set up, and the flag cannot be changed after the room is created..</param>
         public CreateRoomFromTemplateDto(int templateId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> tags = default, string color = default, string cover = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, bool? @private = default)
         {
             this.TemplateId = templateId;
@@ -82,88 +82,88 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The template ID from which the room to be created.
+        /// The room template to copy. Templates live in their own section and are listed by &#x60;GET api/2.0/files/rooms&#x60;  with a search area of 4; an ordinary room id is rejected here.
         /// </summary>
-        /// <example>1</example>
+        /// <example>42</example>
         [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
         public int TemplateId { get; set; }
 
         /// <summary>
-        /// The room title.
+        /// The name of the room to create. It is sanitised and truncated the way a room title is, and a blank value is  rejected; the title of the template is not reused.
         /// </summary>
-        /// <example>My Room From Template</example>
+        /// <example>Project Alpha</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The logo request parameters.
+        /// The picture to use as the room logo, named by the path that &#x60;POST api/2.0/files/logos&#x60; returned for an image  uploaded beforehand, plus the crop to take from it. Leaving the field out keeps the room on its cover and  colour. It is ignored when the logo of the template is copied instead.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoRequest Logo { get; set; }
 
         /// <summary>
-        /// Specifies whether to copy a logo or not.
+        /// Whether the new room keeps the logo of the template. With it on the uploaded picture is ignored; with it off  the room starts with no logo unless one is supplied.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "copyLogo", EmitDefaultValue = true)]
         public bool CopyLogo { get; set; }
 
         /// <summary>
-        /// The collection of tags.
+        /// The labels to attach to the room, by name. Names the portal tag catalogue does not hold yet are added to it,  and &#x60;GET api/2.0/files/tags&#x60; lists what already exists. Leaving the field out keeps the tags of the template.
         /// </summary>
-        /// <example>["tag1","tag2","tag3"]</example>
+        /// <example>["Finance","2026"]</example>
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// The color of the room to be created.
+        /// The background colour the room is drawn with while it has no logo, as six hexadecimal digits with no leading  number sign. An empty value restores the default colour of the room type.
         /// </summary>
-        /// <example>#FF0000</example>
+        /// <example>FF5733</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
-        /// The cover of the room to be created.
+        /// The picture drawn on the room while it has no logo, named by an identifier from  &#x60;GET api/2.0/files/rooms/covers&#x60;. Any other value is rejected, and an empty value leaves the room without a  cover.
         /// </summary>
-        /// <example>cover1.jpg</example>
+        /// <example>bookmark</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
-        /// The room quota.
+        /// The storage the room may take, in bytes. It is accepted only while the per-room quota feature is on for the  portal and must stay inside the portal own limit; leaving it out lets the room follow the portal default.
         /// </summary>
         /// <example>1073741824</example>
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
 
         /// <summary>
-        /// Specifies whether to create a room with indexing.
+        /// Whether the room keeps a manual order of its contents. With it on every file and folder carries a position  that listings follow and that &#x60;PUT api/2.0/files/rooms/{id}/reorder&#x60; compacts; with it off the contents are  ordered by the sorting of the request. Leaving it out keeps the setting of the template.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
         public bool? Indexing { get; set; }
 
         /// <summary>
-        /// Specifies whether to deny downloads from the room.
+        /// Whether members without editing rights are stopped from downloading and printing the contents of the room.  They can still open the documents in the editor. Leaving it out keeps the setting of the template.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
 
         /// <summary>
-        /// The room data lifetime information.
+        /// How long files may stay in the room before they are deleted automatically. The countdown starts when the  setting is saved, and leaving the field out keeps the files forever. Leaving the field out keeps the setting  of the template.
         /// </summary>
         [DataMember(Name = "lifetime", EmitDefaultValue = false)]
         public RoomDataLifetimeDto Lifetime { get; set; }
 
         /// <summary>
-        /// The watermark settings.
+        /// The watermark drawn over documents opened in the room. Leaving the field out adds no watermark, and sending it  with the switch turned off removes the one the room has. Leaving the field out keeps the setting of the  template.
         /// </summary>
         [DataMember(Name = "watermark", EmitDefaultValue = false)]
         public WatermarkRequestDto Watermark { get; set; }
 
         /// <summary>
-        /// Specifies whether the room to be created is private or not.
+        /// Whether the room is end-to-end encrypted. Its files can then be opened only in the desktop application by  members whose encryption keys are set up, and the flag cannot be changed after the room is created.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "private", EmitDefaultValue = true)]

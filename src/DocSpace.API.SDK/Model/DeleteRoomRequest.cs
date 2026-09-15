@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for deleting a room.
+    /// The body of a room deletion request.
     /// </summary>
     [DataContract(Name = "DeleteRoomRequest")]
     public partial class DeleteRoomRequest : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteRoomRequest" /> class.
         /// </summary>
-        /// <param name="deleteAfter">Specifies whether to delete a room after the editing session is finished or not..</param>
+        /// <param name="deleteAfter">Carried by the contract but not acted upon: the deletion behaves the same either way, and the record of the  finished job is kept until it is read once..</param>
         public DeleteRoomRequest(bool deleteAfter = default)
         {
             this.DeleteAfter = deleteAfter;
         }
 
         /// <summary>
-        /// Specifies whether to delete a room after the editing session is finished or not.
+        /// Carried by the contract but not acted upon: the deletion behaves the same either way, and the record of the  finished job is kept until it is read once.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]

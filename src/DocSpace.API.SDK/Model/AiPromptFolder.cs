@@ -71,24 +71,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Unique folder identifier (UUID).
         /// </summary>
+        /// <example>44444444-4444-4444-4444-444444444444</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Folder display name.
         /// </summary>
+        /// <example>Contract review</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Timestamp (ms since epoch) when the folder was created.
         /// </summary>
+        /// <example>1767225600000</example>
         [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
         public decimal CreatedAt { get; set; }
 
         /// <summary>
         /// Timestamp (ms since epoch) of the last folder modification.
         /// </summary>
+        /// <example>1767225600000</example>
         [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
         public decimal UpdatedAt { get; set; }
 

@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdatePhotoMemberRequest" /> class.
         /// </summary>
-        /// <param name="files">The avatar photo URL..</param>
+        /// <param name="files">The address the portal downloads the new avatar from. It has to be absolute or relative to the portal, and it  has to use HTTPS unless the request itself came over HTTP; an address the portal refuses to fetch is rejected.  It is required - an empty value is answered with 400 rather than clearing the avatar..</param>
         public UpdatePhotoMemberRequest(string files = default)
         {
             this.Files = files;
         }
 
         /// <summary>
-        /// The avatar photo URL.
+        /// The address the portal downloads the new avatar from. It has to be absolute or relative to the portal, and it  has to use HTTPS unless the request itself came over HTTP; an address the portal refuses to fetch is rejected.  It is required - an empty value is answered with 400 rather than clearing the avatar.
         /// </summary>
         /// <example>https://example.com/avatar.jpg</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]

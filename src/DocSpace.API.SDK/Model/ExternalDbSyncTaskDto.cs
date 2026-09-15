@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The external DB synchronization task parameters.
+    /// The state of the job that exports the collected form data of a form filling room into the external database of the  portal.
     /// </summary>
     [DataContract(Name = "ExternalDbSyncTaskDto")]
     public partial class ExternalDbSyncTaskDto : IValidatableObject
     {
 
         /// <summary>
-        /// The status of the synchronization task.
+        /// How the job ended, or how far it has got: queued, running, finished, cancelled or failed. It is the only field  that separates a successful end from a failed one once &#x60;isCompleted&#x60; is set.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public DistributedTaskStatus Status { get; set; }
@@ -52,12 +52,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalDbSyncTaskDto" /> class.
         /// </summary>
-        /// <param name="id">The task ID. (required).</param>
-        /// <param name="error">The error message if the synchronization failed..</param>
-        /// <param name="percentage">The progress percentage of the synchronization. (required).</param>
-        /// <param name="isCompleted">Specifies whether the synchronization is completed or not. (required).</param>
-        /// <param name="status">The status of the synchronization task. (required).</param>
-        /// <param name="forms">The synchronization results for all original forms in the room. (required).</param>
+        /// <param name="id">The identifier of the job, which stays the same while a job for this room exists and is worth quoting when a  failure has to be traced in the portal logs. Polling is done by room, so the value is not needed to read the  state again. (required).</param>
+        /// <param name="error">The message of a failure that stopped the whole job. It is empty while the job is running and after a job that  ended without such a failure; a job that finished with individual forms rejected reports those in &#x60;forms&#x60; and  leaves this field empty..</param>
+        /// <param name="percentage">How much of the work is done, from 0 to 100. It advances as the forms of the room are processed one by one, so  it is a usable progress indicator for a room with many forms and jumps straight to the end for a room with  one. (required).</param>
+        /// <param name="isCompleted">Whether the job has ended. It is set both for a job that finished its work and for one that stopped on an  error, so this is the flag to poll for, and &#x60;status&#x60; and &#x60;error&#x60; are what tell the two apart. (required).</param>
+        /// <param name="status">How the job ended, or how far it has got: queued, running, finished, cancelled or failed. It is the only field  that separates a successful end from a failed one once &#x60;isCompleted&#x60; is set. (required).</param>
+        /// <param name="forms">The outcome for every original form of the room, one entry each. The list is empty while the job is running  and is filled in only when the job ends, so it is what to read after &#x60;isCompleted&#x60; turns true; it stays empty  for a room that holds no forms at all. (required).</param>
         public ExternalDbSyncTaskDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default, List<ExternalDbSyncFormResultDto> forms = default)
         {
             // to ensure "id" is required (not null)
@@ -79,35 +79,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The task ID.
+        /// The identifier of the job, which stays the same while a job for this room exists and is worth quoting when a  failure has to be traced in the portal logs. Polling is done by room, so the value is not needed to read the  state again.
         /// </summary>
         /// <example>ExternalDbSyncTask_1_42</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The error message if the synchronization failed.
+        /// The message of a failure that stopped the whole job. It is empty while the job is running and after a job that  ended without such a failure; a job that finished with individual forms rejected reports those in &#x60;forms&#x60; and  leaves this field empty.
         /// </summary>
         /// <example>Connection refused</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// The progress percentage of the synchronization.
+        /// How much of the work is done, from 0 to 100. It advances as the forms of the room are processed one by one, so  it is a usable progress indicator for a room with many forms and jumps straight to the end for a room with  one.
         /// </summary>
         /// <example>75</example>
         [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
-        /// Specifies whether the synchronization is completed or not.
+        /// Whether the job has ended. It is set both for a job that finished its work and for one that stopped on an  error, so this is the flag to poll for, and &#x60;status&#x60; and &#x60;error&#x60; are what tell the two apart.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>
-        /// The synchronization results for all original forms in the room.
+        /// The outcome for every original form of the room, one entry each. The list is empty while the job is running  and is filled in only when the job ends, so it is what to read after &#x60;isCompleted&#x60; turns true; it stays empty  for a room that holds no forms at all.
         /// </summary>
         /// <example>[{"id":42,"title":"Application.pdf","success":true}]</example>
         [DataMember(Name = "forms", IsRequired = true, EmitDefaultValue = true)]

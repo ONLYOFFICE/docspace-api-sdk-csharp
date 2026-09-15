@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring the Content Security Policy (CSP) settings.
+    /// The external sources the portal Content Security Policy is to trust.
     /// </summary>
     [DataContract(Name = "CspRequestsDto")]
     public partial class CspRequestsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CspRequestsDto" /> class.
         /// </summary>
-        /// <param name="domains">The collection of allowed domains in the Content Security Policy (CSP)..</param>
+        /// <param name="domains">The domains the policy trusts, as the complete list that is to hold afterwards rather than a list of  additions: send the domains already trusted together with the new one to add one, leave one out to withdraw  it, and send an empty list to fall back to the portal built-in policy. An entry may be a bare host, a host  with a scheme, or a wildcard host such as &#x60;*.example.com&#x60;; it has to form a valid absolute address and may  contain ASCII characters only. Every entry becomes an allowed source for scripts, styles, images, fonts,  frames, media and connections at once - the directives cannot be set apart here..</param>
         public CspRequestsDto(List<string> domains = default)
         {
             this.Domains = domains;
         }
 
         /// <summary>
-        /// The collection of allowed domains in the Content Security Policy (CSP).
+        /// The domains the policy trusts, as the complete list that is to hold afterwards rather than a list of  additions: send the domains already trusted together with the new one to add one, leave one out to withdraw  it, and send an empty list to fall back to the portal built-in policy. An entry may be a bare host, a host  with a scheme, or a wildcard host such as &#x60;*.example.com&#x60;; it has to form a valid absolute address and may  contain ASCII characters only. Every entry becomes an allowed source for scripts, styles, images, fonts,  frames, media and connections at once - the directives cannot be set apart here.
         /// </summary>
         /// <example>["example.com","trusted-site.com"]</example>
         [DataMember(Name = "domains", EmitDefaultValue = true)]

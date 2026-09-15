@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The deep link parameters.
+    /// What a mobile client needs to hand a portal link to the installed application instead of the browser.
     /// </summary>
     [DataContract(Name = "DeepLinkDto")]
     public partial class DeepLinkDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeepLinkDto" /> class.
         /// </summary>
-        /// <param name="androidPackageName">The Android package name. (required).</param>
-        /// <param name="url">The deep link URL. (required).</param>
-        /// <param name="iosPackageId">The deep link IOS package ID. (required).</param>
+        /// <param name="androidPackageName">The package name to look for on Android, and to build a store link from when the application is missing.  All three fields are empty strings on an installation that ships no mobile application, which is the  signal to keep opening links in the browser. (required).</param>
+        /// <param name="url">The address the client redirects a portal link through so that the application can claim it. It is the  installation&#39;s own deep-link host, not a link to any particular document. (required).</param>
+        /// <param name="iosPackageId">The bundle identifier to look for on iOS, used the same way as &#x60;androidPackageName&#x60;. (required).</param>
         public DeepLinkDto(string androidPackageName = default, string url = default, string iosPackageId = default)
         {
             // to ensure "androidPackageName" is required (not null)
@@ -72,21 +72,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The Android package name.
+        /// The package name to look for on Android, and to build a store link from when the application is missing.  All three fields are empty strings on an installation that ships no mobile application, which is the  signal to keep opening links in the browser.
         /// </summary>
         /// <example>com.example.docspace</example>
         [DataMember(Name = "androidPackageName", IsRequired = true, EmitDefaultValue = true)]
         public string AndroidPackageName { get; set; }
 
         /// <summary>
-        /// The deep link URL.
+        /// The address the client redirects a portal link through so that the application can claim it. It is the  installation&#39;s own deep-link host, not a link to any particular document.
         /// </summary>
         /// <example>https://example.com/deeplink</example>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// The deep link IOS package ID.
+        /// The bundle identifier to look for on iOS, used the same way as &#x60;androidPackageName&#x60;.
         /// </summary>
         /// <example>com.example.docspace</example>
         [DataMember(Name = "iosPackageId", IsRequired = true, EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The notification channel settings.
+    /// The ways this installation can deliver a notification, and whether each of them is usable.
     /// </summary>
     [DataContract(Name = "NotificationChannelStatusDto")]
     public partial class NotificationChannelStatusDto : IValidatableObject
@@ -41,16 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationChannelStatusDto" /> class.
         /// </summary>
-        /// <param name="channels">The list of notification channels..</param>
+        /// <param name="channels">The channels the running installation is configured with. A channel appears only when the notification  service names a sender for it, so the list can be shorter than the channels this build implements, and an  empty list means the configuration names none of them..</param>
         public NotificationChannelStatusDto(List<NotificationChannelDto> channels = default)
         {
             this.Channels = channels;
         }
 
         /// <summary>
-        /// The list of notification channels.
+        /// The channels the running installation is configured with. A channel appears only when the notification  service names a sender for it, so the list can be shorter than the channels this build implements, and an  empty list means the configuration names none of them.
         /// </summary>
-        /// <example>[{"name":"email","isActive":true}]</example>
+        /// <example>[{"name":"email.sender","isEnabled":true}]</example>
         [DataMember(Name = "channels", EmitDefaultValue = true)]
         public List<NotificationChannelDto> Channels { get; set; }
 

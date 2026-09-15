@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The Telegram connection status parameters.
+    /// Whether the calling user&#39;s account is linked to the portal&#39;s Telegram bot.
     /// </summary>
     [DataContract(Name = "TelegramStatusDto")]
     public partial class TelegramStatusDto : IValidatableObject
     {
 
         /// <summary>
-        /// The Telegram registration status.
+        /// Where the caller&#39;s own account stands: not linked, linked, or a registration link issued and the portal  still waiting for it to be opened in Telegram. The waiting state ends on its own when the link expires,  so it is worth polling rather than treating as final.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public RegStatus Status { get; set; }
@@ -52,8 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TelegramStatusDto" /> class.
         /// </summary>
-        /// <param name="status">The Telegram registration status. (required).</param>
-        /// <param name="username">The Telegram username..</param>
+        /// <param name="status">Where the caller&#39;s own account stands: not linked, linked, or a registration link issued and the portal  still waiting for it to be opened in Telegram. The waiting state ends on its own when the link expires,  so it is worth polling rather than treating as final. (required).</param>
+        /// <param name="username">The Telegram handle the account is linked to, without the leading &#x60;@&#x60;. It is filled in only while the  account is linked and comes back empty in the other two states..</param>
         public TelegramStatusDto(RegStatus status = default, string username = default)
         {
             this.Status = status;
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The Telegram username.
+        /// The Telegram handle the account is linked to, without the leading &#x60;@&#x60;. It is filled in only while the  account is linked and comes back empty in the other two states.
         /// </summary>
         /// <example>john_doe</example>
         [DataMember(Name = "username", EmitDefaultValue = true)]

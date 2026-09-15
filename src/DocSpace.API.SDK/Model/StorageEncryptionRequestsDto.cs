@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing storage encryption operations and notifications.
+    /// Whether the users are warned before the portals go down for the storage encryption pass.
     /// </summary>
     [DataContract(Name = "StorageEncryptionRequestsDto")]
     public partial class StorageEncryptionRequestsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageEncryptionRequestsDto" /> class.
         /// </summary>
-        /// <param name="notifyUsers">Specifies whether the users receive notifications about the storage encryption operations..</param>
+        /// <param name="notifyUsers">Whether every user of every portal on the server is mailed before the encryption or decryption pass starts.  The pass runs either way; the flag only decides whether people are told that their portal is about to become  unavailable..</param>
         public StorageEncryptionRequestsDto(bool notifyUsers = default)
         {
             this.NotifyUsers = notifyUsers;
         }
 
         /// <summary>
-        /// Specifies whether the users receive notifications about the storage encryption operations.
+        /// Whether every user of every portal on the server is mailed before the encryption or decryption pass starts.  The pass runs either way; the flag only decides whether people are told that their portal is about to become  unavailable.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "notifyUsers", EmitDefaultValue = true)]

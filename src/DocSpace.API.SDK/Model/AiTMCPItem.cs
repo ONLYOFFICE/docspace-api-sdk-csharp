@@ -80,36 +80,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Tool name as registered on the MCP server (e.g. &#x60;web_search&#x60;, &#x60;insert_text&#x60;).
         /// </summary>
+        /// <example>docspace_get_folder</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Human-readable description shown to the AI model and in the tools list UI.
         /// </summary>
+        /// <example>Read the contents of a DocSpace folder.</example>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// JSON Schema describing the tool&#39;s input parameters.
         /// </summary>
+        /// <example>{"type":"object","properties":{"folderId":{"type":"string"}},"required":["folderId"]}</example>
         [DataMember(Name = "inputSchema", IsRequired = true, EmitDefaultValue = true)]
         public Object InputSchema { get; set; }
 
         /// <summary>
         /// Whether this tool is currently enabled. Disabled tools are hidden from the AI model.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Server type (MCP server name / host tool group id) this tool belongs to — the key the persisted disabled map is stored under. Set by the source that enumerated the tool, so a caller-supplied tool can still be attributed to its group after being flattened into a single list: that is what lets the engine apply the disabled map to &#x60;actionArgs.tools&#x60; instead of trusting the caller to pre-filter. Wire-serializable, so it survives a remote (server-side) engine.
         /// </summary>
+        /// <example>docspace</example>
         [DataMember(Name = "serverType", EmitDefaultValue = false)]
         public string ServerType { get; set; }
 
         /// <summary>
         /// Whether the consumer must show an approval dialog before this tool runs. The engine reads it when deciding the &#x60;autoAllow&#x60; flag on a &#x60;tool-call-pending&#x60; event: &#x60;requireApproval &#x3D;&#x3D;&#x3D; false&#x60; auto-allows the call (no dialog), &#x60;true&#x60; always prompts. &#x60;undefined&#x60; leaves the decision to the persisted always-allow list alone — so MCP / custom-server tools (which never set it) keep prompting as before, while host tools opt into auto-allow by default. Wire-serializable, so it survives a remote (server-side) engine.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "requireApproval", EmitDefaultValue = true)]
         public bool RequireApproval { get; set; }
 

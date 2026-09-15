@@ -34,32 +34,32 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>Object</returns>
-        Object ChangeActivation(string clientId, ChangeClientActivationRequest changeClientActivationRequest);
+        /// <returns></returns>
+        void ChangeActivation(string clientId, ChangeClientActivationRequest changeClientActivationRequest);
 
         /// <summary>
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ChangeActivationWithHttpInfo(string clientId, ChangeClientActivationRequest changeClientActivationRequest);
         /// <summary>
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -82,72 +82,72 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>Object</returns>
-        Object DeleteClient(string clientId);
+        /// <returns></returns>
+        void DeleteClient(string clientId);
 
         /// <summary>
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteClientWithHttpInfo(string clientId);
         /// <summary>
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>Object</returns>
-        Object DeleteTenantClients();
+        /// <returns></returns>
+        void DeleteTenantClients();
 
         /// <summary>
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteTenantClientsWithHttpInfo();
         /// <summary>
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>Object</returns>
-        Object DeleteUserClients();
+        /// <returns></returns>
+        void DeleteUserClients();
 
         /// <summary>
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteUserClientsWithHttpInfo();
         /// <summary>
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -159,7 +159,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -170,49 +170,49 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>Object</returns>
-        Object RevokeUserClient(string clientId);
+        /// <returns></returns>
+        void RevokeUserClient(string clientId);
 
         /// <summary>
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeUserClientWithHttpInfo(string clientId);
         /// <summary>
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>Object</returns>
-        Object UpdateClient(string clientId, UpdateClientRequest updateClientRequest);
+        /// <returns></returns>
+        void UpdateClient(string clientId, UpdateClientRequest updateClientRequest);
 
         /// <summary>
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateClientWithHttpInfo(string clientId, UpdateClientRequest updateClientRequest);
         #endregion Synchronous Operations
     }
@@ -227,34 +227,34 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>Task of Object</returns>
-        Task<Object> ChangeActivationAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task ChangeActivationAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ChangeActivationWithHttpInfoAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -267,7 +267,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -279,78 +279,78 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>Task of Object</returns>
-        Task<Object> DeleteClientAsync(string clientId, CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task DeleteClientAsync(string clientId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteClientWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>Task of Object</returns>
-        Task<Object> DeleteTenantClientsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task DeleteTenantClientsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteTenantClientsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>Task of Object</returns>
-        Task<Object> DeleteUserClientsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task DeleteUserClientsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteUserClientsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -363,7 +363,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -375,53 +375,53 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>Task of Object</returns>
-        Task<Object> RevokeUserClientAsync(string clientId, CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task RevokeUserClientAsync(string clientId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> RevokeUserClientWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>Task of Object</returns>
-        Task<Object> UpdateClientAsync(string clientId, UpdateClientRequest updateClientRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task UpdateClientAsync(string clientId, UpdateClientRequest updateClientRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> UpdateClientWithHttpInfoAsync(string clientId, UpdateClientRequest updateClientRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
@@ -642,30 +642,29 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>Object</returns>
-        public Object ChangeActivation(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
+        /// <returns></returns>
+        public void ChangeActivation(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
         {
-            var localVarResponse = ChangeActivationWithHttpInfo(clientId, changeClientActivationRequest);
-            return localVarResponse.Data;
+            ChangeActivationWithHttpInfo(clientId, changeClientActivationRequest);
         }
 
         /// <summary>
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ChangeActivationWithHttpInfo(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
         {
             // verify the required parameter 'clientId' is set
@@ -700,7 +699,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Patch<Object>("/api/2.0/clients/{clientId}/activation", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Patch<Object>("/api/2.0/oauth2/clients/{clientId}/activation", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -718,32 +717,31 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>Task of Object</returns>
-        public async Task<Object> ChangeActivationAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task ChangeActivationAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await ChangeActivationWithHttpInfoAsync(clientId, changeClientActivationRequest, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await ChangeActivationWithHttpInfoAsync(clientId, changeClientActivationRequest, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Change client activation status
         /// </summary>
         /// <remarks>
-        /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
+        /// Enables or disables an existing client and answers 200 with an empty body. A disabled client can no longer obtain new tokens, but the tokens and consents it already holds stay valid until they expire on their own: disable a client to stop new authorizations, delete it to end the existing ones. An administrator may change any client of the tenant, a plain user only the clients they created. The body carries the single activation flag, and a client the caller may not see is reported as not found rather than as forbidden.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to change activation for</param>
         /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> ChangeActivationWithHttpInfoAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
@@ -780,7 +778,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PatchAsync<Object>("/api/2.0/clients/{clientId}/activation", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PatchAsync<Object>("/api/2.0/oauth2/clients/{clientId}/activation", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -798,7 +796,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -814,7 +812,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -849,7 +847,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ClientResponse>("/api/2.0/clients", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ClientResponse>("/api/2.0/oauth2/clients", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -867,7 +865,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -884,7 +882,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Create a new OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
+        /// Registers a new OAuth2 client in the caller's tenant and returns it. The body must carry a name, a description, a logo and at least one redirect URI, allowed origin and scope, and every scope named must already exist in the tenant's scope catalogue. Administrators and users may both register clients; the caller is recorded as the creator, which is what later restricts a plain user to the clients they created. The response is the stored client with its generated client ID and secret, and it is the first place either value can be read. Some deployments cap how many clients one tenant may hold, and reaching that cap is reported as 400 together with the validation failures.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createClientRequest">Client creation request containing client details</param>
@@ -922,7 +920,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ClientResponse>("/api/2.0/clients", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ClientResponse>("/api/2.0/oauth2/clients", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -940,28 +938,27 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>Object</returns>
-        public Object DeleteClient(string clientId)
+        /// <returns></returns>
+        public void DeleteClient(string clientId)
         {
-            var localVarResponse = DeleteClientWithHttpInfo(clientId);
-            return localVarResponse.Data;
+            DeleteClientWithHttpInfo(clientId);
         }
 
         /// <summary>
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteClientWithHttpInfo(string clientId)
         {
             // verify the required parameter 'clientId' is set
@@ -991,7 +988,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<Object>("/api/2.0/clients/{clientId}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<Object>("/api/2.0/oauth2/clients/{clientId}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1009,30 +1006,29 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>Task of Object</returns>
-        public async Task<Object> DeleteClientAsync(string clientId, CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task DeleteClientAsync(string clientId, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DeleteClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await DeleteClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes one client from the tenant permanently and answers 200 with an empty body. An administrator may delete any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The authorizations and consents issued for the client are removed too, but that cleanup is driven by a message and completes on the authorization service after this call has already returned. A delete that removes no row answers 400. The operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> DeleteClientWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
@@ -1064,7 +1060,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/clients/{clientId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/oauth2/clients/{clientId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1082,26 +1078,25 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>Object</returns>
-        public Object DeleteTenantClients()
+        /// <returns></returns>
+        public void DeleteTenantClients()
         {
-            var localVarResponse = DeleteTenantClientsWithHttpInfo();
-            return localVarResponse.Data;
+            DeleteTenantClientsWithHttpInfo();
         }
 
         /// <summary>
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteTenantClientsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
@@ -1126,7 +1121,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<Object>("/api/2.0/clients/tenant", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<Object>("/api/2.0/oauth2/clients/tenant", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1144,28 +1139,27 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>Task of Object</returns>
-        public async Task<Object> DeleteTenantClientsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task DeleteTenantClientsAsync(CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DeleteTenantClientsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await DeleteTenantClientsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Delete all tenant OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client registered in the current tenant and answers 200 with an empty body. Only an administrator may call it - for a plain user or a guest it is refused with 403 - and it removes the clients of all users of the tenant, not only those of the caller. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> DeleteTenantClientsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
@@ -1192,7 +1186,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/clients/tenant", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/oauth2/clients/tenant", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1210,26 +1204,25 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>Object</returns>
-        public Object DeleteUserClients()
+        /// <returns></returns>
+        public void DeleteUserClients()
         {
-            var localVarResponse = DeleteUserClientsWithHttpInfo();
-            return localVarResponse.Data;
+            DeleteUserClientsWithHttpInfo();
         }
 
         /// <summary>
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteUserClientsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
@@ -1254,7 +1247,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<Object>("/api/2.0/clients", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<Object>("/api/2.0/oauth2/clients", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1272,28 +1265,27 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>Task of Object</returns>
-        public async Task<Object> DeleteUserClientsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task DeleteUserClientsAsync(CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DeleteUserClientsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await DeleteUserClientsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Delete all user OAuth2 clients
         /// </summary>
         /// <remarks>
-        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// Deletes every client the calling user created in the current tenant and answers 200 with an empty body. The caller's own identity always selects the set, so this never reaches clients created by somebody else, not even for an administrator. The authorizations and consents of the deleted clients are cleaned up asynchronously on the authorization service, and the tenant's client cache is dropped as part of the call. Concurrent modification that survives the retries is reported as 400. The operation cannot be undone, and the response does not say how many clients were removed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> DeleteUserClientsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
@@ -1320,7 +1312,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/clients", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/oauth2/clients", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1338,7 +1330,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -1354,7 +1346,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -1389,7 +1381,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Patch<ClientSecretResponse>("/api/2.0/clients/{clientId}/regenerate", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Patch<ClientSecretResponse>("/api/2.0/oauth2/clients/{clientId}/regenerate", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1407,7 +1399,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -1424,7 +1416,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Regenerate client secret
         /// </summary>
         /// <remarks>
-        /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
+        /// Issues a new secret for the client and returns it. The previous secret stops working as soon as this call succeeds, there is no grace period and no way to recover it, so every deployed copy of the client has to be updated with the value returned here. An administrator may do this for any client of the tenant, a plain user only for the clients they created. Tokens already issued to the client keep working; only future client authentication is affected. The response carries the new secret and nothing else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to regenerate secret for</param>
@@ -1462,7 +1454,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PatchAsync<ClientSecretResponse>("/api/2.0/clients/{clientId}/regenerate", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PatchAsync<ClientSecretResponse>("/api/2.0/oauth2/clients/{clientId}/regenerate", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1480,28 +1472,27 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>Object</returns>
-        public Object RevokeUserClient(string clientId)
+        /// <returns></returns>
+        public void RevokeUserClient(string clientId)
         {
-            var localVarResponse = RevokeUserClientWithHttpInfo(clientId);
-            return localVarResponse.Data;
+            RevokeUserClientWithHttpInfo(clientId);
         }
 
         /// <summary>
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> RevokeUserClientWithHttpInfo(string clientId)
         {
             // verify the required parameter 'clientId' is set
@@ -1531,7 +1522,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<Object>("/api/2.0/clients/{clientId}/revoke", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<Object>("/api/2.0/oauth2/clients/{clientId}/revoke", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1549,30 +1540,29 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>Task of Object</returns>
-        public async Task<Object> RevokeUserClientAsync(string clientId, CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task RevokeUserClientAsync(string clientId, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await RevokeUserClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await RevokeUserClientWithHttpInfoAsync(clientId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Revoke client consent
         /// </summary>
         /// <remarks>
-        /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
+        /// Revokes the calling user's own consent for one client and answers 200 with an empty body. It touches only the caller's grant: other users keep their consents and the client itself stays registered. Guests may call it as well as users and administrators, because it can never reach anyone else's data. The revocation is carried out by the authorization service over gRPC, so a service that reports nothing was revoked produces 400 and a service that cannot be reached produces 503. Once it succeeds the user has to authorize the client again before it can act on their behalf.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> RevokeUserClientWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
@@ -1604,7 +1594,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/clients/{clientId}/revoke", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/oauth2/clients/{clientId}/revoke", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1622,30 +1612,29 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>Object</returns>
-        public Object UpdateClient(string clientId, UpdateClientRequest updateClientRequest)
+        /// <returns></returns>
+        public void UpdateClient(string clientId, UpdateClientRequest updateClientRequest)
         {
-            var localVarResponse = UpdateClientWithHttpInfo(clientId, updateClientRequest);
-            return localVarResponse.Data;
+            UpdateClientWithHttpInfo(clientId, updateClientRequest);
         }
 
         /// <summary>
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UpdateClientWithHttpInfo(string clientId, UpdateClientRequest updateClientRequest)
         {
             // verify the required parameter 'clientId' is set
@@ -1680,7 +1669,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             }
 
             // make the HTTP request
-            var localVarResponse = Client.Put<Object>("/api/2.0/clients/{clientId}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<Object>("/api/2.0/oauth2/clients/{clientId}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1698,32 +1687,31 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>Task of Object</returns>
-        public async Task<Object> UpdateClientAsync(string clientId, UpdateClientRequest updateClientRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task UpdateClientAsync(string clientId, UpdateClientRequest updateClientRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateClientWithHttpInfoAsync(clientId, updateClientRequest, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await UpdateClientWithHttpInfoAsync(clientId, updateClientRequest, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the mutable settings of an existing client and answers 200 with an empty body. Only the fields carried in the request body change; the client ID, the secret, the tenant and the creator cannot be changed this way. An administrator may update any client of the tenant, a plain user only the clients they created, and a client the caller may not see is reported as not found rather than as forbidden. The write runs under optimistic locking and is retried a few times, so a request that still loses the race is rejected with 400 instead of silently overwriting a concurrent change. Nothing is returned in the body - read the client back to see the stored result.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">ID of the client to update</param>
         /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> UpdateClientWithHttpInfoAsync(string clientId, UpdateClientRequest updateClientRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'clientId' is set
@@ -1760,7 +1748,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/clients/{clientId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/oauth2/clients/{clientId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Aggregated customer usage statistics for a service over a period.
+    /// What one wallet service was consumed and cost over the requested period, added up rather than listed.
     /// </summary>
     [DataContract(Name = "CustomerServiceUsageDto")]
     public partial class CustomerServiceUsageDto : IValidatableObject
@@ -41,15 +41,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerServiceUsageDto" /> class.
         /// </summary>
-        /// <param name="service">The name of the service..</param>
-        /// <param name="title">The title of the service..</param>
-        /// <param name="serviceUnit">The unit of measurement for the service..</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol of the amounts..</param>
-        /// <param name="totalQuantity">The total number of units consumed..</param>
-        /// <param name="totalAmount">The total amount charged for the service..</param>
-        /// <param name="operationCount">The number of individual purchase operations..</param>
-        /// <param name="price">The price of the service..</param>
-        /// <param name="subscription">Indicates whether the service is subscription-based..</param>
+        /// <param name="service">The stable key of the service, which is what the &#x60;serviceName&#x60; filter of this operation matches on and  what &#x60;GET api/2.0/portal/payment/walletservice&#x60; looks a service up by..</param>
+        /// <param name="title">The service name in the portal language, for printing rather than matching..</param>
+        /// <param name="serviceUnit">What &#x60;totalQuantity&#x60; counts, in the portal language. AI consumption is reported in tokens here rather  than in the AI credits the service is sold in, so it does not line up with the price list..</param>
+        /// <param name="currency">The currency &#x60;totalAmount&#x60; and &#x60;price&#x60; are expressed in, as a three-letter ISO 4217 code..</param>
+        /// <param name="totalQuantity">How many units of the service were consumed over the period, in the unit named by &#x60;serviceUnit&#x60;..</param>
+        /// <param name="totalAmount">What that consumption cost over the period. It is what was actually charged, so it can differ from  &#x60;price&#x60; times &#x60;totalQuantity&#x60; when the price changed inside the period..</param>
+        /// <param name="operationCount">How many separate charges the total was added up from. The charges themselves are in  &#x60;GET api/2.0/portal/payment/customer/operations&#x60;..</param>
+        /// <param name="price">What one unit of the service costs today, not what it cost during the period. It is &#x60;0&#x60; when the service  is no longer on the installation&#39;s price list..</param>
+        /// <param name="subscription">Whether the service is billed as a standing subscription rather than per unit consumed. It is derived  from today&#39;s price list, so it describes the service as it is sold now..</param>
         public CustomerServiceUsageDto(string service = default, string title = default, string serviceUnit = default, string currency = default, int totalQuantity = default, double totalAmount = default, int operationCount = default, double price = default, bool subscription = default)
         {
             this.Service = service;
@@ -64,63 +64,63 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The name of the service.
+        /// The stable key of the service, which is what the &#x60;serviceName&#x60; filter of this operation matches on and  what &#x60;GET api/2.0/portal/payment/walletservice&#x60; looks a service up by.
         /// </summary>
         /// <example>disk-storage</example>
         [DataMember(Name = "service", EmitDefaultValue = true)]
         public string Service { get; set; }
 
         /// <summary>
-        /// The title of the service.
+        /// The service name in the portal language, for printing rather than matching.
         /// </summary>
         /// <example>Additional disk storage</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The unit of measurement for the service.
+        /// What &#x60;totalQuantity&#x60; counts, in the portal language. AI consumption is reported in tokens here rather  than in the AI credits the service is sold in, so it does not line up with the price list.
         /// </summary>
         /// <example>GB</example>
         [DataMember(Name = "serviceUnit", EmitDefaultValue = true)]
         public string ServiceUnit { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol of the amounts.
+        /// The currency &#x60;totalAmount&#x60; and &#x60;price&#x60; are expressed in, as a three-letter ISO 4217 code.
         /// </summary>
         /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The total number of units consumed.
+        /// How many units of the service were consumed over the period, in the unit named by &#x60;serviceUnit&#x60;.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "totalQuantity", EmitDefaultValue = false)]
         public int TotalQuantity { get; set; }
 
         /// <summary>
-        /// The total amount charged for the service.
+        /// What that consumption cost over the period. It is what was actually charged, so it can differ from  &#x60;price&#x60; times &#x60;totalQuantity&#x60; when the price changed inside the period.
         /// </summary>
-        /// <example>14</example>
+        /// <example>49.99</example>
         [DataMember(Name = "totalAmount", EmitDefaultValue = false)]
         public double TotalAmount { get; set; }
 
         /// <summary>
-        /// The number of individual purchase operations.
+        /// How many separate charges the total was added up from. The charges themselves are in  &#x60;GET api/2.0/portal/payment/customer/operations&#x60;.
         /// </summary>
-        /// <example>1</example>
+        /// <example>2</example>
         [DataMember(Name = "operationCount", EmitDefaultValue = false)]
         public int OperationCount { get; set; }
 
         /// <summary>
-        /// The price of the service.
+        /// What one unit of the service costs today, not what it cost during the period. It is &#x60;0&#x60; when the service  is no longer on the installation&#39;s price list.
         /// </summary>
         /// <example>0.14</example>
         [DataMember(Name = "price", EmitDefaultValue = false)]
         public double Price { get; set; }
 
         /// <summary>
-        /// Indicates whether the service is subscription-based.
+        /// Whether the service is billed as a standing subscription rather than per unit consumed. It is derived  from today&#39;s price list, so it describes the service as it is sold now.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "subscription", EmitDefaultValue = true)]

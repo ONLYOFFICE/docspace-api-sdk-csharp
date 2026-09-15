@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The watermark settings.
+    /// The watermark drawn over the documents of a room while they are viewed and printed.
     /// </summary>
     [DataContract(Name = "AiWatermarkDto")]
     public partial class AiWatermarkDto : IValidatableObject
     {
 
         /// <summary>
-        /// Specifies whether to display in the watermark: username, user email, user ip-adress, current date, and room name.
+        /// Which details of the reader and of the room are stamped alongside the text. The values combine, so a number  that is not a member on its own is the sum of several of them, and 0 means that only the text is stamped.
         /// </summary>
         [DataMember(Name = "additions", IsRequired = true, EmitDefaultValue = true)]
         public AiWatermarkAdditions Additions { get; set; }
@@ -52,13 +52,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiWatermarkDto" /> class.
         /// </summary>
-        /// <param name="additions">Specifies whether to display in the watermark: username, user email, user ip-adress, current date, and room name. (required).</param>
-        /// <param name="text">The watermark text..</param>
-        /// <param name="rotate">The watermark text and image rotate. (required).</param>
-        /// <param name="imageScale">The watermark image scale. (required).</param>
-        /// <param name="imageUrl">The watermark image url..</param>
-        /// <param name="imageHeight">The watermark image height. (required).</param>
-        /// <param name="imageWidth">The watermark image width. (required).</param>
+        /// <param name="additions">Which details of the reader and of the room are stamped alongside the text. The values combine, so a number  that is not a member on its own is the sum of several of them, and 0 means that only the text is stamped. (required).</param>
+        /// <param name="text">The fixed line drawn over the document, printed before the details selected alongside it. Empty when the room  stamps an image instead..</param>
+        /// <param name="rotate">How far the stamp is turned, in degrees, with negative values turning it anticlockwise and 0 drawing it  horizontally. (required).</param>
+        /// <param name="imageScale">How large the image is drawn, as a percentage of its own size. It is 0 for a text watermark, where nothing is  scaled. (required).</param>
+        /// <param name="imageUrl">The address the stamped picture is served from, inside the storage of the room. Empty for a text watermark..</param>
+        /// <param name="imageHeight">The height the picture is drawn with, in pixels, kept together with the width so that the proportions survive.  It is 0 for a text watermark. (required).</param>
+        /// <param name="imageWidth">The width the picture is drawn with, in pixels, kept together with the height so that the proportions survive.  It is 0 for a text watermark. (required).</param>
         public AiWatermarkDto(AiWatermarkAdditions additions = default, string text = default, int rotate = default, int imageScale = default, string imageUrl = default, double imageHeight = default, double imageWidth = default)
         {
             this.Additions = additions;
@@ -71,42 +71,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The watermark text.
+        /// The fixed line drawn over the document, printed before the details selected alongside it. Empty when the room  stamps an image instead.
         /// </summary>
         /// <example>Confidential</example>
         [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
-        /// The watermark text and image rotate.
+        /// How far the stamp is turned, in degrees, with negative values turning it anticlockwise and 0 drawing it  horizontally.
         /// </summary>
-        /// <example>45</example>
+        /// <example>-45</example>
         [DataMember(Name = "rotate", IsRequired = true, EmitDefaultValue = true)]
         public int Rotate { get; set; }
 
         /// <summary>
-        /// The watermark image scale.
+        /// How large the image is drawn, as a percentage of its own size. It is 0 for a text watermark, where nothing is  scaled.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "imageScale", IsRequired = true, EmitDefaultValue = true)]
         public int ImageScale { get; set; }
 
         /// <summary>
-        /// The watermark image url.
+        /// The address the stamped picture is served from, inside the storage of the room. Empty for a text watermark.
         /// </summary>
-        /// <example>http://localhost/watermark.png</example>
+        /// <example>https://portal.example.com/storage/watermark_a1b2c3.png</example>
         [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
-        /// The watermark image height.
+        /// The height the picture is drawn with, in pixels, kept together with the width so that the proportions survive.  It is 0 for a text watermark.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "imageHeight", IsRequired = true, EmitDefaultValue = true)]
         public double ImageHeight { get; set; }
 
         /// <summary>
-        /// The watermark image width.
+        /// The width the picture is drawn with, in pixels, kept together with the height so that the proportions survive.  It is 0 for a text watermark.
         /// </summary>
         /// <example>200</example>
         [DataMember(Name = "imageWidth", IsRequired = true, EmitDefaultValue = true)]

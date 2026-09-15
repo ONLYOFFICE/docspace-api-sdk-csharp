@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for specifying wallet payment quantity.
+    /// The wallet service being bought or scheduled, and the way its quantity is applied.
     /// </summary>
     [DataContract(Name = "WalletQuantityRequestDto")]
     public partial class WalletQuantityRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// The type of action performed on a product&#39;s quantity.
+        /// How the number in &#x60;quantity&#x60; is applied. &#x60;Add&#x60; buys the units straight away and charges them to the portal  wallet, while &#x60;Set&#x60; charges nothing now and records the quantity the service is to have from the next period.  Only these two are accepted here; &#x60;Sub&#x60; and &#x60;Renew&#x60; are refused with 400.
         /// </summary>
         [DataMember(Name = "productQuantityType", EmitDefaultValue = false)]
         public ProductQuantityType? ProductQuantityType { get; set; }
@@ -52,8 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WalletQuantityRequestDto" /> class.
         /// </summary>
-        /// <param name="quantity">The mapping of item identifiers to their respective quantities in the payment. (required).</param>
-        /// <param name="productQuantityType">The type of action performed on a product&#39;s quantity..</param>
+        /// <param name="quantity">The wallet service and the number of units of it, as a single pair. The key is the &#x60;serviceName&#x60; of a service  from &#x60;GET api/2.0/portal/payment/walletservices&#x60;, and the value is read according to  &#x60;productQuantityType&#x60;: the units to add, or the total the service is to have in the next period. Minimum  quantities apply per service - disk storage starts at 100 units, the DocsCloud developer pack at 10, and the  administrators may not be fewer than the portal already has. Exactly one pair is accepted, and a null or zero  value cancels a change scheduled earlier rather than buying nothing. (required).</param>
+        /// <param name="productQuantityType">How the number in &#x60;quantity&#x60; is applied. &#x60;Add&#x60; buys the units straight away and charges them to the portal  wallet, while &#x60;Set&#x60; charges nothing now and records the quantity the service is to have from the next period.  Only these two are accepted here; &#x60;Sub&#x60; and &#x60;Renew&#x60; are refused with 400..</param>
         public WalletQuantityRequestDto(Dictionary<string, int?> quantity = default, ProductQuantityType? productQuantityType = default)
         {
             // to ensure "quantity" is required (not null)
@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The mapping of item identifiers to their respective quantities in the payment.
+        /// The wallet service and the number of units of it, as a single pair. The key is the &#x60;serviceName&#x60; of a service  from &#x60;GET api/2.0/portal/payment/walletservices&#x60;, and the value is read according to  &#x60;productQuantityType&#x60;: the units to add, or the total the service is to have in the next period. Minimum  quantities apply per service - disk storage starts at 100 units, the DocsCloud developer pack at 10, and the  administrators may not be fewer than the portal already has. Exactly one pair is accepted, and a null or zero  value cancels a change scheduled earlier rather than buying nothing.
         /// </summary>
         /// <example>{"admin":1}</example>
         [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]

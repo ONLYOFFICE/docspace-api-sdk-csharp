@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for the Single Sign-On (SSO) configuration settings.
+    /// The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object.
     /// </summary>
     [DataContract(Name = "SsoSettingsRequestsDto")]
     public partial class SsoSettingsRequestsDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SsoSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="serializeSettings">The JSON-serialized SSO configuration settings. (required).</param>
+        /// <param name="serializeSettings">The configuration object serialised to a JSON string, not a nested object. It is the complete configuration  rather than a patch - fields left out are stored empty - so start from &#x60;GET api/2.0/settings/ssov2&#x60; or  &#x60;GET api/2.0/settings/ssov2/default&#x60; and send back a changed copy. The identity provider entity ID and  sign-in URL are required, the sign-in and sign-out URLs have to be absolute &#x60;http&#x60; or &#x60;https&#x60; addresses, and  the attribute mapping has to name the first name, last name and email fields; the values each SAML field  accepts are listed by &#x60;GET api/2.0/settings/ssov2/constants&#x60;. An empty string, or a string that carries no  configuration object, is refused with 400. (required).</param>
         public SsoSettingsRequestsDto(string serializeSettings = default)
         {
             // to ensure "serializeSettings" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The JSON-serialized SSO configuration settings.
+        /// The configuration object serialised to a JSON string, not a nested object. It is the complete configuration  rather than a patch - fields left out are stored empty - so start from &#x60;GET api/2.0/settings/ssov2&#x60; or  &#x60;GET api/2.0/settings/ssov2/default&#x60; and send back a changed copy. The identity provider entity ID and  sign-in URL are required, the sign-in and sign-out URLs have to be absolute &#x60;http&#x60; or &#x60;https&#x60; addresses, and  the attribute mapping has to name the first name, last name and email fields; the values each SAML field  accepts are listed by &#x60;GET api/2.0/settings/ssov2/constants&#x60;. An empty string, or a string that carries no  configuration object, is refused with 400.
         /// </summary>
         /// <example>{"enableSso":true,"idpSettings":{"entityId":"https://idp.example.com"}}</example>
         [DataMember(Name = "serializeSettings", IsRequired = true, EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The member request.
+    /// The accounts a member operation applies to.
     /// </summary>
     [DataContract(Name = "MembersRequest")]
     public partial class MembersRequest : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MembersRequest" /> class.
         /// </summary>
-        /// <param name="members">The list of group member IDs..</param>
+        /// <param name="members">The accounts the operation applies to. When adding or replacing members, an account that is a guest, is  disabled or does not exist is skipped without an error; when removing them, an ID that is not a member is  skipped as well..</param>
         public MembersRequest(List<Guid> members = default)
         {
             this.Members = members;
         }
 
         /// <summary>
-        /// The list of group member IDs.
+        /// The accounts the operation applies to. When adding or replacing members, an account that is a guest, is  disabled or does not exist is skipped without an error; when removing them, an ID that is not a member is  skipped as well.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "members", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The TFA app code.
+    /// One backup code of the caller&#39;s authenticator credential.
     /// </summary>
     [DataContract(Name = "TfaAppCodeDto")]
     public partial class TfaAppCodeDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaAppCodeDto" /> class.
         /// </summary>
-        /// <param name="isUsed">The TFA app code usage status..</param>
-        /// <param name="code">The TFA app code..</param>
+        /// <param name="isUsed">Whether the code has already been spent. A spent code is kept in the list but is no longer accepted, so  count the entries where this is &#x60;false&#x60; to know how many fallbacks remain..</param>
+        /// <param name="code">The code itself, in the form it is typed at sign-in - six characters with the default configuration. It is  stored encrypted and decrypted for this answer, so this is the one place a caller can read it..</param>
         public TfaAppCodeDto(bool isUsed = default, string code = default)
         {
             this.IsUsed = isUsed;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The TFA app code usage status.
+        /// Whether the code has already been spent. A spent code is kept in the list but is no longer accepted, so  count the entries where this is &#x60;false&#x60; to know how many fallbacks remain.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isUsed", EmitDefaultValue = true)]
         public bool IsUsed { get; set; }
 
         /// <summary>
-        /// The TFA app code.
+        /// The code itself, in the form it is typed at sign-in - six characters with the default configuration. It is  stored encrypted and decrypted for this answer, so this is the one place a caller can read it.
         /// </summary>
         /// <example>123456</example>
         [DataMember(Name = "code", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the portal theme settings.
+    /// The custom colour theme being saved, the theme being selected, or both.
     /// </summary>
     [DataContract(Name = "CustomColorThemesSettingsRequestsDto")]
     public partial class CustomColorThemesSettingsRequestsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomColorThemesSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="theme">The custom color theme configuration..</param>
-        /// <param name="selected">Specifies the optional value indicating the selected custom color theme..</param>
+        /// <param name="theme">The theme to store, with its accent and button colours for the interface and for the text on it. An &#x60;id&#x60; that  matches a stored custom theme replaces it, an unknown &#x60;id&#x60; appends a new one, and an &#x60;id&#x60; belonging to a  built-in theme is treated as a request for a new custom theme rather than overwriting the built-in one. Once  the plan limit on custom themes is reached a new theme is silently not added, so compare the returned themes  against &#x60;limit&#x60; instead of assuming it was saved. Leave it out to change only the selection..</param>
+        /// <param name="selected">The theme the whole portal switches to, by theme ID. An ID matching no stored theme is ignored rather than  refused, and leaving it out keeps the selection as it is..</param>
         public CustomColorThemesSettingsRequestsDto(CustomColorThemesSettingsItem theme = default, int? selected = default)
         {
             this.Theme = theme;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The custom color theme configuration.
+        /// The theme to store, with its accent and button colours for the interface and for the text on it. An &#x60;id&#x60; that  matches a stored custom theme replaces it, an unknown &#x60;id&#x60; appends a new one, and an &#x60;id&#x60; belonging to a  built-in theme is treated as a request for a new custom theme rather than overwriting the built-in one. Once  the plan limit on custom themes is reached a new theme is silently not added, so compare the returned themes  against &#x60;limit&#x60; instead of assuming it was saved. Leave it out to change only the selection.
         /// </summary>
         [DataMember(Name = "theme", EmitDefaultValue = false)]
         public CustomColorThemesSettingsItem Theme { get; set; }
 
         /// <summary>
-        /// Specifies the optional value indicating the selected custom color theme.
+        /// The theme the whole portal switches to, by theme ID. An ID matching no stored theme is ignored rather than  refused, and leaving it out keeps the selection as it is.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "selected", EmitDefaultValue = true)]

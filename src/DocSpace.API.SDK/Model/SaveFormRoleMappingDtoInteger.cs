@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for saving form role mapping.
+    /// The people who are to fill in the roles of a PDF form.
     /// </summary>
     [DataContract(Name = "SaveFormRoleMappingDtoInteger")]
     public partial class SaveFormRoleMappingDtoInteger : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SaveFormRoleMappingDtoInteger" /> class.
         /// </summary>
-        /// <param name="formId">The form ID. (required).</param>
-        /// <param name="roles">The collection of roles. (required).</param>
+        /// <param name="formId">The PDF form the roles belong to. This is the value the operation reads, rather than the identifier in its  route, and the two are to be sent the same. (required).</param>
+        /// <param name="roles">The roles with the account taking each of them and the sequence number that decides the turn: the same number  means the roles may be filled in parallel, different ones make a queue. The whole set is replaced on every  call, and an empty set resets the filling. (required).</param>
         public SaveFormRoleMappingDtoInteger(int formId = default, List<FormRole> roles = default)
         {
             this.FormId = formId;
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The form ID.
+        /// The PDF form the roles belong to. This is the value the operation reads, rather than the identifier in its  route, and the two are to be sent the same.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "formId", IsRequired = true, EmitDefaultValue = true)]
         public int FormId { get; set; }
 
         /// <summary>
-        /// The collection of roles.
+        /// The roles with the account taking each of them and the sequence number that decides the turn: the same number  means the roles may be filled in parallel, different ones make a queue. The whole set is replaced on every  call, and an empty set resets the filling.
         /// </summary>
         /// <example>[{"roleName":"Approver","userId":"00000000-0000-0000-0000-000000000000"}]</example>
         [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for downloading files.
+    /// The files and folders to pack into one archive, together with the formats they are converted to.
     /// </summary>
     [DataContract(Name = "DownloadRequestDto")]
     public partial class DownloadRequestDto : FileOperationRequestBaseDto, IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DownloadRequestDto" /> class.
         /// </summary>
-        /// <param name="folderIds">The list of folder IDs to be downloaded..</param>
-        /// <param name="fileIds">The list of file IDs to be downloaded..</param>
-        /// <param name="fileConvertIds">The list of file IDs which will be converted..</param>
+        /// <param name="folderIds">The folders to pack, by id; everything inside them that the caller may read goes into the archive. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list..</param>
+        /// <param name="fileIds">The files to pack as they are, by id, without conversion. A number addresses a file stored in the portal  itself, a string addresses a file on a connected third-party account, and both kinds may be sent in one list..</param>
+        /// <param name="fileConvertIds">The files to convert before they are packed, each named together with the format it is converted to. A file  listed here does not have to be repeated in &#x60;fileIds&#x60;..</param>
         public DownloadRequestDto(List<DownloadRequestDtoAllOfFolderIds> folderIds = default, List<DownloadRequestDtoAllOfFileIds> fileIds = default, List<DownloadRequestItemDto> fileConvertIds = default)
         {
             this.FolderIds = folderIds;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of folder IDs to be downloaded.
+        /// The folders to pack, by id; everything inside them that the caller may read goes into the archive. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DownloadRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
-        /// The list of file IDs to be downloaded.
+        /// The files to pack as they are, by id, without conversion. A number addresses a file stored in the portal  itself, a string addresses a file on a connected third-party account, and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DownloadRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
-        /// The list of file IDs which will be converted.
+        /// The files to convert before they are packed, each named together with the format it is converted to. A file  listed here does not have to be repeated in &#x60;fileIds&#x60;.
         /// </summary>
         /// <example>[{"key":"1","value":"pdf","password":"password123"}]</example>
         [DataMember(Name = "fileConvertIds", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for handling sales and payment inquiries in the portal.
+    /// Who is writing to the ONLYOFFICE sales team, and what about.
     /// </summary>
     [DataContract(Name = "SalesRequestsDto")]
     public partial class SalesRequestsDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SalesRequestsDto" /> class.
         /// </summary>
-        /// <param name="userName">The name of the user submitting the sales request. (required).</param>
-        /// <param name="email">The contact email address for the sales inquiry. (required).</param>
-        /// <param name="message">The details of the sales inquiry or payment request. (required).</param>
+        /// <param name="userName">The name the sales team should address the reply to. It is sent as written and is not matched against any  portal account; an empty value fails the request with 400. (required).</param>
+        /// <param name="email">The address the answer is sent to. It has to be a well-formed email address and need not be the caller portal  address; an empty or malformed value fails the request with 400. (required).</param>
+        /// <param name="message">What is being asked of the sales team - a quote, an invoice, or a plan that cannot be bought online. An empty  value fails the request with 400. (required).</param>
         public SalesRequestsDto(string userName = default, string email = default, string message = default)
         {
             // to ensure "userName" is required (not null)
@@ -72,21 +72,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The name of the user submitting the sales request.
+        /// The name the sales team should address the reply to. It is sent as written and is not matched against any  portal account; an empty value fails the request with 400.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "userName", IsRequired = true, EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
-        /// The contact email address for the sales inquiry.
+        /// The address the answer is sent to. It has to be a well-formed email address and need not be the caller portal  address; an empty or malformed value fails the request with 400.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// The details of the sales inquiry or payment request.
+        /// What is being asked of the sales team - a quote, an invoice, or a plan that cannot be bought online. An empty  value fails the request with 400.
         /// </summary>
         /// <example>I would like to inquire about pricing</example>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]

@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateFormToolCallParametersDto" /> class.
         /// </summary>
-        /// <param name="description">The description of the form to generate. (required).</param>
+        /// <param name="description">What the generated fillable form should ask for, in the words the request was made in. (required).</param>
         public GenerateFormToolCallParametersDto(string description = default)
         {
             // to ensure "description" is required (not null)
@@ -58,8 +58,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The description of the form to generate.
+        /// What the generated fillable form should ask for, in the words the request was made in.
         /// </summary>
+        /// <example>An employee onboarding form with name, start date and department</example>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring the password complexity requirements.
+    /// The four values that make up the portal password policy, replaced together.
     /// </summary>
     [DataContract(Name = "PasswordSettingsRequestsDto")]
     public partial class PasswordSettingsRequestsDto : IValidatableObject
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PasswordSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="minLength">The minimum number of characters required for valid passwords. (required).</param>
-        /// <param name="upperCase">Specifies whether the password should contain the uppercase letters or not..</param>
-        /// <param name="digits">Specifies whether the password should contain the digits or not..</param>
-        /// <param name="specSymbols">Specifies whether the password should contain the special symbols or not..</param>
+        /// <param name="minLength">The shortest password the portal will accept. It has to sit between the floor the installation is configured  with, 8 characters unless it was changed, and the ceiling of 30; a value outside that is refused with 400. (required).</param>
+        /// <param name="upperCase">Whether a password must contain at least one uppercase letter. There is no partial update on this body, so  leaving the flag out stores it as &#x60;false&#x60; and drops the requirement..</param>
+        /// <param name="digits">Whether a password must contain at least one digit. Leaving the flag out stores it as &#x60;false&#x60; and drops the  requirement..</param>
+        /// <param name="specSymbols">Whether a password must contain at least one special symbol. Leaving the flag out stores it as &#x60;false&#x60; and  drops the requirement..</param>
         public PasswordSettingsRequestsDto(int minLength = default, bool upperCase = default, bool digits = default, bool specSymbols = default)
         {
             this.MinLength = minLength;
@@ -59,28 +59,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The minimum number of characters required for valid passwords.
+        /// The shortest password the portal will accept. It has to sit between the floor the installation is configured  with, 8 characters unless it was changed, and the ceiling of 30; a value outside that is refused with 400.
         /// </summary>
         /// <example>8</example>
         [DataMember(Name = "minLength", IsRequired = true, EmitDefaultValue = true)]
         public int MinLength { get; set; }
 
         /// <summary>
-        /// Specifies whether the password should contain the uppercase letters or not.
+        /// Whether a password must contain at least one uppercase letter. There is no partial update on this body, so  leaving the flag out stores it as &#x60;false&#x60; and drops the requirement.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "upperCase", EmitDefaultValue = true)]
         public bool UpperCase { get; set; }
 
         /// <summary>
-        /// Specifies whether the password should contain the digits or not.
+        /// Whether a password must contain at least one digit. Leaving the flag out stores it as &#x60;false&#x60; and drops the  requirement.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "digits", EmitDefaultValue = true)]
         public bool Digits { get; set; }
 
         /// <summary>
-        /// Specifies whether the password should contain the special symbols or not.
+        /// Whether a password must contain at least one special symbol. Leaving the flag out stores it as &#x60;false&#x60; and  drops the requirement.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "specSymbols", EmitDefaultValue = true)]

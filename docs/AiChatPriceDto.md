@@ -1,12 +1,12 @@
 # DocSpace.API.SDK.Model.AiChatPriceDto
-Data transfer object that represents the pricing information for an AI chat interaction.
+What a chat model charges, split by the direction the tokens flow in.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Prompt** | **double** | Gets the price per one million prompt tokens. | [optional] 
-**Completion** | **double** | Gets the price per one million completion tokens. | [optional] 
+**Prompt** | **double** | The cost of one million tokens sent to the model, which includes the conversation history resent with  every turn and not just the newest message. | [optional] 
+**Completion** | **double** | The cost of one million tokens the model writes back. It is normally the dearer of the two directions. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

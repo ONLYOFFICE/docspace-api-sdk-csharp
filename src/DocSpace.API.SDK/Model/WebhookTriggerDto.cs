@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The webhook trigger with its availability for the current user.
+    /// One event a webhook can listen to, with the bit that selects it and whether the caller may subscribe to it.
     /// </summary>
     [DataContract(Name = "WebhookTriggerDto")]
     public partial class WebhookTriggerDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookTriggerDto" /> class.
         /// </summary>
-        /// <param name="name">The trigger name..</param>
-        /// <param name="id">The trigger bit value..</param>
-        /// <param name="available">Specifies whether this trigger is available for the current user&#39;s role..</param>
+        /// <param name="name">The event name exactly as it appears in a delivered payload, so a receiver can match on it. The entry  named &#x60;*&#x60; is not an event but the catch-all..</param>
+        /// <param name="id">The bit that stands for this event in the &#x60;triggers&#x60; bitmask of a subscription. Add the bits of the wanted  events together; the catch-all entry has the value &#x60;0&#x60; and is used on its own rather than added to  anything..</param>
+        /// <param name="available">Whether the caller&#39;s own role may subscribe to this event - a plain member cannot subscribe to user, group  or room creation, where a room administrator can. An unavailable event is listed all the same, and sending  its bit to &#x60;POST api/2.0/settings/webhook&#x60; is refused as an invalid request..</param>
         public WebhookTriggerDto(string name = default, long id = default, bool available = default)
         {
             this.Name = name;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The trigger name.
+        /// The event name exactly as it appears in a delivered payload, so a receiver can match on it. The entry  named &#x60;*&#x60; is not an event but the catch-all.
         /// </summary>
         /// <example>file.created</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The trigger bit value.
+        /// The bit that stands for this event in the &#x60;triggers&#x60; bitmask of a subscription. Add the bits of the wanted  events together; the catch-all entry has the value &#x60;0&#x60; and is used on its own rather than added to  anything.
         /// </summary>
         /// <example>128</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public long Id { get; set; }
 
         /// <summary>
-        /// Specifies whether this trigger is available for the current user&#39;s role.
+        /// Whether the caller&#39;s own role may subscribe to this event - a plain member cannot subscribe to user, group  or room creation, where a room administrator can. An unavailable event is listed all the same, and sending  its bit to &#x60;POST api/2.0/settings/webhook&#x60; is refused as an invalid request.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "available", EmitDefaultValue = true)]

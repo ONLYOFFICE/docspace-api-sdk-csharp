@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SsoSettingsV2ConstantsDto" /> class.
         /// </summary>
-        /// <param name="ssoNameIdFormatType">The SAML name ID formats the SSO settings accept..</param>
-        /// <param name="ssoBindingType">The SAML bindings the SSO settings accept..</param>
-        /// <param name="ssoSigningAlgorithmType">The signing algorithms the SSO settings accept..</param>
-        /// <param name="ssoEncryptAlgorithmType">The encryption algorithms the SSO settings accept..</param>
-        /// <param name="ssoSpCertificateActionType">What an SP certificate can be used for..</param>
-        /// <param name="ssoIdpCertificateActionType">What an IDP certificate can be used for..</param>
+        /// <param name="ssoNameIdFormatType">The values the &#x60;nameIdFormat&#x60; of the identity provider settings accepts. The built-in configuration uses  the SAML 2.0 transient format..</param>
+        /// <param name="ssoBindingType">The values the &#x60;ssoBinding&#x60; and &#x60;sloBinding&#x60; of the identity provider settings accept - how the portal  sends its sign-in and sign-out requests. The built-in configuration uses HTTP POST for both..</param>
+        /// <param name="ssoSigningAlgorithmType">The values the &#x60;signingAlgorithm&#x60; of the service provider certificate and the &#x60;verifyAlgorithm&#x60; of the  identity provider certificate accept. The built-in configuration uses RSA-SHA1 for both..</param>
+        /// <param name="ssoEncryptAlgorithmType">The values the &#x60;encryptAlgorithm&#x60; and &#x60;decryptAlgorithm&#x60; of the certificate settings accept. The built-in  configuration uses AES-128 everywhere..</param>
+        /// <param name="ssoSpCertificateActionType">The values the &#x60;action&#x60; of a service provider certificate accepts, which is what the portal&#39;s own key  pair may be used for..</param>
+        /// <param name="ssoIdpCertificateActionType">The values the &#x60;action&#x60; of an identity provider certificate accepts, which is what the provider&#39;s  certificate may be used for - the mirror image of the service provider actions..</param>
         public SsoSettingsV2ConstantsDto(SsoNameIdFormatTypeDto ssoNameIdFormatType = default, SsoBindingTypeDto ssoBindingType = default, SsoSigningAlgorithmTypeDto ssoSigningAlgorithmType = default, SsoEncryptAlgorithmTypeDto ssoEncryptAlgorithmType = default, SsoSpCertificateActionTypeDto ssoSpCertificateActionType = default, SsoIdpCertificateActionTypeDto ssoIdpCertificateActionType = default)
         {
             this.SsoNameIdFormatType = ssoNameIdFormatType;
@@ -58,37 +58,37 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The SAML name ID formats the SSO settings accept.
+        /// The values the &#x60;nameIdFormat&#x60; of the identity provider settings accepts. The built-in configuration uses  the SAML 2.0 transient format.
         /// </summary>
         [DataMember(Name = "ssoNameIdFormatType", EmitDefaultValue = false)]
         public SsoNameIdFormatTypeDto SsoNameIdFormatType { get; set; }
 
         /// <summary>
-        /// The SAML bindings the SSO settings accept.
+        /// The values the &#x60;ssoBinding&#x60; and &#x60;sloBinding&#x60; of the identity provider settings accept - how the portal  sends its sign-in and sign-out requests. The built-in configuration uses HTTP POST for both.
         /// </summary>
         [DataMember(Name = "ssoBindingType", EmitDefaultValue = false)]
         public SsoBindingTypeDto SsoBindingType { get; set; }
 
         /// <summary>
-        /// The signing algorithms the SSO settings accept.
+        /// The values the &#x60;signingAlgorithm&#x60; of the service provider certificate and the &#x60;verifyAlgorithm&#x60; of the  identity provider certificate accept. The built-in configuration uses RSA-SHA1 for both.
         /// </summary>
         [DataMember(Name = "ssoSigningAlgorithmType", EmitDefaultValue = false)]
         public SsoSigningAlgorithmTypeDto SsoSigningAlgorithmType { get; set; }
 
         /// <summary>
-        /// The encryption algorithms the SSO settings accept.
+        /// The values the &#x60;encryptAlgorithm&#x60; and &#x60;decryptAlgorithm&#x60; of the certificate settings accept. The built-in  configuration uses AES-128 everywhere.
         /// </summary>
         [DataMember(Name = "ssoEncryptAlgorithmType", EmitDefaultValue = false)]
         public SsoEncryptAlgorithmTypeDto SsoEncryptAlgorithmType { get; set; }
 
         /// <summary>
-        /// What an SP certificate can be used for.
+        /// The values the &#x60;action&#x60; of a service provider certificate accepts, which is what the portal&#39;s own key  pair may be used for.
         /// </summary>
         [DataMember(Name = "ssoSpCertificateActionType", EmitDefaultValue = false)]
         public SsoSpCertificateActionTypeDto SsoSpCertificateActionType { get; set; }
 
         /// <summary>
-        /// What an IDP certificate can be used for.
+        /// The values the &#x60;action&#x60; of an identity provider certificate accepts, which is what the provider&#39;s  certificate may be used for - the mirror image of the service provider actions.
         /// </summary>
         [DataMember(Name = "ssoIdpCertificateActionType", EmitDefaultValue = false)]
         public SsoIdpCertificateActionTypeDto SsoIdpCertificateActionType { get; set; }

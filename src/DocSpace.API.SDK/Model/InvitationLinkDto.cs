@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The invitation link parameters.
+    /// The portal&#39;s standing invitation link for one role: what it grants, how long it lasts, how often it was used.
     /// </summary>
     [DataContract(Name = "InvitationLinkDto")]
     public partial class InvitationLinkDto : IValidatableObject
     {
 
         /// <summary>
-        /// The type of employee role for the invitation link.
+        /// The role an account gets by joining through this link. A portal keeps at most one link per role, and the  role of an existing link cannot be changed - the link has to be deleted and created again.
         /// </summary>
         [DataMember(Name = "employeeType", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeType EmployeeType { get; set; }
@@ -52,13 +52,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationLinkDto" /> class.
         /// </summary>
-        /// <param name="id">The ID of the invitation link..</param>
-        /// <param name="employeeType">The type of employee role for the invitation link. (required).</param>
-        /// <param name="expiration">The expiration date of the invitation link..</param>
-        /// <param name="isExpired">Indicates whether the invitation link has expired..</param>
-        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
-        /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
-        /// <param name="url">The URL of the invitation link..</param>
+        /// <param name="id">The identifier to address the link by in &#x60;PUT api/2.0/portal/users/invitationlink&#x60; and  &#x60;DELETE api/2.0/portal/users/invitationlink&#x60;. It survives a change of deadline or use limit, so it is  worth storing rather than re-reading..</param>
+        /// <param name="employeeType">The role an account gets by joining through this link. A portal keeps at most one link per role, and the  role of an existing link cannot be changed - the link has to be deleted and created again. (required).</param>
+        /// <param name="expiration">When the link stops working, in the portal time zone. It is empty for a link that never expires, which is  what omitting the deadline on create or update leaves behind..</param>
+        /// <param name="isExpired">Whether that deadline has already passed. A link without a deadline always reports &#x60;false&#x60;, and an expired  link is still returned rather than treated as gone - it can be revived by moving &#x60;expiration&#x60;..</param>
+        /// <param name="maxUseCount">How many accounts may join through the link in total. It is empty for a link with no use limit, and an  update may not lower it below &#x60;currentUseCount&#x60;..</param>
+        /// <param name="currentUseCount">How many accounts have already joined through the link. It only ever grows, and reaching &#x60;maxUseCount&#x60;  retires the link as surely as a passed deadline..</param>
+        /// <param name="url">The shortened address to hand to the people being invited. It is signed for the account that read it, so  two administrators are given two different URLs for one and the same link and both of them work; the &#x60;id&#x60;  above, not this string, is what identifies the link..</param>
         public InvitationLinkDto(Guid id = default, EmployeeType employeeType = default, ApiDateTime expiration = default, bool isExpired = default, int? maxUseCount = default, int currentUseCount = default, string url = default)
         {
             this.EmployeeType = employeeType;
@@ -71,41 +71,41 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the invitation link.
+        /// The identifier to address the link by in &#x60;PUT api/2.0/portal/users/invitationlink&#x60; and  &#x60;DELETE api/2.0/portal/users/invitationlink&#x60;. It survives a change of deadline or use limit, so it is  worth storing rather than re-reading.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The expiration date of the invitation link.
+        /// When the link stops working, in the portal time zone. It is empty for a link that never expires, which is  what omitting the deadline on create or update leaves behind.
         /// </summary>
         [DataMember(Name = "expiration", EmitDefaultValue = false)]
         public ApiDateTime Expiration { get; set; }
 
         /// <summary>
-        /// Indicates whether the invitation link has expired.
+        /// Whether that deadline has already passed. A link without a deadline always reports &#x60;false&#x60;, and an expired  link is still returned rather than treated as gone - it can be revived by moving &#x60;expiration&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
         public bool IsExpired { get; set; }
 
         /// <summary>
-        /// The maximum number of times the invitation link can be used.
+        /// How many accounts may join through the link in total. It is empty for a link with no use limit, and an  update may not lower it below &#x60;currentUseCount&#x60;.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
 
         /// <summary>
-        /// The current number of times the invitation link has been used.
+        /// How many accounts have already joined through the link. It only ever grows, and reaching &#x60;maxUseCount&#x60;  retires the link as surely as a passed deadline.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "currentUseCount", EmitDefaultValue = false)]
         public int CurrentUseCount { get; set; }
 
         /// <summary>
-        /// The URL of the invitation link.
+        /// The shortened address to hand to the people being invited. It is signed for the account that read it, so  two administrators are given two different URLs for one and the same link and both of them work; the &#x60;id&#x60;  above, not this string, is what identifies the link.
         /// </summary>
         /// <example>https://example.com</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]

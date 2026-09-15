@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The generic file entry information.
+    /// The part of a file or folder that depends on how the entry is identified: by a number on the portal, or by a  string on a connected third-party account.
     /// </summary>
     [DataContract(Name = "FileEntryDtoString")]
     public partial class FileEntryDtoString : FileEntryBaseDto, IValidatableObject
@@ -41,20 +41,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileEntryDtoString" /> class.
         /// </summary>
-        /// <param name="id">The file entry ID..</param>
-        /// <param name="rootFolderId">The root folder ID of the file entry..</param>
-        /// <param name="originId">The origin ID of the file entry..</param>
-        /// <param name="originRoomId">The origin room ID of the file entry..</param>
-        /// <param name="originTitle">The origin title of the file entry..</param>
-        /// <param name="originRoomTitle">The origin room title of the file entry..</param>
-        /// <param name="canShare">Specifies if the file entry can be shared or not..</param>
+        /// <param name="id">The identifier to pass back to the other operations of this entry. It is a number for storage on the portal  and a string for a connected third-party account, and it is unique only within its own kind, so files and  folders may carry the same value..</param>
+        /// <param name="rootFolderId">The section the entry ultimately lies in, as an identifier that can be listed like any other folder. For an  entry inside a room this is the rooms section, not the room..</param>
+        /// <param name="originId">The folder the entry was deleted from, which is where restoring it puts it back. It is left out of the answer  unless the entry is in the trash..</param>
+        /// <param name="originRoomId">The room the entry was deleted from, left out of the answer for anything that was not deleted out of a room..</param>
+        /// <param name="originTitle">The name of the folder the entry was deleted from, for showing where it would be restored to. It is null for  an entry that is not in the trash..</param>
+        /// <param name="originRoomTitle">The name of the room the entry was deleted from, null for anything that was not deleted out of a room..</param>
+        /// <param name="canShare">Whether the calling account may change who has access to the entry, and so whether offering a sharing dialog  for it makes sense. It is false in rooms whose access is fixed by the room itself, such as a private one, even  for its manager..</param>
         /// <param name="shareSettings">shareSettings.</param>
         /// <param name="security">security.</param>
         /// <param name="availableShareRights">availableShareRights.</param>
-        /// <param name="requestToken">The request token of the file entry..</param>
-        /// <param name="external">Specifies if the folder can be accessed via an external link or not..</param>
-        /// <param name="expirationDate">Represents the expiration date of the file entry..</param>
-        /// <param name="isLinkExpired">Indicates whether the shareable link associated with the file or folder has expired..</param>
+        /// <param name="requestToken">The token of the link the entry is being read through, which is the value the external-share operations expect  and which also has to be carried by the download and preview addresses. It is null whenever the entry is not  being read through a link..</param>
+        /// <param name="external">Set when the link being used was made for this very entry, and false when the entry is reached through a link  to the room around it. It is null when no link is involved..</param>
+        /// <param name="expirationDate">When the link being used stops working, written with the offset of the portal&#39;s time zone. It is null for a  link that never expires and whenever no link is involved..</param>
+        /// <param name="isLinkExpired">Set when the link being used has already passed its expiration date, which is why the entry cannot be opened  even though it is described here. It is null when no link is involved..</param>
         public FileEntryDtoString(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default)
         {
             this.Id = id;
@@ -74,49 +74,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file entry ID.
+        /// The identifier to pass back to the other operations of this entry. It is a number for storage on the portal  and a string for a connected third-party account, and it is unique only within its own kind, so files and  folders may carry the same value.
         /// </summary>
         /// <example>10</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The root folder ID of the file entry.
+        /// The section the entry ultimately lies in, as an identifier that can be listed like any other folder. For an  entry inside a room this is the rooms section, not the room.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "rootFolderId", EmitDefaultValue = true)]
         public string RootFolderId { get; set; }
 
         /// <summary>
-        /// The origin ID of the file entry.
+        /// The folder the entry was deleted from, which is where restoring it puts it back. It is left out of the answer  unless the entry is in the trash.
         /// </summary>
         /// <example>12</example>
         [DataMember(Name = "originId", EmitDefaultValue = true)]
         public string OriginId { get; set; }
 
         /// <summary>
-        /// The origin room ID of the file entry.
+        /// The room the entry was deleted from, left out of the answer for anything that was not deleted out of a room.
         /// </summary>
         /// <example>22</example>
         [DataMember(Name = "originRoomId", EmitDefaultValue = true)]
         public string OriginRoomId { get; set; }
 
         /// <summary>
-        /// The origin title of the file entry.
+        /// The name of the folder the entry was deleted from, for showing where it would be restored to. It is null for  an entry that is not in the trash.
         /// </summary>
-        /// <example>Original Title</example>
+        /// <example>Contracts</example>
         [DataMember(Name = "originTitle", EmitDefaultValue = true)]
         public string OriginTitle { get; set; }
 
         /// <summary>
-        /// The origin room title of the file entry.
+        /// The name of the room the entry was deleted from, null for anything that was not deleted out of a room.
         /// </summary>
-        /// <example>Original Room</example>
+        /// <example>Legal team</example>
         [DataMember(Name = "originRoomTitle", EmitDefaultValue = true)]
         public string OriginRoomTitle { get; set; }
 
         /// <summary>
-        /// Specifies if the file entry can be shared or not.
+        /// Whether the calling account may change who has access to the entry, and so whether offering a sharing dialog  for it makes sense. It is false in rooms whose access is fixed by the room itself, such as a private one, even  for its manager.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "canShare", EmitDefaultValue = true)]
@@ -141,27 +141,27 @@ namespace DocSpace.API.SDK.Model
         public FileEntryDtoIntegerAllOfAvailableShareRights AvailableShareRights { get; set; }
 
         /// <summary>
-        /// The request token of the file entry.
+        /// The token of the link the entry is being read through, which is the value the external-share operations expect  and which also has to be carried by the download and preview addresses. It is null whenever the entry is not  being read through a link.
         /// </summary>
-        /// <example>token-abc-123</example>
+        /// <example>q7Ry8cQ1lZ0dP3sK2mXfA9tBnV6hJ4uE8wCz5oLg</example>
         [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
 
         /// <summary>
-        /// Specifies if the folder can be accessed via an external link or not.
+        /// Set when the link being used was made for this very entry, and false when the entry is reached through a link  to the room around it. It is null when no link is involved.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "external", EmitDefaultValue = true)]
         public bool? External { get; set; }
 
         /// <summary>
-        /// Represents the expiration date of the file entry.
+        /// When the link being used stops working, written with the offset of the portal&#39;s time zone. It is null for a  link that never expires and whenever no link is involved.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
 
         /// <summary>
-        /// Indicates whether the shareable link associated with the file or folder has expired.
+        /// Set when the link being used has already passed its expiration date, which is why the entry cannot be opened  even though it is described here. It is null when no link is involved.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isLinkExpired", EmitDefaultValue = true)]

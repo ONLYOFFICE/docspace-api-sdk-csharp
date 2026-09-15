@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for deleting files.
+    /// The files and folders to delete, and how final the deletion is.
     /// </summary>
     [DataContract(Name = "DeleteBatchRequestDto")]
     public partial class DeleteBatchRequestDto : FileOperationRequestBaseDto, IValidatableObject
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteBatchRequestDto" /> class.
         /// </summary>
-        /// <param name="folderIds">The list of folder IDs to be deleted..</param>
-        /// <param name="fileIds">The list of file IDs to be deleted..</param>
-        /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not.</param>
-        /// <param name="immediately">Specifies whether to move a file to the \\Trash\\ folder or delete it immediately..</param>
+        /// <param name="folderIds">The folders to delete, by id, each with everything it contains. A number addresses a folder stored in the  portal itself, a string addresses a folder on a connected third-party account, and both kinds may be sent in  one list..</param>
+        /// <param name="fileIds">The files to delete, by id. A number addresses a file stored in the portal itself, a string addresses a file  on a connected third-party account, and both kinds may be sent in one list..</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: &#x60;false&#x60; keeps its final record readable through  &#x60;GET api/2.0/files/fileops&#x60; until it has been read once, &#x60;true&#x60; drops the record as soon as the work is done.  It does not postpone the deletion and does not delete anything of its own..</param>
+        /// <param name="immediately">Where the deleted items go: &#x60;false&#x60; moves them to the Trash of the caller, from which they can be restored,  &#x60;true&#x60; removes them at once and for good..</param>
         public DeleteBatchRequestDto(List<DeleteBatchRequestDtoAllOfFolderIds> folderIds = default, List<DeleteBatchRequestDtoAllOfFileIds> fileIds = default, bool deleteAfter = default, bool immediately = default)
         {
             this.FolderIds = folderIds;
@@ -54,28 +54,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of folder IDs to be deleted.
+        /// The folders to delete, by id, each with everything it contains. A number addresses a folder stored in the  portal itself, a string addresses a folder on a connected third-party account, and both kinds may be sent in  one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DeleteBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
-        /// The list of file IDs to be deleted.
+        /// The files to delete, by id. A number addresses a file stored in the portal itself, a string addresses a file  on a connected third-party account, and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DeleteBatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
-        /// Specifies whether to delete a file after the editing session is finished or not
+        /// Whether the finished operation is still reported: &#x60;false&#x60; keeps its final record readable through  &#x60;GET api/2.0/files/fileops&#x60; until it has been read once, &#x60;true&#x60; drops the record as soon as the work is done.  It does not postpone the deletion and does not delete anything of its own.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
-        /// Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.
+        /// Where the deleted items go: &#x60;false&#x60; moves them to the Trash of the caller, from which they can be restored,  &#x60;true&#x60; removes them at once and for good.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "immediately", EmitDefaultValue = true)]

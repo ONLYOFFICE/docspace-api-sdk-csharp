@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The external link request parameters.
+    /// The settings of an external link to a file.
     /// </summary>
     [DataContract(Name = "FileLinkRequest")]
     public partial class FileLinkRequest : IValidatableObject
     {
 
         /// <summary>
-        /// The link sharing rights.
+        /// The rights the link grants to whoever follows it. The value that denies everything revokes the link.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -47,14 +47,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileLinkRequest" /> class.
         /// </summary>
-        /// <param name="linkId">The external link ID..</param>
-        /// <param name="access">The link sharing rights..</param>
-        /// <param name="expirationDate">The link expiration date..</param>
-        /// <param name="title">The link name..</param>
-        /// <param name="internal">The link scope, whether it is internal or not..</param>
-        /// <param name="primary">Specifies whether the file link is primary or not..</param>
-        /// <param name="denyDownload">Specifies whether to deny downloading the file or not..</param>
-        /// <param name="password">Password for access via link..</param>
+        /// <param name="linkId">The link to rewrite, as reported by &#x60;GET api/2.0/files/file/{id}/links&#x60;. An identifier that is not yet in use,  the empty one included, creates a link instead..</param>
+        /// <param name="access">The rights the link grants to whoever follows it. The value that denies everything revokes the link..</param>
+        /// <param name="expirationDate">The moment the link stops working, read in the time zone of the portal. A date more than a few years ahead is  rejected as an invalid request; left out, the link does not expire on its own..</param>
+        /// <param name="title">The name the link carries in the sharing list of the file, for the people who manage it; it is not shown to  whoever follows the link..</param>
+        /// <param name="internal">Who may follow the link: &#x60;true&#x60; admits only accounts that are signed in to the portal, &#x60;false&#x60; admits anybody  who has the address..</param>
+        /// <param name="primary">Whether this link becomes the primary link of the file - the one the Copy link action of a client hands out.  A file has one primary link at a time..</param>
+        /// <param name="denyDownload">What a visitor may do with the content: &#x60;true&#x60; leaves them with viewing in the browser, &#x60;false&#x60; lets them  download and print it as their rights allow..</param>
+        /// <param name="password">The secret a visitor has to type before the file opens; left out, the link opens without one..</param>
         public FileLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, string title = default, bool @internal = default, bool primary = default, bool denyDownload = default, string password = default)
         {
             this.LinkId = linkId;
@@ -68,48 +68,48 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The external link ID.
+        /// The link to rewrite, as reported by &#x60;GET api/2.0/files/file/{id}/links&#x60;. An identifier that is not yet in use,  the empty one included, creates a link instead.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "linkId", EmitDefaultValue = false)]
         public Guid LinkId { get; set; }
 
         /// <summary>
-        /// The link expiration date.
+        /// The moment the link stops working, read in the time zone of the portal. A date more than a few years ahead is  rejected as an invalid request; left out, the link does not expire on its own.
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
 
         /// <summary>
-        /// The link name.
+        /// The name the link carries in the sharing list of the file, for the people who manage it; it is not shown to  whoever follows the link.
         /// </summary>
         /// <example>My Document</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The link scope, whether it is internal or not.
+        /// Who may follow the link: &#x60;true&#x60; admits only accounts that are signed in to the portal, &#x60;false&#x60; admits anybody  who has the address.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool Internal { get; set; }
 
         /// <summary>
-        /// Specifies whether the file link is primary or not.
+        /// Whether this link becomes the primary link of the file - the one the Copy link action of a client hands out.  A file has one primary link at a time.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "primary", EmitDefaultValue = true)]
         public bool Primary { get; set; }
 
         /// <summary>
-        /// Specifies whether to deny downloading the file or not.
+        /// What a visitor may do with the content: &#x60;true&#x60; leaves them with viewing in the browser, &#x60;false&#x60; lets them  download and print it as their rights allow.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
 
         /// <summary>
-        /// Password for access via link.
+        /// The secret a visitor has to type before the file opens; left out, the link opens without one.
         /// </summary>
         /// <example>p@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]

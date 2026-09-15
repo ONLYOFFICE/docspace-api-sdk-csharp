@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters of a user mentioned in a message.
+    /// A user the editor may offer: to be mentioned in a comment, or to be picked when protecting a document.
     /// </summary>
     [DataContract(Name = "MentionWrapper")]
     public partial class MentionWrapper : IValidatableObject
@@ -41,20 +41,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MentionWrapper" /> class.
         /// </summary>
-        /// <param name="user">The user information..</param>
+        /// <param name="user">The account itself, in the shape the people listings use..</param>
         public MentionWrapper(UserInfo user = default)
         {
             this.User = user;
         }
 
         /// <summary>
-        /// The user information.
+        /// The account itself, in the shape the people listings use.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
         public UserInfo User { get; set; }
 
         /// <summary>
-        /// The user email address.
+        /// Where a mention notification for this user is delivered.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The user unique identification.
+        /// The account id as text, the same value the account object carries; it is what identifies the user in a sharing  request built from this list.
         /// </summary>
         /// <example>user_0001</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
@@ -84,7 +84,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The path to the user&#39;s avatar.
+        /// An absolute address of the medium-sized avatar. A generated default avatar is reported when the user never  uploaded one, so the field is never empty.
         /// </summary>
         /// <example>https://portal.example.com/avatar/user_0001.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Specifies whether the user has the access to the file where they are mentioned.
+        /// Not filled in by the operations that return this list: it always comes back false. Whether a user can already  open the document has to be read from the sharing settings of the file.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "hasAccess", EmitDefaultValue = true)]
@@ -114,7 +114,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The user full name.
+        /// The name to display, assembled the way the portal is configured to show names.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]

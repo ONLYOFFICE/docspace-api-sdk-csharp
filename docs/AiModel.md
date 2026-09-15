@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Human-readable model name for display in the UI. | 
 **Provider** | [**AiProviderType**](AiProviderType.md) | Provider that offers this model. | 
 **Reasoning** | **bool** | Whether this model supports extended thinking / chain-of-thought reasoning. | [optional] 
+**ReasoningSupport** | [**AiReasoningSupport**](AiReasoningSupport.md) | What the model can do with extended thinking, when the provider's catalogue says so (OpenRouter and the ONLYOFFICE route report a per-model `reasoning` object). Copied onto the profile at save time; absent, the widget falls back to the provider's id-based table. | [optional] 
 **Capabilities** | **decimal** | Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per `ActionType`. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

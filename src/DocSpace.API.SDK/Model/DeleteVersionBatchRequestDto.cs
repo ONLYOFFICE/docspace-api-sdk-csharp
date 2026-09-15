@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for deleting file versions.
+    /// The file whose versions are deleted, and the versions to delete.
     /// </summary>
     [DataContract(Name = "DeleteVersionBatchRequestDto")]
     public partial class DeleteVersionBatchRequestDto : FileOperationRequestBaseDto, IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteVersionBatchRequestDto" /> class.
         /// </summary>
-        /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not..</param>
-        /// <param name="fileId">The file ID to delete. (required).</param>
-        /// <param name="versions">The collection of file versions to be deleted. (required).</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: &#x60;false&#x60; keeps its final record readable through  &#x60;GET api/2.0/files/fileops&#x60; until it has been read once, &#x60;true&#x60; drops the record as soon as the work is done.  It does not postpone the deletion and does not delete anything of its own..</param>
+        /// <param name="fileId">The file whose history the versions are taken from; only files stored in the portal itself are addressed here. (required).</param>
+        /// <param name="versions">The version numbers to remove, as reported by &#x60;GET api/2.0/files/file/{fileId}/history&#x60;. At least one number  has to be sent: an empty list removes the file itself instead of one of its versions. The number of the  current version is refused outright, while a number that no longer exists is passed over without a complaint. (required).</param>
         public DeleteVersionBatchRequestDto(bool deleteAfter = default, int fileId = default, List<int> versions = default)
         {
             this.FileId = fileId;
@@ -62,21 +62,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to delete a file after the editing session is finished or not.
+        /// Whether the finished operation is still reported: &#x60;false&#x60; keeps its final record readable through  &#x60;GET api/2.0/files/fileops&#x60; until it has been read once, &#x60;true&#x60; drops the record as soon as the work is done.  It does not postpone the deletion and does not delete anything of its own.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
 
         /// <summary>
-        /// The file ID to delete.
+        /// The file whose history the versions are taken from; only files stored in the portal itself are addressed here.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "fileId", IsRequired = true, EmitDefaultValue = true)]
         public int FileId { get; set; }
 
         /// <summary>
-        /// The collection of file versions to be deleted.
+        /// The version numbers to remove, as reported by &#x60;GET api/2.0/files/file/{fileId}/history&#x60;. At least one number  has to be sent: an empty list removes the file itself instead of one of its versions. The number of the  current version is refused outright, while a number that no longer exists is passed over without a complaint.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "versions", IsRequired = true, EmitDefaultValue = true)]

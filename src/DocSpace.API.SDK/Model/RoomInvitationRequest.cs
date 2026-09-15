@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for inviting users to the room.
+    /// One batch of membership changes for a room.
     /// </summary>
     [DataContract(Name = "RoomInvitationRequest")]
     public partial class RoomInvitationRequest : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomInvitationRequest" /> class.
         /// </summary>
-        /// <param name="invitations">The collection of invitation parameters..</param>
-        /// <param name="notify">Specifies whether to notify users about the shared room or not..</param>
-        /// <param name="message">The message to send when notifying about the shared room..</param>
-        /// <param name="culture">The language of the room invitation..</param>
-        /// <param name="force">Specifies whether to forcibly delete a user with form roles from the room..</param>
+        /// <param name="invitations">Who is added, changed or removed, one entry per subject. The same subject named twice keeps the level of the  last entry, and an empty list is accepted and changes nothing..</param>
+        /// <param name="notify">Whether the subjects that gained access are told about it by email. With it off the change is silent, which is  the usual choice when membership is synchronised from another system..</param>
+        /// <param name="message">The line added to the invitation email. It is used only while the notification is on, and it reaches nobody  whose access was removed..</param>
+        /// <param name="culture">The language of the invitation email, as a portal culture name such as en-US. Leaving it out sends each  message in the language of its recipient..</param>
+        /// <param name="force">Whether a member who still holds a role in an unfinished form is removed anyway. With it off such a removal is  refused and reported through the error of the answer, so the form can be reassigned first..</param>
         public RoomInvitationRequest(List<RoomInvitation> invitations = default, bool notify = default, string message = default, string culture = default, bool force = default)
         {
             this.Invitations = invitations;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The collection of invitation parameters.
+        /// Who is added, changed or removed, one entry per subject. The same subject named twice keeps the level of the  last entry, and an empty list is accepted and changes nothing.
         /// </summary>
-        /// <example>[{"id":"00000000-0000-0000-0000-000000000000","access":1}]</example>
+        /// <example>[{"id":"e9a7b4c1-2d3f-4a56-8b90-1c2d3e4f5a6b","access":10}]</example>
         [DataMember(Name = "invitations", EmitDefaultValue = true)]
         public List<RoomInvitation> Invitations { get; set; }
 
         /// <summary>
-        /// Specifies whether to notify users about the shared room or not.
+        /// Whether the subjects that gained access are told about it by email. With it off the change is silent, which is  the usual choice when membership is synchronised from another system.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "notify", EmitDefaultValue = true)]
         public bool Notify { get; set; }
 
         /// <summary>
-        /// The message to send when notifying about the shared room.
+        /// The line added to the invitation email. It is used only while the notification is on, and it reaches nobody  whose access was removed.
         /// </summary>
-        /// <example>You have been invited to the room</example>
+        /// <example>Please review the contract by Friday</example>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
-        /// The language of the room invitation.
+        /// The language of the invitation email, as a portal culture name such as en-US. Leaving it out sends each  message in the language of its recipient.
         /// </summary>
         /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
-        /// Specifies whether to forcibly delete a user with form roles from the room.
+        /// Whether a member who still holds a role in an unfinished form is removed anyway. With it off such a removal is  refused and reported through the error of the answer, so the form can be reassigned first.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "force", EmitDefaultValue = true)]

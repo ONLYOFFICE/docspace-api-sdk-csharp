@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// An item in the ordering request with its entry type and ID.
+    /// One entry to move to a given position inside its folder.
     /// </summary>
     [DataContract(Name = "OrdersItemRequestDtoInteger")]
     public partial class OrdersItemRequestDtoInteger : IValidatableObject
     {
 
         /// <summary>
-        /// The entry type (file or folder).
+        /// Which of the two the identifier names, because a file and a folder may carry the same number.
         /// </summary>
         [DataMember(Name = "entryType", IsRequired = true, EmitDefaultValue = true)]
         public FileEntryType EntryType { get; set; }
@@ -52,9 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrdersItemRequestDtoInteger" /> class.
         /// </summary>
-        /// <param name="entryId">The entry unique identifier (file or folder). (required).</param>
-        /// <param name="entryType">The entry type (file or folder). (required).</param>
-        /// <param name="order">The order value. (required).</param>
+        /// <param name="entryId">The file or folder to move. (required).</param>
+        /// <param name="entryType">Which of the two the identifier names, because a file and a folder may carry the same number. (required).</param>
+        /// <param name="order">The position the entry is to take, counting from 1. The entry that held it, and everything after it, is  shifted to make room. A dotted path such as 1.2.3 is accepted as well, of which only the last segment is  read. (required).</param>
         public OrdersItemRequestDtoInteger(int entryId = default, FileEntryType entryType = default, int order = default)
         {
             this.EntryId = entryId;
@@ -63,14 +63,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The entry unique identifier (file or folder).
+        /// The file or folder to move.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "entryId", IsRequired = true, EmitDefaultValue = true)]
         public int EntryId { get; set; }
 
         /// <summary>
-        /// The order value.
+        /// The position the entry is to take, counting from 1. The entry that held it, and everything after it, is  shifted to make room. A dotted path such as 1.2.3 is accepted as well, of which only the last segment is  read.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "order", IsRequired = true, EmitDefaultValue = true)]

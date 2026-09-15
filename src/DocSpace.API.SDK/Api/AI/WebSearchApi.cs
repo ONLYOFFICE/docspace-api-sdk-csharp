@@ -31,33 +31,33 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
         AiSuccessResponse AiWebSearchClear(string body);
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
         ApiResponse<AiSuccessResponse> AiWebSearchClearWithHttpInfo(string body);
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -66,10 +66,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiWebSearchMutationResult AiWebSearchConfigure(AiWebSearchConfigureRequest aiWebSearchConfigureRequest);
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -103,7 +103,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -115,7 +115,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -123,56 +123,56 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of bool</returns>
         ApiResponse<bool> AiWebSearchIsConfiguredWithHttpInfo(string? entityId = default);
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiWebSearchPassthroughContents(Dictionary<string, Object> requestBody);
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        Dictionary<string, Object> AiWebSearchPassthroughContents(Dictionary<string, Object> requestBody);
 
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiWebSearchPassthroughContentsWithHttpInfo(Dictionary<string, Object> requestBody);
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughContentsWithHttpInfo(Dictionary<string, Object> requestBody);
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiWebSearchPassthroughSearch(Dictionary<string, Object> requestBody);
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        Dictionary<string, Object> AiWebSearchPassthroughSearch(Dictionary<string, Object> requestBody);
 
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiWebSearchPassthroughSearchWithHttpInfo(Dictionary<string, Object> requestBody);
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughSearchWithHttpInfo(Dictionary<string, Object> requestBody);
         /// <summary>
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -184,7 +184,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -192,10 +192,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of AiSuccessResponse</returns>
         ApiResponse<AiSuccessResponse> AiWebSearchSetActiveConfigWithHttpInfo(AiWebSearchConfigureRequest aiWebSearchConfigureRequest);
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -204,10 +204,10 @@ namespace DocSpace.API.SDK.Api.AI
         AiProfilesTestConnection200Response AiWebSearchTestConnection(AiWebSearchConfig aiWebSearchConfig);
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -224,35 +224,35 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
         Task<AiSuccessResponse> AiWebSearchClearAsync(string body, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
         Task<ApiResponse<AiSuccessResponse>> AiWebSearchClearWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -262,10 +262,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiWebSearchMutationResult> AiWebSearchConfigureAsync(AiWebSearchConfigureRequest aiWebSearchConfigureRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -277,7 +277,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -290,7 +290,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -302,7 +302,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -315,7 +315,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -324,60 +324,60 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (bool)</returns>
         Task<ApiResponse<bool>> AiWebSearchIsConfiguredWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiWebSearchPassthroughContentsAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        Task<Dictionary<string, Object>> AiWebSearchPassthroughContentsAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiWebSearchPassthroughContentsWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughContentsWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiWebSearchPassthroughSearchAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        Task<Dictionary<string, Object>> AiWebSearchPassthroughSearchAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiWebSearchPassthroughSearchWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughSearchWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -390,7 +390,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -399,10 +399,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
         Task<ApiResponse<AiSuccessResponse>> AiWebSearchSetActiveConfigWithHttpInfoAsync(AiWebSearchConfigureRequest aiWebSearchConfigureRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -412,10 +412,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiProfilesTestConnection200Response> AiWebSearchTestConnectionAsync(AiWebSearchConfig aiWebSearchConfig, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -639,13 +639,13 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
         public AiSuccessResponse AiWebSearchClear(string body)
@@ -655,13 +655,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
         public ApiResponse<AiSuccessResponse> AiWebSearchClearWithHttpInfo(string body)
@@ -702,13 +702,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
@@ -719,13 +719,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Clear
+        /// Clear the web-search configuration
         /// </summary>
         /// <remarks>
-        /// Removes the web-search configuration of the scope. Does nothing when web search was not configured there.
+        /// Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-clear/">REST API Reference for AiWebSearchClear Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
@@ -769,10 +769,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -785,10 +785,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -832,10 +832,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -849,10 +849,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Configure
+        /// Configure and verify web search
         /// </summary>
         /// <remarks>
-        /// Validates a web-search configuration against the live provider and stores it only when the provider answers, replacing the previous one in a single write.
+        /// Validates a web-search configuration against the live provider and stores it only if the provider answers, which makes it the safe way to save a form in one step. `entityId` scopes the configuration to a room and has to name one the caller can open; omitting it configures the portal. A `baseUrl` pointing at a private network address is refused. Use `PUT api/2.0/ai/web-search/set-active-config` when the configuration should be stored without a provider round trip.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -902,7 +902,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -918,7 +918,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -964,7 +964,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -981,7 +981,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get active config
         /// </summary>
         /// <remarks>
-        /// Returns the web-search configuration active in the scope, or an empty result when web search is not configured.
+        /// Returns the web-search configuration in force for a scope - the provider, its endpoint and its settings. `entityId` picks a room and has to name one the caller can open; omitting it reads the portal-wide configuration, and a room with none of its own falls back to that. An unconfigured scope answers an empty result rather than 404. The provider key is not part of the answer, so a client cannot read it back after storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -1030,7 +1030,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -1046,7 +1046,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -1092,7 +1092,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -1109,7 +1109,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is configured
         /// </summary>
         /// <remarks>
-        /// Tells whether web search is configured in the scope.
+        /// Tells whether web search is available in a scope, as a bare boolean, which is the cheap check for hiding or showing the feature. `entityId` picks a room and has to name one the caller can open. It reports the same state as `GET api/2.0/ai/web-search/get-active-config` without transferring the configuration itself. A true answer means a provider is stored, not that the provider is currently reachable - probe that with `POST api/2.0/ai/web-search/test-connection`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -1155,32 +1155,32 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiWebSearchPassthroughContents(Dictionary<string, Object> requestBody)
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        public Dictionary<string, Object> AiWebSearchPassthroughContents(Dictionary<string, Object> requestBody)
         {
             var localVarResponse = AiWebSearchPassthroughContentsWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiWebSearchPassthroughContentsWithHttpInfo(Dictionary<string, Object> requestBody)
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        public ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughContentsWithHttpInfo(Dictionary<string, Object> requestBody)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1203,7 +1203,7 @@ namespace DocSpace.API.SDK.Api.AI
 
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/websearch/v1/contents", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/contents", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1218,34 +1218,34 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiWebSearchPassthroughContentsAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        public async Task<Dictionary<string, Object>> AiWebSearchPassthroughContentsAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiWebSearchPassthroughContentsWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Web page contents proxied to the portal's active web-search provider
+        /// Web page contents passthrough
         /// </summary>
         /// <remarks>
-        /// Fetches web page contents on behalf of the document editor's AI plugin, against the portal's active web-search provider, the same way as the search passthrough.
+        /// Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/">REST API Reference for AiWebSearchPassthroughContents Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiWebSearchPassthroughContentsWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughContentsWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1270,7 +1270,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/websearch/v1/contents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/contents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1285,32 +1285,32 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiWebSearchPassthroughSearch(Dictionary<string, Object> requestBody)
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        public Dictionary<string, Object> AiWebSearchPassthroughSearch(Dictionary<string, Object> requestBody)
         {
             var localVarResponse = AiWebSearchPassthroughSearchWithHttpInfo(requestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiWebSearchPassthroughSearchWithHttpInfo(Dictionary<string, Object> requestBody)
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        public ApiResponse<Dictionary<string, Object>> AiWebSearchPassthroughSearchWithHttpInfo(Dictionary<string, Object> requestBody)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1333,7 +1333,7 @@ namespace DocSpace.API.SDK.Api.AI
 
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/websearch/v1/search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/search", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1348,34 +1348,34 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiWebSearchPassthroughSearchAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        public async Task<Dictionary<string, Object>> AiWebSearchPassthroughSearchAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiWebSearchPassthroughSearchWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Web search proxied to the portal's active web-search provider
+        /// Web search passthrough
         /// </summary>
         /// <remarks>
-        /// Runs a web search on behalf of the document editor's AI plugin. The plugin only holds a placeholder configuration; the portal's active provider and its key are resolved here and never reach the browser.
+        /// Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="requestBody">A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/">REST API Reference for AiWebSearchPassthroughSearch Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiWebSearchPassthroughSearchWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiWebSearchPassthroughSearchWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'requestBody' is set
             if (requestBody == null)
@@ -1400,7 +1400,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/websearch/v1/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<Dictionary<string, Object>>("/api/2.0/ai/websearch/v1/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1418,7 +1418,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -1434,7 +1434,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -1481,7 +1481,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -1498,7 +1498,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set active config
         /// </summary>
         /// <remarks>
-        /// Stores a web-search configuration without contacting the provider first, for forms that validate locally.
+        /// Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfigureRequest"></param>
@@ -1545,10 +1545,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -1561,10 +1561,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -1608,10 +1608,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>
@@ -1625,10 +1625,10 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Test connection
+        /// Test a web-search provider
         /// </summary>
         /// <remarks>
-        /// Checks a web-search configuration against the live provider without storing it - for a Test button that must not commit on success.
+        /// Probes a web-search configuration against the live provider and reports the outcome, storing nothing - this is what a Test button calls so that a failure commits no state. The configuration is taken from the request rather than from storage, so credentials that were never saved can be checked. A `baseUrl` pointing at a private network address is refused before any request leaves the portal. The verdict is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiWebSearchConfig">Web-search provider configuration. Credentials and provider selection for the built-in web-search tool group.</param>

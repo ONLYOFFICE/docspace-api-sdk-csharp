@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The result of the cover request containing the cover image data.
+    /// One drawing of the built-in gallery of room covers.
     /// </summary>
     [DataContract(Name = "CoversResultDto")]
     public partial class CoversResultDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoversResultDto" /> class.
         /// </summary>
-        /// <param name="id">The cover unique identifier. (required).</param>
-        /// <param name="data">The cover image data. (required).</param>
+        /// <param name="id">The name of the cover, and the value to send as &#x60;cover&#x60; when a room is created or changed. The names are the  same on every portal and do not change with the language of the request. (required).</param>
+        /// <param name="data">The drawing itself, as inline vector markup ready to be rendered as it is. It is the default size of the  cover, and it may change between product versions while the name stays. (required).</param>
         public CoversResultDto(string id = default, string data = default)
         {
             // to ensure "id" is required (not null)
@@ -65,16 +65,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The cover unique identifier.
+        /// The name of the cover, and the value to send as &#x60;cover&#x60; when a room is created or changed. The names are the  same on every portal and do not change with the language of the request.
         /// </summary>
-        /// <example>cover-123</example>
+        /// <example>bookmark</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The cover image data.
+        /// The drawing itself, as inline vector markup ready to be rendered as it is. It is the default size of the  cover, and it may change between product versions while the name stays.
         /// </summary>
-        /// <example>base64EncodedImageData</example>
+        /// <example>&lt;svg viewBox="0 0 32 32"&gt;&lt;path d="M8 4h16v24l-8-6-8 6z"/&gt;&lt;/svg&gt;</example>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public string Data { get; set; }
 

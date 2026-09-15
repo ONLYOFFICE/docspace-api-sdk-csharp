@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The tenant quota feature parameters.
+    /// One feature a quota switches on, with the limit it grants and how much of that limit is used.
     /// </summary>
     [DataContract(Name = "TenantQuotaFeatureDto")]
     public partial class TenantQuotaFeatureDto : IValidatableObject
@@ -41,13 +41,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantQuotaFeatureDto" /> class.
         /// </summary>
-        /// <param name="id">The ID of the tenant quota feature..</param>
-        /// <param name="title">The title of the tenant quota feature..</param>
-        /// <param name="image">The image URL of the tenant quota feature..</param>
+        /// <param name="id">The stable key of the feature - &#x60;total_size&#x60;, &#x60;manager&#x60;, &#x60;room&#x60;, &#x60;backup&#x60; and so on. It is the value to  branch on, since &#x60;title&#x60; is prose in the portal language..</param>
+        /// <param name="title">The feature described in the portal language, with its limit already substituted into the sentence, so it  can be printed as it is. It is empty when this build ships no wording for the feature..</param>
+        /// <param name="image">The feature&#39;s icon as SVG markup to render inline - not a URL to fetch. It is filled in only when the  quota comes from the catalogue, and left empty on the quota the portal is actually on, on a feature that  this quota switches off, and on a feature that ships no icon..</param>
         /// <param name="value">value.</param>
-        /// <param name="type">The type of the tenant quota feature..</param>
-        /// <param name="used">The used space parameters of the tenant quota feature..</param>
-        /// <param name="priceTitle">The price title of the tenant quota feature..</param>
+        /// <param name="type">How to read &#x60;value&#x60; and &#x60;used&#x60;: &#x60;size&#x60; for bytes, &#x60;count&#x60; for a number of things, &#x60;flag&#x60; for a feature  that is merely on or off..</param>
+        /// <param name="used">How much of the limit is already used. It is present only on the quota the portal is actually on, and  only for a feature whose consumption is counted; a guest is shown none of these figures and a plain member  only the one for total size, so an absent value can mean the caller may not see it rather than that  nothing is used..</param>
+        /// <param name="priceTitle">What the feature is charged as, in the portal language - for instance the per-unit price of an add-on. It  is filled in only for a feature that costs money on top of the plan..</param>
         public TenantQuotaFeatureDto(string id = default, string title = default, string image = default, Object value = default, string type = default, FeatureUsedDto used = default, string priceTitle = default)
         {
             this.Id = id;
@@ -60,23 +60,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the tenant quota feature.
+        /// The stable key of the feature - &#x60;total_size&#x60;, &#x60;manager&#x60;, &#x60;room&#x60;, &#x60;backup&#x60; and so on. It is the value to  branch on, since &#x60;title&#x60; is prose in the portal language.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000001</example>
+        /// <example>total_size</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The title of the tenant quota feature.
+        /// The feature described in the portal language, with its limit already substituted into the sentence, so it  can be printed as it is. It is empty when this build ships no wording for the feature.
         /// </summary>
         /// <example>Premium Storage</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The image URL of the tenant quota feature.
+        /// The feature&#39;s icon as SVG markup to render inline - not a URL to fetch. It is filled in only when the  quota comes from the catalogue, and left empty on the quota the portal is actually on, on a feature that  this quota switches off, and on a feature that ships no icon.
         /// </summary>
-        /// <example>/images/premium-storage.png</example>
+        /// <example>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="..."/&gt;&lt;/svg&gt;</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
@@ -87,20 +87,20 @@ namespace DocSpace.API.SDK.Model
         public Object Value { get; set; }
 
         /// <summary>
-        /// The type of the tenant quota feature.
+        /// How to read &#x60;value&#x60; and &#x60;used&#x60;: &#x60;size&#x60; for bytes, &#x60;count&#x60; for a number of things, &#x60;flag&#x60; for a feature  that is merely on or off.
         /// </summary>
-        /// <example>Storage</example>
+        /// <example>size</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// The used space parameters of the tenant quota feature.
+        /// How much of the limit is already used. It is present only on the quota the portal is actually on, and  only for a feature whose consumption is counted; a guest is shown none of these figures and a plain member  only the one for total size, so an absent value can mean the caller may not see it rather than that  nothing is used.
         /// </summary>
         [DataMember(Name = "used", EmitDefaultValue = false)]
         public FeatureUsedDto Used { get; set; }
 
         /// <summary>
-        /// The price title of the tenant quota feature.
+        /// What the feature is charged as, in the portal language - for instance the per-unit price of an add-on. It  is filled in only for a feature that costs money on top of the plan.
         /// </summary>
         /// <example>$9.99/month</example>
         [DataMember(Name = "priceTitle", EmitDefaultValue = true)]

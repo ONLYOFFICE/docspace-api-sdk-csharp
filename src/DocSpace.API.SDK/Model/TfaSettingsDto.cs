@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters representing the Two-Factor Authentication (TFA) configuration settings.
+    /// One two-factor authentication method the portal offers, with the portal-wide state of that method.
     /// </summary>
     [DataContract(Name = "TfaSettingsDto")]
     public partial class TfaSettingsDto : IValidatableObject
@@ -46,13 +46,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaSettingsDto" /> class.
         /// </summary>
-        /// <param name="id">The ID of the TFA configuration. (required).</param>
-        /// <param name="title">The display name or description of the TFA configuration. (required).</param>
-        /// <param name="enabled">Indicates whether the TFA configuration is currently active. (required).</param>
-        /// <param name="available">Indicates whether the TFA configuration can be used. (required).</param>
-        /// <param name="trustedIps">The list of IP addresses that are exempt from TFA requirements..</param>
-        /// <param name="mandatoryUsers">The list of user IDs that are required to use TFA..</param>
-        /// <param name="mandatoryGroups">The list of group IDs whose members are required to use TFA..</param>
+        /// <param name="id">Which method this entry describes: &#x60;sms&#x60; for a code sent by text message, &#x60;app&#x60; for a code from an  authenticator application. It is the value &#x60;PUT api/2.0/settings/tfaapp&#x60; takes as its &#x60;type&#x60;, and no other  value ever appears here. (required).</param>
+        /// <param name="title">The label for the method in the portal language, meant for a button or a radio option. It is not stable  enough to branch on - match &#x60;id&#x60; for that. (required).</param>
+        /// <param name="enabled">Whether this method is the portal&#39;s current policy. At most one entry can have it set, and none has it  while the portal challenges nobody. It says nothing about the caller&#39;s own account, which may be exempt  through &#x60;trustedIps&#x60; or forced through &#x60;mandatoryUsers&#x60;. (required).</param>
+        /// <param name="available">Whether the method could be switched on at all. For &#x60;sms&#x60; it is &#x60;false&#x60; until the installation has a  working SMS provider, so a method can be offered here and still be impossible to enable; for &#x60;app&#x60; it is  always &#x60;true&#x60;. (required).</param>
+        /// <param name="trustedIps">The addresses that skip the challenge, each either a single address, a &#x60;from-to&#x60; pair or a CIDR range. It  is empty when no address is exempt, which means every account is challenged..</param>
+        /// <param name="mandatoryUsers">The accounts that are challenged even from a trusted address, by user ID. Empty means the exemption in  &#x60;trustedIps&#x60; holds for everyone..</param>
+        /// <param name="mandatoryGroups">The groups whose members are challenged even from a trusted address, by group ID, with the same reading of  an empty list as &#x60;mandatoryUsers&#x60;..</param>
         public TfaSettingsDto(string id = default, string title = default, bool enabled = default, bool available = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
         {
             // to ensure "id" is required (not null)
@@ -75,49 +75,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the TFA configuration.
+        /// Which method this entry describes: &#x60;sms&#x60; for a code sent by text message, &#x60;app&#x60; for a code from an  authenticator application. It is the value &#x60;PUT api/2.0/settings/tfaapp&#x60; takes as its &#x60;type&#x60;, and no other  value ever appears here.
         /// </summary>
-        /// <example>tfa-default</example>
+        /// <example>app</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The display name or description of the TFA configuration.
+        /// The label for the method in the portal language, meant for a button or a radio option. It is not stable  enough to branch on - match &#x60;id&#x60; for that.
         /// </summary>
-        /// <example>Default TFA policy</example>
+        /// <example>Authenticator app</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Indicates whether the TFA configuration is currently active.
+        /// Whether this method is the portal&#39;s current policy. At most one entry can have it set, and none has it  while the portal challenges nobody. It says nothing about the caller&#39;s own account, which may be exempt  through &#x60;trustedIps&#x60; or forced through &#x60;mandatoryUsers&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Indicates whether the TFA configuration can be used.
+        /// Whether the method could be switched on at all. For &#x60;sms&#x60; it is &#x60;false&#x60; until the installation has a  working SMS provider, so a method can be offered here and still be impossible to enable; for &#x60;app&#x60; it is  always &#x60;true&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "available", IsRequired = true, EmitDefaultValue = true)]
         public bool Available { get; set; }
 
         /// <summary>
-        /// The list of IP addresses that are exempt from TFA requirements.
+        /// The addresses that skip the challenge, each either a single address, a &#x60;from-to&#x60; pair or a CIDR range. It  is empty when no address is exempt, which means every account is challenged.
         /// </summary>
-        /// <example>["item1","item2"]</example>
+        /// <example>["192.0.2.0/24"]</example>
         [DataMember(Name = "trustedIps", EmitDefaultValue = true)]
         public List<string> TrustedIps { get; set; }
 
         /// <summary>
-        /// The list of user IDs that are required to use TFA.
+        /// The accounts that are challenged even from a trusted address, by user ID. Empty means the exemption in  &#x60;trustedIps&#x60; holds for everyone.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryUsers", EmitDefaultValue = true)]
         public List<Guid> MandatoryUsers { get; set; }
 
         /// <summary>
-        /// The list of group IDs whose members are required to use TFA.
+        /// The groups whose members are challenged even from a trusted address, by group ID, with the same reading of  an empty list as &#x60;mandatoryUsers&#x60;.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "mandatoryGroups", EmitDefaultValue = true)]

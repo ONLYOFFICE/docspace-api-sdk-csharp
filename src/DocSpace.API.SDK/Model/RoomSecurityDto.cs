@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room security parameters.
+    /// The outcome of a change of the room membership.
     /// </summary>
     [DataContract(Name = "RoomSecurityDto")]
     public partial class RoomSecurityDto : IValidatableObject
     {
 
         /// <summary>
-        /// The error type.
+        /// Reports the one case in which nothing at all was changed: a member being removed still holds a role in a form  of the room, and the request did not ask to remove them anyway. Repeat the call with &#x60;force&#x60; to remove them  together with the role.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
         public RoomSecurityError? Error { get; set; }
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomSecurityDto" /> class.
         /// </summary>
-        /// <param name="members">The list of room members..</param>
-        /// <param name="warning">The warning message..</param>
-        /// <param name="error">The error type..</param>
+        /// <param name="members">The access entries of the subjects named in the request, read back after the change was applied. A subject the  caller may not see is missing from it, so comparing this list with the request is the way to learn who was  skipped; it is null when nothing was applied at all..</param>
+        /// <param name="warning">The reason the first subject that could not be handled was skipped, in the language of the request, while the  rest of the list was still applied. Null when every named subject went through. The text is meant to be shown  to a person, not matched against..</param>
+        /// <param name="error">Reports the one case in which nothing at all was changed: a member being removed still holds a role in a form  of the room, and the request did not ask to remove them anyway. Repeat the call with &#x60;force&#x60; to remove them  together with the role..</param>
         public RoomSecurityDto(List<FileShareDto> members = default, string warning = default, RoomSecurityError? error = default)
         {
             this.Members = members;
@@ -58,16 +58,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of room members.
+        /// The access entries of the subjects named in the request, read back after the change was applied. A subject the  caller may not see is missing from it, so comparing this list with the request is the way to learn who was  skipped; it is null when nothing was applied at all.
         /// </summary>
-        /// <example>[{"access":1,"isOwner":false}]</example>
+        /// <example>[{"access":10,"isOwner":false,"subjectType":0}]</example>
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<FileShareDto> Members { get; set; }
 
         /// <summary>
-        /// The warning message.
+        /// The reason the first subject that could not be handled was skipped, in the language of the request, while the  rest of the list was still applied. Null when every named subject went through. The text is meant to be shown  to a person, not matched against.
         /// </summary>
-        /// <example>Warning message</example>
+        /// <example>The maximum number of links is 10</example>
         [DataMember(Name = "warning", EmitDefaultValue = true)]
         public string Warning { get; set; }
 

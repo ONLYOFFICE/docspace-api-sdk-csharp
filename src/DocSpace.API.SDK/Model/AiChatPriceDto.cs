@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Data transfer object that represents the pricing information for an AI chat interaction.
+    /// What a chat model charges, split by the direction the tokens flow in.
     /// </summary>
     [DataContract(Name = "AiChatPriceDto")]
     public partial class AiChatPriceDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiChatPriceDto" /> class.
         /// </summary>
-        /// <param name="prompt">Gets the price per one million prompt tokens..</param>
-        /// <param name="completion">Gets the price per one million completion tokens..</param>
+        /// <param name="prompt">The cost of one million tokens sent to the model, which includes the conversation history resent with  every turn and not just the newest message..</param>
+        /// <param name="completion">The cost of one million tokens the model writes back. It is normally the dearer of the two directions..</param>
         public AiChatPriceDto(double prompt = default, double completion = default)
         {
             this.Prompt = prompt;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets the price per one million prompt tokens.
+        /// The cost of one million tokens sent to the model, which includes the conversation history resent with  every turn and not just the newest message.
         /// </summary>
         /// <example>5.0</example>
         [DataMember(Name = "prompt", EmitDefaultValue = false)]
         public double Prompt { get; set; }
 
         /// <summary>
-        /// Gets the price per one million completion tokens.
+        /// The cost of one million tokens the model writes back. It is normally the dearer of the two directions.
         /// </summary>
         /// <example>15.0</example>
         [DataMember(Name = "completion", EmitDefaultValue = false)]

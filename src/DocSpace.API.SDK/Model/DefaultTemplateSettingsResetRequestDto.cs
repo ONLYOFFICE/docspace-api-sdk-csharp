@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Default templates settings reset request parameters.
+    /// The extension whose custom blank is dropped in favour of the built-in one.
     /// </summary>
     [DataContract(Name = "DefaultTemplateSettingsResetRequestDto")]
     public partial class DefaultTemplateSettingsResetRequestDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultTemplateSettingsResetRequestDto" /> class.
         /// </summary>
-        /// <param name="fileExtension">File extension of a template to reset (required).</param>
+        /// <param name="fileExtension">The extension whose custom blank is dropped, written in lower case with the leading dot. Only the extensions  the portal&#39;s built-in template set covers are accepted, and &#x60;GET api/2.0/files/settings/defaulttemplate&#x60;  returns exactly that list; an extension outside it leaves the settings unchanged instead of failing. (required).</param>
         public DefaultTemplateSettingsResetRequestDto(string fileExtension = default)
         {
             // to ensure "fileExtension" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// File extension of a template to reset
+        /// The extension whose custom blank is dropped, written in lower case with the leading dot. Only the extensions  the portal&#39;s built-in template set covers are accepted, and &#x60;GET api/2.0/files/settings/defaulttemplate&#x60;  returns exactly that list; an extension outside it leaves the settings unchanged instead of failing.
         /// </summary>
         /// <example>.docx</example>
         [DataMember(Name = "fileExtension", IsRequired = true, EmitDefaultValue = true)]

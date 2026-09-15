@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The capabilities parameters.
+    /// The sign-in methods this portal offers, as a login client needs them before anyone has signed in.
     /// </summary>
     [DataContract(Name = "CapabilitiesDto")]
     public partial class CapabilitiesDto : IValidatableObject
@@ -46,13 +46,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CapabilitiesDto" /> class.
         /// </summary>
-        /// <param name="ldapEnabled">Specifies if the LDAP settings are enabled or not. (required).</param>
-        /// <param name="ldapDomain">The LDAP domain..</param>
-        /// <param name="providers">The list of providers. (required).</param>
-        /// <param name="ssoLabel">The SP login label. (required).</param>
-        /// <param name="oauthEnabled">Specifies if OAuth is enabled or not. (required).</param>
-        /// <param name="ssoUrl">The SSO URL. If this parameter is empty, then the SSO settings are disabled. (required).</param>
-        /// <param name="identityServerEnabled">Specifies if an identity server is enabled or not. (required).</param>
+        /// <param name="ldapEnabled">Whether members may sign in with their directory credentials. It is &#x60;false&#x60; both when LDAP sign-in is  switched off and when the pricing plan or the installation does not include it, and also when the settings  could not be read at all - a &#x60;false&#x60; here means the method is not offered, never that it is unknown. (required).</param>
+        /// <param name="ldapDomain">The directory domain members authenticate against, to be shown next to the login field. It is empty  whenever &#x60;ldapEnabled&#x60; is &#x60;false&#x60;, and also while the portal has not completed a directory synchronisation..</param>
+        /// <param name="providers">The keys of the external identity providers to offer, ordered for the country the caller&#39;s IP address  resolves to and reduced to those this installation has credentials for. Pass one of them as &#x60;provider&#x60; to  &#x60;POST api/2.0/authentication&#x60;. An empty list means external sign-in is not on offer. (required).</param>
+        /// <param name="ssoLabel">The caption for the single sign-on button in the portal language, empty whenever &#x60;ssoUrl&#x60; is. (required).</param>
+        /// <param name="oauthEnabled">Whether external identity providers may be used on this portal at all. While it is &#x60;false&#x60;, &#x60;providers&#x60; is  empty because the list is not even assembled. (required).</param>
+        /// <param name="ssoUrl">The address to send the browser to for SAML single sign-on. It is empty when single sign-on is not on  offer, which is the one thing to test - there is no separate flag for it. (required).</param>
+        /// <param name="identityServerEnabled">Whether the installation exposes its built-in identity server, which is what the portal&#39;s own OAuth  applications authenticate against. It concerns third-party applications signing in to the portal, not  portal members signing in to an external provider - that is &#x60;providers&#x60;. (required).</param>
         public CapabilitiesDto(bool ldapEnabled = default, string ldapDomain = default, List<string> providers = default, string ssoLabel = default, bool oauthEnabled = default, string ssoUrl = default, bool identityServerEnabled = default)
         {
             this.LdapEnabled = ldapEnabled;
@@ -80,49 +80,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the LDAP settings are enabled or not.
+        /// Whether members may sign in with their directory credentials. It is &#x60;false&#x60; both when LDAP sign-in is  switched off and when the pricing plan or the installation does not include it, and also when the settings  could not be read at all - a &#x60;false&#x60; here means the method is not offered, never that it is unknown.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "ldapEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool LdapEnabled { get; set; }
 
         /// <summary>
-        /// The LDAP domain.
+        /// The directory domain members authenticate against, to be shown next to the login field. It is empty  whenever &#x60;ldapEnabled&#x60; is &#x60;false&#x60;, and also while the portal has not completed a directory synchronisation.
         /// </summary>
         /// <example>example.com</example>
         [DataMember(Name = "ldapDomain", EmitDefaultValue = true)]
         public string LdapDomain { get; set; }
 
         /// <summary>
-        /// The list of providers.
+        /// The keys of the external identity providers to offer, ordered for the country the caller&#39;s IP address  resolves to and reduced to those this installation has credentials for. Pass one of them as &#x60;provider&#x60; to  &#x60;POST api/2.0/authentication&#x60;. An empty list means external sign-in is not on offer.
         /// </summary>
         /// <example>["google","facebook","microsoft"]</example>
         [DataMember(Name = "providers", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Providers { get; set; }
 
         /// <summary>
-        /// The SP login label.
+        /// The caption for the single sign-on button in the portal language, empty whenever &#x60;ssoUrl&#x60; is.
         /// </summary>
         /// <example>Enterprise SSO</example>
         [DataMember(Name = "ssoLabel", IsRequired = true, EmitDefaultValue = true)]
         public string SsoLabel { get; set; }
 
         /// <summary>
-        /// Specifies if OAuth is enabled or not.
+        /// Whether external identity providers may be used on this portal at all. While it is &#x60;false&#x60;, &#x60;providers&#x60; is  empty because the list is not even assembled.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "oauthEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool OauthEnabled { get; set; }
 
         /// <summary>
-        /// The SSO URL. If this parameter is empty, then the SSO settings are disabled.
+        /// The address to send the browser to for SAML single sign-on. It is empty when single sign-on is not on  offer, which is the one thing to test - there is no separate flag for it.
         /// </summary>
         /// <example>https://sso.example.com/login</example>
         [DataMember(Name = "ssoUrl", IsRequired = true, EmitDefaultValue = true)]
         public string SsoUrl { get; set; }
 
         /// <summary>
-        /// Specifies if an identity server is enabled or not.
+        /// Whether the installation exposes its built-in identity server, which is what the portal&#39;s own OAuth  applications authenticate against. It concerns third-party applications signing in to the portal, not  portal members signing in to an external provider - that is &#x60;providers&#x60;.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "identityServerEnabled", IsRequired = true, EmitDefaultValue = true)]

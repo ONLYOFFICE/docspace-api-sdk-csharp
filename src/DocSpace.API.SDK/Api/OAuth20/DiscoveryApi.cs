@@ -30,22 +30,25 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>Object</returns>
-        Object HandleOptions();
-
-        /// <summary>
-        /// 
+        /// Probe the discovery endpoint
         /// </summary>
         /// <remarks>
-        /// 
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns></returns>
+        void HandleOptions();
+
+        /// <summary>
+        /// Probe the discovery endpoint
+        /// </summary>
+        /// <remarks>
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> HandleOptionsWithHttpInfo();
         #endregion Synchronous Operations
     }
@@ -57,27 +60,27 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Probe the discovery endpoint
         /// </summary>
         /// <remarks>
-        /// 
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>Task of Object</returns>
-        Task<Object> HandleOptionsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task HandleOptionsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Probe the discovery endpoint
         /// </summary>
         /// <remarks>
-        /// 
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> HandleOptionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
@@ -295,23 +298,28 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
         
         /// <summary>
-        /// 
+        /// Probe the discovery endpoint
         /// </summary>
+        /// <remarks>
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>Object</returns>
-        public Object HandleOptions()
+        /// <returns></returns>
+        public void HandleOptions()
         {
-            var localVarResponse = HandleOptionsWithHttpInfo();
-            return localVarResponse.Data;
+            HandleOptionsWithHttpInfo();
         }
 
         /// <summary>
-        /// 
+        /// Probe the discovery endpoint
         /// </summary>
+        /// <remarks>
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>ApiResponse of Object</returns>
+        /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> HandleOptionsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
@@ -319,7 +327,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = ["*/*"];
+            string[] accepts = [];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -345,25 +353,30 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// 
+        /// Probe the discovery endpoint
         /// </summary>
+        /// <remarks>
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>Task of Object</returns>
-        public async Task<Object> HandleOptionsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task HandleOptionsAsync(CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await HandleOptionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await HandleOptionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// 
+        /// Probe the discovery endpoint
         /// </summary>
+        /// <remarks>
+        /// Answers the CORS preflight for the OAuth 2.0 Authorization Server metadata endpoint. The endpoint needs no authentication and reads nothing from the request: it always answers 200 with an empty body, and the CORS headers are added by the surrounding filter chain rather than by this handler. It changes no state, and it does not return the authorization server metadata document - issue a GET against the same path for that.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/handle-options/">REST API Reference for HandleOptions Operation</seealso>
-        /// <returns>Task of ApiResponse (Object)</returns>
+        /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> HandleOptionsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
@@ -371,7 +384,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [ "*/*"];
+            string[] accepts = [];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);

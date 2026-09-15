@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for hiding the confirmation dialog when converting.
+    /// The body of the conversion prompt switch: which of the two prompts to hide.
     /// </summary>
     [DataContract(Name = "HideConfirmConvertRequestDto")]
     public partial class HideConfirmConvertRequestDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HideConfirmConvertRequestDto" /> class.
         /// </summary>
-        /// <param name="save">Specifies whether to set the specified settings or not..</param>
+        /// <param name="save">Chooses the prompt to hide rather than the state to store: true hides the prompt that offers to keep a copy in  the original format when a document is converted, false hides the prompt that offers to open the conversion  result. Each of the two flags is stored separately for the calling account, and both are one-way - the portal  can hide a prompt but has no way to show it again..</param>
         public HideConfirmConvertRequestDto(bool save = default)
         {
             this.Save = save;
         }
 
         /// <summary>
-        /// Specifies whether to set the specified settings or not.
+        /// Chooses the prompt to hide rather than the state to store: true hides the prompt that offers to keep a copy in  the original format when a document is converted, false hides the prompt that offers to open the conversion  result. Each of the two flags is stored separately for the calling account, and both are one-way - the portal  can hide a prompt but has no way to show it again.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "save", EmitDefaultValue = true)]

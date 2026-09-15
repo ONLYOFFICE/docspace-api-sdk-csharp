@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The third-party account parameters.
+    /// A third-party storage account connected to the portal.
     /// </summary>
     [DataContract(Name = "ThirdPartyParams")]
     public partial class ThirdPartyParams : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThirdPartyParams" /> class.
         /// </summary>
-        /// <param name="authData">The authentication data..</param>
-        /// <param name="corporate">Specifies if this is a corporate account or not..</param>
-        /// <param name="roomsStorage">Specifies if this is a room storage or not..</param>
-        /// <param name="customerTitle">The customer title..</param>
-        /// <param name="providerId">The provider ID..</param>
-        /// <param name="providerKey">The provider key..</param>
+        /// <param name="authData">The stored credentials of the account. They are not filled in here: the portal does not give back credentials  once an account is saved..</param>
+        /// <param name="corporate">Whether the account is attached to the legacy Common section, which is the case only for accounts inherited  from an older portal..</param>
+        /// <param name="roomsStorage">Whether the account is attached to the Rooms section, room templates and the archive counted in. This is where  &#x60;POST api/2.0/files/thirdparty&#x60; puts every account it connects..</param>
+        /// <param name="customerTitle">The name the account is shown under in the portal, as it was saved when the account was connected..</param>
+        /// <param name="providerId">The account ID to send to &#x60;DELETE api/2.0/files/thirdparty/{providerId}&#x60;, or as &#x60;providerId&#x60; to  re-authenticate the account..</param>
+        /// <param name="providerKey">The storage service behind the account. &#x60;WebDav&#x60; stands for every WebDAV preset, so it does not tell which of  them was chosen when the account was connected..</param>
         public ThirdPartyParams(AuthData authData = default, bool corporate = default, bool roomsStorage = default, string customerTitle = default, int? providerId = default, string providerKey = default)
         {
             this.AuthData = authData;
@@ -58,43 +58,43 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The authentication data.
+        /// The stored credentials of the account. They are not filled in here: the portal does not give back credentials  once an account is saved.
         /// </summary>
         [DataMember(Name = "auth_data", EmitDefaultValue = false)]
         public AuthData AuthData { get; set; }
 
         /// <summary>
-        /// Specifies if this is a corporate account or not.
+        /// Whether the account is attached to the legacy Common section, which is the case only for accounts inherited  from an older portal.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "corporate", EmitDefaultValue = true)]
         public bool Corporate { get; set; }
 
         /// <summary>
-        /// Specifies if this is a room storage or not.
+        /// Whether the account is attached to the Rooms section, room templates and the archive counted in. This is where  &#x60;POST api/2.0/files/thirdparty&#x60; puts every account it connects.
         /// </summary>
-        /// <example>false</example>
+        /// <example>true</example>
         [DataMember(Name = "roomsStorage", EmitDefaultValue = true)]
         public bool RoomsStorage { get; set; }
 
         /// <summary>
-        /// The customer title.
+        /// The name the account is shown under in the portal, as it was saved when the account was connected.
         /// </summary>
-        /// <example>My Storage</example>
+        /// <example>Nextcloud storage</example>
         [DataMember(Name = "customer_title", EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
-        /// The provider ID.
+        /// The account ID to send to &#x60;DELETE api/2.0/files/thirdparty/{providerId}&#x60;, or as &#x60;providerId&#x60; to  re-authenticate the account.
         /// </summary>
-        /// <example>1</example>
+        /// <example>12</example>
         [DataMember(Name = "provider_id", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
 
         /// <summary>
-        /// The provider key.
+        /// The storage service behind the account. &#x60;WebDav&#x60; stands for every WebDAV preset, so it does not tell which of  them was chosen when the account was connected.
         /// </summary>
-        /// <example>GoogleDrive</example>
+        /// <example>WebDav</example>
         [DataMember(Name = "provider_key", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 

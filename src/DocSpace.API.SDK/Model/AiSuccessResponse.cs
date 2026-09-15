@@ -55,6 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Always true — the mutation completed.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
         public bool Success { get; set; }
 

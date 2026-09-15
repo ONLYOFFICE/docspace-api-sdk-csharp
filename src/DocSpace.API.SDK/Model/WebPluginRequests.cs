@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The configuration settings for the web plugin instance.
+    /// The state the portal keeps for an installed web plugin: whether it runs, and its own settings blob.
     /// </summary>
     [DataContract(Name = "WebPluginRequests")]
     public partial class WebPluginRequests : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebPluginRequests" /> class.
         /// </summary>
-        /// <param name="enabled">Controls whether the web plugin is active and operational..</param>
-        /// <param name="settings">The JSON-formatted configuration settings for the web plugin. (required).</param>
+        /// <param name="enabled">Whether the plugin runs in this portal. Switching it on adds the domains its manifest declares to the portal  Content Security Policy and switching it off takes them away again; connected clients are told of the new  state without a reload..</param>
+        /// <param name="settings">The configuration the plugin reads at run time, as a JSON document serialised into a string. Its shape is  defined by the plugin and not by the portal, which stores it encrypted for this portal alone. It replaces  whatever was stored rather than merging into it, so send &#x60;{}&#x60; when there is nothing to keep. (required).</param>
         public WebPluginRequests(bool enabled = default, string settings = default)
         {
             // to ensure "settings" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Controls whether the web plugin is active and operational.
+        /// Whether the plugin runs in this portal. Switching it on adds the domains its manifest declares to the portal  Content Security Policy and switching it off takes them away again; connected clients are told of the new  state without a reload.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// The JSON-formatted configuration settings for the web plugin.
+        /// The configuration the plugin reads at run time, as a JSON document serialised into a string. Its shape is  defined by the plugin and not by the portal, which stores it encrypted for this portal alone. It replaces  whatever was stored rather than merging into it, so send &#x60;{}&#x60; when there is nothing to keep.
         /// </summary>
         /// <example>{"theme":"dark","autoSave":true}</example>
         [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]

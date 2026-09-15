@@ -33,7 +33,7 @@ using System.Reflection;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Arbitrary JSON document with application-specific settings.
+    /// The configuration the application reads, as any valid JSON value. Its shape is defined by the application and  is neither validated nor interpreted by the portal, which stores it verbatim. It replaces the whole stored  document rather than merging into it, and &#x60;null&#x60; drops it so the application falls back to its own defaults.
     /// </summary>
     [JsonConverter(typeof(SetAppSettingsBodySettingsJsonConverter))]
     [DataContract(Name = "SetAppSettingsBody_settings")]

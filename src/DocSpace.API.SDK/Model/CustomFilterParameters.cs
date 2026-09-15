@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for setting the Custom Filter editing mode.
+    /// The Custom Filter state a spreadsheet is to be put into.
     /// </summary>
     [DataContract(Name = "CustomFilterParameters")]
     public partial class CustomFilterParameters : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomFilterParameters" /> class.
         /// </summary>
-        /// <param name="enabled">Specifies whether the Custom Filter editing mode is enabled or not..</param>
+        /// <param name="enabled">The state to reach: &#x60;true&#x60; turns the mode on, so that the sorting and filtering each person applies stays  visible to that person alone, and drops the others out of a running editing session; &#x60;false&#x60; turns it off and  makes filtering shared again..</param>
         public CustomFilterParameters(bool enabled = default)
         {
             this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Specifies whether the Custom Filter editing mode is enabled or not.
+        /// The state to reach: &#x60;true&#x60; turns the mode on, so that the sorting and filtering each person applies stays  visible to that person alone, and drops the others out of a running editing session; &#x60;false&#x60; turns it off and  makes filtering shared again.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]

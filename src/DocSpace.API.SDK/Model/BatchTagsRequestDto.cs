@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for managing room tags.
+    /// The tag names a request attaches to a room or detaches from it.
     /// </summary>
     [DataContract(Name = "BatchTagsRequestDto")]
     public partial class BatchTagsRequestDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchTagsRequestDto" /> class.
         /// </summary>
-        /// <param name="names">The list of tag names. (required).</param>
+        /// <param name="names">The tags, by name: a tag has no identifier of its own, and the name is what links a room to it.  &#x60;GET api/2.0/files/tags&#x60; lists the names already in the portal catalogue. An empty list is accepted and does  nothing, while a blank or overlong entry makes the whole request invalid. (required).</param>
         public BatchTagsRequestDto(List<string> names = default)
         {
             // to ensure "names" is required (not null)
@@ -58,9 +58,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of tag names.
+        /// The tags, by name: a tag has no identifier of its own, and the name is what links a room to it.  &#x60;GET api/2.0/files/tags&#x60; lists the names already in the portal catalogue. An empty list is accepted and does  nothing, while a blank or overlong entry makes the whole request invalid.
         /// </summary>
-        /// <example>["tag1","tag2","tag3"]</example>
+        /// <example>["Finance","2026"]</example>
         [DataMember(Name = "names", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Names { get; set; }
 

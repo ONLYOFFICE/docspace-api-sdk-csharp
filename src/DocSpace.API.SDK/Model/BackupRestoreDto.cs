@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The backup restoring parameters.
+    /// The request parameters for restoring a portal from a backup.
     /// </summary>
     [DataContract(Name = "BackupRestoreDto")]
     public partial class BackupRestoreDto : IValidatableObject
     {
 
         /// <summary>
-        /// The backup storage type.
+        /// The storage the archive is read from. It defaults to &#x60;Documents&#x60; and is only used when &#x60;backupId&#x60; is  not a GUID, because a known backup carries the storage of its own record.
         /// </summary>
         [DataMember(Name = "storageType", EmitDefaultValue = false)]
         public BackupStorageType? StorageType { get; set; }
@@ -52,11 +52,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupRestoreDto" /> class.
         /// </summary>
-        /// <param name="backupId">The backup ID. (required).</param>
-        /// <param name="storageType">The backup storage type..</param>
-        /// <param name="storageParams">The backup storage parameters..</param>
-        /// <param name="notify">Notifies users about the portal restoring process or not..</param>
-        /// <param name="dump">Specifies if a dump will be created or not..</param>
+        /// <param name="backupId">The ID of the backup to restore from, as listed by &#x60;GET api/2.0/backup/getbackuphistory&#x60;. Send  anything that is not a GUID to restore from a file given by &#x60;storageParams&#x60; instead; an all-zero GUID  selects neither, because it parses as a GUID and then matches no record. (required).</param>
+        /// <param name="storageType">The storage the archive is read from. It defaults to &#x60;Documents&#x60; and is only used when &#x60;backupId&#x60; is  not a GUID, because a known backup carries the storage of its own record..</param>
+        /// <param name="storageParams">The location of the archive, as an array of key and value pairs. The key read here is &#x60;filePath&#x60; -  not the &#x60;folderId&#x60; a backup is started with - and it holds a file ID for &#x60;Documents&#x60;, a  provider-specific file ID for &#x60;ThridpartyDocuments&#x60; and a path on the server for &#x60;Local&#x60;. It is only  used when &#x60;backupId&#x60; is not a GUID..</param>
+        /// <param name="notify">Chooses who is emailed when the restoring starts and when it finishes: every active user of the  portal when true, and its owner alone when false. Mail goes only to accounts that have been  activated, so this decides the audience rather than whether anybody is notified at all..</param>
+        /// <param name="dump">Restores the whole server rather than this one portal. It requires the space access permission..</param>
         public BackupRestoreDto(string backupId = default, BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, bool notify = default, bool dump = default)
         {
             // to ensure "backupId" is required (not null)
@@ -72,28 +72,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The backup ID.
+        /// The ID of the backup to restore from, as listed by &#x60;GET api/2.0/backup/getbackuphistory&#x60;. Send  anything that is not a GUID to restore from a file given by &#x60;storageParams&#x60; instead; an all-zero GUID  selects neither, because it parses as a GUID and then matches no record.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "backupId", IsRequired = true, EmitDefaultValue = true)]
         public string BackupId { get; set; }
 
         /// <summary>
-        /// The backup storage parameters.
+        /// The location of the archive, as an array of key and value pairs. The key read here is &#x60;filePath&#x60; -  not the &#x60;folderId&#x60; a backup is started with - and it holds a file ID for &#x60;Documents&#x60;, a  provider-specific file ID for &#x60;ThridpartyDocuments&#x60; and a path on the server for &#x60;Local&#x60;. It is only  used when &#x60;backupId&#x60; is not a GUID.
         /// </summary>
-        /// <example>[{"key":"path","value":"/backup"}]</example>
+        /// <example>[{"key":"filePath","value":"1234"}]</example>
         [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>
-        /// Notifies users about the portal restoring process or not.
+        /// Chooses who is emailed when the restoring starts and when it finishes: every active user of the  portal when true, and its owner alone when false. Mail goes only to accounts that have been  activated, so this decides the audience rather than whether anybody is notified at all.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "notify", EmitDefaultValue = true)]
         public bool Notify { get; set; }
 
         /// <summary>
-        /// Specifies if a dump will be created or not.
+        /// Restores the whole server rather than this one portal. It requires the space access permission.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "dump", EmitDefaultValue = true)]

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The notification settings parameters.
+    /// Whether one kind of notification is switched on for the calling user.
     /// </summary>
     [DataContract(Name = "NotificationSettingsDto")]
     public partial class NotificationSettingsDto : IValidatableObject
     {
 
         /// <summary>
-        /// The notification type.
+        /// Which kind of notification the flag belongs to, echoed from the request. It is published as a number:  badges, room activity, the daily feed, and the tips.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public NotificationType? Type { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationSettingsDto" /> class.
         /// </summary>
-        /// <param name="type">The notification type..</param>
-        /// <param name="isEnabled">Specifies if the notification type is enabled or not..</param>
+        /// <param name="type">Which kind of notification the flag belongs to, echoed from the request. It is published as a number:  badges, room activity, the daily feed, and the tips..</param>
+        /// <param name="isEnabled">Whether the caller receives that kind of notification. It describes the caller&#39;s own account and nobody  else&#39;s; a fresh account has the badges on and the other three off, because those are subscriptions that  only &#x60;POST api/2.0/settings/notification&#x60; creates..</param>
         public NotificationSettingsDto(NotificationType? type = default, bool isEnabled = default)
         {
             this.Type = type;
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the notification type is enabled or not.
+        /// Whether the caller receives that kind of notification. It describes the caller&#39;s own account and nobody  else&#39;s; a fresh account has the badges on and the other three off, because those are subscriptions that  only &#x60;POST api/2.0/settings/notification&#x60; creates.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isEnabled", EmitDefaultValue = true)]

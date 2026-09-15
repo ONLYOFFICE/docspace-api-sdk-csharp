@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The authentication data.
+    /// The credentials of a third-party storage account. The portal takes them when an account is connected and does not  give them back afterwards.
     /// </summary>
     [DataContract(Name = "AuthData")]
     public partial class AuthData : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthData" /> class.
         /// </summary>
-        /// <param name="login">The authentication login..</param>
-        /// <param name="password">The authentication password..</param>
-        /// <param name="rawToken">The authentication raw token..</param>
-        /// <param name="url">The authentication URL..</param>
-        /// <param name="provider">The authentication provider..</param>
-        /// <param name="token">The authentication token..</param>
+        /// <param name="login">The account name at the storage service..</param>
+        /// <param name="password">The password of the account at the storage service..</param>
+        /// <param name="rawToken">The token of the account, kept as the raw JSON document the storage service issued it in..</param>
+        /// <param name="url">The address of the storage server the account lives on..</param>
+        /// <param name="provider">The storage service the credentials belong to, as the provider key the account was connected with..</param>
+        /// <param name="token">The same token as in &#x60;rawToken&#x60;, parsed into its OAuth 2.0 fields..</param>
         public AuthData(string login = default, string password = default, string rawToken = default, string url = default, string provider = default, OAuth20Token token = default)
         {
             this.Login = login;
@@ -58,42 +58,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The authentication login.
+        /// The account name at the storage service.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
-        /// The authentication password.
+        /// The password of the account at the storage service.
         /// </summary>
         /// <example>p@ssw0rd!</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// The authentication raw token.
+        /// The token of the account, kept as the raw JSON document the storage service issued it in.
         /// </summary>
         /// <example>{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...","expires_in":3600}</example>
         [DataMember(Name = "rawToken", EmitDefaultValue = true)]
         public string RawToken { get; set; }
 
         /// <summary>
-        /// The authentication URL.
+        /// The address of the storage server the account lives on.
         /// </summary>
-        /// <example>https://auth.example.com</example>
+        /// <example>https://cloud.example.com/remote.php/dav/files/admin/</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// The authentication provider.
+        /// The storage service the credentials belong to, as the provider key the account was connected with.
         /// </summary>
-        /// <example>OAuth2</example>
+        /// <example>WebDav</example>
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
-        /// The authentication token.
+        /// The same token as in &#x60;rawToken&#x60;, parsed into its OAuth 2.0 fields.
         /// </summary>
         [DataMember(Name = "token", EmitDefaultValue = false)]
         public OAuth20Token Token { get; set; }

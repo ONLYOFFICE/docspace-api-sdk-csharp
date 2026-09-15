@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for updating a comment.
+    /// The comment to store on one version of a file.
     /// </summary>
     [DataContract(Name = "UpdateComment")]
     public partial class UpdateComment : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateComment" /> class.
         /// </summary>
-        /// <param name="version">The comment version. (required).</param>
-        /// <param name="comment">The comment text..</param>
+        /// <param name="version">The version the comment belongs to, as reported by &#x60;GET api/2.0/files/file/{fileId}/edit/history&#x60;. A version  that does not exist is rejected as an invalid request. (required).</param>
+        /// <param name="comment">The note that explains what changed in that version, as the version history shows it. An empty text clears the  note, and a longer one is cut rather than refused, so read the stored text from the answer..</param>
         public UpdateComment(int version = default, string comment = default)
         {
             this.@Version = version;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The comment version.
+        /// The version the comment belongs to, as reported by &#x60;GET api/2.0/files/file/{fileId}/edit/history&#x60;. A version  that does not exist is rejected as an invalid request.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>
-        /// The comment text.
+        /// The note that explains what changed in that version, as the version history shows it. An empty text clears the  note, and a longer one is cut rather than refused, so read the stored text from the answer.
         /// </summary>
         /// <example>This is a comment</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]

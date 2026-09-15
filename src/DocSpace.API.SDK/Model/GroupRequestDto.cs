@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupRequestDto" /> class.
         /// </summary>
-        /// <param name="members">The list of group member IDs..</param>
-        /// <param name="groupManager">The group manager ID..</param>
-        /// <param name="groupName">The group name. (required).</param>
+        /// <param name="members">The accounts to put into the new group. Every one of them has to be an active member that is not a guest,  otherwise the whole call is rejected. Omit it to create an empty group..</param>
+        /// <param name="groupManager">The account to make the manager of the new group. It is added to the group as well, so it does not have to be  repeated in &#x60;members&#x60;. Omit it to create a group without a manager..</param>
+        /// <param name="groupName">The name of the group, from 1 to 128 characters. It is required, it may not be blank, and it does not have to  be unique. (required).</param>
         public GroupRequestDto(List<Guid> members = default, Guid groupManager = default, string groupName = default)
         {
             // to ensure "groupName" is required (not null)
@@ -62,21 +62,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of group member IDs.
+        /// The accounts to put into the new group. Every one of them has to be an active member that is not a guest,  otherwise the whole call is rejected. Omit it to create an empty group.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<Guid> Members { get; set; }
 
         /// <summary>
-        /// The group manager ID.
+        /// The account to make the manager of the new group. It is added to the group as well, so it does not have to be  repeated in &#x60;members&#x60;. Omit it to create a group without a manager.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "groupManager", EmitDefaultValue = false)]
         public Guid GroupManager { get; set; }
 
         /// <summary>
-        /// The group name.
+        /// The name of the group, from 1 to 128 characters. It is required, it may not be blank, and it does not have to  be unique.
         /// </summary>
         /// <example>Marketing Team</example>
         [DataMember(Name = "groupName", IsRequired = true, EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for updating the rooms.
+    /// The rooms that are to go back to the default storage limit of the portal.
     /// </summary>
     [DataContract(Name = "UpdateRoomsRoomIdsRequestDtoInteger")]
     public partial class UpdateRoomsRoomIdsRequestDtoInteger : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRoomsRoomIdsRequestDtoInteger" /> class.
         /// </summary>
-        /// <param name="roomIds">The list of room IDs..</param>
+        /// <param name="roomIds">The rooms to reset, named by the identifiers that &#x60;GET api/2.0/files/rooms&#x60; reports. Only whole numbers are  processed, so identifiers of rooms kept in a connected third-party account are skipped without an error..</param>
         public UpdateRoomsRoomIdsRequestDtoInteger(List<DuplicateRequestDtoAllOfFileIds> roomIds = default)
         {
             this.RoomIds = roomIds;
         }
 
         /// <summary>
-        /// The list of room IDs.
+        /// The rooms to reset, named by the identifiers that &#x60;GET api/2.0/files/rooms&#x60; reports. Only whole numbers are  processed, so identifiers of rooms kept in a connected third-party account are skipped without an error.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "roomIds", EmitDefaultValue = true)]

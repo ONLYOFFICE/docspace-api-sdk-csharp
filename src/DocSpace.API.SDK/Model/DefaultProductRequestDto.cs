@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for setting the default product configuration.
+    /// The section the calling user&#39;s account opens into after signing in.
     /// </summary>
     [DataContract(Name = "DefaultProductRequestDto")]
     public partial class DefaultProductRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// The ID of the product to be set as default.
+        /// The section to land on. Only the folder types the client offers as a landing page are accepted - the rooms  list, My documents, shared with me, favorites, recent, forms and the AI agents folder - and anything else is  refused. My documents is refused for a guest as well, since a guest has no personal storage.
         /// </summary>
         [DataMember(Name = "defaultFolderType", IsRequired = true, EmitDefaultValue = true)]
         public FolderType DefaultFolderType { get; set; }
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultProductRequestDto" /> class.
         /// </summary>
-        /// <param name="defaultFolderType">The ID of the product to be set as default. (required).</param>
+        /// <param name="defaultFolderType">The section to land on. Only the folder types the client offers as a landing page are accepted - the rooms  list, My documents, shared with me, favorites, recent, forms and the AI agents folder - and anything else is  refused. My documents is refused for a guest as well, since a guest has no personal storage. (required).</param>
         public DefaultProductRequestDto(FolderType defaultFolderType = default)
         {
             this.DefaultFolderType = defaultFolderType;

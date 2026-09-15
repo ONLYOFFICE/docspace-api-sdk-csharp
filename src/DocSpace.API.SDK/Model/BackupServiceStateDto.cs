@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Backup service state.
+    /// Whether the paid backup service is switched on for a portal.
     /// </summary>
     [DataContract(Name = "BackupServiceStateDto")]
     public partial class BackupServiceStateDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupServiceStateDto" /> class.
         /// </summary>
-        /// <param name="enabled">Specifies if the backup service is enabled or not..</param>
+        /// <param name="enabled">Specifies whether the paid backup service is switched on for this portal, which is a setting of its  wallet rather than the health of the backup service. While it is true, backups beyond the free  monthly allowance are charged to the wallet..</param>
         public BackupServiceStateDto(bool enabled = default)
         {
             this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Specifies if the backup service is enabled or not.
+        /// Specifies whether the paid backup service is switched on for this portal, which is a setting of its  wallet rather than the health of the backup service. While it is true, backups beyond the free  monthly allowance are charged to the wallet.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]

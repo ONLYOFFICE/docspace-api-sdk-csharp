@@ -60,6 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The error message, ready to be shown to the caller.
         /// </summary>
+        /// <example>threadId required</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 

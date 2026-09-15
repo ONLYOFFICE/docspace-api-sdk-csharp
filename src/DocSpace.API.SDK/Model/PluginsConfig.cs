@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The configuration settings to connect the special add-ons.
+    /// Which editor add-ons the portal connects. It currently connects none.
     /// </summary>
     [DataContract(Name = "PluginsConfig")]
     public partial class PluginsConfig : IValidatableObject

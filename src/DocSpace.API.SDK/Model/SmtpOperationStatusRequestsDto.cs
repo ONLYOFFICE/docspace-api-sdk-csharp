@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for tracking SMTP (Simple Mail Transfer Protocol) operation status.
+    /// The state of the background job that sends the portal SMTP test message.
     /// </summary>
     [DataContract(Name = "SmtpOperationStatusRequestsDto")]
     public partial class SmtpOperationStatusRequestsDto : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SmtpOperationStatusRequestsDto" /> class.
         /// </summary>
-        /// <param name="completed">Specifies whether the SMTP operation has finished processing..</param>
-        /// <param name="id">The unique identifier for tracking the SMTP operation..</param>
-        /// <param name="error">The error message if the SMTP operation encountered issues..</param>
-        /// <param name="status">The current state of the SMTP operation..</param>
-        /// <param name="percents">The progress indicator showing completion percentage of the operation..</param>
+        /// <param name="completed">Whether the job has finished. This is the field to poll; the first answer that reports it true also discards  the job, so read &#x60;error&#x60; out of that same answer rather than calling again..</param>
+        /// <param name="id">The identifier of the queued job. A portal only ever has one test job at a time, so it names the run rather  than selecting among several..</param>
+        /// <param name="error">Why the test failed. It stays empty while the job runs and also once the relay has accepted the message, so  an empty value on a finished job is what success looks like; an unreachable relay is reported here after a  30-second connection timeout rather than as a failed request..</param>
+        /// <param name="status">The step the job has reached, in words - &#x60;Connect to host&#x60; or &#x60;Send test message&#x60;, for instance. It is meant  to be shown to a person and is not a fixed set of values to branch on..</param>
+        /// <param name="percents">How far the job has got, as a percentage climbing to 100. Reaching 100 says the job ran to the end, not that  the message was accepted - that is what an empty &#x60;error&#x60; says..</param>
         public SmtpOperationStatusRequestsDto(bool completed = default, string id = default, string error = default, string status = default, int percents = default)
         {
             this.Completed = completed;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether the SMTP operation has finished processing.
+        /// Whether the job has finished. This is the field to poll; the first answer that reports it true also discards  the job, so read &#x60;error&#x60; out of that same answer rather than calling again.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "completed", EmitDefaultValue = true)]
         public bool Completed { get; set; }
 
         /// <summary>
-        /// The unique identifier for tracking the SMTP operation.
+        /// The identifier of the queued job. A portal only ever has one test job at a time, so it names the run rather  than selecting among several.
         /// </summary>
         /// <example>smtp-op-123</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The error message if the SMTP operation encountered issues.
+        /// Why the test failed. It stays empty while the job runs and also once the relay has accepted the message, so  an empty value on a finished job is what success looks like; an unreachable relay is reported here after a  30-second connection timeout rather than as a failed request.
         /// </summary>
         /// <example>SMTP connection failed.</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// The current state of the SMTP operation.
+        /// The step the job has reached, in words - &#x60;Connect to host&#x60; or &#x60;Send test message&#x60;, for instance. It is meant  to be shown to a person and is not a fixed set of values to branch on.
         /// </summary>
         /// <example>Completed</example>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The progress indicator showing completion percentage of the operation.
+        /// How far the job has got, as a percentage climbing to 100. Reaching 100 says the job ran to the end, not that  the message was accepted - that is what an empty &#x60;error&#x60; says.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "percents", EmitDefaultValue = false)]

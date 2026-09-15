@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents an active wallet service (quota) of the current portal.
+    /// One wallet service the portal is running right now, with the allowance it grants where that is counted.
     /// </summary>
     [DataContract(Name = "ActiveServiceDto")]
     public partial class ActiveServiceDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActiveServiceDto" /> class.
         /// </summary>
-        /// <param name="service">The name of the service..</param>
-        /// <param name="serviceUnit">The unit of measurement for the service..</param>
-        /// <param name="subscription">Indicates whether the service is subscription-based..</param>
-        /// <param name="title">The title of the service..</param>
-        /// <param name="limit">The service limit. Populated only for the subscription-based services..</param>
-        /// <param name="used">The current service usage. Populated only for the subscription-based services..</param>
+        /// <param name="service">The stable key of the service, which is what &#x60;POST api/2.0/portal/payment/servicestate&#x60; takes to switch  it off again..</param>
+        /// <param name="serviceUnit">What &#x60;limit&#x60; and &#x60;used&#x60; count, in the portal language - gigabytes, editor seats, credits..</param>
+        /// <param name="subscription">Whether the service is billed as a standing subscription rather than per unit consumed. Only a  subscription can carry &#x60;limit&#x60; and &#x60;used&#x60;..</param>
+        /// <param name="title">The service name in the portal language, for printing rather than matching..</param>
+        /// <param name="limit">How much of the service the portal is entitled to. It is empty for a service whose consumption is not  counted this way, which is not the same as a service without a limit..</param>
+        /// <param name="used">How much of that allowance is in use - the editors currently active for the cloud editors, the units  already consumed for disk storage. Empty under the same conditions as &#x60;limit&#x60;..</param>
         public ActiveServiceDto(string service = default, string serviceUnit = default, bool subscription = default, string title = default, int? limit = default, int? used = default)
         {
             this.Service = service;
@@ -58,42 +58,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The name of the service.
+        /// The stable key of the service, which is what &#x60;POST api/2.0/portal/payment/servicestate&#x60; takes to switch  it off again.
         /// </summary>
         /// <example>disk-storage</example>
         [DataMember(Name = "service", EmitDefaultValue = true)]
         public string Service { get; set; }
 
         /// <summary>
-        /// The unit of measurement for the service.
+        /// What &#x60;limit&#x60; and &#x60;used&#x60; count, in the portal language - gigabytes, editor seats, credits.
         /// </summary>
         /// <example>GB</example>
         [DataMember(Name = "serviceUnit", EmitDefaultValue = true)]
         public string ServiceUnit { get; set; }
 
         /// <summary>
-        /// Indicates whether the service is subscription-based.
+        /// Whether the service is billed as a standing subscription rather than per unit consumed. Only a  subscription can carry &#x60;limit&#x60; and &#x60;used&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "subscription", EmitDefaultValue = true)]
         public bool Subscription { get; set; }
 
         /// <summary>
-        /// The title of the service.
+        /// The service name in the portal language, for printing rather than matching.
         /// </summary>
         /// <example>Additional disk storage</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The service limit. Populated only for the subscription-based services.
+        /// How much of the service the portal is entitled to. It is empty for a service whose consumption is not  counted this way, which is not the same as a service without a limit.
         /// </summary>
         /// <example>500</example>
         [DataMember(Name = "limit", EmitDefaultValue = true)]
         public int? Limit { get; set; }
 
         /// <summary>
-        /// The current service usage. Populated only for the subscription-based services.
+        /// How much of that allowance is in use - the editors currently active for the cloud editors, the units  already consumed for disk storage. Empty under the same conditions as &#x60;limit&#x60;.
         /// </summary>
         /// <example>320</example>
         [DataMember(Name = "used", EmitDefaultValue = true)]

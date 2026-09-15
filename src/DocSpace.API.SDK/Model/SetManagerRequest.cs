@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetManagerRequest" /> class.
         /// </summary>
-        /// <param name="userId">The user ID. (required).</param>
+        /// <param name="userId">The account to make the manager. It has to exist, otherwise the operation answers 404, and it is added to the  group at the same time, so it does not have to be a member beforehand. (required).</param>
         public SetManagerRequest(Guid userId = default)
         {
             this.UserId = userId;
         }
 
         /// <summary>
-        /// The user ID.
+        /// The account to make the manager. It has to exist, otherwise the operation answers 404, and it is added to the  group at the same time, so it does not have to be a member beforehand.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]

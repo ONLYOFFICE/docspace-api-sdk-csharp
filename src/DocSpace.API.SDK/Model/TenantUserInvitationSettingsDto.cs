@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The user invitation settings.
+    /// Whether the portal currently lets anyone be invited into it, member and guest kept apart.
     /// </summary>
     [DataContract(Name = "TenantUserInvitationSettingsDto")]
     public partial class TenantUserInvitationSettingsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantUserInvitationSettingsDto" /> class.
         /// </summary>
-        /// <param name="allowInvitingMembers">Specifies whether to allow inviting new DocSpace members through the Contacts section. (required).</param>
-        /// <param name="allowInvitingGuests">Specifies whether to allow all DocSpace members to invite external guests to the rooms. (required).</param>
+        /// <param name="allowInvitingMembers">Whether new members may be invited through the Contacts section. Switching it off stops new invitations  from being created; links already handed out keep working and members already invited stay. (required).</param>
+        /// <param name="allowInvitingGuests">Whether every member, and not only an administrator, may invite an outside guest into a room. It is  independent of &#x60;allowInvitingMembers&#x60;, and switching it off has the same forward-only effect. (required).</param>
         public TenantUserInvitationSettingsDto(bool allowInvitingMembers = default, bool allowInvitingGuests = default)
         {
             this.AllowInvitingMembers = allowInvitingMembers;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to allow inviting new DocSpace members through the Contacts section.
+        /// Whether new members may be invited through the Contacts section. Switching it off stops new invitations  from being created; links already handed out keep working and members already invited stay.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "allowInvitingMembers", IsRequired = true, EmitDefaultValue = true)]
         public bool AllowInvitingMembers { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow all DocSpace members to invite external guests to the rooms.
+        /// Whether every member, and not only an administrator, may invite an outside guest into a room. It is  independent of &#x60;allowInvitingMembers&#x60;, and switching it off has the same forward-only effect.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "allowInvitingGuests", IsRequired = true, EmitDefaultValue = true)]

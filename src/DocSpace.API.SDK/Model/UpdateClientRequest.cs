@@ -41,71 +41,108 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateClientRequest" /> class.
         /// </summary>
-        /// <param name="name">The name of the client.</param>
-        /// <param name="description">The description of the client.</param>
-        /// <param name="logo">The logo of the client in base64 format.</param>
-        /// <param name="public">@public.</param>
-        /// <param name="allowPkce">Indicates whether PKCE is allowed for the client.</param>
-        /// <param name="isPublic">Indicates whether client is accessible by third-party tenants.</param>
-        /// <param name="allowedOrigins">The allowed origins for the client.</param>
-        public UpdateClientRequest(string name = default, string description = default, string logo = default, bool @public = default, bool allowPkce = default, bool isPublic = default, List<string> allowedOrigins = default)
+        [JsonConstructorAttribute]
+        protected UpdateClientRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateClientRequest" /> class.
+        /// </summary>
+        /// <param name="name">The display name shown to the user on the consent screen. It has to be between 3 and 256 characters long. (required).</param>
+        /// <param name="description">The free-text description shown next to the name on the consent screen, at most 255 characters..</param>
+        /// <param name="logo">The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted. (required).</param>
+        /// <param name="scopes">The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here. (required).</param>
+        /// <param name="allowPkce">Whether the client may use PKCE. Turning it on lets the client authenticate with the none method and prove itself with a code verifier instead of sending a secret, which is what a client that cannot keep a secret needs..</param>
+        /// <param name="allowedOrigins">The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses. (required).</param>
+        /// <param name="redirectUris">The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses. (required).</param>
+        /// <param name="isPublic">Whether the client is offered to third-party tenants rather than only to the tenant that registers it..</param>
+        public UpdateClientRequest(string name = default, string description = default, string logo = default, List<string> scopes = default, bool allowPkce = default, List<string> allowedOrigins = default, List<string> redirectUris = default, bool isPublic = default)
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for UpdateClientRequest and cannot be null");
+            }
             this.Name = name;
-            this.Description = description;
+            // to ensure "logo" is required (not null)
+            if (logo == null)
+            {
+                throw new ArgumentNullException("logo is a required property for UpdateClientRequest and cannot be null");
+            }
             this.Logo = logo;
-            this.Public = @public;
+            // to ensure "scopes" is required (not null)
+            if (scopes == null)
+            {
+                throw new ArgumentNullException("scopes is a required property for UpdateClientRequest and cannot be null");
+            }
+            this.Scopes = scopes;
+            // to ensure "allowedOrigins" is required (not null)
+            if (allowedOrigins == null)
+            {
+                throw new ArgumentNullException("allowedOrigins is a required property for UpdateClientRequest and cannot be null");
+            }
+            this.AllowedOrigins = allowedOrigins;
+            // to ensure "redirectUris" is required (not null)
+            if (redirectUris == null)
+            {
+                throw new ArgumentNullException("redirectUris is a required property for UpdateClientRequest and cannot be null");
+            }
+            this.RedirectUris = redirectUris;
+            this.Description = description;
             this.AllowPkce = allowPkce;
             this.IsPublic = isPublic;
-            this.AllowedOrigins = allowedOrigins;
         }
 
         /// <summary>
-        /// The name of the client
+        /// The display name shown to the user on the consent screen. It has to be between 3 and 256 characters long.
         /// </summary>
         /// <example>Updated Client</example>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description of the client
+        /// The free-text description shown next to the name on the consent screen, at most 255 characters.
         /// </summary>
         /// <example>Updated description of the client</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The logo of the client in base64 format
+        /// The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted.
         /// </summary>
-        /// <example>data:image/png;base64,...</example>
-        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        /// <example>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==</example>
+        [DataMember(Name = "logo", IsRequired = true, EmitDefaultValue = true)]
         public string Logo { get; set; }
 
         /// <summary>
-        /// Gets or Sets Public
+        /// The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here.
         /// </summary>
-        [DataMember(Name = "public", EmitDefaultValue = true)]
-        public bool Public { get; set; }
+        [DataMember(Name = "scopes", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Scopes { get; set; }
 
         /// <summary>
-        /// Indicates whether PKCE is allowed for the client
+        /// Whether the client may use PKCE. Turning it on lets the client authenticate with the none method and prove itself with a code verifier instead of sending a secret, which is what a client that cannot keep a secret needs.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "allow_pkce", EmitDefaultValue = true)]
         public bool AllowPkce { get; set; }
 
         /// <summary>
-        /// Indicates whether client is accessible by third-party tenants
+        /// The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses.
+        /// </summary>
+        [DataMember(Name = "allowed_origins", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> AllowedOrigins { get; set; }
+
+        /// <summary>
+        /// The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses.
+        /// </summary>
+        [DataMember(Name = "redirect_uris", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> RedirectUris { get; set; }
+
+        /// <summary>
+        /// Whether the client is offered to third-party tenants rather than only to the tenant that registers it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "is_public", EmitDefaultValue = true)]
         public bool IsPublic { get; set; }
-
-        /// <summary>
-        /// The allowed origins for the client
-        /// </summary>
-        /// <example>["http://allowed.origin"]</example>
-        [DataMember(Name = "allowed_origins", EmitDefaultValue = false)]
-        public List<string> AllowedOrigins { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,10 +155,11 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Logo: ").Append(Logo).Append("\n");
-            sb.Append("  Public: ").Append(Public).Append("\n");
+            sb.Append("  Scopes: ").Append(Scopes).Append("\n");
             sb.Append("  AllowPkce: ").Append(AllowPkce).Append("\n");
-            sb.Append("  IsPublic: ").Append(IsPublic).Append("\n");
             sb.Append("  AllowedOrigins: ").Append(AllowedOrigins).Append("\n");
+            sb.Append("  RedirectUris: ").Append(RedirectUris).Append("\n");
+            sb.Append("  IsPublic: ").Append(IsPublic).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,10 +180,16 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // Name (string) maxLength
+            if (this.Name != null && this.Name.Length > 256)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+            }
+
+            // Name (string) minLength
+            if (this.Name != null && this.Name.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 3.", new [] { "Name" });
             }
 
             // Description (string) maxLength

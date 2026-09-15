@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The provider information.
+    /// One storage service this portal can connect, with the values a connection form needs.
     /// </summary>
     [DataContract(Name = "ProviderDto")]
     public partial class ProviderDto : IValidatableObject
@@ -41,13 +41,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProviderDto" /> class.
         /// </summary>
-        /// <param name="name">The provider name..</param>
-        /// <param name="key">The provider key..</param>
-        /// <param name="connected">Specifies whether the provider is connected..</param>
-        /// <param name="oauth">Specifies if the provider is OAuth..</param>
-        /// <param name="redirectUrl">The provider redirect URL..</param>
-        /// <param name="requiredConnectionUrl">The required connection URL flag..</param>
-        /// <param name="clientId">The provider OAuth client ID..</param>
+        /// <param name="name">The display name of the service, and the only thing that tells the WebDAV presets apart: &#x60;kDrive&#x60;, &#x60;Yandex&#x60;,  &#x60;WebDav&#x60;, &#x60;Nextcloud&#x60; and &#x60;ownCloud&#x60; all report the same key..</param>
+        /// <param name="key">The value to send as &#x60;providerKey&#x60; when an account of this service is connected..</param>
+        /// <param name="connected">Whether the service can be used on this portal: it is enabled in the configuration and, for an OAuth service,  its application is registered. It says nothing about whether an account of it is connected..</param>
+        /// <param name="oauth">Whether an account of this service is connected with an OAuth 2.0 authorization code in &#x60;token&#x60;; when false,  it is connected with &#x60;login&#x60; and &#x60;password&#x60;..</param>
+        /// <param name="redirectUrl">The redirect URL this portal is registered with at the service, to build the consent screen URL from. It comes  back as null for the services that do not use OAuth..</param>
+        /// <param name="requiredConnectionUrl">Whether an account of this service cannot be connected without &#x60;url&#x60;, which is the case for the WebDAV servers  whose address is not known in advance. The presets with a fixed address and the OAuth services do not need it..</param>
+        /// <param name="clientId">The OAuth 2.0 client ID this portal is registered with at the service, to build the consent screen URL from.  It comes back as null for the services that do not use OAuth..</param>
         public ProviderDto(string name = default, string key = default, bool connected = default, bool oauth = default, string redirectUrl = default, bool requiredConnectionUrl = default, string clientId = default)
         {
             this.Name = name;
@@ -60,51 +60,51 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The provider name.
+        /// The display name of the service, and the only thing that tells the WebDAV presets apart: &#x60;kDrive&#x60;, &#x60;Yandex&#x60;,  &#x60;WebDav&#x60;, &#x60;Nextcloud&#x60; and &#x60;ownCloud&#x60; all report the same key.
         /// </summary>
-        /// <example>GoogleDrive</example>
+        /// <example>Nextcloud</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The provider key.
+        /// The value to send as &#x60;providerKey&#x60; when an account of this service is connected.
         /// </summary>
-        /// <example>google-drive</example>
+        /// <example>WebDav</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// Specifies whether the provider is connected.
+        /// Whether the service can be used on this portal: it is enabled in the configuration and, for an OAuth service,  its application is registered. It says nothing about whether an account of it is connected.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "connected", EmitDefaultValue = true)]
         public bool Connected { get; set; }
 
         /// <summary>
-        /// Specifies if the provider is OAuth.
+        /// Whether an account of this service is connected with an OAuth 2.0 authorization code in &#x60;token&#x60;; when false,  it is connected with &#x60;login&#x60; and &#x60;password&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public bool Oauth { get; set; }
 
         /// <summary>
-        /// The provider redirect URL.
+        /// The redirect URL this portal is registered with at the service, to build the consent screen URL from. It comes  back as null for the services that do not use OAuth.
         /// </summary>
-        /// <example>http://localhost/redirect</example>
+        /// <example>https://example.com/thirdparty</example>
         [DataMember(Name = "redirectUrl", EmitDefaultValue = true)]
         public string RedirectUrl { get; set; }
 
         /// <summary>
-        /// The required connection URL flag.
+        /// Whether an account of this service cannot be connected without &#x60;url&#x60;, which is the case for the WebDAV servers  whose address is not known in advance. The presets with a fixed address and the OAuth services do not need it.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "requiredConnectionUrl", EmitDefaultValue = true)]
         public bool RequiredConnectionUrl { get; set; }
 
         /// <summary>
-        /// The provider OAuth client ID.
+        /// The OAuth 2.0 client ID this portal is registered with at the service, to build the consent screen URL from.  It comes back as null for the services that do not use OAuth.
         /// </summary>
-        /// <example>client-id-123</example>
+        /// <example>l1s2h3d4f5g6h7j8k9l0</example>
         [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 

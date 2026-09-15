@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The login settings parameters.
+    /// The brute-force protection of the sign-in form: how many failures, over how long, cost how long a block.
     /// </summary>
     [DataContract(Name = "LoginSettingsDto")]
     public partial class LoginSettingsDto : IValidatableObject
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginSettingsDto" /> class.
         /// </summary>
-        /// <param name="attemptCount">The maximum number of consecutive failed login attempts allowed before triggering account suspension. (required).</param>
-        /// <param name="blockTime">The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts. (required).</param>
-        /// <param name="checkPeriod">The maximum time (in seconds) allowed for server to process and respond to login requests. (required).</param>
-        /// <param name="isDefault">Specifies whether the login settings are default or not. (required).</param>
+        /// <param name="attemptCount">How many failed attempts inside one window are tolerated before the offender is blocked. Attempts are  counted per user name and client address together, so one member being blocked leaves the rest of the  portal signing in normally. (required).</param>
+        /// <param name="blockTime">How long, in seconds, a blocked user name and address pair stays refused. While the block lasts the  sign-in is refused even once the password is correct. (required).</param>
+        /// <param name="checkPeriod">The length, in seconds, of the rolling window the failures are counted over. It is not a request timeout: a  wider window makes the same &#x60;attemptCount&#x60; stricter, because failures further apart still add up. (required).</param>
+        /// <param name="isDefault">Whether the three numbers above still match the ones the installation ships with. It turns &#x60;false&#x60; as soon  as any of them is saved differently, and &#x60;true&#x60; again after  &#x60;DELETE api/2.0/settings/security/loginsettings&#x60;. (required).</param>
         public LoginSettingsDto(int attemptCount = default, int blockTime = default, int checkPeriod = default, bool isDefault = default)
         {
             this.AttemptCount = attemptCount;
@@ -59,28 +59,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The maximum number of consecutive failed login attempts allowed before triggering account suspension.
+        /// How many failed attempts inside one window are tolerated before the offender is blocked. Attempts are  counted per user name and client address together, so one member being blocked leaves the rest of the  portal signing in normally.
         /// </summary>
         /// <example>5</example>
         [DataMember(Name = "attemptCount", IsRequired = true, EmitDefaultValue = true)]
         public int AttemptCount { get; set; }
 
         /// <summary>
-        /// The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts.
+        /// How long, in seconds, a blocked user name and address pair stays refused. While the block lasts the  sign-in is refused even once the password is correct.
         /// </summary>
         /// <example>15</example>
         [DataMember(Name = "blockTime", IsRequired = true, EmitDefaultValue = true)]
         public int BlockTime { get; set; }
 
         /// <summary>
-        /// The maximum time (in seconds) allowed for server to process and respond to login requests.
+        /// The length, in seconds, of the rolling window the failures are counted over. It is not a request timeout: a  wider window makes the same &#x60;attemptCount&#x60; stricter, because failures further apart still add up.
         /// </summary>
         /// <example>60</example>
         [DataMember(Name = "checkPeriod", IsRequired = true, EmitDefaultValue = true)]
         public int CheckPeriod { get; set; }
 
         /// <summary>
-        /// Specifies whether the login settings are default or not.
+        /// Whether the three numbers above still match the ones the installation ships with. It turns &#x60;false&#x60; as soon  as any of them is saved differently, and &#x60;true&#x60; again after  &#x60;DELETE api/2.0/settings/security/loginsettings&#x60;.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The backup schedule parameters.
+    /// The request parameters for setting the backup schedule.
     /// </summary>
     [DataContract(Name = "BackupScheduleDto")]
     public partial class BackupScheduleDto : IValidatableObject
     {
 
         /// <summary>
-        /// The backup storage type.
+        /// The storage the scheduled archives are written to. It defaults to &#x60;Documents&#x60;, and it decides which  keys &#x60;storageParams&#x60; has to carry.
         /// </summary>
         [DataMember(Name = "storageType", EmitDefaultValue = false)]
         public BackupStorageType? StorageType { get; set; }
@@ -47,11 +47,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupScheduleDto" /> class.
         /// </summary>
-        /// <param name="storageType">The backup storage type..</param>
-        /// <param name="storageParams">The backup storage parameters..</param>
-        /// <param name="backupsStored">The maximum number of the stored backup copies..</param>
-        /// <param name="cronParams">The backup cron parameters..</param>
-        /// <param name="dump">Specifies if a dump will be created or not..</param>
+        /// <param name="storageType">The storage the scheduled archives are written to. It defaults to &#x60;Documents&#x60;, and it decides which  keys &#x60;storageParams&#x60; has to carry..</param>
+        /// <param name="storageParams">The settings of the chosen storage, as an array of key and value pairs. &#x60;Documents&#x60; and  &#x60;ThridpartyDocuments&#x60; need &#x60;folderId&#x60;, &#x60;Local&#x60; needs &#x60;filePath&#x60;, &#x60;ThirdPartyConsumer&#x60; needs &#x60;module&#x60;  plus the settings of that consumer, and &#x60;DataStore&#x60; needs none..</param>
+        /// <param name="backupsStored">The number of scheduled copies to keep, from 1 to 30. It defaults to 1, and only the copies this  schedule creates are counted and removed - archives started by hand are left alone..</param>
+        /// <param name="cronParams">When the backup runs. It is required: a request without it fails rather than falling back to a  default..</param>
+        /// <param name="dump">Schedules a backup of the whole server rather than of this one portal. It requires the space access  permission and works on a standalone installation only..</param>
         public BackupScheduleDto(BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, int? backupsStored = default, Cron cronParams = default, bool dump = default)
         {
             this.StorageType = storageType;
@@ -62,27 +62,27 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The backup storage parameters.
+        /// The settings of the chosen storage, as an array of key and value pairs. &#x60;Documents&#x60; and  &#x60;ThridpartyDocuments&#x60; need &#x60;folderId&#x60;, &#x60;Local&#x60; needs &#x60;filePath&#x60;, &#x60;ThirdPartyConsumer&#x60; needs &#x60;module&#x60;  plus the settings of that consumer, and &#x60;DataStore&#x60; needs none.
         /// </summary>
-        /// <example>[{"key":"path","value":"/backup"}]</example>
+        /// <example>[{"key":"folderId","value":"1234"}]</example>
         [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>
-        /// The maximum number of the stored backup copies.
+        /// The number of scheduled copies to keep, from 1 to 30. It defaults to 1, and only the copies this  schedule creates are counted and removed - archives started by hand are left alone.
         /// </summary>
         /// <example>5</example>
         [DataMember(Name = "backupsStored", EmitDefaultValue = true)]
         public int? BackupsStored { get; set; }
 
         /// <summary>
-        /// The backup cron parameters.
+        /// When the backup runs. It is required: a request without it fails rather than falling back to a  default.
         /// </summary>
         [DataMember(Name = "cronParams", EmitDefaultValue = false)]
         public Cron CronParams { get; set; }
 
         /// <summary>
-        /// Specifies if a dump will be created or not.
+        /// Schedules a backup of the whole server rather than of this one portal. It requires the space access  permission and works on a standalone installation only.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "dump", EmitDefaultValue = true)]

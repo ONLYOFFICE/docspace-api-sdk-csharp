@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The Document Builder task parameters.
+    /// The state of a background document building task: how far it has got, how it ended, and the file it produced.
     /// </summary>
     [DataContract(Name = "DocumentBuilderTaskDto")]
     public partial class DocumentBuilderTaskDto : IValidatableObject
     {
 
         /// <summary>
-        /// The status of the document building process.
+        /// How the task ended, or that it has not started yet. Read it together with the completion flag: a stopped task  can be a finished build, a cancelled one or a failure, and only this field separates them.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public DistributedTaskStatus Status { get; set; }
@@ -52,14 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentBuilderTaskDto" /> class.
         /// </summary>
-        /// <param name="id">The Document Builder task ID. (required).</param>
-        /// <param name="error">The error message occurred during the document building process. (required).</param>
-        /// <param name="percentage">The progress percentage of the document building process. (required).</param>
-        /// <param name="isCompleted">Specifies whether the document building process is completed or not. (required).</param>
-        /// <param name="status">The status of the document building process. (required).</param>
+        /// <param name="id">The identifier of the task. It is derived from the portal, the account and the kind of report, so starting the  same report again while it runs returns this same value, which is how a resumed poll is told from a newly  queued build. (required).</param>
+        /// <param name="error">The message of the failure that stopped the build. It is filled in only for a task that ended in the failed  state, and stays empty while the task runs and after it succeeds. (required).</param>
+        /// <param name="percentage">How far the build has got, from 0 to 100. It advances in a few coarse steps rather than smoothly, so it is a  progress hint and not a measure of the time left; wait on the completion flag instead. (required).</param>
+        /// <param name="isCompleted">True once the task has stopped for any reason, a failure and a cancellation included. It is the field to poll  on, and the status tells those outcomes apart. (required).</param>
+        /// <param name="status">How the task ended, or that it has not started yet. Read it together with the completion flag: a stopped task  can be a finished build, a cancelled one or a failure, and only this field separates them. (required).</param>
         /// <param name="resultFileId">resultFileId (required).</param>
-        /// <param name="resultFileName">The result file name. (required).</param>
-        /// <param name="resultFileUrl">The result file URL. (required).</param>
+        /// <param name="resultFileName">The name the produced file was saved with, extension included. The name is built from the subject of the  report and is not unique: a second build adds another file instead of replacing the first. (required).</param>
+        /// <param name="resultFileUrl">The address of the produced file in the document editor, relative to the portal root, so prefix it with the  portal address to open it. It stays empty until the build succeeds. (required).</param>
         public DocumentBuilderTaskDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default, Object resultFileId = default, string resultFileName = default, string resultFileUrl = default)
         {
             // to ensure "id" is required (not null)
@@ -98,28 +98,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The Document Builder task ID.
+        /// The identifier of the task. It is derived from the portal, the account and the kind of report, so starting the  same report again while it runs returns this same value, which is how a resumed poll is told from a newly  queued build.
         /// </summary>
-        /// <example>task-123-456</example>
+        /// <example>DocumentBuilderTask_1_c2b0e3a4-1f6c-4c2e-9c4f-3a5d8b7e1c22</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The error message occurred during the document building process.
+        /// The message of the failure that stopped the build. It is filled in only for a task that ended in the failed  state, and stays empty while the task runs and after it succeeds.
         /// </summary>
-        /// <example>Build failed</example>
+        /// <example>The document service is unavailable</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// The progress percentage of the document building process.
+        /// How far the build has got, from 0 to 100. It advances in a few coarse steps rather than smoothly, so it is a  progress hint and not a measure of the time left; wait on the completion flag instead.
         /// </summary>
-        /// <example>75</example>
+        /// <example>60</example>
         [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
-        /// Specifies whether the document building process is completed or not.
+        /// True once the task has stopped for any reason, a failure and a cancellation included. It is the field to poll  on, and the status tells those outcomes apart.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
@@ -132,16 +132,16 @@ namespace DocSpace.API.SDK.Model
         public Object ResultFileId { get; set; }
 
         /// <summary>
-        /// The result file name.
+        /// The name the produced file was saved with, extension included. The name is built from the subject of the  report and is not unique: a second build adds another file instead of replacing the first.
         /// </summary>
-        /// <example>result.docx</example>
+        /// <example>usage_report.xlsx</example>
         [DataMember(Name = "resultFileName", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileName { get; set; }
 
         /// <summary>
-        /// The result file URL.
+        /// The address of the produced file in the document editor, relative to the portal root, so prefix it with the  portal address to open it. It stays empty until the build succeeds.
         /// </summary>
-        /// <example>http://localhost/files/result.docx</example>
+        /// <example>/doceditor?fileid=1234</example>
         [DataMember(Name = "resultFileUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileUrl { get; set; }
 

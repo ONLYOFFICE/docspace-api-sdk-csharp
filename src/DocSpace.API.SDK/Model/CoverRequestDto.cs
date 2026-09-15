@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters to change the room cover.
+    /// The picture and the colour a room is drawn with while it has no logo.
     /// </summary>
     [DataContract(Name = "CoverRequestDto")]
     public partial class CoverRequestDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoverRequestDto" /> class.
         /// </summary>
-        /// <param name="color">The cover color..</param>
-        /// <param name="cover">The cover name..</param>
+        /// <param name="color">The background colour the room is drawn with while it has no logo, as six hexadecimal digits with no leading  number sign. An empty value restores the default colour of the room type..</param>
+        /// <param name="cover">The picture drawn on the room while it has no logo, named by an identifier from  &#x60;GET api/2.0/files/rooms/covers&#x60;. Any other value is rejected, and an empty value leaves the room without a  cover..</param>
         public CoverRequestDto(string color = default, string cover = default)
         {
             this.Color = color;
@@ -50,16 +50,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The cover color.
+        /// The background colour the room is drawn with while it has no logo, as six hexadecimal digits with no leading  number sign. An empty value restores the default colour of the room type.
         /// </summary>
-        /// <example>FF0000</example>
+        /// <example>FF5733</example>
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
-        /// The cover name.
+        /// The picture drawn on the room while it has no logo, named by an identifier from  &#x60;GET api/2.0/files/rooms/covers&#x60;. Any other value is rejected, and an empty value leaves the room without a  cover.
         /// </summary>
-        /// <example>cover1.jpg</example>
+        /// <example>bookmark</example>
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for setting restricted AI models.
+    /// The complete set of AI chat models that are to be barred on the portal.
     /// </summary>
     [DataContract(Name = "SetRestrictedAiModelsRequestDto")]
     public partial class SetRestrictedAiModelsRequestDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetRestrictedAiModelsRequestDto" /> class.
         /// </summary>
-        /// <param name="models">The set of restricted AI model IDs. (required).</param>
+        /// <param name="models">The identifiers of the models no user of the portal may pick, taken from  &#x60;GET api/2.0/portal/payment/ai-prices&#x60;. This is the whole set that is to hold afterwards and not a list of  additions: send the models already barred together with the new one to add a restriction, leave one out to  lift it, and send an empty set to lift them all. (required).</param>
         public SetRestrictedAiModelsRequestDto(List<string> models = default)
         {
             // to ensure "models" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The set of restricted AI model IDs.
+        /// The identifiers of the models no user of the portal may pick, taken from  &#x60;GET api/2.0/portal/payment/ai-prices&#x60;. This is the whole set that is to hold afterwards and not a list of  additions: send the models already barred together with the new one to add a restriction, leave one out to  lift it, and send an empty set to lift them all.
         /// </summary>
         /// <example>["model1","model2"]</example>
         [DataMember(Name = "models", IsRequired = true, EmitDefaultValue = true)]

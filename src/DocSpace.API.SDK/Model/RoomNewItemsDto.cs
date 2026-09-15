@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room new items information.
+    /// The unseen entries of one room inside a day group.
     /// </summary>
     [DataContract(Name = "RoomNewItemsDto")]
     public partial class RoomNewItemsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomNewItemsDto" /> class.
         /// </summary>
-        /// <param name="room">The room file entry..</param>
-        /// <param name="items">The list of file entry items..</param>
+        /// <param name="room">The room the entries were found in, in its short form: only the identifier, the title, the room type and the  logo are filled in..</param>
+        /// <param name="items">The files of that room the caller has not opened yet, the most recently changed first. Reading them here does  not clear the badges; opening the room itself does..</param>
         public RoomNewItemsDto(FileEntryBaseDto room = default, List<FileEntryBaseDto> items = default)
         {
             this.Room = room;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The room file entry.
+        /// The room the entries were found in, in its short form: only the identifier, the title, the room type and the  logo are filled in.
         /// </summary>
         [DataMember(Name = "room", EmitDefaultValue = false)]
         public FileEntryBaseDto Room { get; set; }
 
         /// <summary>
-        /// The list of file entry items.
+        /// The files of that room the caller has not opened yet, the most recently changed first. Reading them here does  not clear the badges; opening the room itself does.
         /// </summary>
         [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Items { get; set; }

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Request body for saving application-specific settings.
+    /// The configuration document a portal application keeps.
     /// </summary>
     [DataContract(Name = "SetAppSettingsBody")]
     public partial class SetAppSettingsBody : IValidatableObject

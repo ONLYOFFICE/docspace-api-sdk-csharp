@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The additional confirmation data required for authentication.
+    /// The confirmation link a sign-in is authorised with, in place of a password.
     /// </summary>
     [DataContract(Name = "ConfirmData")]
     public partial class ConfirmData : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmData" /> class.
         /// </summary>
-        /// <param name="email">The email address to confirm the user&#39;s identity..</param>
-        /// <param name="first">Specifies whether this is the first access to the user&#39;s account..</param>
-        /// <param name="key">The unique confirmation key for validating user identity..</param>
+        /// <param name="email">The address the confirmation link was issued for. It has to be the same address the key was signed with, and  a value that is not an email address fails the request with 400..</param>
+        /// <param name="first">Whether the link is being followed for the first time, taken from the &#x60;first&#x60; parameter of the confirmation  URL. It is part of what the key was signed over, so passing a different value invalidates the key rather than  changing behaviour..</param>
+        /// <param name="key">The &#x60;key&#x60; parameter of the confirmation URL, copied verbatim. It is bound to the address and to the moment it  was issued, so it stops being accepted once the portal email key lifetime has passed..</param>
         public ConfirmData(string email = default, bool? first = default, string key = default)
         {
             this.Email = email;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The email address to confirm the user&#39;s identity.
+        /// The address the confirmation link was issued for. It has to be the same address the key was signed with, and  a value that is not an email address fails the request with 400.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Specifies whether this is the first access to the user&#39;s account.
+        /// Whether the link is being followed for the first time, taken from the &#x60;first&#x60; parameter of the confirmation  URL. It is part of what the key was signed over, so passing a different value invalidates the key rather than  changing behaviour.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "first", EmitDefaultValue = true)]
         public bool? First { get; set; }
 
         /// <summary>
-        /// The unique confirmation key for validating user identity.
+        /// The &#x60;key&#x60; parameter of the confirmation URL, copied verbatim. It is bound to the address and to the moment it  was issued, so it stops being accepted once the portal email key lifetime has passed.
         /// </summary>
         /// <example>abc123def456</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]

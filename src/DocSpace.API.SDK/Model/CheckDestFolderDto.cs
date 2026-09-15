@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The result of checking whether files can be moved or copied to the specified folder.
+    /// The verdict on placing the requested files in the destination folder.
     /// </summary>
     [DataContract(Name = "CheckDestFolderDto")]
     public partial class CheckDestFolderDto : IValidatableObject
     {
 
         /// <summary>
-        /// The result of the validation operation.
+        /// Whether the destination folder accepts all of the requested files, only some of them or none at all.
         /// </summary>
         [DataMember(Name = "result", EmitDefaultValue = false)]
         public CheckDestFolderResult? Result { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckDestFolderDto" /> class.
         /// </summary>
-        /// <param name="result">The result of the validation operation..</param>
-        /// <param name="files">The list of files in the destination folder..</param>
+        /// <param name="result">Whether the destination folder accepts all of the requested files, only some of them or none at all..</param>
+        /// <param name="files">The requested files the destination accepts, each with the information it was listed under. The files it  rejects are absent, so an empty list means that none of them is accepted..</param>
         public CheckDestFolderDto(CheckDestFolderResult? result = default, List<FileEntryBaseDto> files = default)
         {
             this.Result = result;
@@ -56,9 +56,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of files in the destination folder.
+        /// The requested files the destination accepts, each with the information it was listed under. The files it  rejects are absent, so an empty list means that none of them is accepted.
         /// </summary>
-        /// <example>[{"id":10,"title":"document.docx"}]</example>
+        /// <example>[{"title":"document.docx","fileEntryType":2}]</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 

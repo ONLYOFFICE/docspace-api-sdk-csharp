@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for enabling or disabling administrator messaging system.
+    /// Whether the sign-in page offers the form for writing to the portal administrators.
     /// </summary>
     [DataContract(Name = "TurnOnAdminMessageSettingsRequestDto")]
     public partial class TurnOnAdminMessageSettingsRequestDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TurnOnAdminMessageSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="turnOn">The global switch for the administrator messaging functionality..</param>
+        /// <param name="turnOn">Whether the form is offered. Switching it off hides the form for everybody and makes the operation that  submits it refuse new messages; letters already sent are untouched..</param>
         public TurnOnAdminMessageSettingsRequestDto(bool turnOn = default)
         {
             this.TurnOn = turnOn;
         }
 
         /// <summary>
-        /// The global switch for the administrator messaging functionality.
+        /// Whether the form is offered. Switching it off hides the form for everybody and makes the operation that  submits it refuse new messages; letters already sent are untouched.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "turnOn", EmitDefaultValue = true)]

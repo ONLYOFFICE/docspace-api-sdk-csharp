@@ -1,32 +1,32 @@
 # DocSpace.API.SDK.Model.FileEntryBaseDto
-The file entry information.
+What every file and folder in an answer has in common; the concrete shape is a file or a folder, told apart by the  entry type.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | **string** | The file entry title. | [optional] 
-**Access** | **FileShare** | The access rights to the file entry. | [optional] 
-**SharedBy** | [**EmployeeDto**](EmployeeDto.md) | Provides information about the employee who shared the file or folder. | [optional] 
-**OwnedBy** | [**EmployeeDto**](EmployeeDto.md) | The information about the employee who owns the file entry. | [optional] 
-**Shared** | **bool** | Specifies if the file entry is shared via link or not. | [optional] 
-**SharedForUser** | **bool** | Specifies if the file entry is shared for user or not. | [optional] 
-**SharedExternal** | **bool** | Specifies if the file entry is shared via a public (non-internal) external link. | [optional] 
-**ParentShared** | **bool** | Indicates whether the parent entity is shared. | [optional] 
-**ShortWebUrl** | **string** | The short Web URL. | [optional] 
-**Created** | [**ApiDateTime**](ApiDateTime.md) | The creation date and time of the file entry. | [optional] 
-**CreatedBy** | [**EmployeeDto**](EmployeeDto.md) | The file entry author. | [optional] 
-**Updated** | [**ApiDateTime**](ApiDateTime.md) | The last date and time when the file entry was updated. | [optional] 
-**AutoDelete** | [**ApiDateTime**](ApiDateTime.md) | The date and time when the file entry will be automatically deleted. | [optional] 
-**RootFolderType** | **FolderType** | The root folder type of the file entry. | [optional] 
-**ParentRoomType** | **FolderType** | The parent room type of the file entry. | [optional] 
-**UpdatedBy** | [**EmployeeDto**](EmployeeDto.md) | The user who updated the file entry. | [optional] 
-**ProviderItem** | **bool?** | Specifies if the file entry provider is specified or not. | [optional] 
-**ProviderKey** | **string** | The provider key of the file entry. | [optional] 
-**ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
-**Order** | **string** | The order of the file entry. | [optional] 
-**IsFavorite** | **bool?** | Specifies if the file is a favorite or not. | [optional] 
-**FileEntryType** | **FileEntryType** | The file entry type. | [optional] 
+**Title** | **string** | The name shown for the entry. For a file it carries the extension, which is how the format is recognised, and  for a room it is the room name. | [optional] 
+**Access** | **FileShare** | The level the calling account holds on this entry, resolved from its own rights, the groups it belongs to and  any link it came in through. It is the level itself, not what the account may do with it - the action flags  below answer that. | [optional] 
+**SharedBy** | [**EmployeeDto**](EmployeeDto.md) | Who gave the calling account the access it is using. It is filled in only while the entry is being read  through a share, and never for a caller without an account. | [optional] 
+**OwnedBy** | [**EmployeeDto**](EmployeeDto.md) | Who owns the place the entry is shared from - the creator of the room it lies in, or of the personal section  that holds it. It is filled in only while the entry is being read through a share, and never for a caller  without an account. | [optional] 
+**Shared** | **bool** | Whether at least one external link exists for the entry, whichever kind. It says nothing about accounts and  groups - those are counted by the flag for members below. | [optional] 
+**SharedForUser** | **bool** | Whether at least one account or group has been given rights on the entry directly, as opposed to reaching it  through a link or through the room around it. | [optional] 
+**SharedExternal** | **bool** | Whether one of the entry's links is open to people outside the portal, as opposed to a link that only its own  members can follow. This is the flag to watch when the concern is who can reach the content from outside. | [optional] 
+**ParentShared** | **bool** | Whether the entry is reachable because the room or folder around it is shared, rather than through rights of  its own. A copy or a move takes the entry out of that scope. | [optional] 
+**ShortWebUrl** | **string** | A shortened address that opens the entry through the link it is being read with. It is an empty string  whenever no link applies, which is the usual case for a member browsing their own rooms. | [optional] 
+**Created** | [**ApiDateTime**](ApiDateTime.md) | When the entry was created, written with the offset of the portal's time zone. For a file restored from an  older version this is still the moment the file first appeared. | [optional] 
+**CreatedBy** | [**EmployeeDto**](EmployeeDto.md) | Who created the entry. It is null for a caller without an account, who is told nothing about the portal's  members. | [optional] 
+**Updated** | [**ApiDateTime**](ApiDateTime.md) | When the entry last changed, written with the offset of the portal's time zone. It is never reported as  earlier than the creation moment, so the two can be compared safely. | [optional] 
+**AutoDelete** | [**ApiDateTime**](ApiDateTime.md) | When the entry will disappear on its own, written with the offset of the portal's time zone. It is filled in  only where a removal is actually scheduled - something in the trash while the portal cleans it up  automatically, or a guest's own documents - so a null means nothing is scheduled rather than that the entry is  permanent. | [optional] 
+**RootFolderType** | **FolderType** | The section the entry ultimately belongs to, which is what tells a personal document from one inside a room,  from a template and from something in the trash or the archive. | [optional] 
+**ParentRoomType** | **FolderType** | The kind of room the entry lies in, which decides what the room allows - filling forms, public links,  indexing. It is null for an entry that is not inside a room at all. | [optional] 
+**UpdatedBy** | [**EmployeeDto**](EmployeeDto.md) | Who changed the entry last. It is null for a caller without an account. | [optional] 
+**ProviderItem** | **bool?** | Set when the entry is stored on a connected third-party account rather than on the portal, and null when it is  stored on the portal. Such an entry is identified by a string rather than a number, and some operations skip  it. | [optional] 
+**ProviderKey** | **string** | Which third-party service holds the entry, matching the keys accepted by the third-party operations. It is  null for an entry stored on the portal. | [optional] 
+**ProviderId** | **int?** | The connected account the entry comes from, for telling apart two connections to the same service. It is null  for an entry stored on the portal. | [optional] 
+**Order** | **string** | The place of the entry in a room where the members arrange the content themselves, given as the position of  the entry preceded by the positions of the folders leading to it, separated by dots. It is empty when nothing  has been arranged. | [optional] 
+**IsFavorite** | **bool?** | Set when the calling account has marked the entry as a favorite, which is what puts it into the favorites  listing. For a file that is not marked it is null rather than false. | [optional] 
+**FileEntryType** | **FileEntryType** | Tells a folder from a file, and so which of the two shapes the rest of the object has. A room is reported as a  folder here. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

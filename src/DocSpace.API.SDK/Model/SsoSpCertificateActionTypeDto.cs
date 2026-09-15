@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// What an SP certificate can be used for.
+    /// What the portal&#39;s own key pair may be used for, as the &#x60;action&#x60; of a service provider certificate.
     /// </summary>
     [DataContract(Name = "SsoSpCertificateActionTypeDto")]
     public partial class SsoSpCertificateActionTypeDto : IValidatableObject
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Signing only.
+        /// The key pair signs the requests the portal sends and nothing else.
         /// </summary>
         /// <example>signing</example>
         [DataMember(Name = "signing", EmitDefaultValue = true)]
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Encryption only.
+        /// The key pair encrypts what the portal sends and decrypts what comes back, but signs nothing.
         /// </summary>
         /// <example>encrypt</example>
         [DataMember(Name = "encrypt", EmitDefaultValue = true)]
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Both signing and encryption.
+        /// The key pair does both, which is what one pair configured on its own has to be set to.
         /// </summary>
         /// <example>signing and encrypt</example>
         [DataMember(Name = "signingAndEncrypt", EmitDefaultValue = true)]

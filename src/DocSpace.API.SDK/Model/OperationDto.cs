@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents an operation.
+    /// One movement on the portal wallet: what it was for, who caused it, and how much money it moved.
     /// </summary>
     [DataContract(Name = "OperationDto")]
     public partial class OperationDto : IValidatableObject
     {
 
         /// <summary>
-        /// Type of the operation
+        /// What kind of movement this is - a payment, a charge, a refund, a correction. It is what the &#x60;type&#x60; filter  matches on, and &#x60;Unknown&#x60; covers a movement the billing service reported under a kind this build does not  recognise.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public OperationType? Type { get; set; }
@@ -47,21 +47,22 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OperationDto" /> class.
         /// </summary>
-        /// <param name="date">The date when the operation took place..</param>
-        /// <param name="service">The service related to the operation..</param>
-        /// <param name="description">The brief operation description..</param>
-        /// <param name="details">The detailed information about the operation..</param>
-        /// <param name="serviceUnit">The service unit..</param>
-        /// <param name="quantity">The quantity of the service used..</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol of the operation..</param>
-        /// <param name="credit">The credit amount of the operation..</param>
-        /// <param name="debit">The debit amount of the operation..</param>
-        /// <param name="participantName">The participant original name..</param>
-        /// <param name="participantDisplayName">The participant display name..</param>
-        /// <param name="agentId">AI Agent id..</param>
-        /// <param name="agentTitle">AI Agent name..</param>
-        /// <param name="type">Type of the operation.</param>
-        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string agentId = default, string agentTitle = default, OperationType? type = default)
+        /// <param name="date">When the movement was booked, in the portal time zone - the same zone the &#x60;startDate&#x60; and &#x60;endDate&#x60;  filters are read in, so the two do line up here..</param>
+        /// <param name="service">The wallet service the movement belongs to, by its stable key. It is what the &#x60;serviceName&#x60; filter  matches on, and it is empty for a movement that belongs to no service, such as a top-up..</param>
+        /// <param name="description">A one-line summary of the movement in the portal language, already composed from the service and the  quantity - meant to be printed as it is rather than parsed..</param>
+        /// <param name="details">The longer explanation of the same movement, where the service recorded one. It is empty for a movement  that has nothing to add to &#x60;description&#x60;..</param>
+        /// <param name="serviceUnit">What &#x60;quantity&#x60; counts for this service, in the portal language. AI consumption is reported in tokens  here rather than in the AI credits the service is sold in..</param>
+        /// <param name="quantity">How many units the movement covers, in the unit named by &#x60;serviceUnit&#x60;. It is &#x60;0&#x60; for a movement that  moves money without consuming a service..</param>
+        /// <param name="currency">The currency &#x60;credit&#x60; and &#x60;debit&#x60; are expressed in, as a three-letter ISO 4217 code. It is the accounting  currency of the wallet, which need not be the currency the subscription is priced in..</param>
+        /// <param name="credit">The amount that went into the wallet. It is &#x60;0&#x60; on a movement that only took money out, so the pair of  &#x60;credit&#x60; and &#x60;debit&#x60; is what shows which way the money went; the &#x60;credit&#x60; and &#x60;debit&#x60; filters of the  operation select the two directions by exactly this..</param>
+        /// <param name="debit">The amount that was taken out of the wallet, &#x60;0&#x60; on a movement that put money in..</param>
+        /// <param name="participantName">Who caused the movement, as the billing service records them - an internal name, which is what the  &#x60;participantName&#x60; filter matches on. Show &#x60;participantDisplayName&#x60; instead..</param>
+        /// <param name="participantDisplayName">The same person as their portal display name. It falls back to &#x60;participantName&#x60; when the name belongs to  no portal account, so it is never empty while &#x60;participantName&#x60; is filled..</param>
+        /// <param name="sourceType">What kind of thing an AI operation was run on - an agent, a file, a folder, a room or a form. It is empty  on any movement that is not an AI charge..</param>
+        /// <param name="sourceTitle">The title that thing had when the operation ran, kept as recorded, so it does not follow a later rename.  Empty under the same conditions as &#x60;sourceType&#x60;..</param>
+        /// <param name="sourceId">The identifier of that thing, to look it up in the module it belongs to. Empty under the same conditions  as &#x60;sourceType&#x60;..</param>
+        /// <param name="type">What kind of movement this is - a payment, a charge, a refund, a correction. It is what the &#x60;type&#x60; filter  matches on, and &#x60;Unknown&#x60; covers a movement the billing service reported under a kind this build does not  recognise..</param>
+        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string sourceType = default, string sourceTitle = default, string sourceId = default, OperationType? type = default)
         {
             this.Date = date;
             this.Service = service;
@@ -74,100 +75,108 @@ namespace DocSpace.API.SDK.Model
             this.Debit = debit;
             this.ParticipantName = participantName;
             this.ParticipantDisplayName = participantDisplayName;
-            this.AgentId = agentId;
-            this.AgentTitle = agentTitle;
+            this.SourceType = sourceType;
+            this.SourceTitle = sourceTitle;
+            this.SourceId = sourceId;
             this.Type = type;
         }
 
         /// <summary>
-        /// The date when the operation took place.
+        /// When the movement was booked, in the portal time zone - the same zone the &#x60;startDate&#x60; and &#x60;endDate&#x60;  filters are read in, so the two do line up here.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// The service related to the operation.
+        /// The wallet service the movement belongs to, by its stable key. It is what the &#x60;serviceName&#x60; filter  matches on, and it is empty for a movement that belongs to no service, such as a top-up.
         /// </summary>
-        /// <example>Storage</example>
+        /// <example>disk-storage</example>
         [DataMember(Name = "service", EmitDefaultValue = true)]
         public string Service { get; set; }
 
         /// <summary>
-        /// The brief operation description.
+        /// A one-line summary of the movement in the portal language, already composed from the service and the  quantity - meant to be printed as it is rather than parsed.
         /// </summary>
         /// <example>Storage quota increase</example>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The detailed information about the operation.
+        /// The longer explanation of the same movement, where the service recorded one. It is empty for a movement  that has nothing to add to &#x60;description&#x60;.
         /// </summary>
         /// <example>Increased storage from 50GB to 100GB</example>
         [DataMember(Name = "details", EmitDefaultValue = true)]
         public string Details { get; set; }
 
         /// <summary>
-        /// The service unit.
+        /// What &#x60;quantity&#x60; counts for this service, in the portal language. AI consumption is reported in tokens  here rather than in the AI credits the service is sold in.
         /// </summary>
         /// <example>GB</example>
         [DataMember(Name = "serviceUnit", EmitDefaultValue = true)]
         public string ServiceUnit { get; set; }
 
         /// <summary>
-        /// The quantity of the service used.
+        /// How many units the movement covers, in the unit named by &#x60;serviceUnit&#x60;. It is &#x60;0&#x60; for a movement that  moves money without consuming a service.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol of the operation.
+        /// The currency &#x60;credit&#x60; and &#x60;debit&#x60; are expressed in, as a three-letter ISO 4217 code. It is the accounting  currency of the wallet, which need not be the currency the subscription is priced in.
         /// </summary>
         /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The credit amount of the operation.
+        /// The amount that went into the wallet. It is &#x60;0&#x60; on a movement that only took money out, so the pair of  &#x60;credit&#x60; and &#x60;debit&#x60; is what shows which way the money went; the &#x60;credit&#x60; and &#x60;debit&#x60; filters of the  operation select the two directions by exactly this.
         /// </summary>
         /// <example>99.99</example>
         [DataMember(Name = "credit", EmitDefaultValue = false)]
         public double Credit { get; set; }
 
         /// <summary>
-        /// The debit amount of the operation.
+        /// The amount that was taken out of the wallet, &#x60;0&#x60; on a movement that put money in.
         /// </summary>
         /// <example>99.99</example>
         [DataMember(Name = "debit", EmitDefaultValue = false)]
         public double Debit { get; set; }
 
         /// <summary>
-        /// The participant original name.
+        /// Who caused the movement, as the billing service records them - an internal name, which is what the  &#x60;participantName&#x60; filter matches on. Show &#x60;participantDisplayName&#x60; instead.
         /// </summary>
-        /// <example>Example Name</example>
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
 
         /// <summary>
-        /// The participant display name.
+        /// The same person as their portal display name. It falls back to &#x60;participantName&#x60; when the name belongs to  no portal account, so it is never empty while &#x60;participantName&#x60; is filled.
         /// </summary>
-        /// <example>Example Name</example>
+        /// <example>John Doe</example>
         [DataMember(Name = "participantDisplayName", EmitDefaultValue = true)]
         public string ParticipantDisplayName { get; set; }
 
         /// <summary>
-        /// AI Agent id.
+        /// What kind of thing an AI operation was run on - an agent, a file, a folder, a room or a form. It is empty  on any movement that is not an AI charge.
         /// </summary>
-        /// <example>123</example>
-        [DataMember(Name = "agentId", EmitDefaultValue = true)]
-        public string AgentId { get; set; }
+        /// <example>Agent</example>
+        [DataMember(Name = "sourceType", EmitDefaultValue = true)]
+        public string SourceType { get; set; }
 
         /// <summary>
-        /// AI Agent name.
+        /// The title that thing had when the operation ran, kept as recorded, so it does not follow a later rename.  Empty under the same conditions as &#x60;sourceType&#x60;.
         /// </summary>
         /// <example>My AI Agent</example>
-        [DataMember(Name = "agentTitle", EmitDefaultValue = true)]
-        public string AgentTitle { get; set; }
+        [DataMember(Name = "sourceTitle", EmitDefaultValue = true)]
+        public string SourceTitle { get; set; }
+
+        /// <summary>
+        /// The identifier of that thing, to look it up in the module it belongs to. Empty under the same conditions  as &#x60;sourceType&#x60;.
+        /// </summary>
+        /// <example>123</example>
+        [DataMember(Name = "sourceId", EmitDefaultValue = true)]
+        public string SourceId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -188,8 +197,9 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Debit: ").Append(Debit).Append("\n");
             sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");
             sb.Append("  ParticipantDisplayName: ").Append(ParticipantDisplayName).Append("\n");
-            sb.Append("  AgentId: ").Append(AgentId).Append("\n");
-            sb.Append("  AgentTitle: ").Append(AgentTitle).Append("\n");
+            sb.Append("  SourceType: ").Append(SourceType).Append("\n");
+            sb.Append("  SourceTitle: ").Append(SourceTitle).Append("\n");
+            sb.Append("  SourceId: ").Append(SourceId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The new user type.
+        /// The type to convert the account to. Only &#x60;Guest&#x60; and &#x60;User&#x60; are accepted, because they are the types that  cannot own rooms; &#x60;RoomAdmin&#x60;, &#x60;DocSpaceAdmin&#x60; and &#x60;All&#x60; are rejected here and belong to  &#x60;PUT api/2.0/people/type/{type}&#x60;.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EmployeeType? Type { get; set; }
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StartUpdateUserTypeDto" /> class.
         /// </summary>
-        /// <param name="type">The new user type..</param>
-        /// <param name="userId">The user ID..</param>
-        /// <param name="reassignUserId">The user ID to reassign..</param>
+        /// <param name="type">The type to convert the account to. Only &#x60;Guest&#x60; and &#x60;User&#x60; are accepted, because they are the types that  cannot own rooms; &#x60;RoomAdmin&#x60;, &#x60;DocSpaceAdmin&#x60; and &#x60;All&#x60; are rejected here and belong to  &#x60;PUT api/2.0/people/type/{type}&#x60;..</param>
+        /// <param name="userId">The ID of the account being converted. It has to be an active account other than the caller, and only the  portal owner may pass the ID of a DocSpace administrator..</param>
+        /// <param name="reassignUserId">The ID of the administrator who receives the rooms and the shared files of the converted account. It has to be  an active room admin or DocSpace admin other than the converted account, and when it is omitted the data goes  to the caller..</param>
         public StartUpdateUserTypeDto(EmployeeType? type = default, Guid userId = default, Guid? reassignUserId = default)
         {
             this.Type = type;
@@ -58,14 +58,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user ID.
+        /// The ID of the account being converted. It has to be an active account other than the caller, and only the  portal owner may pass the ID of a DocSpace administrator.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// The user ID to reassign.
+        /// The ID of the administrator who receives the rooms and the shared files of the converted account. It has to be  an active room admin or DocSpace admin other than the converted account, and when it is omitted the data goes  to the caller.
         /// </summary>
         /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "reassignUserId", EmitDefaultValue = true)]

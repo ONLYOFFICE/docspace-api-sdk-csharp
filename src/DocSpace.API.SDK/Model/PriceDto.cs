@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The price parameters.
+    /// What a quota costs, and the currency that amount is in.
     /// </summary>
     [DataContract(Name = "PriceDto")]
     public partial class PriceDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PriceDto" /> class.
         /// </summary>
-        /// <param name="value">The price value..</param>
-        /// <param name="currencySymbol">The currency symbol..</param>
-        /// <param name="isoCurrencySymbol">The three-character ISO 4217 currency symbol..</param>
+        /// <param name="value">The amount for one billing period, per unit for a quota sold by the unit. It is empty for a quota that is  not sold for money - the free, trial and non-profit ones - and for a quota this installation has no price  list entry for..</param>
+        /// <param name="currencySymbol">The symbol to print in front of &#x60;value&#x60;, such as &#x60;$&#x60;. It is chosen for the currency, not for the portal  language, so it is not a localised format..</param>
+        /// <param name="isoCurrencySymbol">The currency as a three-letter ISO 4217 code, which is the value to compare on when &#x60;currencySymbol&#x60; is  ambiguous between currencies that share a sign..</param>
         public PriceDto(double? value = default, string currencySymbol = default, string isoCurrencySymbol = default)
         {
             this.Value = value;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The price value.
+        /// The amount for one billing period, per unit for a quota sold by the unit. It is empty for a quota that is  not sold for money - the free, trial and non-profit ones - and for a quota this installation has no price  list entry for.
         /// </summary>
         /// <example>99.99</example>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public double? Value { get; set; }
 
         /// <summary>
-        /// The currency symbol.
+        /// The symbol to print in front of &#x60;value&#x60;, such as &#x60;$&#x60;. It is chosen for the currency, not for the portal  language, so it is not a localised format.
         /// </summary>
         /// <example>$</example>
         [DataMember(Name = "currencySymbol", EmitDefaultValue = true)]
         public string CurrencySymbol { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol.
+        /// The currency as a three-letter ISO 4217 code, which is the value to compare on when &#x60;currencySymbol&#x60; is  ambiguous between currencies that share a sign.
         /// </summary>
         /// <example>USD</example>
         [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = true)]

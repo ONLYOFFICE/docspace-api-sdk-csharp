@@ -32,26 +32,26 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The configuration parameters.
+    /// Everything an editor client needs in order to open one document: the document itself, the editor setup for this  caller, and the signature that lets the editors trust both.
     /// </summary>
     [DataContract(Name = "ConfigurationDtoInteger")]
     public partial class ConfigurationDtoInteger : IValidatableObject
     {
 
         /// <summary>
-        /// The editor type.
+        /// The layout the configuration was actually built for. It echoes the requested one except where the room  overruled it, as the templates folder does by forcing the embedded viewer.
         /// </summary>
         [DataMember(Name = "editorType", IsRequired = true, EmitDefaultValue = true)]
         public EditorType EditorType { get; set; }
 
         /// <summary>
-        /// The start filling mode.
+        /// Which filling button the editor offers: none at all, sharing the form out for others to fill, starting a  filling session, or starting one inside the form-filling room.
         /// </summary>
         [DataMember(Name = "startFillingMode", EmitDefaultValue = false)]
         public StartFillingMode? StartFillingMode { get; set; }
 
         /// <summary>
-        /// Indicates which quota scope has been exceeded.
+        /// Names the quota that ran out - the user, the room or the portal - and is set only when the document had to be  opened read-only because of it.
         /// </summary>
         [DataMember(Name = "quotaExceededScope", EmitDefaultValue = false)]
         public QuotaScope? QuotaExceededScope { get; set; }
@@ -64,21 +64,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationDtoInteger" /> class.
         /// </summary>
-        /// <param name="document">The document configuration. (required).</param>
-        /// <param name="documentType">The document type. (required).</param>
-        /// <param name="editorConfig">The editor configuration. (required).</param>
-        /// <param name="editorType">The editor type. (required).</param>
-        /// <param name="editorUrl">The editor URL. (required).</param>
-        /// <param name="token">The token of the file configuration..</param>
-        /// <param name="type">The platform type..</param>
-        /// <param name="file">The file parameters. (required).</param>
-        /// <param name="errorMessage">The error message..</param>
-        /// <param name="startFilling">Specifies if the file filling has started or not..</param>
-        /// <param name="fillingStatus">The file filling status..</param>
-        /// <param name="startFillingMode">The start filling mode..</param>
-        /// <param name="fillingSessionId">The file filling session ID..</param>
-        /// <param name="quotaExceededScope">Indicates which quota scope has been exceeded..</param>
-        /// <param name="generationToolCallState">The generation tool call state. Used to run the agent flow in the editor..</param>
+        /// <param name="document">The document as the editors address it: its revision key, title, type, download address and the permissions of  this caller on it. (required).</param>
+        /// <param name="documentType">The editor family the file opens in - &#x60;word&#x60;, &#x60;cell&#x60;, &#x60;slide&#x60;, &#x60;pdf&#x60; or &#x60;diagram&#x60;. It comes back empty for a  format no editor handles. (required).</param>
+        /// <param name="editorConfig">How the editor is set up for this opening: the mode, the language, the interface customization, the callback  the editors save through, and the account they attribute changes to. (required).</param>
+        /// <param name="editorType">The layout the configuration was actually built for. It echoes the requested one except where the room  overruled it, as the templates folder does by forcing the embedded viewer. (required).</param>
+        /// <param name="editorUrl">The address of the editor api script the client has to load, with the shard key of this document already  appended. Load it as it is given rather than assembling it by hand. (required).</param>
+        /// <param name="token">Signs this whole configuration so that the editors can trust it; anything a client changes in the  configuration invalidates it. It stays empty on a portal that has no signature secret configured for the  document service..</param>
+        /// <param name="type">The layout spelled as a lowercase word - &#x60;desktop&#x60;, &#x60;mobile&#x60; or &#x60;embedded&#x60; - the same value the editor type  carries as a number..</param>
+        /// <param name="file">The file the configuration was built for, in the same shape the file listings report it. (required).</param>
+        /// <param name="errorMessage">Filled in when the document could not be prepared for opening; the rest of the configuration should then not  be handed to the editors..</param>
+        /// <param name="startFilling">Whether this caller may start a filling session on the form from inside the editor. It stays empty when the  file is not a form opened where starting is possible at all..</param>
+        /// <param name="fillingStatus">True once the caller holds a role in the running filling session of this form. It stays empty outside a  virtual data room, where roles are the only place it is set..</param>
+        /// <param name="startFillingMode">Which filling button the editor offers: none at all, sharing the form out for others to fill, starting a  filling session, or starting one inside the form-filling room..</param>
+        /// <param name="fillingSessionId">Identifies the filling session this opening belongs to, and is empty when the document is not opened as part  of one. Submissions made in the editor are collected under it..</param>
+        /// <param name="quotaExceededScope">Names the quota that ran out - the user, the room or the portal - and is set only when the document had to be  opened read-only because of it..</param>
+        /// <param name="generationToolCallState">The generation the editor should run as soon as the document opens. It is set only for a document an AI agent  produced and left waiting for its content, and is empty for every other file..</param>
         public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default, QuotaScope? quotaExceededScope = default, EditorToolCallStateDto generationToolCallState = default)
         {
             // to ensure "document" is required (not null)
@@ -124,81 +124,81 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The document configuration.
+        /// The document as the editors address it: its revision key, title, type, download address and the permissions of  this caller on it.
         /// </summary>
         [DataMember(Name = "document", IsRequired = true, EmitDefaultValue = true)]
         public DocumentConfigDto Document { get; set; }
 
         /// <summary>
-        /// The document type.
+        /// The editor family the file opens in - &#x60;word&#x60;, &#x60;cell&#x60;, &#x60;slide&#x60;, &#x60;pdf&#x60; or &#x60;diagram&#x60;. It comes back empty for a  format no editor handles.
         /// </summary>
         /// <example>word</example>
         [DataMember(Name = "documentType", IsRequired = true, EmitDefaultValue = true)]
         public string DocumentType { get; set; }
 
         /// <summary>
-        /// The editor configuration.
+        /// How the editor is set up for this opening: the mode, the language, the interface customization, the callback  the editors save through, and the account they attribute changes to.
         /// </summary>
         [DataMember(Name = "editorConfig", IsRequired = true, EmitDefaultValue = true)]
         public EditorConfigurationDto EditorConfig { get; set; }
 
         /// <summary>
-        /// The editor URL.
+        /// The address of the editor api script the client has to load, with the shard key of this document already  appended. Load it as it is given rather than assembling it by hand.
         /// </summary>
-        /// <example>http://localhost/editor</example>
+        /// <example>https://portal.example.com/web-apps/apps/api/documents/api.js?shardkey=1_512_3</example>
         [DataMember(Name = "editorUrl", IsRequired = true, EmitDefaultValue = true)]
         public string EditorUrl { get; set; }
 
         /// <summary>
-        /// The token of the file configuration.
+        /// Signs this whole configuration so that the editors can trust it; anything a client changes in the  configuration invalidates it. It stays empty on a portal that has no signature secret configured for the  document service.
         /// </summary>
-        /// <example>token-abc-123</example>
+        /// <example>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
-        /// The platform type.
+        /// The layout spelled as a lowercase word - &#x60;desktop&#x60;, &#x60;mobile&#x60; or &#x60;embedded&#x60; - the same value the editor type  carries as a number.
         /// </summary>
         /// <example>desktop</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// The file parameters.
+        /// The file the configuration was built for, in the same shape the file listings report it.
         /// </summary>
         [DataMember(Name = "file", IsRequired = true, EmitDefaultValue = true)]
         public FileDtoInteger File { get; set; }
 
         /// <summary>
-        /// The error message.
+        /// Filled in when the document could not be prepared for opening; the rest of the configuration should then not  be handed to the editors.
         /// </summary>
-        /// <example>Configuration error</example>
+        /// <example>The file is being converted</example>
         [DataMember(Name = "errorMessage", EmitDefaultValue = true)]
         public string ErrorMessage { get; set; }
 
         /// <summary>
-        /// Specifies if the file filling has started or not.
+        /// Whether this caller may start a filling session on the form from inside the editor. It stays empty when the  file is not a form opened where starting is possible at all.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "startFilling", EmitDefaultValue = true)]
         public bool? StartFilling { get; set; }
 
         /// <summary>
-        /// The file filling status.
+        /// True once the caller holds a role in the running filling session of this form. It stays empty outside a  virtual data room, where roles are the only place it is set.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "fillingStatus", EmitDefaultValue = true)]
         public bool? FillingStatus { get; set; }
 
         /// <summary>
-        /// The file filling session ID.
+        /// Identifies the filling session this opening belongs to, and is empty when the document is not opened as part  of one. Submissions made in the editor are collected under it.
         /// </summary>
-        /// <example>session-123-456</example>
+        /// <example>a1b2c3d4-0000-0000-0000-000000000000</example>
         [DataMember(Name = "fillingSessionId", EmitDefaultValue = true)]
         public string FillingSessionId { get; set; }
 
         /// <summary>
-        /// The generation tool call state. Used to run the agent flow in the editor.
+        /// The generation the editor should run as soon as the document opens. It is set only for a document an AI agent  produced and left waiting for its content, and is empty for every other file.
         /// </summary>
         [DataMember(Name = "generationToolCallState", EmitDefaultValue = false)]
         public EditorToolCallStateDto GenerationToolCallState { get; set; }

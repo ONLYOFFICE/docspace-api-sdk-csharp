@@ -41,16 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GobackConfig" /> class.
         /// </summary>
-        /// <param name="url">The absolute URL to the website address which will be opened when clicking the Open file location menu button..</param>
+        /// <param name="url">Where the user is taken when they leave the document, normally the folder or the room it lies in. It is empty  when there is nowhere to return to, as in a framed opening..</param>
         public GobackConfig(string url = default)
         {
             this.Url = url;
         }
 
         /// <summary>
-        /// The absolute URL to the website address which will be opened when clicking the Open file location menu button.
+        /// Where the user is taken when they leave the document, normally the folder or the room it lies in. It is empty  when there is nowhere to return to, as in a framed opening.
         /// </summary>
-        /// <example>https://portal.example.com/files/location</example>
+        /// <example>https://portal.example.com/rooms/shared/42</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

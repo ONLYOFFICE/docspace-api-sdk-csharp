@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters required for the mobile phone verification.
+    /// The phone number a user going through phone activation registers for SMS codes.
     /// </summary>
     [DataContract(Name = "MobileRequestsDto")]
     public partial class MobileRequestsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MobileRequestsDto" /> class.
         /// </summary>
-        /// <param name="mobilePhone">The user&#39;s mobile phone number..</param>
+        /// <param name="mobilePhone">The number the SMS codes are sent to, in international form with the leading &#x60;+&#x60; and no spaces. It is stored  as not yet activated and only becomes the confirmed number once a code sent to it is accepted; an already  activated number is not replaced this way and has to be erased first..</param>
         public MobileRequestsDto(string mobilePhone = default)
         {
             this.MobilePhone = mobilePhone;
         }
 
         /// <summary>
-        /// The user&#39;s mobile phone number.
+        /// The number the SMS codes are sent to, in international form with the leading &#x60;+&#x60; and no spaces. It is stored  as not yet activated and only becomes the confirmed number once a code sent to it is accepted; an already  activated number is not replaced this way and has to be erased first.
         /// </summary>
         /// <example>+1234567890</example>
         [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]

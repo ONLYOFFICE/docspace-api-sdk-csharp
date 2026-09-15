@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeEmailRequest" /> class.
         /// </summary>
-        /// <param name="email">The user email address..</param>
-        /// <param name="encEmail">The user encrypted email address..</param>
+        /// <param name="email">The new address in plain text, up to 255 characters. It is stored in lowercase, and one of this field and  &#x60;encEmail&#x60; is required..</param>
+        /// <param name="encEmail">The new address in the encrypted form the confirmation link carries. Pass the value from the link unchanged;  it is used only when &#x60;email&#x60; is empty..</param>
         public ChangeEmailRequest(string email = default, string encEmail = default)
         {
             this.Email = email;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user email address.
+        /// The new address in plain text, up to 255 characters. It is stored in lowercase, and one of this field and  &#x60;encEmail&#x60; is required.
         /// </summary>
         /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// The user encrypted email address.
+        /// The new address in the encrypted form the confirmation link carries. Pass the value from the link unchanged;  it is used only when &#x60;email&#x60; is empty.
         /// </summary>
         /// <example>encrypted_email_string</example>
         [DataMember(Name = "encEmail", EmitDefaultValue = true)]

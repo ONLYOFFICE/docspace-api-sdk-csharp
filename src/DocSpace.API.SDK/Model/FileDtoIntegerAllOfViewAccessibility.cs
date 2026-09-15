@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file accessibility.
+    /// Which ways of opening this format the portal supports at all - its own editor, the picture viewer, the media  player and so on. It answers whether the format can be shown, not whether this account may do it; rights are  reported in &#x60;security&#x60;.
     /// </summary>
     [DataContract(Name = "FileDtoInteger_allOf_viewAccessibility")]
     public partial class FileDtoIntegerAllOfViewAccessibility : IValidatableObject

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The information config parameters.
+    /// The facts the editor information panel shows about the open document.
     /// </summary>
     [DataContract(Name = "InfoConfigDto")]
     public partial class InfoConfigDto : IValidatableObject
     {
 
         /// <summary>
-        /// The editor type of the file.
+        /// The layout the information panel is rendered for.
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EditorType? Type { get; set; }
@@ -47,12 +47,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoConfigDto" /> class.
         /// </summary>
-        /// <param name="favorite">Specifies if the file is favorite or not..</param>
-        /// <param name="folder">The folder of the file..</param>
-        /// <param name="owner">The file owner..</param>
-        /// <param name="sharingSettings">The sharing settings of the file..</param>
-        /// <param name="type">The editor type of the file..</param>
-        /// <param name="uploaded">The uploaded file..</param>
+        /// <param name="favorite">Whether the caller has this document among their favorites. It is empty when favorites do not apply - for an  anonymous caller, for a guest, and for an encrypted document..</param>
+        /// <param name="folder">The place of the document as a readable path, its folders joined from the root downwards. It is empty in the  embedded layout, which shows no such panel..</param>
+        /// <param name="owner">The display name of the owner of the document. It is empty for an anonymous session..</param>
+        /// <param name="sharingSettings">Who the document is shared with, as the information panel lists it. An empty list means it is shared with  nobody beyond its owner..</param>
+        /// <param name="type">The layout the information panel is rendered for..</param>
+        /// <param name="uploaded">When the document was created on the portal, already formatted for reading in the culture of the caller rather  than as a machine timestamp..</param>
         public InfoConfigDto(bool? favorite = default, string folder = default, string owner = default, List<AceShortWrapper> sharingSettings = default, EditorType? type = default, string uploaded = default)
         {
             this.Favorite = favorite;
@@ -64,37 +64,37 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the file is favorite or not.
+        /// Whether the caller has this document among their favorites. It is empty when favorites do not apply - for an  anonymous caller, for a guest, and for an encrypted document.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "favorite", EmitDefaultValue = true)]
         public bool? Favorite { get; set; }
 
         /// <summary>
-        /// The folder of the file.
+        /// The place of the document as a readable path, its folders joined from the root downwards. It is empty in the  embedded layout, which shows no such panel.
         /// </summary>
-        /// <example>My Documents</example>
+        /// <example>My documents \\ Reports</example>
         [DataMember(Name = "folder", EmitDefaultValue = true)]
         public string Folder { get; set; }
 
         /// <summary>
-        /// The file owner.
+        /// The display name of the owner of the document. It is empty for an anonymous session.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "owner", EmitDefaultValue = true)]
         public string Owner { get; set; }
 
         /// <summary>
-        /// The sharing settings of the file.
+        /// Who the document is shared with, as the information panel lists it. An empty list means it is shared with  nobody beyond its owner.
         /// </summary>
         /// <example>[]</example>
         [DataMember(Name = "sharingSettings", EmitDefaultValue = true)]
         public List<AceShortWrapper> SharingSettings { get; set; }
 
         /// <summary>
-        /// The uploaded file.
+        /// When the document was created on the portal, already formatted for reading in the culture of the caller rather  than as a machine timestamp.
         /// </summary>
-        /// <example>2025-01-01T00:00:00</example>
+        /// <example>01/01/2026 12:00 PM</example>
         [DataMember(Name = "uploaded", EmitDefaultValue = true)]
         public string Uploaded { get; set; }
 

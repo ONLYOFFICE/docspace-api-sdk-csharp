@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The backup cron parameters.
+    /// The time a scheduled backup runs at.
     /// </summary>
     [DataContract(Name = "CronParams")]
     public partial class CronParams : IValidatableObject
     {
 
         /// <summary>
-        /// The backup period type.
+        /// How often the backup runs: 0 for every day, 1 for every week and 2 for every month.
         /// </summary>
         [DataMember(Name = "period", EmitDefaultValue = false)]
         public BackupPeriod? Period { get; set; }
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CronParams" /> class.
         /// </summary>
-        /// <param name="period">The backup period type..</param>
-        /// <param name="hour">The time of the day to start the backup process..</param>
-        /// <param name="day">The day of the week to start the backup process..</param>
+        /// <param name="period">How often the backup runs: 0 for every day, 1 for every week and 2 for every month..</param>
+        /// <param name="hour">The hour of the day the backup starts at, from 0 to 23..</param>
+        /// <param name="day">The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for a weekly schedule,  and the day of the month from 1 to 31 for a monthly one. It is 0 for a daily schedule..</param>
         public CronParams(BackupPeriod? period = default, int hour = default, int day = default)
         {
             this.Period = period;
@@ -58,16 +58,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The time of the day to start the backup process.
+        /// The hour of the day the backup starts at, from 0 to 23.
         /// </summary>
-        /// <example>0</example>
+        /// <example>2</example>
         [DataMember(Name = "hour", EmitDefaultValue = false)]
         public int Hour { get; set; }
 
         /// <summary>
-        /// The day of the week to start the backup process.
+        /// The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for a weekly schedule,  and the day of the month from 1 to 31 for a monthly one. It is 0 for a daily schedule.
         /// </summary>
-        /// <example>0</example>
+        /// <example>1</example>
         [DataMember(Name = "day", EmitDefaultValue = false)]
         public int Day { get; set; }
 

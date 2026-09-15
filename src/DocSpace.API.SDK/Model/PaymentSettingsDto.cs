@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The payment settings parameters.
+    /// Where to buy or extend the portal&#39;s subscription, and what the subscription in force looks like.
     /// </summary>
     [DataContract(Name = "PaymentSettingsDto")]
     public partial class PaymentSettingsDto : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentSettingsDto" /> class.
         /// </summary>
-        /// <param name="salesEmail">The email address for sales inquiries and support. (required).</param>
-        /// <param name="feedbackAndSupportUrl">The URL for accessing the feedback and support resources..</param>
-        /// <param name="buyUrl">The URL for purchasing or upgrading the product. (required).</param>
-        /// <param name="standalone">Indicates whether the system is running in standalone mode. (required).</param>
-        /// <param name="currentLicense">The current license information. (required).</param>
-        /// <param name="max">The maximum quota quantity. (required).</param>
+        /// <param name="salesEmail">The vendor mailbox to write to about buying, extending or changing the subscription, picked for the portal  language. It is not the portal&#39;s own support address. (required).</param>
+        /// <param name="feedbackAndSupportUrl">Not populated: nothing fills this field in, so it always comes back empty. The help and support addresses  live in &#x60;externalResources&#x60; of &#x60;GET api/2.0/settings&#x60; instead..</param>
+        /// <param name="buyUrl">The vendor page for buying or extending the subscription, chosen for the licence kind the installation was  built for and for the portal language. It is a page for a person to open, not an API to call. (required).</param>
+        /// <param name="standalone">Whether this is a server installation someone administers themselves rather than a portal in the cloud,  which decides whether payment means uploading a licence file or a subscription in the vendor&#39;s store. (required).</param>
+        /// <param name="currentLicense">The subscription in force, reduced to the two facts a payment page needs. (required).</param>
+        /// <param name="max">The largest quantity of a paid item - members, storage - that may be bought in one go, &#x60;999&#x60; unless the  installation configures another cap. It bounds a single purchase, not the total a portal may hold. (required).</param>
         public PaymentSettingsDto(string salesEmail = default, string feedbackAndSupportUrl = default, string buyUrl = default, bool standalone = default, CurrentLicenseInfo currentLicense = default, int max = default)
         {
             // to ensure "salesEmail" is required (not null)
@@ -78,43 +78,43 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The email address for sales inquiries and support.
+        /// The vendor mailbox to write to about buying, extending or changing the subscription, picked for the portal  language. It is not the portal&#39;s own support address.
         /// </summary>
         /// <example>sales@example.com</example>
         [DataMember(Name = "salesEmail", IsRequired = true, EmitDefaultValue = true)]
         public string SalesEmail { get; set; }
 
         /// <summary>
-        /// The URL for accessing the feedback and support resources.
+        /// Not populated: nothing fills this field in, so it always comes back empty. The help and support addresses  live in &#x60;externalResources&#x60; of &#x60;GET api/2.0/settings&#x60; instead.
         /// </summary>
         /// <example>https://example.com</example>
         [DataMember(Name = "feedbackAndSupportUrl", EmitDefaultValue = true)]
         public string FeedbackAndSupportUrl { get; set; }
 
         /// <summary>
-        /// The URL for purchasing or upgrading the product.
+        /// The vendor page for buying or extending the subscription, chosen for the licence kind the installation was  built for and for the portal language. It is a page for a person to open, not an API to call.
         /// </summary>
         /// <example>https://example.com/buy</example>
         [DataMember(Name = "buyUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BuyUrl { get; set; }
 
         /// <summary>
-        /// Indicates whether the system is running in standalone mode.
+        /// Whether this is a server installation someone administers themselves rather than a portal in the cloud,  which decides whether payment means uploading a licence file or a subscription in the vendor&#39;s store.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "standalone", IsRequired = true, EmitDefaultValue = true)]
         public bool Standalone { get; set; }
 
         /// <summary>
-        /// The current license information.
+        /// The subscription in force, reduced to the two facts a payment page needs.
         /// </summary>
         [DataMember(Name = "currentLicense", IsRequired = true, EmitDefaultValue = true)]
         public CurrentLicenseInfo CurrentLicense { get; set; }
 
         /// <summary>
-        /// The maximum quota quantity.
+        /// The largest quantity of a paid item - members, storage - that may be bought in one go, &#x60;999&#x60; unless the  installation configures another cap. It bounds a single purchase, not the total a portal may hold.
         /// </summary>
-        /// <example>1</example>
+        /// <example>999</example>
         [DataMember(Name = "max", IsRequired = true, EmitDefaultValue = true)]
         public int Max { get; set; }
 

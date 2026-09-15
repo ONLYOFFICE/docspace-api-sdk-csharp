@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The customer information.
+    /// The billing customer behind the portal, and which portal member pays for it.
     /// </summary>
     [DataContract(Name = "CustomerInfoDto")]
     public partial class CustomerInfoDto : IValidatableObject
     {
 
         /// <summary>
-        /// The customer&#39;s payment method.
+        /// Whether a payment method is stored for the account and usable. Without one the portal can hold a wallet  balance but cannot be charged automatically.
         /// </summary>
         [DataMember(Name = "paymentMethodStatus", EmitDefaultValue = false)]
         public PaymentMethodStatus? PaymentMethodStatus { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerInfoDto" /> class.
         /// </summary>
-        /// <param name="paymentMethodStatus">The customer&#39;s payment method..</param>
-        /// <param name="payer">The paying user..</param>
+        /// <param name="paymentMethodStatus">Whether a payment method is stored for the account and usable. Without one the portal can hold a wallet  balance but cannot be charged automatically..</param>
+        /// <param name="payer">The portal member whose account is behind the billing address. It is empty when &#x60;email&#x60; matches no member  of this portal, and while it is empty every operation of this group that only the payer may call is out  of reach for everybody..</param>
         public CustomerInfoDto(PaymentMethodStatus? paymentMethodStatus = default, EmployeeDto payer = default)
         {
             this.PaymentMethodStatus = paymentMethodStatus;
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The portal ID.
+        /// The portal&#39;s identifier in the billing system, which is what support and invoices refer to. It is not the  portal alias.
         /// </summary>
         /// <example>portal-001</example>
         [DataMember(Name = "portalId", EmitDefaultValue = true)]
@@ -71,7 +71,37 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The customer email address.
+        /// The customer&#39;s payment method type.
+        /// </summary>
+        /// <example>card</example>
+        [DataMember(Name = "paymentMethodType", EmitDefaultValue = true)]
+        public string PaymentMethodType { get; private set; }
+
+        /// <summary>
+        /// Returns false as PaymentMethodType should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePaymentMethodType()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Indicates whether the customer&#39;s payment method is delayed, i.e. the money reaches the wallet only after  the transfer settles rather than immediately.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "isDelayedPaymentMethod", EmitDefaultValue = true)]
+        public bool IsDelayedPaymentMethod { get; private set; }
+
+        /// <summary>
+        /// Returns false as IsDelayedPaymentMethod should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeIsDelayedPaymentMethod()
+        {
+            return false;
+        }
+        /// <summary>
+        /// The address the billing account is registered to, lower-cased. It need not belong to a portal member,  which is exactly when &#x60;payer&#x60; stays empty.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
@@ -86,7 +116,7 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The paying user.
+        /// The portal member whose account is behind the billing address. It is empty when &#x60;email&#x60; matches no member  of this portal, and while it is empty every operation of this group that only the payer may call is out  of reach for everybody.
         /// </summary>
         [DataMember(Name = "payer", EmitDefaultValue = false)]
         public EmployeeDto Payer { get; set; }
@@ -101,6 +131,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class CustomerInfoDto {\n");
             sb.Append("  PortalId: ").Append(PortalId).Append("\n");
             sb.Append("  PaymentMethodStatus: ").Append(PaymentMethodStatus).Append("\n");
+            sb.Append("  PaymentMethodType: ").Append(PaymentMethodType).Append("\n");
+            sb.Append("  IsDelayedPaymentMethod: ").Append(IsDelayedPaymentMethod).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Payer: ").Append(Payer).Append("\n");
             sb.Append("}\n");

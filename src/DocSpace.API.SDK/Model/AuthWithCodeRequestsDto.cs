@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters required for the user two-factor authentication requests.
+    /// The same credentials as an ordinary sign-in, plus the one-time code that completes it.
     /// </summary>
     [DataContract(Name = "AuthWithCodeRequestsDto")]
     public partial class AuthWithCodeRequestsDto : AuthRequestsDto, IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthWithCodeRequestsDto" /> class.
         /// </summary>
-        /// <param name="code">The code for two-factor authentication..</param>
+        /// <param name="code">The one-time code from the SMS the portal sent or from the authenticator app, whichever second factor the  portal has enabled for this user. It is single-use and expires; a wrong, empty or expired value fails the  sign-in and counts against the brute-force limit..</param>
         public AuthWithCodeRequestsDto(string code = default)
         {
             this.Code = code;
         }
 
         /// <summary>
-        /// The code for two-factor authentication.
+        /// The one-time code from the SMS the portal sent or from the authenticator app, whichever second factor the  portal has enabled for this user. It is single-use and expires; a wrong, empty or expired value fails the  sign-in and counts against the brute-force limit.
         /// </summary>
         /// <example>123456</example>
         [DataMember(Name = "code", EmitDefaultValue = true)]

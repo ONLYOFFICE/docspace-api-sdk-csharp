@@ -70,18 +70,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Unique thread identifier (UUID).
         /// </summary>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "threadId", IsRequired = true, EmitDefaultValue = true)]
         public string ThreadId { get; set; }
 
         /// <summary>
         /// Optional thread title. Auto-generated from the first message if not set.
         /// </summary>
+        /// <example>Contract review</example>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Timestamp (ms since epoch) of the last message in this thread. Used for sorting.
         /// </summary>
+        /// <example>1767225600000</example>
         [DataMember(Name = "lastEditDate", EmitDefaultValue = false)]
         public decimal LastEditDate { get; set; }
 
@@ -100,6 +103,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// ID of the profile used for this thread. Links to &#x60;Profile.id&#x60;.
         /// </summary>
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }
 

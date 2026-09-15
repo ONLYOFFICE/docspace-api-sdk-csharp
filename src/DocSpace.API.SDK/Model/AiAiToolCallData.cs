@@ -82,42 +82,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Thread the assistant message belongs to.
         /// </summary>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "threadId", IsRequired = true, EmitDefaultValue = true)]
         public string ThreadId { get; set; }
 
         /// <summary>
         /// Storage id of the assistant message holding the tool call.
         /// </summary>
+        /// <example>22222222-2222-2222-2222-222222222222</example>
         [DataMember(Name = "messageId", IsRequired = true, EmitDefaultValue = true)]
         public string MessageId { get; set; }
 
         /// <summary>
         /// Index of the tool-call content part inside &#x60;message.content&#x60;.
         /// </summary>
+        /// <example>0</example>
         [DataMember(Name = "idx", IsRequired = true, EmitDefaultValue = true)]
         public decimal Idx { get; set; }
 
         /// <summary>
         /// Snapshot of the assistant message at the time the tool call surfaced.
         /// </summary>
+        /// <example>{"role":"assistant","content":""}</example>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public AiThreadMessageLike Message { get; set; }
 
         /// <summary>
         /// Per-request engine options: extra tools, reasoning, prompt override.
         /// </summary>
+        /// <example>{"isReasoning":false}</example>
         [DataMember(Name = "actionArgs", EmitDefaultValue = false)]
         public AiAiActionArgs ActionArgs { get; set; }
 
         /// <summary>
         /// Optional entity (room) scope for profile resolution.
         /// </summary>
+        /// <example>1234</example>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// Session-level profile override for this request only.
         /// </summary>
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "profileId", EmitDefaultValue = false)]
         public string ProfileId { get; set; }
 

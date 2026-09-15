@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The owner change instructions parameters.
+    /// The outcome of asking for the portal-ownership transfer letter to be sent.
     /// </summary>
     [DataContract(Name = "OwnerChangeInstructionsDto")]
     public partial class OwnerChangeInstructionsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OwnerChangeInstructionsDto" /> class.
         /// </summary>
-        /// <param name="status">The owner change instructions status..</param>
-        /// <param name="message">The owner change instructions message..</param>
+        /// <param name="status">Whether the letter was sent: &#x60;1&#x60; that it was, &#x60;0&#x60; that the request was turned down. A refusal comes back  with HTTP 200, so this field and not the status code is what says whether anything happened - the request  is turned down when the caller is not the portal owner and when the named member is unknown or inactive..</param>
+        /// <param name="message">The outcome spelled out in the portal language. On success it names the address the letter went to, and it  carries an HTML &#x60;mailto:&#x60; anchor rather than plain text, so it has to be rendered as markup or stripped;  on a refusal it is the localised reason..</param>
         public OwnerChangeInstructionsDto(int status = default, string message = default)
         {
             this.Status = status;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The owner change instructions status.
+        /// Whether the letter was sent: &#x60;1&#x60; that it was, &#x60;0&#x60; that the request was turned down. A refusal comes back  with HTTP 200, so this field and not the status code is what says whether anything happened - the request  is turned down when the caller is not the portal owner and when the named member is unknown or inactive.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
-        /// The owner change instructions message.
+        /// The outcome spelled out in the portal language. On success it names the address the letter went to, and it  carries an HTML &#x60;mailto:&#x60; anchor rather than plain text, so it has to be rendered as markup or stripped;  on a refusal it is the localised reason.
         /// </summary>
         /// <example>Ownership transferred successfully</example>
         [DataMember(Name = "message", EmitDefaultValue = true)]

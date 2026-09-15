@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The new item parameters.
+    /// One day of the entries the caller has not opened yet, the groups running from the most recent day backwards.
     /// </summary>
     [DataContract(Name = "NewItemsDtoFileEntryBaseDto")]
     public partial class NewItemsDtoFileEntryBaseDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewItemsDtoFileEntryBaseDto" /> class.
         /// </summary>
-        /// <param name="date">The date and time when the new item was created. (required).</param>
-        /// <param name="items">The list of items. (required).</param>
+        /// <param name="date">The day the grouped entries were last changed, written with the offset of the portal time zone. The time part  is the moment of the newest entry of the group. (required).</param>
+        /// <param name="items">What changed on that day, the most recent first. Folders are left out of it, so an entry here is always a file  or a room that holds them. (required).</param>
         public NewItemsDtoFileEntryBaseDto(ApiDateTime date = default, List<FileEntryBaseDto> items = default)
         {
             // to ensure "date" is required (not null)
@@ -65,13 +65,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The date and time when the new item was created.
+        /// The day the grouped entries were last changed, written with the offset of the portal time zone. The time part  is the moment of the newest entry of the group.
         /// </summary>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// The list of items.
+        /// What changed on that day, the most recent first. Folders are left out of it, so an entry here is always a file  or a room that holds them.
         /// </summary>
         [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Items { get; set; }

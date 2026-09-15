@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.FileEntryDtoIntegerAllOfSecurity
-The actions that can be performed with the file entry.
+What the calling account may do with this entry, one flag per action, and the cheapest way to decide which  operations to offer without trying them. The flags already take the room's settings and the account's role  into account.
 
 ## Properties
 

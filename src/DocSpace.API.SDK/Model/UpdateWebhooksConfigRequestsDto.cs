@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for updating the webhook configuration.
+    /// The webhook subscription being changed, with the parameters it is to have afterwards.
     /// </summary>
     [DataContract(Name = "UpdateWebhooksConfigRequestsDto")]
     public partial class UpdateWebhooksConfigRequestsDto : CreateWebhooksConfigRequestsDto, IValidatableObject
@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateWebhooksConfigRequestsDto" /> class.
         /// </summary>
-        /// <param name="id">The webhook configuration ID. (required).</param>
+        /// <param name="id">The subscription to act on, by the &#x60;id&#x60; that &#x60;GET api/2.0/settings/webhook&#x60; reports. It travels in the body  rather than in the path, and an id that exists in no portal subscription answers 404. (required).</param>
         public UpdateWebhooksConfigRequestsDto(int id = default)
         {
             this.Id = id;
         }
 
         /// <summary>
-        /// The webhook configuration ID.
+        /// The subscription to act on, by the &#x60;id&#x60; that &#x60;GET api/2.0/settings/webhook&#x60; reports. It travels in the body  rather than in the path, and an id that exists in no portal subscription answers 404.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]

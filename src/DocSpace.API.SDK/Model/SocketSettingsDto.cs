@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The socket settings.
+    /// Where a client connects for the portal&#39;s live updates.
     /// </summary>
     [DataContract(Name = "SocketSettingsDto")]
     public partial class SocketSettingsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SocketSettingsDto" /> class.
         /// </summary>
-        /// <param name="url">The hub URL, with a trailing slash, or empty when no hub is configured..</param>
+        /// <param name="url">The base address of the Socket.IO hub that pushes file changes, presence and quota alerts, always with a  trailing slash. It is empty when the installation runs no hub, and a client must then fall back to  polling rather than guessing an address. The value comes from the installation&#39;s configuration and cannot  be changed through this API..</param>
         public SocketSettingsDto(string url = default)
         {
             this.Url = url;
         }
 
         /// <summary>
-        /// The hub URL, with a trailing slash, or empty when no hub is configured.
+        /// The base address of the Socket.IO hub that pushes file changes, presence and quota alerts, always with a  trailing slash. It is empty when the installation runs no hub, and a client must then fall back to  polling rather than guessing an address. The value comes from the installation&#39;s configuration and cannot  be changed through this API.
         /// </summary>
         /// <example>https://example.com/socket.io/</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]

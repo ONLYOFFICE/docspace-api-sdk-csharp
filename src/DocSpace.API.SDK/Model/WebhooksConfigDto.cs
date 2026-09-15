@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The webhook configuration parameters.
+    /// One webhook subscription of the portal: where deliveries go, which events they cover, and how they have fared.
     /// </summary>
     [DataContract(Name = "WebhooksConfigDto")]
     public partial class WebhooksConfigDto : IValidatableObject
     {
 
         /// <summary>
-        /// The webhook trigger type.
+        /// The events the subscription covers, as the bits of &#x60;GET api/2.0/settings/webhook/triggers&#x60; added  together. &#x60;0&#x60; is the catch-all and means every event, not none.
         /// </summary>
         [DataMember(Name = "triggers", EmitDefaultValue = false)]
         public WebhookTrigger? Triggers { get; set; }
@@ -52,20 +52,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhooksConfigDto" /> class.
         /// </summary>
-        /// <param name="id">The webhook ID. (required).</param>
-        /// <param name="name">The webhook name..</param>
-        /// <param name="uri">The webhook URI..</param>
-        /// <param name="enabled">Specifies if the webhooks are enabled or not..</param>
-        /// <param name="ssl">The webhook SSL verification (enabled or not)..</param>
-        /// <param name="triggers">The webhook trigger type..</param>
-        /// <param name="targetId">The webhook target ID..</param>
-        /// <param name="createdBy">The user who created the webhook..</param>
-        /// <param name="createdOn">The date and time when the webhook was created..</param>
-        /// <param name="modifiedBy">The user who modified the webhook..</param>
-        /// <param name="modifiedOn">The date and time when the webhook was modified..</param>
-        /// <param name="lastFailureOn">The date and time of the webhook last failure..</param>
-        /// <param name="lastFailureContent">The webhook last failure content..</param>
-        /// <param name="lastSuccessOn">The date and time of the webhook last success..</param>
+        /// <param name="id">The identifier of the subscription, which is what &#x60;PUT api/2.0/settings/webhook&#x60;,  &#x60;DELETE api/2.0/settings/webhook/{id}&#x60; and the &#x60;configId&#x60; filter of the delivery log address it by. (required).</param>
+        /// <param name="name">The label the subscription was given, free text with no meaning to the portal..</param>
+        /// <param name="uri">The address every delivery is posted to. The signing secret that lets the receiver verify a delivery is  never part of this answer, so it has to be kept from the moment the subscription was created..</param>
+        /// <param name="enabled">Whether the subscription is delivering. While it is &#x60;false&#x60; events are dropped rather than queued, so  nothing arrives late after it is switched back on..</param>
+        /// <param name="ssl">Whether the certificate of &#x60;uri&#x60; is verified before a delivery. While it is &#x60;false&#x60; a self-signed  certificate is accepted as well..</param>
+        /// <param name="triggers">The events the subscription covers, as the bits of &#x60;GET api/2.0/settings/webhook/triggers&#x60; added  together. &#x60;0&#x60; is the catch-all and means every event, not none..</param>
+        /// <param name="targetId">The single room or file the subscription is narrowed to, empty for a subscription that covers the whole  portal. It is kept as an opaque value, so both a numeric and a third-party identifier can appear..</param>
+        /// <param name="createdBy">The member who created the subscription, which is also who a non-administrator is limited to seeing. It is  empty for a subscription created by a portal background job..</param>
+        /// <param name="createdOn">When the subscription was created, in the portal time zone..</param>
+        /// <param name="modifiedBy">The member who last changed the subscription, empty while nobody has changed it since it was created..</param>
+        /// <param name="modifiedOn">When it was last changed, in the portal time zone, and empty under the same condition as &#x60;modifiedBy&#x60;..</param>
+        /// <param name="lastFailureOn">When a delivery last failed, in the portal time zone. It is empty for a subscription that has never  failed, and it is not cleared by a later success - compare it with &#x60;lastSuccessOn&#x60; to see which came last..</param>
+        /// <param name="lastFailureContent">What the target answered on that failure, truncated, for diagnosing without opening the delivery log. It  is empty when the failure produced no body at all, a timeout for instance..</param>
+        /// <param name="lastSuccessOn">When a delivery last succeeded, in the portal time zone, empty for a subscription that has never  delivered. Both this and &#x60;lastFailureOn&#x60; being empty means nothing has been attempted yet..</param>
         public WebhooksConfigDto(int id = default, string name = default, string uri = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default, EmployeeDto createdBy = default, DateTime? createdOn = default, EmployeeDto modifiedBy = default, DateTime? modifiedOn = default, DateTime? lastFailureOn = default, string lastFailureContent = default, DateTime? lastSuccessOn = default)
         {
             this.Id = id;
@@ -85,89 +85,89 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The webhook ID.
+        /// The identifier of the subscription, which is what &#x60;PUT api/2.0/settings/webhook&#x60;,  &#x60;DELETE api/2.0/settings/webhook/{id}&#x60; and the &#x60;configId&#x60; filter of the delivery log address it by.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The webhook name.
+        /// The label the subscription was given, free text with no meaning to the portal.
         /// </summary>
-        /// <example>John</example>
+        /// <example>Room activity</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The webhook URI.
+        /// The address every delivery is posted to. The signing secret that lets the receiver verify a delivery is  never part of this answer, so it has to be kept from the moment the subscription was created.
         /// </summary>
-        /// <example>https://example.com</example>
+        /// <example>https://example.com/hooks/docspace</example>
         [DataMember(Name = "uri", EmitDefaultValue = true)]
         public string Uri { get; set; }
 
         /// <summary>
-        /// Specifies if the webhooks are enabled or not.
+        /// Whether the subscription is delivering. While it is &#x60;false&#x60; events are dropped rather than queued, so  nothing arrives late after it is switched back on.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// The webhook SSL verification (enabled or not).
+        /// Whether the certificate of &#x60;uri&#x60; is verified before a delivery. While it is &#x60;false&#x60; a self-signed  certificate is accepted as well.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "ssl", EmitDefaultValue = true)]
         public bool Ssl { get; set; }
 
         /// <summary>
-        /// The webhook target ID.
+        /// The single room or file the subscription is narrowed to, empty for a subscription that covers the whole  portal. It is kept as an opaque value, so both a numeric and a third-party identifier can appear.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "targetId", EmitDefaultValue = true)]
         public string TargetId { get; set; }
 
         /// <summary>
-        /// The user who created the webhook.
+        /// The member who created the subscription, which is also who a non-administrator is limited to seeing. It is  empty for a subscription created by a portal background job.
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public EmployeeDto CreatedBy { get; set; }
 
         /// <summary>
-        /// The date and time when the webhook was created.
+        /// When the subscription was created, in the portal time zone.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "createdOn", EmitDefaultValue = true)]
         public DateTime? CreatedOn { get; set; }
 
         /// <summary>
-        /// The user who modified the webhook.
+        /// The member who last changed the subscription, empty while nobody has changed it since it was created.
         /// </summary>
         [DataMember(Name = "modifiedBy", EmitDefaultValue = false)]
         public EmployeeDto ModifiedBy { get; set; }
 
         /// <summary>
-        /// The date and time when the webhook was modified.
+        /// When it was last changed, in the portal time zone, and empty under the same condition as &#x60;modifiedBy&#x60;.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "modifiedOn", EmitDefaultValue = true)]
         public DateTime? ModifiedOn { get; set; }
 
         /// <summary>
-        /// The date and time of the webhook last failure.
+        /// When a delivery last failed, in the portal time zone. It is empty for a subscription that has never  failed, and it is not cleared by a later success - compare it with &#x60;lastSuccessOn&#x60; to see which came last.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "lastFailureOn", EmitDefaultValue = true)]
         public DateTime? LastFailureOn { get; set; }
 
         /// <summary>
-        /// The webhook last failure content.
+        /// What the target answered on that failure, truncated, for diagnosing without opening the delivery log. It  is empty when the failure produced no body at all, a timeout for instance.
         /// </summary>
-        /// <example>example value</example>
+        /// <example>502 Bad Gateway</example>
         [DataMember(Name = "lastFailureContent", EmitDefaultValue = true)]
         public string LastFailureContent { get; set; }
 
         /// <summary>
-        /// The date and time of the webhook last success.
+        /// When a delivery last succeeded, in the portal time zone, empty for a subscription that has never  delivered. Both this and &#x60;lastFailureOn&#x60; being empty means nothing has been attempted yet.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "lastSuccessOn", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The notification channel information.
+    /// One delivery channel of the installation, with the state it is in for this portal.
     /// </summary>
     [DataContract(Name = "NotificationChannelDto")]
     public partial class NotificationChannelDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationChannelDto" /> class.
         /// </summary>
-        /// <param name="name">The notification channel name. (required).</param>
-        /// <param name="isEnabled">Specifies whether the notification channel is enabled. (required).</param>
+        /// <param name="name">The internal name of the channel as the notification service knows it - &#x60;email.sender&#x60; for letters,  &#x60;telegram.sender&#x60; for Telegram messages. It is a key to match on, not a label to print. (required).</param>
+        /// <param name="isEnabled">Whether the channel can deliver for this portal. Letters are enabled whenever the channel is listed at  all, while Telegram is enabled only while the portal has a bot name and token stored. It says nothing  about the caller, who also has to connect their own Telegram account through  &#x60;GET api/2.0/settings/telegram/link&#x60;. (required).</param>
         public NotificationChannelDto(string name = default, bool isEnabled = default)
         {
             // to ensure "name" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The notification channel name.
+        /// The internal name of the channel as the notification service knows it - &#x60;email.sender&#x60; for letters,  &#x60;telegram.sender&#x60; for Telegram messages. It is a key to match on, not a label to print.
         /// </summary>
-        /// <example>Email</example>
+        /// <example>email.sender</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the notification channel is enabled.
+        /// Whether the channel can deliver for this portal. Letters are enabled whenever the channel is listed at  all, while Telegram is enabled only while the portal has a bot name and token stored. It says nothing  about the caller, who also has to connect their own Telegram account through  &#x60;GET api/2.0/settings/telegram/link&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isEnabled", IsRequired = true, EmitDefaultValue = true)]

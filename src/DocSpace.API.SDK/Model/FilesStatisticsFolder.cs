@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file statictics folder parameters.
+    /// One section of the portal and the space its documents take.
     /// </summary>
     [DataContract(Name = "FilesStatisticsFolder")]
     public partial class FilesStatisticsFolder : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesStatisticsFolder" /> class.
         /// </summary>
-        /// <param name="title">The folder title..</param>
-        /// <param name="usedSpace">The used space in the folder..</param>
+        /// <param name="title">The name of the section as the interface shows it, translated into the language used by the caller, so it  suits display but not matching - which section an entry describes is told by the field that carries it..</param>
+        /// <param name="usedSpace">The size of the files kept in the section, in bytes, counting every folder and room inside it; 0 means the  section holds nothing. The counter is brought up to date as an operation finishes, so a reading taken right  after an upload or a delete can still show the previous value..</param>
         public FilesStatisticsFolder(string title = default, long usedSpace = default)
         {
             this.Title = title;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The folder title.
+        /// The name of the section as the interface shows it, translated into the language used by the caller, so it  suits display but not matching - which section an entry describes is told by the field that carries it.
         /// </summary>
-        /// <example>My Documents</example>
+        /// <example>Files</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The used space in the folder.
+        /// The size of the files kept in the section, in bytes, counting every folder and room inside it; 0 means the  section holds nothing. The counter is brought up to date as an operation finishes, so a reading taken right  after an upload or a delete can still show the previous value.
         /// </summary>
         /// <example>1048576</example>
         [DataMember(Name = "usedSpace", EmitDefaultValue = false)]

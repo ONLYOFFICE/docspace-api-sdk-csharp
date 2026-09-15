@@ -5,18 +5,18 @@ The request parameters for updating the user information.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | **string** | The user ID. | [optional] 
-**Disable** | **bool?** | Specifies whether to disable a user or not. | [optional] 
-**Email** | **string** | The user email address. | [optional] 
-**IsUser** | **bool?** | Specifies if this is a guest or a user. | [optional] 
-**FirstName** | **string** | The user first name. | [optional] 
-**LastName** | **string** | The user last name. | [optional] 
-**Department** | **List&lt;Guid&gt;** | The list of the user departments. | [optional] 
-**Location** | **string** | The user location. | [optional] 
-**Comment** | **string** | The user comment. | [optional] 
-**Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of the user contacts. | [optional] 
-**Files** | **string** | The user avatar photo URL. | [optional] 
-**Spam** | **bool?** | Specifies if tips, updates and offers are allowed to be sent to the user or not. | [optional] 
+**UserId** | **string** | The account the change applies to. It is read from this body by `POST api/2.0/people/email`, while  `PUT api/2.0/people/{userid}` takes the account from the route and ignores this field. | [optional] 
+**Disable** | **bool?** | Set it to true to give the account the `Terminated` status and end every session it has, and to false to  bring it back. It is applied only when the caller edits somebody else, and omitting it keeps the current  status. | [optional] 
+**Email** | **string** | The new email address, up to 255 characters. It is read only by `POST api/2.0/people/email`, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  `PUT api/2.0/people/{userid}` ignores it. | [optional] 
+**IsUser** | **bool?** | Set it to true to turn the account into a guest and to false to turn it back into a member. Either direction  takes a seat and can answer 402, it is applied only when the caller edits somebody else, and a request to  make the portal owner, a DocSpace administrator or a module administrator a guest is ignored. | [optional] 
+**FirstName** | **string** | The new first name, up to 255 characters. It is applied only to the caller's own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400. | [optional] 
+**LastName** | **string** | The new last name, up to 255 characters. It is applied only to the caller's own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400. | [optional] 
+**Department** | **List&lt;Guid&gt;** | The groups the profile should belong to, by group ID, replacing the current ones. It is applied only to the  caller's own profile. | [optional] 
+**Location** | **string** | The new free-text location shown on the profile. It is applied only to the caller's own profile and is left  alone on an LDAP or SSO account. | [optional] 
+**Comment** | **string** | The new free-text note kept with the profile. It is applied only to the caller's own profile. | [optional] 
+**Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The additional ways to reach the person, replacing the current ones. Each entry is a free-text type such as  `email`, `phone`, `skype` or `telegram` and its value, an entry with an empty value is dropped, and the field  is applied only to the caller's own profile. | [optional] 
+**Files** | **string** | The address the portal downloads the new avatar from. It is applied only to the caller's own profile, has to  use HTTPS unless the request itself came over HTTP, and passing the address the profile already uses  downloads nothing. | [optional] 
+**Spam** | **bool?** | Whether the account agrees to receive tips, updates and offers. It is applied only to the caller's own  profile, and omitting it on such a request stores false rather than keeping the current value. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

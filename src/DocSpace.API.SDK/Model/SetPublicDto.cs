@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The public settings of the room template to set.
+    /// The public access to set on a room template.
     /// </summary>
     [DataContract(Name = "SetPublicDto")]
     public partial class SetPublicDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetPublicDto" /> class.
         /// </summary>
-        /// <param name="id">The room template ID. (required).</param>
-        /// <param name="public">Specifies whether the room template is public or not..</param>
+        /// <param name="id">The identifier of the room template. Take it from &#x60;templateId&#x60; of &#x60;GET api/2.0/files/roomtemplate/status&#x60;, or  from the folder list of &#x60;GET api/2.0/files/rooms&#x60; called with &#x60;searchArea&#x60; set to 4; an identifier of an  ordinary room is not accepted. (required).</param>
+        /// <param name="public">Whether the Everyone group keeps read access to the template. True shares it with every member allowed to  create rooms; false leaves it reachable only for its owner..</param>
         public SetPublicDto(int id = default, bool @public = default)
         {
             this.Id = id;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The room template ID.
+        /// The identifier of the room template. Take it from &#x60;templateId&#x60; of &#x60;GET api/2.0/files/roomtemplate/status&#x60;, or  from the folder list of &#x60;GET api/2.0/files/rooms&#x60; called with &#x60;searchArea&#x60; set to 4; an identifier of an  ordinary room is not accepted.
         /// </summary>
-        /// <example>1</example>
+        /// <example>1234</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Specifies whether the room template is public or not.
+        /// Whether the Everyone group keeps read access to the template. True shares it with every member allowed to  create rooms; false leaves it reachable only for its owner.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "public", EmitDefaultValue = true)]

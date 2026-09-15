@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The presence or absence of the templates in the Create New... menu option.
+    /// One creation template offered in the editor. The portal no longer offers any, so this never appears in an editor  configuration.
     /// </summary>
     [DataContract(Name = "TemplatesConfig")]
     public partial class TemplatesConfig : IValidatableObject

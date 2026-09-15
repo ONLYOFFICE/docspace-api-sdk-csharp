@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         public string Url { get; set; }
 
         /// <summary>
-        /// Shows or hides the Feedback &amp; Support menu button.
+        /// Whether the support button is shown. The portal always asks for it to be shown.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "visible", EmitDefaultValue = true)]

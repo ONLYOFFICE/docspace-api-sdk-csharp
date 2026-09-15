@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the owner-specific settings.
+    /// The portal member named as the new owner of the portal.
     /// </summary>
     [DataContract(Name = "OwnerIdSettingsRequestDto")]
     public partial class OwnerIdSettingsRequestDto : IValidatableObject
@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OwnerIdSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="ownerId">The ID of the owner whose settings are being managed. (required).</param>
+        /// <param name="ownerId">The member who is to become the portal owner, by user ID. They have to be an active member of this portal and  not a guest; a member who is not a DocSpace administrator yet is promoted to one as part of the transfer, so  the portal needs a paid seat for them. (required).</param>
         public OwnerIdSettingsRequestDto(Guid ownerId = default)
         {
             this.OwnerId = ownerId;
         }
 
         /// <summary>
-        /// The ID of the owner whose settings are being managed.
+        /// The member who is to become the portal owner, by user ID. They have to be an active member of this portal and  not a guest; a member who is not a DocSpace administrator yet is promoted to one as part of the transfer, so  the portal needs a paid seat for them.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]

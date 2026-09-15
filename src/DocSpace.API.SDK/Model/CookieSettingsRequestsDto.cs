@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing cookie settings.
+    /// How long an authentication session of the portal stays valid, and whether that limit is applied.
     /// </summary>
     [DataContract(Name = "CookieSettingsRequestsDto")]
     public partial class CookieSettingsRequestsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CookieSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="lifeTime">The cookie lifetime in minutes..</param>
-        /// <param name="enabled">Specifies whether the cookie settings are enabled or disabled..</param>
+        /// <param name="lifeTime">How long, in minutes, a session issued from now on remains valid. A value above 9999 is clamped to 9999  rather than refused, and 0 or less clears the number, which together with &#x60;enabled&#x60; leaves sessions that  never expire on their own. Any positive value invalidates every session issued before this call, the  caller&#39;s included, so the client has to keep the fresh cookie the response carries..</param>
+        /// <param name="enabled">Whether the stored lifetime is applied at all. While it is false the number is ignored and an issued session  is honoured for a year; while it is true the connections behind expired sessions are dropped as well..</param>
         public CookieSettingsRequestsDto(int lifeTime = default, bool enabled = default)
         {
             this.LifeTime = lifeTime;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The cookie lifetime in minutes.
+        /// How long, in minutes, a session issued from now on remains valid. A value above 9999 is clamped to 9999  rather than refused, and 0 or less clears the number, which together with &#x60;enabled&#x60; leaves sessions that  never expire on their own. Any positive value invalidates every session issued before this call, the  caller&#39;s included, so the client has to keep the fresh cookie the response carries.
         /// </summary>
         /// <example>525600</example>
         [DataMember(Name = "lifeTime", EmitDefaultValue = false)]
         public int LifeTime { get; set; }
 
         /// <summary>
-        /// Specifies whether the cookie settings are enabled or disabled.
+        /// Whether the stored lifetime is applied at all. While it is false the number is ignored and an issued session  is honoured for a year; while it is true the connections behind expired sessions are dropped as well.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]

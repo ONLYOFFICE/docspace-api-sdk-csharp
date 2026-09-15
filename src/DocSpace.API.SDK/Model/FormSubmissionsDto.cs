@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// All submissions of a form, together with the metadata of its fields.
+    /// All completed copies of a form, together with the description of the fields they were filled into.
     /// </summary>
     [DataContract(Name = "FormSubmissionsDto")]
     public partial class FormSubmissionsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormSubmissionsDto" /> class.
         /// </summary>
-        /// <param name="metadata">The form field metadata..</param>
-        /// <param name="submissions">All submissions..</param>
+        /// <param name="metadata">Describes the fields of the form version that is being filled - the key each value is stored under, the type  and format of the field and, where the field offers a fixed set of answers, those answers - in the order the  fields are laid out, which is the order to build a results table in. It comes back empty when the portal holds  no indexed description of that version..</param>
+        /// <param name="submissions">One entry per completed copy, ordered by the copy number that &#x60;formsData&#x60; carries. An empty list means nothing  has been completed for the version that is currently being filled; the copies of earlier versions of the form  are not reported here..</param>
         public FormSubmissionsDto(List<FormMetadata> metadata = default, List<FormResultsDto> submissions = default)
         {
             this.Metadata = metadata;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The form field metadata.
+        /// Describes the fields of the form version that is being filled - the key each value is stored under, the type  and format of the field and, where the field offers a fixed set of answers, those answers - in the order the  fields are laid out, which is the order to build a results table in. It comes back empty when the portal holds  no indexed description of that version.
         /// </summary>
         /// <example>[]</example>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public List<FormMetadata> Metadata { get; set; }
 
         /// <summary>
-        /// All submissions.
+        /// One entry per completed copy, ordered by the copy number that &#x60;formsData&#x60; carries. An empty list means nothing  has been completed for the version that is currently being filled; the copies of earlier versions of the form  are not reported here.
         /// </summary>
         /// <example>[]</example>
         [DataMember(Name = "submissions", EmitDefaultValue = true)]

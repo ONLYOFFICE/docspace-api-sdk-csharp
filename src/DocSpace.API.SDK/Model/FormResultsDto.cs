@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// A single filled-in form submission.
+    /// One completed copy of a form, with the values that were entered into it.
     /// </summary>
     [DataContract(Name = "FormResultsDto")]
     public partial class FormResultsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormResultsDto" /> class.
         /// </summary>
-        /// <param name="createOn">The date and time when the form was created..</param>
-        /// <param name="formsData">The list of forms data..</param>
+        /// <param name="createOn">When the portal recorded this copy, in UTC: the moment the filled copy was completed and its data indexed, not  the moment the form itself was made..</param>
+        /// <param name="formsData">The values that were entered into this copy, one entry per field, preceded by an entry keyed &#x60;FormNumber&#x60; that  carries the number of the copy and is what the submissions are ordered by. Fields holding a picture or a  signature are left out of the record, so a field missing here was not necessarily left blank..</param>
         public FormResultsDto(DateTime createOn = default, List<FormsItemData> formsData = default)
         {
             this.CreateOn = createOn;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The date and time when the form was created.
+        /// When the portal recorded this copy, in UTC: the moment the filled copy was completed and its data indexed, not  the moment the form itself was made.
         /// </summary>
         /// <example>2025-01-01T00:00:00</example>
         [DataMember(Name = "createOn", EmitDefaultValue = false)]
         public DateTime CreateOn { get; set; }
 
         /// <summary>
-        /// The list of forms data.
+        /// The values that were entered into this copy, one entry per field, preceded by an entry keyed &#x60;FormNumber&#x60; that  carries the number of the copy and is what the submissions are ordered by. Fields holding a picture or a  signature are left out of the record, so a field missing here was not necessarily left blank.
         /// </summary>
         /// <example>[{"key":"field1","value":"Answer"}]</example>
         [DataMember(Name = "formsData", EmitDefaultValue = true)]

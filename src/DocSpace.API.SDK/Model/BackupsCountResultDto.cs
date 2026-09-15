@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The number of backups.
+    /// The backups of a portal, split by who paid for them.
     /// </summary>
     [DataContract(Name = "BackupsCountResultDto")]
     public partial class BackupsCountResultDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupsCountResultDto" /> class.
         /// </summary>
-        /// <param name="free">The number of free backups..</param>
-        /// <param name="paid">The number of paid backups..</param>
+        /// <param name="free">The number of backups covered by the free monthly allowance..</param>
+        /// <param name="paid">The number of backups charged to the portal wallet..</param>
         public BackupsCountResultDto(int free = default, int paid = default)
         {
             this.Free = free;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The number of free backups.
+        /// The number of backups covered by the free monthly allowance.
         /// </summary>
         /// <example>3</example>
         [DataMember(Name = "free", EmitDefaultValue = false)]
         public int Free { get; set; }
 
         /// <summary>
-        /// The number of paid backups.
+        /// The number of backups charged to the portal wallet.
         /// </summary>
         /// <example>5</example>
         [DataMember(Name = "paid", EmitDefaultValue = false)]

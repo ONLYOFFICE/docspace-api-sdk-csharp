@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.SetAppSettingsBody
-Request body for saving application-specific settings.
+The configuration document a portal application keeps.
 
 ## Properties
 

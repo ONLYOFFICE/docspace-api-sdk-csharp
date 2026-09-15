@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The wallet service information.
+    /// One service the portal can pay for out of its wallet: a quota sold per unit rather than per period.
     /// </summary>
     [DataContract(Name = "WalletServiceDto")]
     public partial class WalletServiceDto : QuotaDto, IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WalletServiceDto" /> class.
         /// </summary>
-        /// <param name="innerServices">The list of inner services..</param>
-        /// <param name="serviceName">The service name..</param>
+        /// <param name="innerServices">The variants of this service that are folded into it, so a client renders one card per group instead of  one per variant. It is empty when the service has no variants, and always empty in the answer of  &#x60;GET api/2.0/portal/payment/walletservice&#x60;, which looks one service up on its own..</param>
+        /// <param name="serviceName">The stable key of the service, which is what the wallet operations take as their &#x60;service&#x60; argument and  what the usage reports key their entries by..</param>
         public WalletServiceDto(List<WalletServiceDto> innerServices = default, string serviceName = default)
         {
             this.InnerServices = innerServices;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of inner services.
+        /// The variants of this service that are folded into it, so a client renders one card per group instead of  one per variant. It is empty when the service has no variants, and always empty in the answer of  &#x60;GET api/2.0/portal/payment/walletservice&#x60;, which looks one service up on its own.
         /// </summary>
-        /// <example>[{"title":"File Storage","size":1073741824}]</example>
+        /// <example>[{"serviceName":"docs-cloud-dev","title":"Developer pack"}]</example>
         [DataMember(Name = "innerServices", EmitDefaultValue = true)]
         public List<WalletServiceDto> InnerServices { get; set; }
 
         /// <summary>
-        /// The service name.
+        /// The stable key of the service, which is what the wallet operations take as their &#x60;service&#x60; argument and  what the usage reports key their entries by.
         /// </summary>
         /// <example>backup</example>
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]

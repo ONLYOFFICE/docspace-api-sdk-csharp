@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for deleting an invitation link.
+    /// Which invitation link is withdrawn.
     /// </summary>
     [DataContract(Name = "InvitationLinkDeleteRequestDto")]
     public partial class InvitationLinkDeleteRequestDto : IValidatableObject
@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvitationLinkDeleteRequestDto" /> class.
         /// </summary>
-        /// <param name="id">The ID of the invitation link. (required).</param>
+        /// <param name="id">The link to delete, by the &#x60;id&#x60; that creating or reading it returned. A link recreated for the same role  afterwards gets a new id, a new URL and a use count starting from zero. (required).</param>
         public InvitationLinkDeleteRequestDto(Guid id = default)
         {
             this.Id = id;
         }
 
         /// <summary>
-        /// The ID of the invitation link.
+        /// The link to delete, by the &#x60;id&#x60; that creating or reading it returned. A link recreated for the same role  afterwards gets a new id, a new URL and a use count starting from zero.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]

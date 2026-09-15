@@ -41,13 +41,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuth20Token" /> class.
         /// </summary>
-        /// <param name="accessToken">Access token.</param>
-        /// <param name="refreshToken">Refresh token.</param>
-        /// <param name="expiresIn">Expires in.</param>
-        /// <param name="clientId">Client id.</param>
-        /// <param name="clientSecret">Client secret.</param>
-        /// <param name="redirectUri">Redirect uri.</param>
-        /// <param name="timestamp">Timestamp.</param>
+        /// <param name="accessToken">The token sent to the provider with every request made on behalf of the account..</param>
+        /// <param name="refreshToken">The token used to obtain a new access token when the current one expires. A provider that issues no refresh  token leaves it empty, and the account then has to be connected again to keep working..</param>
+        /// <param name="expiresIn">How long the access token stays usable, in seconds counted from &#x60;timestamp&#x60;. Zero means the provider did not  say, and the token is then treated as expired..</param>
+        /// <param name="clientId">The OAuth 2.0 client ID of the application the token was issued to..</param>
+        /// <param name="clientSecret">The client secret of the application the token was issued to, needed when the token is refreshed..</param>
+        /// <param name="redirectUri">The redirect URL the authorization code behind this token was obtained with; providers require the same value  again when the token is refreshed..</param>
+        /// <param name="timestamp">When the token was issued, in UTC. This is the point &#x60;expires_in&#x60; is counted from..</param>
         public OAuth20Token(string accessToken = default, string refreshToken = default, long expiresIn = default, string clientId = default, string clientSecret = default, string redirectUri = default, DateTime timestamp = default)
         {
             this.AccessToken = accessToken;
@@ -60,56 +60,56 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Access token
+        /// The token sent to the provider with every request made on behalf of the account.
         /// </summary>
         /// <example>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</example>
         [DataMember(Name = "access_token", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// Refresh token
+        /// The token used to obtain a new access token when the current one expires. A provider that issues no refresh  token leaves it empty, and the account then has to be connected again to keep working.
         /// </summary>
         /// <example>def50200a1b2c3d4e5f6...</example>
         [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
 
         /// <summary>
-        /// Expires in
+        /// How long the access token stays usable, in seconds counted from &#x60;timestamp&#x60;. Zero means the provider did not  say, and the token is then treated as expired.
         /// </summary>
         /// <example>3600</example>
         [DataMember(Name = "expires_in", EmitDefaultValue = false)]
         public long ExpiresIn { get; set; }
 
         /// <summary>
-        /// Client id
+        /// The OAuth 2.0 client ID of the application the token was issued to.
         /// </summary>
         /// <example>my-client-id</example>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Client secret
+        /// The client secret of the application the token was issued to, needed when the token is refreshed.
         /// </summary>
         /// <example>my-client-secret</example>
         [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
 
         /// <summary>
-        /// Redirect uri
+        /// The redirect URL the authorization code behind this token was obtained with; providers require the same value  again when the token is refreshed.
         /// </summary>
         /// <example>https://app.example.com/callback</example>
         [DataMember(Name = "redirect_uri", EmitDefaultValue = true)]
         public string RedirectUri { get; set; }
 
         /// <summary>
-        /// Timestamp
+        /// When the token was issued, in UTC. This is the point &#x60;expires_in&#x60; is counted from.
         /// </summary>
         /// <example>2026-01-01T00:00:00Z</example>
         [DataMember(Name = "timestamp", EmitDefaultValue = false)]
         public DateTime Timestamp { get; set; }
 
         /// <summary>
-        /// Is expired
+        /// Whether the access token can no longer be used and has to be refreshed. It is also true when the provider did  not say how long the token lives.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]

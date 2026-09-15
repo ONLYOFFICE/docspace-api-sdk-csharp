@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing user security and access permissions.
+    /// Which member is granted or denied the administrator role of which portal module.
     /// </summary>
     [DataContract(Name = "SecurityRequestsDto")]
     public partial class SecurityRequestsDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SecurityRequestsDto" /> class.
         /// </summary>
-        /// <param name="productId">The product ID for which permissions are being set. (required).</param>
-        /// <param name="userId">The ID of the user whose permissions are being configured. (required).</param>
-        /// <param name="administrator">Specifies whether the user has administrative privileges..</param>
+        /// <param name="productId">The module the role applies to, given by its GUID. The all-zero GUID stands for the portal itself and grants  or revokes the DocSpace administrator role, which covers every module at once; a GUID that names no module  group is stored without effect rather than refused. (required).</param>
+        /// <param name="userId">The portal member the role is given to or taken from, by user ID. The member has to exist already - nobody is  created here - and promoting a guest or a plain member turns them into a paid one. (required).</param>
+        /// <param name="administrator">Which way the role goes: &#x60;true&#x60; adds the member to the module administrator group, &#x60;false&#x60; removes them from  it. Taking away the portal-wide role also drops the member from every product group..</param>
         public SecurityRequestsDto(Guid productId = default, Guid userId = default, bool administrator = default)
         {
             this.ProductId = productId;
@@ -57,21 +57,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The product ID for which permissions are being set.
+        /// The module the role applies to, given by its GUID. The all-zero GUID stands for the portal itself and grants  or revokes the DocSpace administrator role, which covers every module at once; a GUID that names no module  group is stored without effect rather than refused.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "productId", IsRequired = true, EmitDefaultValue = true)]
         public Guid ProductId { get; set; }
 
         /// <summary>
-        /// The ID of the user whose permissions are being configured.
+        /// The portal member the role is given to or taken from, by user ID. The member has to exist already - nobody is  created here - and promoting a guest or a plain member turns them into a paid one.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// Specifies whether the user has administrative privileges.
+        /// Which way the role goes: &#x60;true&#x60; adds the member to the module administrator group, &#x60;false&#x60; removes them from  it. Taking away the portal-wide role also drops the member from every product group.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "administrator", EmitDefaultValue = true)]

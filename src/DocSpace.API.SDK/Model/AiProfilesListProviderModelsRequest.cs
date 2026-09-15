@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="providerType">Provider whose catalog to list. (required).</param>
         /// <param name="baseUrl">Provider API base URL. (required).</param>
-        /// <param name="apiKey">Provider API key. (required).</param>
+        /// <param name="apiKey">Provider API key. Omit it for a provider that needs none; the request is then made without one..</param>
         public AiProfilesListProviderModelsRequest(AiProviderType providerType = default, string baseUrl = default, string apiKey = default)
         {
             // to ensure "providerType" is required (not null)
@@ -63,11 +63,6 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("baseUrl is a required property for AiProfilesListProviderModelsRequest and cannot be null");
             }
             this.BaseUrl = baseUrl;
-            // to ensure "apiKey" is required (not null)
-            if (apiKey == null)
-            {
-                throw new ArgumentNullException("apiKey is a required property for AiProfilesListProviderModelsRequest and cannot be null");
-            }
             this.ApiKey = apiKey;
         }
 
@@ -80,13 +75,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Provider API base URL.
         /// </summary>
+        /// <example>https://api.openai.com/v1</example>
         [DataMember(Name = "baseUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BaseUrl { get; set; }
 
         /// <summary>
-        /// Provider API key.
+        /// Provider API key. Omit it for a provider that needs none; the request is then made without one.
         /// </summary>
-        [DataMember(Name = "apiKey", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "apiKey", EmitDefaultValue = false)]
         public string ApiKey { get; set; }
 
         /// <summary>

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The form gallery parameters.
+    /// Where the ready-made form templates are served from, for browsing them and for submitting new ones.
     /// </summary>
     [DataContract(Name = "FormGalleryDto")]
     public partial class FormGalleryDto : IValidatableObject
@@ -46,13 +46,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormGalleryDto" /> class.
         /// </summary>
-        /// <param name="path">The form gallery path. (required).</param>
-        /// <param name="domain">The form gallery domain. (required).</param>
-        /// <param name="ext">The form gallery extension. (required).</param>
-        /// <param name="uploadPath">The form gallery upload path. (required).</param>
-        /// <param name="uploadDomain">The form gallery upload domain. (required).</param>
-        /// <param name="uploadExt">The form gallery upload extension. (required).</param>
-        /// <param name="uploadDashboard">The form gallery upload dashboard. (required).</param>
+        /// <param name="path">The path under &#x60;domain&#x60; that the gallery&#39;s own listing API is reached at. It is joined to &#x60;domain&#x60; by the  client; the portal only relays the values from its configuration. (required).</param>
+        /// <param name="domain">The address of the gallery service, which is a service of the vendor rather than part of the portal. Every  field of this object is empty on an installation that configures no gallery, and a client should then not  offer the gallery at all. (required).</param>
+        /// <param name="ext">The file extension to ask the gallery for, which decides which rendition of a template is downloaded when  several are published. (required).</param>
+        /// <param name="uploadPath">The path used for submitting a form of one&#39;s own to the gallery, the counterpart of &#x60;path&#x60; for the upload  side. The four &#x60;upload&#x60; fields are empty when the installation allows browsing but not submitting. (required).</param>
+        /// <param name="uploadDomain">The address the submission is sent to, which may differ from &#x60;domain&#x60;. (required).</param>
+        /// <param name="uploadExt">The file extension a submitted form has to carry. (required).</param>
+        /// <param name="uploadDashboard">The page a person is sent to in order to follow up on a submission, joined to &#x60;uploadDomain&#x60; the same way  as &#x60;uploadPath&#x60;. (required).</param>
         public FormGalleryDto(string path = default, string domain = default, string ext = default, string uploadPath = default, string uploadDomain = default, string uploadExt = default, string uploadDashboard = default)
         {
             // to ensure "path" is required (not null)
@@ -100,49 +100,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The form gallery path.
+        /// The path under &#x60;domain&#x60; that the gallery&#39;s own listing API is reached at. It is joined to &#x60;domain&#x60; by the  client; the portal only relays the values from its configuration.
         /// </summary>
         /// <example>/forms/templates</example>
         [DataMember(Name = "path", IsRequired = true, EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
-        /// The form gallery domain.
+        /// The address of the gallery service, which is a service of the vendor rather than part of the portal. Every  field of this object is empty on an installation that configures no gallery, and a client should then not  offer the gallery at all.
         /// </summary>
         /// <example>https://forms.example.com</example>
         [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>
-        /// The form gallery extension.
+        /// The file extension to ask the gallery for, which decides which rendition of a template is downloaded when  several are published.
         /// </summary>
         /// <example>.docxf</example>
         [DataMember(Name = "ext", IsRequired = true, EmitDefaultValue = true)]
         public string Ext { get; set; }
 
         /// <summary>
-        /// The form gallery upload path.
+        /// The path used for submitting a form of one&#39;s own to the gallery, the counterpart of &#x60;path&#x60; for the upload  side. The four &#x60;upload&#x60; fields are empty when the installation allows browsing but not submitting.
         /// </summary>
         /// <example>/forms/upload</example>
         [DataMember(Name = "uploadPath", IsRequired = true, EmitDefaultValue = true)]
         public string UploadPath { get; set; }
 
         /// <summary>
-        /// The form gallery upload domain.
+        /// The address the submission is sent to, which may differ from &#x60;domain&#x60;.
         /// </summary>
         /// <example>https://upload.forms.example.com</example>
         [DataMember(Name = "uploadDomain", IsRequired = true, EmitDefaultValue = true)]
         public string UploadDomain { get; set; }
 
         /// <summary>
-        /// The form gallery upload extension.
+        /// The file extension a submitted form has to carry.
         /// </summary>
         /// <example>.docxf</example>
         [DataMember(Name = "uploadExt", IsRequired = true, EmitDefaultValue = true)]
         public string UploadExt { get; set; }
 
         /// <summary>
-        /// The form gallery upload dashboard.
+        /// The page a person is sent to in order to follow up on a submission, joined to &#x60;uploadDomain&#x60; the same way  as &#x60;uploadPath&#x60;.
         /// </summary>
         /// <example>/dashboard/forms</example>
         [DataMember(Name = "uploadDashboard", IsRequired = true, EmitDefaultValue = true)]

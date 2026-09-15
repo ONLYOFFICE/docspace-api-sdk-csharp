@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The backup parameters.
+    /// The request parameters for starting a backup.
     /// </summary>
     [DataContract(Name = "BackupDto")]
     public partial class BackupDto : IValidatableObject
     {
 
         /// <summary>
-        /// The backup storage type.
+        /// The storage the archive is written to. It defaults to &#x60;Documents&#x60;, and it decides which keys  &#x60;storageParams&#x60; has to carry.
         /// </summary>
         [DataMember(Name = "storageType", EmitDefaultValue = false)]
         public BackupStorageType? StorageType { get; set; }
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupDto" /> class.
         /// </summary>
-        /// <param name="storageType">The backup storage type..</param>
-        /// <param name="storageParams">The backup storage parameters..</param>
-        /// <param name="dump">Specifies if a dump will be created or not..</param>
+        /// <param name="storageType">The storage the archive is written to. It defaults to &#x60;Documents&#x60;, and it decides which keys  &#x60;storageParams&#x60; has to carry..</param>
+        /// <param name="storageParams">The settings of the chosen storage, as an array of key and value pairs. &#x60;Documents&#x60; needs an integer  &#x60;folderId&#x60;, &#x60;ThridpartyDocuments&#x60; a provider-specific non-integer &#x60;folderId&#x60;, &#x60;Local&#x60; a &#x60;filePath&#x60;,  &#x60;ThirdPartyConsumer&#x60; a &#x60;module&#x60; plus the settings of that consumer, and &#x60;DataStore&#x60; none. The  &#x60;subdir&#x60; key is added by the operation itself and must not be sent..</param>
+        /// <param name="dump">Backs up the whole server rather than this one portal. It requires the space access permission and  works on a standalone installation only..</param>
         public BackupDto(BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, bool dump = default)
         {
             this.StorageType = storageType;
@@ -58,14 +58,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The backup storage parameters.
+        /// The settings of the chosen storage, as an array of key and value pairs. &#x60;Documents&#x60; needs an integer  &#x60;folderId&#x60;, &#x60;ThridpartyDocuments&#x60; a provider-specific non-integer &#x60;folderId&#x60;, &#x60;Local&#x60; a &#x60;filePath&#x60;,  &#x60;ThirdPartyConsumer&#x60; a &#x60;module&#x60; plus the settings of that consumer, and &#x60;DataStore&#x60; none. The  &#x60;subdir&#x60; key is added by the operation itself and must not be sent.
         /// </summary>
-        /// <example>[{"key":"path","value":"/backup"}]</example>
+        /// <example>[{"key":"folderId","value":"1234"}]</example>
         [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>
-        /// Specifies if a dump will be created or not.
+        /// Backs up the whole server rather than this one portal. It requires the space access permission and  works on a standalone installation only.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "dump", EmitDefaultValue = true)]

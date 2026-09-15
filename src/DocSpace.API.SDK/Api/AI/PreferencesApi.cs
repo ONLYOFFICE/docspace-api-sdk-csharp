@@ -34,10 +34,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
         AiSuccessResponse AiPreferencesClearDeepMode(string body);
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
         ApiResponse<AiSuccessResponse> AiPreferencesClearDeepModeWithHttpInfo(string body);
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -77,10 +77,33 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of bool</returns>
         ApiResponse<bool> AiPreferencesGetDeepModeWithHttpInfo(string? entityId = default);
         /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>AiAiReasoningLevel</returns>
+        AiAiReasoningLevel AiPreferencesGetReasoningLevel(string? entityId = default);
+
+        /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>ApiResponse of AiAiReasoningLevel</returns>
+        ApiResponse<AiAiReasoningLevel> AiPreferencesGetReasoningLevelWithHttpInfo(string? entityId = default);
+        /// <summary>
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -92,7 +115,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -103,7 +126,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -115,13 +138,36 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/">REST API Reference for AiPreferencesSetDeepMode Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
         ApiResponse<AiSuccessResponse> AiPreferencesSetDeepModeWithHttpInfo(AiPreferencesSetDeepModeRequest aiPreferencesSetDeepModeRequest);
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiPreferencesSetReasoningLevel(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest);
+
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        ApiResponse<AiSuccessResponse> AiPreferencesSetReasoningLevelWithHttpInfo(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest);
         #endregion Synchronous Operations
     }
 
@@ -135,10 +181,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
@@ -148,10 +194,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
@@ -160,7 +206,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -173,7 +219,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -182,10 +228,35 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (bool)</returns>
         Task<ApiResponse<bool>> AiPreferencesGetDeepModeWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>Task of AiAiReasoningLevel</returns>
+        Task<AiAiReasoningLevel> AiPreferencesGetReasoningLevelAsync(string? entityId = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiReasoningLevel)</returns>
+        Task<ApiResponse<AiAiReasoningLevel>> AiPreferencesGetReasoningLevelWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -198,7 +269,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -210,7 +281,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -223,7 +294,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -231,6 +302,31 @@ namespace DocSpace.API.SDK.Api.AI
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-deep-mode/">REST API Reference for AiPreferencesSetDeepMode Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
         Task<ApiResponse<AiSuccessResponse>> AiPreferencesSetDeepModeWithHttpInfoAsync(AiPreferencesSetDeepModeRequest aiPreferencesSetDeepModeRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        Task<AiSuccessResponse> AiPreferencesSetReasoningLevelAsync(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        Task<ApiResponse<AiSuccessResponse>> AiPreferencesSetReasoningLevelWithHttpInfoAsync(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -450,10 +546,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
         public AiSuccessResponse AiPreferencesClearDeepMode(string body)
@@ -466,10 +562,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
         public ApiResponse<AiSuccessResponse> AiPreferencesClearDeepModeWithHttpInfo(string body)
@@ -513,10 +609,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
@@ -530,10 +626,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Clear deep mode
         /// </summary>
         /// <remarks>
-        /// Drops the persisted deep-mode toggle of the scope, so later reads fall back to the configured default.
+        /// Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="body">The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-clear-deep-mode/">REST API Reference for AiPreferencesClearDeepMode Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
@@ -580,7 +676,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -596,7 +692,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -642,7 +738,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -659,7 +755,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get deep mode
         /// </summary>
         /// <remarks>
-        /// Returns the deep-mode toggle of the scope, falling back to the configured default when nothing has been persisted.
+        /// Returns the deep-mode toggle of a scope, as a bare boolean: whether the stored extended-thinking depth is above `off`. `entityId` picks a room and omitting it reads the portal-wide preference. A scope that has never had a value stored falls back to the configured default, so the answer never distinguishes off from unset - ask `GET api/2.0/ai/preferences/is-deep-mode-set` for that. This is a read-only operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -705,10 +801,138 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>AiAiReasoningLevel</returns>
+        public AiAiReasoningLevel AiPreferencesGetReasoningLevel(string? entityId = default)
+        {
+            var localVarResponse = AiPreferencesGetReasoningLevelWithHttpInfo(entityId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>ApiResponse of AiAiReasoningLevel</returns>
+        public ApiResponse<AiAiReasoningLevel> AiPreferencesGetReasoningLevelWithHttpInfo(string? entityId = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<AiAiReasoningLevel>("/api/2.0/ai/preferences/get-reasoning-level", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiPreferencesGetReasoningLevel", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>Task of AiAiReasoningLevel</returns>
+        public async Task<AiAiReasoningLevel> AiPreferencesGetReasoningLevelAsync(string? entityId = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiPreferencesGetReasoningLevelWithHttpInfoAsync(entityId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-reasoning-level/">REST API Reference for AiPreferencesGetReasoningLevel Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAiReasoningLevel)</returns>
+        public async Task<ApiResponse<AiAiReasoningLevel>> AiPreferencesGetReasoningLevelWithHttpInfoAsync(string? entityId = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (entityId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entityId", entityId));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<AiAiReasoningLevel>("/api/2.0/ai/preferences/get-reasoning-level", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiPreferencesGetReasoningLevel", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -724,7 +948,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -770,7 +994,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -787,7 +1011,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Is deep mode set
         /// </summary>
         /// <remarks>
-        /// Tells whether the scope has an explicitly persisted deep-mode value, whichever way that value is set.
+        /// Tells whether a scope has an explicitly persisted extended-thinking setting of its own, as opposed to inheriting the configured default. `entityId` picks a room and omitting it asks about the portal-wide preference. A true answer means a value was stored, whether that value is on or off - read the value itself with `GET api/2.0/ai/preferences/get-deep-mode`. This is the check a settings screen uses to show an explicit override rather than an inherited state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityId">The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional)</param>
@@ -836,7 +1060,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -852,7 +1076,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -899,7 +1123,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -916,7 +1140,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Set deep mode
         /// </summary>
         /// <remarks>
-        /// Persists the deep-mode toggle of the scope. Idempotent - there is no need to check whether a value already exists.
+        /// Stores the deep-mode toggle of a scope. `false` stores the `off` depth; `true` keeps the depth already stored and falls back to the default depth (`medium`) when none is. `value` has to be a real boolean: a string, a number or an absent value is rejected rather than coerced, so the string false cannot silently switch the setting on and an empty request cannot silently switch it off. `entityId` picks a room and omitting it writes the portal-wide preference. It is idempotent, so there is no need to read the current value first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPreferencesSetDeepModeRequest"></param>
@@ -953,6 +1177,136 @@ namespace DocSpace.API.SDK.Api.AI
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("AiPreferencesSetDeepMode", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        public AiSuccessResponse AiPreferencesSetReasoningLevel(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest)
+        {
+            var localVarResponse = AiPreferencesSetReasoningLevelWithHttpInfo(aiPreferencesSetReasoningLevelRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        public ApiResponse<AiSuccessResponse> AiPreferencesSetReasoningLevelWithHttpInfo(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest)
+        {
+            // verify the required parameter 'aiPreferencesSetReasoningLevelRequest' is set
+            if (aiPreferencesSetReasoningLevelRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPreferencesSetReasoningLevelRequest' when calling PreferencesApi->AiPreferencesSetReasoningLevel");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiPreferencesSetReasoningLevelRequest != null) localVarRequestOptions.Data = aiPreferencesSetReasoningLevelRequest;
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<AiSuccessResponse>("/api/2.0/ai/preferences/set-reasoning-level", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiPreferencesSetReasoningLevel", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        public async Task<AiSuccessResponse> AiPreferencesSetReasoningLevelAsync(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiPreferencesSetReasoningLevelWithHttpInfoAsync(aiPreferencesSetReasoningLevelRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set reasoning level
+        /// </summary>
+        /// <remarks>
+        /// Persists the extended-thinking depth of the scope as its single stored value: a depth turns deep mode on at that depth, `off` turns it off and replaces the stored depth (a later deep-mode `true` without a depth lands on `medium`). `entityId` picks a room and omitting it writes the portal-wide preference. Idempotent.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiPreferencesSetReasoningLevelRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-reasoning-level/">REST API Reference for AiPreferencesSetReasoningLevel Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        public async Task<ApiResponse<AiSuccessResponse>> AiPreferencesSetReasoningLevelWithHttpInfoAsync(AiPreferencesSetReasoningLevelRequest aiPreferencesSetReasoningLevelRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiPreferencesSetReasoningLevelRequest' is set
+            if (aiPreferencesSetReasoningLevelRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPreferencesSetReasoningLevelRequest' when calling PreferencesApi->AiPreferencesSetReasoningLevel");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiPreferencesSetReasoningLevelRequest != null) localVarRequestOptions.Data = aiPreferencesSetReasoningLevelRequest;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<AiSuccessResponse>("/api/2.0/ai/preferences/set-reasoning-level", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiPreferencesSetReasoningLevel", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

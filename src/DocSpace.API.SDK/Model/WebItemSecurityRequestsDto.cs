@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring security settings of a single web module.
+    /// The access rule stored for one portal module: whether it may be opened, and by whom.
     /// </summary>
     [DataContract(Name = "WebItemSecurityRequestsDto")]
     public partial class WebItemSecurityRequestsDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebItemSecurityRequestsDto" /> class.
         /// </summary>
-        /// <param name="id">The module ID. (required).</param>
-        /// <param name="enabled">Controls whether the security restrictions are enforced for this module..</param>
-        /// <param name="subjects">The collection of user and group identifiers granted access to the module..</param>
+        /// <param name="id">The module the rule applies to, given as a GUID. A value that is not a GUID fails the request as invalid. (required).</param>
+        /// <param name="enabled">Whether the module may be opened. It decides the outcome only while &#x60;subjects&#x60; names somebody: an empty  &#x60;subjects&#x60; array is stored as access for everyone whatever this flag says..</param>
+        /// <param name="subjects">The users and groups the rule is stored for, given by their IDs. This is the whole allow-list that is to hold  afterwards and not a list of additions - what was stored before is dropped. Leaving it out applies &#x60;enabled&#x60;  to everyone and skips the audit trail entry, while sending it empty stores access for everyone..</param>
         public WebItemSecurityRequestsDto(string id = default, bool enabled = default, List<Guid> subjects = default)
         {
             // to ensure "id" is required (not null)
@@ -62,21 +62,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The module ID.
+        /// The module the rule applies to, given as a GUID. A value that is not a GUID fails the request as invalid.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Controls whether the security restrictions are enforced for this module.
+        /// Whether the module may be opened. It decides the outcome only while &#x60;subjects&#x60; names somebody: an empty  &#x60;subjects&#x60; array is stored as access for everyone whatever this flag says.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// The collection of user and group identifiers granted access to the module.
+        /// The users and groups the rule is stored for, given by their IDs. This is the whole allow-list that is to hold  afterwards and not a list of additions - what was stored before is dropped. Leaving it out applies &#x60;enabled&#x60;  to everyone and skips the audit trail entry, while sending it empty stores access for everyone.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "subjects", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The information about the action in the document that will be scrolled to.
+    /// An anchor inside a document, as the editor writes it.
     /// </summary>
     [DataContract(Name = "ActionConfig")]
     public partial class ActionConfig : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionConfig" /> class.
         /// </summary>
-        /// <param name="data">The action data that will be scrolled to..</param>
-        /// <param name="type">The action type..</param>
+        /// <param name="data">The anchor value produced by the editor, opaque to the portal: it names the comment, the mention or the  place the document is scrolled to..</param>
+        /// <param name="type">What the anchor points at, as the editor names it - a comment thread, for instance..</param>
         public ActionConfig(string data = default, string type = default)
         {
             this.Data = data;
@@ -50,16 +50,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The action data that will be scrolled to.
+        /// The anchor value produced by the editor, opaque to the portal: it names the comment, the mention or the  place the document is scrolled to.
         /// </summary>
-        /// <example>section</example>
+        /// <example>section-42</example>
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public string Data { get; set; }
 
         /// <summary>
-        /// The action type.
+        /// What the anchor points at, as the editor names it - a comment thread, for instance.
         /// </summary>
-        /// <example>scroll</example>
+        /// <example>comment</example>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

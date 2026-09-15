@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents dimensions with width and height values.
+    /// A pixel size measured on the image itself.
     /// </summary>
     [DataContract(Name = "Size")]
     public partial class Size : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Size" /> class.
         /// </summary>
-        /// <param name="height">Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object..</param>
-        /// <param name="width">Gets or sets the width dimension of an object, typically measured in pixels or other unit..</param>
+        /// <param name="height">The height of the image in pixels, read from the stored file rather than from any display setting..</param>
+        /// <param name="width">The width of the image in pixels, read from the stored file rather than from any display setting..</param>
         public Size(int height = default, int width = default)
         {
             this.Height = height;
@@ -50,16 +50,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object.
+        /// The height of the image in pixels, read from the stored file rather than from any display setting.
         /// </summary>
-        /// <example>10</example>
+        /// <example>1080</example>
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 
         /// <summary>
-        /// Gets or sets the width dimension of an object, typically measured in pixels or other unit.
+        /// The width of the image in pixels, read from the stored file rather than from any display setting.
         /// </summary>
-        /// <example>10</example>
+        /// <example>1920</example>
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 

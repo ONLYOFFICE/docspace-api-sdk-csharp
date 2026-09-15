@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The customer config parameters.
+    /// The branding of the organization running the portal, as the editor About panel shows it. It is reported on a  server installation only.
     /// </summary>
     [DataContract(Name = "CustomerConfigDto")]
     public partial class CustomerConfigDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerConfigDto" /> class.
         /// </summary>
-        /// <param name="address">The address of the customer configuration..</param>
-        /// <param name="logo">The logo of the customer configuration..</param>
-        /// <param name="logoDark">The dark logo of the customer configuration..</param>
-        /// <param name="mail">The mail address of the customer configuration..</param>
-        /// <param name="name">The name of the customer configuration..</param>
-        /// <param name="www">The site web address of the customer configuration..</param>
+        /// <param name="address">The postal address from the portal branding settings; empty when none was entered..</param>
+        /// <param name="logo">The About-panel logo of the organization..</param>
+        /// <param name="logoDark">The About-panel logo for a dark interface theme..</param>
+        /// <param name="mail">The contact address from the portal branding settings..</param>
+        /// <param name="name">The organization name shown in the editor..</param>
+        /// <param name="www">The website of the organization..</param>
         public CustomerConfigDto(string address = default, string logo = default, string logoDark = default, string mail = default, string name = default, string www = default)
         {
             this.Address = address;
@@ -58,42 +58,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The address of the customer configuration.
+        /// The postal address from the portal branding settings; empty when none was entered.
         /// </summary>
-        /// <example>123 Main Street, City</example>
+        /// <example>20A-6 Ernesta Birznieka-Upisha Street, Riga</example>
         [DataMember(Name = "address", EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
-        /// The logo of the customer configuration.
+        /// The About-panel logo of the organization.
         /// </summary>
-        /// <example>http://localhost/customer-logo.png</example>
+        /// <example>https://portal.example.com/logo/about.png</example>
         [DataMember(Name = "logo", EmitDefaultValue = true)]
         public string Logo { get; set; }
 
         /// <summary>
-        /// The dark logo of the customer configuration.
+        /// The About-panel logo for a dark interface theme.
         /// </summary>
-        /// <example>http://localhost/customer-logo-dark.png</example>
+        /// <example>https://portal.example.com/logo/about-dark.png</example>
         [DataMember(Name = "logoDark", EmitDefaultValue = true)]
         public string LogoDark { get; set; }
 
         /// <summary>
-        /// The mail address of the customer configuration.
+        /// The contact address from the portal branding settings.
         /// </summary>
-        /// <example>contact@example.com</example>
+        /// <example>support@example.com</example>
         [DataMember(Name = "mail", EmitDefaultValue = true)]
         public string Mail { get; set; }
 
         /// <summary>
-        /// The name of the customer configuration.
+        /// The organization name shown in the editor.
         /// </summary>
-        /// <example>ONLYOFFICE</example>
+        /// <example>Example Ltd</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The site web address of the customer configuration.
+        /// The website of the organization.
         /// </summary>
         /// <example>https://www.example.com</example>
         [DataMember(Name = "www", EmitDefaultValue = true)]

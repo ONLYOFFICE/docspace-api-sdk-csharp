@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Default template setting
+    /// The blank document configured for one extension.
     /// </summary>
     [DataContract(Name = "DefaultTemplateItemDto")]
     public partial class DefaultTemplateItemDto : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultTemplateItemDto" /> class.
         /// </summary>
-        /// <param name="selectedFile">File id to use as a default template.</param>
-        /// <param name="fileExtension">Extension of a default template (required).</param>
-        /// <param name="fileTitle">Title of a default template.</param>
-        /// <param name="lastModified">Last modified date of a default template.</param>
-        /// <param name="fileSize">Filesize (in bytes) of a default template.</param>
-        /// <param name="viewUrl">View url of a default template.</param>
+        /// <param name="selectedFile">The copy stored in the portal that serves as the blank for this extension. A null means no custom blank has  been chosen and new documents start from the portal&#39;s built-in one; the other fields of the entry are then  empty as well..</param>
+        /// <param name="fileExtension">The extension the entry describes, in lower case with the leading dot. It is the value to send back when this  blank is replaced or reset. (required).</param>
+        /// <param name="fileTitle">The name the custom blank was copied under, useful for showing which document was chosen. Empty while the  built-in blank is in use..</param>
+        /// <param name="lastModified">When the custom blank was last changed, in the time zone of the portal. Null while the built-in blank is in  use..</param>
+        /// <param name="fileSize">The size of the custom blank in bytes. Null while the built-in blank is in use..</param>
+        /// <param name="viewUrl">The address the custom blank can be downloaded from, already carrying the access key of the calling account.  Empty while the built-in blank is in use..</param>
         public DefaultTemplateItemDto(int? selectedFile = default, string fileExtension = default, string fileTitle = default, DateTime? lastModified = default, long? fileSize = default, string viewUrl = default)
         {
             // to ensure "fileExtension" is required (not null)
@@ -68,44 +68,44 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// File id to use as a default template
+        /// The copy stored in the portal that serves as the blank for this extension. A null means no custom blank has  been chosen and new documents start from the portal&#39;s built-in one; the other fields of the entry are then  empty as well.
         /// </summary>
         /// <example>123</example>
         [DataMember(Name = "selectedFile", EmitDefaultValue = true)]
         public int? SelectedFile { get; set; }
 
         /// <summary>
-        /// Extension of a default template
+        /// The extension the entry describes, in lower case with the leading dot. It is the value to send back when this  blank is replaced or reset.
         /// </summary>
         /// <example>.docx</example>
         [DataMember(Name = "fileExtension", IsRequired = true, EmitDefaultValue = true)]
         public string FileExtension { get; set; }
 
         /// <summary>
-        /// Title of a default template
+        /// The name the custom blank was copied under, useful for showing which document was chosen. Empty while the  built-in blank is in use.
         /// </summary>
-        /// <example>Default Template</example>
+        /// <example>Company letter.docx</example>
         [DataMember(Name = "fileTitle", EmitDefaultValue = true)]
         public string FileTitle { get; set; }
 
         /// <summary>
-        /// Last modified date of a default template
+        /// When the custom blank was last changed, in the time zone of the portal. Null while the built-in blank is in  use.
         /// </summary>
-        /// <example>2025-01-01T00:00:00</example>
+        /// <example>2026-03-18T11:42:07</example>
         [DataMember(Name = "lastModified", EmitDefaultValue = true)]
         public DateTime? LastModified { get; set; }
 
         /// <summary>
-        /// Filesize (in bytes) of a default template
+        /// The size of the custom blank in bytes. Null while the built-in blank is in use.
         /// </summary>
         /// <example>1024</example>
         [DataMember(Name = "fileSize", EmitDefaultValue = true)]
         public long? FileSize { get; set; }
 
         /// <summary>
-        /// View url of a default template
+        /// The address the custom blank can be downloaded from, already carrying the access key of the calling account.  Empty while the built-in blank is in use.
         /// </summary>
-        /// <example>http://localhost/template/view</example>
+        /// <example>https://example.com/filehandler.ashx?action=download&amp;fileid=123</example>
         [DataMember(Name = "viewUrl", EmitDefaultValue = true)]
         public string ViewUrl { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// One audit trail action and what it does to what.
+    /// One audit trail action, with the kind of change it stands for and the kind of object it applies to.
     /// </summary>
     [DataContract(Name = "AuditTrailActionMapperDto")]
     public partial class AuditTrailActionMapperDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditTrailActionMapperDto" /> class.
         /// </summary>
-        /// <param name="messageAction">The audit event action name..</param>
-        /// <param name="actionType">The action type name..</param>
-        /// <param name="entity">The name of the entry type the action targets..</param>
+        /// <param name="messageAction">The action name to send as the &#x60;action&#x60; filter of &#x60;GET api/2.0/security/audit/events/filter&#x60;, and the value  that comes back as &#x60;actionId&#x60; on an event..</param>
+        /// <param name="actionType">The kind of change the action makes, accepted by the &#x60;actionType&#x60; filter of the same operation..</param>
+        /// <param name="entity">The kind of object the action applies to, accepted by the &#x60;entryType&#x60; filter. It is &#x60;None&#x60; for an action  that targets no object, such as a settings change, and an action with a second object type reports only the  first one here..</param>
         public AuditTrailActionMapperDto(string messageAction = default, string actionType = default, string entity = default)
         {
             this.MessageAction = messageAction;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The audit event action name.
+        /// The action name to send as the &#x60;action&#x60; filter of &#x60;GET api/2.0/security/audit/events/filter&#x60;, and the value  that comes back as &#x60;actionId&#x60; on an event.
         /// </summary>
         /// <example>FileCreated</example>
         [DataMember(Name = "messageAction", EmitDefaultValue = true)]
         public string MessageAction { get; set; }
 
         /// <summary>
-        /// The action type name.
+        /// The kind of change the action makes, accepted by the &#x60;actionType&#x60; filter of the same operation.
         /// </summary>
         /// <example>Create</example>
         [DataMember(Name = "actionType", EmitDefaultValue = true)]
         public string ActionType { get; set; }
 
         /// <summary>
-        /// The name of the entry type the action targets.
+        /// The kind of object the action applies to, accepted by the &#x60;entryType&#x60; filter. It is &#x60;None&#x60; for an action  that targets no object, such as a settings change, and an action with a second object type reports only the  first one here.
         /// </summary>
         /// <example>File</example>
         [DataMember(Name = "entity", EmitDefaultValue = true)]

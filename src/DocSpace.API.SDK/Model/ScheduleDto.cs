@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The backup schedule parameters.
+    /// The backup schedule of a portal.
     /// </summary>
     [DataContract(Name = "ScheduleDto")]
     public partial class ScheduleDto : IValidatableObject
     {
 
         /// <summary>
-        /// The backup storage type.
+        /// The storage the scheduled archives are written to, reported as a number rather than as the name the  schedule was created with.
         /// </summary>
         [DataMember(Name = "storageType", IsRequired = true, EmitDefaultValue = true)]
         public BackupStorageType StorageType { get; set; }
@@ -52,12 +52,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleDto" /> class.
         /// </summary>
-        /// <param name="storageType">The backup storage type. (required).</param>
-        /// <param name="storageParams">The backup storage parameters. (required).</param>
-        /// <param name="cronParams">The backup cron parameters. (required).</param>
-        /// <param name="backupsStored">The maximum number of the stored backup copies..</param>
-        /// <param name="lastBackupTime">The date and time when the last backup was reated. (required).</param>
-        /// <param name="dump">Specifies if a dump will be created or not. (required).</param>
+        /// <param name="storageType">The storage the scheduled archives are written to, reported as a number rather than as the name the  schedule was created with. (required).</param>
+        /// <param name="storageParams">The settings of the storage, as an object keyed by parameter name - not as the array of key and value  pairs the schedule was created with, so it cannot be sent back unchanged. For every storage type  except &#x60;ThirdPartyConsumer&#x60; the &#x60;folderId&#x60; key is built from the stored base path. (required).</param>
+        /// <param name="cronParams">When the backup runs, read back from the stored cron expression. &#x60;day&#x60; is 0 for a daily schedule,  because a daily one has no day. (required).</param>
+        /// <param name="backupsStored">The number of scheduled copies kept. It is null, not 0, when the schedule keeps an unlimited number..</param>
+        /// <param name="lastBackupTime">The date and time the schedule last ran at. It is &#x60;0001-01-01T00:00:00&#x60; until the schedule has run  for the first time. (required).</param>
+        /// <param name="dump">Specifies whether this schedule backs up the whole server instead of one portal. (required).</param>
         public ScheduleDto(BackupStorageType storageType = default, Dictionary<string, string> storageParams = default, CronParams cronParams = default, int? backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
         {
             this.StorageType = storageType;
@@ -79,34 +79,34 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The backup storage parameters.
+        /// The settings of the storage, as an object keyed by parameter name - not as the array of key and value  pairs the schedule was created with, so it cannot be sent back unchanged. For every storage type  except &#x60;ThirdPartyConsumer&#x60; the &#x60;folderId&#x60; key is built from the stored base path.
         /// </summary>
-        /// <example>{}</example>
+        /// <example>{"folderId":"1234"}</example>
         [DataMember(Name = "storageParams", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> StorageParams { get; set; }
 
         /// <summary>
-        /// The backup cron parameters.
+        /// When the backup runs, read back from the stored cron expression. &#x60;day&#x60; is 0 for a daily schedule,  because a daily one has no day.
         /// </summary>
         [DataMember(Name = "cronParams", IsRequired = true, EmitDefaultValue = true)]
         public CronParams CronParams { get; set; }
 
         /// <summary>
-        /// The maximum number of the stored backup copies.
+        /// The number of scheduled copies kept. It is null, not 0, when the schedule keeps an unlimited number.
         /// </summary>
         /// <example>5</example>
         [DataMember(Name = "backupsStored", EmitDefaultValue = true)]
         public int? BackupsStored { get; set; }
 
         /// <summary>
-        /// The date and time when the last backup was reated.
+        /// The date and time the schedule last ran at. It is &#x60;0001-01-01T00:00:00&#x60; until the schedule has run  for the first time.
         /// </summary>
         /// <example>2026-01-01T00:00:00Z</example>
         [DataMember(Name = "lastBackupTime", IsRequired = true, EmitDefaultValue = true)]
         public DateTime LastBackupTime { get; set; }
 
         /// <summary>
-        /// Specifies if a dump will be created or not.
+        /// Specifies whether this schedule backs up the whole server instead of one portal.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "dump", IsRequired = true, EmitDefaultValue = true)]

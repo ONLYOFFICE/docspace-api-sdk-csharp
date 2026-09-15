@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The quota information.
+    /// A quota - a plan, an add-on or a wallet service - with its price, the features it switches on and their limits.
     /// </summary>
     [DataContract(Name = "QuotaDto")]
     public partial class QuotaDto : IValidatableObject
@@ -46,18 +46,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuotaDto" /> class.
         /// </summary>
-        /// <param name="id">The quota ID. (required).</param>
-        /// <param name="title">The quota title..</param>
-        /// <param name="price">The price parameters. (required).</param>
-        /// <param name="nonProfit">Specifies if the quota is nonprofit or not. (required).</param>
-        /// <param name="free">Specifies if the quota is free or not. (required).</param>
-        /// <param name="trial">Specifies if the quota is trial or not. (required).</param>
-        /// <param name="features">The list of tenant quota features. (required).</param>
-        /// <param name="usersQuota">The user quota..</param>
-        /// <param name="roomsQuota">The room quota..</param>
-        /// <param name="aiAgentsQuota">The ai agent quota..</param>
-        /// <param name="tenantCustomQuota">The tenant custom quota..</param>
-        /// <param name="dueDate">The due date..</param>
+        /// <param name="id">The identifier of the quota, which is what the tariff reports as a quota &#x60;id&#x60; and what a purchase names.  A negative value belongs to a built-in quota rather than one on the price list. (required).</param>
+        /// <param name="title">The quota name in the portal language, for printing rather than matching. It is empty when this build  ships no wording for the quota, which is normal for a quota that is not on the public price list..</param>
+        /// <param name="price">What the quota costs, in the currency resolved for the request. Its &#x60;value&#x60; is empty for a quota that is  not sold for money, which is what &#x60;free&#x60;, &#x60;trial&#x60; and &#x60;nonProfit&#x60; describe. (required).</param>
+        /// <param name="nonProfit">Whether this is the non-profit quota, which is granted rather than bought. A portal on it cannot buy any  other plan, so a catalogue asked for plans returns this one alone. (required).</param>
+        /// <param name="free">Whether this is the free quota a portal falls back to when nothing is paid for. It has no end date and  the tightest limits of any quota. (required).</param>
+        /// <param name="trial">Whether this is the trial quota, which grants the paid limits for a while and then expires. A trial is not  extended by paying - a plan has to be bought instead. (required).</param>
+        /// <param name="features">The features the quota switches on, each with the limit it grants and, on the quota the portal is  actually on, how much of that limit is already used. A feature that is absent is off, so the list is the  whole truth about what the quota includes. (required).</param>
+        /// <param name="usersQuota">The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values, and it is empty unless the portal is a server installation or its plan includes  statistics..</param>
+        /// <param name="roomsQuota">The same kind of per-room storage override, filled in and read the same way as &#x60;usersQuota&#x60;..</param>
+        /// <param name="aiAgentsQuota">The same kind of per-agent storage override for AI agents, filled in and read the same way as  &#x60;usersQuota&#x60;..</param>
+        /// <param name="tenantCustomQuota">The storage allowance an administrator has set for the portal as a whole, which caps it below what the  quota grants. Filled in under the same conditions as &#x60;usersQuota&#x60;..</param>
+        /// <param name="dueDate">When the quota runs out, in UTC. It is empty on a quota from the catalogue, which has no date until it is  bought, and on a quota that never expires..</param>
         public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
         {
             this.Id = id;
@@ -85,79 +85,79 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The quota ID.
+        /// The identifier of the quota, which is what the tariff reports as a quota &#x60;id&#x60; and what a purchase names.  A negative value belongs to a built-in quota rather than one on the price list.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The quota title.
+        /// The quota name in the portal language, for printing rather than matching. It is empty when this build  ships no wording for the quota, which is normal for a quota that is not on the public price list.
         /// </summary>
         /// <example>Basic Plan</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The price parameters.
+        /// What the quota costs, in the currency resolved for the request. Its &#x60;value&#x60; is empty for a quota that is  not sold for money, which is what &#x60;free&#x60;, &#x60;trial&#x60; and &#x60;nonProfit&#x60; describe.
         /// </summary>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
         public PriceDto Price { get; set; }
 
         /// <summary>
-        /// Specifies if the quota is nonprofit or not.
+        /// Whether this is the non-profit quota, which is granted rather than bought. A portal on it cannot buy any  other plan, so a catalogue asked for plans returns this one alone.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "nonProfit", IsRequired = true, EmitDefaultValue = true)]
         public bool NonProfit { get; set; }
 
         /// <summary>
-        /// Specifies if the quota is free or not.
+        /// Whether this is the free quota a portal falls back to when nothing is paid for. It has no end date and  the tightest limits of any quota.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "free", IsRequired = true, EmitDefaultValue = true)]
         public bool Free { get; set; }
 
         /// <summary>
-        /// Specifies if the quota is trial or not.
+        /// Whether this is the trial quota, which grants the paid limits for a while and then expires. A trial is not  extended by paying - a plan has to be bought instead.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "trial", IsRequired = true, EmitDefaultValue = true)]
         public bool Trial { get; set; }
 
         /// <summary>
-        /// The list of tenant quota features.
+        /// The features the quota switches on, each with the limit it grants and, on the quota the portal is  actually on, how much of that limit is already used. A feature that is absent is off, so the list is the  whole truth about what the quota includes.
         /// </summary>
         /// <example>[{"id":"00000000-0000-0000-0000-000000000001","title":"Premium Storage"}]</example>
         [DataMember(Name = "features", IsRequired = true, EmitDefaultValue = true)]
         public List<TenantQuotaFeatureDto> Features { get; set; }
 
         /// <summary>
-        /// The user quota.
+        /// The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values, and it is empty unless the portal is a server installation or its plan includes  statistics.
         /// </summary>
         [DataMember(Name = "usersQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings UsersQuota { get; set; }
 
         /// <summary>
-        /// The room quota.
+        /// The same kind of per-room storage override, filled in and read the same way as &#x60;usersQuota&#x60;.
         /// </summary>
         [DataMember(Name = "roomsQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings RoomsQuota { get; set; }
 
         /// <summary>
-        /// The ai agent quota.
+        /// The same kind of per-agent storage override for AI agents, filled in and read the same way as  &#x60;usersQuota&#x60;.
         /// </summary>
         [DataMember(Name = "aiAgentsQuota", EmitDefaultValue = false)]
         public TenantEntityQuotaSettings AiAgentsQuota { get; set; }
 
         /// <summary>
-        /// The tenant custom quota.
+        /// The storage allowance an administrator has set for the portal as a whole, which caps it below what the  quota grants. Filled in under the same conditions as &#x60;usersQuota&#x60;.
         /// </summary>
         [DataMember(Name = "tenantCustomQuota", EmitDefaultValue = false)]
         public TenantQuotaSettings TenantCustomQuota { get; set; }
 
         /// <summary>
-        /// The due date.
+        /// When the quota runs out, in UTC. It is empty on a quota from the catalogue, which has no date until it is  bought, and on a quota that never expires.
         /// </summary>
         /// <example>2024-01-15T10:30:00Z</example>
         [DataMember(Name = "dueDate", EmitDefaultValue = true)]

@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditTrailProductMapperDto" /> class.
         /// </summary>
-        /// <param name="productType">The product name..</param>
-        /// <param name="modules">The modules of the product..</param>
+        /// <param name="productType">The product this branch of the tree belongs to, as the &#x60;productType&#x60; filter of this operation spells it and  as &#x60;GET api/2.0/security/audit/types&#x60; lists it under &#x60;productTypes&#x60;..</param>
+        /// <param name="modules">The locations inside the product. It is empty when &#x60;moduleType&#x60; was passed and this product has no module  of that name, which is why a product can come back with nothing under it..</param>
         public AuditTrailProductMapperDto(string productType = default, List<AuditTrailModuleMapperDto> modules = default)
         {
             this.ProductType = productType;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The product name.
+        /// The product this branch of the tree belongs to, as the &#x60;productType&#x60; filter of this operation spells it and  as &#x60;GET api/2.0/security/audit/types&#x60; lists it under &#x60;productTypes&#x60;.
         /// </summary>
         /// <example>Documents</example>
         [DataMember(Name = "productType", EmitDefaultValue = true)]
         public string ProductType { get; set; }
 
         /// <summary>
-        /// The modules of the product.
+        /// The locations inside the product. It is empty when &#x60;moduleType&#x60; was passed and this product has no module  of that name, which is why a product can come back with nothing under it.
         /// </summary>
         [DataMember(Name = "modules", EmitDefaultValue = true)]
         public List<AuditTrailModuleMapperDto> Modules { get; set; }

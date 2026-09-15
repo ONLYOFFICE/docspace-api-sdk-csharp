@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for specifying payment quantity.
+    /// The new size of the portal subscription.
     /// </summary>
     [DataContract(Name = "QuantityRequestDto")]
     public partial class QuantityRequestDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantityRequestDto" /> class.
         /// </summary>
-        /// <param name="quantity">The mapping of item identifiers to their respective quantities in the payment. (required).</param>
+        /// <param name="quantity">The plan and the number of units it is to cover, as a single pair. While the portal is on a priced plan the  key has to be the &#x60;name&#x60; of that same plan, which &#x60;GET api/2.0/portal/payment/quota&#x60; reports, because the  subscription is resized rather than swapped; the value is the total the subscription is to have afterwards,  not the difference. Exactly one pair is accepted, and a value that is already in effect is refused with 400. (required).</param>
         public QuantityRequestDto(Dictionary<string, int> quantity = default)
         {
             // to ensure "quantity" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The mapping of item identifiers to their respective quantities in the payment.
+        /// The plan and the number of units it is to cover, as a single pair. While the portal is on a priced plan the  key has to be the &#x60;name&#x60; of that same plan, which &#x60;GET api/2.0/portal/payment/quota&#x60; reports, because the  subscription is resized rather than swapped; the value is the total the subscription is to have afterwards,  not the difference. Exactly one pair is accepted, and a value that is already in effect is refused with 400.
         /// </summary>
         /// <example>{"admin":1}</example>
         [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]

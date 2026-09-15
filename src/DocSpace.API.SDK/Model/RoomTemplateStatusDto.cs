@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room template status.
+    /// The progress of the job that builds a room template out of an existing room.
     /// </summary>
     [DataContract(Name = "RoomTemplateStatusDto")]
     public partial class RoomTemplateStatusDto : IValidatableObject
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomTemplateStatusDto" /> class.
         /// </summary>
-        /// <param name="templateId">The room template ID. (required).</param>
-        /// <param name="progress">The progress of the room template creation process. (required).</param>
-        /// <param name="error">The error message that is sent when the room template is not created successfully..</param>
-        /// <param name="isCompleted">Specifies whether the process of creating the room template is completed. (required).</param>
+        /// <param name="templateId">The template the job is building. It is meaningful once the job has created the template folder, and the  template can be opened with the room operations only after &#x60;isCompleted&#x60; turns true. (required).</param>
+        /// <param name="progress">How far the job has got. The value climbs while the contents of the room are being copied and reaches its  maximum at the very end, so it is an indication of life rather than a reliable estimate of the time left. (required).</param>
+        /// <param name="error">Why the job stopped. It is empty while the job runs and after a successful one; when it is filled the  half-built template has already been removed, so nothing has to be cleaned up by the caller..</param>
+        /// <param name="isCompleted">Whether the job has ended. It is set both after a successful build and after a failure, so &#x60;error&#x60; is what  tells the two apart, and the record keeps answering with the same values until another job is started. (required).</param>
         public RoomTemplateStatusDto(int templateId = default, double progress = default, string error = default, bool isCompleted = default)
         {
             this.TemplateId = templateId;
@@ -59,28 +59,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The room template ID.
+        /// The template the job is building. It is meaningful once the job has created the template folder, and the  template can be opened with the room operations only after &#x60;isCompleted&#x60; turns true.
         /// </summary>
         /// <example>123</example>
         [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
         public int TemplateId { get; set; }
 
         /// <summary>
-        /// The progress of the room template creation process.
+        /// How far the job has got. The value climbs while the contents of the room are being copied and reaches its  maximum at the very end, so it is an indication of life rather than a reliable estimate of the time left.
         /// </summary>
         /// <example>75.5</example>
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public double Progress { get; set; }
 
         /// <summary>
-        /// The error message that is sent when the room template is not created successfully.
+        /// Why the job stopped. It is empty while the job runs and after a successful one; when it is filled the  half-built template has already been removed, so nothing has to be cleaned up by the caller.
         /// </summary>
         /// <example>Template creation failed</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// Specifies whether the process of creating the room template is completed.
+        /// Whether the job has ended. It is set both after a successful build and after a failure, so &#x60;error&#x60; is what  tells the two apart, and the record keeps answering with the same values until another job is started.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]

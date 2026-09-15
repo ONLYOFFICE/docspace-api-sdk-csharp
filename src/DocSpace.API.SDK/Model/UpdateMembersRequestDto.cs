@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateMembersRequestDto" /> class.
         /// </summary>
-        /// <param name="userIds">The list of user IDs..</param>
-        /// <param name="resendAll">Specifies whether to resend invitation letters to all the users or not..</param>
+        /// <param name="userIds">The accounts the operation applies to. System accounts are dropped from the list without an error, and the  remaining ones are processed in the order they are given..</param>
+        /// <param name="resendAll">Reaches every pending account of the portal instead of the ones in &#x60;userIds&#x60;. It is read only by  &#x60;PUT api/2.0/people/invite&#x60; and is ignored by every other operation that binds this body..</param>
         public UpdateMembersRequestDto(List<Guid> userIds = default, bool resendAll = default)
         {
             this.UserIds = userIds;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of user IDs.
+        /// The accounts the operation applies to. System accounts are dropped from the list without an error, and the  remaining ones are processed in the order they are given.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         [DataMember(Name = "userIds", EmitDefaultValue = true)]
         public List<Guid> UserIds { get; set; }
 
         /// <summary>
-        /// Specifies whether to resend invitation letters to all the users or not.
+        /// Reaches every pending account of the portal instead of the ones in &#x60;userIds&#x60;. It is read only by  &#x60;PUT api/2.0/people/invite&#x60; and is ignored by every other operation that binds this body.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "resendAll", EmitDefaultValue = true)]

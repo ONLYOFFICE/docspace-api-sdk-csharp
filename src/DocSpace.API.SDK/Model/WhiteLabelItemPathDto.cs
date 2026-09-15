@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The white label item path parameters.
+    /// The image URLs of one logo slot, per interface theme.
     /// </summary>
     [DataContract(Name = "WhiteLabelItemPathDto")]
     public partial class WhiteLabelItemPathDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WhiteLabelItemPathDto" /> class.
         /// </summary>
-        /// <param name="light">The path to the light theme logo..</param>
-        /// <param name="dark">The path to the dark theme logo..</param>
+        /// <param name="light">The absolute URL of the image to render on a light background. It is filled in unless the request asked  for the dark theme alone with &#x60;isDark&#x3D;true&#x60;, in which case only &#x60;dark&#x60; comes back..</param>
+        /// <param name="dark">The absolute URL of the image to render on a dark background. When both themes are asked for it comes back  empty for a slot that has no separate dark image, meaning the light one is to be used for both; when  &#x60;isDark&#x3D;false&#x60; was passed it is left out entirely..</param>
         public WhiteLabelItemPathDto(string light = default, string dark = default)
         {
             this.Light = light;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The path to the light theme logo.
+        /// The absolute URL of the image to render on a light background. It is filled in unless the request asked  for the dark theme alone with &#x60;isDark&#x3D;true&#x60;, in which case only &#x60;dark&#x60; comes back.
         /// </summary>
         /// <example>/images/logo-light.png</example>
         [DataMember(Name = "light", EmitDefaultValue = true)]
         public string Light { get; set; }
 
         /// <summary>
-        /// The path to the dark theme logo.
+        /// The absolute URL of the image to render on a dark background. When both themes are asked for it comes back  empty for a slot that has no separate dark image, meaning the light one is to be used for both; when  &#x60;isDark&#x3D;false&#x60; was passed it is left out entirely.
         /// </summary>
         /// <example>/images/logo-dark.png</example>
         [DataMember(Name = "dark", EmitDefaultValue = true)]

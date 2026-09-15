@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateApiKeyRequestDto" /> class.
         /// </summary>
-        /// <param name="name">The API key name. (required).</param>
-        /// <param name="permissions">The list of permissions granted to the API key..</param>
-        /// <param name="expiresInDays">The number of days until the API key expires (null for no expiration)..</param>
+        /// <param name="name">The label that tells this key apart in the key list. It is required, may be up to 30 characters long, and does  not have to be unique. (required).</param>
+        /// <param name="permissions">The scopes the key may use. Every value has to come from &#x60;GET api/2.0/keys/permissions&#x60;, an unknown value or  an empty array is rejected, and passing &#x60;*&#x60; or omitting the field records a key without scope restrictions..</param>
+        /// <param name="expiresInDays">The lifetime of the key in days, counted from the moment it is created, from 1 to 365. Omit it to create a key  that never expires..</param>
         public CreateApiKeyRequestDto(string name = default, List<string> permissions = default, int? expiresInDays = default)
         {
             // to ensure "name" is required (not null)
@@ -62,21 +62,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The API key name.
+        /// The label that tells this key apart in the key list. It is required, may be up to 30 characters long, and does  not have to be unique.
         /// </summary>
         /// <example>My API Key</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The list of permissions granted to the API key.
+        /// The scopes the key may use. Every value has to come from &#x60;GET api/2.0/keys/permissions&#x60;, an unknown value or  an empty array is rejected, and passing &#x60;*&#x60; or omitting the field records a key without scope restrictions.
         /// </summary>
-        /// <example>["read","write"]</example>
+        /// <example>["rooms:read","files:write"]</example>
         [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
-        /// The number of days until the API key expires (null for no expiration).
+        /// The lifetime of the key in days, counted from the moment it is created, from 1 to 365. Omit it to create a key  that never expires.
         /// </summary>
         /// <example>30</example>
         [DataMember(Name = "expiresInDays", EmitDefaultValue = true)]

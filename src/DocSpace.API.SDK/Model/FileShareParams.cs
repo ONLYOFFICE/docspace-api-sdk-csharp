@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The collection of file sharing parameters.
+    /// One sharing entry: an account, a group or an email address, and the access level it is given.
     /// </summary>
     [DataContract(Name = "FileShareParams")]
     public partial class FileShareParams : EmailInvitationDto, IValidatableObject
     {
 
         /// <summary>
-        /// The sharing access rights.
+        /// What the subject may do with the shared item. The value 0 takes the access away again, and which of the other  levels are accepted depends on what is being shared.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
@@ -47,8 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileShareParams" /> class.
         /// </summary>
-        /// <param name="shareTo">The ID of the user to whom the file will be shared..</param>
-        /// <param name="access">The sharing access rights..</param>
+        /// <param name="shareTo">The account or the group the entry is about, taken from the portal people and group listings. Leave it out and  give an email address instead to share with somebody who has no account yet..</param>
+        /// <param name="access">What the subject may do with the shared item. The value 0 takes the access away again, and which of the other  levels are accepted depends on what is being shared..</param>
         public FileShareParams(Guid shareTo = default, FileShare? access = default)
         {
             this.ShareTo = shareTo;
@@ -56,9 +56,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ID of the user to whom the file will be shared.
+        /// The account or the group the entry is about, taken from the portal people and group listings. Leave it out and  give an email address instead to share with somebody who has no account yet.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>e9a7b4c1-2d3f-4a56-8b90-1c2d3e4f5a6b</example>
         [DataMember(Name = "shareTo", EmitDefaultValue = false)]
         public Guid ShareTo { get; set; }
 

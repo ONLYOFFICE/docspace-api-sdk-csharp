@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The Firebase-related request parameters.
+    /// Which mobile device receives the Documents push notifications, and whether it is subscribed.
     /// </summary>
     [DataContract(Name = "FirebaseRequestsDto")]
     public partial class FirebaseRequestsDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FirebaseRequestsDto" /> class.
         /// </summary>
-        /// <param name="firebaseDeviceToken">The Firebase device token..</param>
-        /// <param name="isSubscribed">Specifies whether the user is subscribed to the push notifications or not..</param>
+        /// <param name="firebaseDeviceToken">The registration token Firebase issued to the mobile client for this device, obtained on the device itself.  It is kept as an opaque string of up to 255 characters and is never verified here; it identifies the device  and is matched but never changed, and a token belonging to another member or another portal matches nothing..</param>
+        /// <param name="isSubscribed">Whether the device is to receive the room activity messages - an invitation, a role change, an archived room,  a new document. On a first registration it is stored as given; on a registration that already exists it is  ignored, because registering does not update, and the subscription is changed with  &#x60;PUT api/2.0/settings/push/docsubscribe&#x60; instead..</param>
         public FirebaseRequestsDto(string firebaseDeviceToken = default, bool isSubscribed = default)
         {
             this.FirebaseDeviceToken = firebaseDeviceToken;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The Firebase device token.
+        /// The registration token Firebase issued to the mobile client for this device, obtained on the device itself.  It is kept as an opaque string of up to 255 characters and is never verified here; it identifies the device  and is matched but never changed, and a token belonging to another member or another portal matches nothing.
         /// </summary>
         /// <example>dGhpc2lzYXRva2Vu...</example>
         [DataMember(Name = "firebaseDeviceToken", EmitDefaultValue = true)]
         public string FirebaseDeviceToken { get; set; }
 
         /// <summary>
-        /// Specifies whether the user is subscribed to the push notifications or not.
+        /// Whether the device is to receive the room activity messages - an invitation, a role change, an archived room,  a new document. On a first registration it is stored as given; on a registration that already exists it is  ignored, because registering does not update, and the subscription is changed with  &#x60;PUT api/2.0/settings/push/docsubscribe&#x60; instead.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isSubscribed", EmitDefaultValue = true)]

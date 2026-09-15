@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The webhook configuration with its status.
+    /// A webhook subscription together with how its last delivery ended.
     /// </summary>
     [DataContract(Name = "WebhooksConfigWithStatusDto")]
     public partial class WebhooksConfigWithStatusDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhooksConfigWithStatusDto" /> class.
         /// </summary>
-        /// <param name="configs">The webhook configuration..</param>
-        /// <param name="status">The webhook status..</param>
+        /// <param name="configs">The subscription itself. Despite the plural name it is one subscription, not a list..</param>
+        /// <param name="status">The HTTP status code the target answered on the last attempt. &#x60;0&#x60; means nothing has been delivered yet,  which is not the same as a failure..</param>
         public WebhooksConfigWithStatusDto(WebhooksConfigDto configs = default, int status = default)
         {
             this.Configs = configs;
@@ -50,15 +50,15 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The webhook configuration.
+        /// The subscription itself. Despite the plural name it is one subscription, not a list.
         /// </summary>
         [DataMember(Name = "configs", EmitDefaultValue = false)]
         public WebhooksConfigDto Configs { get; set; }
 
         /// <summary>
-        /// The webhook status.
+        /// The HTTP status code the target answered on the last attempt. &#x60;0&#x60; means nothing has been delivered yet,  which is not the same as a failure.
         /// </summary>
-        /// <example>1</example>
+        /// <example>200</example>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 

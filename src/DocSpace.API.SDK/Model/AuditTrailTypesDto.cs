@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The names of every audit trail type, one array per dimension of an audit event.
+    /// The vocabularies the audit and login-history filters accept, one array of names per dimension of an event.
     /// </summary>
     [DataContract(Name = "AuditTrailTypesDto")]
     public partial class AuditTrailTypesDto : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditTrailTypesDto" /> class.
         /// </summary>
-        /// <param name="actions">The names of the audit event actions..</param>
-        /// <param name="actionTypes">The names of the audit event action types..</param>
-        /// <param name="productTypes">The names of the products an audit event can belong to..</param>
-        /// <param name="moduleTypes">The names of the modules an audit event can belong to..</param>
-        /// <param name="entryTypes">The names of the entry types an audit event can target..</param>
+        /// <param name="actions">Every action name the build can record, spelled as the &#x60;action&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; and &#x60;GET api/2.0/security/audit/login/filter&#x60; expects it. It is  the whole vocabulary, not the actions this portal has recorded, and only a handful of the names are the  sign-in actions the login filter accepts..</param>
+        /// <param name="actionTypes">The kinds of change an action can stand for, spelled as the &#x60;actionType&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; expects it..</param>
+        /// <param name="productTypes">The products an action can belong to, spelled as the &#x60;productType&#x60; filter of  &#x60;GET api/2.0/security/audit/mappers&#x60; expects it. The audit trail itself cannot be filtered by product..</param>
+        /// <param name="moduleTypes">The locations inside those products, spelled as the &#x60;moduleType&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; and &#x60;GET api/2.0/security/audit/mappers&#x60; expects it..</param>
+        /// <param name="entryTypes">The kinds of object an action can be applied to, spelled as the &#x60;entryType&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; expects it..</param>
         public AuditTrailTypesDto(List<string> actions = default, List<string> actionTypes = default, List<string> productTypes = default, List<string> moduleTypes = default, List<string> entryTypes = default)
         {
             this.Actions = actions;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The names of the audit event actions.
+        /// Every action name the build can record, spelled as the &#x60;action&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; and &#x60;GET api/2.0/security/audit/login/filter&#x60; expects it. It is  the whole vocabulary, not the actions this portal has recorded, and only a handful of the names are the  sign-in actions the login filter accepts.
         /// </summary>
         /// <example>["FileCreated"]</example>
         [DataMember(Name = "actions", EmitDefaultValue = true)]
         public List<string> Actions { get; set; }
 
         /// <summary>
-        /// The names of the audit event action types.
+        /// The kinds of change an action can stand for, spelled as the &#x60;actionType&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; expects it.
         /// </summary>
         /// <example>["Create"]</example>
         [DataMember(Name = "actionTypes", EmitDefaultValue = true)]
         public List<string> ActionTypes { get; set; }
 
         /// <summary>
-        /// The names of the products an audit event can belong to.
+        /// The products an action can belong to, spelled as the &#x60;productType&#x60; filter of  &#x60;GET api/2.0/security/audit/mappers&#x60; expects it. The audit trail itself cannot be filtered by product.
         /// </summary>
         /// <example>["Documents"]</example>
         [DataMember(Name = "productTypes", EmitDefaultValue = true)]
         public List<string> ProductTypes { get; set; }
 
         /// <summary>
-        /// The names of the modules an audit event can belong to.
+        /// The locations inside those products, spelled as the &#x60;moduleType&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; and &#x60;GET api/2.0/security/audit/mappers&#x60; expects it.
         /// </summary>
         /// <example>["Files"]</example>
         [DataMember(Name = "moduleTypes", EmitDefaultValue = true)]
         public List<string> ModuleTypes { get; set; }
 
         /// <summary>
-        /// The names of the entry types an audit event can target.
+        /// The kinds of object an action can be applied to, spelled as the &#x60;entryType&#x60; filter of  &#x60;GET api/2.0/security/audit/events/filter&#x60; expects it.
         /// </summary>
         /// <example>["File"]</example>
         [DataMember(Name = "entryTypes", EmitDefaultValue = true)]

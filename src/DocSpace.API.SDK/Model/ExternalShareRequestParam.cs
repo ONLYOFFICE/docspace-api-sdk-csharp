@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The external data parameters.
+    /// The password that unlocks a protected external share link.
     /// </summary>
     [DataContract(Name = "ExternalShareRequestParam")]
     public partial class ExternalShareRequestParam : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalShareRequestParam" /> class.
         /// </summary>
-        /// <param name="password">The password to share external data..</param>
+        /// <param name="password">The password chosen by the member who shared the entry, spelled exactly as they typed it. It is compared  against the stored value and never returned back; a mismatch is reported through the answer&#39;s status instead  of an error..</param>
         public ExternalShareRequestParam(string password = default)
         {
             this.Password = password;
         }
 
         /// <summary>
-        /// The password to share external data.
+        /// The password chosen by the member who shared the entry, spelled exactly as they typed it. It is compared  against the stored value and never returned back; a mismatch is reported through the answer&#39;s status instead  of an error.
         /// </summary>
         /// <example>p@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]

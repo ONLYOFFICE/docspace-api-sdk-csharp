@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The information about the file editing history author.
+    /// The person a saved revision of a file, or one single change in it, is attributed to.
     /// </summary>
     [DataContract(Name = "EditHistoryAuthor")]
     public partial class EditHistoryAuthor : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EditHistoryAuthor" /> class.
         /// </summary>
-        /// <param name="id">The author ID. (required).</param>
-        /// <param name="name">The author name..</param>
+        /// <param name="id">The account the revision or the change is attributed to, as the editing service stored it. It is normally the  identifier of a portal account; the empty identifier stands for a change nobody could be named for. (required).</param>
+        /// <param name="name">The display name of that account as the portal spells it now, which need not be the name that was stored with  the revision. An account that cannot be resolved - one removed from the portal, or a change made through an  anonymous link - is reported as a guest..</param>
         public EditHistoryAuthor(string id = default, string name = default)
         {
             // to ensure "id" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The author ID.
+        /// The account the revision or the change is attributed to, as the editing service stored it. It is normally the  identifier of a portal account; the empty identifier stands for a change nobody could be named for.
         /// </summary>
-        /// <example>author_123</example>
+        /// <example>9924256b-447c-4f19-9dbd-8ad8c39e8ff5</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The author name.
+        /// The display name of that account as the portal spells it now, which need not be the name that was stored with  the revision. An account that cannot be resolved - one removed from the portal, or a change made through an  anonymous link - is reported as a guest.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]

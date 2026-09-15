@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the user storage quota configurations.
+    /// The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced.
     /// </summary>
     [DataContract(Name = "QuotaSettingsRequestsDto")]
     public partial class QuotaSettingsRequestsDto : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuotaSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="enableQuota">Specifies whether the storage quota restrictions are enabled..</param>
+        /// <param name="enableQuota">Whether the limit is enforced at all. While it is false the size is ignored and nothing created afterwards  carries a limit; objects that already have one keep it either way..</param>
         /// <param name="defaultQuota">defaultQuota (required).</param>
         public QuotaSettingsRequestsDto(bool enableQuota = default, QuotaSettingsRequestsDtoDefaultQuota defaultQuota = default)
         {
@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether the storage quota restrictions are enabled.
+        /// Whether the limit is enforced at all. While it is false the size is ignored and nothing created afterwards  carries a limit; objects that already have one keep it either way.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enableQuota", EmitDefaultValue = true)]

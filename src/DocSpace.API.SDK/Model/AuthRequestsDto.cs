@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters required for the user authentication requests.
+    /// The credentials a sign-in is attempted with: a portal password, a confirmation key, or a third-party account.
     /// </summary>
     [DataContract(Name = "AuthRequestsDto")]
     public partial class AuthRequestsDto : IValidatableObject
     {
 
         /// <summary>
-        /// The type of CAPTCHA validation used.
+        /// Which CAPTCHA service the proof in &#x60;recaptchaResponse&#x60; came from. It has to match the service the  installation is configured with, which &#x60;GET api/2.0/settings&#x60; publishes together with the site key.
         /// </summary>
         [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
         public RecaptchaType? RecaptchaType { get; set; }
@@ -47,18 +47,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthRequestsDto" /> class.
         /// </summary>
-        /// <param name="userName">The username or email used for authentication..</param>
-        /// <param name="password">The password in plain text for user authentication..</param>
-        /// <param name="passwordHash">The hashed password for secure verification..</param>
-        /// <param name="provider">The type of authentication provider (e.g., internal, Google, Azure)..</param>
-        /// <param name="accessToken">The access token used for authentication with external providers..</param>
-        /// <param name="serializedProfile">The serialized user profile data, if applicable..</param>
-        /// <param name="codeOAuth">The authorization code used for obtaining OAuth tokens..</param>
-        /// <param name="session">Specifies whether the authentication is session-based..</param>
-        /// <param name="confirmData">The additional confirmation data required for authentication..</param>
-        /// <param name="recaptchaType">The type of CAPTCHA validation used..</param>
-        /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
-        /// <param name="culture">The culture code for localization during authentication..</param>
+        /// <param name="userName">The account signing in, given as its email address or its portal user name. It is required for a password  sign-in and ignored when the credentials are a confirmation key or a third-party account..</param>
+        /// <param name="password">The password in the clear. Send either this or &#x60;passwordHash&#x60;, never both; hashing it in the client with the  parameters from &#x60;GET api/2.0/settings?withpassword&#x3D;true&#x60; and sending &#x60;passwordHash&#x60; instead keeps the plain  password off the wire..</param>
+        /// <param name="passwordHash">The password already hashed in the client. It has to be produced with the &#x60;salt&#x60;, iteration count and hash  size that &#x60;GET api/2.0/settings?withpassword&#x3D;true&#x60; publishes, or the portal cannot recognise it; a value sent  here takes the place of &#x60;password&#x60;..</param>
+        /// <param name="provider">The third-party identity provider the account is being signed in through, by its internal key such as  &#x60;google&#x60; or &#x60;linkedin&#x60;. Sending it switches the call to a third-party sign-in, which needs &#x60;accessToken&#x60; or  &#x60;serializedProfile&#x60; and is only allowed on a self-hosted installation or a tariff that includes third-party  sign-in..</param>
+        /// <param name="accessToken">The access token the provider named in &#x60;provider&#x60; issued for the account, passed on unchanged for the portal  to verify with that provider. The portal then matches the address it gets back against its own accounts, so a  valid token for an address unknown here is answered as no such user..</param>
+        /// <param name="serializedProfile">The third-party profile already fetched and serialised by the caller, as an alternative to &#x60;accessToken&#x60; for  a provider whose profile the client holds. It identifies the account by the address it carries..</param>
+        /// <param name="codeOAuth">The OAuth authorization code obtained from the provider, for a flow that has not been exchanged for an access  token yet. It is recorded with the sign-in rather than replacing &#x60;accessToken&#x60;..</param>
+        /// <param name="session">Whether the issued token is tied to the browser session. When it is, the answer carries no &#x60;expires&#x60; and the  token dies with the session; otherwise it lives for the portal session lifetime..</param>
+        /// <param name="confirmData">The confirmation link data, as a third way to identify the account beside a password and a third-party  account. Send it when the sign-in comes from a link the portal mailed, in which case &#x60;userName&#x60; and the  password fields are not read..</param>
+        /// <param name="recaptchaType">Which CAPTCHA service the proof in &#x60;recaptchaResponse&#x60; came from. It has to match the service the  installation is configured with, which &#x60;GET api/2.0/settings&#x60; publishes together with the site key..</param>
+        /// <param name="recaptchaResponse">The token the CAPTCHA widget produced in the browser, passed on unchanged for the portal to verify. It is  only demanded once repeated failures have made the portal ask for a challenge, and it is single-use, so a  retry needs a freshly solved one..</param>
+        /// <param name="culture">The language the sign-in messages and any letter that follows are written in, as a culture name such as  &#x60;en-US&#x60;. A culture the installation does not have falls back to the portal language..</param>
         public AuthRequestsDto(string userName = default, string password = default, string passwordHash = default, string provider = default, string accessToken = default, string serializedProfile = default, string codeOAuth = default, bool session = default, ConfirmData confirmData = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default, string culture = default)
         {
             this.UserName = userName;
@@ -76,76 +76,76 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The username or email used for authentication.
+        /// The account signing in, given as its email address or its portal user name. It is required for a password  sign-in and ignored when the credentials are a confirmation key or a third-party account.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
-        /// The password in plain text for user authentication.
+        /// The password in the clear. Send either this or &#x60;passwordHash&#x60;, never both; hashing it in the client with the  parameters from &#x60;GET api/2.0/settings?withpassword&#x3D;true&#x60; and sending &#x60;passwordHash&#x60; instead keeps the plain  password off the wire.
         /// </summary>
         /// <example>SecurePassword123!</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// The hashed password for secure verification.
+        /// The password already hashed in the client. It has to be produced with the &#x60;salt&#x60;, iteration count and hash  size that &#x60;GET api/2.0/settings?withpassword&#x3D;true&#x60; publishes, or the portal cannot recognise it; a value sent  here takes the place of &#x60;password&#x60;.
         /// </summary>
         /// <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 
         /// <summary>
-        /// The type of authentication provider (e.g., internal, Google, Azure).
+        /// The third-party identity provider the account is being signed in through, by its internal key such as  &#x60;google&#x60; or &#x60;linkedin&#x60;. Sending it switches the call to a third-party sign-in, which needs &#x60;accessToken&#x60; or  &#x60;serializedProfile&#x60; and is only allowed on a self-hosted installation or a tariff that includes third-party  sign-in.
         /// </summary>
         /// <example>google</example>
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
-        /// The access token used for authentication with external providers.
+        /// The access token the provider named in &#x60;provider&#x60; issued for the account, passed on unchanged for the portal  to verify with that provider. The portal then matches the address it gets back against its own accounts, so a  valid token for an address unknown here is answered as no such user.
         /// </summary>
         /// <example>ya29.a0AfH6SMBx...</example>
         [DataMember(Name = "accessToken", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// The serialized user profile data, if applicable.
+        /// The third-party profile already fetched and serialised by the caller, as an alternative to &#x60;accessToken&#x60; for  a provider whose profile the client holds. It identifies the account by the address it carries.
         /// </summary>
         /// <example>{"name":"John Doe","email":"john@example.com"}</example>
         [DataMember(Name = "serializedProfile", EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 
         /// <summary>
-        /// The authorization code used for obtaining OAuth tokens.
+        /// The OAuth authorization code obtained from the provider, for a flow that has not been exchanged for an access  token yet. It is recorded with the sign-in rather than replacing &#x60;accessToken&#x60;.
         /// </summary>
         /// <example>4/0AY0e-g7...</example>
         [DataMember(Name = "codeOAuth", EmitDefaultValue = true)]
         public string CodeOAuth { get; set; }
 
         /// <summary>
-        /// Specifies whether the authentication is session-based.
+        /// Whether the issued token is tied to the browser session. When it is, the answer carries no &#x60;expires&#x60; and the  token dies with the session; otherwise it lives for the portal session lifetime.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "session", EmitDefaultValue = true)]
         public bool Session { get; set; }
 
         /// <summary>
-        /// The additional confirmation data required for authentication.
+        /// The confirmation link data, as a third way to identify the account beside a password and a third-party  account. Send it when the sign-in comes from a link the portal mailed, in which case &#x60;userName&#x60; and the  password fields are not read.
         /// </summary>
         [DataMember(Name = "confirmData", EmitDefaultValue = false)]
         public ConfirmData ConfirmData { get; set; }
 
         /// <summary>
-        /// The user&#39;s response to the CAPTCHA challenge.
+        /// The token the CAPTCHA widget produced in the browser, passed on unchanged for the portal to verify. It is  only demanded once repeated failures have made the portal ask for a challenge, and it is single-use, so a  retry needs a freshly solved one.
         /// </summary>
         /// <example>03AGdBq25...</example>
         [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
         public string RecaptchaResponse { get; set; }
 
         /// <summary>
-        /// The culture code for localization during authentication.
+        /// The language the sign-in messages and any letter that follows are written in, as a culture name such as  &#x60;en-US&#x60;. A culture the installation does not have falls back to the portal language.
         /// </summary>
         /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]

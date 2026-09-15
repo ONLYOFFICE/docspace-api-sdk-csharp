@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for creating a room group
+    /// The name, the icon and the rooms of a room group to create.
     /// </summary>
     [DataContract(Name = "RoomGroupRequestDto")]
     public partial class RoomGroupRequestDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomGroupRequestDto" /> class.
         /// </summary>
-        /// <param name="name">Group name (required).</param>
-        /// <param name="icon">Group icon (required).</param>
-        /// <param name="rooms">The list of room IDs. (required).</param>
+        /// <param name="name">The name to show the group under. Surrounding spaces are trimmed before it is stored, a name that is blank  once trimmed is refused, and the name does not have to differ from the names of the caller&#39;s other groups. (required).</param>
+        /// <param name="icon">The icon of the group, given as the identifier of one of the built-in covers listed by  &#x60;GET api/2.0/files/rooms/covers&#x60;. An uploaded image cannot be used, and any value that is not one of those  identifiers is refused. (required).</param>
+        /// <param name="rooms">The rooms to gather in the group, each given as a number for a room stored in the portal or as a string for a  room on a connected third-party account. Every identifier has to name a room the caller can read; repeats are  collapsed, and an element of any other shape - a decimal number, a number sent as a string, null - is refused. (required).</param>
         public RoomGroupRequestDto(string name = default, string icon = default, List<DuplicateRequestDtoAllOfFileIds> rooms = default)
         {
             // to ensure "name" is required (not null)
@@ -72,23 +72,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Group name
+        /// The name to show the group under. Surrounding spaces are trimmed before it is stored, a name that is blank  once trimmed is refused, and the name does not have to differ from the names of the caller&#39;s other groups.
         /// </summary>
-        /// <example>My Group</example>
+        /// <example>Client projects</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Group icon
+        /// The icon of the group, given as the identifier of one of the built-in covers listed by  &#x60;GET api/2.0/files/rooms/covers&#x60;. An uploaded image cannot be used, and any value that is not one of those  identifiers is refused.
         /// </summary>
-        /// <example>cover1</example>
+        /// <example>star</example>
         [DataMember(Name = "icon", IsRequired = true, EmitDefaultValue = true)]
         public string Icon { get; set; }
 
         /// <summary>
-        /// The list of room IDs.
+        /// The rooms to gather in the group, each given as a number for a room stored in the portal or as a string for a  room on a connected third-party account. Every identifier has to name a room the caller can read; repeats are  collapsed, and an element of any other shape - a decimal number, a number sent as a string, null - is refused.
         /// </summary>
-        /// <example>[1,2,3]</example>
+        /// <example>[12,15,"folder-123-abc"]</example>
         [DataMember(Name = "rooms", IsRequired = true, EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> Rooms { get; set; }
 

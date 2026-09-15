@@ -34,10 +34,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>UsageSpaceStatItemArrayWrapper</returns>
         UsageSpaceStatItemArrayWrapper GetSpaceUsageStatistics(Guid id);
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>ApiResponse of UsageSpaceStatItemArrayWrapper</returns>
         ApiResponse<UsageSpaceStatItemArrayWrapper> GetSpaceUsageStatisticsWithHttpInfo(Guid id);
@@ -66,10 +66,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>Task of UsageSpaceStatItemArrayWrapper</returns>
@@ -79,10 +79,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>Task of ApiResponse (UsageSpaceStatItemArrayWrapper)</returns>
@@ -306,10 +306,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>UsageSpaceStatItemArrayWrapper</returns>
         public UsageSpaceStatItemArrayWrapper GetSpaceUsageStatistics(Guid id)
@@ -322,10 +322,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>ApiResponse of UsageSpaceStatItemArrayWrapper</returns>
         public ApiResponse<UsageSpaceStatItemArrayWrapper> GetSpaceUsageStatisticsWithHttpInfo(Guid id)
@@ -395,10 +395,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>Task of UsageSpaceStatItemArrayWrapper</returns>
@@ -412,10 +412,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the space usage statistics
         /// </summary>
         /// <remarks>
-        /// Returns the space usage statistics for the module with the ID specified in the request.
+        /// Returns the storage space used by one portal module, broken down per data category the module tracks (for  example per room type), together with a human-readable size and whether the category is disabled. Requires  Owner or DocSpaceAdmin (the EditPortalSettings permission). `id` identifies the module by the same GUID the  portal's module catalog uses; a module that does not exist, or one that does not report space usage at all,  returns an empty list rather than an error. This is a read-only, idempotent call, and the list is not  paginated. Sizes are already formatted as display strings (for example `1.5 GB`), not raw byte counts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID extracted from the route parameters.</param>
+        /// <param name="id">The identifier of the object the operation acts on, as the listing operation of that kind of object reports  it. It has to match the shape the route declares - a GUID where the route is typed as one - since a value of  another shape does not match the route at all and is answered as not found.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-space-usage-statistics/">REST API Reference for GetSpaceUsageStatistics Operation</seealso>
         /// <returns>Task of ApiResponse (UsageSpaceStatItemArrayWrapper)</returns>

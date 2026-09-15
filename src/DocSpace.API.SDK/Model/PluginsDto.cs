@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The plugins parameters.
+    /// What the installation allows to be done with web plugins.
     /// </summary>
     [DataContract(Name = "PluginsDto")]
     public partial class PluginsDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PluginsDto" /> class.
         /// </summary>
-        /// <param name="enabled">Specifies if the plugins are enabled or not..</param>
-        /// <param name="upload">Specifies if the plugins can be uploaded or not..</param>
-        /// <param name="delete">Specifies if the plugins can be deleted or not..</param>
+        /// <param name="enabled">Whether web plugins run on this portal at all. While it is &#x60;false&#x60; the operations under  &#x60;api/2.0/settings/webplugins&#x60; are of no use, whatever the other two flags say. All three are &#x60;false&#x60;  unless the installation switched plugins on in its configuration..</param>
+        /// <param name="upload">Whether an administrator may add a plugin of their own through  &#x60;POST api/2.0/settings/webplugins&#x60;. While it is &#x60;false&#x60; only the plugins that ship with the installation  are available..</param>
+        /// <param name="delete">Whether an added plugin may be removed again through &#x60;DELETE api/2.0/settings/webplugins/{name}&#x60;. The  plugins that ship with the installation cannot be removed regardless of this flag..</param>
         public PluginsDto(bool enabled = default, bool upload = default, bool delete = default)
         {
             this.Enabled = enabled;
@@ -52,21 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the plugins are enabled or not.
+        /// Whether web plugins run on this portal at all. While it is &#x60;false&#x60; the operations under  &#x60;api/2.0/settings/webplugins&#x60; are of no use, whatever the other two flags say. All three are &#x60;false&#x60;  unless the installation switched plugins on in its configuration.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Specifies if the plugins can be uploaded or not.
+        /// Whether an administrator may add a plugin of their own through  &#x60;POST api/2.0/settings/webplugins&#x60;. While it is &#x60;false&#x60; only the plugins that ship with the installation  are available.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "upload", EmitDefaultValue = true)]
         public bool Upload { get; set; }
 
         /// <summary>
-        /// Specifies if the plugins can be deleted or not.
+        /// Whether an added plugin may be removed again through &#x60;DELETE api/2.0/settings/webplugins/{name}&#x60;. The  plugins that ship with the installation cannot be removed regardless of this flag.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "delete", EmitDefaultValue = true)]

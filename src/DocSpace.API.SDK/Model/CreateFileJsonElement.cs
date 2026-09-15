@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for creating a file.
+    /// The parameters of a file that the portal creates from a template or a blank document.
     /// </summary>
     [DataContract(Name = "CreateFileJsonElement")]
     public partial class CreateFileJsonElement : IValidatableObject
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateFileJsonElement" /> class.
         /// </summary>
-        /// <param name="title">The file title for creation. (required).</param>
+        /// <param name="title">The title of the new file. The extension in it decides the format, and one of a known text, spreadsheet or  presentation format is rewritten to the DOCX, XLSX or PPTX of the portal unless &#x60;enableExternalExt&#x60; says  otherwise; a title with no extension gets DOCX added. (required).</param>
         /// <param name="templateId">templateId.</param>
-        /// <param name="enableExternalExt">Specifies whether to allow creating a file of an external extension or not..</param>
-        /// <param name="formId">The form ID for creation..</param>
+        /// <param name="enableExternalExt">Whether the extension of the title is kept as it is: &#x60;true&#x60; stores the title verbatim, &#x60;false&#x60; rewrites a  known foreign format to the format the portal edits itself..</param>
+        /// <param name="formId">A ready form from the form gallery of the portal to copy instead of a template, named by the identifier the  gallery reports for it. It takes precedence over &#x60;templateId&#x60;; 0 means no form..</param>
         public CreateFileJsonElement(string title = default, CreateFileJsonElementTemplateId templateId = default, bool enableExternalExt = default, int formId = default)
         {
             // to ensure "title" is required (not null)
@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file title for creation.
+        /// The title of the new file. The extension in it decides the format, and one of a known text, spreadsheet or  presentation format is rewritten to the DOCX, XLSX or PPTX of the portal unless &#x60;enableExternalExt&#x60; says  otherwise; a title with no extension gets DOCX added.
         /// </summary>
         /// <example>New Document.docx</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
@@ -77,14 +77,14 @@ namespace DocSpace.API.SDK.Model
         public CreateFileJsonElementTemplateId TemplateId { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow creating a file of an external extension or not.
+        /// Whether the extension of the title is kept as it is: &#x60;true&#x60; stores the title verbatim, &#x60;false&#x60; rewrites a  known foreign format to the format the portal edits itself.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "enableExternalExt", EmitDefaultValue = true)]
         public bool EnableExternalExt { get; set; }
 
         /// <summary>
-        /// The form ID for creation.
+        /// A ready form from the form gallery of the portal to copy instead of a template, named by the identifier the  gallery reports for it. It takes precedence over &#x60;templateId&#x60;; 0 means no form.
         /// </summary>
         /// <example>0</example>
         [DataMember(Name = "formId", EmitDefaultValue = false)]

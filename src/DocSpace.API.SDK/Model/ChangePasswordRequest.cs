@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangePasswordRequest" /> class.
         /// </summary>
-        /// <param name="password">The user password..</param>
-        /// <param name="passwordHash">The user password hash..</param>
+        /// <param name="password">The new password in plain text. It is checked against the portal password policy and rejected with 400 when  it is too weak, then hashed by the portal. Send it only over a secure connection, and prefer &#x60;passwordHash&#x60;  when the client can compute it..</param>
+        /// <param name="passwordHash">The new password already hashed by the client, which is what the portal stores. It is a PBKDF2-HMACSHA256  hash of the plain password, computed with the salt, the iteration count and the key size the portal settings  publish, and written as lowercase hexadecimal. When it is sent, &#x60;password&#x60; is ignored and the password policy  is not applied..</param>
         public ChangePasswordRequest(string password = default, string passwordHash = default)
         {
             this.Password = password;
@@ -50,16 +50,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user password.
+        /// The new password in plain text. It is checked against the portal password policy and rejected with 400 when  it is too weak, then hashed by the portal. Send it only over a secure connection, and prefer &#x60;passwordHash&#x60;  when the client can compute it.
         /// </summary>
         /// <example>P@ssw0rd</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// The user password hash.
+        /// The new password already hashed by the client, which is what the portal stores. It is a PBKDF2-HMACSHA256  hash of the plain password, computed with the salt, the iteration count and the key size the portal settings  publish, and written as lowercase hexadecimal. When it is sent, &#x60;password&#x60; is ignored and the password policy  is not applied.
         /// </summary>
-        /// <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
+        /// <example>c1ba1a0bcbe0f0f42b6c86e1b41a1b4a4a9b4b0e3f2b7d2c1a0e9f8d7c6b5a49</example>
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 

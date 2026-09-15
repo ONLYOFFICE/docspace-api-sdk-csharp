@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The user invitation parameters.
+    /// Which pending room invitations are to be sent again.
     /// </summary>
     [DataContract(Name = "UserInvitation")]
     public partial class UserInvitation : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserInvitation" /> class.
         /// </summary>
-        /// <param name="usersIds">The list of user IDs..</param>
-        /// <param name="resendAll">Specifies whether to resend all user invitations or not..</param>
+        /// <param name="usersIds">The accounts to write to, taken from &#x60;GET api/2.0/files/rooms/{id}/share&#x60;. Anyone who has already joined, is  not in the room, or is invisible to the caller is skipped without an error, and the field is ignored once  every pending invitation is being resent..</param>
+        /// <param name="resendAll">Whether every invitation of the room that is still waiting is sent again. With it on the list of accounts is  ignored, and with it off an empty list means that nothing is sent at all..</param>
         public UserInvitation(List<Guid> usersIds = default, bool resendAll = default)
         {
             this.UsersIds = usersIds;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of user IDs.
+        /// The accounts to write to, taken from &#x60;GET api/2.0/files/rooms/{id}/share&#x60;. Anyone who has already joined, is  not in the room, or is invisible to the caller is skipped without an error, and the field is ignored once  every pending invitation is being resent.
         /// </summary>
-        /// <example>["00000000-0000-0000-0000-000000000000"]</example>
+        /// <example>["e9a7b4c1-2d3f-4a56-8b90-1c2d3e4f5a6b"]</example>
         [DataMember(Name = "usersIds", EmitDefaultValue = true)]
         public List<Guid> UsersIds { get; set; }
 
         /// <summary>
-        /// Specifies whether to resend all user invitations or not.
+        /// Whether every invitation of the room that is still waiting is sent again. With it on the list of accounts is  ignored, and with it off an empty list means that nothing is sent at all.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "resendAll", EmitDefaultValue = true)]

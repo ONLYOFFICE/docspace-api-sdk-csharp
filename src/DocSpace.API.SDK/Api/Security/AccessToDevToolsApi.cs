@@ -34,10 +34,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>TenantDevToolsAccessSettingsWrapper</returns>
         TenantDevToolsAccessSettingsWrapper SetTenantDevToolsAccessSettings(TenantDevToolsAccessSettingsDto? tenantDevToolsAccessSettingsDto = default);
@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>ApiResponse of TenantDevToolsAccessSettingsWrapper</returns>
         ApiResponse<TenantDevToolsAccessSettingsWrapper> SetTenantDevToolsAccessSettingsWithHttpInfo(TenantDevToolsAccessSettingsDto? tenantDevToolsAccessSettingsDto = default);
@@ -66,10 +66,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>Task of TenantDevToolsAccessSettingsWrapper</returns>
@@ -79,10 +79,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDevToolsAccessSettingsWrapper)</returns>
@@ -306,10 +306,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>TenantDevToolsAccessSettingsWrapper</returns>
         public TenantDevToolsAccessSettingsWrapper SetTenantDevToolsAccessSettings(TenantDevToolsAccessSettingsDto? tenantDevToolsAccessSettingsDto = default)
@@ -322,10 +322,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>ApiResponse of TenantDevToolsAccessSettingsWrapper</returns>
         public ApiResponse<TenantDevToolsAccessSettingsWrapper> SetTenantDevToolsAccessSettingsWithHttpInfo(TenantDevToolsAccessSettingsDto? tenantDevToolsAccessSettingsDto = default)
@@ -395,10 +395,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>Task of TenantDevToolsAccessSettingsWrapper</returns>
@@ -412,10 +412,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Set the Developer Tools access settings
         /// </summary>
         /// <remarks>
-        /// Sets the Developer Tools access settings for the portal.
+        /// Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantDevToolsAccessSettingsDto">The request parameters for managing the Developer Tools access settings for the current tenant. (optional)</param>
+        /// <param name="tenantDevToolsAccessSettingsDto">Whether the `User` role is barred from the portal developer tools. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/">REST API Reference for SetTenantDevToolsAccessSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDevToolsAccessSettingsWrapper)</returns>

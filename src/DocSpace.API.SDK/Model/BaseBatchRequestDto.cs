@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The base batch request parameters.
+    /// The files and folders a background operation is applied to.
     /// </summary>
     [DataContract(Name = "BaseBatchRequestDto")]
     public partial class BaseBatchRequestDto : FileOperationRequestBaseDto, IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseBatchRequestDto" /> class.
         /// </summary>
-        /// <param name="folderIds">The list of folder IDs of the base batch request..</param>
-        /// <param name="fileIds">The list of file IDs of the base batch request..</param>
+        /// <param name="folderIds">The folders to act on, by id, as reported by a folder listing such as &#x60;GET api/2.0/files/{folderId}&#x60;. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list..</param>
+        /// <param name="fileIds">The files to act on, by id, as reported by a folder listing such as &#x60;GET api/2.0/files/{folderId}&#x60;. A number  addresses a file stored in the portal itself, a string addresses a file on a connected third-party account,  and both kinds may be sent in one list..</param>
         public BaseBatchRequestDto(List<BaseBatchRequestDtoAllOfFolderIds> folderIds = default, List<BaseBatchRequestDtoAllOfFileIds> fileIds = default)
         {
             this.FolderIds = folderIds;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of folder IDs of the base batch request.
+        /// The folders to act on, by id, as reported by a folder listing such as &#x60;GET api/2.0/files/{folderId}&#x60;. A number  addresses a folder stored in the portal itself, a string addresses a folder on a connected third-party  account, and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<BaseBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
-        /// The list of file IDs of the base batch request.
+        /// The files to act on, by id, as reported by a folder listing such as &#x60;GET api/2.0/files/{folderId}&#x60;. A number  addresses a file stored in the portal itself, a string addresses a file on a connected third-party account,  and both kinds may be sent in one list.
         /// </summary>
         /// <example>[1,2,3]</example>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]

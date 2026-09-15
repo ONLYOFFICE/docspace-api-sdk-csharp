@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The tariff quota parameters.
+    /// One quota the subscription is made of - the plan itself or an add-on - with its quantity and its own deadline.
     /// </summary>
     [DataContract(Name = "TariffQuotaDto")]
     public partial class TariffQuotaDto : IValidatableObject
     {
 
         /// <summary>
-        /// The quota state.
+        /// Whether the quota is still running or its deadline has passed. It is empty for a quota that has no  deadline of its own, which means it lasts as long as the subscription does.
         /// </summary>
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public QuotaState? State { get; set; }
@@ -47,14 +47,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TariffQuotaDto" /> class.
         /// </summary>
-        /// <param name="id">The quota ID..</param>
-        /// <param name="quantity">The quota quantity..</param>
-        /// <param name="wallet">The quota applies to the wallet or not..</param>
-        /// <param name="additional">Indicates whether the quota is primary or additional..</param>
-        /// <param name="dueDate">The quota due date in the portal time zone. Falls back to the tariff due date when the quota has none..</param>
-        /// <param name="nextQuantity">The quota next quantity..</param>
-        /// <param name="nextQuota">The quota ID to switch to at the next period..</param>
-        /// <param name="state">The quota state..</param>
+        /// <param name="id">The quota this entry stands for. &#x60;GET api/2.0/portal/payment/quotas&#x60; describes the quota behind the ID,  including what its &#x60;quantity&#x60; counts; a negative ID belongs to a built-in quota rather than a purchased  one..</param>
+        /// <param name="quantity">How much of the quota the portal holds, in whatever the quota itself is measured in - seats for a plan,  gigabytes for storage. It is &#x60;1&#x60; for a quota that is simply on or off..</param>
+        /// <param name="wallet">Whether the quota is paid for out of the portal wallet as it is consumed, rather than being part of the  subscription charged per period..</param>
+        /// <param name="additional">Whether this is an add-on bought on top of the plan rather than the plan itself. Exactly one entry of  &#x60;quotas&#x60; is the plan, and the rest are add-ons..</param>
+        /// <param name="dueDate">When this quota runs out, in the portal time zone. An add-on can end earlier or later than the  subscription; a quota with no deadline of its own reports the subscription&#39;s &#x60;dueDate&#x60; instead of an empty  value..</param>
+        /// <param name="nextQuantity">The quantity the next period is going to be charged for, when a change has been scheduled. It is empty  while &#x60;quantity&#x60; simply carries over..</param>
+        /// <param name="nextQuota">The quota this one is scheduled to be replaced by at the start of the next period, empty when no such  switch is planned. &#x60;GET api/2.0/portal/tariff/upcoming&#x60; already reports the charge for the replacement..</param>
+        /// <param name="state">Whether the quota is still running or its deadline has passed. It is empty for a quota that has no  deadline of its own, which means it lasts as long as the subscription does..</param>
         public TariffQuotaDto(int id = default, int quantity = default, bool wallet = default, bool additional = default, ApiDateTime dueDate = default, int? nextQuantity = default, int? nextQuota = default, QuotaState? state = default)
         {
             this.Id = id;
@@ -68,49 +68,50 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The quota ID.
+        /// The quota this entry stands for. &#x60;GET api/2.0/portal/payment/quotas&#x60; describes the quota behind the ID,  including what its &#x60;quantity&#x60; counts; a negative ID belongs to a built-in quota rather than a purchased  one.
         /// </summary>
         /// <example>-11</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The quota quantity.
+        /// How much of the quota the portal holds, in whatever the quota itself is measured in - seats for a plan,  gigabytes for storage. It is &#x60;1&#x60; for a quota that is simply on or off.
         /// </summary>
         /// <example>500</example>
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
         /// <summary>
-        /// The quota applies to the wallet or not.
+        /// Whether the quota is paid for out of the portal wallet as it is consumed, rather than being part of the  subscription charged per period.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "wallet", EmitDefaultValue = true)]
         public bool Wallet { get; set; }
 
         /// <summary>
-        /// Indicates whether the quota is primary or additional.
+        /// Whether this is an add-on bought on top of the plan rather than the plan itself. Exactly one entry of  &#x60;quotas&#x60; is the plan, and the rest are add-ons.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "additional", EmitDefaultValue = true)]
         public bool Additional { get; set; }
 
         /// <summary>
-        /// The quota due date in the portal time zone. Falls back to the tariff due date when the quota has none.
+        /// When this quota runs out, in the portal time zone. An add-on can end earlier or later than the  subscription; a quota with no deadline of its own reports the subscription&#39;s &#x60;dueDate&#x60; instead of an empty  value.
         /// </summary>
         [DataMember(Name = "dueDate", EmitDefaultValue = false)]
         public ApiDateTime DueDate { get; set; }
 
         /// <summary>
-        /// The quota next quantity.
+        /// The quantity the next period is going to be charged for, when a change has been scheduled. It is empty  while &#x60;quantity&#x60; simply carries over.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "nextQuantity", EmitDefaultValue = true)]
         public int? NextQuantity { get; set; }
 
         /// <summary>
-        /// The quota ID to switch to at the next period.
+        /// The quota this one is scheduled to be replaced by at the start of the next period, empty when no such  switch is planned. &#x60;GET api/2.0/portal/tariff/upcoming&#x60; already reports the charge for the replacement.
         /// </summary>
+        /// <example>2</example>
         [DataMember(Name = "nextQuota", EmitDefaultValue = true)]
         public int? NextQuota { get; set; }
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The password settings parameters.
+    /// The password policy of the portal, with the expressions a client can check a password against.
     /// </summary>
     [DataContract(Name = "PasswordSettingsDto")]
     public partial class PasswordSettingsDto : IValidatableObject
@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PasswordSettingsDto" /> class.
         /// </summary>
-        /// <param name="minLength">The minimum number of characters required for valid passwords. (required).</param>
-        /// <param name="upperCase">Specifies whether the password should contain the uppercase letters or not. (required).</param>
-        /// <param name="digits">Specifies whether the password should contain the digits or not. (required).</param>
-        /// <param name="specSymbols">Specifies whether the password should contain the special symbols or not. (required).</param>
-        /// <param name="allowedCharactersRegexStr">The allowed password characters in the regex string format. (required).</param>
-        /// <param name="digitsRegexStr">The password digits in the regex string format. (required).</param>
-        /// <param name="upperCaseRegexStr">The password uppercase letters in the regex string format. (required).</param>
-        /// <param name="specSymbolsRegexStr">The passaword special symbols in the regex string format. (required).</param>
+        /// <param name="minLength">The shortest password the portal accepts, 8 characters on a portal nobody has configured. Whatever the  policy says, a password longer than 30 characters is refused as well, and that ceiling is not reported  here. (required).</param>
+        /// <param name="upperCase">Whether at least one uppercase letter is demanded. While it is &#x60;false&#x60; an uppercase letter is still  allowed - the flag adds a requirement rather than permission. (required).</param>
+        /// <param name="digits">Whether at least one digit is demanded, read the same way as &#x60;upperCase&#x60;. (required).</param>
+        /// <param name="specSymbols">Whether at least one special symbol is demanded, read the same way as &#x60;upperCase&#x60;. Which symbols count is  spelled out by &#x60;specSymbolsRegexStr&#x60;. (required).</param>
+        /// <param name="allowedCharactersRegexStr">The expression the whole password has to match, which is what defines the alphabet the portal accepts at  all. It comes from the installation&#39;s configuration rather than from the portal policy, so it is the same  for every portal of an installation and unaffected by the flags above. (required).</param>
+        /// <param name="digitsRegexStr">The look-ahead expression that tests the digit requirement, meant to be applied only while &#x60;digits&#x60; is  &#x60;true&#x60;. It is always filled in, so its presence is not itself a requirement. (required).</param>
+        /// <param name="upperCaseRegexStr">The look-ahead expression that tests the uppercase requirement, to be applied while &#x60;upperCase&#x60; is &#x60;true&#x60;. (required).</param>
+        /// <param name="specSymbolsRegexStr">The look-ahead expression that tests the special-symbol requirement, to be applied while &#x60;specSymbols&#x60; is  &#x60;true&#x60;. It also enumerates the symbols the portal treats as special. (required).</param>
         public PasswordSettingsDto(int minLength = default, bool upperCase = default, bool digits = default, bool specSymbols = default, string allowedCharactersRegexStr = default, string digitsRegexStr = default, string upperCaseRegexStr = default, string specSymbolsRegexStr = default)
         {
             this.MinLength = minLength;
@@ -87,56 +87,56 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The minimum number of characters required for valid passwords.
+        /// The shortest password the portal accepts, 8 characters on a portal nobody has configured. Whatever the  policy says, a password longer than 30 characters is refused as well, and that ceiling is not reported  here.
         /// </summary>
         /// <example>8</example>
         [DataMember(Name = "minLength", IsRequired = true, EmitDefaultValue = true)]
         public int MinLength { get; set; }
 
         /// <summary>
-        /// Specifies whether the password should contain the uppercase letters or not.
+        /// Whether at least one uppercase letter is demanded. While it is &#x60;false&#x60; an uppercase letter is still  allowed - the flag adds a requirement rather than permission.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "upperCase", IsRequired = true, EmitDefaultValue = true)]
         public bool UpperCase { get; set; }
 
         /// <summary>
-        /// Specifies whether the password should contain the digits or not.
+        /// Whether at least one digit is demanded, read the same way as &#x60;upperCase&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "digits", IsRequired = true, EmitDefaultValue = true)]
         public bool Digits { get; set; }
 
         /// <summary>
-        /// Specifies whether the password should contain the special symbols or not.
+        /// Whether at least one special symbol is demanded, read the same way as &#x60;upperCase&#x60;. Which symbols count is  spelled out by &#x60;specSymbolsRegexStr&#x60;.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "specSymbols", IsRequired = true, EmitDefaultValue = true)]
         public bool SpecSymbols { get; set; }
 
         /// <summary>
-        /// The allowed password characters in the regex string format.
+        /// The expression the whole password has to match, which is what defines the alphabet the portal accepts at  all. It comes from the installation&#39;s configuration rather than from the portal policy, so it is the same  for every portal of an installation and unaffected by the flags above.
         /// </summary>
         /// <example>^[a-zA-Z0-9!@#$%^&amp;*()]+$</example>
         [DataMember(Name = "allowedCharactersRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string AllowedCharactersRegexStr { get; set; }
 
         /// <summary>
-        /// The password digits in the regex string format.
+        /// The look-ahead expression that tests the digit requirement, meant to be applied only while &#x60;digits&#x60; is  &#x60;true&#x60;. It is always filled in, so its presence is not itself a requirement.
         /// </summary>
         /// <example>(?=.*\\d)</example>
         [DataMember(Name = "digitsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string DigitsRegexStr { get; set; }
 
         /// <summary>
-        /// The password uppercase letters in the regex string format.
+        /// The look-ahead expression that tests the uppercase requirement, to be applied while &#x60;upperCase&#x60; is &#x60;true&#x60;.
         /// </summary>
         /// <example>(?=.*[A-Z])</example>
         [DataMember(Name = "upperCaseRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string UpperCaseRegexStr { get; set; }
 
         /// <summary>
-        /// The passaword special symbols in the regex string format.
+        /// The look-ahead expression that tests the special-symbol requirement, to be applied while &#x60;specSymbols&#x60; is  &#x60;true&#x60;. It also enumerates the symbols the portal treats as special.
         /// </summary>
         /// <example>(?=.*[!@#$%^&amp;*()])</example>
         [DataMember(Name = "specSymbolsRegexStr", IsRequired = true, EmitDefaultValue = true)]

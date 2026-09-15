@@ -41,18 +41,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateMemberRequestDto" /> class.
         /// </summary>
-        /// <param name="userId">The user ID..</param>
-        /// <param name="disable">Specifies whether to disable a user or not..</param>
-        /// <param name="email">The user email address..</param>
-        /// <param name="isUser">Specifies if this is a guest or a user..</param>
-        /// <param name="firstName">The user first name..</param>
-        /// <param name="lastName">The user last name..</param>
-        /// <param name="department">The list of the user departments..</param>
-        /// <param name="location">The user location..</param>
-        /// <param name="comment">The user comment..</param>
-        /// <param name="contacts">The list of the user contacts..</param>
-        /// <param name="files">The user avatar photo URL..</param>
-        /// <param name="spam">Specifies if tips, updates and offers are allowed to be sent to the user or not..</param>
+        /// <param name="userId">The account the change applies to. It is read from this body by &#x60;POST api/2.0/people/email&#x60;, while  &#x60;PUT api/2.0/people/{userid}&#x60; takes the account from the route and ignores this field..</param>
+        /// <param name="disable">Set it to true to give the account the &#x60;Terminated&#x60; status and end every session it has, and to false to  bring it back. It is applied only when the caller edits somebody else, and omitting it keeps the current  status..</param>
+        /// <param name="email">The new email address, up to 255 characters. It is read only by &#x60;POST api/2.0/people/email&#x60;, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  &#x60;PUT api/2.0/people/{userid}&#x60; ignores it..</param>
+        /// <param name="isUser">Set it to true to turn the account into a guest and to false to turn it back into a member. Either direction  takes a seat and can answer 402, it is applied only when the caller edits somebody else, and a request to  make the portal owner, a DocSpace administrator or a module administrator a guest is ignored..</param>
+        /// <param name="firstName">The new first name, up to 255 characters. It is applied only to the caller&#39;s own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400..</param>
+        /// <param name="lastName">The new last name, up to 255 characters. It is applied only to the caller&#39;s own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400..</param>
+        /// <param name="department">The groups the profile should belong to, by group ID, replacing the current ones. It is applied only to the  caller&#39;s own profile..</param>
+        /// <param name="location">The new free-text location shown on the profile. It is applied only to the caller&#39;s own profile and is left  alone on an LDAP or SSO account..</param>
+        /// <param name="comment">The new free-text note kept with the profile. It is applied only to the caller&#39;s own profile..</param>
+        /// <param name="contacts">The additional ways to reach the person, replacing the current ones. Each entry is a free-text type such as  &#x60;email&#x60;, &#x60;phone&#x60;, &#x60;skype&#x60; or &#x60;telegram&#x60; and its value, an entry with an empty value is dropped, and the field  is applied only to the caller&#39;s own profile..</param>
+        /// <param name="files">The address the portal downloads the new avatar from. It is applied only to the caller&#39;s own profile, has to  use HTTPS unless the request itself came over HTTP, and passing the address the profile already uses  downloads nothing..</param>
+        /// <param name="spam">Whether the account agrees to receive tips, updates and offers. It is applied only to the caller&#39;s own  profile, and omitting it on such a request stores false rather than keeping the current value..</param>
         public UpdateMemberRequestDto(string userId = default, bool? disable = default, string email = default, bool? isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string location = default, string comment = default, List<Contact> contacts = default, string files = default, bool? spam = default)
         {
             this.UserId = userId;
@@ -70,84 +70,84 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user ID.
+        /// The account the change applies to. It is read from this body by &#x60;POST api/2.0/people/email&#x60;, while  &#x60;PUT api/2.0/people/{userid}&#x60; takes the account from the route and ignores this field.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = true)]
         public string UserId { get; set; }
 
         /// <summary>
-        /// Specifies whether to disable a user or not.
+        /// Set it to true to give the account the &#x60;Terminated&#x60; status and end every session it has, and to false to  bring it back. It is applied only when the caller edits somebody else, and omitting it keeps the current  status.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "disable", EmitDefaultValue = true)]
         public bool? Disable { get; set; }
 
         /// <summary>
-        /// The user email address.
+        /// The new email address, up to 255 characters. It is read only by &#x60;POST api/2.0/people/email&#x60;, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  &#x60;PUT api/2.0/people/{userid}&#x60; ignores it.
         /// </summary>
         /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Specifies if this is a guest or a user.
+        /// Set it to true to turn the account into a guest and to false to turn it back into a member. Either direction  takes a seat and can answer 402, it is applied only when the caller edits somebody else, and a request to  make the portal owner, a DocSpace administrator or a module administrator a guest is ignored.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isUser", EmitDefaultValue = true)]
         public bool? IsUser { get; set; }
 
         /// <summary>
-        /// The user first name.
+        /// The new first name, up to 255 characters. It is applied only to the caller&#39;s own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400.
         /// </summary>
         /// <example>John</example>
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// The user last name.
+        /// The new last name, up to 255 characters. It is applied only to the caller&#39;s own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400.
         /// </summary>
         /// <example>Doe</example>
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// The list of the user departments.
+        /// The groups the profile should belong to, by group ID, replacing the current ones. It is applied only to the  caller&#39;s own profile.
         /// </summary>
         /// <example>["00000000-0000-0000-0000-000000000000"]</example>
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public List<Guid> Department { get; set; }
 
         /// <summary>
-        /// The user location.
+        /// The new free-text location shown on the profile. It is applied only to the caller&#39;s own profile and is left  alone on an LDAP or SSO account.
         /// </summary>
         /// <example>New York</example>
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
-        /// The user comment.
+        /// The new free-text note kept with the profile. It is applied only to the caller&#39;s own profile.
         /// </summary>
         /// <example>User comment</example>
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
-        /// The list of the user contacts.
+        /// The additional ways to reach the person, replacing the current ones. Each entry is a free-text type such as  &#x60;email&#x60;, &#x60;phone&#x60;, &#x60;skype&#x60; or &#x60;telegram&#x60; and its value, an entry with an empty value is dropped, and the field  is applied only to the caller&#39;s own profile.
         /// </summary>
         /// <example>[{"type":"email","value":"john.doe@example.com"}]</example>
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
-        /// The user avatar photo URL.
+        /// The address the portal downloads the new avatar from. It is applied only to the caller&#39;s own profile, has to  use HTTPS unless the request itself came over HTTP, and passing the address the profile already uses  downloads nothing.
         /// </summary>
         /// <example>https://example.com/avatar.jpg</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
 
         /// <summary>
-        /// Specifies if tips, updates and offers are allowed to be sent to the user or not.
+        /// Whether the account agrees to receive tips, updates and offers. It is applied only to the caller&#39;s own  profile, and omitting it on such a request stores false rather than keeping the current value.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "spam", EmitDefaultValue = true)]

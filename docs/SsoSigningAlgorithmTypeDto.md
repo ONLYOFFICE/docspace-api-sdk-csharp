@@ -5,7 +5,7 @@ The signing algorithms the SSO settings accept.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RsaSha1** | **string** | The RSA-SHA1 signing algorithm. | [optional] [readonly] 
+**RsaSha1** | **string** | The RSA-SHA1 signing algorithm, which the built-in configuration uses. SHA-1 is the weakest of the three  and some identity providers no longer accept it. | [optional] [readonly] 
 **RsaSha256** | **string** | The RSA-SHA256 signing algorithm. | [optional] [readonly] 
 **RsaSha512** | **string** | The RSA-SHA512 signing algorithm. | [optional] [readonly] 
 

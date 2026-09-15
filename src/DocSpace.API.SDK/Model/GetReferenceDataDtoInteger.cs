@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for getting reference data.
+    /// The body of a spreadsheet reference request: the source spreadsheet, and the three ways of naming the document it  refers to, which are tried in the order they are described.
     /// </summary>
     [DataContract(Name = "GetReferenceDataDtoInteger")]
     public partial class GetReferenceDataDtoInteger : IValidatableObject
@@ -46,11 +46,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetReferenceDataDtoInteger" /> class.
         /// </summary>
-        /// <param name="fileKey">The unique document identifier used by the service to get a link to the file. (required).</param>
-        /// <param name="instanceId">The unique system identifier. (required).</param>
-        /// <param name="sourceFileId">The source file ID..</param>
-        /// <param name="path">The file name or relative path for the formula editor..</param>
-        /// <param name="link">The file link..</param>
+        /// <param name="fileKey">The id of the referenced file as the document service recorded it in the formula. It is tried first, and only  when &#x60;instanceId&#x60; names this portal. (required).</param>
+        /// <param name="instanceId">The portal the reference was made on, as the document service recorded it. Only the id of this portal makes  the file key resolvable; any other value falls through to the path and the link. (required).</param>
+        /// <param name="sourceFileId">The spreadsheet the formula sits in. The path is resolved against it - the referenced file is looked for among  the files lying next to it - and it is the file whose read access is checked..</param>
+        /// <param name="path">The title of the referenced file exactly as the formula spells it, matched against the files lying next to the  source file. It is tried after the file key, and only when no link is given..</param>
+        /// <param name="link">The web address the formula points at, an editor link of this portal or one of its short links. It is tried  last, and an address belonging to another site is not resolved at all but handed back for the client to follow  as it is..</param>
         public GetReferenceDataDtoInteger(string fileKey = default, string instanceId = default, int sourceFileId = default, string path = default, string link = default)
         {
             // to ensure "fileKey" is required (not null)
@@ -71,37 +71,37 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The unique document identifier used by the service to get a link to the file.
+        /// The id of the referenced file as the document service recorded it in the formula. It is tried first, and only  when &#x60;instanceId&#x60; names this portal.
         /// </summary>
-        /// <example>doc_key_123</example>
+        /// <example>512</example>
         [DataMember(Name = "fileKey", IsRequired = true, EmitDefaultValue = true)]
         public string FileKey { get; set; }
 
         /// <summary>
-        /// The unique system identifier.
+        /// The portal the reference was made on, as the document service recorded it. Only the id of this portal makes  the file key resolvable; any other value falls through to the path and the link.
         /// </summary>
-        /// <example>doc_key_123</example>
+        /// <example>1</example>
         [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
         /// <summary>
-        /// The source file ID.
+        /// The spreadsheet the formula sits in. The path is resolved against it - the referenced file is looked for among  the files lying next to it - and it is the file whose read access is checked.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "sourceFileId", EmitDefaultValue = false)]
         public int SourceFileId { get; set; }
 
         /// <summary>
-        /// The file name or relative path for the formula editor.
+        /// The title of the referenced file exactly as the formula spells it, matched against the files lying next to the  source file. It is tried after the file key, and only when no link is given.
         /// </summary>
-        /// <example>My Document</example>
+        /// <example>Budget 2026.xlsx</example>
         [DataMember(Name = "path", EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
-        /// The file link.
+        /// The web address the formula points at, an editor link of this portal or one of its short links. It is tried  last, and an address belonging to another site is not resolved at all but handed back for the client to follow  as it is.
         /// </summary>
-        /// <example>https://example.com</example>
+        /// <example>https://portal.example.com/doc/512</example>
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for creating the webhook configuration.
+    /// The target a webhook subscription calls, the events it listens for, and the secret it signs with.
     /// </summary>
     [DataContract(Name = "CreateWebhooksConfigRequestsDto")]
     public partial class CreateWebhooksConfigRequestsDto : IValidatableObject
     {
 
         /// <summary>
-        /// Defines which events will trigger webhook notifications.
+        /// The events the subscription listens for, as a bitmask combining the flags; 0 subscribes to all of them. Take  the flags the caller role is allowed to use from &#x60;GET api/2.0/settings/webhook/triggers&#x60;, since a flag beyond  that set is refused with 400. A subscription still only fires for events its creator may see.
         /// </summary>
         [DataMember(Name = "triggers", EmitDefaultValue = false)]
         public WebhookTrigger? Triggers { get; set; }
@@ -52,13 +52,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateWebhooksConfigRequestsDto" /> class.
         /// </summary>
-        /// <param name="name">The human-readable name of the webhook configuration. (required).</param>
-        /// <param name="uri">The destination URL where the webhook events will be sent. (required).</param>
-        /// <param name="secretKey">The webhook secret key used to sign the webhook payloads for the security verification..</param>
-        /// <param name="enabled">Specifies whether the webhook configuration is active or not..</param>
-        /// <param name="ssl">Specifies whether the SSL certificate verification is required or not..</param>
-        /// <param name="triggers">Defines which events will trigger webhook notifications..</param>
-        /// <param name="targetId">Target ID.</param>
+        /// <param name="name">The label the subscription is listed under. It is for the administrator reading the list and is never sent to  the target; it does not have to be unique. (required).</param>
+        /// <param name="uri">The address the portal posts the event payload to. It has to be an absolute &#x60;http&#x60; or &#x60;https&#x60; address outside  the installation own network, and it is probed before anything is stored: it must answer a HEAD request with  a success code, and a redirect does not count as one. (required).</param>
+        /// <param name="secretKey">The shared secret the payload signature is computed with, so the receiver can tell a genuine call from a  forged one. It has to satisfy the portal password rules published by  &#x60;GET api/2.0/settings/security/password&#x60;, and it is never echoed back by any operation. On an update an empty  value keeps the secret already stored..</param>
+        /// <param name="enabled">Whether the subscription delivers at all. While it is off the matching events are dropped rather than queued,  so nothing from that period arrives once it is switched on again..</param>
+        /// <param name="ssl">Whether the target certificate is verified. Setting it demands an &#x60;https&#x60; target with a valid certificate;  leaving it off delivers without checking the certificate at all..</param>
+        /// <param name="triggers">The events the subscription listens for, as a bitmask combining the flags; 0 subscribes to all of them. Take  the flags the caller role is allowed to use from &#x60;GET api/2.0/settings/webhook/triggers&#x60;, since a flag beyond  that set is refused with 400. A subscription still only fires for events its creator may see..</param>
+        /// <param name="targetId">The single entity the subscription is narrowed to, by its identifier - a room or a file, for instance.  Leaving it out delivers events about every entity the subscribed triggers cover..</param>
         public CreateWebhooksConfigRequestsDto(string name = default, string uri = default, string secretKey = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default)
         {
             // to ensure "name" is required (not null)
@@ -81,42 +81,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The human-readable name of the webhook configuration.
+        /// The label the subscription is listed under. It is for the administrator reading the list and is never sent to  the target; it does not have to be unique.
         /// </summary>
         /// <example>Production Webhook</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The destination URL where the webhook events will be sent.
+        /// The address the portal posts the event payload to. It has to be an absolute &#x60;http&#x60; or &#x60;https&#x60; address outside  the installation own network, and it is probed before anything is stored: it must answer a HEAD request with  a success code, and a redirect does not count as one.
         /// </summary>
         /// <example>https://example.com/webhook</example>
         [DataMember(Name = "uri", IsRequired = true, EmitDefaultValue = true)]
         public string Uri { get; set; }
 
         /// <summary>
-        /// The webhook secret key used to sign the webhook payloads for the security verification.
+        /// The shared secret the payload signature is computed with, so the receiver can tell a genuine call from a  forged one. It has to satisfy the portal password rules published by  &#x60;GET api/2.0/settings/security/password&#x60;, and it is never echoed back by any operation. On an update an empty  value keeps the secret already stored.
         /// </summary>
         /// <example>my-secret-key-123</example>
         [DataMember(Name = "secretKey", EmitDefaultValue = true)]
         public string SecretKey { get; set; }
 
         /// <summary>
-        /// Specifies whether the webhook configuration is active or not.
+        /// Whether the subscription delivers at all. While it is off the matching events are dropped rather than queued,  so nothing from that period arrives once it is switched on again.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the SSL certificate verification is required or not.
+        /// Whether the target certificate is verified. Setting it demands an &#x60;https&#x60; target with a valid certificate;  leaving it off delivers without checking the certificate at all.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "ssl", EmitDefaultValue = true)]
         public bool Ssl { get; set; }
 
         /// <summary>
-        /// Target ID
+        /// The single entity the subscription is narrowed to, by its identifier - a room or a file, for instance.  Leaving it out delivers events about every entity the subscribed triggers cover.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "targetId", EmitDefaultValue = true)]

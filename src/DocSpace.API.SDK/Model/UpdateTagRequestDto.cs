@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for creating a tag.
+    /// The parameters for renaming a custom room tag in the portal catalog.
     /// </summary>
     [DataContract(Name = "UpdateTagRequestDto")]
     public partial class UpdateTagRequestDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateTagRequestDto" /> class.
         /// </summary>
-        /// <param name="oldName">The old tag name. (required).</param>
-        /// <param name="newName">The new tag name. (required).</param>
+        /// <param name="oldName">The name of the tag to rename, matched against the catalog exactly as it is stored rather than searched for.  Read the stored spelling from &#x60;GET api/2.0/files/tags&#x60;. (required).</param>
+        /// <param name="newName">The name to store instead. It has to be free: names are unique across the portal, so a name another tag  already carries is refused, and merging two tags this way is not possible. (required).</param>
         public UpdateTagRequestDto(string oldName = default, string newName = default)
         {
             // to ensure "oldName" is required (not null)
@@ -65,16 +65,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The old tag name.
+        /// The name of the tag to rename, matched against the catalog exactly as it is stored rather than searched for.  Read the stored spelling from &#x60;GET api/2.0/files/tags&#x60;.
         /// </summary>
-        /// <example>old-tag</example>
+        /// <example>Confidential</example>
         [DataMember(Name = "oldName", IsRequired = true, EmitDefaultValue = true)]
         public string OldName { get; set; }
 
         /// <summary>
-        /// The new tag name.
+        /// The name to store instead. It has to be free: names are unique across the portal, so a name another tag  already carries is refused, and merging two tags this way is not possible.
         /// </summary>
-        /// <example>new-tag</example>
+        /// <example>Restricted</example>
         [DataMember(Name = "newName", IsRequired = true, EmitDefaultValue = true)]
         public string NewName { get; set; }
 

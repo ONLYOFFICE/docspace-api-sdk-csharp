@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters of the form filling result.
+    /// The outcome of one completed form-filling session, as the person who has just filled the form sees it.
     /// </summary>
     [DataContract(Name = "FillingFormResultDtoInteger")]
     public partial class FillingFormResultDtoInteger : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FillingFormResultDtoInteger" /> class.
         /// </summary>
-        /// <param name="formNumber">The filling form number. (required).</param>
-        /// <param name="completedForm">The file with the completed forms..</param>
-        /// <param name="originalForm">The file with the original forms..</param>
-        /// <param name="manager">The manager who is filling the form..</param>
-        /// <param name="roomId">The room ID where filling the form. (required).</param>
-        /// <param name="isRoomMember">Specifies if the manager who fills the form is a room member or not..</param>
+        /// <param name="formNumber">The number this copy was given among the copies made of the same form, counting up from 1. It is the number  the results of the form are ordered by and the one the title of the copy carries. (required).</param>
+        /// <param name="completedForm">The filled copy that the session produced, as an ordinary file: it can be read and downloaded with the file  operations of this API..</param>
+        /// <param name="originalForm">The form the copy was made from, so that a client can offer filling it once more..</param>
+        /// <param name="manager">The account that owns the original form, reported with its email address, so that the person who has just  filled the form knows who receives it and whom to ask about it..</param>
+        /// <param name="roomId">The room the form was filled in. It comes back as 0 when the session was reached through a link shared for  that single form rather than for its room, in which case there is no room the caller could be sent to. (required).</param>
+        /// <param name="isRoomMember">Tells whether the calling account may open that room: true for a member of the room and for a portal  administrator, in which case a client can offer going to the room; false for the anonymous caller who filled  the form through a link and can only be shown the copy itself..</param>
         public FillingFormResultDtoInteger(int formNumber = default, FileDtoInteger completedForm = default, FileDtoInteger originalForm = default, EmployeeFullDto manager = default, int roomId = default, bool isRoomMember = default)
         {
             this.FormNumber = formNumber;
@@ -63,39 +63,39 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The filling form number.
+        /// The number this copy was given among the copies made of the same form, counting up from 1. It is the number  the results of the form are ordered by and the one the title of the copy carries.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "formNumber", IsRequired = true, EmitDefaultValue = true)]
         public int FormNumber { get; set; }
 
         /// <summary>
-        /// The file with the completed forms.
+        /// The filled copy that the session produced, as an ordinary file: it can be read and downloaded with the file  operations of this API.
         /// </summary>
         [DataMember(Name = "completedForm", EmitDefaultValue = false)]
         public FileDtoInteger CompletedForm { get; set; }
 
         /// <summary>
-        /// The file with the original forms.
+        /// The form the copy was made from, so that a client can offer filling it once more.
         /// </summary>
         [DataMember(Name = "originalForm", EmitDefaultValue = false)]
         public FileDtoInteger OriginalForm { get; set; }
 
         /// <summary>
-        /// The manager who is filling the form.
+        /// The account that owns the original form, reported with its email address, so that the person who has just  filled the form knows who receives it and whom to ask about it.
         /// </summary>
         [DataMember(Name = "manager", EmitDefaultValue = false)]
         public EmployeeFullDto Manager { get; set; }
 
         /// <summary>
-        /// The room ID where filling the form.
+        /// The room the form was filled in. It comes back as 0 when the session was reached through a link shared for  that single form rather than for its room, in which case there is no room the caller could be sent to.
         /// </summary>
         /// <example>123</example>
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>
-        /// Specifies if the manager who fills the form is a room member or not.
+        /// Tells whether the calling account may open that room: true for a member of the room and for a portal  administrator, in which case a client can offer going to the room; false for the anonymous caller who filled  the form through a link and can only be shown the copy itself.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isRoomMember", EmitDefaultValue = true)]

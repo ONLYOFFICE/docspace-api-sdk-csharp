@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for checking file conversion.
+    /// The parameters of one file conversion.
     /// </summary>
     [DataContract(Name = "CheckConversionRequestDtoInteger")]
     public partial class CheckConversionRequestDtoInteger : IValidatableObject
@@ -41,13 +41,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckConversionRequestDtoInteger" /> class.
         /// </summary>
-        /// <param name="fileId">The file ID to check conversion proccess..</param>
-        /// <param name="sync">Specifies if the conversion process is synchronous or not..</param>
-        /// <param name="startConvert">Specifies whether to start a conversion process or not..</param>
-        /// <param name="version">The file version that is converted..</param>
-        /// <param name="password">The password of the converted file..</param>
-        /// <param name="outputType">The conversion output type..</param>
-        /// <param name="createNewIfExist">Specifies whether to create a new file if it exists or not..</param>
+        /// <param name="fileId">The file to convert. It is taken from the route of the operation, so a value sent in the body is overwritten..</param>
+        /// <param name="sync">How to wait for the result: &#x60;true&#x60; converts inside the request and answers with the finished result, which is  only sensible for small documents, while &#x60;false&#x60; queues the conversion and answers with an entry to poll..</param>
+        /// <param name="startConvert">Whether the conversion is to be started. It is set by the operation itself, so a value sent in the body is  overwritten..</param>
+        /// <param name="version">The version to convert; 0 or less means the current version..</param>
+        /// <param name="password">The password that opens the source document, for a file that is protected by one; anything else may be left  out..</param>
+        /// <param name="outputType">The extension of the format to convert into, without the dot, and one the portal can produce from that  source format; left out, the default of the portal for that kind of document is used..</param>
+        /// <param name="createNewIfExist">Where the result goes when the file has been converted before: &#x60;true&#x60; creates another file beside the source,  &#x60;false&#x60; replaces the converted file that already exists..</param>
         public CheckConversionRequestDtoInteger(int fileId = default, bool sync = default, bool startConvert = default, int version = default, string password = default, string outputType = default, bool createNewIfExist = default)
         {
             this.FileId = fileId;
@@ -60,49 +60,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file ID to check conversion proccess.
+        /// The file to convert. It is taken from the route of the operation, so a value sent in the body is overwritten.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public int FileId { get; set; }
 
         /// <summary>
-        /// Specifies if the conversion process is synchronous or not.
+        /// How to wait for the result: &#x60;true&#x60; converts inside the request and answers with the finished result, which is  only sensible for small documents, while &#x60;false&#x60; queues the conversion and answers with an entry to poll.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "sync", EmitDefaultValue = true)]
         public bool Sync { get; set; }
 
         /// <summary>
-        /// Specifies whether to start a conversion process or not.
+        /// Whether the conversion is to be started. It is set by the operation itself, so a value sent in the body is  overwritten.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "startConvert", EmitDefaultValue = true)]
         public bool StartConvert { get; set; }
 
         /// <summary>
-        /// The file version that is converted.
+        /// The version to convert; 0 or less means the current version.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
-        /// The password of the converted file.
+        /// The password that opens the source document, for a file that is protected by one; anything else may be left  out.
         /// </summary>
         /// <example>password123</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// The conversion output type.
+        /// The extension of the format to convert into, without the dot, and one the portal can produce from that  source format; left out, the default of the portal for that kind of document is used.
         /// </summary>
         /// <example>pdf</example>
         [DataMember(Name = "outputType", EmitDefaultValue = true)]
         public string OutputType { get; set; }
 
         /// <summary>
-        /// Specifies whether to create a new file if it exists or not.
+        /// Where the result goes when the file has been converted before: &#x60;true&#x60; creates another file beside the source,  &#x60;false&#x60; replaces the converted file that already exists.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "createNewIfExist", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ClientResponse
+    /// The whole stored record of an OAuth2 client, including the secret and every address the client is allowed to use.
     /// </summary>
     [DataContract(Name = "ClientResponse")]
     public partial class ClientResponse : IValidatableObject
@@ -41,26 +41,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientResponse" /> class.
         /// </summary>
-        /// <param name="name">The client name..</param>
-        /// <param name="description">The client description..</param>
-        /// <param name="tenant">The tenant ID associated with the client..</param>
-        /// <param name="scopes">The client scopes..</param>
-        /// <param name="enabled">Specifies if the client is currently enabled or not..</param>
-        /// <param name="clientId">The client identifier issued to the client during registration..</param>
-        /// <param name="clientSecret">The client secret issued to the client during registration..</param>
-        /// <param name="websiteUrl">The URL to the client&#39;s website..</param>
-        /// <param name="termsUrl">The URL to the client&#39;s terms of service..</param>
-        /// <param name="policyUrl">The URL to the client&#39;s privacy policy..</param>
-        /// <param name="logo">The URL to the client&#39;s logo..</param>
-        /// <param name="authenticationMethods">The authentication methods supported by the client..</param>
-        /// <param name="redirectUris">The list of allowed redirect URIs..</param>
-        /// <param name="allowedOrigins">The list of allowed CORS origins..</param>
-        /// <param name="logoutRedirectUris">The list of allowed logout redirect URIs..</param>
-        /// <param name="createdOn">The date and time when the client was created..</param>
-        /// <param name="createdBy">The user who created the client..</param>
-        /// <param name="modifiedOn">The date and time when the client was last modified..</param>
-        /// <param name="modifiedBy">The user who last modified the client..</param>
-        /// <param name="isPublic">Indicates whether the client is accessible by third-party tenants..</param>
+        /// <param name="name">The display name shown to the user on the consent screen, between 3 and 256 characters..</param>
+        /// <param name="description">The free-text description shown next to the name on the consent screen, at most 255 characters..</param>
+        /// <param name="tenant">The identifier of the portal the client belongs to. A client is visible only inside its own tenant, apart from the unauthenticated public info read..</param>
+        /// <param name="scopes">The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here..</param>
+        /// <param name="enabled">Whether the client may currently obtain tokens. A disabled client keeps its registration and the tokens already issued to it, but new authorization requests for it are refused..</param>
+        /// <param name="clientId">The generated identifier of the client, sent as client_id in every OAuth2 request. It is assigned when the client is registered and never changes afterwards..</param>
+        /// <param name="clientSecret">The client secret, which the client presents at the token endpoint when it authenticates with client_secret_post. It is omitted from the response rather than sent as null when the client has none..</param>
+        /// <param name="websiteUrl">The URL of the client home page, offered to the user before they consent..</param>
+        /// <param name="termsUrl">The URL of the client terms of service, linked from the consent screen..</param>
+        /// <param name="policyUrl">The URL of the client privacy policy, linked from the consent screen..</param>
+        /// <param name="logo">The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted, the whole string may not exceed 2000000 characters and the decoded image may not exceed 256000 bytes..</param>
+        /// <param name="authenticationMethods">How the client authenticates itself at the token endpoint: client_secret_post for a confidential client that sends its secret, none for a public client that proves itself with PKCE instead..</param>
+        /// <param name="redirectUris">The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses..</param>
+        /// <param name="allowedOrigins">The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses..</param>
+        /// <param name="logoutRedirectUris">The URIs the user may be sent back to once they have logged out..</param>
+        /// <param name="createdOn">When the client was registered, as an ISO-8601 timestamp with a zone offset..</param>
+        /// <param name="createdBy">The identifier of the user who registered the client. A plain user may read and change only the clients where this is their own identifier..</param>
+        /// <param name="modifiedOn">When the client was last changed, as an ISO-8601 timestamp with a zone offset..</param>
+        /// <param name="modifiedBy">The identifier of the user who last changed the client..</param>
+        /// <param name="isPublic">Whether the client is offered to third-party tenants rather than only to the tenant that registered it..</param>
         public ClientResponse(string name = default, string description = default, long tenant = default, List<string> scopes = default, bool enabled = default, string clientId = default, string clientSecret = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, string logo = default, List<string> authenticationMethods = default, List<string> redirectUris = default, List<string> allowedOrigins = default, List<string> logoutRedirectUris = default, DateTime createdOn = default, string createdBy = default, DateTime modifiedOn = default, string modifiedBy = default, bool isPublic = default)
         {
             this.Name = name;
@@ -86,122 +86,137 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The client name.
+        /// The display name shown to the user on the consent screen, between 3 and 256 characters.
         /// </summary>
+        /// <example>Example Name</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The client description.
+        /// The free-text description shown next to the name on the consent screen, at most 255 characters.
         /// </summary>
+        /// <example>Example Description</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The tenant ID associated with the client.
+        /// The identifier of the portal the client belongs to. A client is visible only inside its own tenant, apart from the unauthenticated public info read.
         /// </summary>
+        /// <example>1</example>
         [DataMember(Name = "tenant", EmitDefaultValue = false)]
         public long Tenant { get; set; }
 
         /// <summary>
-        /// The client scopes.
+        /// The permissions the client may ask for, named as they appear in the tenant scope catalogue - for example files:read, rooms:write or openid. A client cannot request a scope that is not listed here.
         /// </summary>
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
 
         /// <summary>
-        /// Specifies if the client is currently enabled or not.
+        /// Whether the client may currently obtain tokens. A disabled client keeps its registration and the tokens already issued to it, but new authorization requests for it are refused.
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// The client identifier issued to the client during registration.
+        /// The generated identifier of the client, sent as client_id in every OAuth2 request. It is assigned when the client is registered and never changes afterwards.
         /// </summary>
+        /// <example>6c7cf17b-1bd3-47d5-94c6-be2d3570e168</example>
         [DataMember(Name = "client_id", EmitDefaultValue = false)]
         public string ClientId { get; set; }
 
         /// <summary>
-        /// The client secret issued to the client during registration.
+        /// The client secret, which the client presents at the token endpoint when it authenticates with client_secret_post. It is omitted from the response rather than sent as null when the client has none.
         /// </summary>
+        /// <example>6c7cf17b-1bd3-47d5-94c6-be2d3570e168</example>
         [DataMember(Name = "client_secret", EmitDefaultValue = false)]
         public string ClientSecret { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s website.
+        /// The URL of the client home page, offered to the user before they consent.
         /// </summary>
+        /// <example>http://example.com</example>
         [DataMember(Name = "website_url", EmitDefaultValue = false)]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s terms of service.
+        /// The URL of the client terms of service, linked from the consent screen.
         /// </summary>
+        /// <example>http://example.com</example>
         [DataMember(Name = "terms_url", EmitDefaultValue = false)]
         public string TermsUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s privacy policy.
+        /// The URL of the client privacy policy, linked from the consent screen.
         /// </summary>
+        /// <example>http://example.com</example>
         [DataMember(Name = "policy_url", EmitDefaultValue = false)]
         public string PolicyUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s logo.
+        /// The client logo as a data URI carrying base64 image data, shown on the consent screen. Only png, jpeg, jpg and svg+xml are accepted, the whole string may not exceed 2000000 characters and the decoded image may not exceed 256000 bytes.
         /// </summary>
+        /// <example>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==</example>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public string Logo { get; set; }
 
         /// <summary>
-        /// The authentication methods supported by the client.
+        /// How the client authenticates itself at the token endpoint: client_secret_post for a confidential client that sends its secret, none for a public client that proves itself with PKCE instead.
         /// </summary>
         [DataMember(Name = "authentication_methods", EmitDefaultValue = false)]
         public List<string> AuthenticationMethods { get; set; }
 
         /// <summary>
-        /// The list of allowed redirect URIs.
+        /// The URIs an authorization code may be delivered to. An authorization request naming any other URI is refused, and the set holds between 1 and 12 addresses.
         /// </summary>
         [DataMember(Name = "redirect_uris", EmitDefaultValue = false)]
         public List<string> RedirectUris { get; set; }
 
         /// <summary>
-        /// The list of allowed CORS origins.
+        /// The web origins allowed to call the portal on behalf of this client, used for the CORS check. The set holds between 1 and 12 addresses.
         /// </summary>
         [DataMember(Name = "allowed_origins", EmitDefaultValue = false)]
         public List<string> AllowedOrigins { get; set; }
 
         /// <summary>
-        /// The list of allowed logout redirect URIs.
+        /// The URIs the user may be sent back to once they have logged out.
         /// </summary>
         [DataMember(Name = "logout_redirect_uris", EmitDefaultValue = false)]
         public List<string> LogoutRedirectUris { get; set; }
 
         /// <summary>
-        /// The date and time when the client was created.
+        /// When the client was registered, as an ISO-8601 timestamp with a zone offset.
         /// </summary>
+        /// <example>2024-04-04T12:00:00Z</example>
         [DataMember(Name = "created_on", EmitDefaultValue = false)]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
-        /// The user who created the client.
+        /// The identifier of the user who registered the client. A plain user may read and change only the clients where this is their own identifier.
         /// </summary>
+        /// <example>6c7cf17b-1bd3-47d5-94c6-be2d3570e168</example>
         [DataMember(Name = "created_by", EmitDefaultValue = false)]
         public string CreatedBy { get; set; }
 
         /// <summary>
-        /// The date and time when the client was last modified.
+        /// When the client was last changed, as an ISO-8601 timestamp with a zone offset.
         /// </summary>
+        /// <example>2024-04-04T12:00:00Z</example>
         [DataMember(Name = "modified_on", EmitDefaultValue = false)]
         public DateTime ModifiedOn { get; set; }
 
         /// <summary>
-        /// The user who last modified the client.
+        /// The identifier of the user who last changed the client.
         /// </summary>
+        /// <example>6c7cf17b-1bd3-47d5-94c6-be2d3570e168</example>
         [DataMember(Name = "modified_by", EmitDefaultValue = false)]
         public string ModifiedBy { get; set; }
 
         /// <summary>
-        /// Indicates whether the client is accessible by third-party tenants.
+        /// Whether the client is offered to third-party tenants rather than only to the tenant that registered it.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "is_public", EmitDefaultValue = true)]
         public bool IsPublic { get; set; }
 

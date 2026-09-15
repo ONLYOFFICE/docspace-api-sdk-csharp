@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The session request parameters.
+    /// The file a chunked upload session is opened for, and how a clash with an existing name is settled.
     /// </summary>
     [DataContract(Name = "SessionRequest")]
     public partial class SessionRequest : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SessionRequest" /> class.
         /// </summary>
-        /// <param name="fileName">The file name. (required).</param>
-        /// <param name="fileSize">The file size..</param>
-        /// <param name="relativePath">The relative path to the file..</param>
-        /// <param name="createOn">The date and time when the file was created..</param>
-        /// <param name="encrypted">Specifies whether the file is encrypted or not..</param>
-        /// <param name="createNewIfExist">Specifies whether to create a new file if it already exists..</param>
+        /// <param name="fileName">The name to store the file under, extension included. Characters a title cannot hold are replaced and the name  is truncated, so the stored title can differ from the one sent. (required).</param>
+        /// <param name="fileSize">The exact number of bytes that will be sent. The size is reserved when the session opens and compared with the  parts as they arrive; below the portal chunk size the session takes the whole payload in one part, and above  the portal limit for chunked uploads it is refused..</param>
+        /// <param name="relativePath">A slash-separated chain of folder titles under the target folder to store the file in; folders in the chain  that do not exist yet are created. Leave it empty to store the file in the folder from the path itself..</param>
+        /// <param name="createOn">The creation time to stamp on a newly created file instead of the moment the upload finishes. It is ignored  when the upload lands on a file that already exists..</param>
+        /// <param name="encrypted">Marks the stored file as client-side encrypted, which is how content uploaded into a private room is kept;  with false the bytes are stored as they arrive..</param>
+        /// <param name="createNewIfExist">Settles the clash when the folder already holds a file with this name: true stores the upload beside it under  a name with a numeric suffix, false takes the existing file over and adds the content to it as a new version..</param>
         public SessionRequest(string fileName = default, long fileSize = default, string relativePath = default, ApiDateTime createOn = default, bool encrypted = default, bool createNewIfExist = default)
         {
             // to ensure "fileName" is required (not null)
@@ -68,41 +68,41 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file name.
+        /// The name to store the file under, extension included. Characters a title cannot hold are replaced and the name  is truncated, so the stored title can differ from the one sent.
         /// </summary>
         /// <example>My Document.docx</example>
         [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
-        /// The file size.
+        /// The exact number of bytes that will be sent. The size is reserved when the session opens and compared with the  parts as they arrive; below the portal chunk size the session takes the whole payload in one part, and above  the portal limit for chunked uploads it is refused.
         /// </summary>
         /// <example>10485760</example>
         [DataMember(Name = "fileSize", EmitDefaultValue = false)]
         public long FileSize { get; set; }
 
         /// <summary>
-        /// The relative path to the file.
+        /// A slash-separated chain of folder titles under the target folder to store the file in; folders in the chain  that do not exist yet are created. Leave it empty to store the file in the folder from the path itself.
         /// </summary>
         /// <example>subfolder/documents</example>
         [DataMember(Name = "relativePath", EmitDefaultValue = true)]
         public string RelativePath { get; set; }
 
         /// <summary>
-        /// The date and time when the file was created.
+        /// The creation time to stamp on a newly created file instead of the moment the upload finishes. It is ignored  when the upload lands on a file that already exists.
         /// </summary>
         [DataMember(Name = "createOn", EmitDefaultValue = false)]
         public ApiDateTime CreateOn { get; set; }
 
         /// <summary>
-        /// Specifies whether the file is encrypted or not.
+        /// Marks the stored file as client-side encrypted, which is how content uploaded into a private room is kept;  with false the bytes are stored as they arrive.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "encrypted", EmitDefaultValue = true)]
         public bool Encrypted { get; set; }
 
         /// <summary>
-        /// Specifies whether to create a new file if it already exists.
+        /// Settles the clash when the folder already holds a file with this name: true stores the upload beside it under  a name with a numeric suffix, false takes the existing file over and adds the content to it as a new version.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "createNewIfExist", EmitDefaultValue = true)]

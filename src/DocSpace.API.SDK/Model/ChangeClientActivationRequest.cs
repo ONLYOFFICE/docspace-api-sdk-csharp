@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeClientActivationRequest" /> class.
         /// </summary>
-        /// <param name="status">The activation status of the client (required).</param>
+        /// <param name="status">Whether the client may obtain tokens from now on. Sending false leaves the registration and the already issued tokens in place but refuses new authorization requests; sending true allows them again. (required).</param>
         public ChangeClientActivationRequest(bool status = default)
         {
             this.Status = status;
         }
 
         /// <summary>
-        /// The activation status of the client
+        /// Whether the client may obtain tokens from now on. Sending false leaves the registration and the already issued tokens in place but refuses new authorization requests; sending true allows them again.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for validating the two-factor authentication codes.
+    /// The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts.
     /// </summary>
     [DataContract(Name = "TfaValidateRequestsDto")]
     public partial class TfaValidateRequestsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaValidateRequestsDto" /> class.
         /// </summary>
-        /// <param name="code">The verification code provided by the user. (required).</param>
-        /// <param name="session">Specifies whether the authentication is session-based..</param>
+        /// <param name="code">The code to check - either one from the authenticator application or one of the account&#39;s unused backup  codes, which is spent by the check. A wrong code is refused with 400 and counts against the portal login  attempt limit. (required).</param>
+        /// <param name="session">Whether the sign-in that follows is tied to the browser session. When it is, the session ends with the  browser rather than lasting for the portal session lifetime..</param>
         public TfaValidateRequestsDto(string code = default, bool session = default)
         {
             // to ensure "code" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The verification code provided by the user.
+        /// The code to check - either one from the authenticator application or one of the account&#39;s unused backup  codes, which is spent by the check. A wrong code is refused with 400 and counts against the portal login  attempt limit.
         /// </summary>
         /// <example>123456</example>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Specifies whether the authentication is session-based.
+        /// Whether the sign-in that follows is tied to the browser session. When it is, the session ends with the  browser rather than lasting for the portal session lifetime.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "session", EmitDefaultValue = true)]

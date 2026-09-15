@@ -41,16 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailInvitationDto" /> class.
         /// </summary>
-        /// <param name="email">The email address..</param>
+        /// <param name="email">The address of somebody who has no portal account yet. An invitation is sent to it and an account is created  once it is accepted, so this is the field to use instead of an account identifier when the person is new to  the portal..</param>
         public EmailInvitationDto(string email = default)
         {
             this.Email = email;
         }
 
         /// <summary>
-        /// The email address.
+        /// The address of somebody who has no portal account yet. An invitation is sent to it and an account is created  once it is accepted, so this is the field to use instead of an account identifier when the person is new to  the portal.
         /// </summary>
-        /// <example>user@example.com</example>
+        /// <example>jane.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 

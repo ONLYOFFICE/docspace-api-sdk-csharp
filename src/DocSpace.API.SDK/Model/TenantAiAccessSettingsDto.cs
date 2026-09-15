@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the tenant-level AI access settings.
+    /// Whether AI functionality is available on the portal.
     /// </summary>
     [DataContract(Name = "TenantAiAccessSettingsDto")]
     public partial class TenantAiAccessSettingsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantAiAccessSettingsDto" /> class.
         /// </summary>
-        /// <param name="enabled">Specifies whether AI functionality is enabled for the tenant.  Set to &#x60;true&#x60; to enable all AI features or &#x60;false&#x60; to disable them tenant-wide..</param>
+        /// <param name="enabled">Whether AI is available on the portal at all - chat, agents and vectorization together. Switching it off  hides the AI Agents folder and makes every AI endpoint unreachable for all members at once, not only for the  caller, and the change is pushed to connected clients rather than waiting for their next request..</param>
         public TenantAiAccessSettingsDto(bool enabled = default)
         {
             this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Specifies whether AI functionality is enabled for the tenant.  Set to &#x60;true&#x60; to enable all AI features or &#x60;false&#x60; to disable them tenant-wide.
+        /// Whether AI is available on the portal at all - chat, agents and vectorization together. Switching it off  hides the AI Agents folder and makes every AI endpoint unreachable for all members at once, not only for the  caller, and the change is pushed to connected clients rather than waiting for their next request.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]

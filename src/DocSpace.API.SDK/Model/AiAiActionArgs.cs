@@ -32,34 +32,44 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Wire-serializable subset of the engine&#39;s &#x60;ActionArgs&#x60; — drops the engine-injected &#x60;signal&#x60;/&#x60;fetch&#x60;; &#x60;profile&#x60;/&#x60;messages&#x60; are owned by the engine and never sent by the caller.
+    /// AiAiActionArgs
     /// </summary>
     [DataContract(Name = "AiAiActionArgs")]
     public partial class AiAiActionArgs : IValidatableObject
     {
+
+        /// <summary>
+        /// Depth of extended thinking for the round; providers clamp it to what the model accepts.
+        /// </summary>
+        [DataMember(Name = "reasoningLevel", EmitDefaultValue = false)]
+        public AiAiReasoningLevel? ReasoningLevel { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiAiActionArgs" /> class.
         /// </summary>
         /// <param name="tools">Extra tools offered to the model for this request..</param>
-        /// <param name="isReasoning">Enable extended thinking / reasoning for this request..</param>
+        /// <param name="isReasoning">Legacy extended-thinking switch; stands for &#x60;medium&#x60;. &#x60;reasoningLevel&#x60; wins when both are set..</param>
+        /// <param name="reasoningLevel">Depth of extended thinking for the round; providers clamp it to what the model accepts..</param>
         /// <param name="prompt">prompt.</param>
-        public AiAiActionArgs(List<AiTMCPItem> tools = default, bool isReasoning = default, AiAiActionArgsPrompt prompt = default)
+        public AiAiActionArgs(List<AiTMCPItem> tools = default, bool isReasoning = default, AiAiReasoningLevel? reasoningLevel = default, AiAiActionArgsPrompt prompt = default)
         {
             this.Tools = tools;
             this.IsReasoning = isReasoning;
+            this.ReasoningLevel = reasoningLevel;
             this.Prompt = prompt;
         }
 
         /// <summary>
         /// Extra tools offered to the model for this request.
         /// </summary>
+        /// <example>[]</example>
         [DataMember(Name = "tools", EmitDefaultValue = false)]
         public List<AiTMCPItem> Tools { get; set; }
 
         /// <summary>
-        /// Enable extended thinking / reasoning for this request.
+        /// Legacy extended-thinking switch; stands for &#x60;medium&#x60;. &#x60;reasoningLevel&#x60; wins when both are set.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "isReasoning", EmitDefaultValue = true)]
         public bool IsReasoning { get; set; }
 
@@ -79,6 +89,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class AiAiActionArgs {\n");
             sb.Append("  Tools: ").Append(Tools).Append("\n");
             sb.Append("  IsReasoning: ").Append(IsReasoning).Append("\n");
+            sb.Append("  ReasoningLevel: ").Append(ReasoningLevel).Append("\n");
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

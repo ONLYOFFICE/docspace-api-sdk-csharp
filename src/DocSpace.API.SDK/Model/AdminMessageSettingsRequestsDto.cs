@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring the administrator message content.
+    /// The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it.
     /// </summary>
     [DataContract(Name = "AdminMessageSettingsRequestsDto")]
     public partial class AdminMessageSettingsRequestsDto : IValidatableObject
     {
 
         /// <summary>
-        /// The type of CAPTCHA validation used.
+        /// Which CAPTCHA service the proof in &#x60;recaptchaResponse&#x60; came from. It has to match the service the  installation is configured with, which &#x60;GET api/2.0/capabilities&#x60; reports; the default value means the  installation is left to decide.
         /// </summary>
         [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
         public RecaptchaType? RecaptchaType { get; set; }
@@ -52,11 +52,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdminMessageSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="message">The content of the administrator message to be sent. (required).</param>
-        /// <param name="email">Email (required).</param>
-        /// <param name="culture">Culture.</param>
-        /// <param name="recaptchaType">The type of CAPTCHA validation used..</param>
-        /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
+        /// <param name="message">What the sender wants to tell the portal administrators. Markup is stripped before the letter is written, so  a body that carries nothing but markup counts as empty and is refused with 400. (required).</param>
+        /// <param name="email">The address the sender can be answered at, which the letter is signed with. It has to be a well-formed email  address. (required).</param>
+        /// <param name="culture">The language the letter is written in, as a culture name such as &#x60;en-US&#x60;. A culture the installation does not  have falls back to the portal language rather than failing the call..</param>
+        /// <param name="recaptchaType">Which CAPTCHA service the proof in &#x60;recaptchaResponse&#x60; came from. It has to match the service the  installation is configured with, which &#x60;GET api/2.0/capabilities&#x60; reports; the default value means the  installation is left to decide..</param>
+        /// <param name="recaptchaResponse">The token the CAPTCHA widget produced in the browser, passed on unchanged for the portal to verify with the  CAPTCHA service. It is single-use and short-lived, so it cannot be reused for a second message..</param>
         public AdminMessageSettingsRequestsDto(string message = default, string email = default, string culture = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default)
         {
             // to ensure "message" is required (not null)
@@ -77,28 +77,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The content of the administrator message to be sent.
+        /// What the sender wants to tell the portal administrators. Markup is stripped before the letter is written, so  a body that carries nothing but markup counts as empty and is refused with 400.
         /// </summary>
         /// <example>Hello, this is a test message from the administrator.</example>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Email
+        /// The address the sender can be answered at, which the letter is signed with. It has to be a well-formed email  address.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Culture
+        /// The language the letter is written in, as a culture name such as &#x60;en-US&#x60;. A culture the installation does not  have falls back to the portal language rather than failing the call.
         /// </summary>
         /// <example>en-US</example>
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
-        /// The user&#39;s response to the CAPTCHA challenge.
+        /// The token the CAPTCHA widget produced in the browser, passed on unchanged for the portal to verify with the  CAPTCHA service. It is single-use and short-lived, so it cannot be reused for a second message.
         /// </summary>
         /// <example>03AGdBq24PBCbwiDRaS...</example>
         [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]

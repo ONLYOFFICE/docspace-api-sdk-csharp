@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneratePresentationToolCallParametersDto" /> class.
         /// </summary>
-        /// <param name="topic">The presentation topic..</param>
-        /// <param name="slideCount">The number of slides..</param>
-        /// <param name="style">The visual style..</param>
+        /// <param name="topic">What the generated presentation is about..</param>
+        /// <param name="slideCount">How many slides to generate, as the request spelled it..</param>
+        /// <param name="style">The visual style the slides should be generated in..</param>
         public GeneratePresentationToolCallParametersDto(string topic = default, string slideCount = default, string style = default)
         {
             this.Topic = topic;
@@ -52,20 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The presentation topic.
+        /// What the generated presentation is about.
         /// </summary>
+        /// <example>Sales results for 2026</example>
         [DataMember(Name = "topic", EmitDefaultValue = true)]
         public string Topic { get; set; }
 
         /// <summary>
-        /// The number of slides.
+        /// How many slides to generate, as the request spelled it.
         /// </summary>
+        /// <example>12</example>
         [DataMember(Name = "slideCount", EmitDefaultValue = true)]
         public string SlideCount { get; set; }
 
         /// <summary>
-        /// The visual style.
+        /// The visual style the slides should be generated in.
         /// </summary>
+        /// <example>minimal</example>
         [DataMember(Name = "style", EmitDefaultValue = true)]
         public string Style { get; set; }
 

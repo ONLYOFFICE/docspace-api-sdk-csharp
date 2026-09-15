@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The customization config parameters.
+    /// How the editor interface is dressed: branding, the buttons that lead back into the portal, and the behaviour of  review, mentions and form submission.
     /// </summary>
     [DataContract(Name = "CustomizationConfigDto")]
     public partial class CustomizationConfigDto : IValidatableObject
@@ -41,18 +41,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomizationConfigDto" /> class.
         /// </summary>
-        /// <param name="about">Specifies if the customization is about..</param>
-        /// <param name="customer">The customization customer configuration..</param>
-        /// <param name="anonymous">The anonymous configuration of the customization..</param>
-        /// <param name="feedback">The feedback configuration of the customization..</param>
-        /// <param name="forcesave">Specifies if the customization should be force saved..</param>
-        /// <param name="goback">The go back configuration of the customization..</param>
-        /// <param name="review">The review configuration of the customization..</param>
-        /// <param name="logo">The logo of the customization..</param>
-        /// <param name="mentionShare">Specifies if the share should be mentioned..</param>
-        /// <param name="submitForm">The Complete &amp; Submit button settings..</param>
-        /// <param name="startFillingForm">The parameters of the button that starts filling out the form..</param>
-        public CustomizationConfigDto(bool about = default, CustomerConfigDto customer = default, AnonymousConfigDto anonymous = default, FeedbackConfig feedback = default, bool? forcesave = default, GobackConfig goback = default, ReviewConfig review = default, LogoConfigDto logo = default, bool mentionShare = default, SubmitForm submitForm = default, StartFillingForm startFillingForm = default)
+        /// <param name="about">Whether the About entry of the editor menu is shown..</param>
+        /// <param name="customer">The branding of the organization running the portal. It is filled in on a server installation only and is  empty in the cloud..</param>
+        /// <param name="anonymous">How an anonymous participant is treated in this session..</param>
+        /// <param name="feedback">The support link the editor offers behind its feedback button..</param>
+        /// <param name="forcesave">Whether the editors write intermediate revisions while the document stays open. It is empty when the portal  leaves the decision to the editors themselves..</param>
+        /// <param name="goback">Where the editor returns the user to when they leave the document. It is empty when there is nowhere to go  back to, as in an embedded opening..</param>
+        /// <param name="review">How tracked changes are displayed when the document opens; it depends on whether this session may write..</param>
+        /// <param name="logo">The logo the editor shows, in the variants the current layout and file type need..</param>
+        /// <param name="mentionShare">Whether mentioning a user who cannot yet open the document offers to share it with them, instead of silently  notifying nobody..</param>
+        /// <param name="submitForm">The submit button of a form: whether it is shown and what it says..</param>
+        /// <param name="startFillingForm">The button that starts filling out the form. It is empty when this opening offers no such button..</param>
+        /// <param name="ai">The AI configuration settings..</param>
+        public CustomizationConfigDto(bool about = default, CustomerConfigDto customer = default, AnonymousConfigDto anonymous = default, FeedbackConfig feedback = default, bool? forcesave = default, GobackConfig goback = default, ReviewConfig review = default, LogoConfigDto logo = default, bool mentionShare = default, SubmitForm submitForm = default, StartFillingForm startFillingForm = default, AIConfig ai = default)
         {
             this.About = about;
             this.Customer = customer;
@@ -65,76 +66,83 @@ namespace DocSpace.API.SDK.Model
             this.MentionShare = mentionShare;
             this.SubmitForm = submitForm;
             this.StartFillingForm = startFillingForm;
+            this.Ai = ai;
         }
 
         /// <summary>
-        /// Specifies if the customization is about.
+        /// Whether the About entry of the editor menu is shown.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "about", EmitDefaultValue = true)]
         public bool About { get; set; }
 
         /// <summary>
-        /// The customization customer configuration.
+        /// The branding of the organization running the portal. It is filled in on a server installation only and is  empty in the cloud.
         /// </summary>
         [DataMember(Name = "customer", EmitDefaultValue = false)]
         public CustomerConfigDto Customer { get; set; }
 
         /// <summary>
-        /// The anonymous configuration of the customization.
+        /// How an anonymous participant is treated in this session.
         /// </summary>
         [DataMember(Name = "anonymous", EmitDefaultValue = false)]
         public AnonymousConfigDto Anonymous { get; set; }
 
         /// <summary>
-        /// The feedback configuration of the customization.
+        /// The support link the editor offers behind its feedback button.
         /// </summary>
         [DataMember(Name = "feedback", EmitDefaultValue = false)]
         public FeedbackConfig Feedback { get; set; }
 
         /// <summary>
-        /// Specifies if the customization should be force saved.
+        /// Whether the editors write intermediate revisions while the document stays open. It is empty when the portal  leaves the decision to the editors themselves.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "forcesave", EmitDefaultValue = true)]
         public bool? Forcesave { get; set; }
 
         /// <summary>
-        /// The go back configuration of the customization.
+        /// Where the editor returns the user to when they leave the document. It is empty when there is nowhere to go  back to, as in an embedded opening.
         /// </summary>
         [DataMember(Name = "goback", EmitDefaultValue = false)]
         public GobackConfig Goback { get; set; }
 
         /// <summary>
-        /// The review configuration of the customization.
+        /// How tracked changes are displayed when the document opens; it depends on whether this session may write.
         /// </summary>
         [DataMember(Name = "review", EmitDefaultValue = false)]
         public ReviewConfig Review { get; set; }
 
         /// <summary>
-        /// The logo of the customization.
+        /// The logo the editor shows, in the variants the current layout and file type need.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public LogoConfigDto Logo { get; set; }
 
         /// <summary>
-        /// Specifies if the share should be mentioned.
+        /// Whether mentioning a user who cannot yet open the document offers to share it with them, instead of silently  notifying nobody.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "mentionShare", EmitDefaultValue = true)]
         public bool MentionShare { get; set; }
 
         /// <summary>
-        /// The Complete &amp; Submit button settings.
+        /// The submit button of a form: whether it is shown and what it says.
         /// </summary>
         [DataMember(Name = "submitForm", EmitDefaultValue = false)]
         public SubmitForm SubmitForm { get; set; }
 
         /// <summary>
-        /// The parameters of the button that starts filling out the form.
+        /// The button that starts filling out the form. It is empty when this opening offers no such button.
         /// </summary>
         [DataMember(Name = "startFillingForm", EmitDefaultValue = false)]
         public StartFillingForm StartFillingForm { get; set; }
+
+        /// <summary>
+        /// The AI configuration settings.
+        /// </summary>
+        [DataMember(Name = "ai", EmitDefaultValue = false)]
+        public AIConfig Ai { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -155,6 +163,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  MentionShare: ").Append(MentionShare).Append("\n");
             sb.Append("  SubmitForm: ").Append(SubmitForm).Append("\n");
             sb.Append("  StartFillingForm: ").Append(StartFillingForm).Append("\n");
+            sb.Append("  Ai: ").Append(Ai).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

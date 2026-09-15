@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for checking file uploads.
+    /// The names to test against the files the folder already holds.
     /// </summary>
     [DataContract(Name = "CheckUploadRequest")]
     public partial class CheckUploadRequest : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckUploadRequest" /> class.
         /// </summary>
-        /// <param name="filesTitle">The list of file titles..</param>
+        /// <param name="filesTitle">The names to test, extensions included, spelled as they would be sent to the upload. Matching ignores case,  and a name repeated in the list is answered once..</param>
         public CheckUploadRequest(List<string> filesTitle = default)
         {
             this.FilesTitle = filesTitle;
         }
 
         /// <summary>
-        /// The list of file titles.
+        /// The names to test, extensions included, spelled as they would be sent to the upload. Matching ignores case,  and a name repeated in the list is answered once.
         /// </summary>
         /// <example>["file1.docx","file2.pdf","file3.xlsx"]</example>
         [DataMember(Name = "filesTitle", EmitDefaultValue = true)]

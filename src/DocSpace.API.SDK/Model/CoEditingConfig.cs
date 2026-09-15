@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The co-editing configuration parameters.
+    /// How co-editing is preset when the document opens, and whether the user may switch it afterwards.
     /// </summary>
     [DataContract(Name = "CoEditingConfig")]
     public partial class CoEditingConfig : IValidatableObject
     {
 
         /// <summary>
-        /// The co-editing mode (fast or strict).
+        /// The mode the two settings above amount to, as the editors name it.
         /// </summary>
         [DataMember(Name = "mode", EmitDefaultValue = false)]
         public CoEditingConfigMode? Mode { get; set; }
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoEditingConfig" /> class.
         /// </summary>
-        /// <param name="change">Specifies if the co-editing mode can be changed in the editor interface or not..</param>
-        /// <param name="fast">Specifies if the co-editing mode is fast..</param>
-        /// <param name="mode">The co-editing mode (fast or strict)..</param>
+        /// <param name="change">Whether the user may switch between the two co-editing modes from the editor interface, or is held to the one  the portal preset..</param>
+        /// <param name="fast">Whether other participants see each change as it is typed. Left off, changes are exchanged only when a  participant saves, and the paragraph being edited is locked for the others meanwhile..</param>
+        /// <param name="mode">The mode the two settings above amount to, as the editors name it..</param>
         public CoEditingConfig(bool change = default, bool fast = default, CoEditingConfigMode? mode = default)
         {
             this.Change = change;
@@ -58,14 +58,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the co-editing mode can be changed in the editor interface or not.
+        /// Whether the user may switch between the two co-editing modes from the editor interface, or is held to the one  the portal preset.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "change", EmitDefaultValue = true)]
         public bool Change { get; set; }
 
         /// <summary>
-        /// Specifies if the co-editing mode is fast.
+        /// Whether other participants see each change as it is typed. Left off, changes are exchanged only when a  participant saves, and the paragraph being edited is locked for the others meanwhile.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "fast", EmitDefaultValue = true)]

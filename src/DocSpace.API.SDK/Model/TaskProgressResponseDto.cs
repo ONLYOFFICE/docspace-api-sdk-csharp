@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// The status of the distributed task.
+        /// The state of the job: &#x60;Created&#x60; while it waits in the queue, &#x60;Running&#x60; while it works, &#x60;Completed&#x60; once it has  finished on its own, &#x60;Canceled&#x60; after a terminate operation, and &#x60;Failted&#x60; when it stopped on an error, in  which case &#x60;error&#x60; carries the reason.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public DistributedTaskStatus Status { get; set; }
@@ -52,11 +52,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskProgressResponseDto" /> class.
         /// </summary>
-        /// <param name="id">The task progress ID. (required).</param>
-        /// <param name="error">The task progress error message..</param>
-        /// <param name="percentage">The percentage of the task progress. (required).</param>
-        /// <param name="isCompleted">Specifies if the task peogress is completed or not. (required).</param>
-        /// <param name="status">The status of the distributed task. (required).</param>
+        /// <param name="id">The ID of the queued job. It identifies this run of the job and changes every time the job is started again. (required).</param>
+        /// <param name="error">The message of the error that stopped the job. It is empty while the job is running and after a job that  succeeded, and it is the only place where the reason for a failure is reported..</param>
+        /// <param name="percentage">The share of the job that is already done, from 0 to 100. (required).</param>
+        /// <param name="isCompleted">Specifies whether the job has stopped running. This is the field to poll: true means the job will not change  any more, whether it succeeded, failed or was cancelled, and &#x60;status&#x60; tells which of the three it is. (required).</param>
+        /// <param name="status">The state of the job: &#x60;Created&#x60; while it waits in the queue, &#x60;Running&#x60; while it works, &#x60;Completed&#x60; once it has  finished on its own, &#x60;Canceled&#x60; after a terminate operation, and &#x60;Failted&#x60; when it stopped on an error, in  which case &#x60;error&#x60; carries the reason. (required).</param>
         public TaskProgressResponseDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default)
         {
             // to ensure "id" is required (not null)
@@ -72,28 +72,28 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The task progress ID.
+        /// The ID of the queued job. It identifies this run of the job and changes every time the job is started again.
         /// </summary>
         /// <example>task-123456</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The task progress error message.
+        /// The message of the error that stopped the job. It is empty while the job is running and after a job that  succeeded, and it is the only place where the reason for a failure is reported.
         /// </summary>
         /// <example>An error occurred during processing</example>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// The percentage of the task progress.
+        /// The share of the job that is already done, from 0 to 100.
         /// </summary>
         /// <example>75</example>
         [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
-        /// Specifies if the task peogress is completed or not.
+        /// Specifies whether the job has stopped running. This is the field to poll: true means the job will not change  any more, whether it succeeded, failed or was cancelled, and &#x60;status&#x60; tells which of the three it is.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// A key-value pair of a list item.
+    /// One entry of a keyed collection, carried as an explicit pair of &#x60;key&#x60; and &#x60;value&#x60; fields instead of as a member  of a JSON object, so that the key is not restricted to a string and the entries keep the order they are sent in.
     /// </summary>
     [DataContract(Name = "ItemKeyValuePairStringString")]
     public partial class ItemKeyValuePairStringString : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ItemKeyValuePairStringString" /> class.
         /// </summary>
-        /// <param name="key">The key that identifies the item within the list..</param>
-        /// <param name="value">The value associated with the key..</param>
+        /// <param name="key">The left half of the pair. Where the pair configures something, this is the identifier the value belongs to -  a setting name, a module id, a logo slot; where the pair reports the result of a call, this is the result  itself, such as the flag telling whether the call succeeded. Which of the two it is, and which keys are  accepted, is stated by the operation that sends or returns the pair..</param>
+        /// <param name="value">The right half of the pair: what is assigned to the key next to it, or what is reported for it. Its meaning  and its accepted values follow from the key, so read them from the operation that sends or returns the pair..</param>
         public ItemKeyValuePairStringString(string key = default, string value = default)
         {
             this.Key = key;
@@ -50,13 +50,13 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The key that identifies the item within the list.
+        /// The left half of the pair. Where the pair configures something, this is the identifier the value belongs to -  a setting name, a module id, a logo slot; where the pair reports the result of a call, this is the result  itself, such as the flag telling whether the call succeeded. Which of the two it is, and which keys are  accepted, is stated by the operation that sends or returns the pair.
         /// </summary>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The value associated with the key.
+        /// The right half of the pair: what is assigned to the key next to it, or what is reported for it. Its meaning  and its accepted values follow from the key, so read them from the operation that sends or returns the pair.
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }

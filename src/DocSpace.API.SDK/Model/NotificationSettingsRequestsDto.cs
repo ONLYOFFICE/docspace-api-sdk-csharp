@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for configuring notification settings.
+    /// Which kind of notification the calling user switches, and which way.
     /// </summary>
     [DataContract(Name = "NotificationSettingsRequestsDto")]
     public partial class NotificationSettingsRequestsDto : IValidatableObject
     {
 
         /// <summary>
-        /// The notification to be configured.
+        /// The kind of notification being switched. A value outside the defined set is echoed back while nothing is  stored, so confirm the result with &#x60;GET api/2.0/settings/notification/{type}&#x60; rather than trusting the  answer.
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public NotificationType Type { get; set; }
@@ -52,8 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">The notification to be configured. (required).</param>
-        /// <param name="isEnabled">Specifies if the specified notification type is enabled or not..</param>
+        /// <param name="type">The kind of notification being switched. A value outside the defined set is echoed back while nothing is  stored, so confirm the result with &#x60;GET api/2.0/settings/notification/{type}&#x60; rather than trusting the  answer. (required).</param>
+        /// <param name="isEnabled">Whether that kind reaches the calling account. It applies to the caller own account alone and to every room  at once; a single room is silenced with &#x60;POST api/2.0/settings/notification/rooms&#x60; instead..</param>
         public NotificationSettingsRequestsDto(NotificationType type = default, bool isEnabled = default)
         {
             this.Type = type;
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the specified notification type is enabled or not.
+        /// Whether that kind reaches the calling account. It applies to the caller own account alone and to every room  at once; a single room is silenced with &#x60;POST api/2.0/settings/notification/rooms&#x60; instead.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isEnabled", EmitDefaultValue = true)]

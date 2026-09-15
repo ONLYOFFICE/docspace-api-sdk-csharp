@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The configuration parameters of the user currently viewing or editing the document.
+    /// The account the editors attribute the changes of this session to.
     /// </summary>
     [DataContract(Name = "UserConfig")]
     public partial class UserConfig : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserConfig" /> class.
         /// </summary>
-        /// <param name="id">The user ID..</param>
-        /// <param name="name">The full name of the user..</param>
-        /// <param name="image">The path to the user&#39;s avatar..</param>
-        /// <param name="roles">Roles.</param>
-        /// <param name="customerId">Customer identifier associated with the user..</param>
+        /// <param name="id">The account the changes are recorded under. Two sessions carrying the same value are taken by the editors for  the same person..</param>
+        /// <param name="name">The name shown next to the changes and in the list of participants..</param>
+        /// <param name="image">An absolute address of the avatar shown for this participant..</param>
+        /// <param name="roles">The filling roles this participant holds in the form being filled out. It is set only for a form in a virtual  data room, where the role decides which fields open for them..</param>
+        /// <param name="customerId">Identifies the paying customer this participant belongs to, on deployments where the editors are licensed per  customer..</param>
         public UserConfig(string id = default, string name = default, string image = default, List<string> roles = default, string customerId = default)
         {
             this.Id = id;
@@ -56,35 +56,35 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user ID.
+        /// The account the changes are recorded under. Two sessions carrying the same value are taken by the editors for  the same person.
         /// </summary>
-        /// <example>user_0001</example>
+        /// <example>9924256b-447c-4f19-9dbd-8ad8c39e8ff5</example>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The full name of the user.
+        /// The name shown next to the changes and in the list of participants.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The path to the user&#39;s avatar.
+        /// An absolute address of the avatar shown for this participant.
         /// </summary>
-        /// <example>https://portal.example.com/avatar/user_0001.png</example>
+        /// <example>https://portal.example.com/storage/userphotos/9924256b_medium.png</example>
         [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
-        /// Roles
+        /// The filling roles this participant holds in the form being filled out. It is set only for a form in a virtual  data room, where the role decides which fields open for them.
         /// </summary>
-        /// <example>["admin","editor"]</example>
+        /// <example>["Manager"]</example>
         [DataMember(Name = "roles", EmitDefaultValue = true)]
         public List<string> Roles { get; set; }
 
         /// <summary>
-        /// Customer identifier associated with the user.
+        /// Identifies the paying customer this participant belongs to, on deployments where the editors are licensed per  customer.
         /// </summary>
         /// <example>cust_001</example>
         [DataMember(Name = "customerId", EmitDefaultValue = true)]

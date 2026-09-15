@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The used space parameters of the tenant quota feature.
+    /// How much of one quota feature the portal has already consumed.
     /// </summary>
     [DataContract(Name = "FeatureUsedDto")]
     public partial class FeatureUsedDto : IValidatableObject
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FeatureUsedDto" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
-        /// <param name="title">The used space title..</param>
+        /// <param name="title">The same figure as a sentence in the portal language, ready to print. It is empty when this build ships no  wording for the feature..</param>
         public FeatureUsedDto(Object value = default, string title = default)
         {
             // to ensure "value" is required (not null)
@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         public Object Value { get; set; }
 
         /// <summary>
-        /// The used space title.
+        /// The same figure as a sentence in the portal language, ready to print. It is empty when this build ships no  wording for the feature.
         /// </summary>
         /// <example>50 GB used</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The additional white label settings parameters.
+    /// Which of the ONLYOFFICE help and community entries the interface may offer, installation-wide.
     /// </summary>
     [DataContract(Name = "AdditionalWhiteLabelSettingsDto")]
     public partial class AdditionalWhiteLabelSettingsDto : IValidatableObject
@@ -46,13 +46,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdditionalWhiteLabelSettingsDto" /> class.
         /// </summary>
-        /// <param name="startDocsEnabled">Specifies if the sample documents are displayed or hidden. (required).</param>
-        /// <param name="helpCenterEnabled">Specifies if the Help Center link is available or not. (required).</param>
-        /// <param name="feedbackAndSupportEnabled">Specifies if the Feedback &amp; Support link is available or not. (required).</param>
-        /// <param name="userForumEnabled">Specifies if the user forum is available or not. (required).</param>
-        /// <param name="videoGuidesEnabled">Specifies if the Video Guides link is available or not. (required).</param>
-        /// <param name="licenseAgreementsEnabled">Specifies if the License Agreements link is available or not. (required).</param>
-        /// <param name="isDefault">Specifies if the additional white label settings are default or not. (required).</param>
+        /// <param name="startDocsEnabled">Whether the sample documents that ONLYOFFICE ships may be placed in a new user&#39;s Documents. Unlike the link  flags below it depends on nothing that has to be configured, so its built-in value is always &#x60;true&#x60;. (required).</param>
+        /// <param name="helpCenterEnabled">Whether the interface may offer the Help Center entry. It is &#x60;false&#x60; both when the entry was switched off  for the installation and when the installation configures no Help Center address at all; the addresses  themselves are not part of this answer and arrive in &#x60;externalResources&#x60; of &#x60;GET api/2.0/settings&#x60;. (required).</param>
+        /// <param name="feedbackAndSupportEnabled">Whether the interface may offer the Feedback and Support entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;. (required).</param>
+        /// <param name="userForumEnabled">Whether the interface may offer the user forum entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;. (required).</param>
+        /// <param name="videoGuidesEnabled">Whether the interface may offer the Video Guides entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;. (required).</param>
+        /// <param name="licenseAgreementsEnabled">Whether the interface may offer the License Agreements entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;. (required).</param>
+        /// <param name="isDefault">Whether all six flags still hold the values the installation starts out with. It turns &#x60;false&#x60; as soon as  one of them is saved differently and &#x60;true&#x60; again after &#x60;DELETE api/2.0/settings/rebranding/additional&#x60;.  Because a link flag starts out off when no address is configured for it, &#x60;true&#x60; does not mean every entry  is on. (required).</param>
         public AdditionalWhiteLabelSettingsDto(bool startDocsEnabled = default, bool helpCenterEnabled = default, bool feedbackAndSupportEnabled = default, bool userForumEnabled = default, bool videoGuidesEnabled = default, bool licenseAgreementsEnabled = default, bool isDefault = default)
         {
             this.StartDocsEnabled = startDocsEnabled;
@@ -65,49 +65,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the sample documents are displayed or hidden.
+        /// Whether the sample documents that ONLYOFFICE ships may be placed in a new user&#39;s Documents. Unlike the link  flags below it depends on nothing that has to be configured, so its built-in value is always &#x60;true&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "startDocsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool StartDocsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the Help Center link is available or not.
+        /// Whether the interface may offer the Help Center entry. It is &#x60;false&#x60; both when the entry was switched off  for the installation and when the installation configures no Help Center address at all; the addresses  themselves are not part of this answer and arrive in &#x60;externalResources&#x60; of &#x60;GET api/2.0/settings&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "helpCenterEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool HelpCenterEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the Feedback &amp; Support link is available or not.
+        /// Whether the interface may offer the Feedback and Support entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "feedbackAndSupportEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool FeedbackAndSupportEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the user forum is available or not.
+        /// Whether the interface may offer the user forum entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "userForumEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool UserForumEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the Video Guides link is available or not.
+        /// Whether the interface may offer the Video Guides entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "videoGuidesEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool VideoGuidesEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the License Agreements link is available or not.
+        /// Whether the interface may offer the License Agreements entry, &#x60;false&#x60; for the same two reasons as  &#x60;helpCenterEnabled&#x60;.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "licenseAgreementsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool LicenseAgreementsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the additional white label settings are default or not.
+        /// Whether all six flags still hold the values the installation starts out with. It turns &#x60;false&#x60; as soon as  one of them is saved differently and &#x60;true&#x60; again after &#x60;DELETE api/2.0/settings/rebranding/additional&#x60;.  Because a link flag starts out off when no address is configured for it, &#x60;true&#x60; does not mean every entry  is on.
         /// </summary>
         /// <example>false</example>
         [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]

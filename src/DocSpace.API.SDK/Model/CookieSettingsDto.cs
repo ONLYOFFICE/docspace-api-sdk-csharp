@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The cookie settings.
+    /// How long an authentication session of the portal stays valid, and whether that limit is applied.
     /// </summary>
     [DataContract(Name = "CookieSettingsDto")]
     public partial class CookieSettingsDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CookieSettingsDto" /> class.
         /// </summary>
-        /// <param name="lifeTime">The cookie lifetime value in minutes. (required).</param>
-        /// <param name="enabled">Specifies if the cookie settings are enabled or not. (required).</param>
+        /// <param name="lifeTime">How long, in minutes, a session issued from now on remains valid. It is &#x60;1440&#x60; on a portal that has never  stored a limit, and that stored number is reported whether or not &#x60;enabled&#x60; puts it to use. (required).</param>
+        /// <param name="enabled">Whether the stored lifetime is applied at all. While it is &#x60;false&#x60; the number above is ignored and an  issued session is honoured for a year. (required).</param>
         public CookieSettingsDto(int lifeTime = default, bool enabled = default)
         {
             this.LifeTime = lifeTime;
@@ -55,14 +55,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The cookie lifetime value in minutes.
+        /// How long, in minutes, a session issued from now on remains valid. It is &#x60;1440&#x60; on a portal that has never  stored a limit, and that stored number is reported whether or not &#x60;enabled&#x60; puts it to use.
         /// </summary>
         /// <example>1440</example>
         [DataMember(Name = "lifeTime", IsRequired = true, EmitDefaultValue = true)]
         public int LifeTime { get; set; }
 
         /// <summary>
-        /// Specifies if the cookie settings are enabled or not.
+        /// Whether the stored lifetime is applied at all. While it is &#x60;false&#x60; the number above is ignored and an  issued session is honoured for a year.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]

@@ -65,6 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Message author role.
         /// </summary>
+        /// <example>user</example>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public RoleEnum Role { get; set; }
     
@@ -102,6 +103,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Storage-assigned message id (absent on inbound drafts).
         /// </summary>
+        /// <example>22222222-2222-2222-2222-222222222222</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -114,6 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Creation timestamp, ISO-8601 on the wire.
         /// </summary>
+        /// <example>2026-01-01T00:00:00.000Z</example>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
 
@@ -126,12 +129,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Arbitrary per-message metadata.
         /// </summary>
+        /// <example>{}</example>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Object Metadata { get; set; }
 
         /// <summary>
         /// Attachments linked to the message.
         /// </summary>
+        /// <example>["55555555-5555-5555-5555-555555555555"]</example>
         [DataMember(Name = "attachments", EmitDefaultValue = false)]
         public List<Object> Attachments { get; set; }
 

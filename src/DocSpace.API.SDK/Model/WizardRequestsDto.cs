@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for initial configuration of the setup wizard.
+    /// What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale.
     /// </summary>
     [DataContract(Name = "WizardRequestsDto")]
     public partial class WizardRequestsDto : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WizardRequestsDto" /> class.
         /// </summary>
-        /// <param name="email">The user&#39;s email address for authentication and communication. (required).</param>
-        /// <param name="passwordHash">The hashed representation of the user&#39;s password. (required).</param>
-        /// <param name="lng">The user&#39;s preferred interface language code..</param>
-        /// <param name="timeZone">The user&#39;s time zone identifier..</param>
-        /// <param name="amiId">The Amazon Machine Image (AMI) identifier..</param>
-        /// <param name="subscribeFromSite">Specifies whether the user opted in for site communications..</param>
+        /// <param name="email">The address the portal owner account is created with, which is also the address every administrative letter  goes to afterwards. It has to be a well-formed email address; a malformed one leaves the wizard unfinished. (required).</param>
+        /// <param name="passwordHash">The owner password, already hashed in the client rather than sent in the clear. Hash it with the &#x60;salt&#x60;,  iteration count and hash size that &#x60;GET api/2.0/settings?withpassword&#x3D;true&#x60; publishes, so the portal can  recognise it later; an empty value leaves the wizard unfinished. (required).</param>
+        /// <param name="lng">The portal interface language, as a culture name such as &#x60;en-US&#x60;. It has to be one of the cultures enabled  for the installation, and an unknown one leaves the shipped default in place instead of failing the wizard..</param>
+        /// <param name="timeZone">The time zone every portal date is rendered in, as an IANA identifier such as &#x60;Europe/Riga&#x60;. A value that  matches nothing falls back to UTC rather than failing the wizard..</param>
+        /// <param name="amiId">The identifier of the Amazon Machine Image the portal was launched from, for an installation started from an  AWS image. It is recorded for the installation record only and changes nothing about the portal; leave it out  anywhere else..</param>
+        /// <param name="subscribeFromSite">Whether the owner agrees to receive product news at the address in &#x60;email&#x60;. It is a mailing consent and has  no bearing on the portal notifications, which are subscribed separately..</param>
         public WizardRequestsDto(string email = default, string passwordHash = default, string lng = default, string timeZone = default, string amiId = default, bool subscribeFromSite = default)
         {
             // to ensure "email" is required (not null)
@@ -73,42 +73,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user&#39;s email address for authentication and communication.
+        /// The address the portal owner account is created with, which is also the address every administrative letter  goes to afterwards. It has to be a well-formed email address; a malformed one leaves the wizard unfinished.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// The hashed representation of the user&#39;s password.
+        /// The owner password, already hashed in the client rather than sent in the clear. Hash it with the &#x60;salt&#x60;,  iteration count and hash size that &#x60;GET api/2.0/settings?withpassword&#x3D;true&#x60; publishes, so the portal can  recognise it later; an empty value leaves the wizard unfinished.
         /// </summary>
         /// <example>2DYmIoA/aYKEksFocEf6uw==</example>
         [DataMember(Name = "passwordHash", IsRequired = true, EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 
         /// <summary>
-        /// The user&#39;s preferred interface language code.
+        /// The portal interface language, as a culture name such as &#x60;en-US&#x60;. It has to be one of the cultures enabled  for the installation, and an unknown one leaves the shipped default in place instead of failing the wizard.
         /// </summary>
         /// <example>en-US</example>
         [DataMember(Name = "lng", EmitDefaultValue = true)]
         public string Lng { get; set; }
 
         /// <summary>
-        /// The user&#39;s time zone identifier.
+        /// The time zone every portal date is rendered in, as an IANA identifier such as &#x60;Europe/Riga&#x60;. A value that  matches nothing falls back to UTC rather than failing the wizard.
         /// </summary>
         /// <example>UTC</example>
         [DataMember(Name = "timeZone", EmitDefaultValue = true)]
         public string @TimeZone { get; set; }
 
         /// <summary>
-        /// The Amazon Machine Image (AMI) identifier.
+        /// The identifier of the Amazon Machine Image the portal was launched from, for an installation started from an  AWS image. It is recorded for the installation record only and changes nothing about the portal; leave it out  anywhere else.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "amiId", EmitDefaultValue = true)]
         public string AmiId { get; set; }
 
         /// <summary>
-        /// Specifies whether the user opted in for site communications.
+        /// Whether the owner agrees to receive product news at the address in &#x60;email&#x60;. It is a mailing consent and has  no bearing on the portal notifications, which are subscribed separately.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "subscribeFromSite", EmitDefaultValue = true)]

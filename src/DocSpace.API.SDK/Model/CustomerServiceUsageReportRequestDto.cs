@@ -32,20 +32,20 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for generating a customer service usage report.
+    /// The filters that select which wallet service consumption is reported: the services, the period, the participant,  the outcome, the usage metadata and the ordering.
     /// </summary>
     [DataContract(Name = "CustomerServiceUsageReportRequestDto")]
     public partial class CustomerServiceUsageReportRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// The operation status to filter by.
+        /// The outcome to keep. Consumption that is still being settled is reported as pending and may change later,  while the other outcomes are final; every outcome is reported when this is omitted.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public OperationStatus? Status { get; set; }
 
         /// <summary>
-        /// Order direction: Ascending or Descending.
+        /// The direction the field named in &#x60;orderBy&#x60; is sorted in. Newest or largest first is what the accounting  service does by default, so leaving this out sorts the same way as asking for descending explicitly.
         /// </summary>
         [DataMember(Name = "orderType", EmitDefaultValue = false)]
         public OperationOrderType? OrderType { get; set; }
@@ -53,14 +53,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerServiceUsageReportRequestDto" /> class.
         /// </summary>
-        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility..</param>
-        /// <param name="startDate">The report start date..</param>
-        /// <param name="endDate">The report end date..</param>
-        /// <param name="participantName">The participant name..</param>
-        /// <param name="status">The operation status to filter by..</param>
-        /// <param name="metadata">Metadata key-value pairs to filter by..</param>
-        /// <param name="orderBy">The field to order by..</param>
-        /// <param name="orderType">Order direction: Ascending or Descending..</param>
+        /// <param name="serviceName">The wallet services whose consumption is reported, named the way the billing catalogue names them -  &#x60;backup&#x60;, &#x60;ai-tools&#x60;, &#x60;ai-search&#x60;, &#x60;disk-storage&#x60;, &#x60;docscloud&#x60;. Take the values from the &#x60;serviceName&#x60; field  of &#x60;GET api/2.0/portal/payment/walletservices&#x60;; the match ignores case, a name this installation does not  sell fails the call with 404, and an omitted list reports every service. A bare string is accepted in place  of an array for backward compatibility..</param>
+        /// <param name="startDate">The beginning of the reported period, inclusive. Read in the portal time zone rather than in UTC, and  defaults to the portal creation date..</param>
+        /// <param name="endDate">The end of the reported period, inclusive. Read in the portal time zone rather than in UTC, and defaults to  the moment the call is made..</param>
+        /// <param name="participantName">The participant whose consumption is reported - the account the accounting service records as the consumer.  Consumption caused by a portal user carries that user ID here; surrounding whitespace is trimmed, and an  omitted value reports every participant..</param>
+        /// <param name="status">The outcome to keep. Consumption that is still being settled is reported as pending and may change later,  while the other outcomes are final; every outcome is reported when this is omitted..</param>
+        /// <param name="metadata">The usage annotations a wallet service records alongside its consumption, as the key and value pairs that  must all match for a record to be reported. The keys are chosen by the service that writes them, so read  them off the &#x60;metadata&#x60; of the records returned by &#x60;GET api/2.0/portal/payment/customer/usage&#x60; rather than  guessing; an omitted map reports every record..</param>
+        /// <param name="orderBy">The name of the field the per-service totals are sorted by, spelled as the accounting service names it, such  as &#x60;ServiceName&#x60; or &#x60;StartDate&#x60;. Surrounding whitespace is trimmed, and the accounting service applies its  own ordering when this is omitted..</param>
+        /// <param name="orderType">The direction the field named in &#x60;orderBy&#x60; is sorted in. Newest or largest first is what the accounting  service does by default, so leaving this out sorts the same way as asking for descending explicitly..</param>
         public CustomerServiceUsageReportRequestDto(List<string> serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, OperationStatus? status = default, Dictionary<string, string> metadata = default, string orderBy = default, OperationOrderType? orderType = default)
         {
             this.ServiceName = serviceName;
@@ -74,42 +74,42 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The service name list. A single string is also accepted for backward compatibility.
+        /// The wallet services whose consumption is reported, named the way the billing catalogue names them -  &#x60;backup&#x60;, &#x60;ai-tools&#x60;, &#x60;ai-search&#x60;, &#x60;disk-storage&#x60;, &#x60;docscloud&#x60;. Take the values from the &#x60;serviceName&#x60; field  of &#x60;GET api/2.0/portal/payment/walletservices&#x60;; the match ignores case, a name this installation does not  sell fails the call with 404, and an omitted list reports every service. A bare string is accepted in place  of an array for backward compatibility.
         /// </summary>
         /// <example>[backup]</example>
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public List<string> ServiceName { get; set; }
 
         /// <summary>
-        /// The report start date.
+        /// The beginning of the reported period, inclusive. Read in the portal time zone rather than in UTC, and  defaults to the portal creation date.
         /// </summary>
         /// <example>2024-01-01T00:00:00Z</example>
         [DataMember(Name = "startDate", EmitDefaultValue = true)]
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// The report end date.
+        /// The end of the reported period, inclusive. Read in the portal time zone rather than in UTC, and defaults to  the moment the call is made.
         /// </summary>
         /// <example>2024-01-31T23:59:59Z</example>
         [DataMember(Name = "endDate", EmitDefaultValue = true)]
         public DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// The participant name.
+        /// The participant whose consumption is reported - the account the accounting service records as the consumer.  Consumption caused by a portal user carries that user ID here; surrounding whitespace is trimmed, and an  omitted value reports every participant.
         /// </summary>
         /// <example>My Own Corporation</example>
         [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
 
         /// <summary>
-        /// Metadata key-value pairs to filter by.
+        /// The usage annotations a wallet service records alongside its consumption, as the key and value pairs that  must all match for a record to be reported. The keys are chosen by the service that writes them, so read  them off the &#x60;metadata&#x60; of the records returned by &#x60;GET api/2.0/portal/payment/customer/usage&#x60; rather than  guessing; an omitted map reports every record.
         /// </summary>
         /// <example>{"key1":"value1","key2":"value2"}</example>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Dictionary<string, string> Metadata { get; set; }
 
         /// <summary>
-        /// The field to order by.
+        /// The name of the field the per-service totals are sorted by, spelled as the accounting service names it, such  as &#x60;ServiceName&#x60; or &#x60;StartDate&#x60;. Surrounding whitespace is trimmed, and the accounting service applies its  own ordering when this is omitted.
         /// </summary>
         /// <example>ServiceName</example>
         [DataMember(Name = "orderBy", EmitDefaultValue = true)]

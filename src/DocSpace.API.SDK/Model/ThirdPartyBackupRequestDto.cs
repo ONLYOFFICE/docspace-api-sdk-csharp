@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The third-party backup request parameters.
+    /// The credentials and the title of the third-party storage account the portal writes its backups to.
     /// </summary>
     [DataContract(Name = "ThirdPartyBackupRequestDto")]
     public partial class ThirdPartyBackupRequestDto : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThirdPartyBackupRequestDto" /> class.
         /// </summary>
-        /// <param name="url">The connection URL for the sharepoint..</param>
-        /// <param name="login">The login..</param>
-        /// <param name="password">The password..</param>
-        /// <param name="token">The authentication token..</param>
-        /// <param name="customerTitle">The customer title..</param>
-        /// <param name="providerKey">The provider key..</param>
+        /// <param name="url">The address of the storage server to connect to. It is needed by the WebDAV presets whose server is not known  in advance (&#x60;WebDav&#x60;, &#x60;Nextcloud&#x60;, &#x60;ownCloud&#x60;), where it points at the WebDAV endpoint of that server, and by  &#x60;SharePoint&#x60;; the presets with a fixed address and the OAuth services ignore it..</param>
+        /// <param name="login">The account name at the storage service, used by the services that authenticate by login and password. A login  sent without a password is rejected as an invalid request..</param>
+        /// <param name="password">The password, or the application password, for &#x60;login&#x60; at the storage service. Either this or &#x60;token&#x60; has to  be sent, and the credentials are verified against the service before the account is saved..</param>
+        /// <param name="token">The OAuth 2.0 authorization code from the consent screen of &#x60;Box&#x60;, &#x60;DropboxV2&#x60;, &#x60;GoogleDrive&#x60; or &#x60;OneDrive&#x60; -  not an access token: the portal exchanges the code for its own token and keeps that. The client ID and  redirect URL the consent screen URL is built from come from &#x60;GET api/2.0/files/thirdparty/capabilities&#x60;..</param>
+        /// <param name="customerTitle">The name the backup account is shown under in the portal. Characters that a folder title cannot hold are  replaced and the value is truncated; on the first connection a title that comes out of that empty is refused..</param>
+        /// <param name="providerKey">The storage service to connect, as the &#x60;key&#x60; of &#x60;GET api/2.0/files/thirdparty/providers&#x60;; the value is matched  case-insensitively. &#x60;Nextcloud&#x60; and &#x60;ownCloud&#x60; are presets over WebDAV and are stored and reported back as  &#x60;WebDav&#x60;..</param>
         public ThirdPartyBackupRequestDto(string url = default, string login = default, string password = default, string token = default, string customerTitle = default, string providerKey = default)
         {
             this.Url = url;
@@ -58,44 +58,44 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The connection URL for the sharepoint.
+        /// The address of the storage server to connect to. It is needed by the WebDAV presets whose server is not known  in advance (&#x60;WebDav&#x60;, &#x60;Nextcloud&#x60;, &#x60;ownCloud&#x60;), where it points at the WebDAV endpoint of that server, and by  &#x60;SharePoint&#x60;; the presets with a fixed address and the OAuth services ignore it.
         /// </summary>
-        /// <example>https://sharepoint.example.com</example>
+        /// <example>https://cloud.example.com/remote.php/dav/files/admin/</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// The login.
+        /// The account name at the storage service, used by the services that authenticate by login and password. A login  sent without a password is rejected as an invalid request.
         /// </summary>
         /// <example>admin</example>
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
-        /// The password.
+        /// The password, or the application password, for &#x60;login&#x60; at the storage service. Either this or &#x60;token&#x60; has to  be sent, and the credentials are verified against the service before the account is saved.
         /// </summary>
-        /// <example>P@ssw0rd</example>
+        /// <example>p@ssw0rd!</example>
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// The authentication token.
+        /// The OAuth 2.0 authorization code from the consent screen of &#x60;Box&#x60;, &#x60;DropboxV2&#x60;, &#x60;GoogleDrive&#x60; or &#x60;OneDrive&#x60; -  not an access token: the portal exchanges the code for its own token and keeps that. The client ID and  redirect URL the consent screen URL is built from come from &#x60;GET api/2.0/files/thirdparty/capabilities&#x60;.
         /// </summary>
-        /// <example>abc123def456</example>
+        /// <example>4/0AY0e-g5Tn8vQrM2kZs7xB1pLd9</example>
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
-        /// The customer title.
+        /// The name the backup account is shown under in the portal. Characters that a folder title cannot hold are  replaced and the value is truncated; on the first connection a title that comes out of that empty is refused.
         /// </summary>
-        /// <example>My Cloud Storage</example>
+        /// <example>Backup storage</example>
         [DataMember(Name = "customerTitle", EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
-        /// The provider key.
+        /// The storage service to connect, as the &#x60;key&#x60; of &#x60;GET api/2.0/files/thirdparty/providers&#x60;; the value is matched  case-insensitively. &#x60;Nextcloud&#x60; and &#x60;ownCloud&#x60; are presets over WebDAV and are stored and reported back as  &#x60;WebDav&#x60;.
         /// </summary>
-        /// <example>SharePoint</example>
+        /// <example>Nextcloud</example>
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 

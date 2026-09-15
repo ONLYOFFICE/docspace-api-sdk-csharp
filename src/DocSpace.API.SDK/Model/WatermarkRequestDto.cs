@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for adding watermarks.
+    /// The watermark drawn over the documents of a room.
     /// </summary>
     [DataContract(Name = "WatermarkRequestDto")]
     public partial class WatermarkRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// Specifies whether to display the following addditional information or not: username, user email, user IP address, current date and room name.
+        /// Which details of the reader and of the room are stamped into the watermark alongside the text. The values  combine, so several of them can be added together to stamp more than one.
         /// </summary>
         [DataMember(Name = "additions", EmitDefaultValue = false)]
         public WatermarkAdditions? Additions { get; set; }
@@ -47,14 +47,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WatermarkRequestDto" /> class.
         /// </summary>
-        /// <param name="enabled">Specifies whether watermarks are on or off..</param>
-        /// <param name="additions">Specifies whether to display the following addditional information or not: username, user email, user IP address, current date and room name..</param>
-        /// <param name="text">The watermark text..</param>
-        /// <param name="rotate">The watermark text and image rotate angle..</param>
-        /// <param name="imageScale">The watermark image scale..</param>
-        /// <param name="imageUrl">The path to the temporary image file..</param>
-        /// <param name="imageHeight">The watermark image height..</param>
-        /// <param name="imageWidth">The watermark image width..</param>
+        /// <param name="enabled">Whether the room draws a watermark at all. Sending the object with this turned off removes the watermark the  room has, and the rest of the fields are then irrelevant..</param>
+        /// <param name="additions">Which details of the reader and of the room are stamped into the watermark alongside the text. The values  combine, so several of them can be added together to stamp more than one..</param>
+        /// <param name="text">The fixed line drawn over the document, shown before the details selected alongside it. It is the whole  watermark when no details are added..</param>
+        /// <param name="rotate">How far the watermark is turned, in degrees, with negative values turning it anticlockwise. Zero draws it  horizontally across the page..</param>
+        /// <param name="imageScale">How large the watermark image is drawn, as a percentage of its own size. It applies to the image form of the  watermark only..</param>
+        /// <param name="imageUrl">The picture to use instead of a text watermark, named by the path that &#x60;POST api/2.0/files/logos&#x60; returned for  an image uploaded beforehand. The portal copies it into the room when the setting is saved..</param>
+        /// <param name="imageHeight">The height the watermark image is drawn with, in pixels, used together with the width to keep its proportions..</param>
+        /// <param name="imageWidth">The width the watermark image is drawn with, in pixels, used together with the height to keep its proportions..</param>
         public WatermarkRequestDto(bool? enabled = default, WatermarkAdditions? additions = default, string text = default, int rotate = default, int imageScale = default, string imageUrl = default, double imageHeight = default, double imageWidth = default)
         {
             this.Enabled = enabled;
@@ -68,49 +68,49 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether watermarks are on or off.
+        /// Whether the room draws a watermark at all. Sending the object with this turned off removes the watermark the  room has, and the rest of the fields are then irrelevant.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool? Enabled { get; set; }
 
         /// <summary>
-        /// The watermark text.
+        /// The fixed line drawn over the document, shown before the details selected alongside it. It is the whole  watermark when no details are added.
         /// </summary>
         /// <example>Confidential</example>
         [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
-        /// The watermark text and image rotate angle.
+        /// How far the watermark is turned, in degrees, with negative values turning it anticlockwise. Zero draws it  horizontally across the page.
         /// </summary>
         /// <example>-45</example>
         [DataMember(Name = "rotate", EmitDefaultValue = false)]
         public int Rotate { get; set; }
 
         /// <summary>
-        /// The watermark image scale.
+        /// How large the watermark image is drawn, as a percentage of its own size. It applies to the image form of the  watermark only.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "imageScale", EmitDefaultValue = false)]
         public int ImageScale { get; set; }
 
         /// <summary>
-        /// The path to the temporary image file.
+        /// The picture to use instead of a text watermark, named by the path that &#x60;POST api/2.0/files/logos&#x60; returned for  an image uploaded beforehand. The portal copies it into the room when the setting is saved.
         /// </summary>
-        /// <example>/tmp/watermark.png</example>
+        /// <example>/temp/watermark_a1b2c3.png</example>
         [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
-        /// The watermark image height.
+        /// The height the watermark image is drawn with, in pixels, used together with the width to keep its proportions.
         /// </summary>
         /// <example>100.0</example>
         [DataMember(Name = "imageHeight", EmitDefaultValue = false)]
         public double ImageHeight { get; set; }
 
         /// <summary>
-        /// The watermark image width.
+        /// The width the watermark image is drawn with, in pixels, used together with the height to keep its proportions.
         /// </summary>
         /// <example>200.0</example>
         [DataMember(Name = "imageWidth", EmitDefaultValue = false)]

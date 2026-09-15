@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for creating a folder.
+    /// The title a folder is created with or renamed to.
     /// </summary>
     [DataContract(Name = "CreateFolder")]
     public partial class CreateFolder : IValidatableObject
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateFolder" /> class.
         /// </summary>
-        /// <param name="title">The folder title to create. (required).</param>
+        /// <param name="title">The title the folder is given. It is trimmed before it is stored and may not be blank or consist of spaces  alone; it need not differ from the titles of the neighbouring folders, so the same title may appear twice in  one parent. (required).</param>
         public CreateFolder(string title = default)
         {
             // to ensure "title" is required (not null)
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The folder title to create.
+        /// The title the folder is given. It is trimmed before it is stored and may not be blank or consist of spaces  alone; it need not differ from the titles of the neighbouring folders, so the same title may appear twice in  one parent.
         /// </summary>
         /// <example>New Folder</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]

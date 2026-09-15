@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file editing history URL parameters.
+    /// The address, document key and format of the revision a comparison is made against.
     /// </summary>
     [DataContract(Name = "EditHistoryUrl")]
     public partial class EditHistoryUrl : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EditHistoryUrl" /> class.
         /// </summary>
-        /// <param name="key">The document identifier of the previous version of the document..</param>
-        /// <param name="url">The url address of the previous version of the document..</param>
-        /// <param name="fileType">The document extension..</param>
+        /// <param name="key">The document key of that revision. When the file has no earlier revision the portal generates a fresh key for  the template it falls back to, so the value is not always one an earlier revision ever had..</param>
+        /// <param name="url">The address that revision&#39;s content is served from. It is meant for the editing service and carries its own  key, which is valid for a limited time..</param>
+        /// <param name="fileType">The format of that revision, as an extension without the leading dot..</param>
         public EditHistoryUrl(string key = default, string url = default, string fileType = default)
         {
             this.Key = key;
@@ -52,23 +52,23 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The document identifier of the previous version of the document.
+        /// The document key of that revision. When the file has no earlier revision the portal generates a fresh key for  the template it falls back to, so the value is not always one an earlier revision ever had.
         /// </summary>
         /// <example>doc_v2_20260101</example>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The url address of the previous version of the document.
+        /// The address that revision&#39;s content is served from. It is meant for the editing service and carries its own  key, which is valid for a limited time.
         /// </summary>
         /// <example>https://files.example.com/history/doc_v2_20260101.docx</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// The document extension.
+        /// The format of that revision, as an extension without the leading dot.
         /// </summary>
-        /// <example>.docx</example>
+        /// <example>docx</example>
         [DataMember(Name = "fileType", EmitDefaultValue = true)]
         public string FileType { get; set; }
 

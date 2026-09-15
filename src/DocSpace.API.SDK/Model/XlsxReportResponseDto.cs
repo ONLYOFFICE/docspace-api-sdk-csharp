@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The XLSX report task response parameters.
+    /// The answer to a report generation request: the queued task, the form whose answers are collected, and whether the  report file is being created or refreshed.
     /// </summary>
     [DataContract(Name = "XlsxReportResponseDto")]
     public partial class XlsxReportResponseDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="XlsxReportResponseDto" /> class.
         /// </summary>
-        /// <param name="form">The original form file information..</param>
-        /// <param name="task">The Document Builder task information..</param>
-        /// <param name="isNewFile">Specifies whether the XLSX report file is newly created or an existing file will be updated..</param>
+        /// <param name="form">The original form the answers are collected from. It is not the produced spreadsheet - that one arrives with  the task, once the task reports completion..</param>
+        /// <param name="task">The queued generation. Poll it with &#x60;GET api/2.0/files/file/{fileId}/xlsx&#x60; until it reports completion, and  take the produced file from it then..</param>
+        /// <param name="isNewFile">True when this run creates the report file, false when an existing report is rewritten in place, which means  it keeps its id and the links already shared for it..</param>
         public XlsxReportResponseDto(FileDtoInteger form = default, DocumentBuilderTaskDto task = default, bool isNewFile = default)
         {
             this.Form = form;
@@ -52,19 +52,19 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The original form file information.
+        /// The original form the answers are collected from. It is not the produced spreadsheet - that one arrives with  the task, once the task reports completion.
         /// </summary>
         [DataMember(Name = "form", EmitDefaultValue = false)]
         public FileDtoInteger Form { get; set; }
 
         /// <summary>
-        /// The Document Builder task information.
+        /// The queued generation. Poll it with &#x60;GET api/2.0/files/file/{fileId}/xlsx&#x60; until it reports completion, and  take the produced file from it then.
         /// </summary>
         [DataMember(Name = "task", EmitDefaultValue = false)]
         public DocumentBuilderTaskDto Task { get; set; }
 
         /// <summary>
-        /// Specifies whether the XLSX report file is newly created or an existing file will be updated.
+        /// True when this run creates the report file, false when an existing report is rewritten in place, which means  it keeps its id and the links already shared for it.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "isNewFile", EmitDefaultValue = true)]

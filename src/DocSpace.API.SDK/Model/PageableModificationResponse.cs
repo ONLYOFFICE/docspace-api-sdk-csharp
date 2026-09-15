@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The response containing paginated modification information.
+    /// One page of results ordered by modification time, together with the cursor that asks for the next page.
     /// </summary>
     [DataContract(Name = "PageableModificationResponse")]
     public partial class PageableModificationResponse : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PageableModificationResponse" /> class.
         /// </summary>
-        /// <param name="data">The paginated modification data..</param>
-        /// <param name="limit">The maximum number of results returned per page..</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified..</param>
+        /// <param name="data">data.</param>
+        /// <param name="limit">The page size that was applied to this request, between 1 and 50..</param>
+        /// <param name="lastModifiedOn">The cursor to send back as last_modified_on to ask for the next page. It is null when the page is empty..</param>
         public PageableModificationResponse(Object data = default, int limit = default, DateTime lastModifiedOn = default)
         {
             this.Data = data;
@@ -52,20 +52,22 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The paginated modification data.
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }
 
         /// <summary>
-        /// The maximum number of results returned per page.
+        /// The page size that was applied to this request, between 1 and 50.
         /// </summary>
+        /// <example>50</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
         /// <summary>
-        /// The date when the user consent was last modified.
+        /// The cursor to send back as last_modified_on to ask for the next page. It is null when the page is empty.
         /// </summary>
+        /// <example>2024-04-04T12:00:00Z</example>
         [DataMember(Name = "last_modified_on", EmitDefaultValue = false)]
         public DateTime LastModifiedOn { get; set; }
 

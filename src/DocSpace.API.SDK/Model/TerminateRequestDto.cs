@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for terminating the reassignment/deletion process.
+    /// The request parameters that address the queued job of a single user - a data reassignment, a data deletion or a  user type change.
     /// </summary>
     [DataContract(Name = "TerminateRequestDto")]
     public partial class TerminateRequestDto : IValidatableObject
@@ -46,14 +46,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TerminateRequestDto" /> class.
         /// </summary>
-        /// <param name="userId">The user ID whose data is reassigned/removed. (required).</param>
+        /// <param name="userId">The ID of the user whose job is addressed. For a terminate operation it has to be the same ID that was passed  when the job was started. (required).</param>
         public TerminateRequestDto(Guid userId = default)
         {
             this.UserId = userId;
         }
 
         /// <summary>
-        /// The user ID whose data is reassigned/removed.
+        /// The ID of the user whose job is addressed. For a terminate operation it has to be the same ID that was passed  when the job was started.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]

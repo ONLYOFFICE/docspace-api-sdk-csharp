@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters of the usage space statistics item.
+    /// The storage one category of a portal module occupies, in the form a statistics page prints it.
     /// </summary>
     [DataContract(Name = "UsageSpaceStatItemDto")]
     public partial class UsageSpaceStatItemDto : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UsageSpaceStatItemDto" /> class.
         /// </summary>
-        /// <param name="name">The item name..</param>
-        /// <param name="icon">The item icon path..</param>
-        /// <param name="disabled">Specifies if the item is disabled or not..</param>
-        /// <param name="size">The item used space..</param>
-        /// <param name="url">The item URL..</param>
+        /// <param name="name">The category name in the portal language, HTML-escaped and ready to be rendered as text. What a category  stands for depends on the module asked about - for the Documents module it is a room type..</param>
+        /// <param name="icon">The path of the icon to render beside the name, relative to the portal address. It is empty for a category  that ships no icon..</param>
+        /// <param name="disabled">Whether the category is switched off for this portal. A disabled category still reports the space it  occupies, so it is worth showing greyed out rather than dropping..</param>
+        /// <param name="size">The occupied space already formatted for display, with its unit and in the portal language - &#x60;0 Byte&#x60; for  an empty category. It is not a byte count and must not be parsed; the raw numbers live in the quota  reported by &#x60;GET api/2.0/portal/quota&#x60;..</param>
+        /// <param name="url">The portal page that lists the contents of this category, relative to the portal address, so a statistics  page can link through to it. It is empty for a category with no page of its own..</param>
         public UsageSpaceStatItemDto(string name = default, string icon = default, bool disabled = default, string size = default, string url = default)
         {
             this.Name = name;
@@ -56,37 +56,37 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The item name.
+        /// The category name in the portal language, HTML-escaped and ready to be rendered as text. What a category  stands for depends on the module asked about - for the Documents module it is a room type.
         /// </summary>
-        /// <example>Item name</example>
+        /// <example>Collaboration rooms</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The item icon path.
+        /// The path of the icon to render beside the name, relative to the portal address. It is empty for a category  that ships no icon.
         /// </summary>
-        /// <example>Item icon path</example>
+        /// <example>/images/icons/rooms.svg</example>
         [DataMember(Name = "icon", EmitDefaultValue = true)]
         public string Icon { get; set; }
 
         /// <summary>
-        /// Specifies if the item is disabled or not.
+        /// Whether the category is switched off for this portal. A disabled category still reports the space it  occupies, so it is worth showing greyed out rather than dropping.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "disabled", EmitDefaultValue = true)]
         public bool Disabled { get; set; }
 
         /// <summary>
-        /// The item used space.
+        /// The occupied space already formatted for display, with its unit and in the portal language - &#x60;0 Byte&#x60; for  an empty category. It is not a byte count and must not be parsed; the raw numbers live in the quota  reported by &#x60;GET api/2.0/portal/quota&#x60;.
         /// </summary>
-        /// <example>0 Byte</example>
+        /// <example>1.5 GB</example>
         [DataMember(Name = "size", EmitDefaultValue = true)]
         public string Size { get; set; }
 
         /// <summary>
-        /// The item URL.
+        /// The portal page that lists the contents of this category, relative to the portal address, so a statistics  page can link through to it. It is empty for a category with no page of its own.
         /// </summary>
-        /// <example>Item url</example>
+        /// <example>/rooms/shared</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 

@@ -32,14 +32,14 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The login event parameters.
+    /// One entry of the portal login history: a sign-in, a sign-out or a failed attempt, and where it came from.
     /// </summary>
     [DataContract(Name = "LoginEventDto")]
     public partial class LoginEventDto : IValidatableObject
     {
 
         /// <summary>
-        /// The login-related action to filter events by.
+        /// What happened, as the &#x60;action&#x60; filter of this operation spells it: a successful sign-in, a failed one, a  sign-out. Use this rather than parsing &#x60;action&#x60;, which is prose and changes with the portal language.
         /// </summary>
         [DataMember(Name = "actionId", EmitDefaultValue = false)]
         public MessageAction? ActionId { get; set; }
@@ -47,19 +47,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginEventDto" /> class.
         /// </summary>
-        /// <param name="id">The login event ID..</param>
-        /// <param name="date">The login event date..</param>
-        /// <param name="user">The user name of the login event..</param>
-        /// <param name="userId">The user ID of the login event..</param>
-        /// <param name="login">The user login of the login event..</param>
-        /// <param name="action">The login event action..</param>
-        /// <param name="actionId">The login-related action to filter events by..</param>
-        /// <param name="ip">The login event IP..</param>
-        /// <param name="country">The login event country..</param>
-        /// <param name="city">The login event city..</param>
-        /// <param name="browser">The login event browser..</param>
-        /// <param name="platform">The login event platform..</param>
-        /// <param name="page">The login event page..</param>
+        /// <param name="id">The ID of the recorded sign-in. When the entry is a successful sign-in that is still open, this is also  the value &#x60;GET api/2.0/security/activeconnections&#x60; reports as the connection&#39;s &#x60;id&#x60;..</param>
+        /// <param name="date">When the attempt was made, in the portal time zone. The &#x60;from&#x60; and &#x60;to&#x60; filters are read as UTC instants,  so the two do not line up on a portal that is not on UTC..</param>
+        /// <param name="user">The display name of the account the attempt was made against, taken from the account as it stands now  rather than as it stood at the time. A localised placeholder stands in when there is no account to read,  which is the usual case for a failed attempt on an address nobody owns..</param>
+        /// <param name="userId">The ID of that account, which is what the &#x60;userId&#x60; filter of this operation matches on. It is the empty  GUID when the attempt could not be tied to an account..</param>
+        /// <param name="login">The login string as it was typed - normally the email address. It is the only field that survives a failed  attempt against an unknown account, which makes it the one to read when &#x60;user&#x60; is a placeholder..</param>
+        /// <param name="action">The event as a readable sentence in the portal language. On &#x60;GET api/2.0/security/audit/login/last&#x60; each  substituted value is cut to 50 characters; the filtered operation substitutes them in full..</param>
+        /// <param name="actionId">What happened, as the &#x60;action&#x60; filter of this operation spells it: a successful sign-in, a failed one, a  sign-out. Use this rather than parsing &#x60;action&#x60;, which is prose and changes with the portal language..</param>
+        /// <param name="ip">The IP address the attempt came from, with the port stripped off..</param>
+        /// <param name="country">The English name of the country the IP address is located in, empty when the address cannot be located -  the normal outcome for private and loopback addresses..</param>
+        /// <param name="city">The city the IP address is located in, empty under the same conditions as &#x60;country&#x60;..</param>
+        /// <param name="browser">The browser and its version as parsed from the user agent of the attempt, empty when the client sent none  that could be parsed..</param>
+        /// <param name="platform">The operating system as parsed from the same user agent, empty under the same conditions as &#x60;browser&#x60;..</param>
+        /// <param name="page">Where in the portal the attempt was made from: the referrer of the request, or that request&#39;s own path  when it carried no referrer. Long values are cut off at 512 characters..</param>
         public LoginEventDto(int id = default, ApiDateTime date = default, string user = default, Guid userId = default, string login = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default)
         {
             this.Id = id;
@@ -78,83 +78,83 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The login event ID.
+        /// The ID of the recorded sign-in. When the entry is a successful sign-in that is still open, this is also  the value &#x60;GET api/2.0/security/activeconnections&#x60; reports as the connection&#39;s &#x60;id&#x60;.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The login event date.
+        /// When the attempt was made, in the portal time zone. The &#x60;from&#x60; and &#x60;to&#x60; filters are read as UTC instants,  so the two do not line up on a portal that is not on UTC.
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// The user name of the login event.
+        /// The display name of the account the attempt was made against, taken from the account as it stands now  rather than as it stood at the time. A localised placeholder stands in when there is no account to read,  which is the usual case for a failed attempt on an address nobody owns.
         /// </summary>
         /// <example>John Doe</example>
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
-        /// The user ID of the login event.
+        /// The ID of that account, which is what the &#x60;userId&#x60; filter of this operation matches on. It is the empty  GUID when the attempt could not be tied to an account.
         /// </summary>
-        /// <example>{}</example>
+        /// <example>00000000-0000-0000-0000-000000000001</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// The user login of the login event.
+        /// The login string as it was typed - normally the email address. It is the only field that survives a failed  attempt against an unknown account, which makes it the one to read when &#x60;user&#x60; is a placeholder.
         /// </summary>
         /// <example>user@example.com</example>
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
-        /// The login event action.
+        /// The event as a readable sentence in the portal language. On &#x60;GET api/2.0/security/audit/login/last&#x60; each  substituted value is cut to 50 characters; the filtered operation substitutes them in full.
         /// </summary>
         /// <example>User logged in</example>
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
-        /// The login event IP.
+        /// The IP address the attempt came from, with the port stripped off.
         /// </summary>
         /// <example>192.0.2.1</example>
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>
-        /// The login event country.
+        /// The English name of the country the IP address is located in, empty when the address cannot be located -  the normal outcome for private and loopback addresses.
         /// </summary>
         /// <example>United States</example>
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
-        /// The login event city.
+        /// The city the IP address is located in, empty under the same conditions as &#x60;country&#x60;.
         /// </summary>
         /// <example>New York</example>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// The login event browser.
+        /// The browser and its version as parsed from the user agent of the attempt, empty when the client sent none  that could be parsed.
         /// </summary>
         /// <example>Chrome 120.0</example>
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
 
         /// <summary>
-        /// The login event platform.
+        /// The operating system as parsed from the same user agent, empty under the same conditions as &#x60;browser&#x60;.
         /// </summary>
         /// <example>Windows</example>
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
-        /// The login event page.
+        /// Where in the portal the attempt was made from: the referrer of the request, or that request&#39;s own path  when it carried no referrer. Long values are cut off at 512 characters.
         /// </summary>
         /// <example>/login</example>
         [DataMember(Name = "page", EmitDefaultValue = true)]

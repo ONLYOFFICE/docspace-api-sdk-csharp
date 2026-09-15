@@ -59,6 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// file | image.
         /// </summary>
+        /// <example>file</example>
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public KindEnum Kind { get; set; }
         /// <summary>
@@ -83,6 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Origin of the attachment. &#x60;user&#x60; — uploaded by the user in the composer (the default when unset, for backward compatibility). &#x60;tool&#x60; — produced by a tool call (e.g. &#x60;generate_image&#x60;). Lets the integrator&#39;s adapter route or apply policies (separate bucket, quotas, TTL, CDN) per source.
         /// </summary>
+        /// <example>user</example>
         [DataMember(Name = "source", EmitDefaultValue = false)]
         public SourceEnum? Source { get; set; }
     
@@ -139,18 +141,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Storage-assigned UUID.
         /// </summary>
+        /// <example>55555555-5555-5555-5555-555555555555</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Display label (filename or user-visible title).
         /// </summary>
+        /// <example>contract.docx</example>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Extracted text for files.
         /// </summary>
+        /// <example>This agreement is made on 1 January 2026 between …</example>
         [DataMember(Name = "content", EmitDefaultValue = false)]
         public string Content { get; set; }
 
@@ -163,48 +168,56 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Original host file path (for files).
         /// </summary>
+        /// <example>file_1234</example>
         [DataMember(Name = "path", EmitDefaultValue = false)]
         public string Path { get; set; }
 
         /// <summary>
         /// ONLYOFFICE file type code (for files).
         /// </summary>
+        /// <example>7</example>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public decimal Type { get; set; }
 
         /// <summary>
         /// Owning message id once linked. Unset while the attachment is a draft.
         /// </summary>
+        /// <example>22222222-2222-2222-2222-222222222222</example>
         [DataMember(Name = "messageId", EmitDefaultValue = false)]
         public string MessageId { get; set; }
 
         /// <summary>
         /// Owning thread id once linked. Unset while the attachment is a draft.
         /// </summary>
+        /// <example>11111111-1111-1111-1111-111111111111</example>
         [DataMember(Name = "threadId", EmitDefaultValue = false)]
         public string ThreadId { get; set; }
 
         /// <summary>
         /// Opaque scope token (entity / room) the attachment was created in. Drafts carry it so an entity switch keeps in-flight composer state isolated; once linked to a message the field is redundant with the thread&#39;s own entity binding.
         /// </summary>
+        /// <example>1234</example>
         [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// Storage-assigned creation timestamp.
         /// </summary>
+        /// <example>1767225600000</example>
         [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
         public decimal CreatedAt { get; set; }
 
         /// <summary>
         /// Whether the attached form can be analyzed.
         /// </summary>
+        /// <example>false</example>
         [DataMember(Name = "canAnalyze", EmitDefaultValue = true)]
         public bool CanAnalyze { get; set; }
 
         /// <summary>
         /// Keys of the fields inside the form. &#x60;key&#x60; is the field identifier, &#x60;text&#x60; its human-readable label.
         /// </summary>
+        /// <example>[]</example>
         [DataMember(Name = "formKeys", EmitDefaultValue = false)]
         public List<AiAttachmentFormKeysInner> FormKeys { get; set; }
 

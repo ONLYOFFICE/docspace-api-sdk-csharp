@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file history information.
+    /// One record of the activity log of a file or a folder.
     /// </summary>
     [DataContract(Name = "HistoryDto")]
     public partial class HistoryDto : IValidatableObject
@@ -46,12 +46,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HistoryDto" /> class.
         /// </summary>
-        /// <param name="id">The unique identifier for the file history entry. (required).</param>
-        /// <param name="action">The action performed on the file. (required).</param>
-        /// <param name="initiator">The action initiator. (required).</param>
-        /// <param name="date">The date and time when an action on the file was performed. (required).</param>
-        /// <param name="data">The history data. (required).</param>
-        /// <param name="related">The list of related history..</param>
+        /// <param name="id">The identifier of the record, which tells two records of the same action apart and stays stable as long as the  portal keeps the log. (required).</param>
+        /// <param name="action">What happened - the kind of event the record stands for, such as a file being uploaded, renamed, moved or  shared - with the key a client can key its own wording off. (required).</param>
+        /// <param name="initiator">Who caused the event. For an event caused by a visitor following an external link only the name they gave is  filled in, the account fields staying empty. (required).</param>
+        /// <param name="date">When the event happened, written with the offset of the portal&#39;s time zone. (required).</param>
+        /// <param name="data">The history data. Absent for actions that carry no payload of their own - changing a room&#39;s  logo, icon colour or cover, whose interpreter returns no data (see  &#x60;RoomLogoChangedInterpreter&#x60;). It used to be declared required, which put it in the  OpenAPI document&#39;s required list while the null-dropping serializer left it out of the  response, so a generated client threw on any history page holding one of those entries..</param>
+        /// <param name="related">The records folded into this one because they belong to the same action, the separate files of one upload for  instance. It is empty when the record stands alone, and the records inside it carry no further nesting..</param>
         public HistoryDto(int id = default, HistoryAction action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryData data = default, List<HistoryDto> related = default)
         {
             this.Id = id;
@@ -73,48 +73,43 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("date is a required property for HistoryDto and cannot be null");
             }
             this.Date = date;
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for HistoryDto and cannot be null");
-            }
             this.Data = data;
             this.Related = related;
         }
 
         /// <summary>
-        /// The unique identifier for the file history entry.
+        /// The identifier of the record, which tells two records of the same action apart and stays stable as long as the  portal keeps the log.
         /// </summary>
         /// <example>123</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The action performed on the file.
+        /// What happened - the kind of event the record stands for, such as a file being uploaded, renamed, moved or  shared - with the key a client can key its own wording off.
         /// </summary>
         [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = true)]
         public HistoryAction Action { get; set; }
 
         /// <summary>
-        /// The action initiator.
+        /// Who caused the event. For an event caused by a visitor following an external link only the name they gave is  filled in, the account fields staying empty.
         /// </summary>
         [DataMember(Name = "initiator", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeDto Initiator { get; set; }
 
         /// <summary>
-        /// The date and time when an action on the file was performed.
+        /// When the event happened, written with the offset of the portal&#39;s time zone.
         /// </summary>
         [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// The history data.
+        /// The history data. Absent for actions that carry no payload of their own - changing a room&#39;s  logo, icon colour or cover, whose interpreter returns no data (see  &#x60;RoomLogoChangedInterpreter&#x60;). It used to be declared required, which put it in the  OpenAPI document&#39;s required list while the null-dropping serializer left it out of the  response, so a generated client threw on any history page holding one of those entries.
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public HistoryData Data { get; set; }
 
         /// <summary>
-        /// The list of related history.
+        /// The records folded into this one because they belong to the same action, the separate files of one upload for  instance. It is empty when the record stands alone, and the records inside it carry no further nesting.
         /// </summary>
         /// <example>[{"id":124,"action":0}]</example>
         [DataMember(Name = "related", EmitDefaultValue = true)]

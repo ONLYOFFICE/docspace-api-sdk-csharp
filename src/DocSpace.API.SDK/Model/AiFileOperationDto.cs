@@ -32,20 +32,20 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file operation information.
+    /// One background file operation of the caller, as it stood when the answer was built.
     /// </summary>
     [DataContract(Name = "AiFileOperationDto")]
     public partial class AiFileOperationDto : IValidatableObject
     {
 
         /// <summary>
-        /// The file operation type.
+        /// What the operation does with the entries, which also decides what else is reported: only a download fills  &#x60;url&#x60;, and a deletion leaves &#x60;files&#x60; and &#x60;folders&#x60; empty.
         /// </summary>
         [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
         public AiFileOperationType Operation { get; set; }
 
         /// <summary>
-        /// The status of the distributed task related to the file operation.
+        /// The state of the background task behind the operation, which tells a task that was cancelled or that crashed  from one that ran to its end.
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public AiDistributedTaskStatus? Status { get; set; }
@@ -58,16 +58,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiFileOperationDto" /> class.
         /// </summary>
-        /// <param name="id">The file operation ID. (required).</param>
-        /// <param name="operation">The file operation type. (required).</param>
-        /// <param name="progress">The file operation progress in percentage. (required).</param>
-        /// <param name="error">The file operation error message. (required).</param>
-        /// <param name="processed">The file operation processing status. (required).</param>
-        /// <param name="finished">Specifies if the file operation is finished or not. (required).</param>
-        /// <param name="url">The file operation URL..</param>
-        /// <param name="files">The list of files of the file operation..</param>
-        /// <param name="folders">The list of folders of the file operation..</param>
-        /// <param name="status">The status of the distributed task related to the file operation..</param>
+        /// <param name="id">The identifier of the operation, the one to pass to &#x60;PUT api/2.0/files/fileops/terminate/{id}&#x60; to stop it.  Operations belong to the account that started them, so an identifier of somebody else is never listed here. (required).</param>
+        /// <param name="operation">What the operation does with the entries, which also decides what else is reported: only a download fills  &#x60;url&#x60;, and a deletion leaves &#x60;files&#x60; and &#x60;folders&#x60; empty. (required).</param>
+        /// <param name="progress">How far the operation has come, from 0 to 100. Reaching 100 only means it stopped; whether it did what it was  asked for is told by &#x60;error&#x60;. (required).</param>
+        /// <param name="error">The reason the operation could not finish its work, in the language of the request. Empty when nothing went  wrong, which is the only way to tell a successful operation from a failed one. (required).</param>
+        /// <param name="processed">How many entries the operation has handled so far, written as a decimal number in a string. It counts items,  not percent, and stays behind &#x60;progress&#x60; on operations that walk into subfolders. (required).</param>
+        /// <param name="finished">Whether the operation has stopped running. A finished operation is reported once and then dropped, so the next  read of the operation list no longer contains it. (required).</param>
+        /// <param name="url">The address the packed archive can be downloaded from once a bulk download has finished. Empty for every other  kind of operation..</param>
+        /// <param name="files">The files the operation produced or moved, in the order it wrote them down. Empty while nothing has been  written yet and for a deletion, which reports no entries at all..</param>
+        /// <param name="folders">The folders the operation produced or moved, in the order it wrote them down. Empty while nothing has been  written yet and for a deletion..</param>
+        /// <param name="status">The state of the background task behind the operation, which tells a task that was cancelled or that crashed  from one that ran to its end..</param>
         public AiFileOperationDto(string id = default, AiFileOperationType operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<AiFileEntryBaseDto> files = default, List<AiFileEntryBaseDto> folders = default, AiDistributedTaskStatus? status = default)
         {
             // to ensure "id" is required (not null)
@@ -98,58 +98,58 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file operation ID.
+        /// The identifier of the operation, the one to pass to &#x60;PUT api/2.0/files/fileops/terminate/{id}&#x60; to stop it.  Operations belong to the account that started them, so an identifier of somebody else is never listed here.
         /// </summary>
-        /// <example>00000000-0000-0000-0000-000000000000</example>
+        /// <example>a1f4c9b2-3d8e-4f77-9b16-2c5de8f0a913</example>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The file operation progress in percentage.
+        /// How far the operation has come, from 0 to 100. Reaching 100 only means it stopped; whether it did what it was  asked for is told by &#x60;error&#x60;.
         /// </summary>
         /// <example>100</example>
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public int Progress { get; set; }
 
         /// <summary>
-        /// The file operation error message.
+        /// The reason the operation could not finish its work, in the language of the request. Empty when nothing went  wrong, which is the only way to tell a successful operation from a failed one.
         /// </summary>
-        /// <example>File not found.</example>
+        /// <example>Folder not found.</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// The file operation processing status.
+        /// How many entries the operation has handled so far, written as a decimal number in a string. It counts items,  not percent, and stays behind &#x60;progress&#x60; on operations that walk into subfolders.
         /// </summary>
-        /// <example>1</example>
+        /// <example>12</example>
         [DataMember(Name = "processed", IsRequired = true, EmitDefaultValue = true)]
         public string Processed { get; set; }
 
         /// <summary>
-        /// Specifies if the file operation is finished or not.
+        /// Whether the operation has stopped running. A finished operation is reported once and then dropped, so the next  read of the operation list no longer contains it.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "finished", IsRequired = true, EmitDefaultValue = true)]
         public bool Finished { get; set; }
 
         /// <summary>
-        /// The file operation URL.
+        /// The address the packed archive can be downloaded from once a bulk download has finished. Empty for every other  kind of operation.
         /// </summary>
-        /// <example>http://localhost/download</example>
+        /// <example>https://portal.example.com/filehandler.ashx?action=bulk</example>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
-        /// The list of files of the file operation.
+        /// The files the operation produced or moved, in the order it wrote them down. Empty while nothing has been  written yet and for a deletion, which reports no entries at all.
         /// </summary>
         /// <example>[{"id":10,"title":"document.docx"}]</example>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<AiFileEntryBaseDto> Files { get; set; }
 
         /// <summary>
-        /// The list of folders of the file operation.
+        /// The folders the operation produced or moved, in the order it wrote them down. Empty while nothing has been  written yet and for a deletion.
         /// </summary>
-        /// <example>[{"id":20,"title":"My Folder"}]</example>
+        /// <example>[{"id":20,"title":"Reports"}]</example>
         [DataMember(Name = "folders", EmitDefaultValue = true)]
         public List<AiFileEntryBaseDto> Folders { get; set; }
 

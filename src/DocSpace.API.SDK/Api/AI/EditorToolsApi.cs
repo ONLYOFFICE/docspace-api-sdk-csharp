@@ -31,49 +31,49 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiEditorToolsCall(Dictionary<string, Object> requestBody);
+        /// <returns>AiEditorToolsCall200Response</returns>
+        AiEditorToolsCall200Response AiEditorToolsCall(AiEditorToolsCallRequest aiEditorToolsCallRequest);
 
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiEditorToolsCallWithHttpInfo(Dictionary<string, Object> requestBody);
+        /// <returns>ApiResponse of AiEditorToolsCall200Response</returns>
+        ApiResponse<AiEditorToolsCall200Response> AiEditorToolsCallWithHttpInfo(AiEditorToolsCallRequest aiEditorToolsCallRequest);
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiEditorToolsList();
+        /// <returns>AiEditorToolsList200Response</returns>
+        AiEditorToolsList200Response AiEditorToolsList();
 
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiEditorToolsListWithHttpInfo();
+        /// <returns>ApiResponse of AiEditorToolsList200Response</returns>
+        ApiResponse<AiEditorToolsList200Response> AiEditorToolsListWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -84,53 +84,53 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiEditorToolsCallAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiEditorToolsCall200Response</returns>
+        Task<AiEditorToolsCall200Response> AiEditorToolsCallAsync(AiEditorToolsCallRequest aiEditorToolsCallRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiEditorToolsCallWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiEditorToolsCall200Response)</returns>
+        Task<ApiResponse<AiEditorToolsCall200Response>> AiEditorToolsCallWithHttpInfoAsync(AiEditorToolsCallRequest aiEditorToolsCallRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiEditorToolsListAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AiEditorToolsList200Response</returns>
+        Task<AiEditorToolsList200Response> AiEditorToolsListAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiEditorToolsListWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiEditorToolsList200Response)</returns>
+        Task<ApiResponse<AiEditorToolsList200Response>> AiEditorToolsListWithHttpInfoAsync(CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -347,36 +347,36 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiEditorToolsCall(Dictionary<string, Object> requestBody)
+        /// <returns>AiEditorToolsCall200Response</returns>
+        public AiEditorToolsCall200Response AiEditorToolsCall(AiEditorToolsCallRequest aiEditorToolsCallRequest)
         {
-            var localVarResponse = AiEditorToolsCallWithHttpInfo(requestBody);
+            var localVarResponse = AiEditorToolsCallWithHttpInfo(aiEditorToolsCallRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiEditorToolsCallWithHttpInfo(Dictionary<string, Object> requestBody)
+        /// <returns>ApiResponse of AiEditorToolsCall200Response</returns>
+        public ApiResponse<AiEditorToolsCall200Response> AiEditorToolsCallWithHttpInfo(AiEditorToolsCallRequest aiEditorToolsCallRequest)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling EditorToolsApi->AiEditorToolsCall");
+            // verify the required parameter 'aiEditorToolsCallRequest' is set
+            if (aiEditorToolsCallRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiEditorToolsCallRequest' when calling EditorToolsApi->AiEditorToolsCall");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -391,11 +391,11 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiEditorToolsCallRequest != null) localVarRequestOptions.Data = aiEditorToolsCallRequest;
 
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/editor-tools/call", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AiEditorToolsCall200Response>("/api/2.0/ai/editor-tools/call", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -410,38 +410,38 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiEditorToolsCallAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiEditorToolsCall200Response</returns>
+        public async Task<AiEditorToolsCall200Response> AiEditorToolsCallAsync(AiEditorToolsCallRequest aiEditorToolsCallRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiEditorToolsCallWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiEditorToolsCallWithHttpInfoAsync(aiEditorToolsCallRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Execute a DocSpace tool on behalf of the editor AI plugin
+        /// Call an editor tool
         /// </summary>
         /// <remarks>
-        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and with the caller's forwarded credentials. Whatever the tool produced is returned for the plugin to relay to the model; a failure comes back as an error payload.
+        /// Executes one DocSpace tool on behalf of the document editor's AI plugin, server-side and under the caller's own credentials, so the browser never holds the transport. `name` has to be one of the tools `GET api/2.0/ai/editor-tools/list` reports; anything else, including a tool the editor is not allowed to reach, is refused. The result is always returned as a string - a structured result is serialised - because the plugin relays it to the model verbatim. A tool that fails does so inside that string as an error payload rather than as an HTTP status, so check the content before trusting it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody"></param>
+        /// <param name="aiEditorToolsCallRequest">The tool to run: `name` from `GET api/2.0/ai/editor-tools/list`, `arguments` matching that tool's input schema, and an optional `entityId` for the room to run it in.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-call/">REST API Reference for AiEditorToolsCall Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiEditorToolsCallWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiEditorToolsCall200Response)</returns>
+        public async Task<ApiResponse<AiEditorToolsCall200Response>> AiEditorToolsCallWithHttpInfoAsync(AiEditorToolsCallRequest aiEditorToolsCallRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling EditorToolsApi->AiEditorToolsCall");
+            // verify the required parameter 'aiEditorToolsCallRequest' is set
+            if (aiEditorToolsCallRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiEditorToolsCallRequest' when calling EditorToolsApi->AiEditorToolsCall");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -457,12 +457,12 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiEditorToolsCallRequest != null) localVarRequestOptions.Data = aiEditorToolsCallRequest;
 
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/editor-tools/call", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AiEditorToolsCall200Response>("/api/2.0/ai/editor-tools/call", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -477,30 +477,30 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiEditorToolsList()
+        /// <returns>AiEditorToolsList200Response</returns>
+        public AiEditorToolsList200Response AiEditorToolsList()
         {
             var localVarResponse = AiEditorToolsListWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiEditorToolsListWithHttpInfo()
+        /// <returns>ApiResponse of AiEditorToolsList200Response</returns>
+        public ApiResponse<AiEditorToolsList200Response> AiEditorToolsListWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -518,7 +518,7 @@ namespace DocSpace.API.SDK.Api.AI
 
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiSuccessResponse>("/api/2.0/ai/editor-tools/list", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiEditorToolsList200Response>("/api/2.0/ai/editor-tools/list", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -533,32 +533,32 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiEditorToolsListAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AiEditorToolsList200Response</returns>
+        public async Task<AiEditorToolsList200Response> AiEditorToolsListAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiEditorToolsListWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Sanitized DocSpace tool catalog for the editor AI plugin
+        /// List editor tools
         /// </summary>
         /// <remarks>
-        /// Returns the sanitized catalog of DocSpace tools available to the document editor's AI plugin - the same composed tool set the DocSpace chat sees, minus the web-search pair the editor already has through its own passthrough. Only the name, description, parameters and approval flag of each tool are exposed; transport details never reach the browser.
+        /// Returns the catalogue of DocSpace tools the document editor's AI plugin may offer the model - the same composed set the DocSpace chat sees, minus the two web-search tools the editor already reaches through its own passthrough. `entityId` scopes the catalogue to a room, which decides the room-specific tools it contains. Each entry carries exactly four fields: the tool name, its description, its input schema, and whether calling it requires an approval dialog; nothing else is exposed, because the raw listings of system servers carry transport details that must not reach a browser. The approval flag follows the same policy the chat engine applies, and a read-only tool comes back needing none - execute a tool with `POST api/2.0/ai/editor-tools/call`, which accepts only the names this catalogue reports.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-editor-tools-list/">REST API Reference for AiEditorToolsList Operation</seealso>
-        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiEditorToolsListWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiEditorToolsList200Response)</returns>
+        public async Task<ApiResponse<AiEditorToolsList200Response>> AiEditorToolsListWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -578,7 +578,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiSuccessResponse>("/api/2.0/ai/editor-tools/list", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiEditorToolsList200Response>("/api/2.0/ai/editor-tools/list", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

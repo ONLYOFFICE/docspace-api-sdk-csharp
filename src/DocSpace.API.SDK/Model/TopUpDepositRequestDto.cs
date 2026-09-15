@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for putting money on deposit.
+    /// How much money is charged to the payment method on file and added to the portal wallet.
     /// </summary>
     [DataContract(Name = "TopUpDepositRequestDto")]
     public partial class TopUpDepositRequestDto : IValidatableObject
@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TopUpDepositRequestDto" /> class.
         /// </summary>
-        /// <param name="amount">The amount of money for the operation..</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol..</param>
+        /// <param name="amount">The sum to charge, as a whole number of units of &#x60;currency&#x60; - 10 means ten dollars and not ten cents. The  bounds are what one call may move, not what the wallet may hold, so a larger top-up is made of several calls..</param>
+        /// <param name="currency">The currency the charge is made in, as an ISO 4217 code in upper case. It has to be one of the accounting  currencies this installation supports, which &#x60;GET api/2.0/portal/payment/accounting/currencies&#x60; lists; any  other code is refused with 400. The money lands on the wallet sub-account of that currency, so topping up in  a second currency does not add to the first one..</param>
         public TopUpDepositRequestDto(int amount = default, string currency = default)
         {
             this.Amount = amount;
@@ -50,14 +50,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The amount of money for the operation.
+        /// The sum to charge, as a whole number of units of &#x60;currency&#x60; - 10 means ten dollars and not ten cents. The  bounds are what one call may move, not what the wallet may hold, so a larger top-up is made of several calls.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public int Amount { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol.
+        /// The currency the charge is made in, as an ISO 4217 code in upper case. It has to be one of the accounting  currencies this installation supports, which &#x60;GET api/2.0/portal/payment/accounting/currencies&#x60; lists; any  other code is refused with 400. The money lands on the wallet sub-account of that currency, so topping up in  a second currency does not add to the first one.
         /// </summary>
         /// <example>USD</example>
         [DataMember(Name = "currency", EmitDefaultValue = true)]

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The configuration parameters for the embedded document type.
+    /// The addresses the framed viewer needs. It is reported for the embedded layout only.
     /// </summary>
     [DataContract(Name = "EmbeddedConfig")]
     public partial class EmbeddedConfig : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedConfig" /> class.
         /// </summary>
-        /// <param name="embedUrl">The absolute URL to the document serving as a source file for the document embedded into the web page..</param>
-        /// <param name="shareLinkParam">The shared URL parameter..</param>
-        /// <param name="shareUrl">The absolute URL that will allow other users to share this document..</param>
+        /// <param name="embedUrl">The page to put into the frame. It is empty when the opening carries no external share key, since a framed  viewer cannot authenticate a portal member..</param>
+        /// <param name="shareLinkParam">The query fragment carrying the external share key, ampersand included, out of which the addresses around it  are built..</param>
+        /// <param name="shareUrl">The address behind the share button of the framed viewer, the document opened full-screen for reading. It is  empty when the opening carries no external share key..</param>
         public EmbeddedConfig(string embedUrl = default, string shareLinkParam = default, string shareUrl = default)
         {
             this.EmbedUrl = embedUrl;
@@ -52,16 +52,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The absolute URL to the document serving as a source file for the document embedded into the web page.
+        /// The page to put into the frame. It is empty when the opening carries no external share key, since a framed  viewer cannot authenticate a portal member.
         /// </summary>
-        /// <example>https://portal.example.com/files/editor?action=embedded&amp;share=abc123</example>
+        /// <example>https://portal.example.com/products/files/doceditor?action=embedded&amp;share=HkQd9nT2</example>
         [DataMember(Name = "embedUrl", EmitDefaultValue = true)]
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// The absolute URL that will allow the document to be saved onto the user personal computer.
+        /// Where the download button of the framed viewer leads.
         /// </summary>
-        /// <example>https://portal.example.com/files/filehandler?action=download&amp;share=abc123</example>
+        /// <example>https://portal.example.com/filehandler.ashx?action=download&amp;share=HkQd9nT2</example>
         [DataMember(Name = "saveUrl", EmitDefaultValue = true)]
         public string SaveUrl { get; private set; }
 
@@ -74,21 +74,21 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The shared URL parameter.
+        /// The query fragment carrying the external share key, ampersand included, out of which the addresses around it  are built.
         /// </summary>
-        /// <example>&amp;share=abc123</example>
+        /// <example>&amp;fileid=512&amp;share=HkQd9nT2</example>
         [DataMember(Name = "shareLinkParam", EmitDefaultValue = true)]
         public string ShareLinkParam { get; set; }
 
         /// <summary>
-        /// The absolute URL that will allow other users to share this document.
+        /// The address behind the share button of the framed viewer, the document opened full-screen for reading. It is  empty when the opening carries no external share key.
         /// </summary>
-        /// <example>https://portal.example.com/files/editor?action=view&amp;share=abc123</example>
+        /// <example>https://portal.example.com/products/files/doceditor?action=view&amp;share=HkQd9nT2</example>
         [DataMember(Name = "shareUrl", EmitDefaultValue = true)]
         public string ShareUrl { get; set; }
 
         /// <summary>
-        /// The place for the embedded viewer toolbar, can be either top or bottom.
+        /// Where the framed viewer puts its toolbar. The portal always asks for the top.
         /// </summary>
         /// <example>top</example>
         [DataMember(Name = "toolbarDocked", EmitDefaultValue = true)]

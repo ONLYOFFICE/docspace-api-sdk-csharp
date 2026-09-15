@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -82,51 +82,73 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>AiFolderIntegerWrapper</returns>
-        AiFolderIntegerWrapper AiAgentsGet(string id);
+        /// <returns>AiAgentsGet200Response</returns>
+        AiAgentsGet200Response AiAgentsGet(string id);
 
         /// <summary>
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
-        ApiResponse<AiFolderIntegerWrapper> AiAgentsGetWithHttpInfo(string id);
+        /// <returns>ApiResponse of AiAgentsGet200Response</returns>
+        ApiResponse<AiAgentsGet200Response> AiAgentsGetWithHttpInfo(string id);
         /// <summary>
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>AiFolderContentIntegerWrapper</returns>
-        AiFolderContentIntegerWrapper AiAgentsList();
+        AiFolderContentIntegerWrapper AiAgentsList(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default);
 
         /// <summary>
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>ApiResponse of AiFolderContentIntegerWrapper</returns>
-        ApiResponse<AiFolderContentIntegerWrapper> AiAgentsListWithHttpInfo();
+        ApiResponse<AiFolderContentIntegerWrapper> AiAgentsListWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default);
         /// <summary>
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
@@ -137,7 +159,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
@@ -147,7 +169,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -159,7 +181,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -170,7 +192,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -183,7 +205,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -195,7 +217,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -207,7 +229,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -227,7 +249,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -240,7 +262,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -252,7 +274,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -266,7 +288,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -279,55 +301,77 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>Task of AiFolderIntegerWrapper</returns>
-        Task<AiFolderIntegerWrapper> AiAgentsGetAsync(string id, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiAgentsGet200Response</returns>
+        Task<AiAgentsGet200Response> AiAgentsGetAsync(string id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
-        Task<ApiResponse<AiFolderIntegerWrapper>> AiAgentsGetWithHttpInfoAsync(string id, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiAgentsGet200Response)</returns>
+        Task<ApiResponse<AiAgentsGet200Response>> AiAgentsGetWithHttpInfoAsync(string id, CancellationToken cancellationToken = default);
         /// <summary>
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>Task of AiFolderContentIntegerWrapper</returns>
-        Task<AiFolderContentIntegerWrapper> AiAgentsListAsync(CancellationToken cancellationToken = default);
+        Task<AiFolderContentIntegerWrapper> AiAgentsListAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<AiFolderContentIntegerWrapper>> AiAgentsListWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiFolderContentIntegerWrapper>> AiAgentsListWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -339,7 +383,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -350,7 +394,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -363,7 +407,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -375,7 +419,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -389,7 +433,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -402,7 +446,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -415,7 +459,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -636,13 +680,26 @@ namespace DocSpace.API.SDK.Api.AI
             set => _exceptionFactory = value; 
         }
 
+        private string? _fields;
+
+        /// <summary>
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public AgentsApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
+        }
 
         
         /// <summary>
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -658,7 +715,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -705,7 +762,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -722,7 +779,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create an agent
         /// </summary>
         /// <remarks>
-        /// Creates an AI agent room in the .NET AI service and binds the supplied `profileId` to it as a `Chat` assignment. The instruction is stored on the room as a prompt-only chat setting; a failed binding is reported as an error even though the room already exists.
+        /// Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
@@ -772,7 +829,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -789,7 +846,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -842,7 +899,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -860,7 +917,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Delete an agent
         /// </summary>
         /// <remarks>
-        /// Deletes an AI agent room.
+        /// Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -916,13 +973,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>AiFolderIntegerWrapper</returns>
-        public AiFolderIntegerWrapper AiAgentsGet(string id)
+        /// <returns>AiAgentsGet200Response</returns>
+        public AiAgentsGet200Response AiAgentsGet(string id)
         {
             var localVarResponse = AiAgentsGetWithHttpInfo(id);
             return localVarResponse.Data;
@@ -932,13 +989,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
-        public ApiResponse<AiFolderIntegerWrapper> AiAgentsGetWithHttpInfo(string id)
+        /// <returns>ApiResponse of AiAgentsGet200Response</returns>
+        public ApiResponse<AiAgentsGet200Response> AiAgentsGetWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -961,7 +1018,7 @@ namespace DocSpace.API.SDK.Api.AI
 
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiFolderIntegerWrapper>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiAgentsGet200Response>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -979,14 +1036,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>Task of AiFolderIntegerWrapper</returns>
-        public async Task<AiFolderIntegerWrapper> AiAgentsGetAsync(string id, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiAgentsGet200Response</returns>
+        public async Task<AiAgentsGet200Response> AiAgentsGetAsync(string id, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAgentsGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -996,14 +1053,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get an agent
         /// </summary>
         /// <remarks>
-        /// Returns one AI agent room, enriched with the `profileId` bound to it so an edit form can prefill the profile selector. A missing assignment simply leaves `profileId` out.
+        /// Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/">REST API Reference for AiAgentsGet Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<AiFolderIntegerWrapper>> AiAgentsGetWithHttpInfoAsync(string id, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiAgentsGet200Response)</returns>
+        public async Task<ApiResponse<AiAgentsGet200Response>> AiAgentsGetWithHttpInfoAsync(string id, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1028,7 +1085,7 @@ namespace DocSpace.API.SDK.Api.AI
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiFolderIntegerWrapper>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiAgentsGet200Response>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1046,14 +1103,25 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>AiFolderContentIntegerWrapper</returns>
-        public AiFolderContentIntegerWrapper AiAgentsList()
+        public AiFolderContentIntegerWrapper AiAgentsList(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default)
         {
-            var localVarResponse = AiAgentsListWithHttpInfo();
+            var localVarResponse = AiAgentsListWithHttpInfo(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
             return localVarResponse.Data;
         }
 
@@ -1061,12 +1129,23 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>ApiResponse of AiFolderContentIntegerWrapper</returns>
-        public ApiResponse<AiFolderContentIntegerWrapper> AiAgentsListWithHttpInfo()
+        public ApiResponse<AiFolderContentIntegerWrapper> AiAgentsListWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1081,6 +1160,54 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (subjectId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
+            }
+            if (subjectOwnerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectOwnerId", subjectOwnerId));
+            }
+            if (excludeSubject != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
+            }
+            if (tags != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tags", tags));
+            }
+            if (withoutTags != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutTags", withoutTags));
+            }
+            if (quotaFilter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (_fields != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
+            }
 
 
             // make the HTTP request
@@ -1102,15 +1229,26 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>Task of AiFolderContentIntegerWrapper</returns>
-        public async Task<AiFolderContentIntegerWrapper> AiAgentsListAsync(CancellationToken cancellationToken = default)
+        public async Task<AiFolderContentIntegerWrapper> AiAgentsListAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiAgentsListWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiAgentsListWithHttpInfoAsync(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1118,13 +1256,24 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agents
         /// </summary>
         /// <remarks>
-        /// Lists the portal's AI agent rooms. Query parameters are forwarded unchanged to the .NET AI service, which answers with its folder-content payload.
+        /// Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subjectId">Show only the agent rooms this user takes part in. (optional)</param>
+        /// <param name="subjectOwnerId">Show only the agent rooms owned by this user. (optional)</param>
+        /// <param name="excludeSubject">Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional)</param>
+        /// <param name="tags">Show only the agent rooms carrying these tags, comma-separated. (optional)</param>
+        /// <param name="withoutTags">Show only the agent rooms that carry no tags at all. (optional)</param>
+        /// <param name="quotaFilter">Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional)</param>
+        /// <param name="filterValue">Show only the agent rooms whose title matches this text. (optional)</param>
+        /// <param name="sortBy">Field to sort by, for example `DateAndTime`. (optional)</param>
+        /// <param name="sortOrder">Sort direction, `ascending` or `descending`. (optional)</param>
+        /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
+        /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<AiFolderContentIntegerWrapper>> AiAgentsListWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiFolderContentIntegerWrapper>> AiAgentsListWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1140,6 +1289,50 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (subjectId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
+            }
+            if (subjectOwnerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectOwnerId", subjectOwnerId));
+            }
+            if (excludeSubject != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
+            }
+            if (tags != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tags", tags));
+            }
+            if (withoutTags != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withoutTags", withoutTags));
+            }
+            if (quotaFilter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
 
 
             // make the HTTP request
@@ -1162,7 +1355,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
@@ -1177,7 +1370,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/">REST API Reference for AiAgentsNews Operation</seealso>
@@ -1218,7 +1411,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1234,7 +1427,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// List agent news items
         /// </summary>
         /// <remarks>
-        /// Lists the new items across the caller's AI agent rooms.
+        /// Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1278,7 +1471,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -1294,7 +1487,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -1341,7 +1534,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -1358,7 +1551,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Reset agents' quota
         /// </summary>
         /// <remarks>
-        /// Resets the storage quota of the given AI agent rooms.
+        /// Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
@@ -1408,7 +1601,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -1425,7 +1618,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -1478,7 +1671,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -1496,7 +1689,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update an agent
         /// </summary>
         /// <remarks>
-        /// Updates an AI agent room - title, tags, instruction. `profileId` is not part of the room contract: it is stripped from the forwarded body and re-bound as the agent's assignment afterwards.
+        /// Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The agent identifier.</param>
@@ -1552,7 +1745,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -1568,7 +1761,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -1615,7 +1808,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
@@ -1632,7 +1825,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update agents' quota
         /// </summary>
         /// <remarks>
-        /// Changes the storage quota of the given AI agent rooms.
+        /// Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>

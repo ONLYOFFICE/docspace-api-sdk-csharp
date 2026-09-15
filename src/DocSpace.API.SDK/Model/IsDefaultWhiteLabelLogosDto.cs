@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The default white label logo parameters.
+    /// Whether one branding slot still holds the built-in image or wordmark.
     /// </summary>
     [DataContract(Name = "IsDefaultWhiteLabelLogosDto")]
     public partial class IsDefaultWhiteLabelLogosDto : IValidatableObject
@@ -46,8 +46,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsDefaultWhiteLabelLogosDto" /> class.
         /// </summary>
-        /// <param name="name">The white label logo name. (required).</param>
-        /// <param name="default">Specifies if the white label logo is default or not. (required).</param>
+        /// <param name="name">The stable name of the slot, matching the &#x60;name&#x60; of the same slot in  &#x60;GET api/2.0/settings/whitelabel/logos&#x60; - &#x60;LightSmall&#x60;, &#x60;LoginPage&#x60;, &#x60;Favicon&#x60;, &#x60;DocsEditor&#x60; and the rest,  plus &#x60;Notification&#x60;, which that list leaves out. The wordmark check reports the fixed name &#x60;logotext&#x60;  instead of a slot. (required).</param>
+        /// <param name="default">Whether the slot has never been written for this portal, in which case the built-in image is what gets  rendered. It turns &#x60;false&#x60; once an image has been stored, for either the light or the dark theme, and back  to &#x60;true&#x60; after the matching restore operation. For &#x60;logotext&#x60; it stays &#x60;true&#x60; when the built-in wordmark  itself is saved, because saving that value counts as clearing the setting. (required).</param>
         public IsDefaultWhiteLabelLogosDto(string name = default, bool @default = default)
         {
             // to ensure "name" is required (not null)
@@ -60,14 +60,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The white label logo name.
+        /// The stable name of the slot, matching the &#x60;name&#x60; of the same slot in  &#x60;GET api/2.0/settings/whitelabel/logos&#x60; - &#x60;LightSmall&#x60;, &#x60;LoginPage&#x60;, &#x60;Favicon&#x60;, &#x60;DocsEditor&#x60; and the rest,  plus &#x60;Notification&#x60;, which that list leaves out. The wordmark check reports the fixed name &#x60;logotext&#x60;  instead of a slot.
         /// </summary>
-        /// <example>logo_light</example>
+        /// <example>LightSmall</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Specifies if the white label logo is default or not.
+        /// Whether the slot has never been written for this portal, in which case the built-in image is what gets  rendered. It turns &#x60;false&#x60; once an image has been stored, for either the light or the dark theme, and back  to &#x60;true&#x60; after the matching restore operation. For &#x60;logotext&#x60; it stays &#x60;true&#x60; when the built-in wordmark  itself is saved, because saving that value counts as clearing the setting.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "default", IsRequired = true, EmitDefaultValue = true)]

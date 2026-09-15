@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the deep link configuration.
+    /// How the portal opens its links on a mobile device.
     /// </summary>
     [DataContract(Name = "DeepLinkConfigurationRequestsDto")]
     public partial class DeepLinkConfigurationRequestsDto : IValidatableObject
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeepLinkConfigurationRequestsDto" /> class.
         /// </summary>
-        /// <param name="deepLinkSettings">The deep link settings for the specified tenant..</param>
+        /// <param name="deepLinkSettings">The deep link configuration to store. Only its &#x60;handlingMode&#x60; is read - whether a link always opens in the  browser, always in the native application, or asks the user each time - and a mode outside the defined set is  refused with 400 before anything is stored..</param>
         public DeepLinkConfigurationRequestsDto(TenantDeepLinkSettings deepLinkSettings = default)
         {
             this.DeepLinkSettings = deepLinkSettings;
         }
 
         /// <summary>
-        /// The deep link settings for the specified tenant.
+        /// The deep link configuration to store. Only its &#x60;handlingMode&#x60; is read - whether a link always opens in the  browser, always in the native application, or asks the user each time - and a mode outside the defined set is  refused with 400 before anything is stored.
         /// </summary>
         [DataMember(Name = "deepLinkSettings", EmitDefaultValue = false)]
         public TenantDeepLinkSettings DeepLinkSettings { get; set; }
