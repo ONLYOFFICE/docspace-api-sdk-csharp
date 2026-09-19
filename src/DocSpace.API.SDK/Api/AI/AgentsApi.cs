@@ -39,8 +39,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>AiFolderIntegerWrapper</returns>
-        AiFolderIntegerWrapper AiAgentsCreate(AiAgentsCreateRequest aiAgentsCreateRequest);
+        /// <returns>AiFolderWrapper</returns>
+        AiFolderWrapper AiAgentsCreate(AiAgentsCreateRequest aiAgentsCreateRequest);
 
         /// <summary>
         /// Create an agent
@@ -51,8 +51,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
-        ApiResponse<AiFolderIntegerWrapper> AiAgentsCreateWithHttpInfo(AiAgentsCreateRequest aiAgentsCreateRequest);
+        /// <returns>ApiResponse of AiFolderWrapper</returns>
+        ApiResponse<AiFolderWrapper> AiAgentsCreateWithHttpInfo(AiAgentsCreateRequest aiAgentsCreateRequest);
         /// <summary>
         /// Delete an agent
         /// </summary>
@@ -120,8 +120,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>AiFolderContentIntegerWrapper</returns>
-        AiFolderContentIntegerWrapper AiAgentsList(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default);
+        /// <returns>AiFolderContentWrapper</returns>
+        AiFolderContentWrapper AiAgentsList(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default);
 
         /// <summary>
         /// List agents
@@ -142,8 +142,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>ApiResponse of AiFolderContentIntegerWrapper</returns>
-        ApiResponse<AiFolderContentIntegerWrapper> AiAgentsListWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default);
+        /// <returns>ApiResponse of AiFolderContentWrapper</returns>
+        ApiResponse<AiFolderContentWrapper> AiAgentsListWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default);
         /// <summary>
         /// List agent news items
         /// </summary>
@@ -174,8 +174,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>AiFolderIntegerArrayWrapper</returns>
-        AiFolderIntegerArrayWrapper AiAgentsResetQuota(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest);
+        /// <returns>AiFolderArrayWrapper</returns>
+        AiFolderArrayWrapper AiAgentsResetQuota(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest);
 
         /// <summary>
         /// Reset agents' quota
@@ -186,8 +186,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerArrayWrapper</returns>
-        ApiResponse<AiFolderIntegerArrayWrapper> AiAgentsResetQuotaWithHttpInfo(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest);
+        /// <returns>ApiResponse of AiFolderArrayWrapper</returns>
+        ApiResponse<AiFolderArrayWrapper> AiAgentsResetQuotaWithHttpInfo(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest);
         /// <summary>
         /// Update an agent
         /// </summary>
@@ -198,8 +198,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>AiFolderIntegerWrapper</returns>
-        AiFolderIntegerWrapper AiAgentsUpdate(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest);
+        /// <returns>AiFolderWrapper</returns>
+        AiFolderWrapper AiAgentsUpdate(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest);
 
         /// <summary>
         /// Update an agent
@@ -211,8 +211,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
-        ApiResponse<AiFolderIntegerWrapper> AiAgentsUpdateWithHttpInfo(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest);
+        /// <returns>ApiResponse of AiFolderWrapper</returns>
+        ApiResponse<AiFolderWrapper> AiAgentsUpdateWithHttpInfo(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest);
         /// <summary>
         /// Update agents' quota
         /// </summary>
@@ -222,8 +222,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>AiFolderIntegerArrayWrapper</returns>
-        AiFolderIntegerArrayWrapper AiAgentsUpdateQuota(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest);
+        /// <returns>AiFolderArrayWrapper</returns>
+        AiFolderArrayWrapper AiAgentsUpdateQuota(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest);
 
         /// <summary>
         /// Update agents' quota
@@ -234,8 +234,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerArrayWrapper</returns>
-        ApiResponse<AiFolderIntegerArrayWrapper> AiAgentsUpdateQuotaWithHttpInfo(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest);
+        /// <returns>ApiResponse of AiFolderArrayWrapper</returns>
+        ApiResponse<AiFolderArrayWrapper> AiAgentsUpdateQuotaWithHttpInfo(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest);
         #endregion Synchronous Operations
     }
 
@@ -255,8 +255,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>Task of AiFolderIntegerWrapper</returns>
-        Task<AiFolderIntegerWrapper> AiAgentsCreateAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiFolderWrapper</returns>
+        Task<AiFolderWrapper> AiAgentsCreateAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create an agent
@@ -268,8 +268,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
-        Task<ApiResponse<AiFolderIntegerWrapper>> AiAgentsCreateWithHttpInfoAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiFolderWrapper)</returns>
+        Task<ApiResponse<AiFolderWrapper>> AiAgentsCreateWithHttpInfoAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete an agent
         /// </summary>
@@ -342,8 +342,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>Task of AiFolderContentIntegerWrapper</returns>
-        Task<AiFolderContentIntegerWrapper> AiAgentsListAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiFolderContentWrapper</returns>
+        Task<AiFolderContentWrapper> AiAgentsListAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List agents
@@ -365,8 +365,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<AiFolderContentIntegerWrapper>> AiAgentsListWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiFolderContentWrapper)</returns>
+        Task<ApiResponse<AiFolderContentWrapper>> AiAgentsListWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// List agent news items
         /// </summary>
@@ -400,8 +400,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>Task of AiFolderIntegerArrayWrapper</returns>
-        Task<AiFolderIntegerArrayWrapper> AiAgentsResetQuotaAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiFolderArrayWrapper</returns>
+        Task<AiFolderArrayWrapper> AiAgentsResetQuotaAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset agents' quota
@@ -413,8 +413,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerArrayWrapper)</returns>
-        Task<ApiResponse<AiFolderIntegerArrayWrapper>> AiAgentsResetQuotaWithHttpInfoAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiFolderArrayWrapper)</returns>
+        Task<ApiResponse<AiFolderArrayWrapper>> AiAgentsResetQuotaWithHttpInfoAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update an agent
         /// </summary>
@@ -426,8 +426,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>Task of AiFolderIntegerWrapper</returns>
-        Task<AiFolderIntegerWrapper> AiAgentsUpdateAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiFolderWrapper</returns>
+        Task<AiFolderWrapper> AiAgentsUpdateAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update an agent
@@ -440,8 +440,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
-        Task<ApiResponse<AiFolderIntegerWrapper>> AiAgentsUpdateWithHttpInfoAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiFolderWrapper)</returns>
+        Task<ApiResponse<AiFolderWrapper>> AiAgentsUpdateWithHttpInfoAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update agents' quota
         /// </summary>
@@ -452,8 +452,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>Task of AiFolderIntegerArrayWrapper</returns>
-        Task<AiFolderIntegerArrayWrapper> AiAgentsUpdateQuotaAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of AiFolderArrayWrapper</returns>
+        Task<AiFolderArrayWrapper> AiAgentsUpdateQuotaAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update agents' quota
@@ -465,8 +465,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerArrayWrapper)</returns>
-        Task<ApiResponse<AiFolderIntegerArrayWrapper>> AiAgentsUpdateQuotaWithHttpInfoAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AiFolderArrayWrapper)</returns>
+        Task<ApiResponse<AiFolderArrayWrapper>> AiAgentsUpdateQuotaWithHttpInfoAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -704,8 +704,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>AiFolderIntegerWrapper</returns>
-        public AiFolderIntegerWrapper AiAgentsCreate(AiAgentsCreateRequest aiAgentsCreateRequest)
+        /// <returns>AiFolderWrapper</returns>
+        public AiFolderWrapper AiAgentsCreate(AiAgentsCreateRequest aiAgentsCreateRequest)
         {
             var localVarResponse = AiAgentsCreateWithHttpInfo(aiAgentsCreateRequest);
             return localVarResponse.Data;
@@ -720,8 +720,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsCreateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
-        public ApiResponse<AiFolderIntegerWrapper> AiAgentsCreateWithHttpInfo(AiAgentsCreateRequest aiAgentsCreateRequest)
+        /// <returns>ApiResponse of AiFolderWrapper</returns>
+        public ApiResponse<AiFolderWrapper> AiAgentsCreateWithHttpInfo(AiAgentsCreateRequest aiAgentsCreateRequest)
         {
             // verify the required parameter 'aiAgentsCreateRequest' is set
             if (aiAgentsCreateRequest == null)
@@ -742,9 +742,21 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAgentsCreateRequest != null) localVarRequestOptions.Data = aiAgentsCreateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AiFolderIntegerWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AiFolderWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -768,8 +780,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>Task of AiFolderIntegerWrapper</returns>
-        public async Task<AiFolderIntegerWrapper> AiAgentsCreateAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiFolderWrapper</returns>
+        public async Task<AiFolderWrapper> AiAgentsCreateAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAgentsCreateWithHttpInfoAsync(aiAgentsCreateRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -785,8 +797,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsCreateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/">REST API Reference for AiAgentsCreate Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<AiFolderIntegerWrapper>> AiAgentsCreateWithHttpInfoAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiFolderWrapper)</returns>
+        public async Task<ApiResponse<AiFolderWrapper>> AiAgentsCreateWithHttpInfoAsync(AiAgentsCreateRequest aiAgentsCreateRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'aiAgentsCreateRequest' is set
             if (aiAgentsCreateRequest == null)
@@ -808,10 +820,22 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAgentsCreateRequest != null) localVarRequestOptions.Data = aiAgentsCreateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AiFolderIntegerWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AiFolderWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -879,6 +903,18 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (aiAgentsDeleteRequest != null) localVarRequestOptions.Data = aiAgentsDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiFileOperationWrapper>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration);
@@ -952,6 +988,18 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (aiAgentsDeleteRequest != null) localVarRequestOptions.Data = aiAgentsDeleteRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1016,6 +1064,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiAgentsGet200Response>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration);
@@ -1082,6 +1142,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1118,8 +1190,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>AiFolderContentIntegerWrapper</returns>
-        public AiFolderContentIntegerWrapper AiAgentsList(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default)
+        /// <returns>AiFolderContentWrapper</returns>
+        public AiFolderContentWrapper AiAgentsList(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default)
         {
             var localVarResponse = AiAgentsListWithHttpInfo(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
             return localVarResponse.Data;
@@ -1144,8 +1216,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="startIndex">Index of the first entry to return; 0 starts at the beginning. (optional)</param>
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>ApiResponse of AiFolderContentIntegerWrapper</returns>
-        public ApiResponse<AiFolderContentIntegerWrapper> AiAgentsListWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default)
+        /// <returns>ApiResponse of AiFolderContentWrapper</returns>
+        public ApiResponse<AiFolderContentWrapper> AiAgentsListWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1209,9 +1281,21 @@ namespace DocSpace.API.SDK.Api.AI
                 localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AiFolderContentIntegerWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AiFolderContentWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1245,8 +1329,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>Task of AiFolderContentIntegerWrapper</returns>
-        public async Task<AiFolderContentIntegerWrapper> AiAgentsListAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiFolderContentWrapper</returns>
+        public async Task<AiFolderContentWrapper> AiAgentsListAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAgentsListWithHttpInfoAsync(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1272,8 +1356,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="count">How many entries to return. The internal service applies its own default. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/">REST API Reference for AiAgentsList Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<AiFolderContentIntegerWrapper>> AiAgentsListWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiFolderContentWrapper)</returns>
+        public async Task<ApiResponse<AiFolderContentWrapper>> AiAgentsListWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? excludeSubject = default, string? tags = default, bool? withoutTags = default, int? quotaFilter = default, string? filterValue = default, string? sortBy = default, string? sortOrder = default, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1334,10 +1418,22 @@ namespace DocSpace.API.SDK.Api.AI
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
             }
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AiFolderContentIntegerWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AiFolderContentWrapper>("/api/2.0/ai/agents", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1391,6 +1487,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Get<AiNewItemsAgentNewItemsArrayWrapper>("/api/2.0/ai/agents/news", localVarRequestOptions, Configuration);
@@ -1450,6 +1558,18 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1476,8 +1596,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>AiFolderIntegerArrayWrapper</returns>
-        public AiFolderIntegerArrayWrapper AiAgentsResetQuota(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
+        /// <returns>AiFolderArrayWrapper</returns>
+        public AiFolderArrayWrapper AiAgentsResetQuota(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
         {
             var localVarResponse = AiAgentsResetQuotaWithHttpInfo(aiAgentsResetQuotaRequest);
             return localVarResponse.Data;
@@ -1492,8 +1612,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerArrayWrapper</returns>
-        public ApiResponse<AiFolderIntegerArrayWrapper> AiAgentsResetQuotaWithHttpInfo(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
+        /// <returns>ApiResponse of AiFolderArrayWrapper</returns>
+        public ApiResponse<AiFolderArrayWrapper> AiAgentsResetQuotaWithHttpInfo(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
         {
             // verify the required parameter 'aiAgentsResetQuotaRequest' is set
             if (aiAgentsResetQuotaRequest == null)
@@ -1514,9 +1634,21 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAgentsResetQuotaRequest != null) localVarRequestOptions.Data = aiAgentsResetQuotaRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Put<AiFolderIntegerArrayWrapper>("/api/2.0/ai/agents/resetquota", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<AiFolderArrayWrapper>("/api/2.0/ai/agents/resetquota", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1540,8 +1672,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>Task of AiFolderIntegerArrayWrapper</returns>
-        public async Task<AiFolderIntegerArrayWrapper> AiAgentsResetQuotaAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiFolderArrayWrapper</returns>
+        public async Task<AiFolderArrayWrapper> AiAgentsResetQuotaAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAgentsResetQuotaWithHttpInfoAsync(aiAgentsResetQuotaRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1557,8 +1689,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsResetQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/">REST API Reference for AiAgentsResetQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerArrayWrapper)</returns>
-        public async Task<ApiResponse<AiFolderIntegerArrayWrapper>> AiAgentsResetQuotaWithHttpInfoAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiFolderArrayWrapper)</returns>
+        public async Task<ApiResponse<AiFolderArrayWrapper>> AiAgentsResetQuotaWithHttpInfoAsync(AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'aiAgentsResetQuotaRequest' is set
             if (aiAgentsResetQuotaRequest == null)
@@ -1580,10 +1712,22 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAgentsResetQuotaRequest != null) localVarRequestOptions.Data = aiAgentsResetQuotaRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<AiFolderIntegerArrayWrapper>("/api/2.0/ai/agents/resetquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<AiFolderArrayWrapper>("/api/2.0/ai/agents/resetquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1607,8 +1751,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>AiFolderIntegerWrapper</returns>
-        public AiFolderIntegerWrapper AiAgentsUpdate(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
+        /// <returns>AiFolderWrapper</returns>
+        public AiFolderWrapper AiAgentsUpdate(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
         {
             var localVarResponse = AiAgentsUpdateWithHttpInfo(id, aiAgentsUpdateRequest);
             return localVarResponse.Data;
@@ -1624,8 +1768,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="id">The agent identifier.</param>
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerWrapper</returns>
-        public ApiResponse<AiFolderIntegerWrapper> AiAgentsUpdateWithHttpInfo(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
+        /// <returns>ApiResponse of AiFolderWrapper</returns>
+        public ApiResponse<AiFolderWrapper> AiAgentsUpdateWithHttpInfo(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1651,9 +1795,21 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (aiAgentsUpdateRequest != null) localVarRequestOptions.Data = aiAgentsUpdateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Put<AiFolderIntegerWrapper>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<AiFolderWrapper>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1678,8 +1834,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>Task of AiFolderIntegerWrapper</returns>
-        public async Task<AiFolderIntegerWrapper> AiAgentsUpdateAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiFolderWrapper</returns>
+        public async Task<AiFolderWrapper> AiAgentsUpdateAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAgentsUpdateWithHttpInfoAsync(id, aiAgentsUpdateRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1696,8 +1852,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/">REST API Reference for AiAgentsUpdate Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<AiFolderIntegerWrapper>> AiAgentsUpdateWithHttpInfoAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiFolderWrapper)</returns>
+        public async Task<ApiResponse<AiFolderWrapper>> AiAgentsUpdateWithHttpInfoAsync(string id, AiAgentsUpdateRequest aiAgentsUpdateRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1724,10 +1880,22 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (aiAgentsUpdateRequest != null) localVarRequestOptions.Data = aiAgentsUpdateRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<AiFolderIntegerWrapper>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<AiFolderWrapper>("/api/2.0/ai/agents/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1750,8 +1918,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>AiFolderIntegerArrayWrapper</returns>
-        public AiFolderIntegerArrayWrapper AiAgentsUpdateQuota(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
+        /// <returns>AiFolderArrayWrapper</returns>
+        public AiFolderArrayWrapper AiAgentsUpdateQuota(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
         {
             var localVarResponse = AiAgentsUpdateQuotaWithHttpInfo(aiAgentsUpdateQuotaRequest);
             return localVarResponse.Data;
@@ -1766,8 +1934,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>ApiResponse of AiFolderIntegerArrayWrapper</returns>
-        public ApiResponse<AiFolderIntegerArrayWrapper> AiAgentsUpdateQuotaWithHttpInfo(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
+        /// <returns>ApiResponse of AiFolderArrayWrapper</returns>
+        public ApiResponse<AiFolderArrayWrapper> AiAgentsUpdateQuotaWithHttpInfo(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
         {
             // verify the required parameter 'aiAgentsUpdateQuotaRequest' is set
             if (aiAgentsUpdateQuotaRequest == null)
@@ -1788,9 +1956,21 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAgentsUpdateQuotaRequest != null) localVarRequestOptions.Data = aiAgentsUpdateQuotaRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = Client.Put<AiFolderIntegerArrayWrapper>("/api/2.0/ai/agents/agentquota", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<AiFolderArrayWrapper>("/api/2.0/ai/agents/agentquota", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1814,8 +1994,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>Task of AiFolderIntegerArrayWrapper</returns>
-        public async Task<AiFolderIntegerArrayWrapper> AiAgentsUpdateQuotaAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of AiFolderArrayWrapper</returns>
+        public async Task<AiFolderArrayWrapper> AiAgentsUpdateQuotaAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AiAgentsUpdateQuotaWithHttpInfoAsync(aiAgentsUpdateQuotaRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1831,8 +2011,8 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="aiAgentsUpdateQuotaRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/">REST API Reference for AiAgentsUpdateQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (AiFolderIntegerArrayWrapper)</returns>
-        public async Task<ApiResponse<AiFolderIntegerArrayWrapper>> AiAgentsUpdateQuotaWithHttpInfoAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AiFolderArrayWrapper)</returns>
+        public async Task<ApiResponse<AiFolderArrayWrapper>> AiAgentsUpdateQuotaWithHttpInfoAsync(AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'aiAgentsUpdateQuotaRequest' is set
             if (aiAgentsUpdateQuotaRequest == null)
@@ -1854,10 +2034,22 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAgentsUpdateQuotaRequest != null) localVarRequestOptions.Data = aiAgentsUpdateQuotaRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<AiFolderIntegerArrayWrapper>("/api/2.0/ai/agents/agentquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<AiFolderArrayWrapper>("/api/2.0/ai/agents/agentquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

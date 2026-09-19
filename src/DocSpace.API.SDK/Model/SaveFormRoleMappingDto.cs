@@ -1,0 +1,112 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// The people who are to fill in the roles of a PDF form.
+    /// </summary>
+    [DataContract(Name = "SaveFormRoleMappingDto")]
+    public partial class SaveFormRoleMappingDto : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SaveFormRoleMappingDto" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected SaveFormRoleMappingDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SaveFormRoleMappingDto" /> class.
+        /// </summary>
+        /// <param name="formId">The PDF form the roles belong to. This is the value the operation reads, rather than the identifier in its  route, and the two are to be sent the same. (required).</param>
+        /// <param name="roles">The roles with the account taking each of them and the sequence number that decides the turn: the same number  means the roles may be filled in parallel, different ones make a queue. The whole set is replaced on every  call, and an empty set resets the filling. (required).</param>
+        public SaveFormRoleMappingDto(int formId = default, List<FormRole> roles = default)
+        {
+            this.FormId = formId;
+            // to ensure "roles" is required (not null)
+            if (roles == null)
+            {
+                throw new ArgumentNullException("roles is a required property for SaveFormRoleMappingDto and cannot be null");
+            }
+            this.Roles = roles;
+        }
+
+        /// <summary>
+        /// The PDF form the roles belong to. This is the value the operation reads, rather than the identifier in its  route, and the two are to be sent the same.
+        /// </summary>
+        /// <example>1</example>
+        [DataMember(Name = "formId", IsRequired = true, EmitDefaultValue = true)]
+        public int FormId { get; set; }
+
+        /// <summary>
+        /// The roles with the account taking each of them and the sequence number that decides the turn: the same number  means the roles may be filled in parallel, different ones make a queue. The whole set is replaced on every  call, and an empty set resets the filling.
+        /// </summary>
+        /// <example>[{"roleName":"Approver","userId":"00000000-0000-0000-0000-000000000000"}]</example>
+        [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = true)]
+        public List<FormRole> Roles { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class SaveFormRoleMappingDto {\n");
+            sb.Append("  FormId: ").Append(FormId).Append("\n");
+            sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

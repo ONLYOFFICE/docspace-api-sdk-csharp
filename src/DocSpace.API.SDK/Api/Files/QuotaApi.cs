@@ -37,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>FolderIntegerArrayWrapper</returns>
-        FolderIntegerArrayWrapper ResetRoomQuota(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default);
+        /// <returns>FolderArrayWrapper</returns>
+        FolderArrayWrapper ResetRoomQuota(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default);
 
         /// <summary>
         /// Reset the room quota limit
@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
-        ApiResponse<FolderIntegerArrayWrapper> ResetRoomQuotaWithHttpInfo(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default);
+        /// <returns>ApiResponse of FolderArrayWrapper</returns>
+        ApiResponse<FolderArrayWrapper> ResetRoomQuotaWithHttpInfo(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default);
         /// <summary>
         /// Change the room quota limit
         /// </summary>
@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>FolderIntegerArrayWrapper</returns>
-        FolderIntegerArrayWrapper UpdateRoomsQuota(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default);
+        /// <returns>FolderArrayWrapper</returns>
+        FolderArrayWrapper UpdateRoomsQuota(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default);
 
         /// <summary>
         /// Change the room quota limit
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
-        ApiResponse<FolderIntegerArrayWrapper> UpdateRoomsQuotaWithHttpInfo(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default);
+        /// <returns>ApiResponse of FolderArrayWrapper</returns>
+        ApiResponse<FolderArrayWrapper> UpdateRoomsQuotaWithHttpInfo(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -92,11 +92,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>Task of FolderIntegerArrayWrapper</returns>
-        Task<FolderIntegerArrayWrapper> ResetRoomQuotaAsync(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FolderArrayWrapper</returns>
+        Task<FolderArrayWrapper> ResetRoomQuotaAsync(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset the room quota limit
@@ -105,11 +105,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
-        Task<ApiResponse<FolderIntegerArrayWrapper>> ResetRoomQuotaWithHttpInfoAsync(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FolderArrayWrapper)</returns>
+        Task<ApiResponse<FolderArrayWrapper>> ResetRoomQuotaWithHttpInfoAsync(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Change the room quota limit
         /// </summary>
@@ -117,11 +117,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>Task of FolderIntegerArrayWrapper</returns>
-        Task<FolderIntegerArrayWrapper> UpdateRoomsQuotaAsync(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FolderArrayWrapper</returns>
+        Task<FolderArrayWrapper> UpdateRoomsQuotaAsync(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change the room quota limit
@@ -130,11 +130,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
-        Task<ApiResponse<FolderIntegerArrayWrapper>> UpdateRoomsQuotaWithHttpInfoAsync(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FolderArrayWrapper)</returns>
+        Task<ApiResponse<FolderArrayWrapper>> UpdateRoomsQuotaWithHttpInfoAsync(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -357,12 +357,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>FolderIntegerArrayWrapper</returns>
-        public FolderIntegerArrayWrapper ResetRoomQuota(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default)
+        /// <returns>FolderArrayWrapper</returns>
+        public FolderArrayWrapper ResetRoomQuota(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default)
         {
-            var localVarResponse = ResetRoomQuotaWithHttpInfo(updateRoomsRoomIdsRequestDtoInteger);
+            var localVarResponse = ResetRoomQuotaWithHttpInfo(updateRoomsRoomIdsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -373,10 +373,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
-        public ApiResponse<FolderIntegerArrayWrapper> ResetRoomQuotaWithHttpInfo(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default)
+        /// <returns>ApiResponse of FolderArrayWrapper</returns>
+        public ApiResponse<FolderArrayWrapper> ResetRoomQuotaWithHttpInfo(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -391,7 +391,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateRoomsRoomIdsRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsRoomIdsRequestDtoInteger;
+            if (updateRoomsRoomIdsRequestDto != null) localVarRequestOptions.Data = updateRoomsRoomIdsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -425,7 +425,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FolderIntegerArrayWrapper>("/api/2.0/files/rooms/resetquota", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FolderArrayWrapper>("/api/2.0/files/rooms/resetquota", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -446,13 +446,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>Task of FolderIntegerArrayWrapper</returns>
-        public async Task<FolderIntegerArrayWrapper> ResetRoomQuotaAsync(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FolderArrayWrapper</returns>
+        public async Task<FolderArrayWrapper> ResetRoomQuotaAsync(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await ResetRoomQuotaWithHttpInfoAsync(updateRoomsRoomIdsRequestDtoInteger, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ResetRoomQuotaWithHttpInfoAsync(updateRoomsRoomIdsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -463,11 +463,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsRoomIdsRequestDtoInteger">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
+        /// <param name="updateRoomsRoomIdsRequestDto">The rooms that are to go back to the default storage limit of the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
-        public async Task<ApiResponse<FolderIntegerArrayWrapper>> ResetRoomQuotaWithHttpInfoAsync(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FolderArrayWrapper)</returns>
+        public async Task<ApiResponse<FolderArrayWrapper>> ResetRoomQuotaWithHttpInfoAsync(UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -483,7 +483,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateRoomsRoomIdsRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsRoomIdsRequestDtoInteger;
+            if (updateRoomsRoomIdsRequestDto != null) localVarRequestOptions.Data = updateRoomsRoomIdsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -518,7 +518,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FolderIntegerArrayWrapper>("/api/2.0/files/rooms/resetquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FolderArrayWrapper>("/api/2.0/files/rooms/resetquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -539,12 +539,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>FolderIntegerArrayWrapper</returns>
-        public FolderIntegerArrayWrapper UpdateRoomsQuota(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default)
+        /// <returns>FolderArrayWrapper</returns>
+        public FolderArrayWrapper UpdateRoomsQuota(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default)
         {
-            var localVarResponse = UpdateRoomsQuotaWithHttpInfo(updateRoomsQuotaRequestDtoInteger);
+            var localVarResponse = UpdateRoomsQuotaWithHttpInfo(updateRoomsQuotaRequestDto);
             return localVarResponse.Data;
         }
 
@@ -555,10 +555,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
-        public ApiResponse<FolderIntegerArrayWrapper> UpdateRoomsQuotaWithHttpInfo(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default)
+        /// <returns>ApiResponse of FolderArrayWrapper</returns>
+        public ApiResponse<FolderArrayWrapper> UpdateRoomsQuotaWithHttpInfo(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -573,7 +573,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateRoomsQuotaRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsQuotaRequestDtoInteger;
+            if (updateRoomsQuotaRequestDto != null) localVarRequestOptions.Data = updateRoomsQuotaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -607,7 +607,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FolderIntegerArrayWrapper>("/api/2.0/files/rooms/roomquota", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FolderArrayWrapper>("/api/2.0/files/rooms/roomquota", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -628,13 +628,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>Task of FolderIntegerArrayWrapper</returns>
-        public async Task<FolderIntegerArrayWrapper> UpdateRoomsQuotaAsync(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FolderArrayWrapper</returns>
+        public async Task<FolderArrayWrapper> UpdateRoomsQuotaAsync(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateRoomsQuotaWithHttpInfoAsync(updateRoomsQuotaRequestDtoInteger, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateRoomsQuotaWithHttpInfoAsync(updateRoomsQuotaRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -645,11 +645,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateRoomsQuotaRequestDtoInteger">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
+        /// <param name="updateRoomsQuotaRequestDto">The rooms whose storage limit is to be changed, and the limit to give them. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
-        public async Task<ApiResponse<FolderIntegerArrayWrapper>> UpdateRoomsQuotaWithHttpInfoAsync(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FolderArrayWrapper)</returns>
+        public async Task<ApiResponse<FolderArrayWrapper>> UpdateRoomsQuotaWithHttpInfoAsync(UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -665,7 +665,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateRoomsQuotaRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsQuotaRequestDtoInteger;
+            if (updateRoomsQuotaRequestDto != null) localVarRequestOptions.Data = updateRoomsQuotaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -700,7 +700,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FolderIntegerArrayWrapper>("/api/2.0/files/rooms/roomquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FolderArrayWrapper>("/api/2.0/files/rooms/roomquota", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
