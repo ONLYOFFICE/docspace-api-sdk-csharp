@@ -32,21 +32,21 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response.
+    /// The successful API response containing an arbitrary JSON value.
     /// </summary>
-    [DataContract(Name = "UnknownNullableWrapper")]
-    public partial class UnknownNullableWrapper : IValidatableObject
+    [DataContract(Name = "JsonValueWrapper")]
+    public partial class JsonValueWrapper : IValidatableObject
     {
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnknownNullableWrapper" /> class.
+        /// Initializes a new instance of the <see cref="JsonValueWrapper" /> class.
         /// </summary>
         /// <param name="response">response.</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public UnknownNullableWrapper(Object response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public JsonValueWrapper(Object response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UnknownNullableWrapper {\n");
+            sb.Append("class JsonValueWrapper {\n");
             sb.Append("  Response: ").Append(Response).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");

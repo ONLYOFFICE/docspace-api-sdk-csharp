@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.DocsCloudStats
-Represents the usage statistics of a DocsCloud tenant for the current period.
+Represents the usage statistics of a Docs Connect tenant for the current period.
 
 ## Properties
 

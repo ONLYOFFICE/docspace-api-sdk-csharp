@@ -84,9 +84,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="countAIAgent">The number of AI agents..</param>
         /// <param name="aiTools">Specifies if the AI tools enabled as a wallet service or not..</param>
         /// <param name="aiSearch">Specifies if the AI search enabled as a wallet service or not..</param>
-        /// <param name="docsCloud">The number of DocsCloud users..</param>
-        /// <param name="docsCloudDevPack">Specifies if the DocsCloudDevPack enabled or not..</param>
-        /// <param name="docsCloudTrial">Specifies if the DocsCloudTrial enabled or not..</param>
+        /// <param name="docsCloud">The number of Docs Connect users..</param>
+        /// <param name="docsCloudDevPack">Specifies if the Docs Connect Dev Pack enabled or not..</param>
+        /// <param name="docsCloudTrial">Specifies if the Docs Connect trial enabled or not..</param>
         public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, bool additional = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiSearch = default, int docsCloud = default, bool docsCloudDevPack = default, bool docsCloudTrial = default)
         {
             this.TenantId = tenantId;
@@ -439,21 +439,21 @@ namespace DocSpace.API.SDK.Model
         public bool AiSearch { get; set; }
 
         /// <summary>
-        /// The number of DocsCloud users.
+        /// The number of Docs Connect users.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "docsCloud", EmitDefaultValue = false)]
         public int DocsCloud { get; set; }
 
         /// <summary>
-        /// Specifies if the DocsCloudDevPack enabled or not.
+        /// Specifies if the Docs Connect Dev Pack enabled or not.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "docsCloudDevPack", EmitDefaultValue = true)]
         public bool DocsCloudDevPack { get; set; }
 
         /// <summary>
-        /// Specifies if the DocsCloudTrial enabled or not.
+        /// Specifies if the Docs Connect trial enabled or not.
         /// </summary>
         /// <example>true</example>
         [DataMember(Name = "docsCloudTrial", EmitDefaultValue = true)]

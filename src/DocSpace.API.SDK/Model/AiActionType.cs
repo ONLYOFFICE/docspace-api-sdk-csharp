@@ -89,7 +89,13 @@ namespace DocSpace.API.SDK.Model
         /// Enum Vision for value: Vision
         /// </summary>
         [EnumMember(Value = "Vision")]
-        Vision
+        Vision,
+
+        /// <summary>
+        /// Enum FormAnalysis for value: FormAnalysis
+        /// </summary>
+        [EnumMember(Value = "FormAnalysis")]
+        FormAnalysis
     }
 
 }

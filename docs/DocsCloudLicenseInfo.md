@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.DocsCloudLicenseInfo
-Represents the license information of a DocsCloud tenant.
+Represents the license information of a Docs Connect tenant.
 
 ## Properties
 

@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 **LockedBy** | **string** | The display name of the account holding the lock, and null when the caller holds it - so `locked` true  together with no name here means the lock is the caller's own. | [optional] 
 **HasDraft** | **bool?** | For a fillable PDF form, whether the caller already has a filling draft of it, in which case `draftLocation`  says where that draft lives. Null for anything that is not a form. | [optional] 
 **FormFillingStatus** | **FormFillingStatus** | How far the filling of this form has got for the calling account, and whose turn it is now. It is worked out  only inside a virtual data room, where filling runs in steps; everywhere else it stays at the none value. | [optional] 
-**IsForm** | **bool?** | Whether the PDF is a fillable form rather than a plain document. When the stored classification does not say,  the portal opens the file to find out, so the answer is reliable for a PDF and null for anything else. | [optional] 
+**IsForm** | **bool?** | Whether the file is a PDF, and so offered as a fillable form. It is null for any other file type. | [optional] 
 **CustomFilterEnabled** | **bool?** | True while a spreadsheet is in the mode where each person sorts and filters their own view without changing  what the others see, and null rather than false when it is not. | [optional] 
 **CustomFilterEnabledBy** | **string** | The display name of the account that turned that mode on, and null when the caller turned it on themselves. | [optional] 
 **StartFilling** | **bool?** | For a form in a room for filling, whether it has been released for filling; until then it is still being  prepared and only the people running the room work with it. Null for a file this does not apply to. | [optional] 

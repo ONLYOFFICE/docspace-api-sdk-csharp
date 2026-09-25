@@ -5,6 +5,7 @@ The external resources settings.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdminPanel** | [**CultureSpecificExternalResource**](CultureSpecificExternalResource.md) | The link to the administration panel. It is returned only to the full administrators of a licensed (Enterprise) server (standalone) portal. | [optional] 
 **Api** | [**CultureSpecificExternalResource**](CultureSpecificExternalResource.md) | The link to the product API. | [optional] 
 **Common** | [**CultureSpecificExternalResource**](CultureSpecificExternalResource.md) | The link to the common product information. | [optional] 
 **Forum** | [**CultureSpecificExternalResource**](CultureSpecificExternalResource.md) | The link to the forum. | [optional] 

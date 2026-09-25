@@ -1,12 +1,12 @@
 # DocSpace.API.SDK.Model.DocsCloudTenantInfo
-Represents the license and server information of a DocsCloud tenant, with usage statistics for the current period.
+Represents the license and server information of a Docs Connect tenant, with usage statistics for the current period.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **License** | [**DocsCloudLicenseInfo**](DocsCloudLicenseInfo.md) | The license information. | [optional] 
-**Server** | [**DocsCloudServerInfo**](DocsCloudServerInfo.md) | The DocsCloud server information. | [optional] 
+**Server** | [**DocsCloudServerInfo**](DocsCloudServerInfo.md) | The Docs Connect server information. | [optional] 
 **UsersLimit** | [**DocsCloudUsersLimit**](DocsCloudUsersLimit.md) | The user limits of the license. | [optional] 
 **Stats** | [**DocsCloudStats**](DocsCloudStats.md) | The usage statistics for the current period. | [optional] 
 

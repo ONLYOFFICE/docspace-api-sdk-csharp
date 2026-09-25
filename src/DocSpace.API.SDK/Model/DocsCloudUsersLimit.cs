@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents the user limits of a DocsCloud license.
+    /// Represents the user limits of a Docs Connect license.
     /// </summary>
     [DataContract(Name = "DocsCloudUsersLimit")]
     public partial class DocsCloudUsersLimit : IValidatableObject

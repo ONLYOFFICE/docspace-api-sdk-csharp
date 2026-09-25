@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.DocsCloudPayment
-Represents the payment information of a DocsCloud tenant.
+Represents the payment information of a Docs Connect tenant.
 
 ## Properties
 

@@ -41,6 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CultureSpecificExternalResources" /> class.
         /// </summary>
+        /// <param name="adminPanel">The link to the administration panel. It is returned only to the full administrators of a licensed (Enterprise) server (standalone) portal..</param>
         /// <param name="api">The link to the product API..</param>
         /// <param name="common">The link to the common product information..</param>
         /// <param name="forum">The link to the forum..</param>
@@ -50,8 +51,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="socialNetworks">The link to the product social nerworks..</param>
         /// <param name="support">The link to the product support..</param>
         /// <param name="videoguides">The link to the video guides..</param>
-        public CultureSpecificExternalResources(CultureSpecificExternalResource api = default, CultureSpecificExternalResource common = default, CultureSpecificExternalResource forum = default, CultureSpecificExternalResource helpcenter = default, CultureSpecificExternalResource integrations = default, CultureSpecificExternalResource site = default, CultureSpecificExternalResource socialNetworks = default, CultureSpecificExternalResource support = default, CultureSpecificExternalResource videoguides = default)
+        public CultureSpecificExternalResources(CultureSpecificExternalResource adminPanel = default, CultureSpecificExternalResource api = default, CultureSpecificExternalResource common = default, CultureSpecificExternalResource forum = default, CultureSpecificExternalResource helpcenter = default, CultureSpecificExternalResource integrations = default, CultureSpecificExternalResource site = default, CultureSpecificExternalResource socialNetworks = default, CultureSpecificExternalResource support = default, CultureSpecificExternalResource videoguides = default)
         {
+            this.AdminPanel = adminPanel;
             this.Api = api;
             this.Common = common;
             this.Forum = forum;
@@ -62,6 +64,12 @@ namespace DocSpace.API.SDK.Model
             this.Support = support;
             this.Videoguides = videoguides;
         }
+
+        /// <summary>
+        /// The link to the administration panel. It is returned only to the full administrators of a licensed (Enterprise) server (standalone) portal.
+        /// </summary>
+        [DataMember(Name = "adminPanel", EmitDefaultValue = false)]
+        public CultureSpecificExternalResource AdminPanel { get; set; }
 
         /// <summary>
         /// The link to the product API.
@@ -125,6 +133,7 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CultureSpecificExternalResources {\n");
+            sb.Append("  AdminPanel: ").Append(AdminPanel).Append("\n");
             sb.Append("  Api: ").Append(Api).Append("\n");
             sb.Append("  Common: ").Append(Common).Append("\n");
             sb.Append("  Forum: ").Append(Forum).Append("\n");

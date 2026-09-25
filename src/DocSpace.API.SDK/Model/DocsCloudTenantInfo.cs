@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents the license and server information of a DocsCloud tenant, with usage statistics for the current period.
+    /// Represents the license and server information of a Docs Connect tenant, with usage statistics for the current period.
     /// </summary>
     [DataContract(Name = "DocsCloudTenantInfo")]
     public partial class DocsCloudTenantInfo : IValidatableObject
@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="DocsCloudTenantInfo" /> class.
         /// </summary>
         /// <param name="license">The license information..</param>
-        /// <param name="server">The DocsCloud server information..</param>
+        /// <param name="server">The Docs Connect server information..</param>
         /// <param name="usersLimit">The user limits of the license..</param>
         /// <param name="stats">The usage statistics for the current period..</param>
         public DocsCloudTenantInfo(DocsCloudLicenseInfo license = default, DocsCloudServerInfo server = default, DocsCloudUsersLimit usersLimit = default, DocsCloudStats stats = default)
@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         public DocsCloudLicenseInfo License { get; set; }
 
         /// <summary>
-        /// The DocsCloud server information.
+        /// The Docs Connect server information.
         /// </summary>
         [DataMember(Name = "server", EmitDefaultValue = false)]
         public DocsCloudServerInfo Server { get; set; }

@@ -43,10 +43,16 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="prompt">The cost of one million tokens sent to the model, which includes the conversation history resent with  every turn and not just the newest message..</param>
         /// <param name="completion">The cost of one million tokens the model writes back. It is normally the dearer of the two directions..</param>
-        public AiChatPriceDto(double prompt = default, double completion = default)
+        /// <param name="promptCacheRead">The cost of one million prompt tokens served from the prompt cache. It is absent when the model does not  support prompt caching..</param>
+        /// <param name="promptCacheWrite">The cost of one million prompt tokens written to the prompt cache with the default lifetime. It is absent  when the model does not support prompt caching..</param>
+        /// <param name="promptCacheWrite1H">The cost of one million prompt tokens written to the prompt cache with a one-hour lifetime. It is absent  when the model offers no such option..</param>
+        public AiChatPriceDto(double prompt = default, double completion = default, double? promptCacheRead = default, double? promptCacheWrite = default, double? promptCacheWrite1H = default)
         {
             this.Prompt = prompt;
             this.Completion = completion;
+            this.PromptCacheRead = promptCacheRead;
+            this.PromptCacheWrite = promptCacheWrite;
+            this.PromptCacheWrite1H = promptCacheWrite1H;
         }
 
         /// <summary>
@@ -64,6 +70,27 @@ namespace DocSpace.API.SDK.Model
         public double Completion { get; set; }
 
         /// <summary>
+        /// The cost of one million prompt tokens served from the prompt cache. It is absent when the model does not  support prompt caching.
+        /// </summary>
+        /// <example>0.2</example>
+        [DataMember(Name = "promptCacheRead", EmitDefaultValue = true)]
+        public double? PromptCacheRead { get; set; }
+
+        /// <summary>
+        /// The cost of one million prompt tokens written to the prompt cache with the default lifetime. It is absent  when the model does not support prompt caching.
+        /// </summary>
+        /// <example>2.5</example>
+        [DataMember(Name = "promptCacheWrite", EmitDefaultValue = true)]
+        public double? PromptCacheWrite { get; set; }
+
+        /// <summary>
+        /// The cost of one million prompt tokens written to the prompt cache with a one-hour lifetime. It is absent  when the model offers no such option.
+        /// </summary>
+        /// <example>4.0</example>
+        [DataMember(Name = "promptCacheWrite1H", EmitDefaultValue = true)]
+        public double? PromptCacheWrite1H { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +100,9 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class AiChatPriceDto {\n");
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
             sb.Append("  Completion: ").Append(Completion).Append("\n");
+            sb.Append("  PromptCacheRead: ").Append(PromptCacheRead).Append("\n");
+            sb.Append("  PromptCacheWrite: ").Append(PromptCacheWrite).Append("\n");
+            sb.Append("  PromptCacheWrite1H: ").Append(PromptCacheWrite1H).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

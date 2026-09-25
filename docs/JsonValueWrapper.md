@@ -1,5 +1,5 @@
-# DocSpace.API.SDK.Model.UnknownNullableWrapper
-The successful API response.
+# DocSpace.API.SDK.Model.JsonValueWrapper
+The successful API response containing an arbitrary JSON value.
 
 ## Properties
 

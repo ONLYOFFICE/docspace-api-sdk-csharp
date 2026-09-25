@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents the payment information of a DocsCloud tenant.
+    /// Represents the payment information of a Docs Connect tenant.
     /// </summary>
     [DataContract(Name = "DocsCloudPayment")]
     public partial class DocsCloudPayment : IValidatableObject

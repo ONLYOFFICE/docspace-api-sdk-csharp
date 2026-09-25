@@ -321,6 +321,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get many</td>
       </tr>
       <tr>
+        <td><a href="docs/AIAttachmentsApi.md#aiattachmentsgetsuggestedquestions"><strong>AiAttachmentsGetSuggestedQuestions</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/attachments/suggested-questions</td>
+        <td>Get suggested questions</td>
+      </tr>
+      <tr>
         <td><a href="docs/AIAttachmentsApi.md#aiattachmentslinktomessage"><strong>AiAttachmentsLinkToMessage</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/attachments/link-to-message</td>
         <td>Link to message</td>
@@ -354,7 +359,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/AIExportApi.md#aiexporttexttodocx"><strong>AiExportTextToDocx</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/text-to-docx</td>
-        <td>Start markdown → docx export</td>
+        <td>Start markdown export</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>OpenAIPassthroughApi</strong></td>
@@ -3452,62 +3457,62 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#calculatedevpack"><strong>CalculateDevPack</strong></a></td>
         <td><strong>POST</strong> /api/2.0/settings/docscloud/calculatedevpack</td>
-        <td>Calculate the DocsCloudDevPack switch cost</td>
+        <td>Calculate the Docs Connect Dev Pack switch cost</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#createtenantquotareport"><strong>CreateTenantQuotaReport</strong></a></td>
         <td><strong>POST</strong> /api/2.0/settings/docscloud/tenant/quota/report</td>
-        <td>Start the DocsCloud quota report</td>
+        <td>Start the Docs Connect quota report</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#gettenant"><strong>GetTenant</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/docscloud/tenant</td>
-        <td>Get the DocsCloud tenant</td>
+        <td>Get the Docs Connect tenant</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#gettenantconfig"><strong>GetTenantConfig</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/docscloud/tenant/config</td>
-        <td>Get the DocsCloud tenant configuration</td>
+        <td>Get the Docs Connect tenant configuration</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#gettenantinfo"><strong>GetTenantInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/docscloud/tenant/info</td>
-        <td>Get the DocsCloud tenant information</td>
+        <td>Get the Docs Connect tenant information</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#gettenantquota"><strong>GetTenantQuota</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/docscloud/tenant/quota</td>
-        <td>Get the DocsCloud tenant quota</td>
+        <td>Get the Docs Connect tenant quota</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#gettenantquotareport"><strong>GetTenantQuotaReport</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/docscloud/tenant/quota/report</td>
-        <td>Get the DocsCloud quota report status</td>
+        <td>Get the Docs Connect quota report status</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#gettenantusage"><strong>GetTenantUsage</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/docscloud/tenant/usage</td>
-        <td>Get the DocsCloud tenant usage</td>
+        <td>Get the Docs Connect tenant usage</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#startdocscloudtrial"><strong>StartDocsCloudTrial</strong></a></td>
         <td><strong>POST</strong> /api/2.0/settings/docscloud/trial</td>
-        <td>Start the DocsCloud trial</td>
+        <td>Start the Docs Connect trial</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#switchtodevpack"><strong>SwitchToDevPack</strong></a></td>
         <td><strong>POST</strong> /api/2.0/settings/docscloud/switchtodevpack</td>
-        <td>Switch DocsCloud to DocsCloudDevPack</td>
+        <td>Switch Docs Connect to Docs Connect Dev Pack</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#terminatetenantquotareport"><strong>TerminateTenantQuotaReport</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/settings/docscloud/tenant/quota/report</td>
-        <td>Terminate the DocsCloud quota report</td>
+        <td>Terminate the Docs Connect quota report</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsDocsCloudApi.md#updatetenantconfig"><strong>UpdateTenantConfig</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/settings/docscloud/tenant/config</td>
-        <td>Update the DocsCloud tenant configuration</td>
+        <td>Update the Docs Connect tenant configuration</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>EncryptionApi</strong></td>
@@ -4288,7 +4293,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ApiKeyResponseWrapper](docs/ApiKeyResponseWrapper.md)
  - [Model.AppArrayWrapper](docs/AppArrayWrapper.md)
  - [Model.AppDto](docs/AppDto.md)
- - [Model.AppDtoSettings](docs/AppDtoSettings.md)
  - [Model.AppWrapper](docs/AppWrapper.md)
  - [Model.ApplyFilterOption](docs/ApplyFilterOption.md)
  - [Model.ArchiveRoomRequest](docs/ArchiveRoomRequest.md)
@@ -4676,6 +4680,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ItemKeyValuePairStringBoolean](docs/ItemKeyValuePairStringBoolean.md)
  - [Model.ItemKeyValuePairStringLogoRequestsDto](docs/ItemKeyValuePairStringLogoRequestsDto.md)
  - [Model.ItemKeyValuePairStringString](docs/ItemKeyValuePairStringString.md)
+ - [Model.JsonValueWrapper](docs/JsonValueWrapper.md)
  - [Model.LinkAccountRequestDto](docs/LinkAccountRequestDto.md)
  - [Model.LinkType](docs/LinkType.md)
  - [Model.Location](docs/Location.md)
@@ -4825,7 +4830,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.SessionRequest](docs/SessionRequest.md)
  - [Model.SetAppEnabledBody](docs/SetAppEnabledBody.md)
  - [Model.SetAppSettingsBody](docs/SetAppSettingsBody.md)
- - [Model.SetAppSettingsBodySettings](docs/SetAppSettingsBodySettings.md)
  - [Model.SetManagerRequest](docs/SetManagerRequest.md)
  - [Model.SetPublicDto](docs/SetPublicDto.md)
  - [Model.SetRestrictedAiModelsRequestDto](docs/SetRestrictedAiModelsRequestDto.md)
@@ -4980,7 +4984,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TopUpDepositRequestDto](docs/TopUpDepositRequestDto.md)
  - [Model.TransactionInfo](docs/TransactionInfo.md)
  - [Model.TurnOnAdminMessageSettingsRequestDto](docs/TurnOnAdminMessageSettingsRequestDto.md)
- - [Model.UnknownNullableWrapper](docs/UnknownNullableWrapper.md)
  - [Model.UpcomingPaymentArrayWrapper](docs/UpcomingPaymentArrayWrapper.md)
  - [Model.UpcomingPaymentDto](docs/UpcomingPaymentDto.md)
  - [Model.UpdateApiKeyRequest](docs/UpdateApiKeyRequest.md)
