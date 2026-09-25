@@ -32,59 +32,70 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents, 8 - Forms, 9 - Form templates]
+    /// [Active - Active, Archive - Archive, Any - Any, RecentByLinks - Recent by links, Templates - Template, Knowledge - Knowledge, ResultStorage - Result storage, AiAgents - AiAgents, Forms - Forms, FormTemplates - Form templates]
     /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum SearchArea
     {
         /// <summary>
-        /// Enum Active for value: 0
+        /// Enum Active for value: Active
         /// </summary>
-        Active = 0,
+        [EnumMember(Value = "Active")]
+        Active,
 
         /// <summary>
-        /// Enum Archive for value: 1
+        /// Enum Archive for value: Archive
         /// </summary>
-        Archive = 1,
+        [EnumMember(Value = "Archive")]
+        Archive,
 
         /// <summary>
-        /// Enum Any for value: 2
+        /// Enum Any for value: Any
         /// </summary>
-        Any = 2,
+        [EnumMember(Value = "Any")]
+        Any,
 
         /// <summary>
-        /// Enum RecentByLinks for value: 3
+        /// Enum RecentByLinks for value: RecentByLinks
         /// </summary>
-        RecentByLinks = 3,
+        [EnumMember(Value = "RecentByLinks")]
+        RecentByLinks,
 
         /// <summary>
-        /// Enum Templates for value: 4
+        /// Enum Templates for value: Templates
         /// </summary>
-        Templates = 4,
+        [EnumMember(Value = "Templates")]
+        Templates,
 
         /// <summary>
-        /// Enum Knowledge for value: 5
+        /// Enum Knowledge for value: Knowledge
         /// </summary>
-        Knowledge = 5,
+        [EnumMember(Value = "Knowledge")]
+        Knowledge,
 
         /// <summary>
-        /// Enum ResultStorage for value: 6
+        /// Enum ResultStorage for value: ResultStorage
         /// </summary>
-        ResultStorage = 6,
+        [EnumMember(Value = "ResultStorage")]
+        ResultStorage,
 
         /// <summary>
-        /// Enum AiAgents for value: 7
+        /// Enum AiAgents for value: AiAgents
         /// </summary>
-        AiAgents = 7,
+        [EnumMember(Value = "AiAgents")]
+        AiAgents,
 
         /// <summary>
-        /// Enum Forms for value: 8
+        /// Enum Forms for value: Forms
         /// </summary>
-        Forms = 8,
+        [EnumMember(Value = "Forms")]
+        Forms,
 
         /// <summary>
-        /// Enum FormTemplates for value: 9
+        /// Enum FormTemplates for value: FormTemplates
         /// </summary>
-        FormTemplates = 9
+        [EnumMember(Value = "FormTemplates")]
+        FormTemplates
     }
 
 }

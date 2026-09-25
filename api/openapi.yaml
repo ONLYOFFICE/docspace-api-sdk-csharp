@@ -29340,6 +29340,16 @@ paths:
           example: true
           type: boolean
         style: form
+      - description: "The section to list the groups of: Active for Rooms and Forms\
+          \ for Forms. Active when omitted."
+        example: Active
+        explode: true
+        in: query
+        name: searchArea
+        required: false
+        schema:
+          $ref: "#/components/schemas/SearchArea"
+        style: form
       responses:
         "200":
           content:
@@ -77864,6 +77874,7 @@ components:
           name: Client projects
           icon: ""
           userId: 9a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9
+          searchArea: ""
           rooms:
           - title: Client onboarding
             fileEntryType: 1
@@ -77872,6 +77883,7 @@ components:
           name: Client projects
           icon: ""
           userId: 9a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9
+          searchArea: ""
           rooms:
           - title: Client onboarding
             fileEntryType: 1
@@ -77918,6 +77930,7 @@ components:
         name: Client projects
         icon: ""
         userId: 9a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9
+        searchArea: ""
         rooms:
         - title: Client onboarding
           fileEntryType: 1
@@ -77950,6 +77963,18 @@ components:
           example: 9a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9
           format: uuid
           type: string
+        searchArea:
+          allOf:
+          - $ref: "#/components/schemas/SearchArea"
+          description: "The section the group belongs to, which categorizes it within\
+            \ the application's structure. This property determines\r\nwhich area\
+            \ of the interface the group is associated with and affects how its rooms\
+            \ are filtered and displayed.\r\nCommon values include Active for standard\
+            \ rooms, Forms for form-based rooms, Archive for archived content, and\r\
+            \nTemplates for template rooms. The search area ensures that when retrieving\
+            \ a group, only rooms that belong to\r\nthe specified section are included\
+            \ in the results, maintaining proper organizational boundaries within\
+            \ the system."
         rooms:
           description: "The rooms the group gathers, those stored in the portal first\
             \ and those on connected third-party accounts\r\nafter them. Null when\
@@ -77981,6 +78006,7 @@ components:
         - 12
         - 15
         - folder-123-abc
+        searchArea: ""
       properties:
         name:
           description: "The name to show the group under. Surrounding spaces are trimmed\
@@ -78014,6 +78040,11 @@ components:
             $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           type: array
           default: null
+        searchArea:
+          allOf:
+          - $ref: "#/components/schemas/SearchArea"
+          description: "The section the group belongs to: Active for Rooms and Forms\
+            \ for Forms. Active when omitted."
       required:
       - icon
       - name
@@ -78687,22 +78718,11 @@ components:
       - formId
       - roles
     SearchArea:
-      description: "[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template,\
-        \ 5 - Knowledge, 6 - Result storage, 7 - AiAgents, 8 - Forms, 9 - Form templates]"
+      description: "[Active - Active, Archive - Archive, Any - Any, RecentByLinks\
+        \ - Recent by links, Templates - Template, Knowledge - Knowledge, ResultStorage\
+        \ - Result storage, AiAgents - AiAgents, Forms - Forms, FormTemplates - Form\
+        \ templates]"
       enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      - 8
-      - 9
-      example: 0
-      type: integer
-      x-enum-varnames:
       - Active
       - Archive
       - Any
@@ -78713,6 +78733,8 @@ components:
       - AiAgents
       - Forms
       - FormTemplates
+      example: Active
+      type: string
     SecurityInfoRequestDto:
       description: "The entries whose sharing rights are being changed, and the rights\
         \ to apply to them."
