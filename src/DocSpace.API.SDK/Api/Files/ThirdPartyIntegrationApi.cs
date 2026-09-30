@@ -84,8 +84,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>FolderStringWrapper</returns>
-        FolderStringWrapper GetBackupThirdPartyAccount();
+        /// <returns>ThirdPartyFolderWrapper</returns>
+        ThirdPartyFolderWrapper GetBackupThirdPartyAccount();
 
         /// <summary>
         /// Get the third-party backup folder
@@ -95,8 +95,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>ApiResponse of FolderStringWrapper</returns>
-        ApiResponse<FolderStringWrapper> GetBackupThirdPartyAccountWithHttpInfo();
+        /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
+        ApiResponse<ThirdPartyFolderWrapper> GetBackupThirdPartyAccountWithHttpInfo();
         /// <summary>
         /// Get third-party provider capabilities
         /// </summary>
@@ -126,8 +126,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>FolderStringArrayWrapper</returns>
-        FolderStringArrayWrapper GetCommonThirdPartyFolders();
+        /// <returns>ThirdPartyFolderArrayWrapper</returns>
+        ThirdPartyFolderArrayWrapper GetCommonThirdPartyFolders();
 
         /// <summary>
         /// Get common third-party folders
@@ -137,8 +137,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>ApiResponse of FolderStringArrayWrapper</returns>
-        ApiResponse<FolderStringArrayWrapper> GetCommonThirdPartyFoldersWithHttpInfo();
+        /// <returns>ApiResponse of ThirdPartyFolderArrayWrapper</returns>
+        ApiResponse<ThirdPartyFolderArrayWrapper> GetCommonThirdPartyFoldersWithHttpInfo();
         /// <summary>
         /// Get the third-party accounts
         /// </summary>
@@ -169,8 +169,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>FolderStringWrapper</returns>
-        FolderStringWrapper SaveThirdParty(ThirdPartyRequestDto? thirdPartyRequestDto = default);
+        /// <returns>ThirdPartyFolderWrapper</returns>
+        ThirdPartyFolderWrapper SaveThirdParty(ThirdPartyRequestDto? thirdPartyRequestDto = default);
 
         /// <summary>
         /// Connect a third-party account
@@ -181,8 +181,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>ApiResponse of FolderStringWrapper</returns>
-        ApiResponse<FolderStringWrapper> SaveThirdPartyWithHttpInfo(ThirdPartyRequestDto? thirdPartyRequestDto = default);
+        /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
+        ApiResponse<ThirdPartyFolderWrapper> SaveThirdPartyWithHttpInfo(ThirdPartyRequestDto? thirdPartyRequestDto = default);
         /// <summary>
         /// Connect the third-party backup storage
         /// </summary>
@@ -192,8 +192,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>FolderStringWrapper</returns>
-        FolderStringWrapper SaveThirdPartyBackup(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default);
+        /// <returns>ThirdPartyFolderWrapper</returns>
+        ThirdPartyFolderWrapper SaveThirdPartyBackup(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default);
 
         /// <summary>
         /// Connect the third-party backup storage
@@ -204,8 +204,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>ApiResponse of FolderStringWrapper</returns>
-        ApiResponse<FolderStringWrapper> SaveThirdPartyBackupWithHttpInfo(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default);
+        /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
+        ApiResponse<ThirdPartyFolderWrapper> SaveThirdPartyBackupWithHttpInfo(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -274,8 +274,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of FolderStringWrapper</returns>
-        Task<FolderStringWrapper> GetBackupThirdPartyAccountAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ThirdPartyFolderWrapper</returns>
+        Task<ThirdPartyFolderWrapper> GetBackupThirdPartyAccountAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the third-party backup folder
@@ -286,8 +286,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        Task<ApiResponse<FolderStringWrapper>> GetBackupThirdPartyAccountWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
+        Task<ApiResponse<ThirdPartyFolderWrapper>> GetBackupThirdPartyAccountWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get third-party provider capabilities
         /// </summary>
@@ -320,8 +320,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>Task of FolderStringArrayWrapper</returns>
-        Task<FolderStringArrayWrapper> GetCommonThirdPartyFoldersAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ThirdPartyFolderArrayWrapper</returns>
+        Task<ThirdPartyFolderArrayWrapper> GetCommonThirdPartyFoldersAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get common third-party folders
@@ -332,8 +332,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringArrayWrapper)</returns>
-        Task<ApiResponse<FolderStringArrayWrapper>> GetCommonThirdPartyFoldersWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ThirdPartyFolderArrayWrapper)</returns>
+        Task<ApiResponse<ThirdPartyFolderArrayWrapper>> GetCommonThirdPartyFoldersWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the third-party accounts
         /// </summary>
@@ -367,8 +367,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>Task of FolderStringWrapper</returns>
-        Task<FolderStringWrapper> SaveThirdPartyAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ThirdPartyFolderWrapper</returns>
+        Task<ThirdPartyFolderWrapper> SaveThirdPartyAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Connect a third-party account
@@ -380,8 +380,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        Task<ApiResponse<FolderStringWrapper>> SaveThirdPartyWithHttpInfoAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
+        Task<ApiResponse<ThirdPartyFolderWrapper>> SaveThirdPartyWithHttpInfoAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Connect the third-party backup storage
         /// </summary>
@@ -392,8 +392,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>Task of FolderStringWrapper</returns>
-        Task<FolderStringWrapper> SaveThirdPartyBackupAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ThirdPartyFolderWrapper</returns>
+        Task<ThirdPartyFolderWrapper> SaveThirdPartyBackupAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Connect the third-party backup storage
@@ -405,8 +405,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        Task<ApiResponse<FolderStringWrapper>> SaveThirdPartyBackupWithHttpInfoAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
+        Task<ApiResponse<ThirdPartyFolderWrapper>> SaveThirdPartyBackupWithHttpInfoAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1000,8 +1000,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>FolderStringWrapper</returns>
-        public FolderStringWrapper GetBackupThirdPartyAccount()
+        /// <returns>ThirdPartyFolderWrapper</returns>
+        public ThirdPartyFolderWrapper GetBackupThirdPartyAccount()
         {
             var localVarResponse = GetBackupThirdPartyAccountWithHttpInfo();
             return localVarResponse.Data;
@@ -1015,8 +1015,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>ApiResponse of FolderStringWrapper</returns>
-        public ApiResponse<FolderStringWrapper> GetBackupThirdPartyAccountWithHttpInfo()
+        /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
+        public ApiResponse<ThirdPartyFolderWrapper> GetBackupThirdPartyAccountWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1064,7 +1064,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<FolderStringWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ThirdPartyFolderWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1087,8 +1087,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of FolderStringWrapper</returns>
-        public async Task<FolderStringWrapper> GetBackupThirdPartyAccountAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ThirdPartyFolderWrapper</returns>
+        public async Task<ThirdPartyFolderWrapper> GetBackupThirdPartyAccountAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetBackupThirdPartyAccountWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1103,8 +1103,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        public async Task<ApiResponse<FolderStringWrapper>> GetBackupThirdPartyAccountWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyFolderWrapper>> GetBackupThirdPartyAccountWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1154,7 +1154,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<FolderStringWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ThirdPartyFolderWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1352,8 +1352,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>FolderStringArrayWrapper</returns>
-        public FolderStringArrayWrapper GetCommonThirdPartyFolders()
+        /// <returns>ThirdPartyFolderArrayWrapper</returns>
+        public ThirdPartyFolderArrayWrapper GetCommonThirdPartyFolders()
         {
             var localVarResponse = GetCommonThirdPartyFoldersWithHttpInfo();
             return localVarResponse.Data;
@@ -1367,8 +1367,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>ApiResponse of FolderStringArrayWrapper</returns>
-        public ApiResponse<FolderStringArrayWrapper> GetCommonThirdPartyFoldersWithHttpInfo()
+        /// <returns>ApiResponse of ThirdPartyFolderArrayWrapper</returns>
+        public ApiResponse<ThirdPartyFolderArrayWrapper> GetCommonThirdPartyFoldersWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1416,7 +1416,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<FolderStringArrayWrapper>("/api/2.0/files/thirdparty/common", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ThirdPartyFolderArrayWrapper>("/api/2.0/files/thirdparty/common", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1439,8 +1439,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>Task of FolderStringArrayWrapper</returns>
-        public async Task<FolderStringArrayWrapper> GetCommonThirdPartyFoldersAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ThirdPartyFolderArrayWrapper</returns>
+        public async Task<ThirdPartyFolderArrayWrapper> GetCommonThirdPartyFoldersAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetCommonThirdPartyFoldersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1455,8 +1455,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringArrayWrapper)</returns>
-        public async Task<ApiResponse<FolderStringArrayWrapper>> GetCommonThirdPartyFoldersWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ThirdPartyFolderArrayWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyFolderArrayWrapper>> GetCommonThirdPartyFoldersWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1506,7 +1506,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<FolderStringArrayWrapper>("/api/2.0/files/thirdparty/common", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ThirdPartyFolderArrayWrapper>("/api/2.0/files/thirdparty/common", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1705,8 +1705,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>FolderStringWrapper</returns>
-        public FolderStringWrapper SaveThirdParty(ThirdPartyRequestDto? thirdPartyRequestDto = default)
+        /// <returns>ThirdPartyFolderWrapper</returns>
+        public ThirdPartyFolderWrapper SaveThirdParty(ThirdPartyRequestDto? thirdPartyRequestDto = default)
         {
             var localVarResponse = SaveThirdPartyWithHttpInfo(thirdPartyRequestDto);
             return localVarResponse.Data;
@@ -1721,8 +1721,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>ApiResponse of FolderStringWrapper</returns>
-        public ApiResponse<FolderStringWrapper> SaveThirdPartyWithHttpInfo(ThirdPartyRequestDto? thirdPartyRequestDto = default)
+        /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
+        public ApiResponse<ThirdPartyFolderWrapper> SaveThirdPartyWithHttpInfo(ThirdPartyRequestDto? thirdPartyRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1771,7 +1771,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<FolderStringWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ThirdPartyFolderWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1795,8 +1795,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>Task of FolderStringWrapper</returns>
-        public async Task<FolderStringWrapper> SaveThirdPartyAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ThirdPartyFolderWrapper</returns>
+        public async Task<ThirdPartyFolderWrapper> SaveThirdPartyAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SaveThirdPartyWithHttpInfoAsync(thirdPartyRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1812,8 +1812,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyRequestDto">The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        public async Task<ApiResponse<FolderStringWrapper>> SaveThirdPartyWithHttpInfoAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyFolderWrapper>> SaveThirdPartyWithHttpInfoAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1864,7 +1864,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<FolderStringWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyFolderWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1887,8 +1887,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>FolderStringWrapper</returns>
-        public FolderStringWrapper SaveThirdPartyBackup(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default)
+        /// <returns>ThirdPartyFolderWrapper</returns>
+        public ThirdPartyFolderWrapper SaveThirdPartyBackup(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default)
         {
             var localVarResponse = SaveThirdPartyBackupWithHttpInfo(thirdPartyBackupRequestDto);
             return localVarResponse.Data;
@@ -1903,8 +1903,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>ApiResponse of FolderStringWrapper</returns>
-        public ApiResponse<FolderStringWrapper> SaveThirdPartyBackupWithHttpInfo(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default)
+        /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
+        public ApiResponse<ThirdPartyFolderWrapper> SaveThirdPartyBackupWithHttpInfo(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1953,7 +1953,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<FolderStringWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ThirdPartyFolderWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1977,8 +1977,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>Task of FolderStringWrapper</returns>
-        public async Task<FolderStringWrapper> SaveThirdPartyBackupAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ThirdPartyFolderWrapper</returns>
+        public async Task<ThirdPartyFolderWrapper> SaveThirdPartyBackupAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SaveThirdPartyBackupWithHttpInfoAsync(thirdPartyBackupRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1994,8 +1994,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="thirdPartyBackupRequestDto">The credentials and the title of the third-party storage account the portal writes its backups to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        public async Task<ApiResponse<FolderStringWrapper>> SaveThirdPartyBackupWithHttpInfoAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyFolderWrapper>> SaveThirdPartyBackupWithHttpInfoAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2046,7 +2046,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<FolderStringWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyFolderWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

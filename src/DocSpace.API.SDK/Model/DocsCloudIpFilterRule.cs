@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents the IP filter rule of a DocsCloud tenant.
+    /// Represents the IP filter rule of a Docs Connect tenant.
     /// </summary>
     [DataContract(Name = "DocsCloudIpFilterRule")]
     public partial class DocsCloudIpFilterRule : IValidatableObject

@@ -35,7 +35,7 @@ namespace DocSpace.API.SDK.Model
     /// AiAgentsGet200Response
     /// </summary>
     [DataContract(Name = "aiAgentsGet_200_response")]
-    public partial class AiAgentsGet200Response : AiFolderIntegerWrapper, IValidatableObject
+    public partial class AiAgentsGet200Response : AiFolderWrapper, IValidatableObject
     {
     
         /// <summary>

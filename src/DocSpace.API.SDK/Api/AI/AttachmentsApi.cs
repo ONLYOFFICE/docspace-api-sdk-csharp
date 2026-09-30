@@ -123,6 +123,26 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of List&lt;AiAttachment&gt;</returns>
         ApiResponse<List<AiAttachment>> AiAttachmentsGetManyWithHttpInfo(List<string> requestBody);
         /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiAttachmentsGetSuggestedQuestions(Dictionary<string, Object> requestBody);
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        ApiResponse<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsWithHttpInfo(Dictionary<string, Object> requestBody);
+        /// <summary>
         /// Link to message
         /// </summary>
         /// <remarks>
@@ -300,6 +320,31 @@ namespace DocSpace.API.SDK.Api.AI
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
         /// <returns>Task of ApiResponse (List&lt;AiAttachment&gt;)</returns>
         Task<ApiResponse<List<AiAttachment>>> AiAttachmentsGetManyWithHttpInfoAsync(List<string> requestBody, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        Task<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        Task<ApiResponse<AiSuccessResponse>> AiAttachmentsGetSuggestedQuestionsWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
         /// <summary>
         /// Link to message
         /// </summary>
@@ -637,6 +682,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (body != null) localVarRequestOptions.Data = body;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/attachments/delete", localVarRequestOptions, Configuration);
@@ -703,6 +760,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (body != null) localVarRequestOptions.Data = body;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -767,6 +836,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/attachments/delete-many", localVarRequestOptions, Configuration);
@@ -833,6 +914,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -897,6 +990,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (body != null) localVarRequestOptions.Data = body;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiAttachment>("/api/2.0/ai/attachments/get", localVarRequestOptions, Configuration);
@@ -963,6 +1068,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (body != null) localVarRequestOptions.Data = body;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1027,6 +1144,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<List<AiAttachment>>("/api/2.0/ai/attachments/get-many", localVarRequestOptions, Configuration);
@@ -1093,6 +1222,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1101,6 +1242,148 @@ namespace DocSpace.API.SDK.Api.AI
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("AiAttachmentsGetMany", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        public AiSuccessResponse AiAttachmentsGetSuggestedQuestions(Dictionary<string, Object> requestBody)
+        {
+            var localVarResponse = AiAttachmentsGetSuggestedQuestionsWithHttpInfo(requestBody);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        public ApiResponse<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsWithHttpInfo(Dictionary<string, Object> requestBody)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AttachmentsApi->AiAttachmentsGetSuggestedQuestions");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/attachments/suggested-questions", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGetSuggestedQuestions", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        public async Task<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsGetSuggestedQuestionsWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestBody"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        public async Task<ApiResponse<AiSuccessResponse>> AiAttachmentsGetSuggestedQuestionsWithHttpInfoAsync(Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AttachmentsApi->AiAttachmentsGetSuggestedQuestions");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/attachments/suggested-questions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGetSuggestedQuestions", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -1157,6 +1440,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAttachmentsLinkToMessageRequest != null) localVarRequestOptions.Data = aiAttachmentsLinkToMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/attachments/link-to-message", localVarRequestOptions, Configuration);
@@ -1223,6 +1518,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAttachmentsLinkToMessageRequest != null) localVarRequestOptions.Data = aiAttachmentsLinkToMessageRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1287,6 +1594,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAttachmentsSaveFileRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFileRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<AiAttachment>("/api/2.0/ai/attachments/save-file", localVarRequestOptions, Configuration);
@@ -1353,6 +1672,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAttachmentsSaveFileRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFileRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -1417,6 +1748,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAttachmentsSaveFilesManyRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFilesManyRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<List<AiAttachment>>("/api/2.0/ai/attachments/save-files-many", localVarRequestOptions, Configuration);
@@ -1483,6 +1826,18 @@ namespace DocSpace.API.SDK.Api.AI
 
             if (aiAttachmentsSaveFilesManyRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFilesManyRequest;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

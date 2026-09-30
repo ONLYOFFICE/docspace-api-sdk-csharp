@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents a DocsCloud tenant of a portal.
+    /// Represents a Docs Connect tenant of a portal.
     /// </summary>
     [DataContract(Name = "DocsCloudTenant")]
     public partial class DocsCloudTenant : IValidatableObject

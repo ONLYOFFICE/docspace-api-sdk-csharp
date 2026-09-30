@@ -37,6 +37,12 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "RoomGroupRequestDto")]
     public partial class RoomGroupRequestDto : IValidatableObject
     {
+
+        /// <summary>
+        /// The section the group belongs to: Active for Rooms and Forms for Forms. Active when omitted.
+        /// </summary>
+        [DataMember(Name = "searchArea", EmitDefaultValue = false)]
+        public SearchArea? SearchArea { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomGroupRequestDto" /> class.
@@ -49,7 +55,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The name to show the group under. Surrounding spaces are trimmed before it is stored, a name that is blank  once trimmed is refused, and the name does not have to differ from the names of the caller&#39;s other groups. (required).</param>
         /// <param name="icon">The icon of the group, given as the identifier of one of the built-in covers listed by  &#x60;GET api/2.0/files/rooms/covers&#x60;. An uploaded image cannot be used, and any value that is not one of those  identifiers is refused. (required).</param>
         /// <param name="rooms">The rooms to gather in the group, each given as a number for a room stored in the portal or as a string for a  room on a connected third-party account. Every identifier has to name a room the caller can read; repeats are  collapsed, and an element of any other shape - a decimal number, a number sent as a string, null - is refused. (required).</param>
-        public RoomGroupRequestDto(string name = default, string icon = default, List<DuplicateRequestDtoAllOfFileIds> rooms = default)
+        /// <param name="searchArea">The section the group belongs to: Active for Rooms and Forms for Forms. Active when omitted..</param>
+        public RoomGroupRequestDto(string name = default, string icon = default, List<DuplicateRequestDtoAllOfFileIds> rooms = default, SearchArea? searchArea = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -69,6 +76,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("rooms is a required property for RoomGroupRequestDto and cannot be null");
             }
             this.Rooms = rooms;
+            this.SearchArea = searchArea;
         }
 
         /// <summary>
@@ -103,6 +111,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Icon: ").Append(Icon).Append("\n");
             sb.Append("  Rooms: ").Append(Rooms).Append("\n");
+            sb.Append("  SearchArea: ").Append(SearchArea).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

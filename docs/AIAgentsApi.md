@@ -15,7 +15,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="aiagentscreate"></a>
 # **AiAgentsCreate**
-> AiFolderIntegerWrapper AiAgentsCreate (AiAgentsCreateRequest aiAgentsCreateRequest)
+> AiFolderWrapper AiAgentsCreate (AiAgentsCreateRequest aiAgentsCreateRequest)
 
 Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
 
@@ -29,11 +29,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**AiFolderIntegerWrapper**](AiFolderIntegerWrapper.md)
+[**AiFolderWrapper**](AiFolderWrapper.md)
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -52,6 +52,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -61,7 +68,7 @@ namespace Example
             try
             {
                 // Create an agent
-                AiFolderIntegerWrapper result = apiInstance.AiAgentsCreate(aiAgentsCreateRequest);
+                AiFolderWrapper result = apiInstance.AiAgentsCreate(aiAgentsCreateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -82,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create an agent
-    ApiResponse<AiFolderIntegerWrapper> response = apiInstance.AiAgentsCreateWithHttpInfo(aiAgentsCreateRequest);
+    ApiResponse<AiFolderWrapper> response = apiInstance.AiAgentsCreateWithHttpInfo(aiAgentsCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -134,7 +141,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -153,6 +160,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -235,7 +249,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -254,6 +268,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -316,7 +337,7 @@ catch (ApiException e)
 
 <a id="aiagentslist"></a>
 # **AiAgentsList**
-> AiFolderContentIntegerWrapper AiAgentsList (string? subjectId = null, string? subjectOwnerId = null, bool? excludeSubject = null, string? tags = null, bool? withoutTags = null, int? quotaFilter = null, string? filterValue = null, string? sortBy = null, string? sortOrder = null, int? startIndex = null, int? count = null)
+> AiFolderContentWrapper AiAgentsList (string? subjectId = null, string? subjectOwnerId = null, bool? excludeSubject = null, string? tags = null, bool? withoutTags = null, int? quotaFilter = null, string? filterValue = null, string? sortBy = null, string? sortOrder = null, int? startIndex = null, int? count = null)
 
 Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
 
@@ -340,11 +361,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**AiFolderContentIntegerWrapper**](AiFolderContentIntegerWrapper.md)
+[**AiFolderContentWrapper**](AiFolderContentWrapper.md)
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -363,6 +384,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -382,7 +410,7 @@ namespace Example
             try
             {
                 // List agents
-                AiFolderContentIntegerWrapper result = apiInstance.AiAgentsList(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
+                AiFolderContentWrapper result = apiInstance.AiAgentsList(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -403,7 +431,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List agents
-    ApiResponse<AiFolderContentIntegerWrapper> response = apiInstance.AiAgentsListWithHttpInfo(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
+    ApiResponse<AiFolderContentWrapper> response = apiInstance.AiAgentsListWithHttpInfo(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -448,7 +476,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -467,6 +495,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -527,7 +562,7 @@ catch (ApiException e)
 
 <a id="aiagentsresetquota"></a>
 # **AiAgentsResetQuota**
-> AiFolderIntegerArrayWrapper AiAgentsResetQuota (AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
+> AiFolderArrayWrapper AiAgentsResetQuota (AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
 
 Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
 
@@ -541,11 +576,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**AiFolderIntegerArrayWrapper**](AiFolderIntegerArrayWrapper.md)
+[**AiFolderArrayWrapper**](AiFolderArrayWrapper.md)
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -564,6 +599,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -573,7 +615,7 @@ namespace Example
             try
             {
                 // Reset agents' quota
-                AiFolderIntegerArrayWrapper result = apiInstance.AiAgentsResetQuota(aiAgentsResetQuotaRequest);
+                AiFolderArrayWrapper result = apiInstance.AiAgentsResetQuota(aiAgentsResetQuotaRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -594,7 +636,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Reset agents' quota
-    ApiResponse<AiFolderIntegerArrayWrapper> response = apiInstance.AiAgentsResetQuotaWithHttpInfo(aiAgentsResetQuotaRequest);
+    ApiResponse<AiFolderArrayWrapper> response = apiInstance.AiAgentsResetQuotaWithHttpInfo(aiAgentsResetQuotaRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -626,7 +668,7 @@ catch (ApiException e)
 
 <a id="aiagentsupdate"></a>
 # **AiAgentsUpdate**
-> AiFolderIntegerWrapper AiAgentsUpdate (string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
+> AiFolderWrapper AiAgentsUpdate (string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
 
 Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
 
@@ -641,11 +683,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**AiFolderIntegerWrapper**](AiFolderIntegerWrapper.md)
+[**AiFolderWrapper**](AiFolderWrapper.md)
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -664,6 +706,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -674,7 +723,7 @@ namespace Example
             try
             {
                 // Update an agent
-                AiFolderIntegerWrapper result = apiInstance.AiAgentsUpdate(id, aiAgentsUpdateRequest);
+                AiFolderWrapper result = apiInstance.AiAgentsUpdate(id, aiAgentsUpdateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -695,7 +744,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update an agent
-    ApiResponse<AiFolderIntegerWrapper> response = apiInstance.AiAgentsUpdateWithHttpInfo(id, aiAgentsUpdateRequest);
+    ApiResponse<AiFolderWrapper> response = apiInstance.AiAgentsUpdateWithHttpInfo(id, aiAgentsUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -728,7 +777,7 @@ catch (ApiException e)
 
 <a id="aiagentsupdatequota"></a>
 # **AiAgentsUpdateQuota**
-> AiFolderIntegerArrayWrapper AiAgentsUpdateQuota (AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
+> AiFolderArrayWrapper AiAgentsUpdateQuota (AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
 
 Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
 
@@ -742,11 +791,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**AiFolderIntegerArrayWrapper**](AiFolderIntegerArrayWrapper.md)
+[**AiFolderArrayWrapper**](AiFolderArrayWrapper.md)
 
 ### Authorization
 
-No authorization required
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -765,6 +814,13 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -774,7 +830,7 @@ namespace Example
             try
             {
                 // Update agents' quota
-                AiFolderIntegerArrayWrapper result = apiInstance.AiAgentsUpdateQuota(aiAgentsUpdateQuotaRequest);
+                AiFolderArrayWrapper result = apiInstance.AiAgentsUpdateQuota(aiAgentsUpdateQuotaRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -795,7 +851,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update agents' quota
-    ApiResponse<AiFolderIntegerArrayWrapper> response = apiInstance.AiAgentsUpdateQuotaWithHttpInfo(aiAgentsUpdateQuotaRequest);
+    ApiResponse<AiFolderArrayWrapper> response = apiInstance.AiAgentsUpdateQuotaWithHttpInfo(aiAgentsUpdateQuotaRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

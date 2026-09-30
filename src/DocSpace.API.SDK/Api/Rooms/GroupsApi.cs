@@ -136,9 +136,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>RoomGroupArrayWrapper</returns>
-        RoomGroupArrayWrapper GetRoomGroups(bool? includeMembers = default);
+        RoomGroupArrayWrapper GetRoomGroups(bool? includeMembers = default, SearchArea? searchArea = default);
 
         /// <summary>
         /// List room groups
@@ -148,9 +149,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>ApiResponse of RoomGroupArrayWrapper</returns>
-        ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(bool? includeMembers = default);
+        ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(bool? includeMembers = default, SearchArea? searchArea = default);
         /// <summary>
         /// Update room group
         /// </summary>
@@ -299,10 +301,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of RoomGroupArrayWrapper</returns>
-        Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(bool? includeMembers = default, CancellationToken cancellationToken = default);
+        Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(bool? includeMembers = default, SearchArea? searchArea = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List room groups
@@ -312,10 +315,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of ApiResponse (RoomGroupArrayWrapper)</returns>
-        Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(bool? includeMembers = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(bool? includeMembers = default, SearchArea? searchArea = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update room group
         /// </summary>
@@ -1322,11 +1326,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>RoomGroupArrayWrapper</returns>
-        public RoomGroupArrayWrapper GetRoomGroups(bool? includeMembers = default)
+        public RoomGroupArrayWrapper GetRoomGroups(bool? includeMembers = default, SearchArea? searchArea = default)
         {
-            var localVarResponse = GetRoomGroupsWithHttpInfo(includeMembers);
+            var localVarResponse = GetRoomGroupsWithHttpInfo(includeMembers, searchArea);
             return localVarResponse.Data;
         }
 
@@ -1338,9 +1343,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>ApiResponse of RoomGroupArrayWrapper</returns>
-        public ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(bool? includeMembers = default)
+        public ApiResponse<RoomGroupArrayWrapper> GetRoomGroupsWithHttpInfo(bool? includeMembers = default, SearchArea? searchArea = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1358,6 +1364,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (includeMembers != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
+            }
+            if (searchArea != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
             }
 
             // authentication (Basic) required
@@ -1414,12 +1424,13 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of RoomGroupArrayWrapper</returns>
-        public async Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(bool? includeMembers = default, CancellationToken cancellationToken = default)
+        public async Task<RoomGroupArrayWrapper> GetRoomGroupsAsync(bool? includeMembers = default, SearchArea? searchArea = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRoomGroupsWithHttpInfoAsync(includeMembers, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRoomGroupsWithHttpInfoAsync(includeMembers, searchArea, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1431,10 +1442,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="includeMembers">Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional)</param>
+        /// <param name="searchArea">The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-groups/">REST API Reference for GetRoomGroups Operation</seealso>
         /// <returns>Task of ApiResponse (RoomGroupArrayWrapper)</returns>
-        public async Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(bool? includeMembers = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<RoomGroupArrayWrapper>> GetRoomGroupsWithHttpInfoAsync(bool? includeMembers = default, SearchArea? searchArea = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1453,6 +1465,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (includeMembers != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeMembers", includeMembers));
+            }
+            if (searchArea != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
             }
 
             // authentication (Basic) required

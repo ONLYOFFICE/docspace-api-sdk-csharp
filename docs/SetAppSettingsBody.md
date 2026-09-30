@@ -5,7 +5,7 @@ The configuration document a portal application keeps.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Settings** | [**SetAppSettingsBodySettings**](SetAppSettingsBodySettings.md) |  | [optional] 
+**Settings** | **Object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

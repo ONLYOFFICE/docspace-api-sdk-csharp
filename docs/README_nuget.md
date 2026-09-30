@@ -55,6 +55,9 @@ services.AddHttpClient<RoomsApi>(httpClient =>
 
 Configuration config = new Configuration();
 config.BasePath = "https://your-docspace.onlyoffice.com";
+// Configure Bearer token for authorization: bearerAuth
+config.AccessToken = "YOUR_BEARER_TOKEN";
+
 // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -80,6 +83,18 @@ catch (ApiException e)
 
 
 Authentication schemes defined for the API:
+<a id="cookieAuth"></a>
+### cookieAuth
+
+- **Type**: API key
+- **API key parameter name**: asc_auth_key
+- **Location**: Cookie
+
+<a id="bearerAuth"></a>
+### bearerAuth
+
+- **Type**: Bearer Authentication
+
 <a id="asc_auth_key"></a>
 ### asc_auth_key
 
@@ -120,18 +135,6 @@ Authentication schemes defined for the API:
 
 - **Type**: OpenId Connect
 - **OpenId Connect URL**: {{authBaseUrl}}/.well-known/openid-configuration
-
-<a id="cookieAuth"></a>
-### cookieAuth
-
-- **Type**: API key
-- **API key parameter name**: asc_auth_key
-- **Location**: Cookie
-
-<a id="bearerAuth"></a>
-### bearerAuth
-
-- **Type**: Bearer Authentication
 
 <a id="x-signature"></a>
 ### x-signature

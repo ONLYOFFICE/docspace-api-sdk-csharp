@@ -83,8 +83,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>UnknownNullableWrapper</returns>
-        UnknownNullableWrapper GetSettings(string id);
+        /// <returns>JsonValueWrapper</returns>
+        JsonValueWrapper GetSettings(string id);
 
         /// <summary>
         /// Get app settings
@@ -95,8 +95,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>ApiResponse of UnknownNullableWrapper</returns>
-        ApiResponse<UnknownNullableWrapper> GetSettingsWithHttpInfo(string id);
+        /// <returns>ApiResponse of JsonValueWrapper</returns>
+        ApiResponse<JsonValueWrapper> GetSettingsWithHttpInfo(string id);
         /// <summary>
         /// Enable or disable an app
         /// </summary>
@@ -214,8 +214,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>Task of UnknownNullableWrapper</returns>
-        Task<UnknownNullableWrapper> GetSettingsAsync(string id, CancellationToken cancellationToken = default);
+        /// <returns>Task of JsonValueWrapper</returns>
+        Task<JsonValueWrapper> GetSettingsAsync(string id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get app settings
@@ -227,8 +227,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (UnknownNullableWrapper)</returns>
-        Task<ApiResponse<UnknownNullableWrapper>> GetSettingsWithHttpInfoAsync(string id, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (JsonValueWrapper)</returns>
+        Task<ApiResponse<JsonValueWrapper>> GetSettingsWithHttpInfoAsync(string id, CancellationToken cancellationToken = default);
         /// <summary>
         /// Enable or disable an app
         /// </summary>
@@ -873,8 +873,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>UnknownNullableWrapper</returns>
-        public UnknownNullableWrapper GetSettings(string id)
+        /// <returns>JsonValueWrapper</returns>
+        public JsonValueWrapper GetSettings(string id)
         {
             var localVarResponse = GetSettingsWithHttpInfo(id);
             return localVarResponse.Data;
@@ -889,8 +889,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>ApiResponse of UnknownNullableWrapper</returns>
-        public ApiResponse<UnknownNullableWrapper> GetSettingsWithHttpInfo(string id)
+        /// <returns>ApiResponse of JsonValueWrapper</returns>
+        public ApiResponse<JsonValueWrapper> GetSettingsWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -943,7 +943,7 @@ namespace DocSpace.API.SDK.Api.Apps
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<UnknownNullableWrapper>("/api/2.0/apps/{id}/settings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<JsonValueWrapper>("/api/2.0/apps/{id}/settings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -967,8 +967,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>Task of UnknownNullableWrapper</returns>
-        public async Task<UnknownNullableWrapper> GetSettingsAsync(string id, CancellationToken cancellationToken = default)
+        /// <returns>Task of JsonValueWrapper</returns>
+        public async Task<JsonValueWrapper> GetSettingsAsync(string id, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSettingsWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -984,8 +984,8 @@ namespace DocSpace.API.SDK.Api.Apps
         /// <param name="id">The application to read, by the identifier `GET api/2.0/apps` reports - one of the feature modules the portal  can turn on, such as `ai-room` or `docs-cloud`. An identifier not declared in the installation configuration  answers 404, which is also how a caller learns that an application does not exist here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-settings/">REST API Reference for GetSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (UnknownNullableWrapper)</returns>
-        public async Task<ApiResponse<UnknownNullableWrapper>> GetSettingsWithHttpInfoAsync(string id, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (JsonValueWrapper)</returns>
+        public async Task<ApiResponse<JsonValueWrapper>> GetSettingsWithHttpInfoAsync(string id, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1040,7 +1040,7 @@ namespace DocSpace.API.SDK.Api.Apps
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<UnknownNullableWrapper>("/api/2.0/apps/{id}/settings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<JsonValueWrapper>("/api/2.0/apps/{id}/settings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

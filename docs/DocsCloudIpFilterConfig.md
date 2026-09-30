@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.DocsCloudIpFilterConfig
-Represents the IP filter configuration of a DocsCloud tenant.
+Represents the IP filter configuration of a Docs Connect tenant.
 
 ## Properties
 

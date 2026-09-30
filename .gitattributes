@@ -1,0 +1,9 @@
+# Line endings: everything text is stored and checked out as LF, regardless of
+# core.autocrlf on the developer's machine. The SDK generator asks git for these attributes
+# and writes its output to match (LineEndings in the server repo), so a regeneration shows
+# only what really changed.
+* text=auto eol=lf
+
+# Windows scripts must keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf

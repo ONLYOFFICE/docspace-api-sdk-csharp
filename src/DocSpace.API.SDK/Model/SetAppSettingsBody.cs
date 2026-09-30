@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="SetAppSettingsBody" /> class.
         /// </summary>
         /// <param name="settings">settings.</param>
-        public SetAppSettingsBody(SetAppSettingsBodySettings settings = default)
+        public SetAppSettingsBody(Object settings = default)
         {
             this.Settings = settings;
         }
@@ -50,8 +50,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Settings
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
-        public SetAppSettingsBodySettings Settings { get; set; }
+        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        public Object Settings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

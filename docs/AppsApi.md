@@ -241,7 +241,7 @@ catch (ApiException e)
 
 <a id="getsettings"></a>
 # **GetSettings**
-> UnknownNullableWrapper GetSettings (string id)
+> JsonValueWrapper GetSettings (string id)
 
 Returns only the settings document of one portal application, such as `ai-rooms` or `docs-cloud`: the JSON  that the current portal has saved for it through `PUT api/2.0/apps/{id}/settings`, with no wrapper around it.  The identifier must be an application declared in the installation configuration, as listed by  `GET api/2.0/apps`. Any authenticated portal member  may read it. The call is read-only and idempotent. The document comes back exactly as it was saved: its shape  is defined by the application itself and is not validated by the portal, and an empty result means that the  portal has never saved settings for this application, so the application uses its own defaults. The enabled  state is not part of the answer: read it from `GET api/2.0/apps/{id}`.
 
@@ -255,7 +255,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**UnknownNullableWrapper**](UnknownNullableWrapper.md)
+[**JsonValueWrapper**](JsonValueWrapper.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ namespace Example
             try
             {
                 // Get app settings
-                UnknownNullableWrapper result = apiInstance.GetSettings(id);
+                JsonValueWrapper result = apiInstance.GetSettings(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -324,7 +324,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get app settings
-    ApiResponse<UnknownNullableWrapper> response = apiInstance.GetSettingsWithHttpInfo(id);
+    ApiResponse<JsonValueWrapper> response = apiInstance.GetSettingsWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

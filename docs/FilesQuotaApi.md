@@ -9,7 +9,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="resetroomquota"></a>
 # **ResetRoomQuota**
-> FolderIntegerArrayWrapper ResetRoomQuota (UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = null)
+> FolderArrayWrapper ResetRoomQuota (UpdateRoomsRoomIdsRequestDto? updateRoomsRoomIdsRequestDto = null)
 
 Returns every listed room to the default room quota of the portal and streams the updated rooms back in the  order they were given. This is not the same as removing the limit: the room stops carrying its own value and  starts following the portal default, which a portal administrator can change at any time. The per-room quota  feature has to be on, the caller must be a manager of each listed room, and an archived room or a room in the  trash is refused. The list is not transactional, so rooms processed before a failing one keep the default and  the rest keep what they had. Only numeric room ids are processed, which means ids of rooms stored in a  connected third-party account are silently skipped. Use `PUT api/2.0/files/rooms/roomquota` to set an explicit  value, and a quota of -1 in `PUT api/2.0/files/rooms/{id}` to leave the room with no custom limit at all.
 
@@ -19,11 +19,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **updateRoomsRoomIdsRequestDtoInteger** | [**UpdateRoomsRoomIdsRequestDtoInteger?**](UpdateRoomsRoomIdsRequestDtoInteger.md) | The rooms that are to go back to the default storage limit of the portal. | [optional]  |
+| **updateRoomsRoomIdsRequestDto** | [**UpdateRoomsRoomIdsRequestDto?**](UpdateRoomsRoomIdsRequestDto.md) | The rooms that are to go back to the default storage limit of the portal. | [optional]  |
 
 ### Return type
 
-[**FolderIntegerArrayWrapper**](FolderIntegerArrayWrapper.md)
+[**FolderArrayWrapper**](FolderArrayWrapper.md)
 
 ### Authorization
 
@@ -66,12 +66,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
-            var updateRoomsRoomIdsRequestDtoInteger = new UpdateRoomsRoomIdsRequestDtoInteger?(); // UpdateRoomsRoomIdsRequestDtoInteger? | The rooms that are to go back to the default storage limit of the portal. (optional) 
+            var updateRoomsRoomIdsRequestDto = new UpdateRoomsRoomIdsRequestDto?(); // UpdateRoomsRoomIdsRequestDto? | The rooms that are to go back to the default storage limit of the portal. (optional) 
 
             try
             {
                 // Reset the room quota limit
-                FolderIntegerArrayWrapper result = apiInstance.ResetRoomQuota(updateRoomsRoomIdsRequestDtoInteger);
+                FolderArrayWrapper result = apiInstance.ResetRoomQuota(updateRoomsRoomIdsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -92,7 +92,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Reset the room quota limit
-    ApiResponse<FolderIntegerArrayWrapper> response = apiInstance.ResetRoomQuotaWithHttpInfo(updateRoomsRoomIdsRequestDtoInteger);
+    ApiResponse<FolderArrayWrapper> response = apiInstance.ResetRoomQuotaWithHttpInfo(updateRoomsRoomIdsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -126,7 +126,7 @@ catch (ApiException e)
 
 <a id="updateroomsquota"></a>
 # **UpdateRoomsQuota**
-> FolderIntegerArrayWrapper UpdateRoomsQuota (UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = null)
+> FolderArrayWrapper UpdateRoomsQuota (UpdateRoomsQuotaRequestDto? updateRoomsQuotaRequestDto = null)
 
 Sets the same custom storage limit, in bytes, on every listed room and streams the updated rooms back in the  order they were given. The per-room quota feature has to be on for the portal, and the value must stay within  the portal own limit, otherwise the call is refused before anything is written. The caller must be a manager  of each listed room, and an archived room or a room in the trash is refused. The list is not transactional:  rooms processed before the offending one keep their new limit, so a failed call has to be checked room by  room. Only numeric room ids are processed, which means ids of rooms stored in a connected third-party account  are silently skipped. A room whose limit already equals the requested value is left untouched and still  returned. To go back to the portal default use `PUT api/2.0/files/rooms/resetquota`, and to drop the custom  limit entirely send a quota of -1 to `PUT api/2.0/files/rooms/{id}`.
 
@@ -136,11 +136,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **updateRoomsQuotaRequestDtoInteger** | [**UpdateRoomsQuotaRequestDtoInteger?**](UpdateRoomsQuotaRequestDtoInteger.md) | The rooms whose storage limit is to be changed, and the limit to give them. | [optional]  |
+| **updateRoomsQuotaRequestDto** | [**UpdateRoomsQuotaRequestDto?**](UpdateRoomsQuotaRequestDto.md) | The rooms whose storage limit is to be changed, and the limit to give them. | [optional]  |
 
 ### Return type
 
-[**FolderIntegerArrayWrapper**](FolderIntegerArrayWrapper.md)
+[**FolderArrayWrapper**](FolderArrayWrapper.md)
 
 ### Authorization
 
@@ -183,12 +183,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
-            var updateRoomsQuotaRequestDtoInteger = new UpdateRoomsQuotaRequestDtoInteger?(); // UpdateRoomsQuotaRequestDtoInteger? | The rooms whose storage limit is to be changed, and the limit to give them. (optional) 
+            var updateRoomsQuotaRequestDto = new UpdateRoomsQuotaRequestDto?(); // UpdateRoomsQuotaRequestDto? | The rooms whose storage limit is to be changed, and the limit to give them. (optional) 
 
             try
             {
                 // Change the room quota limit
-                FolderIntegerArrayWrapper result = apiInstance.UpdateRoomsQuota(updateRoomsQuotaRequestDtoInteger);
+                FolderArrayWrapper result = apiInstance.UpdateRoomsQuota(updateRoomsQuotaRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -209,7 +209,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Change the room quota limit
-    ApiResponse<FolderIntegerArrayWrapper> response = apiInstance.UpdateRoomsQuotaWithHttpInfo(updateRoomsQuotaRequestDtoInteger);
+    ApiResponse<FolderArrayWrapper> response = apiInstance.UpdateRoomsQuotaWithHttpInfo(updateRoomsQuotaRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

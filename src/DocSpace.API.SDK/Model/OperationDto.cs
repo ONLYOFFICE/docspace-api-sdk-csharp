@@ -61,8 +61,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="sourceType">What kind of thing an AI operation was run on - an agent, a file, a folder, a room or a form. It is empty  on any movement that is not an AI charge..</param>
         /// <param name="sourceTitle">The title that thing had when the operation ran, kept as recorded, so it does not follow a later rename.  Empty under the same conditions as &#x60;sourceType&#x60;..</param>
         /// <param name="sourceId">The identifier of that thing, to look it up in the module it belongs to. Empty under the same conditions  as &#x60;sourceType&#x60;..</param>
+        /// <param name="tokenUsage">The tokens an AI operation consumed, broken down by kind - prompt, completion, cache reads and writes,  reasoning, images. It is &#x60;null&#x60; on any movement that is not an AI charge, and on an AI charge the billing  service recorded without token counts..</param>
         /// <param name="type">What kind of movement this is - a payment, a charge, a refund, a correction. It is what the &#x60;type&#x60; filter  matches on, and &#x60;Unknown&#x60; covers a movement the billing service reported under a kind this build does not  recognise..</param>
-        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string sourceType = default, string sourceTitle = default, string sourceId = default, OperationType? type = default)
+        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string sourceType = default, string sourceTitle = default, string sourceId = default, OperationTokenUsage tokenUsage = default, OperationType? type = default)
         {
             this.Date = date;
             this.Service = service;
@@ -78,6 +79,7 @@ namespace DocSpace.API.SDK.Model
             this.SourceType = sourceType;
             this.SourceTitle = sourceTitle;
             this.SourceId = sourceId;
+            this.TokenUsage = tokenUsage;
             this.Type = type;
         }
 
@@ -179,6 +181,12 @@ namespace DocSpace.API.SDK.Model
         public string SourceId { get; set; }
 
         /// <summary>
+        /// The tokens an AI operation consumed, broken down by kind - prompt, completion, cache reads and writes,  reasoning, images. It is &#x60;null&#x60; on any movement that is not an AI charge, and on an AI charge the billing  service recorded without token counts.
+        /// </summary>
+        [DataMember(Name = "tokenUsage", EmitDefaultValue = false)]
+        public OperationTokenUsage TokenUsage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -200,6 +208,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  SourceType: ").Append(SourceType).Append("\n");
             sb.Append("  SourceTitle: ").Append(SourceTitle).Append("\n");
             sb.Append("  SourceId: ").Append(SourceId).Append("\n");
+            sb.Append("  TokenUsage: ").Append(TokenUsage).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

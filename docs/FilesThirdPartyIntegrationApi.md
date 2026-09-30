@@ -249,7 +249,7 @@ catch (ApiException e)
 
 <a id="getbackupthirdpartyaccount"></a>
 # **GetBackupThirdPartyAccount**
-> FolderStringWrapper GetBackupThirdPartyAccount ()
+> ThirdPartyFolderWrapper GetBackupThirdPartyAccount ()
 
 Returns the folder of the third-party storage account the portal keeps for backups, so a caller can check  where scheduled and manual backups are written. There is at most one such account per portal, connected by an  administrator through `POST api/2.0/files/thirdparty/backup`, and it is deliberately kept out of the personal  list of `GET api/2.0/files/thirdparty`. Any authenticated member may ask, and the call is read-only. The body  is `null`, with a successful status, in two situations the answer does not distinguish: no backup account has  been connected, and the caller has no read access to the folder of the one that is. When a folder does come  back, its `id` is the string ID of a third-party folder and can be used with the folder operations that accept  one, and its `title` is the title the account was saved under. Connecting a different account through the  backup operation replaces this one rather than adding a second, and  `DELETE api/2.0/files/thirdparty/{providerId}` removes it.
 
@@ -259,7 +259,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**FolderStringWrapper**](FolderStringWrapper.md)
+[**ThirdPartyFolderWrapper**](ThirdPartyFolderWrapper.md)
 
 ### Authorization
 
@@ -306,7 +306,7 @@ namespace Example
             try
             {
                 // Get the third-party backup folder
-                FolderStringWrapper result = apiInstance.GetBackupThirdPartyAccount();
+                ThirdPartyFolderWrapper result = apiInstance.GetBackupThirdPartyAccount();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -327,7 +327,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the third-party backup folder
-    ApiResponse<FolderStringWrapper> response = apiInstance.GetBackupThirdPartyAccountWithHttpInfo();
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.GetBackupThirdPartyAccountWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -471,7 +471,7 @@ catch (ApiException e)
 
 <a id="getcommonthirdpartyfolders"></a>
 # **GetCommonThirdPartyFolders**
-> FolderStringArrayWrapper GetCommonThirdPartyFolders ()
+> ThirdPartyFolderArrayWrapper GetCommonThirdPartyFolders ()
 
 Lists the third-party storage accounts attached to the legacy Common section, as folder entries that can be  browsed with the usual folder operations. Each entry stands for a whole connected account: its title is the  account title, and `providerId` and `providerKey` identify the account behind it. Only accounts whose owner  the caller may read are included, so the answer differs from one member to another. The call is read-only and  returns a plain array with no paging. An empty array is the expected answer in most portals and does not mean  an error: accounts connected by `POST api/2.0/files/thirdparty` are attached to the Rooms section, not to  Common, so only accounts inherited from an older portal appear here. The list is also empty while the  portal-wide third-party switch is off (`PUT api/2.0/files/thirdparty`) and when no storage service is  configured. For the accounts the caller owns, regardless of where they are attached, use  `GET api/2.0/files/thirdparty`.
 
@@ -481,7 +481,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**FolderStringArrayWrapper**](FolderStringArrayWrapper.md)
+[**ThirdPartyFolderArrayWrapper**](ThirdPartyFolderArrayWrapper.md)
 
 ### Authorization
 
@@ -528,7 +528,7 @@ namespace Example
             try
             {
                 // Get common third-party folders
-                FolderStringArrayWrapper result = apiInstance.GetCommonThirdPartyFolders();
+                ThirdPartyFolderArrayWrapper result = apiInstance.GetCommonThirdPartyFolders();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -549,7 +549,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get common third-party folders
-    ApiResponse<FolderStringArrayWrapper> response = apiInstance.GetCommonThirdPartyFoldersWithHttpInfo();
+    ApiResponse<ThirdPartyFolderArrayWrapper> response = apiInstance.GetCommonThirdPartyFoldersWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -693,7 +693,7 @@ catch (ApiException e)
 
 <a id="savethirdparty"></a>
 # **SaveThirdParty**
-> FolderStringWrapper SaveThirdParty (ThirdPartyRequestDto? thirdPartyRequestDto = null)
+> ThirdPartyFolderWrapper SaveThirdParty (ThirdPartyRequestDto? thirdPartyRequestDto = null)
 
 Connects an account at a third-party storage service to the portal, or re-authenticates one that is already  connected, and returns the folder that now stands for its root. Send `providerId` to update an existing  account and omit it to connect a new one; the accepted `providerKey` values come from  `GET api/2.0/files/thirdparty/providers`. The credentials to send depend on the service: the OAuth services  take `token`, which is the authorization code from their consent screen and not an access token, while the  WebDAV family and SharePoint take `login` with `password`, plus `url` where the server address is not fixed.  Credentials are verified against the service before anything is stored, so a wrong password is refused and  nothing is saved. The caller needs the rights to create rooms, and the portal-wide third-party switch has to  be on, otherwise the call is refused. A new account is attached to the Rooms section and becomes available as  room storage for `POST api/2.0/files/rooms/thirdparty/{id}`. Connecting twice with the same title creates two  separate accounts.
 
@@ -707,7 +707,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**FolderStringWrapper**](FolderStringWrapper.md)
+[**ThirdPartyFolderWrapper**](ThirdPartyFolderWrapper.md)
 
 ### Authorization
 
@@ -755,7 +755,7 @@ namespace Example
             try
             {
                 // Connect a third-party account
-                FolderStringWrapper result = apiInstance.SaveThirdParty(thirdPartyRequestDto);
+                ThirdPartyFolderWrapper result = apiInstance.SaveThirdParty(thirdPartyRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -776,7 +776,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Connect a third-party account
-    ApiResponse<FolderStringWrapper> response = apiInstance.SaveThirdPartyWithHttpInfo(thirdPartyRequestDto);
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.SaveThirdPartyWithHttpInfo(thirdPartyRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -810,7 +810,7 @@ catch (ApiException e)
 
 <a id="savethirdpartybackup"></a>
 # **SaveThirdPartyBackup**
-> FolderStringWrapper SaveThirdPartyBackup (ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = null)
+> ThirdPartyFolderWrapper SaveThirdPartyBackup (ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = null)
 
 Connects the third-party storage account the portal writes its backups to, and returns the folder that stands  for its root. Only a portal administrator may call it, and the portal-wide third-party switch has to be on;  other callers are refused. The account is portal-wide and single: a second call does not add another one but  re-authenticates and retitles the existing one, which makes the operation safe to repeat with the same body.  The credentials follow the same rules as in `POST api/2.0/files/thirdparty` - an authorization code in `token`  for the OAuth services, `login` with `password` and, where the server address is not fixed, `url` for the  WebDAV family and SharePoint - and are verified against the service before anything is stored, so a wrong  password leaves the previous account untouched. The account is deliberately absent from  `GET api/2.0/files/thirdparty`; read it back with `GET api/2.0/files/thirdparty/backup` and remove it with  `DELETE api/2.0/files/thirdparty/{providerId}`.
 
@@ -824,7 +824,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**FolderStringWrapper**](FolderStringWrapper.md)
+[**ThirdPartyFolderWrapper**](ThirdPartyFolderWrapper.md)
 
 ### Authorization
 
@@ -872,7 +872,7 @@ namespace Example
             try
             {
                 // Connect the third-party backup storage
-                FolderStringWrapper result = apiInstance.SaveThirdPartyBackup(thirdPartyBackupRequestDto);
+                ThirdPartyFolderWrapper result = apiInstance.SaveThirdPartyBackup(thirdPartyBackupRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -893,7 +893,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Connect the third-party backup storage
-    ApiResponse<FolderStringWrapper> response = apiInstance.SaveThirdPartyBackupWithHttpInfo(thirdPartyBackupRequestDto);
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.SaveThirdPartyBackupWithHttpInfo(thirdPartyBackupRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

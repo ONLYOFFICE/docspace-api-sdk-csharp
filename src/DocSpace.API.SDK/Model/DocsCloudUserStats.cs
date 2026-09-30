@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents the usage statistics of a single DocsCloud user category (editor or viewer).
+    /// Represents the usage statistics of a single Docs Connect user category (editor or viewer).
     /// </summary>
     [DataContract(Name = "DocsCloudUserStats")]
     public partial class DocsCloudUserStats : IValidatableObject

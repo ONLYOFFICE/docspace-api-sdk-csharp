@@ -352,7 +352,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The room group no longer exists; the body is empty and the rooms it gathered are left as they were |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -483,7 +483,7 @@ catch (ApiException e)
 
 <a id="getroomgroups"></a>
 # **GetRoomGroups**
-> RoomGroupArrayWrapper GetRoomGroups (bool? includeMembers = null)
+> RoomGroupArrayWrapper GetRoomGroups (bool? includeMembers = null, SearchArea? searchArea = null)
 
 Returns every room group of the calling account, each with the rooms it gathers. Only groups the caller  created are listed: groups of other members never appear here, and an account that has never made one gets an  empty array back. Set `includeMembers` to false to leave the `rooms` array out of every entry and keep the  name, the icon and `totalRooms` alone, which is the cheaper form when the list is only being shown as a menu.  Archived rooms are skipped in both the `rooms` array and the `totalRooms` count, and reappear once the room is  taken out of the archive. The listing is neither paged nor filtered - it always carries the whole set - and  the order of the entries is not contractual, so sort them on the client when the order matters. The call is  read-only. Use `GET api/2.0/files/group/{id}` when the identifier of a single group is already known, and  `POST api/2.0/files/group` to add one.
 
@@ -494,6 +494,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **includeMembers** | **bool?** | Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. | [optional]  |
+| **searchArea** | [**SearchArea?**](SearchArea.md) | The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. | [optional]  |
 
 ### Return type
 
@@ -541,11 +542,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var includeMembers = true;  // bool? | Whether the rooms of each group are listed in the answer: true fills the `rooms` array of every entry, false  leaves it out and reports only how many there are in `totalRooms`. (optional) 
+            var searchArea = new SearchArea?(); // SearchArea? | The section to list the groups of: Active for Rooms and Forms for Forms. Active when omitted. (optional) 
 
             try
             {
                 // List room groups
-                RoomGroupArrayWrapper result = apiInstance.GetRoomGroups(includeMembers);
+                RoomGroupArrayWrapper result = apiInstance.GetRoomGroups(includeMembers, searchArea);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -566,7 +568,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List room groups
-    ApiResponse<RoomGroupArrayWrapper> response = apiInstance.GetRoomGroupsWithHttpInfo(includeMembers);
+    ApiResponse<RoomGroupArrayWrapper> response = apiInstance.GetRoomGroupsWithHttpInfo(includeMembers, searchArea);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

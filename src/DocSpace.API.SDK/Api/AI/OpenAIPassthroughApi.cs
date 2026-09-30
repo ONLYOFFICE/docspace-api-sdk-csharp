@@ -412,6 +412,18 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/openai/{profileId}/v1/chat/completions", localVarRequestOptions, Configuration);
@@ -485,6 +497,18 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -556,6 +580,18 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = Client.Post<Dictionary<string, Object>>("/api/2.0/ai/openai/{profileId}/v1/images/generations", localVarRequestOptions, Configuration);
@@ -629,6 +665,18 @@ namespace DocSpace.API.SDK.Api.AI
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

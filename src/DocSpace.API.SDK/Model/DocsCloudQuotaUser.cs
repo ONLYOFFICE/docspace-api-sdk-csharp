@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents a single user entry of a DocsCloud quota.
+    /// Represents a single user entry of a Docs Connect quota.
     /// </summary>
     [DataContract(Name = "DocsCloudQuotaUser")]
     public partial class DocsCloudQuotaUser : IValidatableObject
