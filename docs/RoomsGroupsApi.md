@@ -119,10 +119,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created room group with the rooms that were linked to it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `name`, `icon` or `rooms`, the name is blank or longer than 128 characters, the icon is not a built-in cover, `searchArea` names a section other than `Active` and `Forms`, a room identifier is neither a positive number nor a non-numeric string, a third-party room identifier refers to a storage account that is not connected, or none of the listed rooms can be added and the existing ones all belong to the other section than `searchArea` |  -  |
+| **403** | The `rooms` list is empty, the listed rooms exist but none of them is a room the caller can read, or only some of them could be added - the group is then created with those |  -  |
+| **404** | None of the listed rooms exists, or a string room identifier does not name a third-party storage |  -  |
+| **500** | A third-party room identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -238,10 +240,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room group with the new icon |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or the icon is neither a built-in cover nor an empty string |  -  |
+| **404** | The group does not exist or belongs to another account |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -353,6 +356,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room group no longer exists; the body is empty and the rooms it gathered are left as they were |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The group belongs to another account |  -  |
+| **404** | The group does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -472,6 +477,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room group with the rooms it gathers |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **404** | The group does not exist or belongs to another account |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -591,10 +597,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room groups of the calling account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The `searchArea` names a section other than `Active` and `Forms` |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -710,10 +716,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The room group as stored after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or names its members with every one of them null, the new name is blank or longer than 128 characters, a room identifier is neither a positive number nor a non-numeric string, a third-party room identifier refers to a storage account that is not connected, or none of the rooms of `roomsToAdd` can be added and the existing ones all belong to the other section than the group |  -  |
+| **403** | The rooms of `roomsToAdd`, or the rooms of `roomsToRemove` that are not in the group, exist but none of them is a room the caller can read, or only some of the rooms could be applied - the earlier steps stay applied |  -  |
+| **404** | The group does not exist or belongs to another account, none of the rooms of `roomsToAdd` or of the rooms of `roomsToRemove` that are not in the group exists, or a string room identifier does not name a third-party storage |  -  |
+| **500** | A third-party room identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

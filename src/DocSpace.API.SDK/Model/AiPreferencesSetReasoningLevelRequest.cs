@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPreferencesSetReasoningLevelRequest
     /// </summary>
-    [DataContract(Name = "aiPreferencesSetReasoningLevel_request")]
+    [DataContract(Name = "AiPreferencesSetReasoningLevelRequest")]
     public partial class AiPreferencesSetReasoningLevelRequest : IValidatableObject
     {
 
@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// New extended-thinking depth; &#x60;off&#x60; turns deep mode off.
         /// </summary>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
-        public AiAiReasoningLevel Value { get; set; }
+        public AiReasoningLevel Value { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiPreferencesSetReasoningLevelRequest" /> class.
@@ -54,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="value">New extended-thinking depth; &#x60;off&#x60; turns deep mode off. (required).</param>
         /// <param name="entityId">entityId.</param>
-        public AiPreferencesSetReasoningLevelRequest(AiAiReasoningLevel value = default, string entityId = default)
+        public AiPreferencesSetReasoningLevelRequest(AiReasoningLevel value = default, string entityId = default)
         {
             this.Value = value;
             this.EntityId = entityId;

@@ -34,25 +34,29 @@ namespace DocSpace.API.SDK.Api.Security
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
-        DocumentBuilderTaskWrapper CreateAuditTrailReport(AuditReportFormat? format = default);
+        DocumentBuilderTaskWrapper CreateAuditTrailReport(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default);
 
         /// <summary>
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
-        ApiResponse<DocumentBuilderTaskWrapper> CreateAuditTrailReportWithHttpInfo(AuditReportFormat? format = default);
+        ApiResponse<DocumentBuilderTaskWrapper> CreateAuditTrailReportWithHttpInfo(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default);
         /// <summary>
         /// Get filtered audit events
         /// </summary>
@@ -102,8 +106,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsResponseWrapper</returns>
-        TenantAuditSettingsResponseWrapper GetAuditSettings();
+        /// <returns>TenantAuditSettingsWrapper</returns>
+        TenantAuditSettingsWrapper GetAuditSettings();
 
         /// <summary>
         /// Get audit lifetime settings
@@ -113,8 +117,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
-        ApiResponse<TenantAuditSettingsResponseWrapper> GetAuditSettingsWithHttpInfo();
+        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
+        ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo();
         /// <summary>
         /// Get audit trail mappers
         /// </summary>
@@ -125,8 +129,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The product to keep, spelled as `GET api/2.0/security/audit/types` lists it under `productTypes`. Omitting  it keeps every product; a value no product matches yields an empty list rather than an error. (optional)</param>
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>AuditTrailProductMapperArrayWrapper</returns>
-        AuditTrailProductMapperArrayWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default);
+        /// <returns>AuditTrailProductArrayWrapper</returns>
+        AuditTrailProductArrayWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default);
 
         /// <summary>
         /// Get audit trail mappers
@@ -138,13 +142,13 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The product to keep, spelled as `GET api/2.0/security/audit/types` lists it under `productTypes`. Omitting  it keeps every product; a value no product matches yields an empty list rather than an error. (optional)</param>
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>ApiResponse of AuditTrailProductMapperArrayWrapper</returns>
-        ApiResponse<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default);
+        /// <returns>ApiResponse of AuditTrailProductArrayWrapper</returns>
+        ApiResponse<AuditTrailProductArrayWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default);
         /// <summary>
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
@@ -155,7 +159,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
@@ -210,10 +214,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsResponseWrapper</returns>
-        TenantAuditSettingsResponseWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
+        /// <returns>TenantAuditSettingsWrapper</returns>
+        TenantAuditSettingsWrapper SetAuditSettings(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default);
 
         /// <summary>
         /// Set audit lifetime settings
@@ -222,10 +226,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
-        ApiResponse<TenantAuditSettingsResponseWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default);
+        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
+        ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default);
         /// <summary>
         /// Terminate audit trail report
         /// </summary>
@@ -260,27 +264,31 @@ namespace DocSpace.API.SDK.Api.Security
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
-        Task<DocumentBuilderTaskWrapper> CreateAuditTrailReportAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default);
+        Task<DocumentBuilderTaskWrapper> CreateAuditTrailReportAsync(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
-        Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateAuditTrailReportWithHttpInfoAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateAuditTrailReportWithHttpInfoAsync(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get filtered audit events
         /// </summary>
@@ -333,8 +341,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
-        Task<TenantAuditSettingsResponseWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantAuditSettingsWrapper</returns>
+        Task<TenantAuditSettingsWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get audit lifetime settings
@@ -345,8 +353,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
-        Task<ApiResponse<TenantAuditSettingsResponseWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
+        Task<ApiResponse<TenantAuditSettingsWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get audit trail mappers
         /// </summary>
@@ -358,8 +366,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of AuditTrailProductMapperArrayWrapper</returns>
-        Task<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AuditTrailProductArrayWrapper</returns>
+        Task<AuditTrailProductArrayWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get audit trail mappers
@@ -372,13 +380,13 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of ApiResponse (AuditTrailProductMapperArrayWrapper)</returns>
-        Task<ApiResponse<AuditTrailProductMapperArrayWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AuditTrailProductArrayWrapper)</returns>
+        Task<ApiResponse<AuditTrailProductArrayWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -390,7 +398,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -450,11 +458,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
-        Task<TenantAuditSettingsResponseWrapper> SetAuditSettingsAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantAuditSettingsWrapper</returns>
+        Task<TenantAuditSettingsWrapper> SetAuditSettingsAsync(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set audit lifetime settings
@@ -463,11 +471,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
-        Task<ApiResponse<TenantAuditSettingsResponseWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
+        Task<ApiResponse<TenantAuditSettingsWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Terminate audit trail report
         /// </summary>
@@ -723,15 +731,17 @@ namespace DocSpace.API.SDK.Api.Security
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
-        public DocumentBuilderTaskWrapper CreateAuditTrailReport(AuditReportFormat? format = default)
+        public DocumentBuilderTaskWrapper CreateAuditTrailReport(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default)
         {
-            var localVarResponse = CreateAuditTrailReportWithHttpInfo(format);
+            var localVarResponse = CreateAuditTrailReportWithHttpInfo(format, from, to);
             return localVarResponse.Data;
         }
 
@@ -739,13 +749,15 @@ namespace DocSpace.API.SDK.Api.Security
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
-        public ApiResponse<DocumentBuilderTaskWrapper> CreateAuditTrailReportWithHttpInfo(AuditReportFormat? format = default)
+        public ApiResponse<DocumentBuilderTaskWrapper> CreateAuditTrailReportWithHttpInfo(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -763,6 +775,14 @@ namespace DocSpace.API.SDK.Api.Security
             if (format != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "format", format));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
 
             // authentication (Basic) required
@@ -815,16 +835,18 @@ namespace DocSpace.API.SDK.Api.Security
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
-        public async Task<DocumentBuilderTaskWrapper> CreateAuditTrailReportAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default)
+        public async Task<DocumentBuilderTaskWrapper> CreateAuditTrailReportAsync(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CreateAuditTrailReportWithHttpInfoAsync(format, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateAuditTrailReportWithHttpInfoAsync(format, from, to, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -832,14 +854,16 @@ namespace DocSpace.API.SDK.Api.Security
         /// Start audit trail report
         /// </summary>
         /// <remarks>
-        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. The  report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/events/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/events/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
+        /// Queues a report of the portal's audit trail and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the audit trail lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/events/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/events/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/events/report` cancels it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="format">The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional)</param>
+        /// <param name="format">The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional)</param>
+        /// <param name="from">The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional)</param>
+        /// <param name="to">The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-audit-trail-report/">REST API Reference for CreateAuditTrailReport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
-        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateAuditTrailReportWithHttpInfoAsync(AuditReportFormat? format = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateAuditTrailReportWithHttpInfoAsync(AuditReportFormat? format = default, DateTime? from = default, DateTime? to = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -858,6 +882,14 @@ namespace DocSpace.API.SDK.Api.Security
             if (format != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "format", format));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
 
             // authentication (Basic) required
@@ -1215,8 +1247,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsResponseWrapper</returns>
-        public TenantAuditSettingsResponseWrapper GetAuditSettings()
+        /// <returns>TenantAuditSettingsWrapper</returns>
+        public TenantAuditSettingsWrapper GetAuditSettings()
         {
             var localVarResponse = GetAuditSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -1230,8 +1262,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
-        public ApiResponse<TenantAuditSettingsResponseWrapper> GetAuditSettingsWithHttpInfo()
+        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
+        public ApiResponse<TenantAuditSettingsWrapper> GetAuditSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1279,7 +1311,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1302,8 +1334,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
-        public async Task<TenantAuditSettingsResponseWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantAuditSettingsWrapper</returns>
+        public async Task<TenantAuditSettingsWrapper> GetAuditSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuditSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1318,8 +1350,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-settings/">REST API Reference for GetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
-        public async Task<ApiResponse<TenantAuditSettingsResponseWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
+        public async Task<ApiResponse<TenantAuditSettingsWrapper>> GetAuditSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1369,7 +1401,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1393,8 +1425,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The product to keep, spelled as `GET api/2.0/security/audit/types` lists it under `productTypes`. Omitting  it keeps every product; a value no product matches yields an empty list rather than an error. (optional)</param>
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>AuditTrailProductMapperArrayWrapper</returns>
-        public AuditTrailProductMapperArrayWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default)
+        /// <returns>AuditTrailProductArrayWrapper</returns>
+        public AuditTrailProductArrayWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default)
         {
             var localVarResponse = GetAuditTrailMappersWithHttpInfo(productType, moduleType);
             return localVarResponse.Data;
@@ -1410,8 +1442,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="productType">The product to keep, spelled as `GET api/2.0/security/audit/types` lists it under `productTypes`. Omitting  it keeps every product; a value no product matches yields an empty list rather than an error. (optional)</param>
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>ApiResponse of AuditTrailProductMapperArrayWrapper</returns>
-        public ApiResponse<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default)
+        /// <returns>ApiResponse of AuditTrailProductArrayWrapper</returns>
+        public ApiResponse<AuditTrailProductArrayWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1467,7 +1499,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AuditTrailProductMapperArrayWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AuditTrailProductArrayWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1492,8 +1524,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of AuditTrailProductMapperArrayWrapper</returns>
-        public async Task<AuditTrailProductMapperArrayWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AuditTrailProductArrayWrapper</returns>
+        public async Task<AuditTrailProductArrayWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuditTrailMappersWithHttpInfoAsync(productType, moduleType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1510,8 +1542,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="moduleType">The module to keep inside the products that survive `productType`, spelled as  `GET api/2.0/security/audit/types` lists it under `moduleTypes`. Omitting it keeps every module of those  products. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
-        /// <returns>Task of ApiResponse (AuditTrailProductMapperArrayWrapper)</returns>
-        public async Task<ApiResponse<AuditTrailProductMapperArrayWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AuditTrailProductArrayWrapper)</returns>
+        public async Task<ApiResponse<AuditTrailProductArrayWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1569,7 +1601,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AuditTrailProductMapperArrayWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AuditTrailProductArrayWrapper>("/api/2.0/security/audit/mappers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1587,7 +1619,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
@@ -1602,7 +1634,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-report/">REST API Reference for GetAuditTrailReport Operation</seealso>
@@ -1673,7 +1705,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1689,7 +1721,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// Get audit trail report status
         /// </summary>
         /// <remarks>
-        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  login history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+        /// Returns the state of the audit trail report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/events/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the login  history report, which has its own status at `GET api/2.0/security/audit/login/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2118,12 +2150,12 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>TenantAuditSettingsResponseWrapper</returns>
-        public TenantAuditSettingsResponseWrapper SetAuditSettings(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
+        /// <returns>TenantAuditSettingsWrapper</returns>
+        public TenantAuditSettingsWrapper SetAuditSettings(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default)
         {
-            var localVarResponse = SetAuditSettingsWithHttpInfo(tenantAuditSettingsWrapper);
+            var localVarResponse = SetAuditSettingsWithHttpInfo(tenantAuditSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2134,10 +2166,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAuditSettingsResponseWrapper</returns>
-        public ApiResponse<TenantAuditSettingsResponseWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default)
+        /// <returns>ApiResponse of TenantAuditSettingsWrapper</returns>
+        public ApiResponse<TenantAuditSettingsWrapper> SetAuditSettingsWithHttpInfo(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2152,7 +2184,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantAuditSettingsWrapper != null) localVarRequestOptions.Data = tenantAuditSettingsWrapper;
+            if (tenantAuditSettingsRequestDto != null) localVarRequestOptions.Data = tenantAuditSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2186,7 +2218,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2207,13 +2239,13 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of TenantAuditSettingsResponseWrapper</returns>
-        public async Task<TenantAuditSettingsResponseWrapper> SetAuditSettingsAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantAuditSettingsWrapper</returns>
+        public async Task<TenantAuditSettingsWrapper> SetAuditSettingsAsync(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetAuditSettingsWithHttpInfoAsync(tenantAuditSettingsWrapper, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetAuditSettingsWithHttpInfoAsync(tenantAuditSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2224,11 +2256,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets how long this portal keeps its login history and its audit trail, in days, and returns the pair as it was  stored. The caller needs the portal-settings right of a DocSpace administrator plus the audit option of the  portal's pricing plan, otherwise the call is answered with 402. Send both numbers inside `settings`: each has  to be between 1 and 180 days, and a value outside that range is refused with 400 without either number being  saved, so read the current pair from `GET api/2.0/security/audit/settings/lifetime` and resend the one that  should stay as it is. The call replaces the stored settings rather than merging them, is idempotent, and takes  effect at once: the period covered by `GET api/2.0/security/audit/events/last` and by both audit reports  shrinks or grows with it, and events older than the new lifetime stop being reported. The change is itself  recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAuditSettingsWrapper">The tenant audit settings wrapper. (optional)</param>
+        /// <param name="tenantAuditSettingsRequestDto">The body of an audit lifetime change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-audit-settings/">REST API Reference for SetAuditSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAuditSettingsResponseWrapper)</returns>
-        public async Task<ApiResponse<TenantAuditSettingsResponseWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsWrapper? tenantAuditSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantAuditSettingsWrapper)</returns>
+        public async Task<ApiResponse<TenantAuditSettingsWrapper>> SetAuditSettingsWithHttpInfoAsync(TenantAuditSettingsRequestDto? tenantAuditSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2244,7 +2276,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantAuditSettingsWrapper != null) localVarRequestOptions.Data = tenantAuditSettingsWrapper;
+            if (tenantAuditSettingsRequestDto != null) localVarRequestOptions.Data = tenantAuditSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2279,7 +2311,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<TenantAuditSettingsResponseWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TenantAuditSettingsWrapper>("/api/2.0/security/audit/settings/lifetime", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

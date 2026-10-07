@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="groups">Tools by server name, covering both the host-configured system servers and the custom MCP servers registered for this scope. (required).</param>
         /// <param name="errors">Why a registered custom server could not be reached, keyed by server name. A server that answered is absent from this map. (required).</param>
         /// <param name="system">Names of the host-configured system servers among the keys of &#x60;groups&#x60;; everything else there was registered as a custom server. (required).</param>
-        public AiToolsListSystemTools200Response(Dictionary<string, List<AiTMCPItem>> groups = default, Dictionary<string, string> errors = default, List<string> @system = default)
+        public AiToolsListSystemTools200Response(Dictionary<string, List<AiMCPItem>> groups = default, Dictionary<string, string> errors = default, List<string> @system = default)
         {
             // to ensure "groups" is required (not null)
             if (groups == null)
@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// Tools by server name, covering both the host-configured system servers and the custom MCP servers registered for this scope.
         /// </summary>
         [DataMember(Name = "groups", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, List<AiTMCPItem>> Groups { get; set; }
+        public Dictionary<string, List<AiMCPItem>> Groups { get; set; }
 
         /// <summary>
         /// Why a registered custom server could not be reached, keyed by server name. A server that answered is absent from this map.

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the TenantAiAccessSettings object.
+    /// The successful API response containing the TenantAiAccessSettingsDto object.
     /// </summary>
     [DataContract(Name = "TenantAiAccessSettingsWrapper")]
     public partial class TenantAiAccessSettingsWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantAiAccessSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">The TenantAiAccessSettings object returned by the operation..</param>
+        /// <param name="response">The TenantAiAccessSettingsDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public TenantAiAccessSettingsWrapper(TenantAiAccessSettings response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public TenantAiAccessSettingsWrapper(TenantAiAccessSettingsDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The TenantAiAccessSettings object returned by the operation.
+        /// The TenantAiAccessSettingsDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public TenantAiAccessSettings Response { get; set; }
+        public TenantAiAccessSettingsDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

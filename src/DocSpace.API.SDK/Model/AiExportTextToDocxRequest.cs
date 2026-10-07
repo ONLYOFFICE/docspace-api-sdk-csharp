@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiExportTextToDocxRequest
     /// </summary>
-    [DataContract(Name = "aiExportTextToDocx_request")]
+    [DataContract(Name = "AiExportTextToDocxRequest")]
     public partial class AiExportTextToDocxRequest : IValidatableObject
     {
     

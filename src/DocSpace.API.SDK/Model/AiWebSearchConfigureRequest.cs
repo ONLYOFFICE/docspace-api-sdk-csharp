@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiWebSearchConfigureRequest
     /// </summary>
-    [DataContract(Name = "aiWebSearchConfigure_request")]
+    [DataContract(Name = "AiWebSearchConfigureRequest")]
     public partial class AiWebSearchConfigureRequest : IValidatableObject
     {
     

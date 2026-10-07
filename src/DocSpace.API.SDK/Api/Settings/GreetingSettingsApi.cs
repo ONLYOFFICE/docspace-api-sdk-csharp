@@ -100,10 +100,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper SaveGreetingSettings(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default);
+        StringWrapper SaveGreetingSettings(GreetingSettingsRequestDto? greetingSettingsRequestDto = default);
 
         /// <summary>
         /// Save the greeting settings
@@ -112,10 +112,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> SaveGreetingSettingsWithHttpInfo(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default);
+        ApiResponse<StringWrapper> SaveGreetingSettingsWithHttpInfo(GreetingSettingsRequestDto? greetingSettingsRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -201,11 +201,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> SaveGreetingSettingsAsync(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> SaveGreetingSettingsAsync(GreetingSettingsRequestDto? greetingSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the greeting settings
@@ -214,11 +214,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> SaveGreetingSettingsWithHttpInfoAsync(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SaveGreetingSettingsWithHttpInfoAsync(GreetingSettingsRequestDto? greetingSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -969,12 +969,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper SaveGreetingSettings(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default)
+        public StringWrapper SaveGreetingSettings(GreetingSettingsRequestDto? greetingSettingsRequestDto = default)
         {
-            var localVarResponse = SaveGreetingSettingsWithHttpInfo(greetingSettingsRequestsDto);
+            var localVarResponse = SaveGreetingSettingsWithHttpInfo(greetingSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -985,10 +985,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> SaveGreetingSettingsWithHttpInfo(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default)
+        public ApiResponse<StringWrapper> SaveGreetingSettingsWithHttpInfo(GreetingSettingsRequestDto? greetingSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1003,7 +1003,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (greetingSettingsRequestsDto != null) localVarRequestOptions.Data = greetingSettingsRequestsDto;
+            if (greetingSettingsRequestDto != null) localVarRequestOptions.Data = greetingSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1058,13 +1058,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> SaveGreetingSettingsAsync(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SaveGreetingSettingsAsync(GreetingSettingsRequestDto? greetingSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveGreetingSettingsWithHttpInfoAsync(greetingSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveGreetingSettingsWithHttpInfoAsync(greetingSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1075,11 +1075,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="greetingSettingsRequestsDto">The greeting caption the portal shows its users. (optional)</param>
+        /// <param name="greetingSettingsRequestDto">The greeting caption the portal shows its users. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-greeting-settings/">REST API Reference for SaveGreetingSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> SaveGreetingSettingsWithHttpInfoAsync(GreetingSettingsRequestsDto? greetingSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SaveGreetingSettingsWithHttpInfoAsync(GreetingSettingsRequestDto? greetingSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1095,7 +1095,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (greetingSettingsRequestsDto != null) localVarRequestOptions.Data = greetingSettingsRequestsDto;
+            if (greetingSettingsRequestDto != null) localVarRequestOptions.Data = greetingSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

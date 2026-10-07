@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsUpdateQuotaRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsUpdateQuota_request")]
+    [DataContract(Name = "AiAgentsUpdateQuotaRequest")]
     public partial class AiAgentsUpdateQuotaRequest : IValidatableObject
     {
     

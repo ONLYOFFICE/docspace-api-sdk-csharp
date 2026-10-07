@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="submitForm">The submit button of a form: whether it is shown and what it says..</param>
         /// <param name="startFillingForm">The button that starts filling out the form. It is empty when this opening offers no such button..</param>
         /// <param name="ai">The AI configuration settings..</param>
-        public CustomizationConfigDto(bool about = default, CustomerConfigDto customer = default, AnonymousConfigDto anonymous = default, FeedbackConfig feedback = default, bool? forcesave = default, GobackConfig goback = default, ReviewConfig review = default, LogoConfigDto logo = default, bool mentionShare = default, SubmitForm submitForm = default, StartFillingForm startFillingForm = default, AIConfig ai = default)
+        public CustomizationConfigDto(bool about = default, CustomerConfigDto customer = default, AnonymousConfigDto anonymous = default, FeedbackConfigDto feedback = default, bool? forcesave = default, GobackConfigDto goback = default, ReviewConfigDto review = default, LogoConfigDto logo = default, bool mentionShare = default, SubmitFormDto submitForm = default, StartFillingForm startFillingForm = default, AiConfigDto ai = default)
         {
             this.About = about;
             this.Customer = customer;
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// The support link the editor offers behind its feedback button.
         /// </summary>
         [DataMember(Name = "feedback", EmitDefaultValue = false)]
-        public FeedbackConfig Feedback { get; set; }
+        public FeedbackConfigDto Feedback { get; set; }
 
         /// <summary>
         /// Whether the editors write intermediate revisions while the document stays open. It is empty when the portal  leaves the decision to the editors themselves.
@@ -105,13 +105,13 @@ namespace DocSpace.API.SDK.Model
         /// Where the editor returns the user to when they leave the document. It is empty when there is nowhere to go  back to, as in an embedded opening.
         /// </summary>
         [DataMember(Name = "goback", EmitDefaultValue = false)]
-        public GobackConfig Goback { get; set; }
+        public GobackConfigDto Goback { get; set; }
 
         /// <summary>
         /// How tracked changes are displayed when the document opens; it depends on whether this session may write.
         /// </summary>
         [DataMember(Name = "review", EmitDefaultValue = false)]
-        public ReviewConfig Review { get; set; }
+        public ReviewConfigDto Review { get; set; }
 
         /// <summary>
         /// The logo the editor shows, in the variants the current layout and file type need.
@@ -130,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// The submit button of a form: whether it is shown and what it says.
         /// </summary>
         [DataMember(Name = "submitForm", EmitDefaultValue = false)]
-        public SubmitForm SubmitForm { get; set; }
+        public SubmitFormDto SubmitForm { get; set; }
 
         /// <summary>
         /// The button that starts filling out the form. It is empty when this opening offers no such button.
@@ -142,7 +142,7 @@ namespace DocSpace.API.SDK.Model
         /// The AI configuration settings.
         /// </summary>
         [DataMember(Name = "ai", EmitDefaultValue = false)]
-        public AIConfig Ai { get; set; }
+        public AiConfigDto Ai { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

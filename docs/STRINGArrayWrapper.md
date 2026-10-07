@@ -1,4 +1,4 @@
-# DocSpace.API.SDK.Model.STRINGArrayWrapper
+# DocSpace.API.SDK.Model.StringArrayWrapper
 The successful API response.
 
 ## Properties

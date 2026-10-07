@@ -38,10 +38,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>Dictionary&lt;string, Object&gt;</returns>
-        Dictionary<string, Object> AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> requestBody);
+        Dictionary<string, Object> AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest);
 
         /// <summary>
         /// OpenAI chat completions passthrough
@@ -51,10 +51,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
-        ApiResponse<Dictionary<string, Object>> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody);
+        ApiResponse<Dictionary<string, Object>> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest);
         /// <summary>
         /// OpenAI image generation passthrough
         /// </summary>
@@ -63,10 +63,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>Dictionary&lt;string, Object&gt;</returns>
-        Dictionary<string, Object> AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> requestBody);
+        Dictionary<string, Object> AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest);
 
         /// <summary>
         /// OpenAI image generation passthrough
@@ -76,10 +76,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
-        ApiResponse<Dictionary<string, Object>> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody);
+        ApiResponse<Dictionary<string, Object>> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest);
         #endregion Synchronous Operations
     }
 
@@ -97,11 +97,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
-        Task<Dictionary<string, Object>> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        Task<Dictionary<string, Object>> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// OpenAI chat completions passthrough
@@ -111,11 +111,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
-        Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// OpenAI image generation passthrough
         /// </summary>
@@ -124,11 +124,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
-        Task<Dictionary<string, Object>> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        Task<Dictionary<string, Object>> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// OpenAI image generation passthrough
@@ -138,11 +138,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
-        Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -366,12 +366,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>Dictionary&lt;string, Object&gt;</returns>
-        public Dictionary<string, Object> AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> requestBody)
+        public Dictionary<string, Object> AiOpenaiChatCompletions(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest)
         {
-            var localVarResponse = AiOpenaiChatCompletionsWithHttpInfo(profileId, requestBody);
+            var localVarResponse = AiOpenaiChatCompletionsWithHttpInfo(profileId, aiOpenaiChatCompletionsRequest);
             return localVarResponse.Data;
         }
 
@@ -383,18 +383,18 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
-        public ApiResponse<Dictionary<string, Object>> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody)
+        public ApiResponse<Dictionary<string, Object>> AiOpenaiChatCompletionsWithHttpInfo(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
                 throw new ApiException(400, "Missing required parameter 'profileId' when calling OpenAIPassthroughApi->AiOpenaiChatCompletions");
 
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling OpenAIPassthroughApi->AiOpenaiChatCompletions");
+            // verify the required parameter 'aiOpenaiChatCompletionsRequest' is set
+            if (aiOpenaiChatCompletionsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiOpenaiChatCompletionsRequest' when calling OpenAIPassthroughApi->AiOpenaiChatCompletions");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -410,7 +410,7 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiOpenaiChatCompletionsRequest != null) localVarRequestOptions.Data = aiOpenaiChatCompletionsRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -448,13 +448,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
-        public async Task<Dictionary<string, Object>> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        public async Task<Dictionary<string, Object>> AiOpenaiChatCompletionsAsync(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiOpenaiChatCompletionsWithHttpInfoAsync(profileId, requestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiOpenaiChatCompletionsWithHttpInfoAsync(profileId, aiOpenaiChatCompletionsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -466,19 +466,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
+        /// <param name="aiOpenaiChatCompletionsRequest">An OpenAI Chat Completions request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, so consult the provider's own reference; the model and the credentials come from the profile in the path and must not be sent here.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-chat-completions/">REST API Reference for AiOpenaiChatCompletions Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
-        public async Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiChatCompletionsWithHttpInfoAsync(string profileId, Dictionary<string, Object> aiOpenaiChatCompletionsRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
                 throw new ApiException(400, "Missing required parameter 'profileId' when calling OpenAIPassthroughApi->AiOpenaiChatCompletions");
 
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling OpenAIPassthroughApi->AiOpenaiChatCompletions");
+            // verify the required parameter 'aiOpenaiChatCompletionsRequest' is set
+            if (aiOpenaiChatCompletionsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiOpenaiChatCompletionsRequest' when calling OpenAIPassthroughApi->AiOpenaiChatCompletions");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -495,7 +495,7 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiOpenaiChatCompletionsRequest != null) localVarRequestOptions.Data = aiOpenaiChatCompletionsRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -534,12 +534,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>Dictionary&lt;string, Object&gt;</returns>
-        public Dictionary<string, Object> AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> requestBody)
+        public Dictionary<string, Object> AiOpenaiImagesGenerations(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest)
         {
-            var localVarResponse = AiOpenaiImagesGenerationsWithHttpInfo(profileId, requestBody);
+            var localVarResponse = AiOpenaiImagesGenerationsWithHttpInfo(profileId, aiOpenaiImagesGenerationsRequest);
             return localVarResponse.Data;
         }
 
@@ -551,18 +551,18 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
-        public ApiResponse<Dictionary<string, Object>> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> requestBody)
+        public ApiResponse<Dictionary<string, Object>> AiOpenaiImagesGenerationsWithHttpInfo(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
                 throw new ApiException(400, "Missing required parameter 'profileId' when calling OpenAIPassthroughApi->AiOpenaiImagesGenerations");
 
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling OpenAIPassthroughApi->AiOpenaiImagesGenerations");
+            // verify the required parameter 'aiOpenaiImagesGenerationsRequest' is set
+            if (aiOpenaiImagesGenerationsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiOpenaiImagesGenerationsRequest' when calling OpenAIPassthroughApi->AiOpenaiImagesGenerations");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -578,7 +578,7 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiOpenaiImagesGenerationsRequest != null) localVarRequestOptions.Data = aiOpenaiImagesGenerationsRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -616,13 +616,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
-        public async Task<Dictionary<string, Object>> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        public async Task<Dictionary<string, Object>> AiOpenaiImagesGenerationsAsync(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiOpenaiImagesGenerationsWithHttpInfoAsync(profileId, requestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiOpenaiImagesGenerationsWithHttpInfoAsync(profileId, aiOpenaiImagesGenerationsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -634,19 +634,19 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="profileId">The AI provider profile identifier.</param>
-        /// <param name="requestBody">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
+        /// <param name="aiOpenaiImagesGenerationsRequest">An OpenAI image-generation request, forwarded to the provider byte for byte. The shape is the provider's, not this API's, and the credentials come from the profile in the path.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-openai-images-generations/">REST API Reference for AiOpenaiImagesGenerations Operation</seealso>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
-        public async Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> requestBody, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Dictionary<string, Object>>> AiOpenaiImagesGenerationsWithHttpInfoAsync(string profileId, Dictionary<string, Object> aiOpenaiImagesGenerationsRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'profileId' is set
             if (profileId == null)
                 throw new ApiException(400, "Missing required parameter 'profileId' when calling OpenAIPassthroughApi->AiOpenaiImagesGenerations");
 
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling OpenAIPassthroughApi->AiOpenaiImagesGenerations");
+            // verify the required parameter 'aiOpenaiImagesGenerationsRequest' is set
+            if (aiOpenaiImagesGenerationsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiOpenaiImagesGenerationsRequest' when calling OpenAIPassthroughApi->AiOpenaiImagesGenerations");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -663,7 +663,7 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("profileId", ClientUtils.ParameterToString(profileId)); // path parameter
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (aiOpenaiImagesGenerationsRequest != null) localVarRequestOptions.Data = aiOpenaiImagesGenerationsRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support

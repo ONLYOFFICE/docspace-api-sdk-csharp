@@ -17,7 +17,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **DeleteThirdParty**
 > StringWrapper DeleteThirdParty (int providerId)
 
-Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/).
 
@@ -121,6 +121,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The ID of the folder that stood for the removed account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller neither connected the account nor has the right to delete the folder it stands for |  -  |
+| **404** | No third-party account with this ID exists on the portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -582,7 +584,7 @@ catch (ApiException e)
 
 <a id="getthirdpartyaccounts"></a>
 # **GetThirdPartyAccounts**
-> ThirdPartyParamsArrayWrapper GetThirdPartyAccounts ()
+> ThirdPartyAccountArrayWrapper GetThirdPartyAccounts ()
 
 Lists the third-party storage accounts the caller has connected, one element per account, with the title it  was saved under, the storage service behind it and the portal section it is attached to. Accounts connected by  other members are not included, and neither is the portal backup account of  `GET api/2.0/files/thirdparty/backup`, even for an administrator. The `providerId` of an element is the value  to send to `DELETE api/2.0/files/thirdparty/{providerId}` and, as `providerId` in  `POST api/2.0/files/thirdparty`, the way to re-authenticate that same account instead of connecting a new one.  Credentials are never disclosed: `auth_data` comes back empty for every element. An element with  `roomsStorage` set is available as storage for a room, while `corporate` marks an account inherited from the  legacy Common section. The call is read-only, returns a plain array with no paging and no contractual  ordering, and answers with an empty array when the caller has connected nothing. To browse the content of an  account, take the folder ID from the answer of the operation that connected it or from  `GET api/2.0/files/@root`.
 
@@ -592,7 +594,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ThirdPartyParamsArrayWrapper**](ThirdPartyParamsArrayWrapper.md)
+[**ThirdPartyAccountArrayWrapper**](ThirdPartyAccountArrayWrapper.md)
 
 ### Authorization
 
@@ -639,7 +641,7 @@ namespace Example
             try
             {
                 // Get the third-party accounts
-                ThirdPartyParamsArrayWrapper result = apiInstance.GetThirdPartyAccounts();
+                ThirdPartyAccountArrayWrapper result = apiInstance.GetThirdPartyAccounts();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -660,7 +662,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the third-party accounts
-    ApiResponse<ThirdPartyParamsArrayWrapper> response = apiInstance.GetThirdPartyAccountsWithHttpInfo();
+    ApiResponse<ThirdPartyAccountArrayWrapper> response = apiInstance.GetThirdPartyAccountsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -799,10 +801,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The root folder of the connected account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `customerTitle` or `providerKey`, `providerId` is neither a number nor a numeric string, or, for a new account, `providerKey` names no known storage service or the `token` or `password` the service needs is missing |  -  |
+| **403** | The caller cannot create rooms, the portal-wide third-party switch is off or no storage service is enabled, the title of a new account is empty once invalid characters are removed, the service rejects the credentials, or `providerId` names an account connected by another member |  -  |
+| **404** | `providerId` names no third-party account on the portal |  -  |
+| **500** | The storage service cannot be reached or fails while the credentials are checked |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -916,10 +920,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The root folder of the backup storage account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `providerKey` names no known storage service, or, while no backup account is connected yet, the `token` or `password` the service needs is missing |  -  |
+| **403** | The caller is not a DocSpace administrator, the portal-wide third-party switch is off or no storage service is enabled, the service rejects the credentials, or, while no backup account is connected yet, the title is empty once invalid characters are removed |  -  |
+| **500** | The storage service cannot be reached or fails while the credentials are checked |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

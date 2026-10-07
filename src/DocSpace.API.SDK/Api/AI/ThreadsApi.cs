@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiThreadsClearMessages(string body);
+        AiSuccessResponse AiThreadsClearMessages(string aiThreadsClearMessagesRequest);
 
         /// <summary>
         /// Clear messages
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string aiThreadsClearMessagesRequest);
         /// <summary>
         /// Create a chat thread
         /// </summary>
@@ -106,10 +106,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiThreadsDelete(string body);
+        AiSuccessResponse AiThreadsDelete(string aiThreadsDeleteRequest);
 
         /// <summary>
         /// Delete a chat thread
@@ -118,10 +118,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string aiThreadsDeleteRequest);
         /// <summary>
         /// Delete message
         /// </summary>
@@ -129,10 +129,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiThreadsDeleteMessage(string body);
+        AiSuccessResponse AiThreadsDeleteMessage(string aiThreadsDeleteMessageRequest);
 
         /// <summary>
         /// Delete message
@@ -141,10 +141,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string aiThreadsDeleteMessageRequest);
         /// <summary>
         /// Get a chat thread
         /// </summary>
@@ -405,11 +405,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Clear messages
@@ -418,11 +418,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a chat thread
         /// </summary>
@@ -455,11 +455,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiThreadsDeleteAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiThreadsDeleteAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a chat thread
@@ -468,11 +468,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete message
         /// </summary>
@@ -480,11 +480,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete message
@@ -493,11 +493,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a chat thread
         /// </summary>
@@ -1124,12 +1124,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiThreadsClearMessages(string body)
+        public AiSuccessResponse AiThreadsClearMessages(string aiThreadsClearMessagesRequest)
         {
-            var localVarResponse = AiThreadsClearMessagesWithHttpInfo(body);
+            var localVarResponse = AiThreadsClearMessagesWithHttpInfo(aiThreadsClearMessagesRequest);
             return localVarResponse.Data;
         }
 
@@ -1140,14 +1140,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiThreadsClearMessagesWithHttpInfo(string aiThreadsClearMessagesRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsClearMessages");
+            // verify the required parameter 'aiThreadsClearMessagesRequest' is set
+            if (aiThreadsClearMessagesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsClearMessagesRequest' when calling ThreadsApi->AiThreadsClearMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1162,7 +1162,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsClearMessagesRequest != null) localVarRequestOptions.Data = aiThreadsClearMessagesRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1199,13 +1199,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiThreadsClearMessagesAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsClearMessagesWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsClearMessagesWithHttpInfoAsync(aiThreadsClearMessagesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1216,15 +1216,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Removes every message of a thread while keeping the thread, its title and its model binding, and bumps its last-edit date. The messages are gone for good. Unlike `delete` this does not verify that the thread exists, so clearing an unknown `threadId` reports success rather than 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to empty, as a bare JSON string.</param>
+        /// <param name="aiThreadsClearMessagesRequest">The ID of the thread to empty, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-clear-messages/">REST API Reference for AiThreadsClearMessages Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsClearMessagesWithHttpInfoAsync(string aiThreadsClearMessagesRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsClearMessages");
+            // verify the required parameter 'aiThreadsClearMessagesRequest' is set
+            if (aiThreadsClearMessagesRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsClearMessagesRequest' when calling ThreadsApi->AiThreadsClearMessages");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1240,7 +1240,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsClearMessagesRequest != null) localVarRequestOptions.Data = aiThreadsClearMessagesRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1432,12 +1432,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiThreadsDelete(string body)
+        public AiSuccessResponse AiThreadsDelete(string aiThreadsDeleteRequest)
         {
-            var localVarResponse = AiThreadsDeleteWithHttpInfo(body);
+            var localVarResponse = AiThreadsDeleteWithHttpInfo(aiThreadsDeleteRequest);
             return localVarResponse.Data;
         }
 
@@ -1448,14 +1448,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiThreadsDeleteWithHttpInfo(string aiThreadsDeleteRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDelete");
+            // verify the required parameter 'aiThreadsDeleteRequest' is set
+            if (aiThreadsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteRequest' when calling ThreadsApi->AiThreadsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1470,7 +1470,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteRequest != null) localVarRequestOptions.Data = aiThreadsDeleteRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1507,13 +1507,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiThreadsDeleteAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiThreadsDeleteAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsDeleteWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsDeleteWithHttpInfoAsync(aiThreadsDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1524,15 +1524,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a thread together with every message in it. The thread has to exist: unlike the other operations that take a `threadId`, this one checks first and answers 404 for an unknown or already-deleted thread rather than reporting success. The deletion is permanent and the messages cannot be recovered. To empty a thread but keep it, use `DELETE api/2.0/ai/threads/clear-messages`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the thread to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteRequest">The ID of the thread to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete/">REST API Reference for AiThreadsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteWithHttpInfoAsync(string aiThreadsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDelete");
+            // verify the required parameter 'aiThreadsDeleteRequest' is set
+            if (aiThreadsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteRequest' when calling ThreadsApi->AiThreadsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1548,7 +1548,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteRequest != null) localVarRequestOptions.Data = aiThreadsDeleteRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1586,12 +1586,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiThreadsDeleteMessage(string body)
+        public AiSuccessResponse AiThreadsDeleteMessage(string aiThreadsDeleteMessageRequest)
         {
-            var localVarResponse = AiThreadsDeleteMessageWithHttpInfo(body);
+            var localVarResponse = AiThreadsDeleteMessageWithHttpInfo(aiThreadsDeleteMessageRequest);
             return localVarResponse.Data;
         }
 
@@ -1602,14 +1602,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiThreadsDeleteMessageWithHttpInfo(string aiThreadsDeleteMessageRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDeleteMessage");
+            // verify the required parameter 'aiThreadsDeleteMessageRequest' is set
+            if (aiThreadsDeleteMessageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteMessageRequest' when calling ThreadsApi->AiThreadsDeleteMessage");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1624,7 +1624,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteMessageRequest != null) localVarRequestOptions.Data = aiThreadsDeleteMessageRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1661,13 +1661,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiThreadsDeleteMessageAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiThreadsDeleteMessageWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiThreadsDeleteMessageWithHttpInfoAsync(aiThreadsDeleteMessageRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1678,15 +1678,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one message and leaves the rest of the thread untouched. `messageId` is required and may be sent either in the body or as a query parameter. An unknown ID is not reported: the call answers success without having deleted anything, so verify with `GET api/2.0/ai/threads/read-messages` when it matters. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the message to delete, as a bare JSON string.</param>
+        /// <param name="aiThreadsDeleteMessageRequest">The ID of the message to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-delete-message/">REST API Reference for AiThreadsDeleteMessage Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiThreadsDeleteMessageWithHttpInfoAsync(string aiThreadsDeleteMessageRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ThreadsApi->AiThreadsDeleteMessage");
+            // verify the required parameter 'aiThreadsDeleteMessageRequest' is set
+            if (aiThreadsDeleteMessageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiThreadsDeleteMessageRequest' when calling ThreadsApi->AiThreadsDeleteMessage");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1702,7 +1702,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiThreadsDeleteMessageRequest != null) localVarRequestOptions.Data = aiThreadsDeleteMessageRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support

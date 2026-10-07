@@ -133,10 +133,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>GroupSummaryArrayWrapper</returns>
-        GroupSummaryArrayWrapper GetGroupByUserId(Guid userid);
+        GroupSummaryArrayWrapper GetGroupByUserId(Guid userId);
 
         /// <summary>
         /// Get user groups
@@ -145,15 +145,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
-        ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userid);
+        ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userId);
         /// <summary>
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>
@@ -171,7 +171,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>
@@ -429,11 +429,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>Task of GroupSummaryArrayWrapper</returns>
-        Task<GroupSummaryArrayWrapper> GetGroupByUserIdAsync(Guid userid, CancellationToken cancellationToken = default);
+        Task<GroupSummaryArrayWrapper> GetGroupByUserIdAsync(Guid userId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get user groups
@@ -442,16 +442,16 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>Task of ApiResponse (GroupSummaryArrayWrapper)</returns>
-        Task<ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default);
+        Task<ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>
@@ -470,7 +470,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>
@@ -1606,12 +1606,12 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>GroupSummaryArrayWrapper</returns>
-        public GroupSummaryArrayWrapper GetGroupByUserId(Guid userid)
+        public GroupSummaryArrayWrapper GetGroupByUserId(Guid userId)
         {
-            var localVarResponse = GetGroupByUserIdWithHttpInfo(userid);
+            var localVarResponse = GetGroupByUserIdWithHttpInfo(userId);
             return localVarResponse.Data;
         }
 
@@ -1622,10 +1622,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>ApiResponse of GroupSummaryArrayWrapper</returns>
-        public ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userid)
+        public ApiResponse<GroupSummaryArrayWrapper> GetGroupByUserIdWithHttpInfo(Guid userId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1640,7 +1640,7 @@ namespace DocSpace.API.SDK.Api.Group
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1674,7 +1674,7 @@ namespace DocSpace.API.SDK.Api.Group
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userid}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userId}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1695,13 +1695,13 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>Task of GroupSummaryArrayWrapper</returns>
-        public async Task<GroupSummaryArrayWrapper> GetGroupByUserIdAsync(Guid userid, CancellationToken cancellationToken = default)
+        public async Task<GroupSummaryArrayWrapper> GetGroupByUserIdAsync(Guid userId, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetGroupByUserIdWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetGroupByUserIdWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1712,11 +1712,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
+        /// <param name="userId">The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/">REST API Reference for GetGroupByUserId Operation</seealso>
         /// <returns>Task of ApiResponse (GroupSummaryArrayWrapper)</returns>
-        public async Task<ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<GroupSummaryArrayWrapper>> GetGroupByUserIdWithHttpInfoAsync(Guid userId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1732,7 +1732,7 @@ namespace DocSpace.API.SDK.Api.Group
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1767,7 +1767,7 @@ namespace DocSpace.API.SDK.Api.Group
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userid}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<GroupSummaryArrayWrapper>("/api/2.0/group/user/{userId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1785,7 +1785,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>
@@ -1807,7 +1807,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>
@@ -1917,7 +1917,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>
@@ -1940,7 +1940,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+        /// Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Keeps only the groups the account with this ID takes part in. Omit it to search every group of the portal. (optional)</param>

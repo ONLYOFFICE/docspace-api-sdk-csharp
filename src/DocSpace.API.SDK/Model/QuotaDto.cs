@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="aiAgentsQuota">The same kind of per-agent storage override for AI agents, filled in and read the same way as  &#x60;usersQuota&#x60;..</param>
         /// <param name="tenantCustomQuota">The storage allowance an administrator has set for the portal as a whole, which caps it below what the  quota grants. Filled in under the same conditions as &#x60;usersQuota&#x60;..</param>
         /// <param name="dueDate">When the quota runs out, in UTC. It is empty on a quota from the catalogue, which has no date until it is  bought, and on a quota that never expires..</param>
-        public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
+        public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, EntityQuotaDto usersQuota = default, EntityQuotaDto roomsQuota = default, EntityQuotaDto aiAgentsQuota = default, TenantQuotaSettingsDto tenantCustomQuota = default, DateTime? dueDate = default)
         {
             this.Id = id;
             // to ensure "price" is required (not null)
@@ -136,25 +136,25 @@ namespace DocSpace.API.SDK.Model
         /// The per-member storage allowance an administrator has set on top of the quota, and whether it is applied  at all. It describes the live portal rather than this quota, so every entry of a catalogue listing repeats  the same values, and it is empty unless the portal is a server installation or its plan includes  statistics.
         /// </summary>
         [DataMember(Name = "usersQuota", EmitDefaultValue = false)]
-        public TenantEntityQuotaSettings UsersQuota { get; set; }
+        public EntityQuotaDto UsersQuota { get; set; }
 
         /// <summary>
         /// The same kind of per-room storage override, filled in and read the same way as &#x60;usersQuota&#x60;.
         /// </summary>
         [DataMember(Name = "roomsQuota", EmitDefaultValue = false)]
-        public TenantEntityQuotaSettings RoomsQuota { get; set; }
+        public EntityQuotaDto RoomsQuota { get; set; }
 
         /// <summary>
         /// The same kind of per-agent storage override for AI agents, filled in and read the same way as  &#x60;usersQuota&#x60;.
         /// </summary>
         [DataMember(Name = "aiAgentsQuota", EmitDefaultValue = false)]
-        public TenantEntityQuotaSettings AiAgentsQuota { get; set; }
+        public EntityQuotaDto AiAgentsQuota { get; set; }
 
         /// <summary>
         /// The storage allowance an administrator has set for the portal as a whole, which caps it below what the  quota grants. Filled in under the same conditions as &#x60;usersQuota&#x60;.
         /// </summary>
         [DataMember(Name = "tenantCustomQuota", EmitDefaultValue = false)]
-        public TenantQuotaSettings TenantCustomQuota { get; set; }
+        public TenantQuotaSettingsDto TenantCustomQuota { get; set; }
 
         /// <summary>
         /// When the quota runs out, in UTC. It is empty on a quota from the catalogue, which has no date until it is  bought, and on a quota that never expires.

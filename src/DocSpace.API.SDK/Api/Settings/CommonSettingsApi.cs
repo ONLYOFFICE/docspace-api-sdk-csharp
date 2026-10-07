@@ -58,10 +58,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>WizardSettingsWrapper</returns>
-        WizardSettingsWrapper CompleteWizard(WizardRequestsDto? wizardRequestsDto = default);
+        WizardSettingsWrapper CompleteWizard(WizardRequestDto? wizardRequestDto = default);
 
         /// <summary>
         /// Complete the Wizard settings
@@ -70,10 +70,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>ApiResponse of WizardSettingsWrapper</returns>
-        ApiResponse<WizardSettingsWrapper> CompleteWizardWithHttpInfo(WizardRequestsDto? wizardRequestsDto = default);
+        ApiResponse<WizardSettingsWrapper> CompleteWizardWithHttpInfo(WizardRequestDto? wizardRequestDto = default);
         /// <summary>
         /// Configure the deep link settings
         /// </summary>
@@ -81,10 +81,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>TenantDeepLinkSettingsWrapper</returns>
-        TenantDeepLinkSettingsWrapper ConfigureDeepLink(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default);
+        TenantDeepLinkSettingsWrapper ConfigureDeepLink(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default);
 
         /// <summary>
         /// Configure the deep link settings
@@ -93,10 +93,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>ApiResponse of TenantDeepLinkSettingsWrapper</returns>
-        ApiResponse<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkWithHttpInfo(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default);
+        ApiResponse<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkWithHttpInfo(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default);
         /// <summary>
         /// Delete a color theme
         /// </summary>
@@ -277,8 +277,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        STRINGArrayWrapper GetSupportedCultures();
+        /// <returns>StringArrayWrapper</returns>
+        StringArrayWrapper GetSupportedCultures();
 
         /// <summary>
         /// Get supported languages
@@ -288,8 +288,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        ApiResponse<STRINGArrayWrapper> GetSupportedCulturesWithHttpInfo();
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        ApiResponse<StringArrayWrapper> GetSupportedCulturesWithHttpInfo();
         /// <summary>
         /// Get the AI access settings
         /// </summary>
@@ -340,8 +340,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>TimezonesRequestsArrayWrapper</returns>
-        TimezonesRequestsArrayWrapper GetTimeZones();
+        /// <returns>TimezoneArrayWrapper</returns>
+        TimezoneArrayWrapper GetTimeZones();
 
         /// <summary>
         /// Get time zones
@@ -351,8 +351,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>ApiResponse of TimezonesRequestsArrayWrapper</returns>
-        ApiResponse<TimezonesRequestsArrayWrapper> GetTimeZonesWithHttpInfo();
+        /// <returns>ApiResponse of TimezoneArrayWrapper</returns>
+        ApiResponse<TimezoneArrayWrapper> GetTimeZonesWithHttpInfo();
         /// <summary>
         /// Set the default folder
         /// </summary>
@@ -383,10 +383,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper SaveDnsSettings(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default);
+        StringWrapper SaveDnsSettings(DnsSettingsRequestDto? dnsSettingsRequestDto = default);
 
         /// <summary>
         /// Save the DNS settings
@@ -395,10 +395,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> SaveDnsSettingsWithHttpInfo(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default);
+        ApiResponse<StringWrapper> SaveDnsSettingsWithHttpInfo(DnsSettingsRequestDto? dnsSettingsRequestDto = default);
         /// <summary>
         /// Save the mail domain settings
         /// </summary>
@@ -406,10 +406,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper SaveMailDomainSettings(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default);
+        StringWrapper SaveMailDomainSettings(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default);
 
         /// <summary>
         /// Save the mail domain settings
@@ -418,10 +418,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> SaveMailDomainSettingsWithHttpInfo(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default);
+        ApiResponse<StringWrapper> SaveMailDomainSettingsWithHttpInfo(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default);
         /// <summary>
         /// Save a color theme
         /// </summary>
@@ -429,10 +429,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
-        CustomColorThemesSettingsWrapper SavePortalColorTheme(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default);
+        CustomColorThemesSettingsWrapper SavePortalColorTheme(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default);
 
         /// <summary>
         /// Save a color theme
@@ -441,10 +441,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
-        ApiResponse<CustomColorThemesSettingsWrapper> SavePortalColorThemeWithHttpInfo(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default);
+        ApiResponse<CustomColorThemesSettingsWrapper> SavePortalColorThemeWithHttpInfo(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default);
         /// <summary>
         /// Set the AI access settings
         /// </summary>
@@ -452,10 +452,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>TenantAiAccessSettingsWrapper</returns>
-        TenantAiAccessSettingsWrapper SetTenantAiAccessSettings(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default);
+        TenantAiAccessSettingsWrapper SetTenantAiAccessSettings(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default);
 
         /// <summary>
         /// Set the AI access settings
@@ -464,10 +464,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAiAccessSettingsWrapper</returns>
-        ApiResponse<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsWithHttpInfo(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default);
+        ApiResponse<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsWithHttpInfo(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default);
         /// <summary>
         /// Update the email activation settings
         /// </summary>
@@ -475,10 +475,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>EmailActivationSettingsWrapper</returns>
-        EmailActivationSettingsWrapper UpdateEmailActivationSettings(EmailActivationSettings? emailActivationSettings = default);
+        EmailActivationSettingsWrapper UpdateEmailActivationSettings(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default);
 
         /// <summary>
         /// Update the email activation settings
@@ -487,10 +487,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>ApiResponse of EmailActivationSettingsWrapper</returns>
-        ApiResponse<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsWithHttpInfo(EmailActivationSettings? emailActivationSettings = default);
+        ApiResponse<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsWithHttpInfo(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default);
         /// <summary>
         /// Update the user invitation settings
         /// </summary>
@@ -553,11 +553,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of WizardSettingsWrapper</returns>
-        Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestDto? wizardRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Complete the Wizard settings
@@ -566,11 +566,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of ApiResponse (WizardSettingsWrapper)</returns>
-        Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestDto? wizardRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Configure the deep link settings
         /// </summary>
@@ -578,11 +578,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
-        Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Configure the deep link settings
@@ -591,11 +591,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
-        Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a color theme
         /// </summary>
@@ -793,8 +793,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        Task<STRINGArrayWrapper> GetSupportedCulturesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of StringArrayWrapper</returns>
+        Task<StringArrayWrapper> GetSupportedCulturesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get supported languages
@@ -805,8 +805,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        Task<ApiResponse<STRINGArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        Task<ApiResponse<StringArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the AI access settings
         /// </summary>
@@ -862,8 +862,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>Task of TimezonesRequestsArrayWrapper</returns>
-        Task<TimezonesRequestsArrayWrapper> GetTimeZonesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TimezoneArrayWrapper</returns>
+        Task<TimezoneArrayWrapper> GetTimeZonesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get time zones
@@ -874,8 +874,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
-        Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TimezoneArrayWrapper)</returns>
+        Task<ApiResponse<TimezoneArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Set the default folder
         /// </summary>
@@ -908,11 +908,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestDto? dnsSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the DNS settings
@@ -921,11 +921,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestDto? dnsSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the mail domain settings
         /// </summary>
@@ -933,11 +933,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the mail domain settings
@@ -946,11 +946,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save a color theme
         /// </summary>
@@ -958,11 +958,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save a color theme
@@ -971,11 +971,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set the AI access settings
         /// </summary>
@@ -983,11 +983,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>Task of TenantAiAccessSettingsWrapper</returns>
-        Task<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default);
+        Task<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsAsync(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set the AI access settings
@@ -996,11 +996,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAiAccessSettingsWrapper)</returns>
-        Task<ApiResponse<TenantAiAccessSettingsWrapper>> SetTenantAiAccessSettingsWithHttpInfoAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantAiAccessSettingsWrapper>> SetTenantAiAccessSettingsWithHttpInfoAsync(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update the email activation settings
         /// </summary>
@@ -1008,11 +1008,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of EmailActivationSettingsWrapper</returns>
-        Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default);
+        Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the email activation settings
@@ -1021,11 +1021,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EmailActivationSettingsWrapper)</returns>
-        Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update the user invitation settings
         /// </summary>
@@ -1447,12 +1447,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>WizardSettingsWrapper</returns>
-        public WizardSettingsWrapper CompleteWizard(WizardRequestsDto? wizardRequestsDto = default)
+        public WizardSettingsWrapper CompleteWizard(WizardRequestDto? wizardRequestDto = default)
         {
-            var localVarResponse = CompleteWizardWithHttpInfo(wizardRequestsDto);
+            var localVarResponse = CompleteWizardWithHttpInfo(wizardRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1463,10 +1463,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>ApiResponse of WizardSettingsWrapper</returns>
-        public ApiResponse<WizardSettingsWrapper> CompleteWizardWithHttpInfo(WizardRequestsDto? wizardRequestsDto = default)
+        public ApiResponse<WizardSettingsWrapper> CompleteWizardWithHttpInfo(WizardRequestDto? wizardRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1481,7 +1481,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (wizardRequestsDto != null) localVarRequestOptions.Data = wizardRequestsDto;
+            if (wizardRequestDto != null) localVarRequestOptions.Data = wizardRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1536,13 +1536,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of WizardSettingsWrapper</returns>
-        public async Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<WizardSettingsWrapper> CompleteWizardAsync(WizardRequestDto? wizardRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CompleteWizardWithHttpInfoAsync(wizardRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CompleteWizardWithHttpInfoAsync(wizardRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1553,11 +1553,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Finishes the initial portal setup wizard: sets the owner's password and locale, applies the supplied license  if one is required, and marks the wizard as completed so it is not shown again. This call is not for a normal  logged-in session: it requires a confirmation link bearing the Wizard claim, of the kind issued when a new  portal is created, and the link is consumed as part of authenticating the request; the caller must also hold  the EditPortalSettings permission. An empty password or a malformed email address is rejected without  completing the wizard, and so is a missing, invalid, or expired license, or a license whose user quota does  not cover the portal. This call is meant to run once per portal; running it again is accepted but has no  further effect once the wizard is already completed. It returns the resulting wizard settings, including the  completed flag.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="wizardRequestsDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
+        /// <param name="wizardRequestDto">What the initial setup wizard needs to finish a new portal: the owner credentials and the portal locale. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/">REST API Reference for CompleteWizard Operation</seealso>
         /// <returns>Task of ApiResponse (WizardSettingsWrapper)</returns>
-        public async Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestsDto? wizardRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WizardSettingsWrapper>> CompleteWizardWithHttpInfoAsync(WizardRequestDto? wizardRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1573,7 +1573,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (wizardRequestsDto != null) localVarRequestOptions.Data = wizardRequestsDto;
+            if (wizardRequestDto != null) localVarRequestOptions.Data = wizardRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1629,12 +1629,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>TenantDeepLinkSettingsWrapper</returns>
-        public TenantDeepLinkSettingsWrapper ConfigureDeepLink(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default)
+        public TenantDeepLinkSettingsWrapper ConfigureDeepLink(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default)
         {
-            var localVarResponse = ConfigureDeepLinkWithHttpInfo(deepLinkConfigurationRequestsDto);
+            var localVarResponse = ConfigureDeepLinkWithHttpInfo(deepLinkConfigurationRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1645,10 +1645,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>ApiResponse of TenantDeepLinkSettingsWrapper</returns>
-        public ApiResponse<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkWithHttpInfo(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default)
+        public ApiResponse<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkWithHttpInfo(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1663,7 +1663,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (deepLinkConfigurationRequestsDto != null) localVarRequestOptions.Data = deepLinkConfigurationRequestsDto;
+            if (deepLinkConfigurationRequestDto != null) localVarRequestOptions.Data = deepLinkConfigurationRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1718,13 +1718,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of TenantDeepLinkSettingsWrapper</returns>
-        public async Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<TenantDeepLinkSettingsWrapper> ConfigureDeepLinkAsync(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await ConfigureDeepLinkWithHttpInfoAsync(deepLinkConfigurationRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ConfigureDeepLinkWithHttpInfoAsync(deepLinkConfigurationRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1735,11 +1735,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets how the portal responds when a client opens a DocSpace link on a mobile device: always in the browser,  always in the native app, or asking the user to choose each time. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The handling mode must be one of the documented enum values; anything else is  rejected without being saved. This is a mutating, idempotent call: sending the same mode again leaves the  setting unchanged. It returns the saved deep link settings, including the timestamp of the last change; read  the current value at any time, including anonymously, from `GET api/2.0/settings/deeplink`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deepLinkConfigurationRequestsDto">How the portal opens its links on a mobile device. (optional)</param>
+        /// <param name="deepLinkConfigurationRequestDto">How the portal opens its links on a mobile device. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/">REST API Reference for ConfigureDeepLink Operation</seealso>
         /// <returns>Task of ApiResponse (TenantDeepLinkSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantDeepLinkSettingsWrapper>> ConfigureDeepLinkWithHttpInfoAsync(DeepLinkConfigurationRequestDto? deepLinkConfigurationRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1755,7 +1755,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (deepLinkConfigurationRequestsDto != null) localVarRequestOptions.Data = deepLinkConfigurationRequestsDto;
+            if (deepLinkConfigurationRequestDto != null) localVarRequestOptions.Data = deepLinkConfigurationRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -3238,8 +3238,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        public STRINGArrayWrapper GetSupportedCultures()
+        /// <returns>StringArrayWrapper</returns>
+        public StringArrayWrapper GetSupportedCultures()
         {
             var localVarResponse = GetSupportedCulturesWithHttpInfo();
             return localVarResponse.Data;
@@ -3253,8 +3253,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        public ApiResponse<STRINGArrayWrapper> GetSupportedCulturesWithHttpInfo()
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        public ApiResponse<StringArrayWrapper> GetSupportedCulturesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3302,7 +3302,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<STRINGArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3325,8 +3325,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        public async Task<STRINGArrayWrapper> GetSupportedCulturesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of StringArrayWrapper</returns>
+        public async Task<StringArrayWrapper> GetSupportedCulturesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSupportedCulturesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3341,8 +3341,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async Task<ApiResponse<STRINGArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        public async Task<ApiResponse<StringArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3392,7 +3392,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<STRINGArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringArrayWrapper>("/api/2.0/settings/cultures", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3766,8 +3766,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>TimezonesRequestsArrayWrapper</returns>
-        public TimezonesRequestsArrayWrapper GetTimeZones()
+        /// <returns>TimezoneArrayWrapper</returns>
+        public TimezoneArrayWrapper GetTimeZones()
         {
             var localVarResponse = GetTimeZonesWithHttpInfo();
             return localVarResponse.Data;
@@ -3781,8 +3781,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>ApiResponse of TimezonesRequestsArrayWrapper</returns>
-        public ApiResponse<TimezonesRequestsArrayWrapper> GetTimeZonesWithHttpInfo()
+        /// <returns>ApiResponse of TimezoneArrayWrapper</returns>
+        public ApiResponse<TimezoneArrayWrapper> GetTimeZonesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3830,7 +3830,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<TimezonesRequestsArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TimezoneArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3853,8 +3853,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>Task of TimezonesRequestsArrayWrapper</returns>
-        public async Task<TimezonesRequestsArrayWrapper> GetTimeZonesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TimezoneArrayWrapper</returns>
+        public async Task<TimezoneArrayWrapper> GetTimeZonesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetTimeZonesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3869,8 +3869,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
-        /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
-        public async Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TimezoneArrayWrapper)</returns>
+        public async Task<ApiResponse<TimezoneArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3920,7 +3920,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<TimezonesRequestsArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TimezoneArrayWrapper>("/api/2.0/settings/timezones", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4123,12 +4123,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper SaveDnsSettings(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default)
+        public StringWrapper SaveDnsSettings(DnsSettingsRequestDto? dnsSettingsRequestDto = default)
         {
-            var localVarResponse = SaveDnsSettingsWithHttpInfo(dnsSettingsRequestsDto);
+            var localVarResponse = SaveDnsSettingsWithHttpInfo(dnsSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4139,10 +4139,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> SaveDnsSettingsWithHttpInfo(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default)
+        public ApiResponse<StringWrapper> SaveDnsSettingsWithHttpInfo(DnsSettingsRequestDto? dnsSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4157,7 +4157,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (dnsSettingsRequestsDto != null) localVarRequestOptions.Data = dnsSettingsRequestsDto;
+            if (dnsSettingsRequestDto != null) localVarRequestOptions.Data = dnsSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4212,13 +4212,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SaveDnsSettingsAsync(DnsSettingsRequestDto? dnsSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveDnsSettingsWithHttpInfoAsync(dnsSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveDnsSettingsWithHttpInfoAsync(dnsSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4229,11 +4229,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Maps a custom domain name onto the current tenant, or clears the mapping, so the portal becomes reachable  under the caller's own DNS name instead of only its default alias. Available only on a Standalone  (self-hosted) installation; on SaaS the call is always refused. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). Disable the mapping by passing `enable=false`, in which case the domain name  in the request is ignored. A domain that collides with the portal's reserved base domain, or otherwise fails  validation, is rejected without changing the current mapping. This is a mutating, idempotent call. On success  the previous domain also stops answering, and any CSP configuration referencing it is updated to the new one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dnsSettingsRequestsDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
+        /// <param name="dnsSettingsRequestDto">The custom domain the portal answers on, and whether that mapping is in force. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/">REST API Reference for SaveDnsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestsDto? dnsSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SaveDnsSettingsWithHttpInfoAsync(DnsSettingsRequestDto? dnsSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4249,7 +4249,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (dnsSettingsRequestsDto != null) localVarRequestOptions.Data = dnsSettingsRequestsDto;
+            if (dnsSettingsRequestDto != null) localVarRequestOptions.Data = dnsSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4305,12 +4305,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper SaveMailDomainSettings(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default)
+        public StringWrapper SaveMailDomainSettings(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default)
         {
-            var localVarResponse = SaveMailDomainSettingsWithHttpInfo(mailDomainSettingsRequestsDto);
+            var localVarResponse = SaveMailDomainSettingsWithHttpInfo(mailDomainSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4321,10 +4321,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> SaveMailDomainSettingsWithHttpInfo(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default)
+        public ApiResponse<StringWrapper> SaveMailDomainSettingsWithHttpInfo(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4339,7 +4339,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (mailDomainSettingsRequestsDto != null) localVarRequestOptions.Data = mailDomainSettingsRequestsDto;
+            if (mailDomainSettingsRequestDto != null) localVarRequestOptions.Data = mailDomainSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4394,13 +4394,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SaveMailDomainSettingsAsync(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveMailDomainSettingsWithHttpInfoAsync(mailDomainSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveMailDomainSettingsWithHttpInfoAsync(mailDomainSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4411,11 +4411,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Overwrites the portal's trusted mail domain configuration, which controls which email domains are treated as  already verified when a user is invited or self-registers. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). When the requested mode is a custom domain list, every domain is normalized to  lowercase and checked against the expected hostname format; a domain that fails the check, or an empty custom  list, causes the whole call to be rejected without saving anything. For the other modes the domain list in the  request is ignored. The `inviteUsersAsVisitors` flag controls whether users who join through a trusted domain  are added as full members or as visitors, and takes effect on the next join rather than retroactively. This is  a mutating, idempotent call: repeating it with the same body leaves the portal in the same state. On success  it returns a confirmation message, not the saved settings themselves; read them back from  `GET api/2.0/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mailDomainSettingsRequestsDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
+        /// <param name="mailDomainSettingsRequestDto">Which email domains the portal treats as already verified, and how their users join. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/">REST API Reference for SaveMailDomainSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SaveMailDomainSettingsWithHttpInfoAsync(MailDomainSettingsRequestDto? mailDomainSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4431,7 +4431,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (mailDomainSettingsRequestsDto != null) localVarRequestOptions.Data = mailDomainSettingsRequestsDto;
+            if (mailDomainSettingsRequestDto != null) localVarRequestOptions.Data = mailDomainSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4487,12 +4487,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
-        public CustomColorThemesSettingsWrapper SavePortalColorTheme(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default)
+        public CustomColorThemesSettingsWrapper SavePortalColorTheme(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default)
         {
-            var localVarResponse = SavePortalColorThemeWithHttpInfo(customColorThemesSettingsRequestsDto);
+            var localVarResponse = SavePortalColorThemeWithHttpInfo(customColorThemesSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4503,10 +4503,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
-        public ApiResponse<CustomColorThemesSettingsWrapper> SavePortalColorThemeWithHttpInfo(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default)
+        public ApiResponse<CustomColorThemesSettingsWrapper> SavePortalColorThemeWithHttpInfo(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4521,7 +4521,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (customColorThemesSettingsRequestsDto != null) localVarRequestOptions.Data = customColorThemesSettingsRequestsDto;
+            if (customColorThemesSettingsRequestDto != null) localVarRequestOptions.Data = customColorThemesSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4576,13 +4576,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        public async Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<CustomColorThemesSettingsWrapper> SavePortalColorThemeAsync(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SavePortalColorThemeWithHttpInfoAsync(customColorThemesSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SavePortalColorThemeWithHttpInfoAsync(customColorThemesSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4593,11 +4593,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds or updates a custom color theme, or changes which theme is selected, for the whole portal. Requires Owner  or DocSpaceAdmin (the EditPortalSettings permission). Pass `theme` to create or edit one: an existing theme is  matched and updated by its ID, a new one is appended, and an ID that collides with a built-in default theme is  treated as a request to create a new custom theme instead of overwriting the default. Once the plan's  custom-theme limit is reached, a new theme is silently not added rather than rejected with an error, so check  the returned `themes` count against `limit` before assuming it was saved. Pass `selected` to switch the active  theme; an ID that does not match any existing theme is ignored. This is a mutating call, not strictly  idempotent once the limit has been reached. It returns the full updated theme configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customColorThemesSettingsRequestsDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
+        /// <param name="customColorThemesSettingsRequestDto">The custom colour theme being saved, the theme being selected, or both. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        public async Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestDto? customColorThemesSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4613,7 +4613,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (customColorThemesSettingsRequestsDto != null) localVarRequestOptions.Data = customColorThemesSettingsRequestsDto;
+            if (customColorThemesSettingsRequestDto != null) localVarRequestOptions.Data = customColorThemesSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4669,12 +4669,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>TenantAiAccessSettingsWrapper</returns>
-        public TenantAiAccessSettingsWrapper SetTenantAiAccessSettings(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default)
+        public TenantAiAccessSettingsWrapper SetTenantAiAccessSettings(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default)
         {
-            var localVarResponse = SetTenantAiAccessSettingsWithHttpInfo(tenantAiAccessSettingsDto);
+            var localVarResponse = SetTenantAiAccessSettingsWithHttpInfo(tenantAiAccessSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4685,10 +4685,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>ApiResponse of TenantAiAccessSettingsWrapper</returns>
-        public ApiResponse<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsWithHttpInfo(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default)
+        public ApiResponse<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsWithHttpInfo(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4703,7 +4703,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantAiAccessSettingsDto != null) localVarRequestOptions.Data = tenantAiAccessSettingsDto;
+            if (tenantAiAccessSettingsRequestDto != null) localVarRequestOptions.Data = tenantAiAccessSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4758,13 +4758,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>Task of TenantAiAccessSettingsWrapper</returns>
-        public async Task<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default)
+        public async Task<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsAsync(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetTenantAiAccessSettingsWithHttpInfoAsync(tenantAiAccessSettingsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetTenantAiAccessSettingsWithHttpInfoAsync(tenantAiAccessSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4775,11 +4775,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Turns AI functionality (chat, agents, vectorization) on or off for the whole portal; AI is enabled by default.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission); every other caller is refused. Disabling  it immediately hides the AI Agents folder from root folder listings, makes AI status checks report disabled,  and makes AI chat endpoints unreachable for every user on the tenant, not only the caller. This is a mutating,  idempotent, portal-wide call, and the change is pushed to already-connected clients over the real-time  notification hub rather than waiting for their next request. It returns the saved setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantAiAccessSettingsDto">Whether AI functionality is available on the portal. (optional)</param>
+        /// <param name="tenantAiAccessSettingsRequestDto">Whether AI functionality is available on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantAiAccessSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantAiAccessSettingsWrapper>> SetTenantAiAccessSettingsWithHttpInfoAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantAiAccessSettingsWrapper>> SetTenantAiAccessSettingsWithHttpInfoAsync(TenantAiAccessSettingsRequestDto? tenantAiAccessSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4795,7 +4795,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantAiAccessSettingsDto != null) localVarRequestOptions.Data = tenantAiAccessSettingsDto;
+            if (tenantAiAccessSettingsRequestDto != null) localVarRequestOptions.Data = tenantAiAccessSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4851,12 +4851,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>EmailActivationSettingsWrapper</returns>
-        public EmailActivationSettingsWrapper UpdateEmailActivationSettings(EmailActivationSettings? emailActivationSettings = default)
+        public EmailActivationSettingsWrapper UpdateEmailActivationSettings(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default)
         {
-            var localVarResponse = UpdateEmailActivationSettingsWithHttpInfo(emailActivationSettings);
+            var localVarResponse = UpdateEmailActivationSettingsWithHttpInfo(emailActivationSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -4867,10 +4867,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>ApiResponse of EmailActivationSettingsWrapper</returns>
-        public ApiResponse<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsWithHttpInfo(EmailActivationSettings? emailActivationSettings = default)
+        public ApiResponse<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsWithHttpInfo(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4885,7 +4885,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (emailActivationSettings != null) localVarRequestOptions.Data = emailActivationSettings;
+            if (emailActivationSettingsRequestDto != null) localVarRequestOptions.Data = emailActivationSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4940,13 +4940,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of EmailActivationSettingsWrapper</returns>
-        public async Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default)
+        public async Task<EmailActivationSettingsWrapper> UpdateEmailActivationSettingsAsync(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateEmailActivationSettingsWithHttpInfoAsync(emailActivationSettings, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateEmailActivationSettingsWithHttpInfoAsync(emailActivationSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4957,11 +4957,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the current user's own preference for whether the email confirmation prompt is displayed on their  account. Requires an authenticated session; every role may change its own setting, and the change never  affects any other user. This is a mutating, idempotent call. It returns the settings exactly as submitted,  without validating them against the account's actual email confirmation state, so `show` can be set to `true`  even after the address is already confirmed.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailActivationSettings">The email activation settings. (optional)</param>
+        /// <param name="emailActivationSettingsRequestDto">Whether the calling user wants to keep seeing the reminder to confirm their email address. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/">REST API Reference for UpdateEmailActivationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (EmailActivationSettingsWrapper)</returns>
-        public async Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettings? emailActivationSettings = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmailActivationSettingsWrapper>> UpdateEmailActivationSettingsWithHttpInfoAsync(EmailActivationSettingsRequestDto? emailActivationSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4977,7 +4977,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (emailActivationSettings != null) localVarRequestOptions.Data = emailActivationSettings;
+            if (emailActivationSettingsRequestDto != null) localVarRequestOptions.Data = emailActivationSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

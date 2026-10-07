@@ -115,7 +115,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The outcome of the request: `status` 1 with the address the instructions were sent to, or `status` 0 with a localized refusal when the transfer cannot be started |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The portal owner's own email address has not been confirmed yet, so no instructions can be sent |  -  |
+| **400** | The request body cannot be read or has no `ownerId`, or the portal owner's own email address has not been confirmed yet, so no instructions can be sent |  -  |
 | **403** | The caller does not hold the portal-settings right of a DocSpace administrator, or the user named as the new owner is a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -229,11 +229,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The portal owner has been changed to the user named in the request |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The user named as the new owner cannot be found in this portal, is a guest, or is not active |  -  |
-| **409** | The new owner could not be given DocSpace administrator rights, so the transfer was not applied |  -  |
+| **400** | The request body cannot be read or has no `ownerId` |  -  |
+| **402** | The user named as the new owner is a regular user, and promoting them to DocSpace administrator needs a paid seat the portal has run out of |  -  |
+| **500** | The user named as the new owner cannot be found in this portal, is a guest, or is not active, or the email address the confirmation link was issued for no longer belongs to the portal owner |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

@@ -15,7 +15,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="aiattachmentsdelete"></a>
 # **AiAttachmentsDelete**
-> AiSuccessResponse AiAttachmentsDelete (string body)
+> AiSuccessResponse AiAttachmentsDelete (string aiAttachmentsDeleteRequest)
 
 Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
 
@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The ID of the attachment to delete, as a bare JSON string. |  |
+| **aiAttachmentsDeleteRequest** | **string** | The ID of the attachment to delete, as a bare JSON string. |  |
 
 ### Return type
 
@@ -63,12 +63,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The ID of the attachment to delete, as a bare JSON string.
+            var aiAttachmentsDeleteRequest = "aiAttachmentsDeleteRequest_example";  // string | The ID of the attachment to delete, as a bare JSON string.
 
             try
             {
                 // Delete one attachment
-                AiSuccessResponse result = apiInstance.AiAttachmentsDelete(body);
+                AiSuccessResponse result = apiInstance.AiAttachmentsDelete(aiAttachmentsDeleteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -89,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete one attachment
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteWithHttpInfo(body);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteWithHttpInfo(aiAttachmentsDeleteRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -113,7 +113,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Confirms the request was accepted, whether or not anything was deleted. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -121,7 +121,7 @@ catch (ApiException e)
 
 <a id="aiattachmentsdeletemany"></a>
 # **AiAttachmentsDeleteMany**
-> AiSuccessResponse AiAttachmentsDeleteMany (List<string> requestBody)
+> AiSuccessResponse AiAttachmentsDeleteMany (List<string> aiAttachmentsDeleteManyRequest)
 
 Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
 
@@ -131,7 +131,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**List&lt;string&gt;**](string.md) | The IDs of the attachments to delete, as a bare JSON array of strings. |  |
+| **aiAttachmentsDeleteManyRequest** | [**List&lt;string&gt;**](string.md) | The IDs of the attachments to delete, as a bare JSON array of strings. |  |
 
 ### Return type
 
@@ -169,12 +169,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var requestBody = new List<string>(); // List<string> | The IDs of the attachments to delete, as a bare JSON array of strings.
+            var aiAttachmentsDeleteManyRequest = new List<string>(); // List<string> | The IDs of the attachments to delete, as a bare JSON array of strings.
 
             try
             {
                 // Delete many
-                AiSuccessResponse result = apiInstance.AiAttachmentsDeleteMany(requestBody);
+                AiSuccessResponse result = apiInstance.AiAttachmentsDeleteMany(aiAttachmentsDeleteManyRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -195,7 +195,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete many
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteManyWithHttpInfo(requestBody);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsDeleteManyWithHttpInfo(aiAttachmentsDeleteManyRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -219,7 +219,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Confirms the request was accepted, whether or not anything was deleted. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -227,7 +227,7 @@ catch (ApiException e)
 
 <a id="aiattachmentsget"></a>
 # **AiAttachmentsGet**
-> AiAttachment AiAttachmentsGet (string body)
+> AiAttachment AiAttachmentsGet (string aiAttachmentsGetRequest)
 
 Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
 
@@ -237,7 +237,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The ID of the attachment to read, as a bare JSON string. |  |
+| **aiAttachmentsGetRequest** | **string** | The ID of the attachment to read, as a bare JSON string. |  |
 
 ### Return type
 
@@ -275,12 +275,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The ID of the attachment to read, as a bare JSON string.
+            var aiAttachmentsGetRequest = "aiAttachmentsGetRequest_example";  // string | The ID of the attachment to read, as a bare JSON string.
 
             try
             {
                 // Get one attachment
-                AiAttachment result = apiInstance.AiAttachmentsGet(body);
+                AiAttachment result = apiInstance.AiAttachmentsGet(aiAttachmentsGetRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -301,7 +301,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get one attachment
-    ApiResponse<AiAttachment> response = apiInstance.AiAttachmentsGetWithHttpInfo(body);
+    ApiResponse<AiAttachment> response = apiInstance.AiAttachmentsGetWithHttpInfo(aiAttachmentsGetRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -326,7 +326,7 @@ catch (ApiException e)
 | **200** | The attachment, or a null body when no attachment has that ID. |  -  |
 | **400** | The attachment ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -334,7 +334,7 @@ catch (ApiException e)
 
 <a id="aiattachmentsgetmany"></a>
 # **AiAttachmentsGetMany**
-> List&lt;AiAttachment&gt; AiAttachmentsGetMany (List<string> requestBody)
+> List&lt;AiAttachment&gt; AiAttachmentsGetMany (List<string> aiAttachmentsGetManyRequest)
 
 Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
 
@@ -344,7 +344,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**List&lt;string&gt;**](string.md) | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. |  |
+| **aiAttachmentsGetManyRequest** | [**List&lt;string&gt;**](string.md) | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position. |  |
 
 ### Return type
 
@@ -382,12 +382,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var requestBody = new List<string>(); // List<string> | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.
+            var aiAttachmentsGetManyRequest = new List<string>(); // List<string> | The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.
 
             try
             {
                 // Get many
-                List<AiAttachment> result = apiInstance.AiAttachmentsGetMany(requestBody);
+                List<AiAttachment> result = apiInstance.AiAttachmentsGetMany(aiAttachmentsGetManyRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -408,7 +408,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get many
-    ApiResponse<List<AiAttachment>> response = apiInstance.AiAttachmentsGetManyWithHttpInfo(requestBody);
+    ApiResponse<List<AiAttachment>> response = apiInstance.AiAttachmentsGetManyWithHttpInfo(aiAttachmentsGetManyRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -433,7 +433,7 @@ catch (ApiException e)
 | **200** | The attachments, aligned by position with the IDs that were sent. A missing one leaves its slot empty. |  -  |
 | **400** | The list of attachment IDs is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -441,7 +441,7 @@ catch (ApiException e)
 
 <a id="aiattachmentsgetsuggestedquestions"></a>
 # **AiAttachmentsGetSuggestedQuestions**
-> AiSuccessResponse AiAttachmentsGetSuggestedQuestions (Dictionary<string, Object> requestBody)
+> AiSuccessResponse AiAttachmentsGetSuggestedQuestions (Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest)
 
 
 
@@ -451,7 +451,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
+| **aiAttachmentsGetSuggestedQuestionsRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
 
 ### Return type
 
@@ -489,12 +489,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AttachmentsApi(httpClient, config, httpClientHandler);
-            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
+            var aiAttachmentsGetSuggestedQuestionsRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
 
             try
             {
                 // Get suggested questions
-                AiSuccessResponse result = apiInstance.AiAttachmentsGetSuggestedQuestions(requestBody);
+                AiSuccessResponse result = apiInstance.AiAttachmentsGetSuggestedQuestions(aiAttachmentsGetSuggestedQuestionsRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -515,7 +515,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get suggested questions
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsGetSuggestedQuestionsWithHttpInfo(requestBody);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiAttachmentsGetSuggestedQuestionsWithHttpInfo(aiAttachmentsGetSuggestedQuestionsRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -539,7 +539,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -646,7 +646,7 @@ catch (ApiException e)
 | **200** | Confirms the attachments are now bound to the message. |  -  |
 | **400** | The attachment or message reference is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | The message or the attachment does not exist. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
@@ -754,7 +754,7 @@ catch (ApiException e)
 | **200** | The stored draft, whose ID links it to a message later. |  -  |
 | **400** | The attachment payload is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -861,7 +861,7 @@ catch (ApiException e)
 | **200** | The stored drafts, in the order they were sent. |  -  |
 | **400** | `inputs` is not an array, or one of its entries is malformed. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

@@ -8,7 +8,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="settenantdevtoolsaccesssettings"></a>
 # **SetTenantDevToolsAccessSettings**
-> TenantDevToolsAccessSettingsWrapper SetTenantDevToolsAccessSettings (TenantDevToolsAccessSettingsDto? tenantDevToolsAccessSettingsDto = null)
+> TenantDevToolsAccessSettingsWrapper SetTenantDevToolsAccessSettings (TenantDevToolsAccessSettingsRequestDto? tenantDevToolsAccessSettingsRequestDto = null)
 
 Sets whether the portal restricts the `User` role from using the developer tools (API keys, OAuth apps,  webhooks); `RoomAdmin` and `DocSpaceAdmin` are never affected by this setting. Requires Owner or DocSpaceAdmin  (the EditPortalSettings permission). This is a mutating, idempotent, portal-wide call: it applies to every  `User` on the tenant immediately. It returns the saved setting; read the current value at any time from  `GET api/2.0/settings/devtoolsaccess`.
 
@@ -18,7 +18,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tenantDevToolsAccessSettingsDto** | [**TenantDevToolsAccessSettingsDto?**](TenantDevToolsAccessSettingsDto.md) | Whether the `User` role is barred from the portal developer tools. | [optional]  |
+| **tenantDevToolsAccessSettingsRequestDto** | [**TenantDevToolsAccessSettingsRequestDto?**](TenantDevToolsAccessSettingsRequestDto.md) | Whether the `User` role is barred from the portal developer tools. | [optional]  |
 
 ### Return type
 
@@ -65,12 +65,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AccessToDevToolsApi(httpClient, config, httpClientHandler);
-            var tenantDevToolsAccessSettingsDto = new TenantDevToolsAccessSettingsDto?(); // TenantDevToolsAccessSettingsDto? | Whether the `User` role is barred from the portal developer tools. (optional) 
+            var tenantDevToolsAccessSettingsRequestDto = new TenantDevToolsAccessSettingsRequestDto?(); // TenantDevToolsAccessSettingsRequestDto? | Whether the `User` role is barred from the portal developer tools. (optional) 
 
             try
             {
                 // Set the Developer Tools access settings
-                TenantDevToolsAccessSettingsWrapper result = apiInstance.SetTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsDto);
+                TenantDevToolsAccessSettingsWrapper result = apiInstance.SetTenantDevToolsAccessSettings(tenantDevToolsAccessSettingsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -91,7 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Set the Developer Tools access settings
-    ApiResponse<TenantDevToolsAccessSettingsWrapper> response = apiInstance.SetTenantDevToolsAccessSettingsWithHttpInfo(tenantDevToolsAccessSettingsDto);
+    ApiResponse<TenantDevToolsAccessSettingsWrapper> response = apiInstance.SetTenantDevToolsAccessSettingsWithHttpInfo(tenantDevToolsAccessSettingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -114,6 +114,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Saved developer tools access restriction for the `User` role |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

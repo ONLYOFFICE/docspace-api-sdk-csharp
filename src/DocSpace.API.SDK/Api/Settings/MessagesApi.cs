@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper SendAdminMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default);
+        StringWrapper SendAdminMail(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default);
 
         /// <summary>
         /// Send a message to the administrator
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default);
+        ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default);
         /// <summary>
         /// Send an invitation email
         /// </summary>
@@ -83,10 +83,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper SendJoinInviteMail(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default);
+        StringWrapper SendJoinInviteMail(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default);
 
         /// <summary>
         /// Send an invitation email
@@ -95,10 +95,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> SendJoinInviteMailWithHttpInfo(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default);
+        ApiResponse<StringWrapper> SendJoinInviteMailWithHttpInfo(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -140,11 +140,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> SendAdminMailAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> SendAdminMailAsync(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send a message to the administrator
@@ -153,11 +153,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> SendAdminMailWithHttpInfoAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SendAdminMailWithHttpInfoAsync(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Send an invitation email
         /// </summary>
@@ -165,11 +165,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> SendJoinInviteMailAsync(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> SendJoinInviteMailAsync(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invitation email
@@ -178,11 +178,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> SendJoinInviteMailWithHttpInfoAsync(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> SendJoinInviteMailWithHttpInfoAsync(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -587,12 +587,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper SendAdminMail(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default)
+        public StringWrapper SendAdminMail(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default)
         {
-            var localVarResponse = SendAdminMailWithHttpInfo(adminMessageSettingsRequestsDto);
+            var localVarResponse = SendAdminMailWithHttpInfo(adminMessageSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -603,10 +603,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default)
+        public ApiResponse<StringWrapper> SendAdminMailWithHttpInfo(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -621,7 +621,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (adminMessageSettingsRequestsDto != null) localVarRequestOptions.Data = adminMessageSettingsRequestsDto;
+            if (adminMessageSettingsRequestDto != null) localVarRequestOptions.Data = adminMessageSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -676,13 +676,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> SendAdminMailAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SendAdminMailAsync(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SendAdminMailWithHttpInfoAsync(adminMessageSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SendAdminMailWithHttpInfoAsync(adminMessageSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -693,11 +693,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageSettingsRequestsDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
+        /// <param name="adminMessageSettingsRequestDto">The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/">REST API Reference for SendAdminMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> SendAdminMailWithHttpInfoAsync(AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SendAdminMailWithHttpInfoAsync(AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -713,7 +713,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (adminMessageSettingsRequestsDto != null) localVarRequestOptions.Data = adminMessageSettingsRequestsDto;
+            if (adminMessageSettingsRequestDto != null) localVarRequestOptions.Data = adminMessageSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -769,12 +769,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper SendJoinInviteMail(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default)
+        public StringWrapper SendJoinInviteMail(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default)
         {
-            var localVarResponse = SendJoinInviteMailWithHttpInfo(adminMessageBaseSettingsRequestsDto);
+            var localVarResponse = SendJoinInviteMailWithHttpInfo(adminMessageBaseSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -785,10 +785,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> SendJoinInviteMailWithHttpInfo(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default)
+        public ApiResponse<StringWrapper> SendJoinInviteMailWithHttpInfo(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -803,7 +803,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (adminMessageBaseSettingsRequestsDto != null) localVarRequestOptions.Data = adminMessageBaseSettingsRequestsDto;
+            if (adminMessageBaseSettingsRequestDto != null) localVarRequestOptions.Data = adminMessageBaseSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -858,13 +858,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> SendJoinInviteMailAsync(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> SendJoinInviteMailAsync(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SendJoinInviteMailWithHttpInfoAsync(adminMessageBaseSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SendJoinInviteMailWithHttpInfoAsync(adminMessageBaseSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -875,11 +875,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adminMessageBaseSettingsRequestsDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
+        /// <param name="adminMessageBaseSettingsRequestDto">Who is invited to join the portal, and in which language the invitation is written. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/">REST API Reference for SendJoinInviteMail Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> SendJoinInviteMailWithHttpInfoAsync(AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> SendJoinInviteMailWithHttpInfoAsync(AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -895,7 +895,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (adminMessageBaseSettingsRequestsDto != null) localVarRequestOptions.Data = adminMessageBaseSettingsRequestsDto;
+            if (adminMessageBaseSettingsRequestDto != null) localVarRequestOptions.Data = adminMessageBaseSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

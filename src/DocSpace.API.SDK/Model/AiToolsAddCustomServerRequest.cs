@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsAddCustomServerRequest
     /// </summary>
-    [DataContract(Name = "aiToolsAddCustomServer_request")]
+    [DataContract(Name = "AiToolsAddCustomServerRequest")]
     public partial class AiToolsAddCustomServerRequest : IValidatableObject
     {
     

@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.BackupProgressWrapper
-The successful API response containing the BackupProgress object.
+The successful API response containing the BackupProgressDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**BackupProgress**](BackupProgress.md) | The BackupProgress object returned by the operation. | [optional] 
+**Response** | [**BackupProgressDto**](BackupProgressDto.md) | The BackupProgressDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

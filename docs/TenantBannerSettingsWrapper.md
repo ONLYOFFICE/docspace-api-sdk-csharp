@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.TenantBannerSettingsWrapper
-The successful API response containing the TenantBannerSettings object.
+The successful API response containing the TenantBannerSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TenantBannerSettings**](TenantBannerSettings.md) | The TenantBannerSettings object returned by the operation. | [optional] 
+**Response** | [**TenantBannerSettingsDto**](TenantBannerSettingsDto.md) | The TenantBannerSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

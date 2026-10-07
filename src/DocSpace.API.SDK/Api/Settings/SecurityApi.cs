@@ -55,27 +55,27 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
-        ProductAdministratorWrapper GetIsProductAdministrator(Guid productid, Guid userid);
+        ProductAdministratorWrapper GetIsProductAdministrator(Guid productId, Guid userId);
 
         /// <summary>
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid productid, Guid userid);
+        ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid productId, Guid userId);
         /// <summary>
         /// Get password settings
         /// </summary>
@@ -104,10 +104,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
-        EmployeeArrayWrapper GetProductAdministrators(Guid productid);
+        EmployeeArrayWrapper GetProductAdministrators(Guid productId);
 
         /// <summary>
         /// Get product administrators
@@ -116,10 +116,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        ApiResponse<EmployeeArrayWrapper> GetProductAdministratorsWithHttpInfo(Guid productid);
+        ApiResponse<EmployeeArrayWrapper> GetProductAdministratorsWithHttpInfo(Guid productId);
         /// <summary>
         /// Check module availability
         /// </summary>
@@ -173,10 +173,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
-        SecurityArrayWrapper SetAccessToWebItems(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default);
+        SecurityArrayWrapper SetAccessToWebItems(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default);
 
         /// <summary>
         /// Set access to modules in bulk
@@ -185,10 +185,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
-        ApiResponse<SecurityArrayWrapper> SetAccessToWebItemsWithHttpInfo(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default);
+        ApiResponse<SecurityArrayWrapper> SetAccessToWebItemsWithHttpInfo(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default);
         /// <summary>
         /// Set product administrator
         /// </summary>
@@ -196,10 +196,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
-        ProductAdministratorWrapper SetProductAdministrator(SecurityRequestsDto? securityRequestsDto = default);
+        ProductAdministratorWrapper SetProductAdministrator(SecurityRequestDto? securityRequestDto = default);
 
         /// <summary>
         /// Set product administrator
@@ -208,10 +208,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        ApiResponse<ProductAdministratorWrapper> SetProductAdministratorWithHttpInfo(SecurityRequestsDto? securityRequestsDto = default);
+        ApiResponse<ProductAdministratorWrapper> SetProductAdministratorWithHttpInfo(SecurityRequestDto? securityRequestDto = default);
         /// <summary>
         /// Set module access
         /// </summary>
@@ -219,10 +219,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
-        SecurityArrayWrapper SetWebItemSecurity(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default);
+        SecurityArrayWrapper SetWebItemSecurity(WebItemSecurityRequestDto? webItemSecurityRequestDto = default);
 
         /// <summary>
         /// Set module access
@@ -231,10 +231,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
-        ApiResponse<SecurityArrayWrapper> SetWebItemSecurityWithHttpInfo(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default);
+        ApiResponse<SecurityArrayWrapper> SetWebItemSecurityWithHttpInfo(WebItemSecurityRequestDto? webItemSecurityRequestDto = default);
         /// <summary>
         /// Update password settings
         /// </summary>
@@ -242,10 +242,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>PasswordSettingsWrapper</returns>
-        PasswordSettingsWrapper UpdatePasswordSettings(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default);
+        PasswordSettingsWrapper UpdatePasswordSettings(PasswordSettingsRequestDto? passwordSettingsRequestDto = default);
 
         /// <summary>
         /// Update password settings
@@ -254,10 +254,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>ApiResponse of PasswordSettingsWrapper</returns>
-        ApiResponse<PasswordSettingsWrapper> UpdatePasswordSettingsWithHttpInfo(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default);
+        ApiResponse<PasswordSettingsWrapper> UpdatePasswordSettingsWithHttpInfo(PasswordSettingsRequestDto? passwordSettingsRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -294,29 +294,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
-        Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default);
+        Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid productId, Guid userId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid productId, Guid userId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get password settings
         /// </summary>
@@ -347,11 +347,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        Task<EmployeeArrayWrapper> GetProductAdministratorsAsync(Guid productid, CancellationToken cancellationToken = default);
+        Task<EmployeeArrayWrapper> GetProductAdministratorsAsync(Guid productId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get product administrators
@@ -360,11 +360,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeArrayWrapper>> GetProductAdministratorsWithHttpInfoAsync(Guid productid, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeArrayWrapper>> GetProductAdministratorsWithHttpInfoAsync(Guid productId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check module availability
         /// </summary>
@@ -422,11 +422,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
-        Task<SecurityArrayWrapper> SetAccessToWebItemsAsync(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<SecurityArrayWrapper> SetAccessToWebItemsAsync(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set access to modules in bulk
@@ -435,11 +435,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
-        Task<ApiResponse<SecurityArrayWrapper>> SetAccessToWebItemsWithHttpInfoAsync(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<SecurityArrayWrapper>> SetAccessToWebItemsWithHttpInfoAsync(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set product administrator
         /// </summary>
@@ -447,11 +447,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
-        Task<ProductAdministratorWrapper> SetProductAdministratorAsync(SecurityRequestsDto? securityRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ProductAdministratorWrapper> SetProductAdministratorAsync(SecurityRequestDto? securityRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set product administrator
@@ -460,11 +460,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        Task<ApiResponse<ProductAdministratorWrapper>> SetProductAdministratorWithHttpInfoAsync(SecurityRequestsDto? securityRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ProductAdministratorWrapper>> SetProductAdministratorWithHttpInfoAsync(SecurityRequestDto? securityRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set module access
         /// </summary>
@@ -472,11 +472,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
-        Task<SecurityArrayWrapper> SetWebItemSecurityAsync(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<SecurityArrayWrapper> SetWebItemSecurityAsync(WebItemSecurityRequestDto? webItemSecurityRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set module access
@@ -485,11 +485,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
-        Task<ApiResponse<SecurityArrayWrapper>> SetWebItemSecurityWithHttpInfoAsync(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<SecurityArrayWrapper>> SetWebItemSecurityWithHttpInfoAsync(WebItemSecurityRequestDto? webItemSecurityRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update password settings
         /// </summary>
@@ -497,11 +497,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of PasswordSettingsWrapper</returns>
-        Task<PasswordSettingsWrapper> UpdatePasswordSettingsAsync(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<PasswordSettingsWrapper> UpdatePasswordSettingsAsync(PasswordSettingsRequestDto? passwordSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update password settings
@@ -510,11 +510,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PasswordSettingsWrapper)</returns>
-        Task<ApiResponse<PasswordSettingsWrapper>> UpdatePasswordSettingsWithHttpInfoAsync(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<PasswordSettingsWrapper>> UpdatePasswordSettingsWithHttpInfoAsync(PasswordSettingsRequestDto? passwordSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -910,16 +910,16 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
-        public ProductAdministratorWrapper GetIsProductAdministrator(Guid productid, Guid userid)
+        public ProductAdministratorWrapper GetIsProductAdministrator(Guid productId, Guid userId)
         {
-            var localVarResponse = GetIsProductAdministratorWithHttpInfo(productid, userid);
+            var localVarResponse = GetIsProductAdministratorWithHttpInfo(productId, userId);
             return localVarResponse.Data;
         }
 
@@ -927,14 +927,14 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        public ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid productid, Guid userid)
+        public ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid productId, Guid userId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -949,8 +949,8 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productid", productid));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userid", userid));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productId", productId));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1002,17 +1002,17 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
-        public async Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default)
+        public async Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid productId, Guid userId, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetIsProductAdministratorWithHttpInfoAsync(productid, userid, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetIsProductAdministratorWithHttpInfoAsync(productId, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1020,15 +1020,15 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check product administrator
         /// </summary>
         /// <remarks>
-        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productid}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
+        /// Reports whether one user administers one portal module, as the identifiers asked about plus an `administrator`  flag. Both `productid` and `userid` are query parameters and both are required; the all-zero product GUID asks  about the portal itself rather than about a single module. The caller needs the portal-settings right of a  DocSpace administrator, otherwise the call is refused. The operation is read-only. The flag is `true` when the  user belongs to the DocSpace administrator group or to the module's own group, so a portal-wide administrator  is reported as an administrator of every module, whatever the module identifier says. Identifiers that name no  user and no group are answered with `false` instead of a failure, so a `false` does not prove the user exists.  The verdict is read out of group membership alone and says nothing about whether the module is enabled for  this portal, which `GET api/2.0/settings/security/{id}` reports. Use  `GET api/2.0/settings/security/administrator/{productId}` to list everyone who administers a module, and  `PUT api/2.0/settings/security/administrator` to change the membership.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
-        /// <param name="userid">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
+        /// <param name="productId">The module being asked about, by module GUID. The all-zero GUID asks about the portal itself rather than a  single module.</param>
+        /// <param name="userId">The account being asked about, by portal user ID. An ID that names no account is answered as a plain negative  rather than a failure, so a negative answer does not prove the account exists.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        public async Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid productId, Guid userId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1044,8 +1044,8 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productid", productid));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userid", userid));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productId", productId));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1277,12 +1277,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
-        public EmployeeArrayWrapper GetProductAdministrators(Guid productid)
+        public EmployeeArrayWrapper GetProductAdministrators(Guid productId)
         {
-            var localVarResponse = GetProductAdministratorsWithHttpInfo(productid);
+            var localVarResponse = GetProductAdministratorsWithHttpInfo(productId);
             return localVarResponse.Data;
         }
 
@@ -1293,10 +1293,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public ApiResponse<EmployeeArrayWrapper> GetProductAdministratorsWithHttpInfo(Guid productid)
+        public ApiResponse<EmployeeArrayWrapper> GetProductAdministratorsWithHttpInfo(Guid productId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1311,7 +1311,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("productid", ClientUtils.ParameterToString(productid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("productId", ClientUtils.ParameterToString(productId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1345,7 +1345,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<EmployeeArrayWrapper>("/api/2.0/settings/security/administrator/{productid}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<EmployeeArrayWrapper>("/api/2.0/settings/security/administrator/{productId}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1366,13 +1366,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        public async Task<EmployeeArrayWrapper> GetProductAdministratorsAsync(Guid productid, CancellationToken cancellationToken = default)
+        public async Task<EmployeeArrayWrapper> GetProductAdministratorsAsync(Guid productId, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetProductAdministratorsWithHttpInfoAsync(productid, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetProductAdministratorsWithHttpInfoAsync(productId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1383,11 +1383,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Lists the users who administer the portal module identified by `productid` in the path. The all-zero GUID  stands for the portal itself: the answer then covers the DocSpace administrator group together with every  product group, and includes the portal owner, who administers everything by default. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. `productid` has to be a  GUID, and one that names no group is answered with an empty list rather than a failure. The operation is  read-only and returns whole user profiles, a heavier answer than a membership check, and a user who belongs to  more than one of the groups asked about is listed once per group. Entries arrive in group order, the DocSpace  administrator group first, the list is neither paged nor filterable, and a promotion made through the sibling  `PUT` shows up here at once. Use `GET api/2.0/settings/security/administrator` to test a single user against a  single module, and `PUT api/2.0/settings/security/administrator` to promote or demote somebody.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
+        /// <param name="productId">The module the operation acts on, by module GUID. The all-zero GUID stands for the portal itself rather than  for a single module, and a GUID that names no module group is answered with an empty result instead of a  failure.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-product-administrators/">REST API Reference for GetProductAdministrators Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeArrayWrapper>> GetProductAdministratorsWithHttpInfoAsync(Guid productid, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeArrayWrapper>> GetProductAdministratorsWithHttpInfoAsync(Guid productId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1403,7 +1403,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("productid", ClientUtils.ParameterToString(productid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("productId", ClientUtils.ParameterToString(productId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1438,7 +1438,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<EmployeeArrayWrapper>("/api/2.0/settings/security/administrator/{productid}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<EmployeeArrayWrapper>("/api/2.0/settings/security/administrator/{productId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1829,12 +1829,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
-        public SecurityArrayWrapper SetAccessToWebItems(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default)
+        public SecurityArrayWrapper SetAccessToWebItems(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default)
         {
-            var localVarResponse = SetAccessToWebItemsWithHttpInfo(webItemsSecurityRequestsDto);
+            var localVarResponse = SetAccessToWebItemsWithHttpInfo(webItemsSecurityRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1845,10 +1845,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
-        public ApiResponse<SecurityArrayWrapper> SetAccessToWebItemsWithHttpInfo(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default)
+        public ApiResponse<SecurityArrayWrapper> SetAccessToWebItemsWithHttpInfo(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1863,7 +1863,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (webItemsSecurityRequestsDto != null) localVarRequestOptions.Data = webItemsSecurityRequestsDto;
+            if (webItemsSecurityRequestDto != null) localVarRequestOptions.Data = webItemsSecurityRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1918,13 +1918,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
-        public async Task<SecurityArrayWrapper> SetAccessToWebItemsAsync(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<SecurityArrayWrapper> SetAccessToWebItemsAsync(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetAccessToWebItemsWithHttpInfoAsync(webItemsSecurityRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetAccessToWebItemsWithHttpInfoAsync(webItemsSecurityRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1935,11 +1935,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches several portal modules on or off in one call: `items` carries an entry per module, its `key` the  module GUID and its `value` the new enabled flag. The caller needs the portal-settings right of a DocSpace  administrator, and the call is answered with 403 on an open portal, where everyone is admitted and per-module  rules would mean nothing. Every key has to be a GUID; anything else is rejected as an invalid request, and a  module listed twice is applied once, from its first entry. This operation carries no subject list of its own:  switching a product module on restores the users and groups it was last restricted to, while every other case  is stored as a plain allow or deny for everyone, so use `PUT api/2.0/settings/security` when the allow-list  itself has to change. The batch is recorded in the audit trail as one list update rather than module by  module. The answer is the resulting configuration of every module listed, in the shape  `GET api/2.0/settings/security` returns.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemsSecurityRequestsDto">The modules switched on or off together, one entry per module. (optional)</param>
+        /// <param name="webItemsSecurityRequestDto">The modules switched on or off together, one entry per module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-access-to-web-items/">REST API Reference for SetAccessToWebItems Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
-        public async Task<ApiResponse<SecurityArrayWrapper>> SetAccessToWebItemsWithHttpInfoAsync(WebItemsSecurityRequestsDto? webItemsSecurityRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<SecurityArrayWrapper>> SetAccessToWebItemsWithHttpInfoAsync(WebItemsSecurityRequestDto? webItemsSecurityRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1955,7 +1955,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (webItemsSecurityRequestsDto != null) localVarRequestOptions.Data = webItemsSecurityRequestsDto;
+            if (webItemsSecurityRequestDto != null) localVarRequestOptions.Data = webItemsSecurityRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2011,12 +2011,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
-        public ProductAdministratorWrapper SetProductAdministrator(SecurityRequestsDto? securityRequestsDto = default)
+        public ProductAdministratorWrapper SetProductAdministrator(SecurityRequestDto? securityRequestDto = default)
         {
-            var localVarResponse = SetProductAdministratorWithHttpInfo(securityRequestsDto);
+            var localVarResponse = SetProductAdministratorWithHttpInfo(securityRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2027,10 +2027,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        public ApiResponse<ProductAdministratorWrapper> SetProductAdministratorWithHttpInfo(SecurityRequestsDto? securityRequestsDto = default)
+        public ApiResponse<ProductAdministratorWrapper> SetProductAdministratorWithHttpInfo(SecurityRequestDto? securityRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2045,7 +2045,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (securityRequestsDto != null) localVarRequestOptions.Data = securityRequestsDto;
+            if (securityRequestDto != null) localVarRequestOptions.Data = securityRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2100,13 +2100,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
-        public async Task<ProductAdministratorWrapper> SetProductAdministratorAsync(SecurityRequestsDto? securityRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ProductAdministratorWrapper> SetProductAdministratorAsync(SecurityRequestDto? securityRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetProductAdministratorWithHttpInfoAsync(securityRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetProductAdministratorWithHttpInfoAsync(securityRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2117,11 +2117,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Promotes a portal member to administrator of one module, or takes that role away, according to the  `administrator` flag; the all-zero product GUID targets the DocSpace administrator role, which covers the  whole portal. The caller needs the portal-settings right of a DocSpace administrator, and granting the  portal-wide role additionally requires being the portal owner - anyone else is refused with 403. A free cloud  plan does not offer the option at all and answers 402, as does a promotion for which no paid seat is left,  since promoting a guest or a plain member turns them into a paid one. Taking the portal-wide role away also  removes the member from every product group. The change is immediate, portal-wide, recorded in the audit  trail, and sending the same body twice changes nothing further; it never creates a user, so invite the member  first. The answer echoes the identifiers and the flag as stored - re-read membership with  `GET api/2.0/settings/security/administrator`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="securityRequestsDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
+        /// <param name="securityRequestDto">Which member is granted or denied the administrator role of which portal module. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-product-administrator/">REST API Reference for SetProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        public async Task<ApiResponse<ProductAdministratorWrapper>> SetProductAdministratorWithHttpInfoAsync(SecurityRequestsDto? securityRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ProductAdministratorWrapper>> SetProductAdministratorWithHttpInfoAsync(SecurityRequestDto? securityRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2137,7 +2137,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (securityRequestsDto != null) localVarRequestOptions.Data = securityRequestsDto;
+            if (securityRequestDto != null) localVarRequestOptions.Data = securityRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2193,12 +2193,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>SecurityArrayWrapper</returns>
-        public SecurityArrayWrapper SetWebItemSecurity(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default)
+        public SecurityArrayWrapper SetWebItemSecurity(WebItemSecurityRequestDto? webItemSecurityRequestDto = default)
         {
-            var localVarResponse = SetWebItemSecurityWithHttpInfo(webItemSecurityRequestsDto);
+            var localVarResponse = SetWebItemSecurityWithHttpInfo(webItemSecurityRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2209,10 +2209,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>ApiResponse of SecurityArrayWrapper</returns>
-        public ApiResponse<SecurityArrayWrapper> SetWebItemSecurityWithHttpInfo(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default)
+        public ApiResponse<SecurityArrayWrapper> SetWebItemSecurityWithHttpInfo(WebItemSecurityRequestDto? webItemSecurityRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2227,7 +2227,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (webItemSecurityRequestsDto != null) localVarRequestOptions.Data = webItemSecurityRequestsDto;
+            if (webItemSecurityRequestDto != null) localVarRequestOptions.Data = webItemSecurityRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2282,13 +2282,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of SecurityArrayWrapper</returns>
-        public async Task<SecurityArrayWrapper> SetWebItemSecurityAsync(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<SecurityArrayWrapper> SetWebItemSecurityAsync(WebItemSecurityRequestDto? webItemSecurityRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetWebItemSecurityWithHttpInfoAsync(webItemSecurityRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetWebItemSecurityWithHttpInfoAsync(webItemSecurityRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2299,11 +2299,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the access rules of one portal module: `id` names the module, `enabled` says whether it may be  opened, and `subjects` lists the users and groups the rule is stored for. The caller needs the portal-settings  right of a DocSpace administrator, and the call is answered with 403 on an open portal, where everyone is  admitted and per-module rules would mean nothing. `id` has to be a GUID; anything else is rejected as an  invalid request. The rules stored before are dropped rather than extended, so send the full list of subjects  every time. Watch the empty cases: leaving `subjects` out applies `enabled` to everyone, while an empty  `subjects` array is stored as access for everyone whatever `enabled` says. The change is recorded in the audit  trail unless `subjects` was left out entirely. The answer is the module's resulting configuration as a  single-entry list, in the shape `GET api/2.0/settings/security` returns. To switch several modules at once use  `PUT api/2.0/settings/security/access`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webItemSecurityRequestsDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
+        /// <param name="webItemSecurityRequestDto">The access rule stored for one portal module: whether it may be opened, and by whom. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-item-security/">REST API Reference for SetWebItemSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (SecurityArrayWrapper)</returns>
-        public async Task<ApiResponse<SecurityArrayWrapper>> SetWebItemSecurityWithHttpInfoAsync(WebItemSecurityRequestsDto? webItemSecurityRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<SecurityArrayWrapper>> SetWebItemSecurityWithHttpInfoAsync(WebItemSecurityRequestDto? webItemSecurityRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2319,7 +2319,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (webItemSecurityRequestsDto != null) localVarRequestOptions.Data = webItemSecurityRequestsDto;
+            if (webItemSecurityRequestDto != null) localVarRequestOptions.Data = webItemSecurityRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2375,12 +2375,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>PasswordSettingsWrapper</returns>
-        public PasswordSettingsWrapper UpdatePasswordSettings(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default)
+        public PasswordSettingsWrapper UpdatePasswordSettings(PasswordSettingsRequestDto? passwordSettingsRequestDto = default)
         {
-            var localVarResponse = UpdatePasswordSettingsWithHttpInfo(passwordSettingsRequestsDto);
+            var localVarResponse = UpdatePasswordSettingsWithHttpInfo(passwordSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2391,10 +2391,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>ApiResponse of PasswordSettingsWrapper</returns>
-        public ApiResponse<PasswordSettingsWrapper> UpdatePasswordSettingsWithHttpInfo(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default)
+        public ApiResponse<PasswordSettingsWrapper> UpdatePasswordSettingsWithHttpInfo(PasswordSettingsRequestDto? passwordSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2409,7 +2409,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (passwordSettingsRequestsDto != null) localVarRequestOptions.Data = passwordSettingsRequestsDto;
+            if (passwordSettingsRequestDto != null) localVarRequestOptions.Data = passwordSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2464,13 +2464,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of PasswordSettingsWrapper</returns>
-        public async Task<PasswordSettingsWrapper> UpdatePasswordSettingsAsync(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<PasswordSettingsWrapper> UpdatePasswordSettingsAsync(PasswordSettingsRequestDto? passwordSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdatePasswordSettingsWithHttpInfoAsync(passwordSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdatePasswordSettingsWithHttpInfoAsync(passwordSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2481,11 +2481,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the password policy of the whole portal with the four values sent: `minLength` and the three flags  that demand an uppercase letter, a digit and a special symbol. There is no partial update - a flag left out of  the body is stored as `false` - so read the current policy with `GET api/2.0/settings/security/password` and  send it back with your change applied. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. `minLength` has to sit between the floor the installation is configured with, 8  characters unless it was changed, and the ceiling of 30; anything outside is rejected as an invalid request.  The new policy applies to passwords set from now on: existing passwords keep working until their owners change  them, and nobody is asked to renew. The change is portal-wide, recorded in the audit trail, and sending the  same body twice changes nothing further. The answer is the stored policy with its regular expressions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="passwordSettingsRequestsDto">The four values that make up the portal password policy, replaced together. (optional)</param>
+        /// <param name="passwordSettingsRequestDto">The four values that make up the portal password policy, replaced together. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-password-settings/">REST API Reference for UpdatePasswordSettings Operation</seealso>
         /// <returns>Task of ApiResponse (PasswordSettingsWrapper)</returns>
-        public async Task<ApiResponse<PasswordSettingsWrapper>> UpdatePasswordSettingsWithHttpInfoAsync(PasswordSettingsRequestsDto? passwordSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<PasswordSettingsWrapper>> UpdatePasswordSettingsWithHttpInfoAsync(PasswordSettingsRequestDto? passwordSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2501,7 +2501,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (passwordSettingsRequestsDto != null) localVarRequestOptions.Data = passwordSettingsRequestsDto;
+            if (passwordSettingsRequestDto != null) localVarRequestOptions.Data = passwordSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

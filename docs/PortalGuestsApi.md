@@ -4,11 +4,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetGuestSharingLink**](#getguestsharinglink) | **GET** /api/2.0/people/guests/{userid}/share | Get a guest sharing link |
+| [**GetGuestSharingLink**](#getguestsharinglink) | **GET** /api/2.0/people/guests/{userId}/share | Get a guest sharing link |
 
 <a id="getguestsharinglink"></a>
 # **GetGuestSharingLink**
-> StringWrapper GetGuestSharingLink (Guid userid)
+> StringWrapper GetGuestSharingLink (Guid userId)
 
 Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
 
@@ -18,7 +18,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **Guid** | The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. |  |
+| **userId** | **Guid** | The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see. |  |
 
 ### Return type
 
@@ -65,12 +65,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GuestsApi(httpClient, config, httpClientHandler);
-            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.
 
             try
             {
                 // Get a guest sharing link
-                StringWrapper result = apiInstance.GetGuestSharingLink(userid);
+                StringWrapper result = apiInstance.GetGuestSharingLink(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -91,7 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a guest sharing link
-    ApiResponse<StringWrapper> response = apiInstance.GetGuestSharingLinkWithHttpInfo(userid);
+    ApiResponse<StringWrapper> response = apiInstance.GetGuestSharingLinkWithHttpInfo(userId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

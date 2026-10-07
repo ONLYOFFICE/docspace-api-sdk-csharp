@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.DocsCloudTenantWrapper
-The successful API response containing the DocsCloudTenant object.
+The successful API response containing the DocsCloudTenantDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**DocsCloudTenant**](DocsCloudTenant.md) | The DocsCloudTenant object returned by the operation. | [optional] 
+**Response** | [**DocsCloudTenantDto**](DocsCloudTenantDto.md) | The DocsCloudTenantDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

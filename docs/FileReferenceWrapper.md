@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.FileReferenceWrapper
-The successful API response containing the FileReference object.
+The successful API response containing the FileReferenceDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**FileReference**](FileReference.md) | The FileReference object returned by the operation. | [optional] 
+**Response** | [**FileReferenceDto**](FileReferenceDto.md) | The FileReferenceDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

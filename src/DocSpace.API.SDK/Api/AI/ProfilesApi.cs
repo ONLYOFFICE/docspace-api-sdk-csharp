@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiProfilesDelete(string body);
+        AiSuccessResponse AiProfilesDelete(string aiProfilesDeleteRequest);
 
         /// <summary>
         /// Delete a provider profile
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string aiProfilesDeleteRequest);
         /// <summary>
         /// Get a provider profile
         /// </summary>
@@ -173,10 +173,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>AiProfilesTestConnection200Response</returns>
-        AiProfilesTestConnection200Response AiProfilesTestConnection(string body);
+        AiProfilesTestConnection200Response AiProfilesTestConnection(string aiProfilesTestConnectionRequest);
 
         /// <summary>
         /// Test a profile's provider
@@ -185,10 +185,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>ApiResponse of AiProfilesTestConnection200Response</returns>
-        ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string body);
+        ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string aiProfilesTestConnectionRequest);
         /// <summary>
         /// Update a provider profile
         /// </summary>
@@ -253,11 +253,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiProfilesDeleteAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiProfilesDeleteAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a provider profile
@@ -266,11 +266,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a provider profile
         /// </summary>
@@ -376,11 +376,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of AiProfilesTestConnection200Response</returns>
-        Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Test a profile's provider
@@ -389,11 +389,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfilesTestConnection200Response)</returns>
-        Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a provider profile
         /// </summary>
@@ -795,12 +795,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiProfilesDelete(string body)
+        public AiSuccessResponse AiProfilesDelete(string aiProfilesDeleteRequest)
         {
-            var localVarResponse = AiProfilesDeleteWithHttpInfo(body);
+            var localVarResponse = AiProfilesDeleteWithHttpInfo(aiProfilesDeleteRequest);
             return localVarResponse.Data;
         }
 
@@ -811,14 +811,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiProfilesDeleteWithHttpInfo(string aiProfilesDeleteRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesDelete");
+            // verify the required parameter 'aiProfilesDeleteRequest' is set
+            if (aiProfilesDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesDeleteRequest' when calling ProfilesApi->AiProfilesDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -833,7 +833,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesDeleteRequest != null) localVarRequestOptions.Data = aiProfilesDeleteRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -870,13 +870,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiProfilesDeleteAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiProfilesDeleteAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiProfilesDeleteWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiProfilesDeleteWithHttpInfoAsync(aiProfilesDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -887,15 +887,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to delete, as a bare JSON string.</param>
+        /// <param name="aiProfilesDeleteRequest">The ID of the profile to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-delete/">REST API Reference for AiProfilesDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiProfilesDeleteWithHttpInfoAsync(string aiProfilesDeleteRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesDelete");
+            // verify the required parameter 'aiProfilesDeleteRequest' is set
+            if (aiProfilesDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesDeleteRequest' when calling ProfilesApi->AiProfilesDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -911,7 +911,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesDeleteRequest != null) localVarRequestOptions.Data = aiProfilesDeleteRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1551,12 +1551,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>AiProfilesTestConnection200Response</returns>
-        public AiProfilesTestConnection200Response AiProfilesTestConnection(string body)
+        public AiProfilesTestConnection200Response AiProfilesTestConnection(string aiProfilesTestConnectionRequest)
         {
-            var localVarResponse = AiProfilesTestConnectionWithHttpInfo(body);
+            var localVarResponse = AiProfilesTestConnectionWithHttpInfo(aiProfilesTestConnectionRequest);
             return localVarResponse.Data;
         }
 
@@ -1567,14 +1567,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>ApiResponse of AiProfilesTestConnection200Response</returns>
-        public ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string body)
+        public ApiResponse<AiProfilesTestConnection200Response> AiProfilesTestConnectionWithHttpInfo(string aiProfilesTestConnectionRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesTestConnection");
+            // verify the required parameter 'aiProfilesTestConnectionRequest' is set
+            if (aiProfilesTestConnectionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesTestConnectionRequest' when calling ProfilesApi->AiProfilesTestConnection");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1589,7 +1589,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesTestConnectionRequest != null) localVarRequestOptions.Data = aiProfilesTestConnectionRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1626,13 +1626,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of AiProfilesTestConnection200Response</returns>
-        public async Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiProfilesTestConnection200Response> AiProfilesTestConnectionAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiProfilesTestConnectionWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiProfilesTestConnectionWithHttpInfoAsync(aiProfilesTestConnectionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1643,15 +1643,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the profile to probe, as a bare JSON string.</param>
+        /// <param name="aiProfilesTestConnectionRequest">The ID of the profile to probe, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/">REST API Reference for AiProfilesTestConnection Operation</seealso>
         /// <returns>Task of ApiResponse (AiProfilesTestConnection200Response)</returns>
-        public async Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiProfilesTestConnection200Response>> AiProfilesTestConnectionWithHttpInfoAsync(string aiProfilesTestConnectionRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling ProfilesApi->AiProfilesTestConnection");
+            // verify the required parameter 'aiProfilesTestConnectionRequest' is set
+            if (aiProfilesTestConnectionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiProfilesTestConnectionRequest' when calling ProfilesApi->AiProfilesTestConnection");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1667,7 +1667,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiProfilesTestConnectionRequest != null) localVarRequestOptions.Data = aiProfilesTestConnectionRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support

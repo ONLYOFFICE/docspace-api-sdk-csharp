@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="image">The image models on offer, priced per million prompt and completion tokens plus a price for each image  produced. (required).</param>
         /// <param name="webSearch">The web search providers on offer. Their &#x60;price&#x60; is a bare number - the cost of one search - rather than  an object, because there are no tokens to distinguish. (required).</param>
         /// <param name="currency">The currency every price above is expressed in, with its ISO code and symbol. One answer never mixes  currencies, so this is the only place to read it. (required).</param>
-        public AiPricesDto(List<AiEntryPricingDtoAiChatPriceDto> chat = default, List<AiEntryPricingDtoAiEmbeddingPriceDto> embedding = default, List<AiEntryPricingDtoAiImagePriceDto> image = default, List<AiEntryPricingDtoDecimal> webSearch = default, CurrencyInfo currency = default)
+        public AiPricesDto(List<AiEntryPricingDtoAiChatPriceDto> chat = default, List<AiEntryPricingDtoAiEmbeddingPriceDto> embedding = default, List<AiEntryPricingDtoAiImagePriceDto> image = default, List<AiEntryPricingDtoDecimal> webSearch = default, AiPriceCurrencyDto currency = default)
         {
             // to ensure "chat" is required (not null)
             if (chat == null)
@@ -117,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /// The currency every price above is expressed in, with its ISO code and symbol. One answer never mixes  currencies, so this is the only place to read it.
         /// </summary>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
-        public CurrencyInfo Currency { get; set; }
+        public AiPriceCurrencyDto Currency { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

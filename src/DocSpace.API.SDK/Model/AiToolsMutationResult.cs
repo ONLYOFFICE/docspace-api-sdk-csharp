@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="success">True when the MCP server was persisted. (required).</param>
         /// <param name="error">Why the MCP server was rejected. Present on failure..</param>
-        public AiToolsMutationResult(bool success = default, AiTErrorData error = default)
+        public AiToolsMutationResult(bool success = default, AiErrorData error = default)
         {
             this.Success = success;
             this.Error = error;
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// Why the MCP server was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the list of BackupHistoryRecord objects.
+    /// The successful API response containing the list of BackupHistoryRecordDto objects.
     /// </summary>
     [DataContract(Name = "BackupHistoryRecordArrayWrapper")]
     public partial class BackupHistoryRecordArrayWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupHistoryRecordArrayWrapper" /> class.
         /// </summary>
-        /// <param name="response">The list of BackupHistoryRecord objects returned by the operation..</param>
+        /// <param name="response">The list of BackupHistoryRecordDto objects returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public BackupHistoryRecordArrayWrapper(List<BackupHistoryRecord> response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public BackupHistoryRecordArrayWrapper(List<BackupHistoryRecordDto> response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of BackupHistoryRecord objects returned by the operation.
+        /// The list of BackupHistoryRecordDto objects returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public List<BackupHistoryRecord> Response { get; set; }
+        public List<BackupHistoryRecordDto> Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

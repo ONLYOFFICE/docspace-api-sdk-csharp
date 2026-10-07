@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the DocsCloudQuota object.
+    /// The successful API response containing the DocsCloudQuotaDto object.
     /// </summary>
     [DataContract(Name = "DocsCloudQuotaWrapper")]
     public partial class DocsCloudQuotaWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocsCloudQuotaWrapper" /> class.
         /// </summary>
-        /// <param name="response">The DocsCloudQuota object returned by the operation..</param>
+        /// <param name="response">The DocsCloudQuotaDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public DocsCloudQuotaWrapper(DocsCloudQuota response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public DocsCloudQuotaWrapper(DocsCloudQuotaDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The DocsCloudQuota object returned by the operation.
+        /// The DocsCloudQuotaDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public DocsCloudQuota Response { get; set; }
+        public DocsCloudQuotaDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

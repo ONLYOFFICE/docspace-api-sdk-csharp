@@ -11,7 +11,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="getiprestrictions"></a>
 # **GetIpRestrictions**
-> IPRestrictionArrayWrapper GetIpRestrictions ()
+> IpRestrictionArrayWrapper GetIpRestrictions ()
 
 Returns the IP restriction list of the current portal - the addresses allowed to reach it, each with its `id`  and the `forAdmin` flag that narrows the entry to DocSpace administrators. The caller needs the  portal-settings right of a DocSpace administrator, otherwise the call is refused. The call is read-only and  honours `If-None-Match`: send back the `ETag` of an earlier answer and an unchanged list comes back as an  empty not-modified response rather than a body. The list has no defined order and is empty on a portal where  nobody has configured restrictions - and an empty list blocks nobody, whatever the enforcement flag says.  Whether the restrictions are enforced at all is not part of this answer: read that flag with  `GET api/2.0/settings/iprestrictions/settings`. The entries listed here apply to every user of the portal  except its owner. Replace the whole list with `PUT api/2.0/settings/iprestrictions`; single entries cannot be  added or deleted, and that update takes plain addresses rather than the IDs returned here.
 
@@ -21,7 +21,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**IPRestrictionArrayWrapper**](IPRestrictionArrayWrapper.md)
+[**IpRestrictionArrayWrapper**](IpRestrictionArrayWrapper.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ namespace Example
             try
             {
                 // Get IP restrictions
-                IPRestrictionArrayWrapper result = apiInstance.GetIpRestrictions();
+                IpRestrictionArrayWrapper result = apiInstance.GetIpRestrictions();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -89,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get IP restrictions
-    ApiResponse<IPRestrictionArrayWrapper> response = apiInstance.GetIpRestrictionsWithHttpInfo();
+    ApiResponse<IpRestrictionArrayWrapper> response = apiInstance.GetIpRestrictionsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -112,6 +112,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The IP addresses allowed to reach the portal, each with its ID and administrators-only flag; an empty list when the portal has no restrictions |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **304** | The addresses have not changed since the `ETag` sent back in `If-None-Match`, which ignores the administrators-only flags; the body is empty |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -122,7 +124,7 @@ catch (ApiException e)
 
 <a id="readiprestrictionssettings"></a>
 # **ReadIpRestrictionsSettings**
-> IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings ()
+> IpRestrictionsSettingsWrapper ReadIpRestrictionsSettings ()
 
 Reports whether the IP restrictions of the current portal are enforced, as the `enable` flag together with the  `lastModified` stamp of the setting. The caller needs the portal-settings right of a DocSpace administrator,  otherwise the call is refused. The call is read-only and honours `If-Modified-Since`: send back the  `Last-Modified` value of an earlier answer and an unchanged setting comes back as an empty not-modified  response rather than a body. The flag is `false` on a portal nobody has configured. A `true` flag on its own  blocks nothing: enforcement also needs at least one stored address, which this answer does not carry - read  the addresses with `GET api/2.0/settings/iprestrictions` - and it is skipped entirely on an installation whose  configuration hides the IP security section. Even when enforced, the portal owner and the installation's own  networks are let through. Change the flag with `PUT api/2.0/settings/iprestrictions/settings`, which replaces  the address list in the same call, so resend the addresses in force when all that changes is the flag.
 
@@ -132,7 +134,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**IPRestrictionsSettingsWrapper**](IPRestrictionsSettingsWrapper.md)
+[**IpRestrictionsSettingsWrapper**](IpRestrictionsSettingsWrapper.md)
 
 ### Authorization
 
@@ -179,7 +181,7 @@ namespace Example
             try
             {
                 // Get IP restriction settings
-                IPRestrictionsSettingsWrapper result = apiInstance.ReadIpRestrictionsSettings();
+                IpRestrictionsSettingsWrapper result = apiInstance.ReadIpRestrictionsSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -200,7 +202,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get IP restriction settings
-    ApiResponse<IPRestrictionsSettingsWrapper> response = apiInstance.ReadIpRestrictionsSettingsWithHttpInfo();
+    ApiResponse<IpRestrictionsSettingsWrapper> response = apiInstance.ReadIpRestrictionsSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -223,6 +225,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The enforcement flag of the IP restrictions and the date the setting was last modified |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **304** | The enforcement flag has not changed since the `Last-Modified` value sent back in `If-Modified-Since`; the body is empty |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -339,10 +343,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The saved addresses and enforcement flag echoed back exactly as sent, without the IDs of the stored entries |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `ipRestrictions`, an entry is not a single IPv4 or IPv6 address, or `enable` is `true` with an empty list |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -456,10 +461,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored enforcement flag and addresses echoed back exactly as sent, without the IDs of the stored entries |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `ipRestrictions`, an entry is not a single IPv4 or IPv6 address, or `enable` is `true` with an empty list |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

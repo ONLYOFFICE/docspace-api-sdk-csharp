@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="sharingSettings">Who the document is shared with, as the information panel lists it. An empty list means it is shared with  nobody beyond its owner..</param>
         /// <param name="type">The layout the information panel is rendered for..</param>
         /// <param name="uploaded">When the document was created on the portal, already formatted for reading in the culture of the caller rather  than as a machine timestamp..</param>
-        public InfoConfigDto(bool? favorite = default, string folder = default, string owner = default, List<AceShortWrapper> sharingSettings = default, EditorType? type = default, string uploaded = default)
+        public InfoConfigDto(bool? favorite = default, string folder = default, string owner = default, List<AceShortDto> sharingSettings = default, EditorType? type = default, string uploaded = default)
         {
             this.Favorite = favorite;
             this.Folder = folder;
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>[]</example>
         [DataMember(Name = "sharingSettings", EmitDefaultValue = true)]
-        public List<AceShortWrapper> SharingSettings { get; set; }
+        public List<AceShortDto> SharingSettings { get; set; }
 
         /// <summary>
         /// When the document was created on the portal, already formatted for reading in the culture of the caller rather  than as a machine timestamp.

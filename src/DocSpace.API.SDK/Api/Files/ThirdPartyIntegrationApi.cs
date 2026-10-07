@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -147,8 +147,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>ThirdPartyParamsArrayWrapper</returns>
-        ThirdPartyParamsArrayWrapper GetThirdPartyAccounts();
+        /// <returns>ThirdPartyAccountArrayWrapper</returns>
+        ThirdPartyAccountArrayWrapper GetThirdPartyAccounts();
 
         /// <summary>
         /// Get the third-party accounts
@@ -158,8 +158,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyParamsArrayWrapper</returns>
-        ApiResponse<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsWithHttpInfo();
+        /// <returns>ApiResponse of ThirdPartyAccountArrayWrapper</returns>
+        ApiResponse<ThirdPartyAccountArrayWrapper> GetThirdPartyAccountsWithHttpInfo();
         /// <summary>
         /// Connect a third-party account
         /// </summary>
@@ -219,7 +219,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -232,7 +232,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -343,8 +343,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>Task of ThirdPartyParamsArrayWrapper</returns>
-        Task<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ThirdPartyAccountArrayWrapper</returns>
+        Task<ThirdPartyAccountArrayWrapper> GetThirdPartyAccountsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the third-party accounts
@@ -355,8 +355,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyParamsArrayWrapper)</returns>
-        Task<ApiResponse<ThirdPartyParamsArrayWrapper>> GetThirdPartyAccountsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ThirdPartyAccountArrayWrapper)</returns>
+        Task<ApiResponse<ThirdPartyAccountArrayWrapper>> GetThirdPartyAccountsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Connect a third-party account
         /// </summary>
@@ -626,7 +626,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -642,7 +642,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -715,7 +715,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -732,7 +732,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. A room that was created on this account stops being available. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
+        /// Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.</param>
@@ -1528,8 +1528,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>ThirdPartyParamsArrayWrapper</returns>
-        public ThirdPartyParamsArrayWrapper GetThirdPartyAccounts()
+        /// <returns>ThirdPartyAccountArrayWrapper</returns>
+        public ThirdPartyAccountArrayWrapper GetThirdPartyAccounts()
         {
             var localVarResponse = GetThirdPartyAccountsWithHttpInfo();
             return localVarResponse.Data;
@@ -1543,8 +1543,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyParamsArrayWrapper</returns>
-        public ApiResponse<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsWithHttpInfo()
+        /// <returns>ApiResponse of ThirdPartyAccountArrayWrapper</returns>
+        public ApiResponse<ThirdPartyAccountArrayWrapper> GetThirdPartyAccountsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1592,7 +1592,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ThirdPartyParamsArrayWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ThirdPartyAccountArrayWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1615,8 +1615,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>Task of ThirdPartyParamsArrayWrapper</returns>
-        public async Task<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ThirdPartyAccountArrayWrapper</returns>
+        public async Task<ThirdPartyAccountArrayWrapper> GetThirdPartyAccountsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetThirdPartyAccountsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1631,8 +1631,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyParamsArrayWrapper)</returns>
-        public async Task<ApiResponse<ThirdPartyParamsArrayWrapper>> GetThirdPartyAccountsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ThirdPartyAccountArrayWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyAccountArrayWrapper>> GetThirdPartyAccountsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1682,7 +1682,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ThirdPartyParamsArrayWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ThirdPartyAccountArrayWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

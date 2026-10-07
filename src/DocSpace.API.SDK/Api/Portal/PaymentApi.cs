@@ -155,8 +155,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="serviceName">The service whose price list is read, named the way the billing catalogue names it, such as `ai-tools` or  `backup`. Take the value from the `serviceName` field of `GET api/2.0/portal/payment/walletservices`; a name  the accounting service does not price yields an empty list rather than an error.</param>
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>ServicePriceInfoArrayWrapper</returns>
-        ServicePriceInfoArrayWrapper GetAccountingServicePrices(string serviceName, bool? active = default);
+        /// <returns>ServicePriceArrayWrapper</returns>
+        ServicePriceArrayWrapper GetAccountingServicePrices(string serviceName, bool? active = default);
 
         /// <summary>
         /// Get the service prices from the accounting service
@@ -168,8 +168,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="serviceName">The service whose price list is read, named the way the billing catalogue names it, such as `ai-tools` or  `backup`. Take the value from the `serviceName` field of `GET api/2.0/portal/payment/walletservices`; a name  the accounting service does not price yields an empty list rather than an error.</param>
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>ApiResponse of ServicePriceInfoArrayWrapper</returns>
-        ApiResponse<ServicePriceInfoArrayWrapper> GetAccountingServicePricesWithHttpInfo(string serviceName, bool? active = default);
+        /// <returns>ApiResponse of ServicePriceArrayWrapper</returns>
+        ApiResponse<ServicePriceArrayWrapper> GetAccountingServicePricesWithHttpInfo(string serviceName, bool? active = default);
         /// <summary>
         /// Get the active wallet services
         /// </summary>
@@ -601,8 +601,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>RestrictedModelsResponseWrapper</returns>
-        RestrictedModelsResponseWrapper GetRestrictedAiModels();
+        /// <returns>RestrictedAiModelsWrapper</returns>
+        RestrictedAiModelsWrapper GetRestrictedAiModels();
 
         /// <summary>
         /// Get restricted AI models
@@ -612,8 +612,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>ApiResponse of RestrictedModelsResponseWrapper</returns>
-        ApiResponse<RestrictedModelsResponseWrapper> GetRestrictedAiModelsWithHttpInfo();
+        /// <returns>ApiResponse of RestrictedAiModelsWrapper</returns>
+        ApiResponse<RestrictedAiModelsWrapper> GetRestrictedAiModelsWithHttpInfo();
         /// <summary>
         /// Get the subscription balance information
         /// </summary>
@@ -622,8 +622,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>SubscriptionBalanceInfoWrapper</returns>
-        SubscriptionBalanceInfoWrapper GetSubscriptionBalanceInfo();
+        /// <returns>SubscriptionBalanceWrapper</returns>
+        SubscriptionBalanceWrapper GetSubscriptionBalanceInfo();
 
         /// <summary>
         /// Get the subscription balance information
@@ -633,8 +633,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>ApiResponse of SubscriptionBalanceInfoWrapper</returns>
-        ApiResponse<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoWithHttpInfo();
+        /// <returns>ApiResponse of SubscriptionBalanceWrapper</returns>
+        ApiResponse<SubscriptionBalanceWrapper> GetSubscriptionBalanceInfoWithHttpInfo();
         /// <summary>
         /// Get the wallet service settings
         /// </summary>
@@ -660,23 +660,23 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsResponseWrapper</returns>
-        TenantWalletSettingsResponseWrapper GetTenantWalletSettings();
+        /// <returns>TenantWalletSettingsWrapper</returns>
+        TenantWalletSettingsWrapper GetTenantWalletSettings();
 
         /// <summary>
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
-        ApiResponse<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsWithHttpInfo();
+        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
+        ApiResponse<TenantWalletSettingsWrapper> GetTenantWalletSettingsWithHttpInfo();
         /// <summary>
         /// Get a wallet service
         /// </summary>
@@ -751,10 +751,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns></returns>
-        void SendPaymentRequest(SalesRequestsDto? salesRequestsDto = default);
+        void SendPaymentRequest(SalesRequestDto? salesRequestDto = default);
 
         /// <summary>
         /// Contact the sales team
@@ -763,10 +763,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default);
+        ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestDto? salesRequestDto = default);
         /// <summary>
         /// Set restricted AI models
         /// </summary>
@@ -776,8 +776,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>RestrictedModelsResponseWrapper</returns>
-        RestrictedModelsResponseWrapper SetRestrictedAiModels(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default);
+        /// <returns>RestrictedAiModelsWrapper</returns>
+        RestrictedAiModelsWrapper SetRestrictedAiModels(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default);
 
         /// <summary>
         /// Set restricted AI models
@@ -788,31 +788,31 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>ApiResponse of RestrictedModelsResponseWrapper</returns>
-        ApiResponse<RestrictedModelsResponseWrapper> SetRestrictedAiModelsWithHttpInfo(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default);
+        /// <returns>ApiResponse of RestrictedAiModelsWrapper</returns>
+        ApiResponse<RestrictedAiModelsWrapper> SetRestrictedAiModelsWithHttpInfo(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default);
         /// <summary>
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsResponseWrapper</returns>
-        TenantWalletSettingsResponseWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
+        /// <returns>TenantWalletSettingsWrapper</returns>
+        TenantWalletSettingsWrapper SetTenantWalletSettings(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default);
 
         /// <summary>
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
-        ApiResponse<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
+        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
+        ApiResponse<TenantWalletSettingsWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default);
         /// <summary>
         /// Terminate the monthly usage report
         /// </summary>
@@ -1090,8 +1090,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>Task of ServicePriceInfoArrayWrapper</returns>
-        Task<ServicePriceInfoArrayWrapper> GetAccountingServicePricesAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ServicePriceArrayWrapper</returns>
+        Task<ServicePriceArrayWrapper> GetAccountingServicePricesAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the service prices from the accounting service
@@ -1104,8 +1104,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>Task of ApiResponse (ServicePriceInfoArrayWrapper)</returns>
-        Task<ApiResponse<ServicePriceInfoArrayWrapper>> GetAccountingServicePricesWithHttpInfoAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ServicePriceArrayWrapper)</returns>
+        Task<ApiResponse<ServicePriceArrayWrapper>> GetAccountingServicePricesWithHttpInfoAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the active wallet services
         /// </summary>
@@ -1572,8 +1572,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of RestrictedModelsResponseWrapper</returns>
-        Task<RestrictedModelsResponseWrapper> GetRestrictedAiModelsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of RestrictedAiModelsWrapper</returns>
+        Task<RestrictedAiModelsWrapper> GetRestrictedAiModelsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get restricted AI models
@@ -1584,8 +1584,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of ApiResponse (RestrictedModelsResponseWrapper)</returns>
-        Task<ApiResponse<RestrictedModelsResponseWrapper>> GetRestrictedAiModelsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (RestrictedAiModelsWrapper)</returns>
+        Task<ApiResponse<RestrictedAiModelsWrapper>> GetRestrictedAiModelsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the subscription balance information
         /// </summary>
@@ -1595,8 +1595,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>Task of SubscriptionBalanceInfoWrapper</returns>
-        Task<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of SubscriptionBalanceWrapper</returns>
+        Task<SubscriptionBalanceWrapper> GetSubscriptionBalanceInfoAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the subscription balance information
@@ -1607,8 +1607,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (SubscriptionBalanceInfoWrapper)</returns>
-        Task<ApiResponse<SubscriptionBalanceInfoWrapper>> GetSubscriptionBalanceInfoWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SubscriptionBalanceWrapper)</returns>
+        Task<ApiResponse<SubscriptionBalanceWrapper>> GetSubscriptionBalanceInfoWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the wallet service settings
         /// </summary>
@@ -1636,25 +1636,25 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
-        Task<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantWalletSettingsWrapper</returns>
+        Task<TenantWalletSettingsWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
-        Task<ApiResponse<TenantWalletSettingsResponseWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
+        Task<ApiResponse<TenantWalletSettingsWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a wallet service
         /// </summary>
@@ -1735,11 +1735,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of void</returns>
-        Task SendPaymentRequestAsync(SalesRequestsDto? salesRequestsDto = default, CancellationToken cancellationToken = default);
+        Task SendPaymentRequestAsync(SalesRequestDto? salesRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Contact the sales team
@@ -1748,11 +1748,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SendPaymentRequestWithHttpInfoAsync(SalesRequestsDto? salesRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> SendPaymentRequestWithHttpInfoAsync(SalesRequestDto? salesRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set restricted AI models
         /// </summary>
@@ -1763,8 +1763,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of RestrictedModelsResponseWrapper</returns>
-        Task<RestrictedModelsResponseWrapper> SetRestrictedAiModelsAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of RestrictedAiModelsWrapper</returns>
+        Task<RestrictedAiModelsWrapper> SetRestrictedAiModelsAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set restricted AI models
@@ -1776,33 +1776,33 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of ApiResponse (RestrictedModelsResponseWrapper)</returns>
-        Task<ApiResponse<RestrictedModelsResponseWrapper>> SetRestrictedAiModelsWithHttpInfoAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (RestrictedAiModelsWrapper)</returns>
+        Task<ApiResponse<RestrictedAiModelsWrapper>> SetRestrictedAiModelsWithHttpInfoAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
-        Task<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of TenantWalletSettingsWrapper</returns>
+        Task<TenantWalletSettingsWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
-        Task<ApiResponse<TenantWalletSettingsResponseWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
+        Task<ApiResponse<TenantWalletSettingsWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Terminate the monthly usage report
         /// </summary>
@@ -3082,8 +3082,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="serviceName">The service whose price list is read, named the way the billing catalogue names it, such as `ai-tools` or  `backup`. Take the value from the `serviceName` field of `GET api/2.0/portal/payment/walletservices`; a name  the accounting service does not price yields an empty list rather than an error.</param>
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>ServicePriceInfoArrayWrapper</returns>
-        public ServicePriceInfoArrayWrapper GetAccountingServicePrices(string serviceName, bool? active = default)
+        /// <returns>ServicePriceArrayWrapper</returns>
+        public ServicePriceArrayWrapper GetAccountingServicePrices(string serviceName, bool? active = default)
         {
             var localVarResponse = GetAccountingServicePricesWithHttpInfo(serviceName, active);
             return localVarResponse.Data;
@@ -3099,8 +3099,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="serviceName">The service whose price list is read, named the way the billing catalogue names it, such as `ai-tools` or  `backup`. Take the value from the `serviceName` field of `GET api/2.0/portal/payment/walletservices`; a name  the accounting service does not price yields an empty list rather than an error.</param>
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>ApiResponse of ServicePriceInfoArrayWrapper</returns>
-        public ApiResponse<ServicePriceInfoArrayWrapper> GetAccountingServicePricesWithHttpInfo(string serviceName, bool? active = default)
+        /// <returns>ApiResponse of ServicePriceArrayWrapper</returns>
+        public ApiResponse<ServicePriceArrayWrapper> GetAccountingServicePricesWithHttpInfo(string serviceName, bool? active = default)
         {
             // verify the required parameter 'serviceName' is set
             if (serviceName == null)
@@ -3157,7 +3157,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ServicePriceInfoArrayWrapper>("/api/2.0/portal/payment/accounting/prices/{serviceName}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<ServicePriceArrayWrapper>("/api/2.0/portal/payment/accounting/prices/{serviceName}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3182,8 +3182,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>Task of ServicePriceInfoArrayWrapper</returns>
-        public async Task<ServicePriceInfoArrayWrapper> GetAccountingServicePricesAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ServicePriceArrayWrapper</returns>
+        public async Task<ServicePriceArrayWrapper> GetAccountingServicePricesAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAccountingServicePricesWithHttpInfoAsync(serviceName, active, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3200,8 +3200,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="active">Whether the answer is narrowed to the prices in force at the moment of the call. Leaving it false also  returns the retired and the not yet started ones, which is what pricing a movement recorded in the past  needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounting-service-prices/">REST API Reference for GetAccountingServicePrices Operation</seealso>
-        /// <returns>Task of ApiResponse (ServicePriceInfoArrayWrapper)</returns>
-        public async Task<ApiResponse<ServicePriceInfoArrayWrapper>> GetAccountingServicePricesWithHttpInfoAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ServicePriceArrayWrapper)</returns>
+        public async Task<ApiResponse<ServicePriceArrayWrapper>> GetAccountingServicePricesWithHttpInfoAsync(string serviceName, bool? active = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'serviceName' is set
             if (serviceName == null)
@@ -3260,7 +3260,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ServicePriceInfoArrayWrapper>("/api/2.0/portal/payment/accounting/prices/{serviceName}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<ServicePriceArrayWrapper>("/api/2.0/portal/payment/accounting/prices/{serviceName}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3677,8 +3677,8 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "BackUrl", backUrl));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "SuccessUrl", successUrl));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "backUrl", backUrl));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "successUrl", successUrl));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -3780,8 +3780,8 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "BackUrl", backUrl));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "SuccessUrl", successUrl));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "backUrl", backUrl));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "successUrl", successUrl));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4655,43 +4655,43 @@ namespace DocSpace.API.SDK.Api.Portal
             }
             if (serviceName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "serviceName", serviceName));
             }
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "StartDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startDate", startDate));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "EndDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
             if (participantName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ParticipantName", participantName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "participantName", participantName));
             }
             if (credit != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Credit", credit));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "credit", credit));
             }
             if (debit != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Debit", debit));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "debit", debit));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Type", type));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Status", status));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
             if (orderType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderType", orderType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderType", orderType));
             }
 
             // authentication (Basic) required
@@ -4816,43 +4816,43 @@ namespace DocSpace.API.SDK.Api.Portal
             }
             if (serviceName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "serviceName", serviceName));
             }
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "StartDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startDate", startDate));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "EndDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
             if (participantName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ParticipantName", participantName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "participantName", participantName));
             }
             if (credit != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Credit", credit));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "credit", credit));
             }
             if (debit != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Debit", debit));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "debit", debit));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Type", type));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Status", status));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
             if (orderType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderType", orderType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderType", orderType));
             }
 
             // authentication (Basic) required
@@ -5139,23 +5139,23 @@ namespace DocSpace.API.SDK.Api.Portal
 
             if (serviceName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "serviceName", serviceName));
             }
             if (participantName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ParticipantName", participantName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "participantName", participantName));
             }
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Status", status));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
             }
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "StartDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startDate", startDate));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "EndDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
             if (metadata != null)
             {
@@ -5170,11 +5170,11 @@ namespace DocSpace.API.SDK.Api.Portal
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
             if (orderType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderType", orderType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderType", orderType));
             }
 
             // authentication (Basic) required
@@ -5287,27 +5287,27 @@ namespace DocSpace.API.SDK.Api.Portal
 
             if (serviceName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "serviceName", serviceName));
             }
             if (participantName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ParticipantName", participantName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "participantName", participantName));
             }
             if (status != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Status", status));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
             }
             if (startDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "StartDate", startDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startDate", startDate));
             }
             if (endDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "EndDate", endDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
             if (metadata != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Metadata", metadata));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadata", metadata));
             }
             if (offset != null)
             {
@@ -5319,11 +5319,11 @@ namespace DocSpace.API.SDK.Api.Portal
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
             if (orderType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderType", orderType));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderType", orderType));
             }
 
             // authentication (Basic) required
@@ -6667,8 +6667,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>RestrictedModelsResponseWrapper</returns>
-        public RestrictedModelsResponseWrapper GetRestrictedAiModels()
+        /// <returns>RestrictedAiModelsWrapper</returns>
+        public RestrictedAiModelsWrapper GetRestrictedAiModels()
         {
             var localVarResponse = GetRestrictedAiModelsWithHttpInfo();
             return localVarResponse.Data;
@@ -6682,8 +6682,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>ApiResponse of RestrictedModelsResponseWrapper</returns>
-        public ApiResponse<RestrictedModelsResponseWrapper> GetRestrictedAiModelsWithHttpInfo()
+        /// <returns>ApiResponse of RestrictedAiModelsWrapper</returns>
+        public ApiResponse<RestrictedAiModelsWrapper> GetRestrictedAiModelsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6731,7 +6731,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<RestrictedModelsResponseWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<RestrictedAiModelsWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -6754,8 +6754,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of RestrictedModelsResponseWrapper</returns>
-        public async Task<RestrictedModelsResponseWrapper> GetRestrictedAiModelsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of RestrictedAiModelsWrapper</returns>
+        public async Task<RestrictedAiModelsWrapper> GetRestrictedAiModelsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetRestrictedAiModelsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6770,8 +6770,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-restricted-ai-models/">REST API Reference for GetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of ApiResponse (RestrictedModelsResponseWrapper)</returns>
-        public async Task<ApiResponse<RestrictedModelsResponseWrapper>> GetRestrictedAiModelsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (RestrictedAiModelsWrapper)</returns>
+        public async Task<ApiResponse<RestrictedAiModelsWrapper>> GetRestrictedAiModelsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6821,7 +6821,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<RestrictedModelsResponseWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<RestrictedAiModelsWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -6843,8 +6843,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>SubscriptionBalanceInfoWrapper</returns>
-        public SubscriptionBalanceInfoWrapper GetSubscriptionBalanceInfo()
+        /// <returns>SubscriptionBalanceWrapper</returns>
+        public SubscriptionBalanceWrapper GetSubscriptionBalanceInfo()
         {
             var localVarResponse = GetSubscriptionBalanceInfoWithHttpInfo();
             return localVarResponse.Data;
@@ -6858,8 +6858,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>ApiResponse of SubscriptionBalanceInfoWrapper</returns>
-        public ApiResponse<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoWithHttpInfo()
+        /// <returns>ApiResponse of SubscriptionBalanceWrapper</returns>
+        public ApiResponse<SubscriptionBalanceWrapper> GetSubscriptionBalanceInfoWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6907,7 +6907,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<SubscriptionBalanceInfoWrapper>("/api/2.0/portal/payment/subscription/balance", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<SubscriptionBalanceWrapper>("/api/2.0/portal/payment/subscription/balance", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -6930,8 +6930,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>Task of SubscriptionBalanceInfoWrapper</returns>
-        public async Task<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of SubscriptionBalanceWrapper</returns>
+        public async Task<SubscriptionBalanceWrapper> GetSubscriptionBalanceInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSubscriptionBalanceInfoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6946,8 +6946,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (SubscriptionBalanceInfoWrapper)</returns>
-        public async Task<ApiResponse<SubscriptionBalanceInfoWrapper>> GetSubscriptionBalanceInfoWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SubscriptionBalanceWrapper)</returns>
+        public async Task<ApiResponse<SubscriptionBalanceWrapper>> GetSubscriptionBalanceInfoWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6997,7 +6997,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<SubscriptionBalanceInfoWrapper>("/api/2.0/portal/payment/subscription/balance", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SubscriptionBalanceWrapper>("/api/2.0/portal/payment/subscription/balance", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -7191,12 +7191,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsResponseWrapper</returns>
-        public TenantWalletSettingsResponseWrapper GetTenantWalletSettings()
+        /// <returns>TenantWalletSettingsWrapper</returns>
+        public TenantWalletSettingsWrapper GetTenantWalletSettings()
         {
             var localVarResponse = GetTenantWalletSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -7206,12 +7206,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
-        public ApiResponse<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsWithHttpInfo()
+        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
+        public ApiResponse<TenantWalletSettingsWrapper> GetTenantWalletSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -7259,7 +7259,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -7277,13 +7277,13 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
-        public async Task<TenantWalletSettingsResponseWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantWalletSettingsWrapper</returns>
+        public async Task<TenantWalletSettingsWrapper> GetTenantWalletSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetTenantWalletSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7293,13 +7293,13 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Get the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but ignored when the settings are written.
+        /// Returns the portal's automatic wallet top-up settings - whether it is on, the balance that triggers a  charge, the balance it is topped up to, and the currency both are expressed in. Any DocSpace  administrator may read them, and unlike the operation that changes them this one needs neither a  billing customer nor a configured billing service, so it answers on a portal that has never paid for  anything. It is read-only and changes nothing.  A portal that has never configured top-up gets the defaults rather than an empty result: `enabled` is  false, `currency` is null, and `minBalance` and `upToBalance` are 0. Those two zeros are outside the  ranges `POST api/2.0/portal/payment/topupsettings` accepts - 5 to 1000 and 6 to 5000 - so the answer  cannot be sent straight back to it; supply real values instead. `lastModified` is  `0001-01-01T00:00:00` until the settings are stored for the first time.  `lowBalanceThreshold` and `lowBalanceNotified` are maintained by the portal itself: they are reported  here, but cannot be written.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/">REST API Reference for GetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
-        public async Task<ApiResponse<TenantWalletSettingsResponseWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
+        public async Task<ApiResponse<TenantWalletSettingsWrapper>> GetTenantWalletSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -7349,7 +7349,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -7910,12 +7910,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns></returns>
-        public void SendPaymentRequest(SalesRequestsDto? salesRequestsDto = default)
+        public void SendPaymentRequest(SalesRequestDto? salesRequestDto = default)
         {
-            SendPaymentRequestWithHttpInfo(salesRequestsDto);
+            SendPaymentRequestWithHttpInfo(salesRequestDto);
         }
 
         /// <summary>
@@ -7925,10 +7925,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestsDto? salesRequestsDto = default)
+        public ApiResponse<Object> SendPaymentRequestWithHttpInfo(SalesRequestDto? salesRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -7943,7 +7943,7 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (salesRequestsDto != null) localVarRequestOptions.Data = salesRequestsDto;
+            if (salesRequestDto != null) localVarRequestOptions.Data = salesRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7998,13 +7998,13 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of void</returns>
-        public async Task SendPaymentRequestAsync(SalesRequestsDto? salesRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task SendPaymentRequestAsync(SalesRequestDto? salesRequestDto = default, CancellationToken cancellationToken = default)
         {
-            await SendPaymentRequestWithHttpInfoAsync(salesRequestsDto, cancellationToken).ConfigureAwait(false);
+            await SendPaymentRequestWithHttpInfoAsync(salesRequestDto, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8014,11 +8014,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends the portal's message to the ONLYOFFICE sales team - the contact-sales form behind a request for a quote,  an invoice or a plan that cannot be bought online. `email` has to be a well-formed address and is where the  answer will go, while `userName` and `message` say who is asking and what for; all three are required and none  may be empty. Only a DocSpace administrator may call it. Nothing on the portal changes: no plan, no quota and  no payment is touched, a message is mailed out and the request is written to the portal audit trail. There is  no response body - status 200 means the message was handed to the mail service - and the call is not  idempotent, so a repeat sends a second message. It is limited to ten requests a minute per user by default and  answers 429 above that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="salesRequestsDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
+        /// <param name="salesRequestDto">Who is writing to the ONLYOFFICE sales team, and what about. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-payment-request/">REST API Reference for SendPaymentRequest Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SendPaymentRequestWithHttpInfoAsync(SalesRequestsDto? salesRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> SendPaymentRequestWithHttpInfoAsync(SalesRequestDto? salesRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8034,7 +8034,7 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (salesRequestsDto != null) localVarRequestOptions.Data = salesRequestsDto;
+            if (salesRequestDto != null) localVarRequestOptions.Data = salesRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -8092,8 +8092,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>RestrictedModelsResponseWrapper</returns>
-        public RestrictedModelsResponseWrapper SetRestrictedAiModels(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default)
+        /// <returns>RestrictedAiModelsWrapper</returns>
+        public RestrictedAiModelsWrapper SetRestrictedAiModels(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default)
         {
             var localVarResponse = SetRestrictedAiModelsWithHttpInfo(setRestrictedAiModelsRequestDto);
             return localVarResponse.Data;
@@ -8108,8 +8108,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>ApiResponse of RestrictedModelsResponseWrapper</returns>
-        public ApiResponse<RestrictedModelsResponseWrapper> SetRestrictedAiModelsWithHttpInfo(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default)
+        /// <returns>ApiResponse of RestrictedAiModelsWrapper</returns>
+        public ApiResponse<RestrictedAiModelsWrapper> SetRestrictedAiModelsWithHttpInfo(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8158,7 +8158,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<RestrictedModelsResponseWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<RestrictedAiModelsWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -8182,8 +8182,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of RestrictedModelsResponseWrapper</returns>
-        public async Task<RestrictedModelsResponseWrapper> SetRestrictedAiModelsAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of RestrictedAiModelsWrapper</returns>
+        public async Task<RestrictedAiModelsWrapper> SetRestrictedAiModelsAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetRestrictedAiModelsWithHttpInfoAsync(setRestrictedAiModelsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8199,8 +8199,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="setRestrictedAiModelsRequestDto">The complete set of AI chat models that are to be barred on the portal. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/">REST API Reference for SetRestrictedAiModels Operation</seealso>
-        /// <returns>Task of ApiResponse (RestrictedModelsResponseWrapper)</returns>
-        public async Task<ApiResponse<RestrictedModelsResponseWrapper>> SetRestrictedAiModelsWithHttpInfoAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (RestrictedAiModelsWrapper)</returns>
+        public async Task<ApiResponse<RestrictedAiModelsWrapper>> SetRestrictedAiModelsWithHttpInfoAsync(SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8251,7 +8251,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<RestrictedModelsResponseWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<RestrictedAiModelsWrapper>("/api/2.0/portal/payment/ai-model/restrictions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -8269,15 +8269,15 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>TenantWalletSettingsResponseWrapper</returns>
-        public TenantWalletSettingsResponseWrapper SetTenantWalletSettings(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
+        /// <returns>TenantWalletSettingsWrapper</returns>
+        public TenantWalletSettingsWrapper SetTenantWalletSettings(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default)
         {
-            var localVarResponse = SetTenantWalletSettingsWithHttpInfo(tenantWalletSettingsWrapper);
+            var localVarResponse = SetTenantWalletSettingsWithHttpInfo(tenantWalletSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -8285,13 +8285,13 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantWalletSettingsResponseWrapper</returns>
-        public ApiResponse<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default)
+        /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
+        public ApiResponse<TenantWalletSettingsWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8306,7 +8306,7 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantWalletSettingsWrapper != null) localVarRequestOptions.Data = tenantWalletSettingsWrapper;
+            if (tenantWalletSettingsRequestDto != null) localVarRequestOptions.Data = tenantWalletSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -8340,7 +8340,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -8358,16 +8358,16 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of TenantWalletSettingsResponseWrapper</returns>
-        public async Task<TenantWalletSettingsResponseWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of TenantWalletSettingsWrapper</returns>
+        public async Task<TenantWalletSettingsWrapper> SetTenantWalletSettingsAsync(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetTenantWalletSettingsWithHttpInfoAsync(tenantWalletSettingsWrapper, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetTenantWalletSettingsWithHttpInfoAsync(tenantWalletSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8375,14 +8375,14 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Set the auto top-up settings
         /// </summary>
         /// <remarks>
-        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, while `lowBalanceThreshold` and `lowBalanceNotified` are ignored on the way in and kept as the portal  had them. The call is mutating and idempotent, it charges nothing by itself, it is written to the portal audit  trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+        /// Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantWalletSettingsWrapper">The wrapper for the tenant wallet settings. (optional)</param>
+        /// <param name="tenantWalletSettingsRequestDto">The body of an automatic top-up settings change. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/">REST API Reference for SetTenantWalletSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantWalletSettingsResponseWrapper)</returns>
-        public async Task<ApiResponse<TenantWalletSettingsResponseWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
+        public async Task<ApiResponse<TenantWalletSettingsWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8398,7 +8398,7 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantWalletSettingsWrapper != null) localVarRequestOptions.Data = tenantWalletSettingsWrapper;
+            if (tenantWalletSettingsRequestDto != null) localVarRequestOptions.Data = tenantWalletSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -8433,7 +8433,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<TenantWalletSettingsResponseWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<TenantWalletSettingsWrapper>("/api/2.0/portal/payment/topupsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

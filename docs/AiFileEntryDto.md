@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **External** | **bool?** | Set when the link being used was made for this very entry, and false when the entry is reached through a link  to the room around it. It is null when no link is involved. | [optional] 
 **ExpirationDate** | [**AiApiDateTime**](AiApiDateTime.md) | When the link being used stops working, written with the offset of the portal's time zone. It is null for a  link that never expires and whenever no link is involved. | [optional] 
 **IsLinkExpired** | **bool?** | Set when the link being used has already passed its expiration date, which is why the entry cannot be opened  even though it is described here. It is null when no link is involved. | [optional] 
+**AssignedMetadataTemplates** | **List&lt;int&gt;** | The IDs of the metadata templates assigned to the file entry. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

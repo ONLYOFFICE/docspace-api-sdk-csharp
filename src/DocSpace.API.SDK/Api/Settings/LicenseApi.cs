@@ -1007,7 +1007,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.FileParameters.Add("Files", files);
+            localVarRequestOptions.FileParameters.Add("files", files);
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1103,7 +1103,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.FileParameters.Add("Files", files);
+            localVarRequestOptions.FileParameters.Add("files", files);
 
             // authentication (Basic) required
             // http basic authentication required

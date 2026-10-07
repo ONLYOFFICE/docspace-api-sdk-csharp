@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsSetAllowAlwaysRequest
     /// </summary>
-    [DataContract(Name = "aiToolsSetAllowAlways_request")]
+    [DataContract(Name = "AiToolsSetAllowAlwaysRequest")]
     public partial class AiToolsSetAllowAlwaysRequest : IValidatableObject
     {
     

@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="backupsStored">The number of scheduled copies kept. It is null, not 0, when the schedule keeps an unlimited number..</param>
         /// <param name="lastBackupTime">The date and time the schedule last ran at. It is &#x60;0001-01-01T00:00:00&#x60; until the schedule has run  for the first time. (required).</param>
         /// <param name="dump">Specifies whether this schedule backs up the whole server instead of one portal. (required).</param>
-        public ScheduleDto(BackupStorageType storageType = default, Dictionary<string, string> storageParams = default, CronParams cronParams = default, int? backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
+        public ScheduleDto(BackupStorageType storageType = default, Dictionary<string, string> storageParams = default, CronParamsDto cronParams = default, int? backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
         {
             this.StorageType = storageType;
             // to ensure "storageParams" is required (not null)
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// When the backup runs, read back from the stored cron expression. &#x60;day&#x60; is 0 for a daily schedule,  because a daily one has no day.
         /// </summary>
         [DataMember(Name = "cronParams", IsRequired = true, EmitDefaultValue = true)]
-        public CronParams CronParams { get; set; }
+        public CronParamsDto CronParams { get; set; }
 
         /// <summary>
         /// The number of scheduled copies kept. It is null, not 0, when the schedule keeps an unlimited number.

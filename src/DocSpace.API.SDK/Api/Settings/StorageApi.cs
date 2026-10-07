@@ -186,10 +186,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>CdnStorageSettingsWrapper</returns>
-        CdnStorageSettingsWrapper UpdateCdnStorage(StorageRequestsDto? storageRequestsDto = default);
+        /// <returns>StorageSettingsWrapper</returns>
+        StorageSettingsWrapper UpdateCdnStorage(StorageRequestDto? storageRequestDto = default);
 
         /// <summary>
         /// Update the CDN storage
@@ -198,10 +198,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>ApiResponse of CdnStorageSettingsWrapper</returns>
-        ApiResponse<CdnStorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default);
+        /// <returns>ApiResponse of StorageSettingsWrapper</returns>
+        ApiResponse<StorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestDto? storageRequestDto = default);
         /// <summary>
         /// Switch the portal storage
         /// </summary>
@@ -209,10 +209,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>StorageSettingsWrapper</returns>
-        StorageSettingsWrapper UpdateStorage(StorageRequestsDto? storageRequestsDto = default);
+        StorageSettingsWrapper UpdateStorage(StorageRequestDto? storageRequestDto = default);
 
         /// <summary>
         /// Switch the portal storage
@@ -221,10 +221,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>ApiResponse of StorageSettingsWrapper</returns>
-        ApiResponse<StorageSettingsWrapper> UpdateStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default);
+        ApiResponse<StorageSettingsWrapper> UpdateStorageWithHttpInfo(StorageRequestDto? storageRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -404,11 +404,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>Task of CdnStorageSettingsWrapper</returns>
-        Task<CdnStorageSettingsWrapper> UpdateCdnStorageAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of StorageSettingsWrapper</returns>
+        Task<StorageSettingsWrapper> UpdateCdnStorageAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the CDN storage
@@ -417,11 +417,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>Task of ApiResponse (CdnStorageSettingsWrapper)</returns>
-        Task<ApiResponse<CdnStorageSettingsWrapper>> UpdateCdnStorageWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StorageSettingsWrapper)</returns>
+        Task<ApiResponse<StorageSettingsWrapper>> UpdateCdnStorageWithHttpInfoAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Switch the portal storage
         /// </summary>
@@ -429,11 +429,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of StorageSettingsWrapper</returns>
-        Task<StorageSettingsWrapper> UpdateStorageAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StorageSettingsWrapper> UpdateStorageAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Switch the portal storage
@@ -442,11 +442,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of ApiResponse (StorageSettingsWrapper)</returns>
-        Task<ApiResponse<StorageSettingsWrapper>> UpdateStorageWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StorageSettingsWrapper>> UpdateStorageWithHttpInfoAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -705,7 +705,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "dump", dump));
             }
 
             // authentication (Basic) required
@@ -800,7 +800,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             if (dump != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Dump", dump));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "dump", dump));
             }
 
             // authentication (Basic) required
@@ -1909,12 +1909,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>CdnStorageSettingsWrapper</returns>
-        public CdnStorageSettingsWrapper UpdateCdnStorage(StorageRequestsDto? storageRequestsDto = default)
+        /// <returns>StorageSettingsWrapper</returns>
+        public StorageSettingsWrapper UpdateCdnStorage(StorageRequestDto? storageRequestDto = default)
         {
-            var localVarResponse = UpdateCdnStorageWithHttpInfo(storageRequestsDto);
+            var localVarResponse = UpdateCdnStorageWithHttpInfo(storageRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1925,10 +1925,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>ApiResponse of CdnStorageSettingsWrapper</returns>
-        public ApiResponse<CdnStorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default)
+        /// <returns>ApiResponse of StorageSettingsWrapper</returns>
+        public ApiResponse<StorageSettingsWrapper> UpdateCdnStorageWithHttpInfo(StorageRequestDto? storageRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1943,7 +1943,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (storageRequestsDto != null) localVarRequestOptions.Data = storageRequestsDto;
+            if (storageRequestDto != null) localVarRequestOptions.Data = storageRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1977,7 +1977,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<CdnStorageSettingsWrapper>("/api/2.0/settings/storage/cdn", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<StorageSettingsWrapper>("/api/2.0/settings/storage/cdn", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1998,13 +1998,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>Task of CdnStorageSettingsWrapper</returns>
-        public async Task<CdnStorageSettingsWrapper> UpdateCdnStorageAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of StorageSettingsWrapper</returns>
+        public async Task<StorageSettingsWrapper> UpdateCdnStorageAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateCdnStorageWithHttpInfoAsync(storageRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateCdnStorageWithHttpInfoAsync(storageRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2015,11 +2015,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Selects the content delivery network that serves the static content of the portal and saves the credentials it  needs: `module` is the identifier of one of the entries of `GET api/2.0/settings/storage/cdn`, and `props`  carries that provider's authentication keys as name and value pairs. The provider has to be available on the  server, which the `isSet` flag of the listing tells, otherwise the request is rejected as invalid. Sending the  module the portal already uses changes nothing and returns the saved settings as they are. Any other module is  saved and the upload of the static content is handed to the storage service; the settings come back only when  that hand-over succeeds, a failure being reported as a server error. Unlike the portal storage this has no  progress operation, so there is nothing to poll: the content appears on the CDN once the service has copied  it. Only static content is affected here, never documents; for those use `PUT api/2.0/settings/storage`. The  caller needs the permission to edit portal settings, which in practice means the portal owner or a DocSpace  admin, on a server installation with an unrestricted access space. The response is the stored CDN  configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cdn-storage/">REST API Reference for UpdateCdnStorage Operation</seealso>
-        /// <returns>Task of ApiResponse (CdnStorageSettingsWrapper)</returns>
-        public async Task<ApiResponse<CdnStorageSettingsWrapper>> UpdateCdnStorageWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StorageSettingsWrapper)</returns>
+        public async Task<ApiResponse<StorageSettingsWrapper>> UpdateCdnStorageWithHttpInfoAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2035,7 +2035,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (storageRequestsDto != null) localVarRequestOptions.Data = storageRequestsDto;
+            if (storageRequestDto != null) localVarRequestOptions.Data = storageRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2070,7 +2070,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<CdnStorageSettingsWrapper>("/api/2.0/settings/storage/cdn", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<StorageSettingsWrapper>("/api/2.0/settings/storage/cdn", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2091,12 +2091,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>StorageSettingsWrapper</returns>
-        public StorageSettingsWrapper UpdateStorage(StorageRequestsDto? storageRequestsDto = default)
+        public StorageSettingsWrapper UpdateStorage(StorageRequestDto? storageRequestDto = default)
         {
-            var localVarResponse = UpdateStorageWithHttpInfo(storageRequestsDto);
+            var localVarResponse = UpdateStorageWithHttpInfo(storageRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2107,10 +2107,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>ApiResponse of StorageSettingsWrapper</returns>
-        public ApiResponse<StorageSettingsWrapper> UpdateStorageWithHttpInfo(StorageRequestsDto? storageRequestsDto = default)
+        public ApiResponse<StorageSettingsWrapper> UpdateStorageWithHttpInfo(StorageRequestDto? storageRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2125,7 +2125,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (storageRequestsDto != null) localVarRequestOptions.Data = storageRequestsDto;
+            if (storageRequestDto != null) localVarRequestOptions.Data = storageRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2180,13 +2180,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of StorageSettingsWrapper</returns>
-        public async Task<StorageSettingsWrapper> UpdateStorageAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StorageSettingsWrapper> UpdateStorageAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateStorageWithHttpInfoAsync(storageRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateStorageWithHttpInfoAsync(storageRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2197,11 +2197,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Points the current portal at another storage and saves the credentials it needs: `module` is the identifier of  one of the storages listed by `GET api/2.0/settings/storage`, and `props` carries that provider's  authentication keys as name and value pairs, for example the bucket, region and access key of an Amazon S3  storage. The provider has to be available on the server, which the `isSet` flag of the listing tells,  otherwise the request is rejected as invalid. Sending the module the portal already uses changes nothing and  returns the saved settings as they are. Any other module starts an asynchronous migration of the portal data:  the portal moves into the migrating state and stays unavailable until the transfer ends, so follow it with  `GET api/2.0/settings/storage/progress` and do not send a second switch while it runs. The caller needs the  permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, on a server  installation with an unrestricted access space. The response is the stored configuration, module and  properties, not the state of the migration. To return to the built-in local storage call  `DELETE api/2.0/settings/storage`, and for the CDN use `PUT api/2.0/settings/storage/cdn`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="storageRequestsDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
+        /// <param name="storageRequestDto">Which storage provider the portal is pointed at, and the credentials it needs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-storage/">REST API Reference for UpdateStorage Operation</seealso>
         /// <returns>Task of ApiResponse (StorageSettingsWrapper)</returns>
-        public async Task<ApiResponse<StorageSettingsWrapper>> UpdateStorageWithHttpInfoAsync(StorageRequestsDto? storageRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StorageSettingsWrapper>> UpdateStorageWithHttpInfoAsync(StorageRequestDto? storageRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2217,7 +2217,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (storageRequestsDto != null) localVarRequestOptions.Data = storageRequestsDto;
+            if (storageRequestDto != null) localVarRequestOptions.Data = storageRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

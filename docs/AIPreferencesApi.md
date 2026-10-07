@@ -7,13 +7,15 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**AiPreferencesClearDeepMode**](#aipreferencescleardeepmode) | **DELETE** /api/2.0/ai/preferences/clear-deep-mode | Clear deep mode |
 | [**AiPreferencesGetDeepMode**](#aipreferencesgetdeepmode) | **GET** /api/2.0/ai/preferences/get-deep-mode | Get deep mode |
 | [**AiPreferencesGetReasoningLevel**](#aipreferencesgetreasoninglevel) | **GET** /api/2.0/ai/preferences/get-reasoning-level | Get reasoning level |
+| [**AiPreferencesGetToolPermissionMode**](#aipreferencesgettoolpermissionmode) | **GET** /api/2.0/ai/preferences/get-tool-permission-mode | Get tool permission mode |
 | [**AiPreferencesIsDeepModeSet**](#aipreferencesisdeepmodeset) | **GET** /api/2.0/ai/preferences/is-deep-mode-set | Is deep mode set |
 | [**AiPreferencesSetDeepMode**](#aipreferencessetdeepmode) | **PUT** /api/2.0/ai/preferences/set-deep-mode | Set deep mode |
 | [**AiPreferencesSetReasoningLevel**](#aipreferencessetreasoninglevel) | **PUT** /api/2.0/ai/preferences/set-reasoning-level | Set reasoning level |
+| [**AiPreferencesSetToolPermissionMode**](#aipreferencessettoolpermissionmode) | **PUT** /api/2.0/ai/preferences/set-tool-permission-mode | Set tool permission mode |
 
 <a id="aipreferencescleardeepmode"></a>
 # **AiPreferencesClearDeepMode**
-> AiSuccessResponse AiPreferencesClearDeepMode (string body)
+> AiSuccessResponse AiPreferencesClearDeepMode (string aiPreferencesClearDeepModeRequest)
 
 Removes the stored extended-thinking setting of a scope (the depth and, with it, the deep-mode toggle), after which reads fall back to the configured default rather than to false. `entityId` picks a room and omitting it clears the portal-wide preference. Clearing a scope that has no stored value is not an error. This differs from storing false, which is an explicit choice a later read reports as set.
 
@@ -23,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference. |  |
+| **aiPreferencesClearDeepModeRequest** | **string** | The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference. |  |
 
 ### Return type
 
@@ -61,12 +63,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PreferencesApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.
+            var aiPreferencesClearDeepModeRequest = "aiPreferencesClearDeepModeRequest_example";  // string | The ID of the room whose preference is cleared, as a bare JSON string. Send an empty body to clear the portal-wide preference.
 
             try
             {
                 // Clear deep mode
-                AiSuccessResponse result = apiInstance.AiPreferencesClearDeepMode(body);
+                AiSuccessResponse result = apiInstance.AiPreferencesClearDeepMode(aiPreferencesClearDeepModeRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -87,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Clear deep mode
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiPreferencesClearDeepModeWithHttpInfo(body);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiPreferencesClearDeepModeWithHttpInfo(aiPreferencesClearDeepModeRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -110,8 +112,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Confirms the scope has no preference of its own and now inherits the default. |  -  |
+| **400** | `entityId` is not a room ID. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -217,14 +220,14 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether deep mode is on, falling back to the configured default when the scope has no value of its own. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aipreferencesgetreasoninglevel"></a>
 # **AiPreferencesGetReasoningLevel**
-> AiAiReasoningLevel AiPreferencesGetReasoningLevel (string? entityId = null)
+> AiReasoningLevel AiPreferencesGetReasoningLevel (string? entityId = null)
 
 Returns the effective extended-thinking depth of the scope: `off` while deep mode is off, otherwise the persisted depth (`low`, `medium`, `high`, `max`), falling back to the default depth (`medium`) when none has been stored. `entityId` picks a room and omitting it reads the portal-wide preference. Providers clamp the depth to what the model accepts.
 
@@ -238,7 +241,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**AiAiReasoningLevel**](AiAiReasoningLevel.md)
+[**AiReasoningLevel**](AiReasoningLevel.md)
 
 ### Authorization
 
@@ -277,7 +280,7 @@ namespace Example
             try
             {
                 // Get reasoning level
-                AiAiReasoningLevel result = apiInstance.AiPreferencesGetReasoningLevel(entityId);
+                AiReasoningLevel result = apiInstance.AiPreferencesGetReasoningLevel(entityId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -298,7 +301,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get reasoning level
-    ApiResponse<AiAiReasoningLevel> response = apiInstance.AiPreferencesGetReasoningLevelWithHttpInfo(entityId);
+    ApiResponse<AiReasoningLevel> response = apiInstance.AiPreferencesGetReasoningLevelWithHttpInfo(entityId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -322,7 +325,112 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="aipreferencesgettoolpermissionmode"></a>
+# **AiPreferencesGetToolPermissionMode**
+> AiChatToolPermissionMode AiPreferencesGetToolPermissionMode (string? entityId = null)
+
+Returns how a tool call the model makes is approved for the calling user, in the chat library's spelling: `ask` prompts for every call bar the tools pinned as always allowed, `auto` also runs a tool that opted out of approval itself or is annotated read-only / non-destructive, `allow` runs everything without asking. The mode is one value per user, stored in the user's AI settings (the same value `GET api/2.0/ai/config/tool-mode` reports as the AI service's enum); `entityId` is accepted for symmetry with the depth routes and ignored. The AI service's default is `auto`.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-get-tool-permission-mode/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **entityId** | **string?** | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. | [optional]  |
+
+### Return type
+
+[**AiChatToolPermissionMode**](AiChatToolPermissionMode.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class AiPreferencesGetToolPermissionModeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PreferencesApi(httpClient, config, httpClientHandler);
+            var entityId = 1234;  // string? | The DocSpace entity the request is scoped to - the room, folder or agent workspace the chat is invoked from. Omit for the portal-wide scope. (optional) 
+
+            try
+            {
+                // Get tool permission mode
+                AiChatToolPermissionMode result = apiInstance.AiPreferencesGetToolPermissionMode(entityId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PreferencesApi.AiPreferencesGetToolPermissionMode: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AiPreferencesGetToolPermissionModeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get tool permission mode
+    ApiResponse<AiChatToolPermissionMode> response = apiInstance.AiPreferencesGetToolPermissionModeWithHttpInfo(entityId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PreferencesApi.AiPreferencesGetToolPermissionModeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The mode in force for the scope, as a bare JSON string, falling back to `ask` when none is stored. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -427,7 +535,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether the scope has a preference of its own, whichever way that preference is set. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -531,9 +639,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Confirms the preference was stored. |  -  |
-| **400** | `value` is missing or is not a boolean. |  -  |
+| **400** | `value` is missing or is not a boolean, or `entityId` is not a room ID. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -638,8 +746,116 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success. |  -  |
+| **400** | `value` is not one of the depths, or `entityId` is not a room ID. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="aipreferencessettoolpermissionmode"></a>
+# **AiPreferencesSetToolPermissionMode**
+> AiSuccessResponse AiPreferencesSetToolPermissionMode (AiPreferencesSetToolPermissionModeRequest aiPreferencesSetToolPermissionModeRequest)
+
+Persists the tool permission mode of the calling user. `value` has to be one of `ask`, `auto`, `allow`: anything else is rejected rather than coerced, so an absent or mistyped value can never overwrite the stored mode. `entityId` is validated like on the other writes and otherwise ignored - the mode applies to every chat of the user. Idempotent.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-preferences-set-tool-permission-mode/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **aiPreferencesSetToolPermissionModeRequest** | [**AiPreferencesSetToolPermissionModeRequest**](AiPreferencesSetToolPermissionModeRequest.md) |  |  |
+
+### Return type
+
+[**AiSuccessResponse**](AiSuccessResponse.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class AiPreferencesSetToolPermissionModeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PreferencesApi(httpClient, config, httpClientHandler);
+            var aiPreferencesSetToolPermissionModeRequest = new AiPreferencesSetToolPermissionModeRequest(); // AiPreferencesSetToolPermissionModeRequest | 
+
+            try
+            {
+                // Set tool permission mode
+                AiSuccessResponse result = apiInstance.AiPreferencesSetToolPermissionMode(aiPreferencesSetToolPermissionModeRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PreferencesApi.AiPreferencesSetToolPermissionMode: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AiPreferencesSetToolPermissionModeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Set tool permission mode
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiPreferencesSetToolPermissionModeWithHttpInfo(aiPreferencesSetToolPermissionModeRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PreferencesApi.AiPreferencesSetToolPermissionModeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Confirms the preference was stored. |  -  |
+| **400** | `value` is not one of `ask`, `auto`, `allow`, or `entityId` is not a room ID. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

@@ -108,7 +108,7 @@ catch (ApiException e)
 | **200** | The tool's output as a string. A tool that failed reports it inside that string. |  -  |
 | **400** | The tool name is not one this portal exposes. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -209,7 +209,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The tools the editor plugin may offer the model, four fields each. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

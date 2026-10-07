@@ -5,14 +5,16 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AiSettingsGet**](#aisettingsget) | **GET** /api/2.0/ai/config | Get AI settings |
+| [**AiSettingsGetToolMode**](#aisettingsgettoolmode) | **GET** /api/2.0/ai/config/tool-mode | Get the tool permission mode |
 | [**AiSettingsGetUser**](#aisettingsgetuser) | **GET** /api/2.0/ai/config/user | Get user AI settings |
 | [**AiSettingsGetVectorization**](#aisettingsgetvectorization) | **GET** /api/2.0/ai/config/vectorization | Get vectorization settings |
+| [**AiSettingsSetToolMode**](#aisettingssettoolmode) | **PUT** /api/2.0/ai/config/tool-mode | Set the tool permission mode |
 | [**AiSettingsSetUser**](#aisettingssetuser) | **PUT** /api/2.0/ai/config/user | Update user AI settings |
 | [**AiSettingsSetVectorization**](#aisettingssetvectorization) | **PUT** /api/2.0/ai/config/vectorization | Update vectorization settings |
 
 <a id="aisettingsget"></a>
 # **AiSettingsGet**
-> AiAiSettingsWrapper AiSettingsGet ()
+> AiSettingsWrapper AiSettingsGet ()
 
 Reports the portal's AI configuration and whether AI is usable at all, which is the first call a client makes before offering any AI feature. It takes no parameters and is proxied unchanged to the DocSpace AI service, so the answer is that service's settings payload. Among other things it says whether the portal runs on the central AI gateway, which decides whether provider profiles can be edited here at all. This is a read-only operation.
 
@@ -22,7 +24,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiAiSettingsWrapper**](AiAiSettingsWrapper.md)
+[**AiSettingsWrapper**](AiSettingsWrapper.md)
 
 ### Authorization
 
@@ -60,7 +62,7 @@ namespace Example
             try
             {
                 // Get AI settings
-                AiAiSettingsWrapper result = apiInstance.AiSettingsGet();
+                AiSettingsWrapper result = apiInstance.AiSettingsGet();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -81,7 +83,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get AI settings
-    ApiResponse<AiAiSettingsWrapper> response = apiInstance.AiSettingsGetWithHttpInfo();
+    ApiResponse<AiSettingsWrapper> response = apiInstance.AiSettingsGetWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -105,14 +107,114 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The portal's AI configuration and whether AI is usable at all. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="aisettingsgettoolmode"></a>
+# **AiSettingsGetToolMode**
+> AiSuccessResponse AiSettingsGetToolMode ()
+
+Returns the calling user's tool permission mode as the DocSpace AI service spells it - `{ mode }` with the service's `ToolPermissionMode` enum (`Ask`, `Auto`, `Allow`), proxied unchanged. The chat reads the same value in its own spelling through `GET api/2.0/ai/preferences/get-tool-permission-mode`. This is a read-only operation.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-get-tool-mode/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**AiSuccessResponse**](AiSuccessResponse.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class AiSettingsGetToolModeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get the tool permission mode
+                AiSuccessResponse result = apiInstance.AiSettingsGetToolMode();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsApi.AiSettingsGetToolMode: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AiSettingsGetToolModeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get the tool permission mode
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiSettingsGetToolModeWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsApi.AiSettingsGetToolModeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The calling user's tool permission mode, as `{ mode }`. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aisettingsgetuser"></a>
 # **AiSettingsGetUser**
-> AiAiUserSettingsWrapper AiSettingsGetUser ()
+> AiUserSettingsWrapper AiSettingsGetUser ()
 
 Returns the AI settings of the calling user, as opposed to the portal-wide ones. It takes no parameters - the user is the authenticated caller, and there is no way to read somebody else's settings - and is proxied unchanged to the DocSpace AI service. Use `GET api/2.0/ai/config` for the portal-wide configuration. This is a read-only operation.
 
@@ -122,7 +224,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**AiAiUserSettingsWrapper**](AiAiUserSettingsWrapper.md)
+[**AiUserSettingsWrapper**](AiUserSettingsWrapper.md)
 
 ### Authorization
 
@@ -160,7 +262,7 @@ namespace Example
             try
             {
                 // Get user AI settings
-                AiAiUserSettingsWrapper result = apiInstance.AiSettingsGetUser();
+                AiUserSettingsWrapper result = apiInstance.AiSettingsGetUser();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -181,7 +283,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get user AI settings
-    ApiResponse<AiAiUserSettingsWrapper> response = apiInstance.AiSettingsGetUserWithHttpInfo();
+    ApiResponse<AiUserSettingsWrapper> response = apiInstance.AiSettingsGetUserWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -205,7 +307,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The calling user's AI settings. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -305,14 +407,120 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The portal's vectorization settings. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="aisettingssettoolmode"></a>
+# **AiSettingsSetToolMode**
+> AiSuccessResponse AiSettingsSetToolMode (Dictionary<string, Object> aiSettingsSetToolModeRequest)
+
+Stores the calling user's tool permission mode and returns the stored result. The body (`{ mode }`) is proxied unchanged to the DocSpace AI service, which rejects a value outside its `ToolPermissionMode` enum. The mode applies to every chat of the user in the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-tool-mode/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **aiSettingsSetToolModeRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | `{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum. |  |
+
+### Return type
+
+[**AiSuccessResponse**](AiSuccessResponse.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class AiSettingsSetToolModeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure API key authorization: cookieAuth
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: bearerAuth
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
+            var aiSettingsSetToolModeRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | `{ mode }` with the AI service's `ToolPermissionMode` enum, proxied unchanged; the service rejects anything outside the enum.
+
+            try
+            {
+                // Set the tool permission mode
+                AiSuccessResponse result = apiInstance.AiSettingsSetToolMode(aiSettingsSetToolModeRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsApi.AiSettingsSetToolMode: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AiSettingsSetToolModeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Set the tool permission mode
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiSettingsSetToolModeWithHttpInfo(aiSettingsSetToolModeRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsApi.AiSettingsSetToolModeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The calling user's stored tool permission mode, as `{ mode }`. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aisettingssetuser"></a>
 # **AiSettingsSetUser**
-> AiAiUserSettingsWrapper AiSettingsSetUser (Dictionary<string, Object> requestBody)
+> AiUserSettingsWrapper AiSettingsSetUser (Dictionary<string, Object> aiSettingsSetUserRequest)
 
 Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
 
@@ -322,11 +530,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) | The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed. |  |
+| **aiSettingsSetUserRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed. |  |
 
 ### Return type
 
-[**AiAiUserSettingsWrapper**](AiAiUserSettingsWrapper.md)
+[**AiUserSettingsWrapper**](AiUserSettingsWrapper.md)
 
 ### Authorization
 
@@ -360,12 +568,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.
+            var aiSettingsSetUserRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.
 
             try
             {
                 // Update user AI settings
-                AiAiUserSettingsWrapper result = apiInstance.AiSettingsSetUser(requestBody);
+                AiUserSettingsWrapper result = apiInstance.AiSettingsSetUser(aiSettingsSetUserRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -386,7 +594,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update user AI settings
-    ApiResponse<AiAiUserSettingsWrapper> response = apiInstance.AiSettingsSetUserWithHttpInfo(requestBody);
+    ApiResponse<AiUserSettingsWrapper> response = apiInstance.AiSettingsSetUserWithHttpInfo(aiSettingsSetUserRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -410,7 +618,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The calling user's stored AI settings. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -418,7 +626,7 @@ catch (ApiException e)
 
 <a id="aisettingssetvectorization"></a>
 # **AiSettingsSetVectorization**
-> AiVectorizationSettingsWrapper AiSettingsSetVectorization (Dictionary<string, Object> requestBody)
+> AiVectorizationSettingsWrapper AiSettingsSetVectorization (Dictionary<string, Object> aiSettingsSetVectorizationRequest)
 
 Replaces the portal's vectorization settings and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value is reported with that service's own verdict rather than being checked here. Changing the embedding provider does not re-index anything already indexed - start that separately with `POST api/2.0/ai/vectorization/tasks`. This is a portal-wide setting and requires the permissions the AI service demands for it.
 
@@ -428,7 +636,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) | The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed. |  |
+| **aiSettingsSetVectorizationRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed. |  |
 
 ### Return type
 
@@ -466,12 +674,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.
+            var aiSettingsSetVectorizationRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | The portal's vectorization settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/vectorization` and send it back changed.
 
             try
             {
                 // Update vectorization settings
-                AiVectorizationSettingsWrapper result = apiInstance.AiSettingsSetVectorization(requestBody);
+                AiVectorizationSettingsWrapper result = apiInstance.AiSettingsSetVectorization(aiSettingsSetVectorizationRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -492,7 +700,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update vectorization settings
-    ApiResponse<AiVectorizationSettingsWrapper> response = apiInstance.AiSettingsSetVectorizationWithHttpInfo(requestBody);
+    ApiResponse<AiVectorizationSettingsWrapper> response = apiInstance.AiSettingsSetVectorizationWithHttpInfo(aiSettingsSetVectorizationRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -516,7 +724,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The stored vectorization settings. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

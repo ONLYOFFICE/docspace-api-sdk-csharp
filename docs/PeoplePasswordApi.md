@@ -4,12 +4,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeUserPassword**](#changeuserpassword) | **PUT** /api/2.0/people/{userid}/password | Change a user password |
+| [**ChangeUserPassword**](#changeuserpassword) | **PUT** /api/2.0/people/{userId}/password | Change a user password |
 | [**SendUserPassword**](#senduserpassword) | **POST** /api/2.0/people/password | Remind a user password |
 
 <a id="changeuserpassword"></a>
 # **ChangeUserPassword**
-> EmployeeFullWrapper ChangeUserPassword (Guid userid, ChangePasswordRequest changePasswordRequest)
+> EmployeeFullWrapper ChangeUserPassword (Guid userId, ChangePasswordRequest changePasswordRequest)
 
 Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
 
@@ -19,7 +19,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **Guid** | The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. |  |
+| **userId** | **Guid** | The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. |  |
 | **changePasswordRequest** | [**ChangePasswordRequest**](ChangePasswordRequest.md) | The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed. |  |
 
 ### Return type
@@ -67,13 +67,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PasswordApi(httpClient, config, httpClientHandler);
-            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.
             var changePasswordRequest = new ChangePasswordRequest(); // ChangePasswordRequest | The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.
 
             try
             {
                 // Change a user password
-                EmployeeFullWrapper result = apiInstance.ChangeUserPassword(userid, changePasswordRequest);
+                EmployeeFullWrapper result = apiInstance.ChangeUserPassword(userId, changePasswordRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -94,7 +94,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Change a user password
-    ApiResponse<EmployeeFullWrapper> response = apiInstance.ChangeUserPasswordWithHttpInfo(userid, changePasswordRequest);
+    ApiResponse<EmployeeFullWrapper> response = apiInstance.ChangeUserPasswordWithHttpInfo(userId, changePasswordRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -132,7 +132,7 @@ catch (ApiException e)
 # **SendUserPassword**
 > StringWrapper SendUserPassword (EmailMemberRequestDto? emailMemberRequestDto = null)
 
-Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/).
 
@@ -236,10 +236,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The message stating that the recovery link was sent to the address |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The CAPTCHA was not passed, or an authenticated caller may not ask for that account |  -  |
+| **400** | The request body cannot be read or has no `email`, or the email is not a valid address or is longer than 255 characters |  -  |
+| **403** | The CAPTCHA was not passed, an authenticated caller may not ask for that account, or, for an authenticated caller, the account does not exist, is disabled, comes from LDAP or SSO, or has an auto-generated email |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

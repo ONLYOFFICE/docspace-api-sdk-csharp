@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAttachmentsSaveFilesManyRequest
     /// </summary>
-    [DataContract(Name = "aiAttachmentsSaveFilesMany_request")]
+    [DataContract(Name = "AiAttachmentsSaveFilesManyRequest")]
     public partial class AiAttachmentsSaveFilesManyRequest : IValidatableObject
     {
     

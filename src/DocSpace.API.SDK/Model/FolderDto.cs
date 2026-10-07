@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="watermark">The watermark stamped over the documents of the room while they are viewed and printed. Null when the room has  no watermark, and for every folder that is not a room..</param>
         /// <param name="type">The part the folder plays inside its room: one of the service folders of the form-filling flow, or the  knowledge and result storages of an AI room. It stays null for an ordinary folder and for the room itself, so  it does not describe folders in general..</param>
         /// <param name="inRoom">Whether the caller holds the room through an invitation of their own: true for the account that created it and  for a member invited personally, false when the access comes from a group they belong to, and null for a  folder that is not a room..</param>
-        /// <param name="quotaLimit">How much space the files of the room may take, in bytes. It is the limit set on this room, or the portal  default for rooms when none was set. Null when the tariff of the portal does not count room statistics, when  room quotas are switched off, when the room lies in the archive or the trash, or when the caller may only read  it..</param>
+        /// <param name="quotaLimit">How much space the files of the room may take, in bytes. It is the limit set on this room, or the portal  default for rooms when none was set. Null when the tariff of the portal does not count room statistics, when  room quotas are switched off, when the room lies in the archive or the trash, or when the role of the caller  in the room carries no editing rights - a viewer, a commenter, a reviewer and a form filler do not see the  figure, a room manager, a content creator and an editor do..</param>
         /// <param name="isCustomQuota">Whether &#x60;quotaLimit&#x60; is a limit set on this room (true) or the portal default for rooms (false). Null exactly  when &#x60;quotaLimit&#x60; is null..</param>
         /// <param name="usedSpace">How much the files of the room take, in bytes, as of the last time the counter was recomputed. The counter is  refreshed when a file operation finishes, so a read right after an upload or a deletion can still report the  previous figure. Null for a folder that is not a room..</param>
         /// <param name="passwordProtected">Whether the sharing link the folder was opened through asks for a password that has not been entered yet.  While it is true the contents stay unreadable; send the password to &#x60;POST api/2.0/files/share/{key}/password&#x60;  first. Null when the folder was not reached through a link..</param>
@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="saveFormAsXLSX">Whether the answers collected in this form-filling room are also gathered into a spreadsheet next to the  completed copies. Filled in for form-filling rooms only..</param>
         /// <param name="sendFormToExternalDB">Whether the answers collected in this form-filling room are also pushed into the external database configured  for the portal. Filled in for form-filling rooms only..</param>
         /// <param name="originalFormId">The form the completed copies in this folder were filled from, taken from the copy submitted last. Null while  the folder holds no completed copy, and for every folder that does not collect them..</param>
-        public FolderDto(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettingsDto chatSettings = default, RoomType? rootRoomType = default, bool? saveFormAsXLSX = default, bool? sendFormToExternalDB = default, int? originalFormId = default)
+        public FolderDto(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, LogoDto logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettingsDto chatSettings = default, RoomType? rootRoomType = default, bool? saveFormAsXLSX = default, bool? sendFormToExternalDB = default, int? originalFormId = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
@@ -170,7 +170,7 @@ namespace DocSpace.API.SDK.Model
         /// The addresses of the room logo in four sizes, together with the colour and the built-in cover that are drawn  when no logo was uploaded. A room without a logo answers with four empty addresses rather than with null, and  the field is null for a folder that is not a room.
         /// </summary>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
-        public Logo Logo { get; set; }
+        public LogoDto Logo { get; set; }
 
         /// <summary>
         /// Whether the caller pinned the room to the top of their own room list. Pinning is personal and is lost when the  room is archived.
@@ -220,7 +220,7 @@ namespace DocSpace.API.SDK.Model
         public bool? InRoom { get; set; }
 
         /// <summary>
-        /// How much space the files of the room may take, in bytes. It is the limit set on this room, or the portal  default for rooms when none was set. Null when the tariff of the portal does not count room statistics, when  room quotas are switched off, when the room lies in the archive or the trash, or when the caller may only read  it.
+        /// How much space the files of the room may take, in bytes. It is the limit set on this room, or the portal  default for rooms when none was set. Null when the tariff of the portal does not count room statistics, when  room quotas are switched off, when the room lies in the archive or the trash, or when the role of the caller  in the room carries no editing rights - a viewer, a commenter, a reviewer and a form filler do not see the  figure, a room manager, a content creator and an editor do.
         /// </summary>
         /// <example>1073741824</example>
         [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]

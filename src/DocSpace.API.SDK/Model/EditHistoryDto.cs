@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="changesHistory">The change record the editing service stored for this revision, as the raw JSON it was written in, and empty  for a revision the portal has no record for - one uploaded as a whole file, for instance. &#x60;changes&#x60; is the  same record already parsed..</param>
         /// <param name="changes">The single changes this revision introduced - who made each of them and when - taken from the stored change  record. It comes back empty both for a revision whose changes were never recorded and for one whose record is  in a format the portal no longer reads, so an empty list is not proof that nothing changed..</param>
         /// <param name="serverVersion">The build of the editing service that wrote the change record of this revision, taken from the record itself;  empty when the portal holds no record for the revision..</param>
-        public EditHistoryDto(int id = default, string key = default, int version = default, int versionGroup = default, EditHistoryAuthor user = default, ApiDateTime created = default, string changesHistory = default, List<EditHistoryChangesWrapper> changes = default, string serverVersion = default)
+        public EditHistoryDto(int id = default, string key = default, int version = default, int versionGroup = default, EditHistoryAuthorDto user = default, ApiDateTime created = default, string changesHistory = default, List<EditHistoryChangesDto> changes = default, string serverVersion = default)
         {
             this.Id = id;
             this.Key = key;
@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /// The account that saved the revision. A revision saved by an account that no longer exists, or through an  anonymous link, is reported as a guest.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
-        public EditHistoryAuthor User { get; set; }
+        public EditHistoryAuthorDto User { get; set; }
 
         /// <summary>
         /// When the revision was saved, written with the offset of the portal&#39;s time zone rather than as plain UTC. The  times of one history are consistent with each other, so order and display the revisions by them.
@@ -115,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>[{"user":{"id":"123","name":"John Doe"},"created":"2021-01-01T00:00:00Z"}]</example>
         [DataMember(Name = "changes", EmitDefaultValue = true)]
-        public List<EditHistoryChangesWrapper> Changes { get; set; }
+        public List<EditHistoryChangesDto> Changes { get; set; }
 
         /// <summary>
         /// The build of the editing service that wrote the change record of this revision, taken from the record itself;  empty when the portal holds no record for the revision.

@@ -105,10 +105,10 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>AppWrapper</returns>
-        AppWrapper SetEnabled(string id, SetAppEnabledBody setAppEnabledBody);
+        AppWrapper SetEnabled(string id, SetAppEnabledRequest setAppEnabledRequest);
 
         /// <summary>
         /// Enable or disable an app
@@ -118,10 +118,10 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>ApiResponse of AppWrapper</returns>
-        ApiResponse<AppWrapper> SetEnabledWithHttpInfo(string id, SetAppEnabledBody setAppEnabledBody);
+        ApiResponse<AppWrapper> SetEnabledWithHttpInfo(string id, SetAppEnabledRequest setAppEnabledRequest);
         /// <summary>
         /// Save app settings
         /// </summary>
@@ -130,10 +130,10 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>AppWrapper</returns>
-        AppWrapper SetSettings(string id, SetAppSettingsBody setAppSettingsBody);
+        AppWrapper SetSettings(string id, SetAppSettingsRequest setAppSettingsRequest);
 
         /// <summary>
         /// Save app settings
@@ -143,10 +143,10 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>ApiResponse of AppWrapper</returns>
-        ApiResponse<AppWrapper> SetSettingsWithHttpInfo(string id, SetAppSettingsBody setAppSettingsBody);
+        ApiResponse<AppWrapper> SetSettingsWithHttpInfo(string id, SetAppSettingsRequest setAppSettingsRequest);
         #endregion Synchronous Operations
     }
 
@@ -237,11 +237,11 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>Task of AppWrapper</returns>
-        Task<AppWrapper> SetEnabledAsync(string id, SetAppEnabledBody setAppEnabledBody, CancellationToken cancellationToken = default);
+        Task<AppWrapper> SetEnabledAsync(string id, SetAppEnabledRequest setAppEnabledRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Enable or disable an app
@@ -251,11 +251,11 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>Task of ApiResponse (AppWrapper)</returns>
-        Task<ApiResponse<AppWrapper>> SetEnabledWithHttpInfoAsync(string id, SetAppEnabledBody setAppEnabledBody, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AppWrapper>> SetEnabledWithHttpInfoAsync(string id, SetAppEnabledRequest setAppEnabledRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save app settings
         /// </summary>
@@ -264,11 +264,11 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>Task of AppWrapper</returns>
-        Task<AppWrapper> SetSettingsAsync(string id, SetAppSettingsBody setAppSettingsBody, CancellationToken cancellationToken = default);
+        Task<AppWrapper> SetSettingsAsync(string id, SetAppSettingsRequest setAppSettingsRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save app settings
@@ -278,11 +278,11 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AppWrapper)</returns>
-        Task<ApiResponse<AppWrapper>> SetSettingsWithHttpInfoAsync(string id, SetAppSettingsBody setAppSettingsBody, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AppWrapper>> SetSettingsWithHttpInfoAsync(string id, SetAppSettingsRequest setAppSettingsRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1062,12 +1062,12 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>AppWrapper</returns>
-        public AppWrapper SetEnabled(string id, SetAppEnabledBody setAppEnabledBody)
+        public AppWrapper SetEnabled(string id, SetAppEnabledRequest setAppEnabledRequest)
         {
-            var localVarResponse = SetEnabledWithHttpInfo(id, setAppEnabledBody);
+            var localVarResponse = SetEnabledWithHttpInfo(id, setAppEnabledRequest);
             return localVarResponse.Data;
         }
 
@@ -1079,18 +1079,18 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>ApiResponse of AppWrapper</returns>
-        public ApiResponse<AppWrapper> SetEnabledWithHttpInfo(string id, SetAppEnabledBody setAppEnabledBody)
+        public ApiResponse<AppWrapper> SetEnabledWithHttpInfo(string id, SetAppEnabledRequest setAppEnabledRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling AppsApi->SetEnabled");
 
-            // verify the required parameter 'setAppEnabledBody' is set
-            if (setAppEnabledBody == null)
-                throw new ApiException(400, "Missing required parameter 'setAppEnabledBody' when calling AppsApi->SetEnabled");
+            // verify the required parameter 'setAppEnabledRequest' is set
+            if (setAppEnabledRequest == null)
+                throw new ApiException(400, "Missing required parameter 'setAppEnabledRequest' when calling AppsApi->SetEnabled");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1106,7 +1106,7 @@ namespace DocSpace.API.SDK.Api.Apps
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (setAppEnabledBody != null) localVarRequestOptions.Data = setAppEnabledBody;
+            if (setAppEnabledRequest != null) localVarRequestOptions.Data = setAppEnabledRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1162,13 +1162,13 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>Task of AppWrapper</returns>
-        public async Task<AppWrapper> SetEnabledAsync(string id, SetAppEnabledBody setAppEnabledBody, CancellationToken cancellationToken = default)
+        public async Task<AppWrapper> SetEnabledAsync(string id, SetAppEnabledRequest setAppEnabledRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetEnabledWithHttpInfoAsync(id, setAppEnabledBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetEnabledWithHttpInfoAsync(id, setAppEnabledRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1180,19 +1180,19 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.</param>
-        /// <param name="setAppEnabledBody">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
+        /// <param name="setAppEnabledRequest">The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-enabled/">REST API Reference for SetEnabled Operation</seealso>
         /// <returns>Task of ApiResponse (AppWrapper)</returns>
-        public async Task<ApiResponse<AppWrapper>> SetEnabledWithHttpInfoAsync(string id, SetAppEnabledBody setAppEnabledBody, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AppWrapper>> SetEnabledWithHttpInfoAsync(string id, SetAppEnabledRequest setAppEnabledRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling AppsApi->SetEnabled");
 
-            // verify the required parameter 'setAppEnabledBody' is set
-            if (setAppEnabledBody == null)
-                throw new ApiException(400, "Missing required parameter 'setAppEnabledBody' when calling AppsApi->SetEnabled");
+            // verify the required parameter 'setAppEnabledRequest' is set
+            if (setAppEnabledRequest == null)
+                throw new ApiException(400, "Missing required parameter 'setAppEnabledRequest' when calling AppsApi->SetEnabled");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1209,7 +1209,7 @@ namespace DocSpace.API.SDK.Api.Apps
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (setAppEnabledBody != null) localVarRequestOptions.Data = setAppEnabledBody;
+            if (setAppEnabledRequest != null) localVarRequestOptions.Data = setAppEnabledRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1266,12 +1266,12 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>AppWrapper</returns>
-        public AppWrapper SetSettings(string id, SetAppSettingsBody setAppSettingsBody)
+        public AppWrapper SetSettings(string id, SetAppSettingsRequest setAppSettingsRequest)
         {
-            var localVarResponse = SetSettingsWithHttpInfo(id, setAppSettingsBody);
+            var localVarResponse = SetSettingsWithHttpInfo(id, setAppSettingsRequest);
             return localVarResponse.Data;
         }
 
@@ -1283,18 +1283,18 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>ApiResponse of AppWrapper</returns>
-        public ApiResponse<AppWrapper> SetSettingsWithHttpInfo(string id, SetAppSettingsBody setAppSettingsBody)
+        public ApiResponse<AppWrapper> SetSettingsWithHttpInfo(string id, SetAppSettingsRequest setAppSettingsRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling AppsApi->SetSettings");
 
-            // verify the required parameter 'setAppSettingsBody' is set
-            if (setAppSettingsBody == null)
-                throw new ApiException(400, "Missing required parameter 'setAppSettingsBody' when calling AppsApi->SetSettings");
+            // verify the required parameter 'setAppSettingsRequest' is set
+            if (setAppSettingsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'setAppSettingsRequest' when calling AppsApi->SetSettings");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1310,7 +1310,7 @@ namespace DocSpace.API.SDK.Api.Apps
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (setAppSettingsBody != null) localVarRequestOptions.Data = setAppSettingsBody;
+            if (setAppSettingsRequest != null) localVarRequestOptions.Data = setAppSettingsRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1366,13 +1366,13 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>Task of AppWrapper</returns>
-        public async Task<AppWrapper> SetSettingsAsync(string id, SetAppSettingsBody setAppSettingsBody, CancellationToken cancellationToken = default)
+        public async Task<AppWrapper> SetSettingsAsync(string id, SetAppSettingsRequest setAppSettingsRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetSettingsWithHttpInfoAsync(id, setAppSettingsBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetSettingsWithHttpInfoAsync(id, setAppSettingsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1384,19 +1384,19 @@ namespace DocSpace.API.SDK.Api.Apps
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.</param>
-        /// <param name="setAppSettingsBody">The configuration to store for this portal, replacing whatever was stored before.</param>
+        /// <param name="setAppSettingsRequest">The configuration to store for this portal, replacing whatever was stored before.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-settings/">REST API Reference for SetSettings Operation</seealso>
         /// <returns>Task of ApiResponse (AppWrapper)</returns>
-        public async Task<ApiResponse<AppWrapper>> SetSettingsWithHttpInfoAsync(string id, SetAppSettingsBody setAppSettingsBody, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AppWrapper>> SetSettingsWithHttpInfoAsync(string id, SetAppSettingsRequest setAppSettingsRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling AppsApi->SetSettings");
 
-            // verify the required parameter 'setAppSettingsBody' is set
-            if (setAppSettingsBody == null)
-                throw new ApiException(400, "Missing required parameter 'setAppSettingsBody' when calling AppsApi->SetSettings");
+            // verify the required parameter 'setAppSettingsRequest' is set
+            if (setAppSettingsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'setAppSettingsRequest' when calling AppsApi->SetSettings");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1413,7 +1413,7 @@ namespace DocSpace.API.SDK.Api.Apps
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (setAppSettingsBody != null) localVarRequestOptions.Data = setAppSettingsBody;
+            if (setAppSettingsRequest != null) localVarRequestOptions.Data = setAppSettingsRequest;
 
             // authentication (Basic) required
             // http basic authentication required

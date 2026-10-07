@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="provider">Provider configuration at the time of last message. Used for thread-level provider display..</param>
         /// <param name="model">Model info at the time of last message..</param>
         /// <param name="profileId">ID of the profile used for this thread. Links to &#x60;Profile.id&#x60;..</param>
-        public AiThread(string threadId = default, string title = default, decimal lastEditDate = default, AiTProvider provider = default, AiModel model = default, string profileId = default)
+        public AiThread(string threadId = default, string title = default, decimal lastEditDate = default, AiProvider provider = default, AiModel model = default, string profileId = default)
         {
             // to ensure "threadId" is required (not null)
             if (threadId == null)
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// Provider configuration at the time of last message. Used for thread-level provider display.
         /// </summary>
         [DataMember(Name = "provider", EmitDefaultValue = false)]
-        public AiTProvider Provider { get; set; }
+        public AiProvider Provider { get; set; }
 
         /// <summary>
         /// Model info at the time of last message.

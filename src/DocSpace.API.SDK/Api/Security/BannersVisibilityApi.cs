@@ -37,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>TenantBannerSettingsWrapper</returns>
-        TenantBannerSettingsWrapper SetTenantBannerSettings(TenantBannerSettingsDto? tenantBannerSettingsDto = default);
+        TenantBannerSettingsWrapper SetTenantBannerSettings(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default);
 
         /// <summary>
         /// Set the banners visibility
@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>ApiResponse of TenantBannerSettingsWrapper</returns>
-        ApiResponse<TenantBannerSettingsWrapper> SetTenantBannerSettingsWithHttpInfo(TenantBannerSettingsDto? tenantBannerSettingsDto = default);
+        ApiResponse<TenantBannerSettingsWrapper> SetTenantBannerSettingsWithHttpInfo(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -69,11 +69,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of TenantBannerSettingsWrapper</returns>
-        Task<TenantBannerSettingsWrapper> SetTenantBannerSettingsAsync(TenantBannerSettingsDto? tenantBannerSettingsDto = default, CancellationToken cancellationToken = default);
+        Task<TenantBannerSettingsWrapper> SetTenantBannerSettingsAsync(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set the banners visibility
@@ -82,11 +82,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantBannerSettingsWrapper)</returns>
-        Task<ApiResponse<TenantBannerSettingsWrapper>> SetTenantBannerSettingsWithHttpInfoAsync(TenantBannerSettingsDto? tenantBannerSettingsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantBannerSettingsWrapper>> SetTenantBannerSettingsWithHttpInfoAsync(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -309,12 +309,12 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>TenantBannerSettingsWrapper</returns>
-        public TenantBannerSettingsWrapper SetTenantBannerSettings(TenantBannerSettingsDto? tenantBannerSettingsDto = default)
+        public TenantBannerSettingsWrapper SetTenantBannerSettings(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default)
         {
-            var localVarResponse = SetTenantBannerSettingsWithHttpInfo(tenantBannerSettingsDto);
+            var localVarResponse = SetTenantBannerSettingsWithHttpInfo(tenantBannerSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -325,10 +325,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>ApiResponse of TenantBannerSettingsWrapper</returns>
-        public ApiResponse<TenantBannerSettingsWrapper> SetTenantBannerSettingsWithHttpInfo(TenantBannerSettingsDto? tenantBannerSettingsDto = default)
+        public ApiResponse<TenantBannerSettingsWrapper> SetTenantBannerSettingsWithHttpInfo(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -343,7 +343,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantBannerSettingsDto != null) localVarRequestOptions.Data = tenantBannerSettingsDto;
+            if (tenantBannerSettingsRequestDto != null) localVarRequestOptions.Data = tenantBannerSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -398,13 +398,13 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of TenantBannerSettingsWrapper</returns>
-        public async Task<TenantBannerSettingsWrapper> SetTenantBannerSettingsAsync(TenantBannerSettingsDto? tenantBannerSettingsDto = default, CancellationToken cancellationToken = default)
+        public async Task<TenantBannerSettingsWrapper> SetTenantBannerSettingsAsync(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetTenantBannerSettingsWithHttpInfoAsync(tenantBannerSettingsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetTenantBannerSettingsWithHttpInfoAsync(tenantBannerSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -415,11 +415,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Sets whether the portal's promotional banners are hidden for every user. Available only on an Enterprise  license; every other plan is refused regardless of the caller's role. Requires Owner or DocSpaceAdmin (the  EditPortalSettings permission). The flag only takes effect on a Standalone (self-hosted) installation; on  SaaS, banners are always shown no matter what is saved here. This is a mutating, idempotent, portal-wide call:  it applies to every user on the tenant immediately. It returns the saved setting; read the current value at  any time from `GET api/2.0/settings/banner`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">Whether the portal promotional banners are hidden. (optional)</param>
+        /// <param name="tenantBannerSettingsRequestDto">Whether the portal promotional banners are hidden. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantBannerSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantBannerSettingsWrapper>> SetTenantBannerSettingsWithHttpInfoAsync(TenantBannerSettingsDto? tenantBannerSettingsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantBannerSettingsWrapper>> SetTenantBannerSettingsWithHttpInfoAsync(TenantBannerSettingsRequestDto? tenantBannerSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -435,7 +435,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantBannerSettingsDto != null) localVarRequestOptions.Data = tenantBannerSettingsDto;
+            if (tenantBannerSettingsRequestDto != null) localVarRequestOptions.Data = tenantBannerSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

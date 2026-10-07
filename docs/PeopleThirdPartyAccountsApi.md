@@ -235,11 +235,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The third-party identity is linked to the calling profile. No content is returned |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The third-party identity is already linked to a portal profile |  -  |
+| **400** | The third-party identity is already linked to a portal profile, or `serializedProfile` is missing, empty or was issued by another portal |  -  |
 | **403** | The portal tariff does not include third-party authorization |  -  |
+| **500** | The `serializedProfile` value is not one the login flow produced, or the provider authorization ended with an error other than a cancellation |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -353,10 +353,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The profile linked to the third-party identity, or an empty body when the authorization was cancelled or the profile could not be created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `key` or `serializedProfile`, or `serializedProfile` is empty or was issued by another portal |  -  |
 | **403** | The invitation link is invalid or has expired, or the email already belongs to a profile that has not been activated yet |  -  |
+| **500** | The `serializedProfile` value is not one the login flow produced, the provider authorization ended with an error other than a cancellation, or the identity has no email and the provider cannot generate one |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The company white label settings wrapper.
+    /// The successful API response containing the CompanyWhiteLabelSettingsDto object.
     /// </summary>
     [DataContract(Name = "CompanyWhiteLabelSettingsWrapper")]
     public partial class CompanyWhiteLabelSettingsWrapper : IValidatableObject
@@ -41,17 +41,49 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="settings">The company white label settings..</param>
-        public CompanyWhiteLabelSettingsWrapper(CompanyWhiteLabelSettings settings = default)
+        /// <param name="response">The CompanyWhiteLabelSettingsDto object returned by the operation..</param>
+        /// <param name="count">The total number of items in the response.</param>
+        /// <param name="links">List of links related to the response.</param>
+        /// <param name="status">HTTP status code of the response.</param>
+        /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
+        public CompanyWhiteLabelSettingsWrapper(CompanyWhiteLabelSettingsDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
-            this.Settings = settings;
+            this.Response = response;
+            this.Count = count;
+            this.Links = links;
+            this.Status = status;
+            this.StatusCode = statusCode;
         }
 
         /// <summary>
-        /// The company white label settings.
+        /// The CompanyWhiteLabelSettingsDto object returned by the operation.
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
-        public CompanyWhiteLabelSettings Settings { get; set; }
+        [DataMember(Name = "response", EmitDefaultValue = false)]
+        public CompanyWhiteLabelSettingsDto Response { get; set; }
+
+        /// <summary>
+        /// The total number of items in the response
+        /// </summary>
+        [DataMember(Name = "count", EmitDefaultValue = false)]
+        public int Count { get; set; }
+
+        /// <summary>
+        /// List of links related to the response
+        /// </summary>
+        [DataMember(Name = "links", EmitDefaultValue = false)]
+        public List<GetPortalPrices200ResponseLinksInner> Links { get; set; }
+
+        /// <summary>
+        /// HTTP status code of the response
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public int Status { get; set; }
+
+        /// <summary>
+        /// HTTP status code of the response (duplicate of status)
+        /// </summary>
+        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
+        public int StatusCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,7 +93,11 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CompanyWhiteLabelSettingsWrapper {\n");
-            sb.Append("  Settings: ").Append(Settings).Append("\n");
+            sb.Append("  Response: ").Append(Response).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

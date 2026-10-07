@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsCreateRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsCreate_request")]
+    [DataContract(Name = "AiAgentsCreateRequest")]
     public partial class AiAgentsCreateRequest : IValidatableObject
     {
     

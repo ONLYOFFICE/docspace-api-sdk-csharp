@@ -37,11 +37,11 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        EmployeeFullWrapper ChangeUserEmail(Guid userid, ChangeEmailRequest changeEmailRequest);
+        EmployeeFullWrapper ChangeUserEmail(Guid userId, ChangeEmailRequest changeEmailRequest);
 
         /// <summary>
         /// Change a user email
@@ -50,16 +50,16 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        ApiResponse<EmployeeFullWrapper> ChangeUserEmailWithHttpInfo(Guid userid, ChangeEmailRequest changeEmailRequest);
+        ApiResponse<EmployeeFullWrapper> ChangeUserEmailWithHttpInfo(Guid userId, ChangeEmailRequest changeEmailRequest);
         /// <summary>
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
@@ -94,12 +94,12 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        Task<EmployeeFullWrapper> ChangeUserEmailAsync(Guid userid, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default);
+        Task<EmployeeFullWrapper> ChangeUserEmailAsync(Guid userId, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change a user email
@@ -108,17 +108,17 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        Task<ApiResponse<EmployeeFullWrapper>> ChangeUserEmailWithHttpInfoAsync(Guid userid, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullWrapper>> ChangeUserEmailWithHttpInfoAsync(Guid userId, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
@@ -361,13 +361,13 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        public EmployeeFullWrapper ChangeUserEmail(Guid userid, ChangeEmailRequest changeEmailRequest)
+        public EmployeeFullWrapper ChangeUserEmail(Guid userId, ChangeEmailRequest changeEmailRequest)
         {
-            var localVarResponse = ChangeUserEmailWithHttpInfo(userid, changeEmailRequest);
+            var localVarResponse = ChangeUserEmailWithHttpInfo(userId, changeEmailRequest);
             return localVarResponse.Data;
         }
 
@@ -378,11 +378,11 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public ApiResponse<EmployeeFullWrapper> ChangeUserEmailWithHttpInfo(Guid userid, ChangeEmailRequest changeEmailRequest)
+        public ApiResponse<EmployeeFullWrapper> ChangeUserEmailWithHttpInfo(Guid userId, ChangeEmailRequest changeEmailRequest)
         {
             // verify the required parameter 'changeEmailRequest' is set
             if (changeEmailRequest == null)
@@ -401,7 +401,7 @@ namespace DocSpace.API.SDK.Api.People
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
             if (changeEmailRequest != null) localVarRequestOptions.Data = changeEmailRequest;
 
             // authentication (Basic) required
@@ -436,7 +436,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<EmployeeFullWrapper>("/api/2.0/people/{userid}/email", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<EmployeeFullWrapper>("/api/2.0/people/{userId}/email", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -457,14 +457,14 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        public async Task<EmployeeFullWrapper> ChangeUserEmailAsync(Guid userid, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullWrapper> ChangeUserEmailAsync(Guid userId, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await ChangeUserEmailWithHttpInfoAsync(userid, changeEmailRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ChangeUserEmailWithHttpInfoAsync(userId, changeEmailRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -475,12 +475,12 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changeEmailRequest">The new address, in plain text or in the encrypted form the confirmation link carries.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-email/">REST API Reference for ChangeUserEmail Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullWrapper>> ChangeUserEmailWithHttpInfoAsync(Guid userid, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullWrapper>> ChangeUserEmailWithHttpInfoAsync(Guid userId, ChangeEmailRequest changeEmailRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'changeEmailRequest' is set
             if (changeEmailRequest == null)
@@ -500,7 +500,7 @@ namespace DocSpace.API.SDK.Api.People
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
             if (changeEmailRequest != null) localVarRequestOptions.Data = changeEmailRequest;
 
             // authentication (Basic) required
@@ -536,7 +536,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<EmployeeFullWrapper>("/api/2.0/people/{userid}/email", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<EmployeeFullWrapper>("/api/2.0/people/{userId}/email", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -554,7 +554,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
@@ -570,7 +570,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
@@ -643,7 +643,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
@@ -660,7 +660,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Send instructions to change email
         /// </summary>
         /// <remarks>
-        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+        /// Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>

@@ -1,0 +1,12 @@
+# DocSpace.API.SDK.Model.OrderByDto
+The sorting parameters.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**IsAsc** | **bool** | Specifies if the order is ascending. | [optional] 
+**Property** | **SortedByType** | The parameters by which the files will be sorted. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

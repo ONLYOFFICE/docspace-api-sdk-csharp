@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="date">When the event happened, written with the offset of the portal&#39;s time zone. (required).</param>
         /// <param name="data">The history data. Absent for actions that carry no payload of their own - changing a room&#39;s  logo, icon colour or cover, whose interpreter returns no data (see  &#x60;RoomLogoChangedInterpreter&#x60;). It used to be declared required, which put it in the  OpenAPI document&#39;s required list while the null-dropping serializer left it out of the  response, so a generated client threw on any history page holding one of those entries..</param>
         /// <param name="related">The records folded into this one because they belong to the same action, the separate files of one upload for  instance. It is empty when the record stands alone, and the records inside it carry no further nesting..</param>
-        public HistoryDto(int id = default, HistoryAction action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryData data = default, List<HistoryDto> related = default)
+        public HistoryDto(int id = default, HistoryActionDto action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryDataDto data = default, List<HistoryDto> related = default)
         {
             this.Id = id;
             // to ensure "action" is required (not null)
@@ -88,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /// What happened - the kind of event the record stands for, such as a file being uploaded, renamed, moved or  shared - with the key a client can key its own wording off.
         /// </summary>
         [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = true)]
-        public HistoryAction Action { get; set; }
+        public HistoryActionDto Action { get; set; }
 
         /// <summary>
         /// Who caused the event. For an event caused by a visitor following an external link only the name they gave is  filled in, the account fields staying empty.
@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /// The history data. Absent for actions that carry no payload of their own - changing a room&#39;s  logo, icon colour or cover, whose interpreter returns no data (see  &#x60;RoomLogoChangedInterpreter&#x60;). It used to be declared required, which put it in the  OpenAPI document&#39;s required list while the null-dropping serializer left it out of the  response, so a generated client threw on any history page holding one of those entries.
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public HistoryData Data { get; set; }
+        public HistoryDataDto Data { get; set; }
 
         /// <summary>
         /// The records folded into this one because they belong to the same action, the separate files of one upload for  instance. It is empty when the record stands alone, and the records inside it carry no further nesting.

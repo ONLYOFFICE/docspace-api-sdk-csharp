@@ -1,0 +1,142 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// Which SAML attributes fill the profile fields of a user who signs in through SSO.
+    /// </summary>
+    [DataContract(Name = "SsoFieldMappingDto")]
+    public partial class SsoFieldMappingDto : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SsoFieldMappingDto" /> class.
+        /// </summary>
+        /// <param name="firstName">The first name..</param>
+        /// <param name="lastName">The last name..</param>
+        /// <param name="email">The email address..</param>
+        /// <param name="title">The title..</param>
+        /// <param name="location">The location..</param>
+        /// <param name="phone">The phone number..</param>
+        public SsoFieldMappingDto(string firstName = default, string lastName = default, string email = default, string title = default, string location = default, string phone = default)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Email = email;
+            this.Title = title;
+            this.Location = location;
+            this.Phone = phone;
+        }
+
+        /// <summary>
+        /// The first name.
+        /// </summary>
+        /// <example>givenName</example>
+        [DataMember(Name = "firstName", EmitDefaultValue = true)]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// The last name.
+        /// </summary>
+        /// <example>sn</example>
+        [DataMember(Name = "lastName", EmitDefaultValue = true)]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// The email address.
+        /// </summary>
+        /// <example>sn@example.com</example>
+        [DataMember(Name = "email", EmitDefaultValue = true)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// The title.
+        /// </summary>
+        /// <example>SN</example>
+        [DataMember(Name = "title", EmitDefaultValue = true)]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// The location.
+        /// </summary>
+        /// <example>Location</example>
+        [DataMember(Name = "location", EmitDefaultValue = true)]
+        public string Location { get; set; }
+
+        /// <summary>
+        /// The phone number.
+        /// </summary>
+        /// <example>+14155552671</example>
+        [DataMember(Name = "phone", EmitDefaultValue = true)]
+        public string Phone { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class SsoFieldMappingDto {\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  Phone: ").Append(Phone).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

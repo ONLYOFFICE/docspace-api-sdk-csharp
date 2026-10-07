@@ -40,8 +40,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        STRINGArrayWrapper CheckUpload(int folderId, CheckUploadRequest checkUploadRequest);
+        /// <returns>StringArrayWrapper</returns>
+        StringArrayWrapper CheckUpload(int folderId, CheckUploadRequest checkUploadRequest);
 
         /// <summary>
         /// Check for upload conflicts
@@ -53,8 +53,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest checkUploadRequest);
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        ApiResponse<StringArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest checkUploadRequest);
         /// <summary>
         /// Check for upload conflicts (third-party storage)
         /// </summary>
@@ -65,8 +65,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        STRINGArrayWrapper CheckUpload(string folderId, CheckUploadRequest checkUploadRequest);
+        /// <returns>StringArrayWrapper</returns>
+        StringArrayWrapper CheckUpload(string folderId, CheckUploadRequest checkUploadRequest);
 
         /// <summary>
         /// Check for upload conflicts (third-party storage)
@@ -78,8 +78,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(string folderId, CheckUploadRequest checkUploadRequest);
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        ApiResponse<StringArrayWrapper> CheckUploadWithHttpInfo(string folderId, CheckUploadRequest checkUploadRequest);
         /// <summary>
         /// Create a folder
         /// </summary>
@@ -88,10 +88,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>FolderWrapper</returns>
-        FolderWrapper CreateFolder(int folderId, CreateFolder createFolder);
+        FolderWrapper CreateFolder(int folderId, CreateFolderRequest createFolderRequest);
 
         /// <summary>
         /// Create a folder
@@ -101,10 +101,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ApiResponse of FolderWrapper</returns>
-        ApiResponse<FolderWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolder createFolder);
+        ApiResponse<FolderWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolderRequest createFolderRequest);
         /// <summary>
         /// Create a folder (third-party storage)
         /// </summary>
@@ -113,10 +113,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ThirdPartyFolderWrapper</returns>
-        ThirdPartyFolderWrapper CreateFolder(string folderId, CreateFolder createFolder);
+        ThirdPartyFolderWrapper CreateFolder(string folderId, CreateFolderRequest createFolderRequest);
 
         /// <summary>
         /// Create a folder (third-party storage)
@@ -126,10 +126,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
-        ApiResponse<ThirdPartyFolderWrapper> CreateFolderWithHttpInfo(string folderId, CreateFolder createFolder);
+        ApiResponse<ThirdPartyFolderWrapper> CreateFolderWithHttpInfo(string folderId, CreateFolderRequest createFolderRequest);
         /// <summary>
         /// Create the folder primary external link
         /// </summary>
@@ -184,11 +184,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/">REST API Reference for CreateReportFolderHistory Operation</seealso>
@@ -199,11 +199,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/">REST API Reference for CreateReportFolderHistory Operation</seealso>
@@ -217,10 +217,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolder deleteFolder);
+        FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolderRequest deleteFolderRequest);
 
         /// <summary>
         /// Delete a folder
@@ -230,10 +230,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolder deleteFolder);
+        ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolderRequest deleteFolderRequest);
         /// <summary>
         /// Delete a folder (third-party storage)
         /// </summary>
@@ -242,10 +242,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper DeleteFolder(string folderId, DeleteFolder deleteFolder);
+        FileOperationArrayWrapper DeleteFolder(string folderId, DeleteFolderRequest deleteFolderRequest);
 
         /// <summary>
         /// Delete a folder (third-party storage)
@@ -255,10 +255,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(string folderId, DeleteFolder deleteFolder);
+        ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(string folderId, DeleteFolderRequest deleteFolderRequest);
         /// <summary>
         /// Generate XLSX report by folder
         /// </summary>
@@ -289,6 +289,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -298,7 +300,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        FolderContentWrapper GetFavoritesFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentWrapper GetFavoritesFolder(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// Get the Favorites section
@@ -307,6 +309,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -316,7 +320,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        ApiResponse<FolderContentWrapper> GetFavoritesFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentWrapper> GetFavoritesFolderWithHttpInfo(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// Get used space of files
         /// </summary>
@@ -387,9 +391,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        FolderContentWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
+        FolderContentWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default);
 
         /// <summary>
         /// Get a folder by ID
@@ -417,9 +423,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        ApiResponse<FolderContentWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
+        ApiResponse<FolderContentWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default);
         /// <summary>
         /// Get a folder by ID (third-party storage)
         /// </summary>
@@ -446,9 +454,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ThirdPartyFolderContentWrapper</returns>
-        ThirdPartyFolderContentWrapper GetFolderByFolderId(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
+        ThirdPartyFolderContentWrapper GetFolderByFolderId(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default);
 
         /// <summary>
         /// Get a folder by ID (third-party storage)
@@ -476,9 +486,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderContentWrapper</returns>
-        ApiResponse<ThirdPartyFolderContentWrapper> GetFolderByFolderIdWithHttpInfo(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
+        ApiResponse<ThirdPartyFolderContentWrapper> GetFolderByFolderIdWithHttpInfo(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default);
         /// <summary>
         /// Get folder history
         /// </summary>
@@ -884,9 +896,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        FolderContentWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default);
 
         /// <summary>
         /// Get the Recent section
@@ -906,14 +920,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        ApiResponse<FolderContentWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default);
         /// <summary>
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -925,7 +941,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -1153,10 +1169,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>FolderWrapper</returns>
-        FolderWrapper RenameFolder(int folderId, CreateFolder createFolder);
+        FolderWrapper RenameFolder(int folderId, CreateFolderRequest createFolderRequest);
 
         /// <summary>
         /// Rename a folder
@@ -1166,10 +1182,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ApiResponse of FolderWrapper</returns>
-        ApiResponse<FolderWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolder createFolder);
+        ApiResponse<FolderWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolderRequest createFolderRequest);
         /// <summary>
         /// Rename a folder (third-party storage)
         /// </summary>
@@ -1178,10 +1194,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ThirdPartyFolderWrapper</returns>
-        ThirdPartyFolderWrapper RenameFolder(string folderId, CreateFolder createFolder);
+        ThirdPartyFolderWrapper RenameFolder(string folderId, CreateFolderRequest createFolderRequest);
 
         /// <summary>
         /// Rename a folder (third-party storage)
@@ -1191,10 +1207,60 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
-        ApiResponse<ThirdPartyFolderWrapper> RenameFolderWithHttpInfo(string folderId, CreateFolder createFolder);
+        ApiResponse<ThirdPartyFolderWrapper> RenameFolderWithHttpInfo(string folderId, CreateFolderRequest createFolderRequest);
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        FolderContentWrapper SearchFolder(int folderId, FolderMetadataSearch folderMetadataSearch);
+
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        ApiResponse<FolderContentWrapper> SearchFolderWithHttpInfo(int folderId, FolderMetadataSearch folderMetadataSearch);
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>ThirdPartyFolderContentWrapper</returns>
+        ThirdPartyFolderContentWrapper SearchFolder(string folderId, FolderMetadataSearch folderMetadataSearch);
+
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>ApiResponse of ThirdPartyFolderContentWrapper</returns>
+        ApiResponse<ThirdPartyFolderContentWrapper> SearchFolderWithHttpInfo(string folderId, FolderMetadataSearch folderMetadataSearch);
         /// <summary>
         /// Set folder order
         /// </summary>
@@ -1299,7 +1365,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -1311,7 +1377,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -1429,8 +1495,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of StringArrayWrapper</returns>
+        Task<StringArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check for upload conflicts
@@ -1443,8 +1509,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        Task<ApiResponse<StringArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check for upload conflicts (third-party storage)
         /// </summary>
@@ -1456,8 +1522,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        Task<STRINGArrayWrapper> CheckUploadAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of StringArrayWrapper</returns>
+        Task<StringArrayWrapper> CheckUploadAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check for upload conflicts (third-party storage)
@@ -1470,8 +1536,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        Task<ApiResponse<StringArrayWrapper>> CheckUploadWithHttpInfoAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a folder
         /// </summary>
@@ -1480,11 +1546,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of FolderWrapper</returns>
-        Task<FolderWrapper> CreateFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<FolderWrapper> CreateFolderAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a folder
@@ -1494,11 +1560,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderWrapper)</returns>
-        Task<ApiResponse<FolderWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a folder (third-party storage)
         /// </summary>
@@ -1507,11 +1573,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ThirdPartyFolderWrapper</returns>
-        Task<ThirdPartyFolderWrapper> CreateFolderAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<ThirdPartyFolderWrapper> CreateFolderAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a folder (third-party storage)
@@ -1521,11 +1587,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
-        Task<ApiResponse<ThirdPartyFolderWrapper>> CreateFolderWithHttpInfoAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ThirdPartyFolderWrapper>> CreateFolderWithHttpInfoAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create the folder primary external link
         /// </summary>
@@ -1584,11 +1650,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1600,11 +1666,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1619,11 +1685,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default);
+        Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a folder
@@ -1633,11 +1699,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a folder (third-party storage)
         /// </summary>
@@ -1646,11 +1712,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        Task<FileOperationArrayWrapper> DeleteFolderAsync(string folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default);
+        Task<FileOperationArrayWrapper> DeleteFolderAsync(string folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a folder (third-party storage)
@@ -1660,11 +1726,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(string folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(string folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Generate XLSX report by folder
         /// </summary>
@@ -1697,6 +1763,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -1707,7 +1775,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        Task<FolderContentWrapper> GetFavoritesFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<FolderContentWrapper> GetFavoritesFolderAsync(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the Favorites section
@@ -1716,6 +1784,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -1726,7 +1796,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        Task<ApiResponse<FolderContentWrapper>> GetFavoritesFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentWrapper>> GetFavoritesFolderWithHttpInfoAsync(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get used space of files
         /// </summary>
@@ -1801,10 +1871,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        Task<FolderContentWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
+        Task<FolderContentWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a folder by ID
@@ -1832,10 +1904,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        Task<ApiResponse<FolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a folder by ID (third-party storage)
         /// </summary>
@@ -1862,10 +1936,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ThirdPartyFolderContentWrapper</returns>
-        Task<ThirdPartyFolderContentWrapper> GetFolderByFolderIdAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
+        Task<ThirdPartyFolderContentWrapper> GetFolderByFolderIdAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a folder by ID (third-party storage)
@@ -1893,10 +1969,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderContentWrapper)</returns>
-        Task<ApiResponse<ThirdPartyFolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ThirdPartyFolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder history
         /// </summary>
@@ -2332,10 +2410,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        Task<FolderContentWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<FolderContentWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the Recent section
@@ -2355,15 +2435,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        Task<ApiResponse<FolderContentWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -2376,7 +2458,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -2615,11 +2697,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of FolderWrapper</returns>
-        Task<FolderWrapper> RenameFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<FolderWrapper> RenameFolderAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rename a folder
@@ -2629,11 +2711,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderWrapper)</returns>
-        Task<ApiResponse<FolderWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Rename a folder (third-party storage)
         /// </summary>
@@ -2642,11 +2724,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ThirdPartyFolderWrapper</returns>
-        Task<ThirdPartyFolderWrapper> RenameFolderAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<ThirdPartyFolderWrapper> RenameFolderAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rename a folder (third-party storage)
@@ -2656,11 +2738,65 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
-        Task<ApiResponse<ThirdPartyFolderWrapper>> RenameFolderWithHttpInfoAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ThirdPartyFolderWrapper>> RenameFolderWithHttpInfoAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        Task<FolderContentWrapper> SearchFolderAsync(int folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        Task<ApiResponse<FolderContentWrapper>> SearchFolderWithHttpInfoAsync(int folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of ThirdPartyFolderContentWrapper</returns>
+        Task<ThirdPartyFolderContentWrapper> SearchFolderAsync(string folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (ThirdPartyFolderContentWrapper)</returns>
+        Task<ApiResponse<ThirdPartyFolderContentWrapper>> SearchFolderWithHttpInfoAsync(string folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set folder order
         /// </summary>
@@ -2773,7 +2909,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -2786,7 +2922,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -3140,8 +3276,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        public STRINGArrayWrapper CheckUpload(int folderId, CheckUploadRequest checkUploadRequest)
+        /// <returns>StringArrayWrapper</returns>
+        public StringArrayWrapper CheckUpload(int folderId, CheckUploadRequest checkUploadRequest)
         {
             var localVarResponse = CheckUploadWithHttpInfo(folderId, checkUploadRequest);
             return localVarResponse.Data;
@@ -3157,8 +3293,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        public ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest checkUploadRequest)
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        public ApiResponse<StringArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest checkUploadRequest)
         {
             // verify the required parameter 'checkUploadRequest' is set
             if (checkUploadRequest == null)
@@ -3212,7 +3348,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<StringArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3237,8 +3373,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        public async Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of StringArrayWrapper</returns>
+        public async Task<StringArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CheckUploadWithHttpInfoAsync(folderId, checkUploadRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3255,8 +3391,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        public async Task<ApiResponse<StringArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'checkUploadRequest' is set
             if (checkUploadRequest == null)
@@ -3312,7 +3448,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<StringArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3336,8 +3472,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        public STRINGArrayWrapper CheckUpload(string folderId, CheckUploadRequest checkUploadRequest)
+        /// <returns>StringArrayWrapper</returns>
+        public StringArrayWrapper CheckUpload(string folderId, CheckUploadRequest checkUploadRequest)
         {
             var localVarResponse = CheckUploadWithHttpInfo(folderId, checkUploadRequest);
             return localVarResponse.Data;
@@ -3353,8 +3489,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder whose contents the names are tested against; take the id from a listing such as  `GET api/2.0/files/@root`.</param>
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        public ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(string folderId, CheckUploadRequest checkUploadRequest)
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        public ApiResponse<StringArrayWrapper> CheckUploadWithHttpInfo(string folderId, CheckUploadRequest checkUploadRequest)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -3412,7 +3548,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<StringArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3437,8 +3573,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        public async Task<STRINGArrayWrapper> CheckUploadAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of StringArrayWrapper</returns>
+        public async Task<StringArrayWrapper> CheckUploadAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CheckUploadWithHttpInfoAsync(folderId, checkUploadRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3455,8 +3591,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="checkUploadRequest">The names to test against the files the folder already holds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        public async Task<ApiResponse<StringArrayWrapper>> CheckUploadWithHttpInfoAsync(string folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -3516,7 +3652,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<STRINGArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<StringArrayWrapper>("/api/2.0/files/{folderId}/upload/check", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3538,12 +3674,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>FolderWrapper</returns>
-        public FolderWrapper CreateFolder(int folderId, CreateFolder createFolder)
+        public FolderWrapper CreateFolder(int folderId, CreateFolderRequest createFolderRequest)
         {
-            var localVarResponse = CreateFolderWithHttpInfo(folderId, createFolder);
+            var localVarResponse = CreateFolderWithHttpInfo(folderId, createFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -3555,14 +3691,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ApiResponse of FolderWrapper</returns>
-        public ApiResponse<FolderWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolder createFolder)
+        public ApiResponse<FolderWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolderRequest createFolderRequest)
         {
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->CreateFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->CreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -3578,7 +3714,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -3634,13 +3770,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of FolderWrapper</returns>
-        public async Task<FolderWrapper> CreateFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<FolderWrapper> CreateFolderAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CreateFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateFolderWithHttpInfoAsync(folderId, createFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3652,15 +3788,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderWrapper)</returns>
-        public async Task<ApiResponse<FolderWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->CreateFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->CreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -3677,7 +3813,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -3734,12 +3870,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ThirdPartyFolderWrapper</returns>
-        public ThirdPartyFolderWrapper CreateFolder(string folderId, CreateFolder createFolder)
+        public ThirdPartyFolderWrapper CreateFolder(string folderId, CreateFolderRequest createFolderRequest)
         {
-            var localVarResponse = CreateFolderWithHttpInfo(folderId, createFolder);
+            var localVarResponse = CreateFolderWithHttpInfo(folderId, createFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -3751,18 +3887,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
-        public ApiResponse<ThirdPartyFolderWrapper> CreateFolderWithHttpInfo(string folderId, CreateFolder createFolder)
+        public ApiResponse<ThirdPartyFolderWrapper> CreateFolderWithHttpInfo(string folderId, CreateFolderRequest createFolderRequest)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
                 throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->CreateFolder");
 
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->CreateFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->CreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -3778,7 +3914,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -3834,13 +3970,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ThirdPartyFolderWrapper</returns>
-        public async Task<ThirdPartyFolderWrapper> CreateFolderAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<ThirdPartyFolderWrapper> CreateFolderAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CreateFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateFolderWithHttpInfoAsync(folderId, createFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3852,19 +3988,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
-        public async Task<ApiResponse<ThirdPartyFolderWrapper>> CreateFolderWithHttpInfoAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ThirdPartyFolderWrapper>> CreateFolderWithHttpInfoAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
                 throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->CreateFolder");
 
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->CreateFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->CreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -3881,7 +4017,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4334,11 +4470,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/">REST API Reference for CreateReportFolderHistory Operation</seealso>
@@ -4353,11 +4489,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/">REST API Reference for CreateReportFolderHistory Operation</seealso>
@@ -4441,11 +4577,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4461,11 +4597,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Start the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+        /// Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history is exported; the report covers the folder itself and the entries inside it.</param>
-        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional)</param>
+        /// <param name="format">The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional)</param>
         /// <param name="from">The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional)</param>
         /// <param name="to">The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4556,12 +4692,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolder deleteFolder)
+        public FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolderRequest deleteFolderRequest)
         {
-            var localVarResponse = DeleteFolderWithHttpInfo(folderId, deleteFolder);
+            var localVarResponse = DeleteFolderWithHttpInfo(folderId, deleteFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -4573,14 +4709,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolder deleteFolder)
+        public ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolderRequest deleteFolderRequest)
         {
-            // verify the required parameter 'deleteFolder' is set
-            if (deleteFolder == null)
-                throw new ApiException(400, "Missing required parameter 'deleteFolder' when calling FoldersApi->DeleteFolder");
+            // verify the required parameter 'deleteFolderRequest' is set
+            if (deleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deleteFolderRequest' when calling FoldersApi->DeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -4596,7 +4732,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (deleteFolder != null) localVarRequestOptions.Data = deleteFolder;
+            if (deleteFolderRequest != null) localVarRequestOptions.Data = deleteFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4652,13 +4788,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default)
+        public async Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DeleteFolderWithHttpInfoAsync(folderId, deleteFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DeleteFolderWithHttpInfoAsync(folderId, deleteFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4670,15 +4806,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'deleteFolder' is set
-            if (deleteFolder == null)
-                throw new ApiException(400, "Missing required parameter 'deleteFolder' when calling FoldersApi->DeleteFolder");
+            // verify the required parameter 'deleteFolderRequest' is set
+            if (deleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deleteFolderRequest' when calling FoldersApi->DeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -4695,7 +4831,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (deleteFolder != null) localVarRequestOptions.Data = deleteFolder;
+            if (deleteFolderRequest != null) localVarRequestOptions.Data = deleteFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4752,12 +4888,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper DeleteFolder(string folderId, DeleteFolder deleteFolder)
+        public FileOperationArrayWrapper DeleteFolder(string folderId, DeleteFolderRequest deleteFolderRequest)
         {
-            var localVarResponse = DeleteFolderWithHttpInfo(folderId, deleteFolder);
+            var localVarResponse = DeleteFolderWithHttpInfo(folderId, deleteFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -4769,18 +4905,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(string folderId, DeleteFolder deleteFolder)
+        public ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(string folderId, DeleteFolderRequest deleteFolderRequest)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
                 throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->DeleteFolder");
 
-            // verify the required parameter 'deleteFolder' is set
-            if (deleteFolder == null)
-                throw new ApiException(400, "Missing required parameter 'deleteFolder' when calling FoldersApi->DeleteFolder");
+            // verify the required parameter 'deleteFolderRequest' is set
+            if (deleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deleteFolderRequest' when calling FoldersApi->DeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -4796,7 +4932,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (deleteFolder != null) localVarRequestOptions.Data = deleteFolder;
+            if (deleteFolderRequest != null) localVarRequestOptions.Data = deleteFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -4852,13 +4988,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async Task<FileOperationArrayWrapper> DeleteFolderAsync(string folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default)
+        public async Task<FileOperationArrayWrapper> DeleteFolderAsync(string folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DeleteFolderWithHttpInfoAsync(folderId, deleteFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DeleteFolderWithHttpInfoAsync(folderId, deleteFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4870,19 +5006,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder to delete, together with everything it holds.</param>
-        /// <param name="deleteFolder">How the deletion is to be carried out.</param>
+        /// <param name="deleteFolderRequest">How the deletion is to be carried out.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(string folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(string folderId, DeleteFolderRequest deleteFolderRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
                 throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->DeleteFolder");
 
-            // verify the required parameter 'deleteFolder' is set
-            if (deleteFolder == null)
-                throw new ApiException(400, "Missing required parameter 'deleteFolder' when calling FoldersApi->DeleteFolder");
+            // verify the required parameter 'deleteFolderRequest' is set
+            if (deleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deleteFolderRequest' when calling FoldersApi->DeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -4899,7 +5035,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (deleteFolder != null) localVarRequestOptions.Data = deleteFolder;
+            if (deleteFolderRequest != null) localVarRequestOptions.Data = deleteFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5137,6 +5273,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -5146,9 +5284,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        public FolderContentWrapper GetFavoritesFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentWrapper GetFavoritesFolder(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetFavoritesFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetFavoritesFolderWithHttpInfo(metadataTemplateId, metadataFilters, userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -5159,6 +5297,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -5168,7 +5308,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        public ApiResponse<FolderContentWrapper> GetFavoritesFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentWrapper> GetFavoritesFolderWithHttpInfo(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5183,6 +5323,14 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
+            }
             if (userIdOrGroupId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
@@ -5269,6 +5417,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -5279,9 +5429,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        public async Task<FolderContentWrapper> GetFavoritesFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentWrapper> GetFavoritesFolderAsync(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetFavoritesFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFavoritesFolderWithHttpInfoAsync(metadataTemplateId, metadataFilters, userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5292,6 +5442,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataTemplateId">The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="userIdOrGroupId">Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional)</param>
         /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional)</param>
         /// <param name="count">The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
@@ -5302,7 +5454,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        public async Task<ApiResponse<FolderContentWrapper>> GetFavoritesFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentWrapper>> GetFavoritesFolderWithHttpInfoAsync(int? metadataTemplateId = default, string? metadataFilters = default, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5318,6 +5470,14 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
+            }
             if (userIdOrGroupId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
@@ -5778,11 +5938,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        public FolderContentWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
+        public FolderContentWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
-            var localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+            var localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
             return localVarResponse.Data;
         }
 
@@ -5812,9 +5974,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        public ApiResponse<FolderContentWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
+        public ApiResponse<FolderContentWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5900,7 +6064,15 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (location != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Location", location));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
             }
 
             // authentication (Basic) required
@@ -5975,12 +6147,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        public async Task<FolderContentWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6010,10 +6184,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        public async Task<ApiResponse<FolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6100,7 +6276,15 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (location != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Location", location));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
             }
 
             // authentication (Basic) required
@@ -6176,11 +6360,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ThirdPartyFolderContentWrapper</returns>
-        public ThirdPartyFolderContentWrapper GetFolderByFolderId(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
+        public ThirdPartyFolderContentWrapper GetFolderByFolderId(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
-            var localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+            var localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
             return localVarResponse.Data;
         }
 
@@ -6210,9 +6396,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderContentWrapper</returns>
-        public ApiResponse<ThirdPartyFolderContentWrapper> GetFolderByFolderIdWithHttpInfo(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
+        public ApiResponse<ThirdPartyFolderContentWrapper> GetFolderByFolderIdWithHttpInfo(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -6302,7 +6490,15 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (location != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Location", location));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
             }
 
             // authentication (Basic) required
@@ -6377,12 +6573,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ThirdPartyFolderContentWrapper</returns>
-        public async Task<ThirdPartyFolderContentWrapper> GetFolderByFolderIdAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
+        public async Task<ThirdPartyFolderContentWrapper> GetFolderByFolderIdAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6412,10 +6610,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional)</param>
         /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional)</param>
         /// <param name="location">Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderContentWrapper)</returns>
-        public async Task<ApiResponse<ThirdPartyFolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ThirdPartyFolderContentWrapper>> GetFolderByFolderIdWithHttpInfoAsync(string folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, string? roomId = default, List<int>? folderType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, RequestLocation? location = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -6506,7 +6706,15 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (location != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Location", location));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
             }
 
             // authentication (Basic) required
@@ -9624,11 +9832,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        public FolderContentWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
-            var localVarResponse = GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters);
             return localVarResponse.Data;
         }
 
@@ -9650,9 +9860,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        public ApiResponse<FolderContentWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9710,6 +9922,14 @@ namespace DocSpace.API.SDK.Api.Files
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
             }
             if (_fields != null)
             {
@@ -9786,12 +10006,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        public async Task<FolderContentWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRecentFolderWithHttpInfoAsync(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecentFolderWithHttpInfoAsync(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9813,10 +10035,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional)</param>
         /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional)</param>
         /// <param name="filterValue">The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        public async Task<ApiResponse<FolderContentWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9876,6 +10100,14 @@ namespace DocSpace.API.SDK.Api.Files
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -9928,7 +10160,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -9944,7 +10176,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -10017,7 +10249,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -10034,7 +10266,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get the folder history report generation status
         /// </summary>
         /// <remarks>
-        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+        /// Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose history report is being polled. It is the folder that was              passed to the operation that started the report.</param>
@@ -10726,51 +10958,51 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (insertFileFile != null)
             {
-                localVarRequestOptions.FileParameters.Add("InsertFile.File", insertFileFile);
+                localVarRequestOptions.FileParameters.Add("insertFile.file", insertFileFile);
             }
             if (insertFileTitle != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Title",ClientUtils.ParameterToString(insertFileTitle)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.title",ClientUtils.ParameterToString(insertFileTitle)); // form parameter
             }
             if (insertFileCreateNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.CreateNewIfExist",ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.createNewIfExist",ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
             }
             if (insertFileKeepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.KeepConvertStatus",ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.keepConvertStatus",ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
             }
             if (insertFileStreamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanRead",ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canRead",ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
             }
             if (insertFileStreamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanWrite",ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canWrite",ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
             }
             if (insertFileStreamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanSeek",ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canSeek",ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
             }
             if (insertFileStreamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanTimeout",ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canTimeout",ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
             }
             if (insertFileStreamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Length",ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.length",ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
             }
             if (insertFileStreamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Position",ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.position",ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
             }
             if (insertFileStreamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.ReadTimeout",ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.readTimeout",ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
             }
             if (insertFileStreamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.WriteTimeout",ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.writeTimeout",ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -10890,51 +11122,51 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (insertFileFile != null)
             {
-                localVarRequestOptions.FileParameters.Add("InsertFile.File", insertFileFile);
+                localVarRequestOptions.FileParameters.Add("insertFile.file", insertFileFile);
             }
             if (insertFileTitle != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Title", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileTitle)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.title", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileTitle)); // form parameter
             }
             if (insertFileCreateNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.CreateNewIfExist", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.createNewIfExist", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
             }
             if (insertFileKeepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.KeepConvertStatus", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.keepConvertStatus", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
             }
             if (insertFileStreamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanRead", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canRead", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
             }
             if (insertFileStreamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanWrite", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canWrite", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
             }
             if (insertFileStreamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanSeek", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canSeek", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
             }
             if (insertFileStreamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
             }
             if (insertFileStreamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Length", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.length", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
             }
             if (insertFileStreamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Position", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.position", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
             }
             if (insertFileStreamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.ReadTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.readTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
             }
             if (insertFileStreamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.WriteTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.writeTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -11056,51 +11288,51 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (insertFileFile != null)
             {
-                localVarRequestOptions.FileParameters.Add("InsertFile.File", insertFileFile);
+                localVarRequestOptions.FileParameters.Add("insertFile.file", insertFileFile);
             }
             if (insertFileTitle != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Title",ClientUtils.ParameterToString(insertFileTitle)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.title",ClientUtils.ParameterToString(insertFileTitle)); // form parameter
             }
             if (insertFileCreateNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.CreateNewIfExist",ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.createNewIfExist",ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
             }
             if (insertFileKeepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.KeepConvertStatus",ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.keepConvertStatus",ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
             }
             if (insertFileStreamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanRead",ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canRead",ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
             }
             if (insertFileStreamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanWrite",ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canWrite",ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
             }
             if (insertFileStreamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanSeek",ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canSeek",ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
             }
             if (insertFileStreamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanTimeout",ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canTimeout",ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
             }
             if (insertFileStreamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Length",ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.length",ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
             }
             if (insertFileStreamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Position",ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.position",ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
             }
             if (insertFileStreamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.ReadTimeout",ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.readTimeout",ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
             }
             if (insertFileStreamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.WriteTimeout",ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.writeTimeout",ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -11224,51 +11456,51 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (insertFileFile != null)
             {
-                localVarRequestOptions.FileParameters.Add("InsertFile.File", insertFileFile);
+                localVarRequestOptions.FileParameters.Add("insertFile.file", insertFileFile);
             }
             if (insertFileTitle != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Title", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileTitle)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.title", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileTitle)); // form parameter
             }
             if (insertFileCreateNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.CreateNewIfExist", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.createNewIfExist", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileCreateNewIfExist)); // form parameter
             }
             if (insertFileKeepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.KeepConvertStatus", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.keepConvertStatus", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileKeepConvertStatus)); // form parameter
             }
             if (insertFileStreamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanRead", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canRead", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanRead)); // form parameter
             }
             if (insertFileStreamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanWrite", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canWrite", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanWrite)); // form parameter
             }
             if (insertFileStreamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanSeek", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canSeek", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanSeek)); // form parameter
             }
             if (insertFileStreamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.CanTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.canTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamCanTimeout)); // form parameter
             }
             if (insertFileStreamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Length", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.length", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamLength)); // form parameter
             }
             if (insertFileStreamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.Position", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.position", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamPosition)); // form parameter
             }
             if (insertFileStreamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.ReadTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.readTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamReadTimeout)); // form parameter
             }
             if (insertFileStreamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("InsertFile.Stream.WriteTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("insertFile.stream.writeTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(insertFileStreamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -11383,51 +11615,51 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
             if (title != null)
             {
-                localVarRequestOptions.FormParameters.Add("Title",ClientUtils.ParameterToString(title)); // form parameter
+                localVarRequestOptions.FormParameters.Add("title",ClientUtils.ParameterToString(title)); // form parameter
             }
             if (createNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("CreateNewIfExist",ClientUtils.ParameterToString(createNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("createNewIfExist",ClientUtils.ParameterToString(createNewIfExist)); // form parameter
             }
             if (keepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("KeepConvertStatus",ClientUtils.ParameterToString(keepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("keepConvertStatus",ClientUtils.ParameterToString(keepConvertStatus)); // form parameter
             }
             if (streamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanRead",ClientUtils.ParameterToString(streamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canRead",ClientUtils.ParameterToString(streamCanRead)); // form parameter
             }
             if (streamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanWrite",ClientUtils.ParameterToString(streamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canWrite",ClientUtils.ParameterToString(streamCanWrite)); // form parameter
             }
             if (streamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanSeek",ClientUtils.ParameterToString(streamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canSeek",ClientUtils.ParameterToString(streamCanSeek)); // form parameter
             }
             if (streamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanTimeout",ClientUtils.ParameterToString(streamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canTimeout",ClientUtils.ParameterToString(streamCanTimeout)); // form parameter
             }
             if (streamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.Length",ClientUtils.ParameterToString(streamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.length",ClientUtils.ParameterToString(streamLength)); // form parameter
             }
             if (streamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.Position",ClientUtils.ParameterToString(streamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.position",ClientUtils.ParameterToString(streamPosition)); // form parameter
             }
             if (streamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.ReadTimeout",ClientUtils.ParameterToString(streamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.readTimeout",ClientUtils.ParameterToString(streamReadTimeout)); // form parameter
             }
             if (streamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.WriteTimeout",ClientUtils.ParameterToString(streamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.writeTimeout",ClientUtils.ParameterToString(streamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -11544,51 +11776,51 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
             if (title != null)
             {
-                localVarRequestOptions.FormParameters.Add("Title", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(title)); // form parameter
+                localVarRequestOptions.FormParameters.Add("title", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(title)); // form parameter
             }
             if (createNewIfExist != null)
             {
-                localVarRequestOptions.FormParameters.Add("CreateNewIfExist", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(createNewIfExist)); // form parameter
+                localVarRequestOptions.FormParameters.Add("createNewIfExist", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(createNewIfExist)); // form parameter
             }
             if (keepConvertStatus != null)
             {
-                localVarRequestOptions.FormParameters.Add("KeepConvertStatus", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(keepConvertStatus)); // form parameter
+                localVarRequestOptions.FormParameters.Add("keepConvertStatus", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(keepConvertStatus)); // form parameter
             }
             if (streamCanRead != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanRead", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanRead)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canRead", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanRead)); // form parameter
             }
             if (streamCanWrite != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanWrite", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanWrite)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canWrite", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanWrite)); // form parameter
             }
             if (streamCanSeek != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanSeek", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanSeek)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canSeek", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanSeek)); // form parameter
             }
             if (streamCanTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.CanTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.canTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamCanTimeout)); // form parameter
             }
             if (streamLength != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.Length", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamLength)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.length", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamLength)); // form parameter
             }
             if (streamPosition != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.Position", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamPosition)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.position", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamPosition)); // form parameter
             }
             if (streamReadTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.ReadTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamReadTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.readTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamReadTimeout)); // form parameter
             }
             if (streamWriteTimeout != null)
             {
-                localVarRequestOptions.FormParameters.Add("Stream.WriteTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamWriteTimeout)); // form parameter
+                localVarRequestOptions.FormParameters.Add("stream.writeTimeout", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(streamWriteTimeout)); // form parameter
             }
 
             // authentication (Basic) required
@@ -11646,12 +11878,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>FolderWrapper</returns>
-        public FolderWrapper RenameFolder(int folderId, CreateFolder createFolder)
+        public FolderWrapper RenameFolder(int folderId, CreateFolderRequest createFolderRequest)
         {
-            var localVarResponse = RenameFolderWithHttpInfo(folderId, createFolder);
+            var localVarResponse = RenameFolderWithHttpInfo(folderId, createFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -11663,14 +11895,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ApiResponse of FolderWrapper</returns>
-        public ApiResponse<FolderWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolder createFolder)
+        public ApiResponse<FolderWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolderRequest createFolderRequest)
         {
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->RenameFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->RenameFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -11686,7 +11918,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -11742,13 +11974,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of FolderWrapper</returns>
-        public async Task<FolderWrapper> RenameFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<FolderWrapper> RenameFolderAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await RenameFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await RenameFolderWithHttpInfoAsync(folderId, createFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -11760,15 +11992,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderWrapper)</returns>
-        public async Task<ApiResponse<FolderWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->RenameFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->RenameFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -11785,7 +12017,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -11842,12 +12074,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ThirdPartyFolderWrapper</returns>
-        public ThirdPartyFolderWrapper RenameFolder(string folderId, CreateFolder createFolder)
+        public ThirdPartyFolderWrapper RenameFolder(string folderId, CreateFolderRequest createFolderRequest)
         {
-            var localVarResponse = RenameFolderWithHttpInfo(folderId, createFolder);
+            var localVarResponse = RenameFolderWithHttpInfo(folderId, createFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -11859,18 +12091,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
-        public ApiResponse<ThirdPartyFolderWrapper> RenameFolderWithHttpInfo(string folderId, CreateFolder createFolder)
+        public ApiResponse<ThirdPartyFolderWrapper> RenameFolderWithHttpInfo(string folderId, CreateFolderRequest createFolderRequest)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
                 throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->RenameFolder");
 
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->RenameFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->RenameFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -11886,7 +12118,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -11942,13 +12174,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ThirdPartyFolderWrapper</returns>
-        public async Task<ThirdPartyFolderWrapper> RenameFolderAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<ThirdPartyFolderWrapper> RenameFolderAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await RenameFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await RenameFolderWithHttpInfoAsync(folderId, createFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -11960,19 +12192,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.</param>
-        /// <param name="createFolder">The title carried by the request body.</param>
+        /// <param name="createFolderRequest">The title carried by the request body.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
-        public async Task<ApiResponse<ThirdPartyFolderWrapper>> RenameFolderWithHttpInfoAsync(string folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ThirdPartyFolderWrapper>> RenameFolderWithHttpInfoAsync(string folderId, CreateFolderRequest createFolderRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
                 throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->RenameFolder");
 
-            // verify the required parameter 'createFolder' is set
-            if (createFolder == null)
-                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->RenameFolder");
+            // verify the required parameter 'createFolderRequest' is set
+            if (createFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createFolderRequest' when calling FoldersApi->RenameFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -11989,7 +12221,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (createFolder != null) localVarRequestOptions.Data = createFolder;
+            if (createFolderRequest != null) localVarRequestOptions.Data = createFolderRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -12029,6 +12261,406 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("RenameFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        public FolderContentWrapper SearchFolder(int folderId, FolderMetadataSearch folderMetadataSearch)
+        {
+            var localVarResponse = SearchFolderWithHttpInfo(folderId, folderMetadataSearch);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        public ApiResponse<FolderContentWrapper> SearchFolderWithHttpInfo(int folderId, FolderMetadataSearch folderMetadataSearch)
+        {
+            // verify the required parameter 'folderMetadataSearch' is set
+            if (folderMetadataSearch == null)
+                throw new ApiException(400, "Missing required parameter 'folderMetadataSearch' when calling FoldersApi->SearchFolder");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (folderMetadataSearch != null) localVarRequestOptions.Data = folderMetadataSearch;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<FolderContentWrapper>("/api/2.0/files/{folderId}/search", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SearchFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        public async Task<FolderContentWrapper> SearchFolderAsync(int folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SearchFolderWithHttpInfoAsync(folderId, folderMetadataSearch, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        public async Task<ApiResponse<FolderContentWrapper>> SearchFolderWithHttpInfoAsync(int folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'folderMetadataSearch' is set
+            if (folderMetadataSearch == null)
+                throw new ApiException(400, "Missing required parameter 'folderMetadataSearch' when calling FoldersApi->SearchFolder");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (folderMetadataSearch != null) localVarRequestOptions.Data = folderMetadataSearch;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<FolderContentWrapper>("/api/2.0/files/{folderId}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SearchFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>ThirdPartyFolderContentWrapper</returns>
+        public ThirdPartyFolderContentWrapper SearchFolder(string folderId, FolderMetadataSearch folderMetadataSearch)
+        {
+            var localVarResponse = SearchFolderWithHttpInfo(folderId, folderMetadataSearch);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>ApiResponse of ThirdPartyFolderContentWrapper</returns>
+        public ApiResponse<ThirdPartyFolderContentWrapper> SearchFolderWithHttpInfo(string folderId, FolderMetadataSearch folderMetadataSearch)
+        {
+            // verify the required parameter 'folderId' is set
+            if (folderId == null)
+                throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->SearchFolder");
+
+            // verify the required parameter 'folderMetadataSearch' is set
+            if (folderMetadataSearch == null)
+                throw new ApiException(400, "Missing required parameter 'folderMetadataSearch' when calling FoldersApi->SearchFolder");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (folderMetadataSearch != null) localVarRequestOptions.Data = folderMetadataSearch;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<ThirdPartyFolderContentWrapper>("/api/2.0/files/{folderId}/search", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SearchFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of ThirdPartyFolderContentWrapper</returns>
+        public async Task<ThirdPartyFolderContentWrapper> SearchFolderAsync(string folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SearchFolderWithHttpInfoAsync(folderId, folderMetadataSearch, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search a folder by metadata (third-party storage)
+        /// </summary>
+        /// <remarks>
+        /// Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="folderMetadataSearch">The search parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/">REST API Reference for SearchFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (ThirdPartyFolderContentWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyFolderContentWrapper>> SearchFolderWithHttpInfoAsync(string folderId, FolderMetadataSearch folderMetadataSearch, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'folderId' is set
+            if (folderId == null)
+                throw new ApiException(400, "Missing required parameter 'folderId' when calling FoldersApi->SearchFolder");
+
+            // verify the required parameter 'folderMetadataSearch' is set
+            if (folderMetadataSearch == null)
+                throw new ApiException(400, "Missing required parameter 'folderMetadataSearch' when calling FoldersApi->SearchFolder");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (folderMetadataSearch != null) localVarRequestOptions.Data = folderMetadataSearch;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyFolderContentWrapper>("/api/2.0/files/{folderId}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SearchFolder", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -12826,7 +13458,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -12841,7 +13473,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -12914,7 +13546,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -12930,7 +13562,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Terminate the folder history report generation
         /// </summary>
         /// <remarks>
-        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+        /// Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder whose running history report is to be given up. It is the folder that              was passed to the operation that started the report.</param>
@@ -13066,7 +13698,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -13182,7 +13814,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -13300,7 +13932,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -13420,7 +14052,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -13531,7 +14163,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -13644,7 +14276,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required

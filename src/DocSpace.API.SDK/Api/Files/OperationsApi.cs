@@ -183,10 +183,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
-        FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(BatchRequestDto? inDto = default);
+        FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
 
         /// <summary>
         /// Check move or copy conflicts
@@ -195,10 +202,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
-        ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(BatchRequestDto? inDto = default);
+        ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
         /// <summary>
         /// Check the destination folder
         /// </summary>
@@ -206,10 +220,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>CheckDestFolderWrapper</returns>
-        CheckDestFolderWrapper CheckMoveOrCopyDestFolder(BatchRequestDto? inDto = default);
+        CheckDestFolderWrapper CheckMoveOrCopyDestFolder(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
 
         /// <summary>
         /// Check the destination folder
@@ -218,10 +239,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
-        ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(BatchRequestDto? inDto = default);
+        ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default);
         /// <summary>
         /// Copy files and folders
         /// </summary>
@@ -255,9 +283,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        ChunkedUploadSessionResponseWrapperWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest);
+        ChunkedUploadSessionResultWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest);
 
         /// <summary>
         /// Chunked upload
@@ -269,9 +297,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ApiResponse of ChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        ApiResponse<ChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest);
+        ApiResponse<ChunkedUploadSessionResultWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest);
         /// <summary>
         /// Chunked upload (third-party storage)
         /// </summary>
@@ -282,9 +310,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ThirdPartyChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ThirdPartyChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        ThirdPartyChunkedUploadSessionResponseWrapperWrapper CreateUploadSession(string folderId, SessionRequest sessionRequest);
+        ThirdPartyChunkedUploadSessionResultWrapper CreateUploadSession(string folderId, SessionRequest sessionRequest);
 
         /// <summary>
         /// Chunked upload (third-party storage)
@@ -296,9 +324,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        ApiResponse<ThirdPartyChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionWithHttpInfo(string folderId, SessionRequest sessionRequest);
+        ApiResponse<ThirdPartyChunkedUploadSessionResultWrapper> CreateUploadSessionWithHttpInfo(string folderId, SessionRequest sessionRequest);
         /// <summary>
         /// Create an upload session
         /// </summary>
@@ -309,8 +337,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseResponseWrapper</returns>
-        ChunkedUploadSessionResponseResponseWrapper CreateUploadSessionInFolder(int folderId, SessionRequest sessionRequest);
+        /// <returns>ChunkedUploadSessionWrapper</returns>
+        ChunkedUploadSessionWrapper CreateUploadSessionInFolder(int folderId, SessionRequest sessionRequest);
 
         /// <summary>
         /// Create an upload session
@@ -322,8 +350,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseResponseWrapper</returns>
-        ApiResponse<ChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderWithHttpInfo(int folderId, SessionRequest sessionRequest);
+        /// <returns>ApiResponse of ChunkedUploadSessionWrapper</returns>
+        ApiResponse<ChunkedUploadSessionWrapper> CreateUploadSessionInFolderWithHttpInfo(int folderId, SessionRequest sessionRequest);
         /// <summary>
         /// Create an upload session (third-party storage)
         /// </summary>
@@ -334,8 +362,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        ThirdPartyChunkedUploadSessionResponseResponseWrapper CreateUploadSessionInFolder(string folderId, SessionRequest sessionRequest);
+        /// <returns>ThirdPartyChunkedUploadSessionWrapper</returns>
+        ThirdPartyChunkedUploadSessionWrapper CreateUploadSessionInFolder(string folderId, SessionRequest sessionRequest);
 
         /// <summary>
         /// Create an upload session (third-party storage)
@@ -347,8 +375,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderWithHttpInfo(string folderId, SessionRequest sessionRequest);
+        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionWrapper</returns>
+        ApiResponse<ThirdPartyChunkedUploadSessionWrapper> CreateUploadSessionInFolderWithHttpInfo(string folderId, SessionRequest sessionRequest);
         /// <summary>
         /// Delete files and folders
         /// </summary>
@@ -691,10 +719,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper UpdateFileComment(int fileId, UpdateComment updateComment);
+        StringWrapper UpdateFileComment(int fileId, UpdateCommentRequest updateCommentRequest);
 
         /// <summary>
         /// Update a comment
@@ -704,10 +732,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment updateComment);
+        ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateCommentRequest updateCommentRequest);
         /// <summary>
         /// Update a comment (third-party storage)
         /// </summary>
@@ -716,10 +744,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper UpdateFileComment(string fileId, UpdateComment updateComment);
+        StringWrapper UpdateFileComment(string fileId, UpdateCommentRequest updateCommentRequest);
 
         /// <summary>
         /// Update a comment (third-party storage)
@@ -729,10 +757,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(string fileId, UpdateComment updateComment);
+        ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(string fileId, UpdateCommentRequest updateCommentRequest);
         /// <summary>
         /// Upload a numbered chunk
         /// </summary>
@@ -745,8 +773,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseResponseWrapper</returns>
-        ChunkedUploadSessionResponseResponseWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
+        /// <returns>ChunkedUploadSessionWrapper</returns>
+        ChunkedUploadSessionWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
 
         /// <summary>
         /// Upload a numbered chunk
@@ -760,8 +788,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseResponseWrapper</returns>
-        ApiResponse<ChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
+        /// <returns>ApiResponse of ChunkedUploadSessionWrapper</returns>
+        ApiResponse<ChunkedUploadSessionWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
         /// <summary>
         /// Upload a numbered chunk (third-party storage)
         /// </summary>
@@ -774,8 +802,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        ThirdPartyChunkedUploadSessionResponseResponseWrapper UploadAsyncSession(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
+        /// <returns>ThirdPartyChunkedUploadSessionWrapper</returns>
+        ThirdPartyChunkedUploadSessionWrapper UploadAsyncSession(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
 
         /// <summary>
         /// Upload a numbered chunk (third-party storage)
@@ -789,8 +817,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionWithHttpInfo(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
+        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionWrapper</returns>
+        ApiResponse<ThirdPartyChunkedUploadSessionWrapper> UploadAsyncSessionWithHttpInfo(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
         /// <summary>
         /// Upload the next chunk
         /// </summary>
@@ -1019,11 +1047,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
-        Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default);
+        Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check move or copy conflicts
@@ -1032,11 +1067,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
-        Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check the destination folder
         /// </summary>
@@ -1044,11 +1086,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of CheckDestFolderWrapper</returns>
-        Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default);
+        Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check the destination folder
@@ -1057,11 +1106,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
-        Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Copy files and folders
         /// </summary>
@@ -1098,9 +1154,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>Task of ChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        Task<ChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        Task<ChunkedUploadSessionResultWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Chunked upload
@@ -1113,9 +1169,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperWrapper)</returns>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResultWrapper)</returns>
         [Obsolete]
-        Task<ApiResponse<ChunkedUploadSessionResponseWrapperWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ChunkedUploadSessionResultWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Chunked upload (third-party storage)
         /// </summary>
@@ -1127,9 +1183,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ThirdPartyChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>Task of ThirdPartyChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        Task<ThirdPartyChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        Task<ThirdPartyChunkedUploadSessionResultWrapper> CreateUploadSessionAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Chunked upload (third-party storage)
@@ -1142,9 +1198,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResponseWrapperWrapper)</returns>
+        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResultWrapper)</returns>
         [Obsolete]
-        Task<ApiResponse<ThirdPartyChunkedUploadSessionResponseWrapperWrapper>> CreateUploadSessionWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ThirdPartyChunkedUploadSessionResultWrapper>> CreateUploadSessionWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create an upload session
         /// </summary>
@@ -1156,8 +1212,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseResponseWrapper</returns>
-        Task<ChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ChunkedUploadSessionWrapper</returns>
+        Task<ChunkedUploadSessionWrapper> CreateUploadSessionInFolderAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create an upload session
@@ -1170,8 +1226,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseResponseWrapper)</returns>
-        Task<ApiResponse<ChunkedUploadSessionResponseResponseWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create an upload session (third-party storage)
         /// </summary>
@@ -1183,8 +1239,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        Task<ThirdPartyChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ThirdPartyChunkedUploadSessionWrapper</returns>
+        Task<ThirdPartyChunkedUploadSessionWrapper> CreateUploadSessionInFolderAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create an upload session (third-party storage)
@@ -1197,8 +1253,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResponseResponseWrapper)</returns>
-        Task<ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionWrapper)</returns>
+        Task<ApiResponse<ThirdPartyChunkedUploadSessionWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete files and folders
         /// </summary>
@@ -1569,11 +1625,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
+        Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a comment
@@ -1583,11 +1639,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a comment (third-party storage)
         /// </summary>
@@ -1596,11 +1652,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> UpdateFileCommentAsync(string fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
+        Task<StringWrapper> UpdateFileCommentAsync(string fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a comment (third-party storage)
@@ -1610,11 +1666,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(string fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(string fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a numbered chunk
         /// </summary>
@@ -1628,8 +1684,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseResponseWrapper</returns>
-        Task<ChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ChunkedUploadSessionWrapper</returns>
+        Task<ChunkedUploadSessionWrapper> UploadAsyncSessionAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a numbered chunk
@@ -1644,8 +1700,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseResponseWrapper)</returns>
-        Task<ApiResponse<ChunkedUploadSessionResponseResponseWrapper>> UploadAsyncSessionWithHttpInfoAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionWrapper>> UploadAsyncSessionWithHttpInfoAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a numbered chunk (third-party storage)
         /// </summary>
@@ -1659,8 +1715,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        Task<ThirdPartyChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ThirdPartyChunkedUploadSessionWrapper</returns>
+        Task<ThirdPartyChunkedUploadSessionWrapper> UploadAsyncSessionAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a numbered chunk (third-party storage)
@@ -1675,8 +1731,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResponseResponseWrapper)</returns>
-        Task<ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper>> UploadAsyncSessionWithHttpInfoAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionWrapper)</returns>
+        Task<ApiResponse<ThirdPartyChunkedUploadSessionWrapper>> UploadAsyncSessionWithHttpInfoAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload the next chunk
         /// </summary>
@@ -3113,12 +3169,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
-        public FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(BatchRequestDto? inDto = default)
+        public FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
-            var localVarResponse = CheckMoveOrCopyBatchItemsWithHttpInfo(inDto);
+            var localVarResponse = CheckMoveOrCopyBatchItemsWithHttpInfo(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut);
             return localVarResponse.Data;
         }
 
@@ -3129,10 +3192,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
-        public ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(BatchRequestDto? inDto = default)
+        public ApiResponse<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3147,9 +3217,37 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inDto != null)
+            if (returnSingleOperation != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "returnSingleOperation", returnSingleOperation));
+            }
+            if (folderIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "folderIds", folderIds));
+            }
+            if (fileIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "fileIds", fileIds));
+            }
+            if (destFolderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "destFolderId", destFolderId));
+            }
+            if (conflictResolveType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "conflictResolveType", conflictResolveType));
+            }
+            if (deleteAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deleteAfter", deleteAfter));
+            }
+            if (content != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "content", content));
+            }
+            if (toFillOut != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toFillOut", toFillOut));
             }
 
             // authentication (Basic) required
@@ -3205,13 +3303,20 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
-        public async Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default)
+        public async Task<FileEntryBaseArrayWrapper> CheckMoveOrCopyBatchItemsAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CheckMoveOrCopyBatchItemsWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CheckMoveOrCopyBatchItemsWithHttpInfoAsync(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3222,11 +3327,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports which of the requested files and folders already have a same-named entry in `destFolderId`, so that  the clash can be settled before the move or the copy is started. Nothing is moved, copied or changed by the  call, although the address is shared with `PUT api/2.0/files/fileops/move`: the answer is the part of the  request that clashes, and an empty array means the batch would go through without one. The  `conflictResolveType` of the request is not taken into account — clashing items are reported whatever it says  — and encrypted files are left out of the report. A source id that resolves to nothing is not an error and is  passed over. The caller needs create access to the destination: an archived room and a room the caller cannot  write to are refused with 403, a destination that does not exist is answered as missing, and a request without  `destFolderId` is rejected as an invalid request. To learn whether the destination accepts the files at all  use `GET api/2.0/files/fileops/checkdestfolder`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/">REST API Reference for CheckMoveOrCopyBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
-        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> CheckMoveOrCopyBatchItemsWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3242,9 +3354,37 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inDto != null)
+            if (returnSingleOperation != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "returnSingleOperation", returnSingleOperation));
+            }
+            if (folderIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "folderIds", folderIds));
+            }
+            if (fileIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "fileIds", fileIds));
+            }
+            if (destFolderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "destFolderId", destFolderId));
+            }
+            if (conflictResolveType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "conflictResolveType", conflictResolveType));
+            }
+            if (deleteAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deleteAfter", deleteAfter));
+            }
+            if (content != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "content", content));
+            }
+            if (toFillOut != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toFillOut", toFillOut));
             }
 
             // authentication (Basic) required
@@ -3301,12 +3441,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>CheckDestFolderWrapper</returns>
-        public CheckDestFolderWrapper CheckMoveOrCopyDestFolder(BatchRequestDto? inDto = default)
+        public CheckDestFolderWrapper CheckMoveOrCopyDestFolder(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
-            var localVarResponse = CheckMoveOrCopyDestFolderWithHttpInfo(inDto);
+            var localVarResponse = CheckMoveOrCopyDestFolderWithHttpInfo(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut);
             return localVarResponse.Data;
         }
 
@@ -3317,10 +3464,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>ApiResponse of CheckDestFolderWrapper</returns>
-        public ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(BatchRequestDto? inDto = default)
+        public ApiResponse<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderWithHttpInfo(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3335,9 +3489,37 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inDto != null)
+            if (returnSingleOperation != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "returnSingleOperation", returnSingleOperation));
+            }
+            if (folderIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "folderIds", folderIds));
+            }
+            if (fileIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "fileIds", fileIds));
+            }
+            if (destFolderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "destFolderId", destFolderId));
+            }
+            if (conflictResolveType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "conflictResolveType", conflictResolveType));
+            }
+            if (deleteAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deleteAfter", deleteAfter));
+            }
+            if (content != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "content", content));
+            }
+            if (toFillOut != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toFillOut", toFillOut));
             }
 
             // authentication (Basic) required
@@ -3393,13 +3575,20 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of CheckDestFolderWrapper</returns>
-        public async Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default)
+        public async Task<CheckDestFolderWrapper> CheckMoveOrCopyDestFolderAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CheckMoveOrCopyDestFolderWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CheckMoveOrCopyDestFolderWithHttpInfoAsync(returnSingleOperation, folderIds, fileIds, destFolderId, conflictResolveType, deleteAfter, content, toFillOut, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3410,11 +3599,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// Reports whether the destination folder accepts the listed files, before a move or a copy is started. Only  `fileIds` and `destFolderId` are read from the request: `result` says whether all of the files are accepted,  only some of them or none, and `files` names the ones that are. The check is about what the destination allows  to be stored in it rather than about name clashes — everywhere except a form-filling room every file is  accepted, while a form-filling room accepts only PDF forms, so a text document offered to one comes back as  none accepted. The caller needs create access to the destination, so a room the caller cannot write to and an  archived room are refused with 403, a destination that does not exist is answered as missing, and a request  without `destFolderId` is rejected as an invalid request. Folder ids and the copying options of the request  play no part here. The call changes nothing; for same-named entries at the destination use  `GET api/2.0/files/fileops/move`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The files and folders to move or copy, the folder they go to, and the way name clashes are settled. (optional)</param>
+        /// <param name="returnSingleOperation">Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional)</param>
+        /// <param name="folderIds">The folders to move or copy, by id. A number addresses a folder stored in the portal itself, a string  addresses a folder on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="fileIds">The files to move or copy, by id. A number addresses a file stored in the portal itself, a string addresses a  file on a connected third-party account, and both kinds may be sent in one list. (optional)</param>
+        /// <param name="destFolderId">The folder the items go to, by id — a number for a folder stored in the portal itself, a string for a folder  on a connected third-party account. Take it from a folder listing such as `GET api/2.0/files/@root`; the  caller has to be allowed to create items in it, and the id of a room addresses the root of that room. (optional)</param>
+        /// <param name="conflictResolveType">What happens to an item whose name is already taken in the destination folder: `skip` leaves it where it is,  `overwrite` replaces the entry at the destination, and `duplicate` places it beside that entry under a name  with a numeric suffix. `GET api/2.0/files/fileops/move` reports which items would clash. (optional)</param>
+        /// <param name="deleteAfter">Whether the finished operation is still reported: `false` keeps its final record readable through  `GET api/2.0/files/fileops` until it has been read once, `true` drops the record as soon as the work is done.  It deletes nothing: a move takes the sources away in any case, and a copy always leaves them. (optional)</param>
+        /// <param name="content">What is taken from a listed folder: `false` moves or copies the folder itself, `true` takes only what it  contains, so its files and subfolders land in the destination and the folder is not recreated there. (optional)</param>
+        /// <param name="toFillOut">Marks every copied PDF form as a draft prepared for filling, which is how such a copy reports its filling  status in a virtual data room. Files that are not forms are left unaffected. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/">REST API Reference for CheckMoveOrCopyDestFolder Operation</seealso>
         /// <returns>Task of ApiResponse (CheckDestFolderWrapper)</returns>
-        public async Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(BatchRequestDto? inDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CheckDestFolderWrapper>> CheckMoveOrCopyDestFolderWithHttpInfoAsync(bool? returnSingleOperation = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? folderIds = default, List<CheckMoveOrCopyBatchItemsFolderIdsParameterInner>? fileIds = default, CheckMoveOrCopyBatchItemsDestFolderIdParameter? destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool? deleteAfter = default, bool? content = default, bool? toFillOut = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3430,9 +3626,37 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inDto != null)
+            if (returnSingleOperation != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "returnSingleOperation", returnSingleOperation));
+            }
+            if (folderIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "folderIds", folderIds));
+            }
+            if (fileIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "fileIds", fileIds));
+            }
+            if (destFolderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "destFolderId", destFolderId));
+            }
+            if (conflictResolveType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "conflictResolveType", conflictResolveType));
+            }
+            if (deleteAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "deleteAfter", deleteAfter));
+            }
+            if (content != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "content", content));
+            }
+            if (toFillOut != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toFillOut", toFillOut));
             }
 
             // authentication (Basic) required
@@ -3674,9 +3898,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        public ChunkedUploadSessionResponseWrapperWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest)
+        public ChunkedUploadSessionResultWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest)
         {
             var localVarResponse = CreateUploadSessionWithHttpInfo(folderId, sessionRequest);
             return localVarResponse.Data;
@@ -3692,9 +3916,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ApiResponse of ChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        public ApiResponse<ChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest)
+        public ApiResponse<ChunkedUploadSessionResultWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -3748,7 +3972,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionResultWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3773,9 +3997,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>Task of ChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        public async Task<ChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        public async Task<ChunkedUploadSessionResultWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateUploadSessionWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3792,9 +4016,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperWrapper)</returns>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResultWrapper)</returns>
         [Obsolete]
-        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ChunkedUploadSessionResultWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -3850,7 +4074,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResultWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3874,9 +4098,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ThirdPartyChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ThirdPartyChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        public ThirdPartyChunkedUploadSessionResponseWrapperWrapper CreateUploadSession(string folderId, SessionRequest sessionRequest)
+        public ThirdPartyChunkedUploadSessionResultWrapper CreateUploadSession(string folderId, SessionRequest sessionRequest)
         {
             var localVarResponse = CreateUploadSessionWithHttpInfo(folderId, sessionRequest);
             return localVarResponse.Data;
@@ -3892,9 +4116,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        public ApiResponse<ThirdPartyChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionWithHttpInfo(string folderId, SessionRequest sessionRequest)
+        public ApiResponse<ThirdPartyChunkedUploadSessionResultWrapper> CreateUploadSessionWithHttpInfo(string folderId, SessionRequest sessionRequest)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -3952,7 +4176,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ThirdPartyChunkedUploadSessionResponseWrapperWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ThirdPartyChunkedUploadSessionResultWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3977,9 +4201,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ThirdPartyChunkedUploadSessionResponseWrapperWrapper</returns>
+        /// <returns>Task of ThirdPartyChunkedUploadSessionResultWrapper</returns>
         [Obsolete]
-        public async Task<ThirdPartyChunkedUploadSessionResponseWrapperWrapper> CreateUploadSessionAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        public async Task<ThirdPartyChunkedUploadSessionResultWrapper> CreateUploadSessionAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateUploadSessionWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3996,9 +4220,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResponseWrapperWrapper)</returns>
+        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResultWrapper)</returns>
         [Obsolete]
-        public async Task<ApiResponse<ThirdPartyChunkedUploadSessionResponseWrapperWrapper>> CreateUploadSessionWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ThirdPartyChunkedUploadSessionResultWrapper>> CreateUploadSessionWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4058,7 +4282,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyChunkedUploadSessionResponseWrapperWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyChunkedUploadSessionResultWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4082,8 +4306,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseResponseWrapper</returns>
-        public ChunkedUploadSessionResponseResponseWrapper CreateUploadSessionInFolder(int folderId, SessionRequest sessionRequest)
+        /// <returns>ChunkedUploadSessionWrapper</returns>
+        public ChunkedUploadSessionWrapper CreateUploadSessionInFolder(int folderId, SessionRequest sessionRequest)
         {
             var localVarResponse = CreateUploadSessionInFolderWithHttpInfo(folderId, sessionRequest);
             return localVarResponse.Data;
@@ -4099,8 +4323,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseResponseWrapper</returns>
-        public ApiResponse<ChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderWithHttpInfo(int folderId, SessionRequest sessionRequest)
+        /// <returns>ApiResponse of ChunkedUploadSessionWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionWrapper> CreateUploadSessionInFolderWithHttpInfo(int folderId, SessionRequest sessionRequest)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -4154,7 +4378,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4179,8 +4403,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseResponseWrapper</returns>
-        public async Task<ChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ChunkedUploadSessionWrapper</returns>
+        public async Task<ChunkedUploadSessionWrapper> CreateUploadSessionInFolderAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateUploadSessionInFolderWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4197,8 +4421,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseResponseWrapper)</returns>
-        public async Task<ApiResponse<ChunkedUploadSessionResponseResponseWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -4254,7 +4478,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4278,8 +4502,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        public ThirdPartyChunkedUploadSessionResponseResponseWrapper CreateUploadSessionInFolder(string folderId, SessionRequest sessionRequest)
+        /// <returns>ThirdPartyChunkedUploadSessionWrapper</returns>
+        public ThirdPartyChunkedUploadSessionWrapper CreateUploadSessionInFolder(string folderId, SessionRequest sessionRequest)
         {
             var localVarResponse = CreateUploadSessionInFolderWithHttpInfo(folderId, sessionRequest);
             return localVarResponse.Data;
@@ -4295,8 +4519,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder that receives the file; take the id from a listing such as `GET api/2.0/files/@root`. A room or an  ordinary folder inside one is accepted, a section root is not.</param>
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        public ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderWithHttpInfo(string folderId, SessionRequest sessionRequest)
+        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionWrapper</returns>
+        public ApiResponse<ThirdPartyChunkedUploadSessionWrapper> CreateUploadSessionInFolderWithHttpInfo(string folderId, SessionRequest sessionRequest)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4354,7 +4578,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ThirdPartyChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ThirdPartyChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4379,8 +4603,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        public async Task<ThirdPartyChunkedUploadSessionResponseResponseWrapper> CreateUploadSessionInFolderAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ThirdPartyChunkedUploadSessionWrapper</returns>
+        public async Task<ThirdPartyChunkedUploadSessionWrapper> CreateUploadSessionInFolderAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateUploadSessionInFolderWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4397,8 +4621,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The file the session is opened for, and how a clash with an existing name is settled.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResponseResponseWrapper)</returns>
-        public async Task<ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyChunkedUploadSessionWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(string folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4458,7 +4682,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -5245,7 +5469,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (single != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Single", single));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "single", single));
             }
             if (folderType != null)
             {
@@ -5346,7 +5570,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (single != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Single", single));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "single", single));
             }
             if (folderType != null)
             {
@@ -7128,12 +7352,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper UpdateFileComment(int fileId, UpdateComment updateComment)
+        public StringWrapper UpdateFileComment(int fileId, UpdateCommentRequest updateCommentRequest)
         {
-            var localVarResponse = UpdateFileCommentWithHttpInfo(fileId, updateComment);
+            var localVarResponse = UpdateFileCommentWithHttpInfo(fileId, updateCommentRequest);
             return localVarResponse.Data;
         }
 
@@ -7145,14 +7369,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment updateComment)
+        public ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateCommentRequest updateCommentRequest)
         {
-            // verify the required parameter 'updateComment' is set
-            if (updateComment == null)
-                throw new ApiException(400, "Missing required parameter 'updateComment' when calling OperationsApi->UpdateFileComment");
+            // verify the required parameter 'updateCommentRequest' is set
+            if (updateCommentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateCommentRequest' when calling OperationsApi->UpdateFileComment");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -7168,7 +7392,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (updateComment != null) localVarRequestOptions.Data = updateComment;
+            if (updateCommentRequest != null) localVarRequestOptions.Data = updateCommentRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7224,13 +7448,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateFileCommentWithHttpInfoAsync(fileId, updateComment, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateFileCommentWithHttpInfoAsync(fileId, updateCommentRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7242,15 +7466,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'updateComment' is set
-            if (updateComment == null)
-                throw new ApiException(400, "Missing required parameter 'updateComment' when calling OperationsApi->UpdateFileComment");
+            // verify the required parameter 'updateCommentRequest' is set
+            if (updateCommentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateCommentRequest' when calling OperationsApi->UpdateFileComment");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -7267,7 +7491,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (updateComment != null) localVarRequestOptions.Data = updateComment;
+            if (updateCommentRequest != null) localVarRequestOptions.Data = updateCommentRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7324,12 +7548,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper UpdateFileComment(string fileId, UpdateComment updateComment)
+        public StringWrapper UpdateFileComment(string fileId, UpdateCommentRequest updateCommentRequest)
         {
-            var localVarResponse = UpdateFileCommentWithHttpInfo(fileId, updateComment);
+            var localVarResponse = UpdateFileCommentWithHttpInfo(fileId, updateCommentRequest);
             return localVarResponse.Data;
         }
 
@@ -7341,18 +7565,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(string fileId, UpdateComment updateComment)
+        public ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(string fileId, UpdateCommentRequest updateCommentRequest)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new ApiException(400, "Missing required parameter 'fileId' when calling OperationsApi->UpdateFileComment");
 
-            // verify the required parameter 'updateComment' is set
-            if (updateComment == null)
-                throw new ApiException(400, "Missing required parameter 'updateComment' when calling OperationsApi->UpdateFileComment");
+            // verify the required parameter 'updateCommentRequest' is set
+            if (updateCommentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateCommentRequest' when calling OperationsApi->UpdateFileComment");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -7368,7 +7592,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (updateComment != null) localVarRequestOptions.Data = updateComment;
+            if (updateCommentRequest != null) localVarRequestOptions.Data = updateCommentRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7424,13 +7648,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> UpdateFileCommentAsync(string fileId, UpdateComment updateComment, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> UpdateFileCommentAsync(string fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateFileCommentWithHttpInfoAsync(fileId, updateComment, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateFileCommentWithHttpInfoAsync(fileId, updateCommentRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7442,19 +7666,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file whose version comment is replaced.</param>
-        /// <param name="updateComment">The version and the comment to store on it.</param>
+        /// <param name="updateCommentRequest">The version and the comment to store on it.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(string fileId, UpdateComment updateComment, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(string fileId, UpdateCommentRequest updateCommentRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new ApiException(400, "Missing required parameter 'fileId' when calling OperationsApi->UpdateFileComment");
 
-            // verify the required parameter 'updateComment' is set
-            if (updateComment == null)
-                throw new ApiException(400, "Missing required parameter 'updateComment' when calling OperationsApi->UpdateFileComment");
+            // verify the required parameter 'updateCommentRequest' is set
+            if (updateCommentRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateCommentRequest' when calling OperationsApi->UpdateFileComment");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -7471,7 +7695,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (updateComment != null) localVarRequestOptions.Data = updateComment;
+            if (updateCommentRequest != null) localVarRequestOptions.Data = updateCommentRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7532,8 +7756,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseResponseWrapper</returns>
-        public ChunkedUploadSessionResponseResponseWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
+        /// <returns>ChunkedUploadSessionWrapper</returns>
+        public ChunkedUploadSessionWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
         {
             var localVarResponse = UploadAsyncSessionWithHttpInfo(folderId, sessionId, chunkNumber, file);
             return localVarResponse.Data;
@@ -7551,8 +7775,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseResponseWrapper</returns>
-        public ApiResponse<ChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
+        /// <returns>ApiResponse of ChunkedUploadSessionWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
         {
             // verify the required parameter 'sessionId' is set
             if (sessionId == null)
@@ -7575,11 +7799,11 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (chunkNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ChunkNumber", chunkNumber));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "chunkNumber", chunkNumber));
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -7614,7 +7838,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -7641,8 +7865,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseResponseWrapper</returns>
-        public async Task<ChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ChunkedUploadSessionWrapper</returns>
+        public async Task<ChunkedUploadSessionWrapper> UploadAsyncSessionAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UploadAsyncSessionWithHttpInfoAsync(folderId, sessionId, chunkNumber, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7661,8 +7885,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseResponseWrapper)</returns>
-        public async Task<ApiResponse<ChunkedUploadSessionResponseResponseWrapper>> UploadAsyncSessionWithHttpInfoAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionWrapper>> UploadAsyncSessionWithHttpInfoAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'sessionId' is set
             if (sessionId == null)
@@ -7686,11 +7910,11 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (chunkNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ChunkNumber", chunkNumber));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "chunkNumber", chunkNumber));
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -7726,7 +7950,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -7752,8 +7976,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        public ThirdPartyChunkedUploadSessionResponseResponseWrapper UploadAsyncSession(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
+        /// <returns>ThirdPartyChunkedUploadSessionWrapper</returns>
+        public ThirdPartyChunkedUploadSessionWrapper UploadAsyncSession(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
         {
             var localVarResponse = UploadAsyncSessionWithHttpInfo(folderId, sessionId, chunkNumber, file);
             return localVarResponse.Data;
@@ -7771,8 +7995,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="chunkNumber">The position of this part in the file, counted from 1. Sending the same number again replaces that part  instead of adding one, which is how a failed part is retried; leaving the number out makes the server count  the parts itself. (optional)</param>
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        public ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionWithHttpInfo(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
+        /// <returns>ApiResponse of ThirdPartyChunkedUploadSessionWrapper</returns>
+        public ApiResponse<ThirdPartyChunkedUploadSessionWrapper> UploadAsyncSessionWithHttpInfo(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -7799,11 +8023,11 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (chunkNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ChunkNumber", chunkNumber));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "chunkNumber", chunkNumber));
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -7838,7 +8062,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ThirdPartyChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ThirdPartyChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -7865,8 +8089,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ThirdPartyChunkedUploadSessionResponseResponseWrapper</returns>
-        public async Task<ThirdPartyChunkedUploadSessionResponseResponseWrapper> UploadAsyncSessionAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ThirdPartyChunkedUploadSessionWrapper</returns>
+        public async Task<ThirdPartyChunkedUploadSessionWrapper> UploadAsyncSessionAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UploadAsyncSessionWithHttpInfoAsync(folderId, sessionId, chunkNumber, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7885,8 +8109,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="file">The part of the file to store, sent as the multipart field of the same name. It is kept under the number given  beside it, and a part larger than the portal chunk size is refused. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionResponseResponseWrapper)</returns>
-        public async Task<ApiResponse<ThirdPartyChunkedUploadSessionResponseResponseWrapper>> UploadAsyncSessionWithHttpInfoAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ThirdPartyChunkedUploadSessionWrapper)</returns>
+        public async Task<ApiResponse<ThirdPartyChunkedUploadSessionWrapper>> UploadAsyncSessionWithHttpInfoAsync(string folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -7914,11 +8138,11 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (chunkNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ChunkNumber", chunkNumber));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "chunkNumber", chunkNumber));
             }
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -7954,7 +8178,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyChunkedUploadSessionResponseResponseWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ThirdPartyChunkedUploadSessionWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -8021,7 +8245,7 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -8126,7 +8350,7 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -8233,7 +8457,7 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required
@@ -8342,7 +8566,7 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
             if (file != null)
             {
-                localVarRequestOptions.FileParameters.Add("File", file);
+                localVarRequestOptions.FileParameters.Add("file", file);
             }
 
             // authentication (Basic) required

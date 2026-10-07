@@ -116,7 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="externalResources">The addresses of the vendor&#39;s help, support, forum and video resources, already picked for the portal  language. An entry is missing when the installation configures no address for it or the resource is  switched off, which &#x60;GET api/2.0/settings/rebranding/additional&#x60; reports flag by flag..</param>
         /// <param name="defaultFolderType">The section the client should open after sign-in, which is the caller&#39;s own preference rather than a  portal-wide one. Filled in for a signed-in caller only..</param>
         /// <param name="externalDbEnabled">Whether the installation has an external database wired up for form results, without which the operations  that write form results there are refused. Filled in for a signed-in caller only..</param>
-        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, bool aiEnabled = default, bool? walletLowBalance = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHashSettingsDto passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, DomainNameRulesDto domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, bool aiEnabled = default, bool? walletLowBalance = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, ExternalResourcesDto externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
         {
             // to ensure "culture" is required (not null)
             if (culture == null)
@@ -297,7 +297,7 @@ namespace DocSpace.API.SDK.Model
         /// The parameters for hashing a password in the client before it is sent - the salt, the iteration count and  the hash size. It is filled in for an anonymous caller and, for a signed-in one, only when  &#x60;withPassword&#x3D;true&#x60; is asked for. Hash with exactly these parameters and send the result as  &#x60;passwordHash&#x60;, since the portal cannot reproduce the hash from a different set.
         /// </summary>
         [DataMember(Name = "passwordHash", EmitDefaultValue = false)]
-        public PasswordHasher PasswordHash { get; set; }
+        public PasswordHashSettingsDto PasswordHash { get; set; }
 
         /// <summary>
         /// The Firebase project a mobile or web client sends push registrations to. Filled in for a signed-in caller  only, and its own fields are empty strings on an installation that configures no Firebase project.
@@ -351,7 +351,7 @@ namespace DocSpace.API.SDK.Model
         /// The rules a portal name is checked against - its length limits and the pattern it has to match - so a  client can validate a rename before sending it. Filled in for a signed-in caller only.
         /// </summary>
         [DataMember(Name = "domainValidator", EmitDefaultValue = false)]
-        public TenantDomainValidator DomainValidator { get; set; }
+        public DomainNameRulesDto DomainValidator { get; set; }
 
         /// <summary>
         /// The key that lets the client open the vendor&#39;s support chat, empty when the installation configures none.  Filled in for a signed-in caller only.
@@ -459,7 +459,7 @@ namespace DocSpace.API.SDK.Model
         /// The addresses of the vendor&#39;s help, support, forum and video resources, already picked for the portal  language. An entry is missing when the installation configures no address for it or the resource is  switched off, which &#x60;GET api/2.0/settings/rebranding/additional&#x60; reports flag by flag.
         /// </summary>
         [DataMember(Name = "externalResources", EmitDefaultValue = false)]
-        public CultureSpecificExternalResources ExternalResources { get; set; }
+        public ExternalResourcesDto ExternalResources { get; set; }
 
         /// <summary>
         /// Whether the installation has an external database wired up for form results, without which the operations  that write form results there are refused. Filled in for a signed-in caller only.

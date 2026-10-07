@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiEditorToolsCallRequest
     /// </summary>
-    [DataContract(Name = "aiEditorToolsCall_request")]
+    [DataContract(Name = "AiEditorToolsCallRequest")]
     public partial class AiEditorToolsCallRequest : IValidatableObject
     {
     

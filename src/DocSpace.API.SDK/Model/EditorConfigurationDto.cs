@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="recent">The documents offered in the editor&#39;s recent list. It is left out altogether when there is nothing to offer..</param>
         /// <param name="templates">Always empty: the portal no longer passes creation templates through the editor configuration..</param>
         /// <param name="user">The account the editors attribute changes to. It is empty for an anonymous session opened through an external  link, and the editors then ask for a name themselves..</param>
-        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, List<EncryptionKeyDto> encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
+        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfigDto coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfigDto embedded = default, List<EncryptionKeyDto> encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfigDto plugins = default, List<RecentConfigDto> recent = default, List<TemplatesConfigDto> templates = default, UserConfigDto user = default)
         {
             // to ensure "lang" is required (not null)
             if (lang == null)
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /// How co-editing starts out for this session and whether the user may switch it in the interface.
         /// </summary>
         [DataMember(Name = "coEditing", EmitDefaultValue = false)]
-        public CoEditingConfig CoEditing { get; set; }
+        public CoEditingConfigDto CoEditing { get; set; }
 
         /// <summary>
         /// Where the editor sends the user when they ask for a new document of the same type. It is empty when creating  one is not offered here.
@@ -116,7 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// The addresses the framed viewer needs. It is filled in only for the embedded layout.
         /// </summary>
         [DataMember(Name = "embedded", EmitDefaultValue = false)]
-        public EmbeddedConfig Embedded { get; set; }
+        public EmbeddedConfigDto Embedded { get; set; }
 
         /// <summary>
         /// The caller&#39;s end-to-end encryption keys, added only when the document lies in a private room, so that the  editors can decrypt it in the browser. It is empty everywhere else.
@@ -149,27 +149,27 @@ namespace DocSpace.API.SDK.Model
         /// Which editor plugins are offered. The portal currently offers none, so the list inside comes back empty.
         /// </summary>
         [DataMember(Name = "plugins", EmitDefaultValue = false)]
-        public PluginsConfig Plugins { get; set; }
+        public PluginsConfigDto Plugins { get; set; }
 
         /// <summary>
         /// The documents offered in the editor&#39;s recent list. It is left out altogether when there is nothing to offer.
         /// </summary>
         /// <example>[]</example>
         [DataMember(Name = "recent", EmitDefaultValue = true)]
-        public List<RecentConfig> Recent { get; set; }
+        public List<RecentConfigDto> Recent { get; set; }
 
         /// <summary>
         /// Always empty: the portal no longer passes creation templates through the editor configuration.
         /// </summary>
         /// <example>[]</example>
         [DataMember(Name = "templates", EmitDefaultValue = true)]
-        public List<TemplatesConfig> Templates { get; set; }
+        public List<TemplatesConfigDto> Templates { get; set; }
 
         /// <summary>
         /// The account the editors attribute changes to. It is empty for an anonymous session opened through an external  link, and the editors then ask for a name themselves.
         /// </summary>
         [DataMember(Name = "user", EmitDefaultValue = false)]
-        public UserConfig User { get; set; }
+        public UserConfigDto User { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

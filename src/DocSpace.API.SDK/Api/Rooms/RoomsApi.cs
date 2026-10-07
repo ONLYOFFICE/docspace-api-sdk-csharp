@@ -330,10 +330,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>ThirdPartyFolderWrapper</returns>
-        ThirdPartyFolderWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom createThirdPartyRoom);
+        ThirdPartyFolderWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest);
 
         /// <summary>
         /// Create a third-party room
@@ -343,10 +343,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
-        ApiResponse<ThirdPartyFolderWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom createThirdPartyRoom);
+        ApiResponse<ThirdPartyFolderWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest);
         /// <summary>
         /// Delete the custom room tags
         /// </summary>
@@ -609,6 +609,41 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> GetPublicSettingsWithHttpInfo(int id);
         /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        FolderContentWrapper GetRoomAiFolder(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+
+        /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        ApiResponse<FolderContentWrapper> GetRoomAiFolderWithHttpInfo(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        /// <summary>
         /// Get room cover gallery
         /// </summary>
         /// <remarks>
@@ -840,8 +875,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">How many tag names to skip before the page begins. Raise it by the number of names already received to read  the next page. (optional)</param>
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        STRINGArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>StringArrayWrapper</returns>
+        StringArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
         /// Get available room tags
@@ -854,8 +889,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">How many tag names to skip before the page begins. Raise it by the number of names already received to read  the next page. (optional)</param>
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        ApiResponse<STRINGArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        ApiResponse<StringArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
         /// Get room template creation status
         /// </summary>
@@ -895,15 +930,18 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        FolderContentWrapper GetRoomsFolder(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
+        FolderContentWrapper GetRoomsFolder(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default);
 
         /// <summary>
         /// Get rooms
@@ -923,15 +961,18 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        ApiResponse<FolderContentWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
+        ApiResponse<FolderContentWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default);
         /// <summary>
         /// Get new items in all rooms
         /// </summary>
@@ -1166,6 +1207,29 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(string id, UserInvitation userInvitation);
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        FolderContentWrapper SearchRooms(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default);
+
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        ApiResponse<FolderContentWrapper> SearchRoomsWithHttpInfo(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default);
         /// <summary>
         /// Set room template public access
         /// </summary>
@@ -1881,11 +1945,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of ThirdPartyFolderWrapper</returns>
-        Task<ThirdPartyFolderWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default);
+        Task<ThirdPartyFolderWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a third-party room
@@ -1895,11 +1959,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
-        Task<ApiResponse<ThirdPartyFolderWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ThirdPartyFolderWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete the custom room tags
         /// </summary>
@@ -2184,6 +2248,43 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> GetPublicSettingsWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        Task<FolderContentWrapper> GetRoomAiFolderAsync(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        Task<ApiResponse<FolderContentWrapper>> GetRoomAiFolderWithHttpInfoAsync(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get room cover gallery
         /// </summary>
         /// <remarks>
@@ -2434,8 +2535,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        Task<STRINGArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of StringArrayWrapper</returns>
+        Task<StringArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get available room tags
@@ -2449,8 +2550,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        Task<ApiResponse<STRINGArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        Task<ApiResponse<StringArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get room template creation status
         /// </summary>
@@ -2492,16 +2593,19 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        Task<FolderContentWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
+        Task<FolderContentWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get rooms
@@ -2521,16 +2625,19 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        Task<ApiResponse<FolderContentWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get new items in all rooms
         /// </summary>
@@ -2785,6 +2892,31 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(string id, UserInvitation userInvitation, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        Task<FolderContentWrapper> SearchRoomsAsync(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        Task<ApiResponse<FolderContentWrapper>> SearchRoomsWithHttpInfoAsync(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set room template public access
         /// </summary>
@@ -5731,12 +5863,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>ThirdPartyFolderWrapper</returns>
-        public ThirdPartyFolderWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom createThirdPartyRoom)
+        public ThirdPartyFolderWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest)
         {
-            var localVarResponse = CreateRoomThirdPartyWithHttpInfo(id, createThirdPartyRoom);
+            var localVarResponse = CreateRoomThirdPartyWithHttpInfo(id, createThirdPartyRoomRequest);
             return localVarResponse.Data;
         }
 
@@ -5748,18 +5880,18 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyFolderWrapper</returns>
-        public ApiResponse<ThirdPartyFolderWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom createThirdPartyRoom)
+        public ApiResponse<ThirdPartyFolderWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
 
-            // verify the required parameter 'createThirdPartyRoom' is set
-            if (createThirdPartyRoom == null)
-                throw new ApiException(400, "Missing required parameter 'createThirdPartyRoom' when calling RoomsApi->CreateRoomThirdParty");
+            // verify the required parameter 'createThirdPartyRoomRequest' is set
+            if (createThirdPartyRoomRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createThirdPartyRoomRequest' when calling RoomsApi->CreateRoomThirdParty");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -5775,7 +5907,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (createThirdPartyRoom != null) localVarRequestOptions.Data = createThirdPartyRoom;
+            if (createThirdPartyRoomRequest != null) localVarRequestOptions.Data = createThirdPartyRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5831,13 +5963,13 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of ThirdPartyFolderWrapper</returns>
-        public async Task<ThirdPartyFolderWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default)
+        public async Task<ThirdPartyFolderWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CreateRoomThirdPartyWithHttpInfoAsync(id, createThirdPartyRoom, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateRoomThirdPartyWithHttpInfoAsync(id, createThirdPartyRoomRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5849,19 +5981,19 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier of the folder in the connected third-party storage that becomes the room, or receives it as a  subfolder. Folder identifiers of a connected account are strings and are returned by the folder listings of  that account.</param>
-        /// <param name="createThirdPartyRoom">The settings of the room to be created out of the folder.</param>
+        /// <param name="createThirdPartyRoomRequest">The settings of the room to be created out of the folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of ApiResponse (ThirdPartyFolderWrapper)</returns>
-        public async Task<ApiResponse<ThirdPartyFolderWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ThirdPartyFolderWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoomRequest createThirdPartyRoomRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
 
-            // verify the required parameter 'createThirdPartyRoom' is set
-            if (createThirdPartyRoom == null)
-                throw new ApiException(400, "Missing required parameter 'createThirdPartyRoom' when calling RoomsApi->CreateRoomThirdParty");
+            // verify the required parameter 'createThirdPartyRoomRequest' is set
+            if (createThirdPartyRoomRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createThirdPartyRoomRequest' when calling RoomsApi->CreateRoomThirdParty");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -5878,7 +6010,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (createThirdPartyRoom != null) localVarRequestOptions.Data = createThirdPartyRoom;
+            if (createThirdPartyRoomRequest != null) localVarRequestOptions.Data = createThirdPartyRoomRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -8000,6 +8132,260 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        public FolderContentWrapper GetRoomAiFolder(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarResponse = GetRoomAiFolderWithHttpInfo(id, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        public ApiResponse<FolderContentWrapper> GetRoomAiFolderWithHttpInfo(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FolderContentWrapper>("/api/2.0/files/rooms/{id}/ai", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetRoomAiFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        public async Task<FolderContentWrapper> GetRoomAiFolderAsync(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetRoomAiFolderWithHttpInfoAsync(id, filterType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the .ai folder of a room
+        /// </summary>
+        /// <remarks>
+        /// Returns one page of the contents of the .ai folder that lies in the root of a room, in the same shape as  `GET api/2.0/files/{folderId}` returns for any other folder. The rooms that hold such a folder are listed with  `GET api/2.0/files/rooms?withAiFolder=true`. Any member who can read the room may call it; somebody who cannot  is refused, and a room that does not exist or holds no .ai folder is answered as not found.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room whose .ai folder is listed, named by the identifier that `GET api/2.0/files/rooms` reports for it.</param>
+        /// <param name="filterType">Narrows the listing to a single kind of entry, such as documents, spreadsheets or images. Omit it to list every  kind the folder holds. (optional)</param>
+        /// <param name="count">The size of one page of the listing. Pair it with `startIndex` to walk through the result, and compare the two  with `total` in the response to see when the last page has been read. (optional)</param>
+        /// <param name="startIndex">The number of matching entries to skip before the returned page begins; add `count` to it to ask for the next  page. (optional)</param>
+        /// <param name="sortBy">The name of the field the entries are ordered by, matched case-insensitively against the file sort fields,  such as `DateAndTime`, `AZ`, `Size` or `Type`. (optional)</param>
+        /// <param name="sortOrder">The direction in which the `sortBy` field is ordered. (optional)</param>
+        /// <param name="filterValue">The search string the listing is filtered by: it is matched as a substring of entry titles. Omit it to list  the folder unfiltered. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-ai-folder/">REST API Reference for GetRoomAiFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        public async Task<ApiResponse<FolderContentWrapper>> GetRoomAiFolderWithHttpInfoAsync(int id, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentWrapper>("/api/2.0/files/rooms/{id}/ai", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetRoomAiFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get room cover gallery
         /// </summary>
         /// <remarks>
@@ -9774,8 +10160,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">How many tag names to skip before the page begins. Raise it by the number of names already received to read  the next page. (optional)</param>
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        public STRINGArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>StringArrayWrapper</returns>
+        public StringArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarResponse = GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
             return localVarResponse.Data;
@@ -9792,8 +10178,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="startIndex">How many tag names to skip before the page begins. Raise it by the number of names already received to read  the next page. (optional)</param>
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        public ApiResponse<STRINGArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        public ApiResponse<StringArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9857,7 +10243,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<STRINGArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -9883,8 +10269,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        public async Task<STRINGArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of StringArrayWrapper</returns>
+        public async Task<StringArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -9902,8 +10288,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="filterValue">Keeps only the tag names that contain this text, ignoring case. It is a substring match, so a fragment from  the middle of a name is enough. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async Task<ApiResponse<STRINGArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        public async Task<ApiResponse<StringArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9965,7 +10351,7 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<STRINGArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -10173,17 +10559,20 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentWrapper</returns>
-        public FolderContentWrapper GetRoomsFolder(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
+        public FolderContentWrapper GetRoomsFolder(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
-            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
+            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, withAiFolder, count, startIndex, sortBy, sortOrder, filterValue, groupId, metadataTemplateId, metadataFilters);
             return localVarResponse.Data;
         }
 
@@ -10205,15 +10594,18 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentWrapper</returns>
-        public ApiResponse<FolderContentWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
+        public ApiResponse<FolderContentWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -10272,6 +10664,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "privacyFilter", privacyFilter));
             }
+            if (withAiFolder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withAiFolder", withAiFolder));
+            }
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
@@ -10295,6 +10691,14 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (groupId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
             }
             if (_fields != null)
             {
@@ -10365,18 +10769,21 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentWrapper</returns>
-        public async Task<FolderContentWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, withAiFolder, count, startIndex, sortBy, sortOrder, filterValue, groupId, metadataTemplateId, metadataFilters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10398,16 +10805,19 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="quotaFilter">Splits the rooms by whether a storage quota was set on the room itself or it follows the portal default, which  is how rooms with a custom limit are found. (optional)</param>
         /// <param name="storageFilter">Splits the rooms by where their content is stored, in the portal itself or in a connected third-party account.  It is the coarse form of the provider filter. (optional)</param>
         /// <param name="privacyFilter">Splits the rooms by whether they are private, that is encrypted rooms whose content the portal cannot read.  Omitting it returns both kinds. (optional)</param>
+        /// <param name="withAiFolder">Keeps only the rooms that hold a .ai folder in their root. The content of that folder is read with  `GET api/2.0/files/rooms/{id}/ai`. Omitting it returns rooms with and without the folder. (optional)</param>
         /// <param name="count">How many rooms one page may carry. Ask for the next page by raising the start index by the number of rooms  already received. (optional)</param>
         /// <param name="startIndex">How many matching rooms to skip before the page begins. Page through the answer until the skip plus the rooms  received reaches the total it reports. (optional)</param>
         /// <param name="sortBy">The field to order the rooms by, named as in the file listings: `AZ` for the title, `DateAndTime` for the last  change, `DateAndTimeCreation`, `Author`, `Size`, `Type`, `RoomType`, `Tags`, `UsedSpace`, `LastOpened`. The  name is matched ignoring case, an unknown one is rejected rather than ignored, and the accepted one also  becomes this account's stored order. (optional)</param>
         /// <param name="sortOrder">The direction of the order chosen by the sort field. It has no effect when no sort field is given and the  stored order of the account is used. (optional)</param>
         /// <param name="filterValue">Keeps only the rooms whose title contains this text, ignoring case. It is a substring match over the title  alone: room content and tags are not searched. (optional)</param>
         /// <param name="groupId">Keeps only the rooms that belong to this room group. The identifier comes from `GET api/2.0/files/group`; the  groups of portal members are a different concept and their identifiers do not match here. (optional)</param>
+        /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to. (optional)</param>
+        /// <param name="metadataFilters">The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/rooms/search. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
-        public async Task<ApiResponse<FolderContentWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, bool? withAiFolder = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, int? metadataTemplateId = default, string? metadataFilters = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -10467,6 +10877,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "privacyFilter", privacyFilter));
             }
+            if (withAiFolder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withAiFolder", withAiFolder));
+            }
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
@@ -10490,6 +10904,14 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (groupId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
+            }
+            if (metadataTemplateId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataTemplateId", metadataTemplateId));
+            }
+            if (metadataFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "metadataFilters", metadataFilters));
             }
 
             // authentication (Basic) required
@@ -12420,6 +12842,188 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("ResendEmailInvitations", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>FolderContentWrapper</returns>
+        public FolderContentWrapper SearchRooms(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default)
+        {
+            var localVarResponse = SearchRoomsWithHttpInfo(roomsMetadataSearchRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>ApiResponse of FolderContentWrapper</returns>
+        public ApiResponse<FolderContentWrapper> SearchRoomsWithHttpInfo(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (roomsMetadataSearchRequestDto != null) localVarRequestOptions.Data = roomsMetadataSearchRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<FolderContentWrapper>("/api/2.0/files/rooms/search", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SearchRooms", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>Task of FolderContentWrapper</returns>
+        public async Task<FolderContentWrapper> SearchRoomsAsync(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SearchRoomsWithHttpInfoAsync(roomsMetadataSearchRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search the rooms by metadata
+        /// </summary>
+        /// <remarks>
+        /// Searches the rooms by metadata. The same filter the rooms listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="roomsMetadataSearchRequestDto">The typed form of the metadata search of the rooms: the same filter the rooms listing takes in the metadataTemplateId  and metadataFilters query parameters, with the conditions as objects instead of a JSON string. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-rooms/">REST API Reference for SearchRooms Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentWrapper)</returns>
+        public async Task<ApiResponse<FolderContentWrapper>> SearchRoomsWithHttpInfoAsync(RoomsMetadataSearchRequestDto? roomsMetadataSearchRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (roomsMetadataSearchRequestDto != null) localVarRequestOptions.Data = roomsMetadataSearchRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<FolderContentWrapper>("/api/2.0/files/rooms/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SearchRooms", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

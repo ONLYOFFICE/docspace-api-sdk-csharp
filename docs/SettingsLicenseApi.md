@@ -333,6 +333,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | `true` when the license file was re-read and the portal quota and tariff rewritten from it, `false` on an installation that has no license path configured |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The license file does not start until a later date |  -  |
+| **402** | No license file is on disk, the file cannot be read as a license or carries no customer id or signature, it was issued for the other edition, or the editing service does not confirm it |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -451,10 +453,10 @@ catch (ApiException e)
 | **200** | A localized confirmation that the file was staged, carrying the date support and updates ended when the license is already overdue |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request carried no license file, or the license does not start until a later date |  -  |
 | **403** | The caller is not a DocSpace administrator, or a confirmation link was used after the setup wizard had already been completed |  -  |
-| **405** | The installation has no license path configured, so it cannot be given a license file |  -  |
+| **415** | The installation has no license path configured, so it cannot be given a license file |  -  |
+| **500** | The file cannot be read as a license, carries no customer id or signature, or was issued for the other edition |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

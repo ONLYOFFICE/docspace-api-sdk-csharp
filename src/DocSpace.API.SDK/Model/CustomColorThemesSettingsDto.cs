@@ -44,7 +44,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="themes">Every theme the portal can apply, ordered by ID, with the built-in ones first because they were created  first. It is never empty - the built-in themes cannot be deleted - and a custom theme is one whose ID is  higher than the built-in ones..</param>
         /// <param name="selected">The ID of the theme in &#x60;themes&#x60; that is currently applied to the whole portal. Deleting the applied theme  moves it to the lowest remaining ID, so it can change without anyone having chosen a new one..</param>
         /// <param name="limit">How many entries &#x60;themes&#x60; may hold in total, built-in ones included; &#x60;0&#x60; means the plan caps nothing. Once  the cap is reached &#x60;PUT api/2.0/settings/colortheme&#x60; drops a new theme silently instead of failing, so  compare this with the length of &#x60;themes&#x60; to tell whether a save took effect..</param>
-        public CustomColorThemesSettingsDto(List<CustomColorThemesSettingsItem> themes = default, int selected = default, int limit = default)
+        public CustomColorThemesSettingsDto(List<CustomColorThemeDto> themes = default, int selected = default, int limit = default)
         {
             this.Themes = themes;
             this.Selected = selected;
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>[{"id":1,"name":"Custom Theme"}]</example>
         [DataMember(Name = "themes", EmitDefaultValue = true)]
-        public List<CustomColorThemesSettingsItem> Themes { get; set; }
+        public List<CustomColorThemeDto> Themes { get; set; }
 
         /// <summary>
         /// The ID of the theme in &#x60;themes&#x60; that is currently applied to the whole portal. Deleting the applied theme  moves it to the lowest remaining ID, so it can change without anyone having chosen a new one.

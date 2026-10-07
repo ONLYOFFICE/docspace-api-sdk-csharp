@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.TenantAiAccessSettingsWrapper
-The successful API response containing the TenantAiAccessSettings object.
+The successful API response containing the TenantAiAccessSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TenantAiAccessSettings**](TenantAiAccessSettings.md) | The TenantAiAccessSettings object returned by the operation. | [optional] 
+**Response** | [**TenantAiAccessSettingsDto**](TenantAiAccessSettingsDto.md) | The TenantAiAccessSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

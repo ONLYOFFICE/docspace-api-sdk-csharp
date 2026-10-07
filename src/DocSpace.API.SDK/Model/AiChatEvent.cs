@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="messageId">The storage identifier of that message..</param>
         /// <param name="idx">The zero-based position of the pending tool call within the message..</param>
         /// <param name="threadId">The thread the event belongs to..</param>
-        /// <param name="autoAllow">The consumer should execute the tool without prompting the user. True when the tool is in the persisted always-allow list, or the tool itself opts in via &#x60;TMCPItem.requireApproval &#x3D;&#x3D;&#x3D; false&#x60; (host tools default to this). For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip..</param>
+        /// <param name="autoAllow">The consumer should execute the tool without prompting the user. Decided by the tool permission mode (&#x60;resolveAutoAllow&#x60;): under ask never; under auto a tool in the persisted always-allow list or one that opts in via &#x60;TMCPItem.requireApproval &#x3D;&#x3D;&#x3D; false&#x60; (host tools default to this); under allow every tool. For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip..</param>
         /// <param name="serverExecuted">Set when the tool is served by a server-side system source: the consumer must NOT execute it locally — only show the approval UI (unless &#x60;autoAllow&#x60;) and resume via &#x60;approveToolCall&#x60; (no &#x60;result&#x60; needed) / &#x60;denyToolCall&#x60;. The engine runs it in-engine..</param>
         /// <param name="title">The generated thread title..</param>
         /// <param name="profileId">The profile that generated the title, when one was used..</param>
@@ -150,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         public string ThreadId { get; set; }
 
         /// <summary>
-        /// The consumer should execute the tool without prompting the user. True when the tool is in the persisted always-allow list, or the tool itself opts in via &#x60;TMCPItem.requireApproval &#x3D;&#x3D;&#x3D; false&#x60; (host tools default to this). For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip.
+        /// The consumer should execute the tool without prompting the user. Decided by the tool permission mode (&#x60;resolveAutoAllow&#x60;): under ask never; under auto a tool in the persisted always-allow list or one that opts in via &#x60;TMCPItem.requireApproval &#x3D;&#x3D;&#x3D; false&#x60; (host tools default to this); under allow every tool. For a client-side tool with a server-side engine, this lets the engine return the pending call already flagged auto-allow so the client runs it and streams the result back without a dialog round-trip.
         /// </summary>
         [DataMember(Name = "autoAllow", EmitDefaultValue = true)]
         public bool AutoAllow { get; set; }

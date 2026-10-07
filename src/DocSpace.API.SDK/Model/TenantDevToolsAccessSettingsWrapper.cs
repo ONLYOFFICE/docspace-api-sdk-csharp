@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the TenantDevToolsAccessSettings object.
+    /// The successful API response containing the TenantDevToolsAccessSettingsDto object.
     /// </summary>
     [DataContract(Name = "TenantDevToolsAccessSettingsWrapper")]
     public partial class TenantDevToolsAccessSettingsWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantDevToolsAccessSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">The TenantDevToolsAccessSettings object returned by the operation..</param>
+        /// <param name="response">The TenantDevToolsAccessSettingsDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public TenantDevToolsAccessSettingsWrapper(TenantDevToolsAccessSettings response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public TenantDevToolsAccessSettingsWrapper(TenantDevToolsAccessSettingsDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The TenantDevToolsAccessSettings object returned by the operation.
+        /// The TenantDevToolsAccessSettingsDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public TenantDevToolsAccessSettings Response { get; set; }
+        public TenantDevToolsAccessSettingsDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

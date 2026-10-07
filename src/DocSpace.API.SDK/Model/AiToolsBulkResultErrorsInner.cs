@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="name">name (required).</param>
         /// <param name="error">error (required).</param>
-        public AiToolsBulkResultErrorsInner(string name = default, AiTErrorData error = default)
+        public AiToolsBulkResultErrorsInner(string name = default, AiErrorData error = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Error
         /// </summary>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

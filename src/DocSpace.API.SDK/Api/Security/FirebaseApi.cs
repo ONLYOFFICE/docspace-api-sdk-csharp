@@ -37,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>FireBaseUserWrapper</returns>
-        FireBaseUserWrapper DocRegisterPusnNotificationDevice(FirebaseRequestsDto? firebaseRequestsDto = default);
+        /// <returns>FirebaseDeviceWrapper</returns>
+        FirebaseDeviceWrapper DocRegisterPusnNotificationDevice(FirebaseRequestDto? firebaseRequestDto = default);
 
         /// <summary>
         /// Register a push device
@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>ApiResponse of FireBaseUserWrapper</returns>
-        ApiResponse<FireBaseUserWrapper> DocRegisterPusnNotificationDeviceWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default);
+        /// <returns>ApiResponse of FirebaseDeviceWrapper</returns>
+        ApiResponse<FirebaseDeviceWrapper> DocRegisterPusnNotificationDeviceWithHttpInfo(FirebaseRequestDto? firebaseRequestDto = default);
         /// <summary>
         /// Set push subscription
         /// </summary>
@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>FireBaseUserWrapper</returns>
-        FireBaseUserWrapper SubscribeDocumentsPushNotification(FirebaseRequestsDto? firebaseRequestsDto = default);
+        /// <returns>FirebaseDeviceWrapper</returns>
+        FirebaseDeviceWrapper SubscribeDocumentsPushNotification(FirebaseRequestDto? firebaseRequestDto = default);
 
         /// <summary>
         /// Set push subscription
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>ApiResponse of FireBaseUserWrapper</returns>
-        ApiResponse<FireBaseUserWrapper> SubscribeDocumentsPushNotificationWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default);
+        /// <returns>ApiResponse of FirebaseDeviceWrapper</returns>
+        ApiResponse<FirebaseDeviceWrapper> SubscribeDocumentsPushNotificationWithHttpInfo(FirebaseRequestDto? firebaseRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -92,11 +92,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>Task of FireBaseUserWrapper</returns>
-        Task<FireBaseUserWrapper> DocRegisterPusnNotificationDeviceAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FirebaseDeviceWrapper</returns>
+        Task<FirebaseDeviceWrapper> DocRegisterPusnNotificationDeviceAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Register a push device
@@ -105,11 +105,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>
-        Task<ApiResponse<FireBaseUserWrapper>> DocRegisterPusnNotificationDeviceWithHttpInfoAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FirebaseDeviceWrapper)</returns>
+        Task<ApiResponse<FirebaseDeviceWrapper>> DocRegisterPusnNotificationDeviceWithHttpInfoAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set push subscription
         /// </summary>
@@ -117,11 +117,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>Task of FireBaseUserWrapper</returns>
-        Task<FireBaseUserWrapper> SubscribeDocumentsPushNotificationAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FirebaseDeviceWrapper</returns>
+        Task<FirebaseDeviceWrapper> SubscribeDocumentsPushNotificationAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set push subscription
@@ -130,11 +130,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>
-        Task<ApiResponse<FireBaseUserWrapper>> SubscribeDocumentsPushNotificationWithHttpInfoAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FirebaseDeviceWrapper)</returns>
+        Task<ApiResponse<FirebaseDeviceWrapper>> SubscribeDocumentsPushNotificationWithHttpInfoAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -357,12 +357,12 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>FireBaseUserWrapper</returns>
-        public FireBaseUserWrapper DocRegisterPusnNotificationDevice(FirebaseRequestsDto? firebaseRequestsDto = default)
+        /// <returns>FirebaseDeviceWrapper</returns>
+        public FirebaseDeviceWrapper DocRegisterPusnNotificationDevice(FirebaseRequestDto? firebaseRequestDto = default)
         {
-            var localVarResponse = DocRegisterPusnNotificationDeviceWithHttpInfo(firebaseRequestsDto);
+            var localVarResponse = DocRegisterPusnNotificationDeviceWithHttpInfo(firebaseRequestDto);
             return localVarResponse.Data;
         }
 
@@ -373,10 +373,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>ApiResponse of FireBaseUserWrapper</returns>
-        public ApiResponse<FireBaseUserWrapper> DocRegisterPusnNotificationDeviceWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default)
+        /// <returns>ApiResponse of FirebaseDeviceWrapper</returns>
+        public ApiResponse<FirebaseDeviceWrapper> DocRegisterPusnNotificationDeviceWithHttpInfo(FirebaseRequestDto? firebaseRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -391,7 +391,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (firebaseRequestsDto != null) localVarRequestOptions.Data = firebaseRequestsDto;
+            if (firebaseRequestDto != null) localVarRequestOptions.Data = firebaseRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -425,7 +425,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<FireBaseUserWrapper>("/api/2.0/settings/push/docregisterdevice", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<FirebaseDeviceWrapper>("/api/2.0/settings/push/docregisterdevice", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -446,13 +446,13 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>Task of FireBaseUserWrapper</returns>
-        public async Task<FireBaseUserWrapper> DocRegisterPusnNotificationDeviceAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FirebaseDeviceWrapper</returns>
+        public async Task<FirebaseDeviceWrapper> DocRegisterPusnNotificationDeviceAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DocRegisterPusnNotificationDeviceWithHttpInfoAsync(firebaseRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DocRegisterPusnNotificationDeviceWithHttpInfoAsync(firebaseRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -463,11 +463,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Registers one mobile device of the calling user for the push notifications of the Documents application, by  storing the Firebase token that device was issued together with the initial `isSubscribed` state. The token is  handed out by Firebase to the mobile client, so obtain it there before calling: nothing here checks it, and it  is kept as an opaque string of up to 255 characters. Every signed-in member registers its own devices,  whatever its role - owner, administrator, user or guest - and a registration is bound to the caller and the  current portal, so another member's devices cannot be touched. The call is safe to repeat, but it is not an  update: a token already registered comes back as it stands and `isSubscribed` from the request is ignored, so  switch an existing registration on or off with `PUT api/2.0/settings/push/docsubscribe` instead. What comes  back is the stored registration, with `application` always `doc` and `isSubscribed` as stored. Only a  subscribed device is sent the room activity messages, such as an invitation to a room, a role change, an  archived room or a new document in a room, and only while the installation itself is configured with Firebase  credentials.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/">REST API Reference for DocRegisterPusnNotificationDevice Operation</seealso>
-        /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>
-        public async Task<ApiResponse<FireBaseUserWrapper>> DocRegisterPusnNotificationDeviceWithHttpInfoAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FirebaseDeviceWrapper)</returns>
+        public async Task<ApiResponse<FirebaseDeviceWrapper>> DocRegisterPusnNotificationDeviceWithHttpInfoAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -483,7 +483,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (firebaseRequestsDto != null) localVarRequestOptions.Data = firebaseRequestsDto;
+            if (firebaseRequestDto != null) localVarRequestOptions.Data = firebaseRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -518,7 +518,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<FireBaseUserWrapper>("/api/2.0/settings/push/docregisterdevice", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<FirebaseDeviceWrapper>("/api/2.0/settings/push/docregisterdevice", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -539,12 +539,12 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>FireBaseUserWrapper</returns>
-        public FireBaseUserWrapper SubscribeDocumentsPushNotification(FirebaseRequestsDto? firebaseRequestsDto = default)
+        /// <returns>FirebaseDeviceWrapper</returns>
+        public FirebaseDeviceWrapper SubscribeDocumentsPushNotification(FirebaseRequestDto? firebaseRequestDto = default)
         {
-            var localVarResponse = SubscribeDocumentsPushNotificationWithHttpInfo(firebaseRequestsDto);
+            var localVarResponse = SubscribeDocumentsPushNotificationWithHttpInfo(firebaseRequestDto);
             return localVarResponse.Data;
         }
 
@@ -555,10 +555,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>ApiResponse of FireBaseUserWrapper</returns>
-        public ApiResponse<FireBaseUserWrapper> SubscribeDocumentsPushNotificationWithHttpInfo(FirebaseRequestsDto? firebaseRequestsDto = default)
+        /// <returns>ApiResponse of FirebaseDeviceWrapper</returns>
+        public ApiResponse<FirebaseDeviceWrapper> SubscribeDocumentsPushNotificationWithHttpInfo(FirebaseRequestDto? firebaseRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -573,7 +573,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (firebaseRequestsDto != null) localVarRequestOptions.Data = firebaseRequestsDto;
+            if (firebaseRequestDto != null) localVarRequestOptions.Data = firebaseRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -607,7 +607,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FireBaseUserWrapper>("/api/2.0/settings/push/docsubscribe", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FirebaseDeviceWrapper>("/api/2.0/settings/push/docsubscribe", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -628,13 +628,13 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>Task of FireBaseUserWrapper</returns>
-        public async Task<FireBaseUserWrapper> SubscribeDocumentsPushNotificationAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FirebaseDeviceWrapper</returns>
+        public async Task<FirebaseDeviceWrapper> SubscribeDocumentsPushNotificationAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SubscribeDocumentsPushNotificationWithHttpInfoAsync(firebaseRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SubscribeDocumentsPushNotificationWithHttpInfoAsync(firebaseRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -645,11 +645,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Switches the push notifications of the Documents application on or off for one already registered device of  the calling user: send that device's Firebase token together with `isSubscribed` true to let the messages  through or false to stop them. The device has to be registered first with  `POST api/2.0/settings/push/docregisterdevice`, and only the subscription state is written - the token is  matched, never changed. Every signed-in member manages its own devices, whatever its role - owner,  administrator, user or guest - and a token that belongs to another member or to another portal is not matched  at all, so nothing of theirs can be switched. Repeating the call with the same pair leaves the registration as  it is. What comes back is the updated registration, while an empty response means no registration of the  caller carries that token and nothing was stored - register the device and call again. A device switched off  keeps its token stored but is left out of the delivery, and the other devices of the same member are  unaffected. Which kinds of notification the account receives at all is a separate setting, read with  `GET api/2.0/settings/notification/{type}`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="firebaseRequestsDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
+        /// <param name="firebaseRequestDto">Which mobile device receives the Documents push notifications, and whether it is subscribed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/">REST API Reference for SubscribeDocumentsPushNotification Operation</seealso>
-        /// <returns>Task of ApiResponse (FireBaseUserWrapper)</returns>
-        public async Task<ApiResponse<FireBaseUserWrapper>> SubscribeDocumentsPushNotificationWithHttpInfoAsync(FirebaseRequestsDto? firebaseRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FirebaseDeviceWrapper)</returns>
+        public async Task<ApiResponse<FirebaseDeviceWrapper>> SubscribeDocumentsPushNotificationWithHttpInfoAsync(FirebaseRequestDto? firebaseRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -665,7 +665,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (firebaseRequestsDto != null) localVarRequestOptions.Data = firebaseRequestsDto;
+            if (firebaseRequestDto != null) localVarRequestOptions.Data = firebaseRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -700,7 +700,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FireBaseUserWrapper>("/api/2.0/settings/push/docsubscribe", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FirebaseDeviceWrapper>("/api/2.0/settings/push/docsubscribe", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

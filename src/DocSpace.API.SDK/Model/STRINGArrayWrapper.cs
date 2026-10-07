@@ -34,19 +34,19 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// The successful API response.
     /// </summary>
-    [DataContract(Name = "STRINGArrayWrapper")]
-    public partial class STRINGArrayWrapper : IValidatableObject
+    [DataContract(Name = "StringArrayWrapper")]
+    public partial class StringArrayWrapper : IValidatableObject
     {
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="STRINGArrayWrapper" /> class.
+        /// Initializes a new instance of the <see cref="StringArrayWrapper" /> class.
         /// </summary>
         /// <param name="response">The response payload..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public STRINGArrayWrapper(List<string> response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public StringArrayWrapper(List<string> response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class STRINGArrayWrapper {\n");
+            sb.Append("class StringArrayWrapper {\n");
             sb.Append("  Response: ").Append(Response).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");

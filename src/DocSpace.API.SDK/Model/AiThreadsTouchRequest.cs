@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsTouchRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsTouch_request")]
+    [DataContract(Name = "AiThreadsTouchRequest")]
     public partial class AiThreadsTouchRequest : IValidatableObject
     {
     

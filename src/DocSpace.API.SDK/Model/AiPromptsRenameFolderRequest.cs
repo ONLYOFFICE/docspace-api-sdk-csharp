@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPromptsRenameFolderRequest
     /// </summary>
-    [DataContract(Name = "aiPromptsRenameFolder_request")]
+    [DataContract(Name = "AiPromptsRenameFolderRequest")]
     public partial class AiPromptsRenameFolderRequest : IValidatableObject
     {
     

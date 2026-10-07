@@ -4,12 +4,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeUserEmail**](#changeuseremail) | **PUT** /api/2.0/people/{userid}/email | Change a user email |
+| [**ChangeUserEmail**](#changeuseremail) | **PUT** /api/2.0/people/{userId}/email | Change a user email |
 | [**SendEmailChangeInstructions**](#sendemailchangeinstructions) | **POST** /api/2.0/people/email | Send instructions to change email |
 
 <a id="changeuseremail"></a>
 # **ChangeUserEmail**
-> EmployeeFullWrapper ChangeUserEmail (Guid userid, ChangeEmailRequest changeEmailRequest)
+> EmployeeFullWrapper ChangeUserEmail (Guid userId, ChangeEmailRequest changeEmailRequest)
 
 Sets a new email address on an account, which is the step that completes an email change.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, and only the portal owner may change the owner's own address.  Pass the address either in plain text as `email` or, as it arrives inside the confirmation link, encrypted as  `encEmail`; an empty or malformed address answers 400.  An address equal to the current one is accepted and changes nothing, while a new one is stored in lowercase  and marks the account `Activated`, because following the link proves the address works.  The answer is the profile with its new address.  The change is requested through `POST api/2.0/people/email`, which is what sends the link.
 
@@ -19,7 +19,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **Guid** | The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. |  |
+| **userId** | **Guid** | The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active. |  |
 | **changeEmailRequest** | [**ChangeEmailRequest**](ChangeEmailRequest.md) | The new address, in plain text or in the encrypted form the confirmation link carries. |  |
 
 ### Return type
@@ -67,13 +67,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new EmailApi(httpClient, config, httpClientHandler);
-            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the account whose address is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.
             var changeEmailRequest = new ChangeEmailRequest(); // ChangeEmailRequest | The new address, in plain text or in the encrypted form the confirmation link carries.
 
             try
             {
                 // Change a user email
-                EmployeeFullWrapper result = apiInstance.ChangeUserEmail(userid, changeEmailRequest);
+                EmployeeFullWrapper result = apiInstance.ChangeUserEmail(userId, changeEmailRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -94,7 +94,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Change a user email
-    ApiResponse<EmployeeFullWrapper> response = apiInstance.ChangeUserEmailWithHttpInfo(userid, changeEmailRequest);
+    ApiResponse<EmployeeFullWrapper> response = apiInstance.ChangeUserEmailWithHttpInfo(userId, changeEmailRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -132,7 +132,7 @@ catch (ApiException e)
 # **SendEmailChangeInstructions**
 > StringWrapper SendEmailChangeInstructions (UpdateMemberRequestDto? updateMemberRequestDto = null)
 
-Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userid}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
+Starts changing the email address of an account, and what it actually does depends on who calls it.  A caller acting on their own account only gets a confirmation letter sent to the new address, and the address  stays unchanged until that link is followed, which lands on `PUT api/2.0/people/{userId}/email`.  A DocSpace administrator acting on somebody else changes the address immediately instead: the account is  marked as not activated, every session of it is ended, and activation instructions are sent to the new  address - and passing the address the account already has is then rejected with 400.  A caller who is not an administrator may only address their own account, nobody but the owner may change the  owner's address, and only the owner may change the address of another DocSpace administrator.  The target has to be an account that is neither disabled nor a pending invitation, otherwise the operation  answers 404, and an address that already belongs to somebody answers 400.  The answer is a ready-to-display message naming the address the letter was sent to.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/).
 

@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="kind">&#x60;folder&#x60; or &#x60;prompt&#x60;, plus the offending name or id. (required).</param>
         /// <param name="ref">The offending entry - its name or its id. (required).</param>
         /// <param name="error">Why the entry was rejected. (required).</param>
-        public AiImportError(KindEnum kind = default, string @ref = default, AiTErrorData error = default)
+        public AiImportError(KindEnum kind = default, string @ref = default, AiErrorData error = default)
         {
             this.Kind = kind;
             // to ensure "@ref" is required (not null)
@@ -103,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>a prompt of that name already exists</example>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

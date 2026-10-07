@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="createOn">When the portal recorded this copy, in UTC: the moment the filled copy was completed and its data indexed, not  the moment the form itself was made..</param>
         /// <param name="formsData">The values that were entered into this copy, one entry per field, preceded by an entry keyed &#x60;FormNumber&#x60; that  carries the number of the copy and is what the submissions are ordered by. Fields holding a picture or a  signature are left out of the record, so a field missing here was not necessarily left blank..</param>
-        public FormResultsDto(DateTime createOn = default, List<FormsItemData> formsData = default)
+        public FormResultsDto(DateTime createOn = default, List<FormsItemDataDto> formsData = default)
         {
             this.CreateOn = createOn;
             this.FormsData = formsData;
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>[{"key":"field1","value":"Answer"}]</example>
         [DataMember(Name = "formsData", EmitDefaultValue = true)]
-        public List<FormsItemData> FormsData { get; set; }
+        public List<FormsItemDataDto> FormsData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

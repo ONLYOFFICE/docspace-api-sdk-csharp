@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsRemoveCustomServerRequest
     /// </summary>
-    [DataContract(Name = "aiToolsRemoveCustomServer_request")]
+    [DataContract(Name = "AiToolsRemoveCustomServerRequest")]
     public partial class AiToolsRemoveCustomServerRequest : IValidatableObject
     {
     

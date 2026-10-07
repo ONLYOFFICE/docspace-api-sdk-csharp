@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the StudioDefaultPageSettings object.
+    /// The successful API response containing the StudioDefaultPageSettingsDto object.
     /// </summary>
     [DataContract(Name = "StudioDefaultPageSettingsWrapper")]
     public partial class StudioDefaultPageSettingsWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StudioDefaultPageSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">The StudioDefaultPageSettings object returned by the operation..</param>
+        /// <param name="response">The StudioDefaultPageSettingsDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public StudioDefaultPageSettingsWrapper(StudioDefaultPageSettings response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public StudioDefaultPageSettingsWrapper(StudioDefaultPageSettingsDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The StudioDefaultPageSettings object returned by the operation.
+        /// The StudioDefaultPageSettingsDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public StudioDefaultPageSettings Response { get; set; }
+        public StudioDefaultPageSettingsDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

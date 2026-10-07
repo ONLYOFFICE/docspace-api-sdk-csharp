@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPromptsImportBundleRequest
     /// </summary>
-    [DataContract(Name = "aiPromptsImportBundle_request")]
+    [DataContract(Name = "AiPromptsImportBundleRequest")]
     public partial class AiPromptsImportBundleRequest : IValidatableObject
     {
     

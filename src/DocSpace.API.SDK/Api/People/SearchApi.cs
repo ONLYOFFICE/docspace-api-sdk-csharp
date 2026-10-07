@@ -51,8 +51,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        IAccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>AccountEntryArrayWrapper</returns>
+        AccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search accounts for a file
@@ -75,8 +75,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search accounts for a file (third-party storage)
         /// </summary>
@@ -98,8 +98,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        IAccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>AccountEntryArrayWrapper</returns>
+        AccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search accounts for a file (third-party storage)
@@ -122,8 +122,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search accounts for a folder
         /// </summary>
@@ -145,8 +145,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        IAccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>AccountEntryArrayWrapper</returns>
+        AccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search accounts for a folder
@@ -169,8 +169,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search accounts for a folder (third-party storage)
         /// </summary>
@@ -192,8 +192,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        IAccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>AccountEntryArrayWrapper</returns>
+        AccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search accounts for a folder (third-party storage)
@@ -216,8 +216,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search accounts for a room
         /// </summary>
@@ -239,8 +239,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        IAccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>AccountEntryArrayWrapper</returns>
+        AccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search accounts for a room
@@ -263,8 +263,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search accounts for a room (third-party storage)
         /// </summary>
@@ -286,8 +286,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        IAccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>AccountEntryArrayWrapper</returns>
+        AccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search accounts for a room (third-party storage)
@@ -310,8 +310,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users
         /// </summary>
@@ -368,7 +368,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
-        EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Filter users in brief
@@ -399,7 +399,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users for a file
         /// </summary>
@@ -422,7 +422,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetUsersWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeFullArrayWrapper GetUsersWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users for a file
@@ -446,7 +446,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users for a file (third-party storage)
         /// </summary>
@@ -469,7 +469,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetUsersWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeFullArrayWrapper GetUsersWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users for a file (third-party storage)
@@ -493,7 +493,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users for a folder
         /// </summary>
@@ -516,7 +516,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetUsersWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeFullArrayWrapper GetUsersWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users for a folder
@@ -540,7 +540,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users for a folder (third-party storage)
         /// </summary>
@@ -563,7 +563,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetUsersWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeFullArrayWrapper GetUsersWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users for a folder (third-party storage)
@@ -587,7 +587,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users for a room
         /// </summary>
@@ -610,7 +610,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users for a room
@@ -634,7 +634,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users for a room (third-party storage)
         /// </summary>
@@ -657,7 +657,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetUsersWithRoomShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeFullArrayWrapper GetUsersWithRoomShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users for a room (third-party storage)
@@ -681,7 +681,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Filter users in detail
         /// </summary>
@@ -711,7 +711,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
+        EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Filter users in detail
@@ -742,7 +742,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users by query
         /// </summary>
@@ -826,8 +826,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search accounts for a file
@@ -851,8 +851,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search accounts for a file (third-party storage)
         /// </summary>
@@ -875,8 +875,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search accounts for a file (third-party storage)
@@ -900,8 +900,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search accounts for a folder
         /// </summary>
@@ -924,8 +924,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search accounts for a folder
@@ -949,8 +949,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search accounts for a folder (third-party storage)
         /// </summary>
@@ -973,8 +973,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search accounts for a folder (third-party storage)
@@ -998,8 +998,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search accounts for a room
         /// </summary>
@@ -1022,8 +1022,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        Task<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search accounts for a room
@@ -1047,8 +1047,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search accounts for a room (third-party storage)
         /// </summary>
@@ -1071,8 +1071,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        Task<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search accounts for a room (third-party storage)
@@ -1096,8 +1096,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users
         /// </summary>
@@ -1157,7 +1157,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Filter users in brief
@@ -1189,7 +1189,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users for a file
         /// </summary>
@@ -1213,7 +1213,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users for a file
@@ -1238,7 +1238,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users for a file (third-party storage)
         /// </summary>
@@ -1262,7 +1262,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users for a file (third-party storage)
@@ -1287,7 +1287,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users for a folder
         /// </summary>
@@ -1311,7 +1311,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users for a folder
@@ -1336,7 +1336,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users for a folder (third-party storage)
         /// </summary>
@@ -1360,7 +1360,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users for a folder (third-party storage)
@@ -1385,7 +1385,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users for a room
         /// </summary>
@@ -1409,7 +1409,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users for a room
@@ -1434,7 +1434,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users for a room (third-party storage)
         /// </summary>
@@ -1458,7 +1458,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users for a room (third-party storage)
@@ -1483,7 +1483,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Filter users in detail
         /// </summary>
@@ -1514,7 +1514,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Filter users in detail
@@ -1546,7 +1546,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users by query
         /// </summary>
@@ -1852,8 +1852,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        public IAccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>AccountEntryArrayWrapper</returns>
+        public AccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -1880,8 +1880,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        public ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        public ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1978,7 +1978,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IAccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2014,8 +2014,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        public async Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        public async Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2043,8 +2043,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        public async Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        public async Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2143,7 +2143,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IAccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2178,8 +2178,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        public IAccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>AccountEntryArrayWrapper</returns>
+        public AccountEntryArrayWrapper GetAccountsEntriesWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -2206,8 +2206,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        public ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        public ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2308,7 +2308,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IAccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2344,8 +2344,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        public async Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        public async Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2373,8 +2373,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        public async Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        public async Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2477,7 +2477,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IAccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AccountEntryArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2512,8 +2512,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        public IAccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>AccountEntryArrayWrapper</returns>
+        public AccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -2540,8 +2540,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        public ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        public ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2638,7 +2638,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IAccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2674,8 +2674,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        public async Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        public async Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2703,8 +2703,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        public async Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        public async Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2803,7 +2803,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IAccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2838,8 +2838,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        public IAccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>AccountEntryArrayWrapper</returns>
+        public AccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -2866,8 +2866,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        public ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        public ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2968,7 +2968,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IAccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3004,8 +3004,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        public async Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        public async Task<AccountEntryArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3033,8 +3033,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        public async Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        public async Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3137,7 +3137,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IAccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AccountEntryArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3172,8 +3172,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        public IAccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>AccountEntryArrayWrapper</returns>
+        public AccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -3200,8 +3200,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        public ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        public ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3298,7 +3298,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IAccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3334,8 +3334,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        public async Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        public async Task<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3363,8 +3363,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        public async Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        public async Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3463,7 +3463,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IAccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3498,8 +3498,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>IAccountEntryArrayWrapper</returns>
-        public IAccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>AccountEntryArrayWrapper</returns>
+        public AccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -3526,8 +3526,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">The character that splits `filterValue` into several terms, of which any one may match. Omit it to split the  value on spaces instead, in which case every term has to match. (optional)</param>
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>ApiResponse of IAccountEntryArrayWrapper</returns>
-        public ApiResponse<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        /// <returns>ApiResponse of AccountEntryArrayWrapper</returns>
+        public ApiResponse<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3628,7 +3628,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IAccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3664,8 +3664,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of IAccountEntryArrayWrapper</returns>
-        public async Task<IAccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AccountEntryArrayWrapper</returns>
+        public async Task<AccountEntryArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3693,8 +3693,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to search for, matched case-insensitively against the first name, the last name and the email. It is  required in practice: while it is empty the search returns nothing at all rather than every account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
-        /// <returns>Task of ApiResponse (IAccountEntryArrayWrapper)</returns>
-        public async Task<ApiResponse<IAccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AccountEntryArrayWrapper)</returns>
+        public async Task<ApiResponse<AccountEntryArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3797,7 +3797,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IAccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AccountEntryArrayWrapper>("/api/2.0/accounts/room/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4054,7 +4054,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
-        public EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -4089,7 +4089,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4265,7 +4265,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        public async Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSimpleByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4301,7 +4301,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4467,7 +4467,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetUsersWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeFullArrayWrapper GetUsersWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetUsersWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -4495,7 +4495,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4629,7 +4629,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetUsersWithFilesSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4658,7 +4658,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4793,7 +4793,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetUsersWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeFullArrayWrapper GetUsersWithFilesShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetUsersWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -4821,7 +4821,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4959,7 +4959,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetUsersWithFilesSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4988,7 +4988,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -5127,7 +5127,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetUsersWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeFullArrayWrapper GetUsersWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetUsersWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -5155,7 +5155,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5289,7 +5289,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetUsersWithFoldersSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5318,7 +5318,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5453,7 +5453,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetUsersWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeFullArrayWrapper GetUsersWithFoldersShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetUsersWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -5481,7 +5481,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -5619,7 +5619,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetUsersWithFoldersSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5648,7 +5648,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -5787,7 +5787,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeFullArrayWrapper GetUsersWithRoomShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -5815,7 +5815,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5949,7 +5949,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetUsersWithRoomSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5978,7 +5978,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6113,7 +6113,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetUsersWithRoomShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeFullArrayWrapper GetUsersWithRoomShared(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = GetUsersWithRoomSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -6141,7 +6141,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to get  every account the caller may offer access to. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -6279,7 +6279,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithRoomSharedAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetUsersWithRoomSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6308,7 +6308,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-room-shared/">REST API Reference for GetUsersWithRoomShared Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(string id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -6454,7 +6454,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
+        public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
@@ -6489,7 +6489,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterValue">The text to match against the first name, the last name and the email, case-insensitively. Omit it to apply  no text filter at all. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6665,7 +6665,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6701,7 +6701,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, AccountSearchArea? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 

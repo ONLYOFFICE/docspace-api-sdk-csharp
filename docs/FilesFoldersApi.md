@@ -43,6 +43,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**InsertFileToMyFromBody**](#insertfiletomyfrombody) | **POST** /api/2.0/files/@my/insert | Insert a file into My documents |
 | [**RenameFolder**](#renamefolder) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder |
 | [**RenameFolder**](#renamefolder-thirdparty) | **PUT** /api/2.0/files/folder/{folderId} | Rename a folder (third-party storage) |
+| [**SearchFolder**](#searchfolder) | **POST** /api/2.0/files/{folderId}/search | Search a folder by metadata |
+| [**SearchFolder**](#searchfolder-thirdparty) | **POST** /api/2.0/files/{folderId}/search | Search a folder by metadata (third-party storage) |
 | [**SetFolderOrder**](#setfolderorder) | **PUT** /api/2.0/files/folder/{folderId}/order | Set folder order |
 | [**SetFolderOrder**](#setfolderorder-thirdparty) | **PUT** /api/2.0/files/folder/{folderId}/order | Set folder order (third-party storage) |
 | [**SetFolderPrimaryExternalLink**](#setfolderprimaryexternallink) | **PUT** /api/2.0/files/folder/{id}/links | Set the folder external link |
@@ -54,7 +56,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="checkupload"></a>
 # **CheckUpload**
-> STRINGArrayWrapper CheckUpload (int folderId, CheckUploadRequest checkUploadRequest)
+> StringArrayWrapper CheckUpload (int folderId, CheckUploadRequest checkUploadRequest)
 
 Reports which of the submitted titles already belong to a file in the folder, so an upload can decide in  advance whether to overwrite or to ask for another name. Only the clashing titles come back, unordered and  without repetitions, and an empty array means every name is free. Matching is by title and ignores case, so a  name that differs only in capitalisation is still reported; an existing file that is encrypted is left out,  because an upload cannot take it over. The call changes nothing. It needs the same right as the upload itself,  the right to add content to the folder, which room managers and content creators have and readers, editors and  guests do not; an archived room, a section root and a folder the caller cannot write to are all refused, while  an unknown folder is answered as missing. A request without `filesTitle` is rejected as an invalid request, an  empty list is accepted and answers with an empty array.
 
@@ -69,7 +71,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+[**StringArrayWrapper**](StringArrayWrapper.md)
 
 ### Authorization
 
@@ -118,7 +120,7 @@ namespace Example
             try
             {
                 // Check for upload conflicts
-                STRINGArrayWrapper result = apiInstance.CheckUpload(folderId, checkUploadRequest);
+                StringArrayWrapper result = apiInstance.CheckUpload(folderId, checkUploadRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -139,7 +141,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Check for upload conflicts
-    ApiResponse<STRINGArrayWrapper> response = apiInstance.CheckUploadWithHttpInfo(folderId, checkUploadRequest);
+    ApiResponse<StringArrayWrapper> response = apiInstance.CheckUploadWithHttpInfo(folderId, checkUploadRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -162,10 +164,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The submitted titles that already belong to a file in the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `filesTitle` |  -  |
+| **403** | The caller cannot add content to the folder, or a title that is not a PDF is checked against a form-filling room template |  -  |
+| **404** | No folder with the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -173,7 +177,7 @@ catch (ApiException e)
 
 <a id="checkupload-thirdparty"></a>
 # **CheckUpload** (third-party storage)
-> STRINGArrayWrapper CheckUpload (string folderId, CheckUploadRequest checkUploadRequest)
+> StringArrayWrapper CheckUpload (string folderId, CheckUploadRequest checkUploadRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -190,7 +194,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+[**StringArrayWrapper**](StringArrayWrapper.md)
 
 ### Authorization
 
@@ -239,7 +243,7 @@ namespace Example
             try
             {
                 // Check for upload conflicts (third-party storage)
-                STRINGArrayWrapper result = apiInstance.CheckUpload(folderId, checkUploadRequest);
+                StringArrayWrapper result = apiInstance.CheckUpload(folderId, checkUploadRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -260,7 +264,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Check for upload conflicts (third-party storage)
-    ApiResponse<STRINGArrayWrapper> response = apiInstance.CheckUploadWithHttpInfo(folderId, checkUploadRequest);
+    ApiResponse<StringArrayWrapper> response = apiInstance.CheckUploadWithHttpInfo(folderId, checkUploadRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -283,10 +287,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The submitted titles that already belong to a file in the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `filesTitle` |  -  |
+| **403** | The caller cannot add content to the folder, or a title that is not a PDF is checked against a form-filling room template |  -  |
+| **404** | No folder with the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -294,7 +300,7 @@ catch (ApiException e)
 
 <a id="createfolder"></a>
 # **CreateFolder**
-> FolderWrapper CreateFolder (int folderId, CreateFolder createFolder)
+> FolderWrapper CreateFolder (int folderId, CreateFolderRequest createFolderRequest)
 
 Creates a folder inside the folder named in the path and answers with the folder as it was stored. The title  is trimmed, may not be blank and is refused when it is longer than the limit the schema prints; titles are not  required to be unique, so creating the same title twice leaves two folders side by side, which makes the call  mutating and not idempotent. The caller needs the right to create content in the parent, which the room  manager, a content creator and the owner of a personal section have; a member without that right, an archived  parent, and a section root that only holds rooms - Rooms, Forms and AI agents - are all refused, as is a  parent that does not exist. Rooms are not created here: use `POST api/2.0/files/rooms` for those, and this  operation for ordinary folders within them. Members of the room are notified of the new folder. Read the  identifier of the new folder from `id` and fill it with `POST api/2.0/files/{folderId}/upload`.
 
@@ -305,7 +311,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. |  |
-| **createFolder** | [**CreateFolder**](CreateFolder.md) | The title carried by the request body. |  |
+| **createFolderRequest** | [**CreateFolderRequest**](CreateFolderRequest.md) | The title carried by the request body. |  |
 
 ### Return type
 
@@ -353,12 +359,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.
-            var createFolder = new CreateFolder(); // CreateFolder | The title carried by the request body.
+            var createFolderRequest = new CreateFolderRequest(); // CreateFolderRequest | The title carried by the request body.
 
             try
             {
                 // Create a folder
-                FolderWrapper result = apiInstance.CreateFolder(folderId, createFolder);
+                FolderWrapper result = apiInstance.CreateFolder(folderId, createFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -379,7 +385,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a folder
-    ApiResponse<FolderWrapper> response = apiInstance.CreateFolderWithHttpInfo(folderId, createFolder);
+    ApiResponse<FolderWrapper> response = apiInstance.CreateFolderWithHttpInfo(folderId, createFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -402,10 +408,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title`, or the title is empty, blank or longer than 165 characters |  -  |
+| **403** | The caller may not create content in the parent folder, or the parent does not exist, lies in the archive or is a section root that holds only rooms |  -  |
+| **404** | The parent folder id is a string that is not the id of a folder in a known third-party storage |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -413,7 +421,7 @@ catch (ApiException e)
 
 <a id="createfolder-thirdparty"></a>
 # **CreateFolder** (third-party storage)
-> ThirdPartyFolderWrapper CreateFolder (string folderId, CreateFolder createFolder)
+> ThirdPartyFolderWrapper CreateFolder (string folderId, CreateFolderRequest createFolderRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -426,7 +434,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **string** | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. |  |
-| **createFolder** | [**CreateFolder**](CreateFolder.md) | The title carried by the request body. |  |
+| **createFolderRequest** | [**CreateFolderRequest**](CreateFolderRequest.md) | The title carried by the request body. |  |
 
 ### Return type
 
@@ -474,12 +482,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = sbox-42;  // string | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.
-            var createFolder = new CreateFolder(); // CreateFolder | The title carried by the request body.
+            var createFolderRequest = new CreateFolderRequest(); // CreateFolderRequest | The title carried by the request body.
 
             try
             {
                 // Create a folder (third-party storage)
-                ThirdPartyFolderWrapper result = apiInstance.CreateFolder(folderId, createFolder);
+                ThirdPartyFolderWrapper result = apiInstance.CreateFolder(folderId, createFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -500,7 +508,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a folder (third-party storage)
-    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.CreateFolderWithHttpInfo(folderId, createFolder);
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.CreateFolderWithHttpInfo(folderId, createFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -523,10 +531,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title`, or the title is empty, blank or longer than 165 characters |  -  |
+| **403** | The caller may not create content in the parent folder, or the parent does not exist, lies in the archive or is a section root that holds only rooms |  -  |
+| **404** | The parent folder id is a string that is not the id of a folder in a known third-party storage |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -642,12 +652,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not manage the links of this folder |  -  |
-| **404** | The folder does not exist |  -  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not manage the links of this folder, the access level is not available for links to this folder, the link limit is reached, or the admin restricts external links to public rooms |  -  |
+| **404** | The folder does not exist, or its primary link was revoked |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -765,12 +775,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not manage the links of this folder |  -  |
-| **404** | The folder does not exist |  -  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not manage the links of this folder, the access level is not available for links to this folder, the link limit is reached, or the admin restricts external links to public rooms |  -  |
+| **404** | The folder does not exist, or its primary link was revoked |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -780,7 +790,7 @@ catch (ApiException e)
 # **CreateReportFolderHistory**
 > DocumentBuilderTaskWrapper CreateReportFolderHistory (int folderId, AuditReportFormat? format = null, DateTime? from = null, DateTime? to = null)
 
-Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`, of which a CSV report fills only the last two.  `from` and `to` limit the exported period; leaving both out exports the whole history. While a report for the  same folder and caller is still running, this call joins it and answers with the running task instead of  starting a second one, so retrying is safe. The caller needs read access to the folder and may not be a guest,  and the portal plan has to include the audit feature - otherwise the call is refused, with 403 for the access  rule and 404 for a folder that does not exist. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
+Queues a background job that renders the history of a folder into a spreadsheet, or into a CSV file when  `format` asks for one, and saves the result in the caller's My documents. The answer is the queued task, not  the report: poll `GET api/2.0/files/folder/{folderId}/log/report` until `isCompleted` is true, then take the  file from `resultFileId`, `resultFileName` and `resultFileUrl`; the URL of a CSV file too large for the editor  downloads it instead of opening it. An XLSX report keeps only the most recent events, at most 200,000 by default  and fewer when the events are long, and its header says how many were left out; `format=Csv` exports every event  of the period. `from` and `to` limit the exported period; leaving both out exports the whole history. While a  report for the same folder and caller is still running, this call joins it and answers with the running task  instead of starting a second one, so retrying is safe. The caller needs read access to the folder and may not be  a guest - otherwise the call is refused with 403, and a folder that does not exist with 404; the report is  available on every pricing plan, and 402 comes only when the login history and audit trail section is turned  off for the portal. Only a portal administrator gets the address, browser and  platform columns. Give up a running report with `DELETE api/2.0/files/folder/{folderId}/log/report`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-report-folder-history/).
 
@@ -789,7 +799,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder whose history is exported; the report covers the folder itself and the entries inside it. |  |
-| **format** | [**AuditReportFormat?**](AuditReportFormat.md) | The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. | [optional]  |
+| **format** | [**AuditReportFormat?**](AuditReportFormat.md) | The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. | [optional]  |
 | **from** | **DateTime?** | The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. | [optional]  |
 | **to** | **DateTime?** | The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. | [optional]  |
 
@@ -839,7 +849,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder whose history is exported; the report covers the folder itself and the entries inside it.
-            var format = new AuditReportFormat?(); // AuditReportFormat? | The shape the report is written in: `Xlsx` produces a spreadsheet that is saved as a file of the portal, while  `Csv` produces a comma-separated text file that is uploaded to My documents without being reported back with  a file identifier. (optional) 
+            var format = new AuditReportFormat?(); // AuditReportFormat? | The shape the report is written in: `Xlsx` produces a spreadsheet and `Csv` a comma-separated text file, and  either is saved as a file in My documents. (optional) 
             var from = 2025-01-01T00:00:00;  // DateTime? | The earliest moment an exported entry may have, read in the time zone of the portal; left out, the report  starts at the oldest entry the portal still keeps. (optional) 
             var to = 2025-12-31T23:59:59;  // DateTime? | The latest moment an exported entry may have, read in the time zone of the portal; left out, the report ends  at the newest entry. (optional) 
 
@@ -890,6 +900,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued report task |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **402** | The login history and audit trail section is turned off for this portal |  -  |
 | **403** | The caller may not export the history of this folder |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
@@ -903,7 +914,7 @@ catch (ApiException e)
 
 <a id="deletefolder"></a>
 # **DeleteFolder**
-> FileOperationArrayWrapper DeleteFolder (int folderId, DeleteFolder deleteFolder)
+> FileOperationArrayWrapper DeleteFolder (int folderId, DeleteFolderRequest deleteFolderRequest)
 
 Queues the deletion of one folder together with everything inside it, and answers with the file operations of  the caller, the one just created among them. The folder is not gone when the response arrives: poll  `GET api/2.0/files/fileops` until the operation reports `finished`, and read its `error` to learn whether the  deletion succeeded. By default the folder is moved to the Trash section, from where it can be restored;  `immediately=true` discards it for good instead, and inside a room, where there is no Trash, deletion is  always final. `deleteAfter=true` postpones the deletion until the editing sessions on the contents have ended,  so files somebody is working on are not pulled away. The caller needs the right to delete the folder, which  the room manager, a portal administrator acting as room manager and a content creator acting on a folder of  their own have; editing access alone, read access and a guest are refused. The call is destructive. To delete  several items at once use `PUT api/2.0/files/fileops/delete`.
 
@@ -914,7 +925,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder to delete, together with everything it holds. |  |
-| **deleteFolder** | [**DeleteFolder**](DeleteFolder.md) | How the deletion is to be carried out. |  |
+| **deleteFolderRequest** | [**DeleteFolderRequest**](DeleteFolderRequest.md) | How the deletion is to be carried out. |  |
 
 ### Return type
 
@@ -962,12 +973,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = 10;  // int | The folder to delete, together with everything it holds.
-            var deleteFolder = new DeleteFolder(); // DeleteFolder | How the deletion is to be carried out.
+            var deleteFolderRequest = new DeleteFolderRequest(); // DeleteFolderRequest | How the deletion is to be carried out.
 
             try
             {
                 // Delete a folder
-                FileOperationArrayWrapper result = apiInstance.DeleteFolder(folderId, deleteFolder);
+                FileOperationArrayWrapper result = apiInstance.DeleteFolder(folderId, deleteFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -988,7 +999,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a folder
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFolderWithHttpInfo(folderId, deleteFolder);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFolderWithHttpInfo(folderId, deleteFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1011,6 +1022,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file operations of the caller, including the deletion just queued |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not delete the folder, or the folder is a room and `immediately` is not set |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1022,7 +1035,7 @@ catch (ApiException e)
 
 <a id="deletefolder-thirdparty"></a>
 # **DeleteFolder** (third-party storage)
-> FileOperationArrayWrapper DeleteFolder (string folderId, DeleteFolder deleteFolder)
+> FileOperationArrayWrapper DeleteFolder (string folderId, DeleteFolderRequest deleteFolderRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1035,7 +1048,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **string** | The folder to delete, together with everything it holds. |  |
-| **deleteFolder** | [**DeleteFolder**](DeleteFolder.md) | How the deletion is to be carried out. |  |
+| **deleteFolderRequest** | [**DeleteFolderRequest**](DeleteFolderRequest.md) | How the deletion is to be carried out. |  |
 
 ### Return type
 
@@ -1083,12 +1096,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = sbox-42;  // string | The folder to delete, together with everything it holds.
-            var deleteFolder = new DeleteFolder(); // DeleteFolder | How the deletion is to be carried out.
+            var deleteFolderRequest = new DeleteFolderRequest(); // DeleteFolderRequest | How the deletion is to be carried out.
 
             try
             {
                 // Delete a folder (third-party storage)
-                FileOperationArrayWrapper result = apiInstance.DeleteFolder(folderId, deleteFolder);
+                FileOperationArrayWrapper result = apiInstance.DeleteFolder(folderId, deleteFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1109,7 +1122,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a folder (third-party storage)
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFolderWithHttpInfo(folderId, deleteFolder);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFolderWithHttpInfo(folderId, deleteFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1132,6 +1145,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file operations of the caller, including the deletion just queued |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not delete the folder, or the folder is a room and `immediately` is not set |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1249,7 +1264,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The queued report task together with the form the answers belong to |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The folder is not a completed-forms folder, or the caller may not maintain the form |  -  |
+| **403** | The folder is not a completed-forms folder, the room of the submitted copy is not a form-filling room, the caller may not maintain the form, or the filling of the form is not started |  -  |
 | **404** | The folder, the submitted copy or the original form was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -1262,7 +1277,7 @@ catch (ApiException e)
 
 <a id="getfavoritesfolder"></a>
 # **GetFavoritesFolder**
-> FolderContentWrapper GetFavoritesFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentWrapper GetFavoritesFolder (int? metadataTemplateId = null, string? metadataFilters = null, Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
 
@@ -1272,6 +1287,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **metadataTemplateId** | **int?** | The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
 | **userIdOrGroupId** | **Guid?** | Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. | [optional]  |
 | **filterType** | [**FilterType?**](FilterType.md) | Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. | [optional]  |
 | **count** | **int?** | The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. | [optional]  |
@@ -1325,6 +1342,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
             var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional) 
             var filterType = new FilterType?(); // FilterType? | Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional) 
             var count = 25;  // int? | The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional) 
@@ -1336,7 +1355,7 @@ namespace Example
             try
             {
                 // Get the Favorites section
-                FolderContentWrapper result = apiInstance.GetFavoritesFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentWrapper result = apiInstance.GetFavoritesFolder(metadataTemplateId, metadataFilters, userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1357,7 +1376,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Favorites section
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetFavoritesFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetFavoritesFolderWithHttpInfo(metadataTemplateId, metadataFilters, userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1380,12 +1399,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Favorites section with one page of the entries the caller marked as favorite |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
 | **403** | The caller is not allowed to read the Favorites section |  -  |
 | **404** | The Favorites section could not be resolved for this account |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1494,6 +1513,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The space taken by documents in each section, in bytes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1620,7 +1640,7 @@ catch (ApiException e)
 
 <a id="getfolderbyfolderid"></a>
 # **GetFolderByFolderId**
-> FolderContentWrapper GetFolderByFolderId (int folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, int? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, Location? location = null)
+> FolderContentWrapper GetFolderByFolderId (int folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, int? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, RequestLocation? location = null, int? metadataTemplateId = null, string? metadataFilters = null)
 
 Returns one page of the contents of a folder - its subfolders in `folders`, its files in `files`, the folder  itself in `current` and the chain of parents in `pathParts` - and is the operation a client browses the file  tree with. `filterType`, `filterValue`, `extension`, `userIdOrGroupId`, `sharedBy` and `folderType` narrow  what is listed, `applyFilterOption` decides whether those filters bite on the files, on the folders or on  both, and `withSubFolders`, which is on unless it is switched off, lets a narrowed request descend through the  whole subtree instead of the top level alone. `filterValue` is matched against titles and against indexed  document content, and indexing is asynchronous, so a file uploaded a moment ago can be missing from a search  for a short while. `count` and `startIndex` page through the result while `total` counts everything that  matches, and `sortBy` with `sortOrder` both order the page and are saved as the default order of the account.  Reading a room or an ordinary folder clears its new-item marks for the caller. A caller who may not read the  folder is answered with 403, and a folder that does not exist with 404.
 
@@ -1648,7 +1668,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. | [optional]  |
 | **filterValue** | **string?** | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. | [optional]  |
-| **location** | [**Location?**](Location.md) | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. | [optional]  |
+| **location** | [**RequestLocation?**](RequestLocation.md) | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. | [optional]  |
 
 ### Return type
 
@@ -1713,12 +1735,14 @@ namespace Example
             var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional) 
             var filterValue = My Document;  // string? | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional) 
-            var location = new Location?(); // Location? | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional) 
+            var location = new RequestLocation?(); // RequestLocation? | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional) 
 
             try
             {
                 // Get a folder by ID
-                FolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+                FolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1739,7 +1763,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a folder by ID
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1762,11 +1786,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | One page of the folder contents, with the folder itself and the chain of its parents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not read this folder |  -  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, the `startIndex` is negative, or the `roomId` is not a number while the folder id is one |  -  |
+| **403** | The caller may not read this folder, the folder lies inside Trash, or an anonymous caller asks for a folder that does not exist |  -  |
 | **404** | The folder does not exist |  -  |
+| **500** | The folder lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1774,7 +1798,7 @@ catch (ApiException e)
 
 <a id="getfolderbyfolderid-thirdparty"></a>
 # **GetFolderByFolderId** (third-party storage)
-> ThirdPartyFolderContentWrapper GetFolderByFolderId (string folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, string? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, Location? location = null)
+> ThirdPartyFolderContentWrapper GetFolderByFolderId (string folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, string? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, RequestLocation? location = null, int? metadataTemplateId = null, string? metadataFilters = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1804,7 +1828,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. | [optional]  |
 | **filterValue** | **string?** | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. | [optional]  |
-| **location** | [**Location?**](Location.md) | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. | [optional]  |
+| **location** | [**RequestLocation?**](RequestLocation.md) | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. | [optional]  |
 
 ### Return type
 
@@ -1869,12 +1895,14 @@ namespace Example
             var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional) 
             var filterValue = My Document;  // string? | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional) 
-            var location = new Location?(); // Location? | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional) 
+            var location = new RequestLocation?(); // RequestLocation? | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional) 
 
             try
             {
                 // Get a folder by ID (third-party storage)
-                ThirdPartyFolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+                ThirdPartyFolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1895,7 +1923,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a folder by ID (third-party storage)
-    ApiResponse<ThirdPartyFolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+    ApiResponse<ThirdPartyFolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1918,11 +1946,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | One page of the folder contents, with the folder itself and the chain of its parents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not read this folder |  -  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, the `startIndex` is negative, or the `roomId` is not a number while the folder id is one |  -  |
+| **403** | The caller may not read this folder, the folder lies inside Trash, or an anonymous caller asks for a folder that does not exist |  -  |
 | **404** | The folder does not exist |  -  |
+| **500** | The folder lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2044,12 +2072,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | One page of the folder history, the most recent record first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or `fromDate` or `toDate` is not a date and time ending in `Z` or a UTC offset |  -  |
 | **403** | The caller may not read this folder |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2163,6 +2191,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder itself - its title, its parent, the moments it was created and changed, the access the caller has to it, how many items in it are new for them, and the room settings when the folder is a room; nothing about the items it holds |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **401** | An anonymous caller has no external link that grants access to the folder |  -  |
+| **403** | The caller may not read this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -2281,6 +2312,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder itself - its title, its parent, the moments it was created and changed, the access the caller has to it, how many items in it are new for them, and the room settings when the folder is a room; nothing about the items it holds |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **401** | An anonymous caller has no external link that grants access to the folder |  -  |
+| **403** | The caller may not read this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -2397,6 +2431,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The external links of the folder the caller may manage |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2516,6 +2551,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The external links of the folder the caller may manage |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2634,6 +2670,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The chain of folders leading to the folder, the section root first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller may not read this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2754,6 +2791,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The chain of folders leading to the folder, the section root first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller may not read this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2875,11 +2913,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **401** | An anonymous caller has no external link |  -  |
 | **403** | The caller may not manage the links of this folder |  -  |
 | **404** | The folder does not exist, or its primary link was revoked |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2999,11 +3038,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **401** | An anonymous caller has no external link |  -  |
 | **403** | The caller may not manage the links of this folder |  -  |
 | **404** | The folder does not exist, or its primary link was revoked |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3118,6 +3158,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The direct subfolders of the folder, ordered by title |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller may not read this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -3238,6 +3279,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The direct subfolders of the folder, ordered by title |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller may not read this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -3367,12 +3409,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Forms section with one page of the form-filling rooms available to the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
 | **403** | The caller is not allowed to read the Forms section |  -  |
 | **404** | The Forms section could not be resolved for this account |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3500,12 +3542,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The My documents section with one page of its contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
 | **403** | The caller is not allowed to read the My documents section |  -  |
 | **404** | This account has no personal section |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3619,7 +3661,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The entries of the folder that are new for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not read this folder |  -  |
+| **403** | The caller may not read this folder, or the folder lies inside Trash |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -3739,7 +3782,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The entries of the folder that are new for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not read this folder |  -  |
+| **403** | The caller may not read this folder, or the folder lies inside Trash |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -3751,7 +3795,7 @@ catch (ApiException e)
 
 <a id="getrecentfolder"></a>
 # **GetRecentFolder**
-> FolderContentWrapper GetRecentFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, SearchArea? searchArea = null, List<string>? extension = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentWrapper GetRecentFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, SearchArea? searchArea = null, List<string>? extension = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null)
 
 Returns the Recent section: the files the calling account has opened lately. The section holds files only,  so `folders` comes back empty, and it is personal, so another member's history is not visible here. A file is  added when it is opened and can also be added explicitly with `POST api/2.0/files/file/{fileId}/recent`;  `DELETE api/2.0/files/recent` clears the whole history, and `PUT api/2.0/files/displayrecent` switches the  section on and off for the account, which also decides whether `GET api/2.0/files/@root` includes it. Nothing  in the section is modified, though passing `sortBy` saves the requested order as the default order for this  account. The listing is ordered by the moment the caller last opened each file, newest first, and `sortBy` and  `sortOrder` do not change that order. `files` holds one page, `total` counts the files matching the request  before `count` and `startIndex` are applied, and `current` describes the section folder itself.
 
@@ -3772,6 +3816,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. | [optional]  |
 | **filterValue** | **string?** | The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
 
 ### Return type
 
@@ -3829,11 +3875,13 @@ namespace Example
             var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. The Recent section keeps its own newest-first order, so the value does not  reorder this listing. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional) 
             var filterValue = My Document;  // string? | The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
 
             try
             {
                 // Get the Recent section
-                FolderContentWrapper result = apiInstance.GetRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentWrapper result = apiInstance.GetRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3854,7 +3902,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Recent section
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3877,12 +3925,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Recent section with one page of the files the caller opened lately |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
 | **403** | The caller is not allowed to read the Recent section |  -  |
 | **404** | The Recent section could not be resolved for this account |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3892,7 +3940,7 @@ catch (ApiException e)
 # **GetReportFolderHistory**
 > DocumentBuilderTaskWrapper GetReportFolderHistory (int folderId)
 
-Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and  `resultFileId`, `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My  documents - a CSV report leaving the identifier empty. An empty answer means there is no report for this  folder and caller, either because none was started or because a finished one has already been picked up by an  earlier poll. The caller needs read access to the folder and may not be a guest, and the portal plan has to  include the audit feature; a caller who fails the access rule is answered with 403 and a folder that does not  exist with 404. The call is read-only, and each caller sees only their own report.
+Reports how far the history report of a folder has got, and is the operation to poll after  `POST api/2.0/files/folder/{folderId}/log/report` has queued one. `percentage` climbs to 100, `isCompleted`  turns true when the job is over however it ended, `error` carries the reason when it failed, and `resultFileId`,  `resultFileName` and `resultFileUrl` name the file that was saved in the caller's My documents. An empty  answer means there is no report for this folder and caller, either because none was started or because a  finished one has already been picked up by an earlier poll. The caller needs read access to the folder and may  not be a guest; a caller who fails the access rule is answered with 403, a folder that does not exist with 404,  and a portal with the login history and audit trail section turned off with 402. The call is read-only, and each caller sees only  their own report.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-report-folder-history/).
 
@@ -3996,6 +4044,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The state of the report task, or nothing when there is none |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **402** | The login history and audit trail section is turned off for this portal |  -  |
 | **403** | The caller may not export the history of this folder |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
@@ -4129,12 +4178,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The sections available to the caller, each with one page of its content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
 | **403** | The caller is not allowed to read one of the sections |  -  |
 | **404** | One of the sections could not be resolved for this account |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4262,12 +4311,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Trash section with one page of the entries the caller deleted |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
 | **403** | The caller is not allowed to read the Trash section |  -  |
 | **404** | This account has no Trash section |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4405,11 +4454,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored file with its id and the title it was actually saved under; a `version` above 1 means the content was added to a file that already carried this name instead of creating a new one |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
 | **403** | The caller cannot add content to this folder |  -  |
 | **404** | No folder with the specified ID |  -  |
+| **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
+| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -4550,11 +4601,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored file with its id and the title it was actually saved under; a `version` above 1 means the content was added to a file that already carried this name instead of creating a new one |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
 | **403** | The caller cannot add content to this folder |  -  |
 | **404** | No folder with the specified ID |  -  |
+| **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
+| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -4691,8 +4744,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored file, with the identifier, version and title it was saved under |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
 | **403** | Creating a file in the personal section is not allowed for this account |  -  |
 | **404** | The caller has no personal section, so there is nothing to store the file in |  -  |
+| **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -4704,7 +4759,7 @@ catch (ApiException e)
 
 <a id="renamefolder"></a>
 # **RenameFolder**
-> FolderWrapper RenameFolder (int folderId, CreateFolder createFolder)
+> FolderWrapper RenameFolder (int folderId, CreateFolderRequest createFolderRequest)
 
 Gives a folder a new title and answers with the folder as it now stands. The title is trimmed, may not be  blank and is refused when it is longer than the limit the schema prints; a title that matches the current one  leaves the folder untouched, and titles need not be unique among the neighbours. The caller needs the right to  rename the folder, which the room manager, a content creator acting on a folder of their own and the owner of  a personal section have, while a guest is refused with 403 whatever their access; a folder in the Trash  section or in an archived room cannot be renamed either, and a folder that does not exist is answered as  not found. A room may be renamed here as well, in which case the caller needs the right to edit the  room, and `PUT api/2.0/files/rooms/{id}` is the operation that changes its other settings. The call is  mutating and idempotent; on a folder stored in a connected third-party account the identifier of the folder  may change with the title.
 
@@ -4715,7 +4770,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. |  |
-| **createFolder** | [**CreateFolder**](CreateFolder.md) | The title carried by the request body. |  |
+| **createFolderRequest** | [**CreateFolderRequest**](CreateFolderRequest.md) | The title carried by the request body. |  |
 
 ### Return type
 
@@ -4763,12 +4818,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.
-            var createFolder = new CreateFolder(); // CreateFolder | The title carried by the request body.
+            var createFolderRequest = new CreateFolderRequest(); // CreateFolderRequest | The title carried by the request body.
 
             try
             {
                 // Rename a folder
-                FolderWrapper result = apiInstance.RenameFolder(folderId, createFolder);
+                FolderWrapper result = apiInstance.RenameFolder(folderId, createFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4789,7 +4844,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Rename a folder
-    ApiResponse<FolderWrapper> response = apiInstance.RenameFolderWithHttpInfo(folderId, createFolder);
+    ApiResponse<FolderWrapper> response = apiInstance.RenameFolderWithHttpInfo(folderId, createFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4812,11 +4867,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder with its new title |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not rename this folder |  -  |
+| **400** | The request body cannot be read or has no `title`, or the title is empty, blank or longer than 165 characters |  -  |
+| **403** | The caller may not rename this folder, or the folder lies in Trash or in the archive |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4824,7 +4880,7 @@ catch (ApiException e)
 
 <a id="renamefolder-thirdparty"></a>
 # **RenameFolder** (third-party storage)
-> ThirdPartyFolderWrapper RenameFolder (string folderId, CreateFolder createFolder)
+> ThirdPartyFolderWrapper RenameFolder (string folderId, CreateFolderRequest createFolderRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -4837,7 +4893,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **string** | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title. |  |
-| **createFolder** | [**CreateFolder**](CreateFolder.md) | The title carried by the request body. |  |
+| **createFolderRequest** | [**CreateFolderRequest**](CreateFolderRequest.md) | The title carried by the request body. |  |
 
 ### Return type
 
@@ -4885,12 +4941,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = sbox-42;  // string | The folder the request is addressed to: when a folder is created it is the parent that receives the new  folder, and when a folder is renamed it is the folder that gets the new title.
-            var createFolder = new CreateFolder(); // CreateFolder | The title carried by the request body.
+            var createFolderRequest = new CreateFolderRequest(); // CreateFolderRequest | The title carried by the request body.
 
             try
             {
                 // Rename a folder (third-party storage)
-                ThirdPartyFolderWrapper result = apiInstance.RenameFolder(folderId, createFolder);
+                ThirdPartyFolderWrapper result = apiInstance.RenameFolder(folderId, createFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4911,7 +4967,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Rename a folder (third-party storage)
-    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.RenameFolderWithHttpInfo(folderId, createFolder);
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.RenameFolderWithHttpInfo(folderId, createFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4934,11 +4990,256 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder with its new title |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not rename this folder |  -  |
+| **400** | The request body cannot be read or has no `title`, or the title is empty, blank or longer than 165 characters |  -  |
+| **403** | The caller may not rename this folder, or the folder lies in Trash or in the archive |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="searchfolder"></a>
+# **SearchFolder**
+> FolderContentWrapper SearchFolder (int folderId, FolderMetadataSearch folderMetadataSearch)
+
+Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID. |  |
+| **folderMetadataSearch** | [**FolderMetadataSearch**](FolderMetadataSearch.md) | The search parameters. |  |
+
+### Return type
+
+[**FolderContentWrapper**](FolderContentWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class SearchFolderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
+            var folderId = 1;  // int | The folder ID.
+            var folderMetadataSearch = new FolderMetadataSearch(); // FolderMetadataSearch | The search parameters.
+
+            try
+            {
+                // Search a folder by metadata
+                FolderContentWrapper result = apiInstance.SearchFolder(folderId, folderMetadataSearch);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FoldersApi.SearchFolder: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchFolderWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search a folder by metadata
+    ApiResponse<FolderContentWrapper> response = apiInstance.SearchFolderWithHttpInfo(folderId, folderMetadataSearch);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FoldersApi.SearchFolderWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Folder contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | Invalid metadata filter, or a metadata filter on a section that cannot apply it |  -  |
+| **403** | You don't have enough permission to view the folder content |  -  |
+| **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="searchfolder-thirdparty"></a>
+# **SearchFolder** (third-party storage)
+> ThirdPartyFolderContentWrapper SearchFolder (string folderId, FolderMetadataSearch folderMetadataSearch)
+
+The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
+
+Searches the folder by metadata. The same filter the folder listing takes in the metadataTemplateId and metadataFilters  query parameters, here as a typed request body for the clients that build the conditions as objects rather than as a JSON string.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/search-folder/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **string** | The folder ID. |  |
+| **folderMetadataSearch** | [**FolderMetadataSearch**](FolderMetadataSearch.md) | The search parameters. |  |
+
+### Return type
+
+[**ThirdPartyFolderContentWrapper**](ThirdPartyFolderContentWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class SearchFolderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
+            var folderId = sbox-42;  // string | The folder ID.
+            var folderMetadataSearch = new FolderMetadataSearch(); // FolderMetadataSearch | The search parameters.
+
+            try
+            {
+                // Search a folder by metadata (third-party storage)
+                ThirdPartyFolderContentWrapper result = apiInstance.SearchFolder(folderId, folderMetadataSearch);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FoldersApi.SearchFolder: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchFolderWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search a folder by metadata (third-party storage)
+    ApiResponse<ThirdPartyFolderContentWrapper> response = apiInstance.SearchFolderWithHttpInfo(folderId, folderMetadataSearch);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FoldersApi.SearchFolderWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Folder contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | Invalid metadata filter, or a metadata filter on a section that cannot apply it |  -  |
+| **403** | You don't have enough permission to view the folder content |  -  |
+| **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5054,10 +5355,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder with the position it now holds |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or `order` is below 1 or is neither a number nor a dotted path ending in one |  -  |
+| **403** | The caller may not reorder this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5175,10 +5478,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The folder with the position it now holds |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or `order` is below 1 or is neither a number nor a dotted path ending in one |  -  |
+| **403** | The caller may not reorder this folder |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5294,10 +5599,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The link as it now stands, or nothing when it was revoked |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not manage the links of this folder, the access level is not available for links to this folder, the link limit is reached, or the admin's restriction on external links forbids the change |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5415,10 +5722,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The link as it now stands, or nothing when it was revoked |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not manage the links of this folder, the access level is not available for links to this folder, the link limit is reached, or the admin's restriction on external links forbids the change |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5428,7 +5737,7 @@ catch (ApiException e)
 # **TerminateReportFolderHistory**
 > void TerminateReportFolderHistory (int folderId)
 
-Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest, and the portal  plan has to include the audit feature; a caller who fails the access rule is answered with 403 and a folder  that does not exist with 404. Each caller can only terminate their own report.
+Gives up the history report the caller has started for a folder with  `POST api/2.0/files/folder/{folderId}/log/report`. The request only asks the background worker to stop, and  the answer carries no body, so a following `GET api/2.0/files/folder/{folderId}/log/report` is what shows the  task ending as cancelled. Asking to terminate when nothing is running is accepted and changes nothing, which  makes the call safe to repeat. A report that has already finished is not undone by this call and its file  stays in My documents. The caller needs read access to the folder and may not be a guest; a caller who fails  the access rule is answered with 403, a folder that does not exist with 404, and a portal with the login history  and audit trail section turned off with 402. Each caller can only terminate their own report.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-report-folder-history/).
 
@@ -5528,6 +5837,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The request to stop the report was accepted |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **402** | The login history and audit trail section is turned off for this portal |  -  |
 | **403** | The caller may not export the history of this folder |  -  |
 | **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
@@ -5655,12 +5965,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored file, as a list with one element |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request has no file part |  -  |
+| **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
 | **403** | The caller cannot add content to this folder |  -  |
 | **404** | No folder with the specified ID |  -  |
+| **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
+| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5784,12 +6096,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored file, as a list with one element |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request has no file part |  -  |
+| **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
 | **403** | The caller cannot add content to this folder |  -  |
 | **404** | No folder with the specified ID |  -  |
+| **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
+| **500** | A file that is not a PDF is stored in a form-filling room |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5909,12 +6223,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | An array holding the single uploaded file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request has no file part |  -  |
+| **402** | The file exceeds the single-request upload limit, or storing it would exceed a storage quota or size limit |  -  |
 | **403** | Uploading a file to the personal section is not allowed for this account |  -  |
 | **404** | The caller has no personal section, so there is nothing to store the file in |  -  |
+| **415** | The installation restricts uploadable formats and the file extension is not among them |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

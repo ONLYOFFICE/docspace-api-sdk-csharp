@@ -107,7 +107,7 @@ catch (ApiException e)
 | **202** | Confirms the export was queued. The file arrives in the target folder later, announced by a folder-modified socket event. |  -  |
 | **400** | `title`, `content` or `folderId` is missing, or `format` is not one of `Docx`, `Pdf`, `Md`. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The transcript is larger than 15 MB, this route's own parser limit. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

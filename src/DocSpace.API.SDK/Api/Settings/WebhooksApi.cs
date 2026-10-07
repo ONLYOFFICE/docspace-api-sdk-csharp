@@ -37,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
-        WebhooksConfigWrapper CreateWebhook(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default);
+        WebhooksConfigWrapper CreateWebhook(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default);
 
         /// <summary>
         /// Create a webhook
@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default);
+        ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default);
         /// <summary>
         /// Switch a webhook on or off
         /// </summary>
@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
-        WebhooksConfigWrapper EnableWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
+        WebhooksConfigWrapper EnableWebhook(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default);
 
         /// <summary>
         /// Switch a webhook on or off
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
+        ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default);
         /// <summary>
         /// Get the portal webhooks
         /// </summary>
@@ -212,10 +212,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
-        WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
+        WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestDto? webhookRetryRequestDto = default);
 
         /// <summary>
         /// Retry webhook deliveries
@@ -224,10 +224,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
+        ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestDto? webhookRetryRequestDto = default);
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -235,10 +235,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
-        WebhooksConfigWrapper UpdateWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
+        WebhooksConfigWrapper UpdateWebhook(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default);
 
         /// <summary>
         /// Update a webhook
@@ -247,10 +247,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default);
+        ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -267,11 +267,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
-        Task<WebhooksConfigWrapper> CreateWebhookAsync(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<WebhooksConfigWrapper> CreateWebhookAsync(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a webhook
@@ -280,11 +280,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        Task<ApiResponse<WebhooksConfigWrapper>> CreateWebhookWithHttpInfoAsync(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebhooksConfigWrapper>> CreateWebhookWithHttpInfoAsync(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Switch a webhook on or off
         /// </summary>
@@ -292,11 +292,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
-        Task<WebhooksConfigWrapper> EnableWebhookAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<WebhooksConfigWrapper> EnableWebhookAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Switch a webhook on or off
@@ -305,11 +305,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        Task<ApiResponse<WebhooksConfigWrapper>> EnableWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebhooksConfigWrapper>> EnableWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the portal webhooks
         /// </summary>
@@ -456,11 +456,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        Task<WebhooksLogArrayWrapper> RetryWebhooksAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<WebhooksLogArrayWrapper> RetryWebhooksAsync(WebhookRetryRequestDto? webhookRetryRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retry webhook deliveries
@@ -469,11 +469,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        Task<ApiResponse<WebhooksLogArrayWrapper>> RetryWebhooksWithHttpInfoAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebhooksLogArrayWrapper>> RetryWebhooksWithHttpInfoAsync(WebhookRetryRequestDto? webhookRetryRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a webhook
         /// </summary>
@@ -481,11 +481,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
-        Task<WebhooksConfigWrapper> UpdateWebhookAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<WebhooksConfigWrapper> UpdateWebhookAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a webhook
@@ -494,11 +494,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        Task<ApiResponse<WebhooksConfigWrapper>> UpdateWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebhooksConfigWrapper>> UpdateWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -734,12 +734,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
-        public WebhooksConfigWrapper CreateWebhook(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default)
+        public WebhooksConfigWrapper CreateWebhook(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default)
         {
-            var localVarResponse = CreateWebhookWithHttpInfo(createWebhooksConfigRequestsDto);
+            var localVarResponse = CreateWebhookWithHttpInfo(createWebhooksConfigRequestDto);
             return localVarResponse.Data;
         }
 
@@ -750,10 +750,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        public ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default)
+        public ApiResponse<WebhooksConfigWrapper> CreateWebhookWithHttpInfo(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -768,7 +768,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (createWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = createWebhooksConfigRequestsDto;
+            if (createWebhooksConfigRequestDto != null) localVarRequestOptions.Data = createWebhooksConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -823,13 +823,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
-        public async Task<WebhooksConfigWrapper> CreateWebhookAsync(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<WebhooksConfigWrapper> CreateWebhookAsync(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await CreateWebhookWithHttpInfoAsync(createWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateWebhookWithHttpInfoAsync(createWebhooksConfigRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -840,11 +840,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Creates a webhook subscription for the current portal: a target URL that the portal calls with a signed JSON  payload whenever one of the subscribed events happens. The target is checked before anything is stored, so it  has to be an absolute `http` or `https` address outside the installation's own network, and it has to answer a  HEAD request with a success code, redirects not being followed. `secretKey` is mandatory here, has to satisfy  the portal password rules published by `GET api/2.0/settings/security/password`, and signs the payloads; it  does not appear in any response. `triggers` is a bitmask of the subscribed events with 0 standing for all of  them; a flag the caller's role may not use is rejected, so take the allowed set from  `GET api/2.0/settings/webhook/triggers`. `ssl=true` additionally demands an `https` target with a valid  certificate, while `ssl=false` leaves the certificate unchecked. Set `targetId` to deliver events about a  single entity only. A subscription fires only for events its creator is allowed to see, and only while it is  enabled. Any role except `Guest` may create one, and each call adds another subscription rather than replacing  an existing one.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhooksConfigRequestsDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
+        /// <param name="createWebhooksConfigRequestDto">The target a webhook subscription calls, the events it listens for, and the secret it signs with. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-webhook/">REST API Reference for CreateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        public async Task<ApiResponse<WebhooksConfigWrapper>> CreateWebhookWithHttpInfoAsync(CreateWebhooksConfigRequestsDto? createWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebhooksConfigWrapper>> CreateWebhookWithHttpInfoAsync(CreateWebhooksConfigRequestDto? createWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -860,7 +860,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (createWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = createWebhooksConfigRequestsDto;
+            if (createWebhooksConfigRequestDto != null) localVarRequestOptions.Data = createWebhooksConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -916,12 +916,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
-        public WebhooksConfigWrapper EnableWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
+        public WebhooksConfigWrapper EnableWebhook(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default)
         {
-            var localVarResponse = EnableWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
+            var localVarResponse = EnableWebhookWithHttpInfo(updateWebhooksConfigRequestDto);
             return localVarResponse.Data;
         }
 
@@ -932,10 +932,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        public ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
+        public ApiResponse<WebhooksConfigWrapper> EnableWebhookWithHttpInfo(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -950,7 +950,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1005,13 +1005,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
-        public async Task<WebhooksConfigWrapper> EnableWebhookAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<WebhooksConfigWrapper> EnableWebhookAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await EnableWebhookWithHttpInfoAsync(updateWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await EnableWebhookWithHttpInfoAsync(updateWebhooksConfigRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1022,11 +1022,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one webhook subscription on or off, leaving the rest of its parameters as they are. Only `id` and  `enabled` are read from the body: `name`, `uri`, `secretKey`, `ssl`, `triggers` and `targetId` are demanded by  the schema but ignored here, so change any of them with `PUT api/2.0/settings/webhook` instead. Switching a  subscription on re-checks what is already stored, probing the saved URL with a HEAD request and re-validating  the saved secret against the current portal password rules, and the call is refused with 400 when either  fails: a subscription whose target has gone away, or whose secret predates a tightening of the password rules,  cannot be switched on until it is updated. Switching one off is not validated. While a subscription is off its  events are dropped rather than queued, so nothing arrives from that period once it is switched on again. A  `DocSpaceAdmin` may switch any subscription in the portal, anyone else only their own, and a `Guest` is  refused. The response carries the subscription in its new state, and repeating the call changes nothing  further.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-webhook/">REST API Reference for EnableWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        public async Task<ApiResponse<WebhooksConfigWrapper>> EnableWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebhooksConfigWrapper>> EnableWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1042,7 +1042,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2114,12 +2114,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
-        public WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
+        public WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestDto? webhookRetryRequestDto = default)
         {
-            var localVarResponse = RetryWebhooksWithHttpInfo(webhookRetryRequestsDto);
+            var localVarResponse = RetryWebhooksWithHttpInfo(webhookRetryRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2130,10 +2130,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        public ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
+        public ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestDto? webhookRetryRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2148,7 +2148,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (webhookRetryRequestsDto != null) localVarRequestOptions.Data = webhookRetryRequestsDto;
+            if (webhookRetryRequestDto != null) localVarRequestOptions.Data = webhookRetryRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2203,13 +2203,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        public async Task<WebhooksLogArrayWrapper> RetryWebhooksAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<WebhooksLogArrayWrapper> RetryWebhooksAsync(WebhookRetryRequestDto? webhookRetryRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await RetryWebhooksWithHttpInfoAsync(webhookRetryRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await RetryWebhooksWithHttpInfoAsync(webhookRetryRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2220,11 +2220,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sends a batch of past webhook deliveries again. `ids` holds the identifiers of delivery records from  `GET api/2.0/settings/webhooks/log`; each of them is sent once more to the subscription it belongs to as a  fresh delivery record, queued for asynchronous delivery, and the response lists those new records with  `status` and `delivery` not filled in yet. Records that do not exist, and records of another member's  subscription when the caller is not a `DocSpaceAdmin`, are skipped in silence instead of failing the call, so  a response shorter than `ids` is the only sign that something was left out: compare the counts rather than  assuming everything was queued. An empty `ids` list is accepted and queues nothing. Read the outcomes from  `GET api/2.0/settings/webhooks/log`, matching the returned identifiers with `eventId`. Every call queues  another round of attempts, and the original records stay as they are. A `Guest` is refused. The operation is  rate limited, so a burst of calls is answered with 429. For a single record  `PUT api/2.0/settings/webhook/{id}/retry` reports a missing or forbidden record instead of skipping it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">Which past webhook deliveries are sent again. (optional)</param>
+        /// <param name="webhookRetryRequestDto">Which past webhook deliveries are sent again. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        public async Task<ApiResponse<WebhooksLogArrayWrapper>> RetryWebhooksWithHttpInfoAsync(WebhookRetryRequestsDto? webhookRetryRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebhooksLogArrayWrapper>> RetryWebhooksWithHttpInfoAsync(WebhookRetryRequestDto? webhookRetryRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2240,7 +2240,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (webhookRetryRequestsDto != null) localVarRequestOptions.Data = webhookRetryRequestsDto;
+            if (webhookRetryRequestDto != null) localVarRequestOptions.Data = webhookRetryRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2296,12 +2296,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>WebhooksConfigWrapper</returns>
-        public WebhooksConfigWrapper UpdateWebhook(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
+        public WebhooksConfigWrapper UpdateWebhook(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default)
         {
-            var localVarResponse = UpdateWebhookWithHttpInfo(updateWebhooksConfigRequestsDto);
+            var localVarResponse = UpdateWebhookWithHttpInfo(updateWebhooksConfigRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2312,10 +2312,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>ApiResponse of WebhooksConfigWrapper</returns>
-        public ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default)
+        public ApiResponse<WebhooksConfigWrapper> UpdateWebhookWithHttpInfo(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2330,7 +2330,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2385,13 +2385,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of WebhooksConfigWrapper</returns>
-        public async Task<WebhooksConfigWrapper> UpdateWebhookAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<WebhooksConfigWrapper> UpdateWebhookAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateWebhookWithHttpInfoAsync(updateWebhooksConfigRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateWebhookWithHttpInfoAsync(updateWebhooksConfigRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2402,11 +2402,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the stored parameters of one webhook subscription, which is addressed by `id` in the body rather than  in the path. Every field of the request overwrites the stored one, so a payload that leaves out `enabled`,  `ssl`, `triggers` or `targetId` resets them to off, all events and no target: read the current values with  `GET api/2.0/settings/webhook` first and send back whatever should stay. `secretKey` is the one exception, an  empty value keeping the existing secret and a new one having to satisfy the portal password rules. The new  target is validated exactly as on creation, that is it must sit outside the installation's own network and  answer a HEAD request, and trigger flags the caller's role may not use are rejected. That validation runs  before the subscription is looked up, so an unusable payload is refused with 400 even when no subscription  with this `id` exists. A `DocSpaceAdmin` may update any subscription in the portal, anyone else only their  own, and a `Guest` is refused. Sending the same payload twice leaves the same state. Use  `PUT api/2.0/settings/webhook/enable` to switch a subscription on or off without touching anything else.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateWebhooksConfigRequestsDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
+        /// <param name="updateWebhooksConfigRequestDto">The webhook subscription being changed, with the parameters it is to have afterwards. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-webhook/">REST API Reference for UpdateWebhook Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksConfigWrapper)</returns>
-        public async Task<ApiResponse<WebhooksConfigWrapper>> UpdateWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestsDto? updateWebhooksConfigRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebhooksConfigWrapper>> UpdateWebhookWithHttpInfoAsync(UpdateWebhooksConfigRequestDto? updateWebhooksConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2422,7 +2422,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (updateWebhooksConfigRequestsDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestsDto;
+            if (updateWebhooksConfigRequestDto != null) localVarRequestOptions.Data = updateWebhooksConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

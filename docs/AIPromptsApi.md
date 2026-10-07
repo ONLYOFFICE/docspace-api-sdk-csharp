@@ -118,7 +118,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether the prompt was saved, with it in `prompt`. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -126,7 +126,7 @@ catch (ApiException e)
 
 <a id="aipromptscreatefolder"></a>
 # **AiPromptsCreateFolder**
-> AiFolderMutationResult AiPromptsCreateFolder (string body)
+> AiFolderMutationResult AiPromptsCreateFolder (string aiPromptsCreateFolderRequest)
 
 Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
 
@@ -136,7 +136,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The name of the folder to create, as a bare JSON string. |  |
+| **aiPromptsCreateFolderRequest** | **string** | The name of the folder to create, as a bare JSON string. |  |
 
 ### Return type
 
@@ -174,12 +174,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PromptsApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The name of the folder to create, as a bare JSON string.
+            var aiPromptsCreateFolderRequest = "aiPromptsCreateFolderRequest_example";  // string | The name of the folder to create, as a bare JSON string.
 
             try
             {
                 // Create folder
-                AiFolderMutationResult result = apiInstance.AiPromptsCreateFolder(body);
+                AiFolderMutationResult result = apiInstance.AiPromptsCreateFolder(aiPromptsCreateFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -200,7 +200,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create folder
-    ApiResponse<AiFolderMutationResult> response = apiInstance.AiPromptsCreateFolderWithHttpInfo(body);
+    ApiResponse<AiFolderMutationResult> response = apiInstance.AiPromptsCreateFolderWithHttpInfo(aiPromptsCreateFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -224,7 +224,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether the folder was created, with it in `folder`. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -232,7 +232,7 @@ catch (ApiException e)
 
 <a id="aipromptsdelete"></a>
 # **AiPromptsDelete**
-> AiSuccessResponse AiPromptsDelete (string body)
+> AiSuccessResponse AiPromptsDelete (string aiPromptsDeleteRequest)
 
 Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
 
@@ -242,7 +242,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The ID of the prompt to delete, as a bare JSON string. |  |
+| **aiPromptsDeleteRequest** | **string** | The ID of the prompt to delete, as a bare JSON string. |  |
 
 ### Return type
 
@@ -280,12 +280,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PromptsApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The ID of the prompt to delete, as a bare JSON string.
+            var aiPromptsDeleteRequest = "aiPromptsDeleteRequest_example";  // string | The ID of the prompt to delete, as a bare JSON string.
 
             try
             {
                 // Delete a saved prompt
-                AiSuccessResponse result = apiInstance.AiPromptsDelete(body);
+                AiSuccessResponse result = apiInstance.AiPromptsDelete(aiPromptsDeleteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -306,7 +306,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a saved prompt
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiPromptsDeleteWithHttpInfo(body);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiPromptsDeleteWithHttpInfo(aiPromptsDeleteRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -331,7 +331,7 @@ catch (ApiException e)
 | **200** | Confirms the request was accepted, whether or not a prompt was deleted. |  -  |
 | **400** | The prompt ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -339,7 +339,7 @@ catch (ApiException e)
 
 <a id="aipromptsdeletefolder"></a>
 # **AiPromptsDeleteFolder**
-> AiSuccessResponse AiPromptsDeleteFolder (string body)
+> AiSuccessResponse AiPromptsDeleteFolder (string aiPromptsDeleteFolderRequest)
 
 Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
 
@@ -349,7 +349,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The ID of the folder to delete, as a bare JSON string. |  |
+| **aiPromptsDeleteFolderRequest** | **string** | The ID of the folder to delete, as a bare JSON string. |  |
 
 ### Return type
 
@@ -387,12 +387,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PromptsApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The ID of the folder to delete, as a bare JSON string.
+            var aiPromptsDeleteFolderRequest = "aiPromptsDeleteFolderRequest_example";  // string | The ID of the folder to delete, as a bare JSON string.
 
             try
             {
                 // Delete folder
-                AiSuccessResponse result = apiInstance.AiPromptsDeleteFolder(body);
+                AiSuccessResponse result = apiInstance.AiPromptsDeleteFolder(aiPromptsDeleteFolderRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -413,7 +413,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete folder
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiPromptsDeleteFolderWithHttpInfo(body);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiPromptsDeleteFolderWithHttpInfo(aiPromptsDeleteFolderRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -438,7 +438,7 @@ catch (ApiException e)
 | **200** | Confirms the folder and the prompts inside it are gone. |  -  |
 | **400** | The folder ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | No prompt folder has this ID. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
@@ -540,7 +540,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The whole library as a versioned bundle, ready to import. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -646,7 +646,7 @@ catch (ApiException e)
 | **200** | The prompt, or an empty body when no prompt of the caller's has that ID. |  -  |
 | **400** | The prompt ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -752,7 +752,7 @@ catch (ApiException e)
 | **200** | The folder, or an empty body when no folder of the caller's has that ID. |  -  |
 | **400** | The folder ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -857,7 +857,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether the bundle was written, how many prompts it imported, and what was refused. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -963,7 +963,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The prompts of the scope, newest first. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1063,7 +1063,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Every folder of the caller's library, newest first. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1168,7 +1168,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether the prompt was moved, with the moved prompt in `prompt`. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -1274,7 +1274,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether the folder was renamed, with the stored folder in `folder`. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -1380,7 +1380,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Whether the prompt was updated, with the stored prompt in `prompt`. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

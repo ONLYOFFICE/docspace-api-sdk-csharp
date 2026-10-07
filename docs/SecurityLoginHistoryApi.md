@@ -12,9 +12,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="createloginhistoryreport"></a>
 # **CreateLoginHistoryReport**
-> DocumentBuilderTaskWrapper CreateLoginHistoryReport (AuditReportFormat? format = null)
+> DocumentBuilderTaskWrapper CreateLoginHistoryReport (AuditReportFormat? format = null, DateTime? from = null, DateTime? to = null)
 
-Queues a report of the portal's login history and returns the state of the background job that builds it. The  report covers the period reaching from now back by the login history lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports and is never filtered: the query parameters of  `GET api/2.0/security/audit/login/filter` do not apply here. The caller needs the portal-settings right of a  DocSpace administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with  402. The file is not ready when the response arrives - poll `GET api/2.0/security/audit/login/report` until  `isCompleted` is true, then take `resultFileUrl`, and treat a non-empty `error` as a failed build. The  finished file is saved to the caller's My documents section, as an XLSX workbook by default or as CSV when  `format=Csv`, in which case `resultFileId` stays empty and only the name and the URL identify it. One job runs  per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/login/report` cancels it.
+Queues a report of the portal's login history and returns the state of the background job that builds it. By  default the report covers the period reaching from now back by the login history lifetime that  `GET api/2.0/security/audit/settings/lifetime` reports; `from` and `to` narrow it, a `from` older than that  window is moved up to its start, a `to` in the future is moved back to now, and a period that ends before it  starts is answered with 400. No other filter of `GET api/2.0/security/audit/login/filter` applies here. The  caller needs the portal-settings right of a DocSpace administrator plus the audit option of the portal's pricing  plan, otherwise the call is answered with 402. The file is not ready when the response arrives - poll  `GET api/2.0/security/audit/login/report` until `isCompleted` is true, then take `resultFileUrl`, and treat a  non-empty `error` as a failed build. The finished file is saved to the caller's My documents section, as an XLSX  workbook by default or as CSV when `format=Csv`, and `resultFileId` identifies it in either format;  `resultFileUrl` opens it in the editor, except for a CSV file too large for the editor, which it downloads  instead. An XLSX report keeps only the most recent events, at most 200,000 by default and fewer when the events  are long, and its header says how many were left out; `format=Csv` exports every event of the period. One job  runs per caller and kind: calling again while the previous one is still building returns that job instead of  starting a second, and `DELETE api/2.0/security/audit/login/report` cancels it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/).
 
@@ -22,7 +22,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **format** | [**AuditReportFormat?**](AuditReportFormat.md) | The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. | [optional]  |
+| **format** | [**AuditReportFormat?**](AuditReportFormat.md) | The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. | [optional]  |
+| **from** | **DateTime?** | The earliest moment a reported event may have been recorded at, read as a UTC instant. | [optional]  |
+| **to** | **DateTime?** | The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. | [optional]  |
 
 ### Return type
 
@@ -69,12 +71,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
-            var format = new AuditReportFormat?(); // AuditReportFormat? | The format the report file is written in. The workbook format is the default and is the only one that leaves  the finished file addressable by ID: a report asked for as CSV comes back with an empty `resultFileId`, so it  can only be reached through `resultFileName` and `resultFileUrl`. (optional) 
+            var format = new AuditReportFormat?(); // AuditReportFormat? | The format the report file is written in: a spreadsheet workbook, which is the default, or a comma-separated  text file. (optional) 
+            var from = 2026-09-01T00:00:00Z;  // DateTime? | The earliest moment a reported event may have been recorded at, read as a UTC instant. (optional) 
+            var to = 2026-09-30T23:59:59Z;  // DateTime? | The latest moment a reported event may have been recorded at, read as a UTC instant in the same way as `from`. (optional) 
 
             try
             {
                 // Start login history report
-                DocumentBuilderTaskWrapper result = apiInstance.CreateLoginHistoryReport(format);
+                DocumentBuilderTaskWrapper result = apiInstance.CreateLoginHistoryReport(format, from, to);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -95,7 +99,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Start login history report
-    ApiResponse<DocumentBuilderTaskWrapper> response = apiInstance.CreateLoginHistoryReportWithHttpInfo(format);
+    ApiResponse<DocumentBuilderTaskWrapper> response = apiInstance.CreateLoginHistoryReportWithHttpInfo(format, from, to);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -118,12 +122,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The state of the queued job that builds the login history report |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the requested period ends before it starts or lies entirely outside the login history lifetime |  -  |
 | **402** | The portal's pricing plan has no audit option, or the login history and audit trail section is not enabled |  -  |
 | **403** | The caller does not have the portal-settings right of a DocSpace administrator |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -246,7 +250,7 @@ catch (ApiException e)
 # **GetLoginEventsByFilter**
 > LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, DateTime? from = null, DateTime? to = null, int? count = null, int? startIndex = null)
 
-Returns the portal's login events that match the filters in the query - by user, by login action and by period  - and is the operation behind the login history page. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan; when that option is missing the filters are  silently ignored and the answer is the same twenty most recent events that  `GET api/2.0/security/audit/login/last` returns, and when the login history and audit trail section is  disabled altogether the call is answered with 402. Omit a filter to match everything. `from` and `to` are read  as UTC instants while `date` comes back in the portal time zone, `count` defaults to 100 and cannot exceed it,  `startIndex` skips events from the newest end, and the page window is applied to the log before the filters,  so a page can hold fewer items than `count` while older matches still exist. The operation is read-only; take  the values accepted by `action` from `GET api/2.0/security/audit/types`.
+Returns the portal's login events that match the filters in the query - by user, by login action and by period  - and is the operation behind the login history page. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan; when that option is missing the filters are  silently ignored and the answer is the same twenty most recent events that  `GET api/2.0/security/audit/login/last` returns, and when the login history and audit trail section is  disabled altogether the call is answered with 402. Omit a filter to match everything. `from` and `to` are read  as UTC instants while `date` comes back in the portal time zone, `count` defaults to 100 and cannot exceed it,  `startIndex` skips matching events from the newest end, and the filters are applied before the page window, so  a full page means there may be more matching events beyond it. The operation is read-only; take the values  accepted by `action` from `GET api/2.0/security/audit/types`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/).
 
@@ -360,12 +364,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Login events matching the filters, newest first, or the twenty most recent events when the portal has no audit option |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or `from` or `to` is not a date and time ending in `Z` or a UTC offset |  -  |
 | **402** | The login history and audit trail section is not enabled for this portal |  -  |
 | **403** | The caller does not have the portal-settings right of a DocSpace administrator |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -375,7 +379,7 @@ catch (ApiException e)
 # **GetLoginHistoryReport**
 > DocumentBuilderTaskWrapper GetLoginHistoryReport ()
 
-Returns the state of the login history report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/login/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402.  Jobs are kept per user and per report kind: this operation never shows another administrator's report, nor the  audit trail report, which has its own status at `GET api/2.0/security/audit/events/report`. The answer is  empty when no report of this kind is known for the caller; otherwise `percentage` grows towards 100,  `isCompleted` turns true when the build has ended, `error` carries the failure message when it ended badly,  and `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section, while  `resultFileId` is filled for an XLSX report only. The operation is read-only and safe to poll every few  seconds; a finished job is dropped as soon as the next report of this kind is started.
+Returns the state of the login history report the calling user has started, and is the operation to poll after  `POST api/2.0/security/audit/login/report`. The caller needs the portal-settings right of a DocSpace  administrator plus the audit option of the portal's pricing plan, otherwise the call is answered with 402. Jobs  are kept per user and per report kind: this operation never shows another administrator's report, nor the audit  trail report, which has its own status at `GET api/2.0/security/audit/events/report`. The answer is empty when  no report of this kind is known for the caller; otherwise `percentage` grows towards 100, `isCompleted` turns  true when the build has ended, `error` carries the failure message when it ended badly, and `resultFileId`,  `resultFileName` and `resultFileUrl` point at the file saved to the caller's My documents section. The operation  is read-only and safe to poll every few seconds; a finished job is dropped as soon as the next report of this  kind is started.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-history-report/).
 

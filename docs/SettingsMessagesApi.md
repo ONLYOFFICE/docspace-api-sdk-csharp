@@ -116,6 +116,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A localized message confirming that the administrator message setting has been saved |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -127,7 +128,7 @@ catch (ApiException e)
 
 <a id="sendadminmail"></a>
 # **SendAdminMail**
-> StringWrapper SendAdminMail (AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = null)
+> StringWrapper SendAdminMail (AdminMessageSettingsRequestDto? adminMessageSettingsRequestDto = null)
 
 Sends a message from someone who cannot get into the portal to its administrators - the contact form the  sign-in page offers unauthenticated visitors. No token is needed. The form has to be published first with  `POST api/2.0/settings/messagesettings` unless the portal's payment has lapsed, otherwise nothing is sent;  `enableAdmMess` in `GET api/2.0/settings` reports whether the call is worth making. `email` is the address the  administrators answer to and has to be a real address, and `message` is reduced to plain text first, so a body  carrying nothing but markup counts as empty - either fault is refused with 400. When the caller is not signed  in and this installation has a CAPTCHA configured, `recaptchaResponse` has to carry a solved challenge of the  `recaptchaType` that `GET api/2.0/settings` publishes together with the site key, and a missing or stale  answer refuses the call. `culture` picks the language of the letter. Delivery is queued and reaches the  administrators subscribed to administrator notifications, so a confirmed call means accepted rather than read,  and the answer is a localized confirmation. Attempts are rate limited per address and per operation, and  further ones are refused with 429.
 
@@ -137,7 +138,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **adminMessageSettingsRequestsDto** | [**AdminMessageSettingsRequestsDto?**](AdminMessageSettingsRequestsDto.md) | The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. | [optional]  |
+| **adminMessageSettingsRequestDto** | [**AdminMessageSettingsRequestDto?**](AdminMessageSettingsRequestDto.md) | The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. | [optional]  |
 
 ### Return type
 
@@ -184,12 +185,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
-            var adminMessageSettingsRequestsDto = new AdminMessageSettingsRequestsDto?(); // AdminMessageSettingsRequestsDto? | The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional) 
+            var adminMessageSettingsRequestDto = new AdminMessageSettingsRequestDto?(); // AdminMessageSettingsRequestDto? | The message sent to the portal administrators, with the CAPTCHA proof that a person wrote it. (optional) 
 
             try
             {
                 // Send a message to the administrator
-                StringWrapper result = apiInstance.SendAdminMail(adminMessageSettingsRequestsDto);
+                StringWrapper result = apiInstance.SendAdminMail(adminMessageSettingsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -210,7 +211,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send a message to the administrator
-    ApiResponse<StringWrapper> response = apiInstance.SendAdminMailWithHttpInfo(adminMessageSettingsRequestsDto);
+    ApiResponse<StringWrapper> response = apiInstance.SendAdminMailWithHttpInfo(adminMessageSettingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -233,9 +234,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A localized message confirming that the message has been queued for the portal administrators |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The email address is malformed, or the message is empty once its markup is stripped |  -  |
+| **400** | The request body cannot be read or has no `email` or `message`, the email address is malformed or longer than 255 characters, or the message is longer than 255 characters or empty once its markup is stripped |  -  |
+| **403** | The caller is not signed in, the installation has a CAPTCHA configured, and `recaptchaResponse` is missing or not accepted |  -  |
 | **429** | Too many contact attempts came from the same address within the rate-limit window |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
-| **500** | Internal Server Error. |  -  |
+| **500** | The contact form is switched off and the portal's payment has not lapsed |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -243,7 +245,7 @@ catch (ApiException e)
 
 <a id="sendjoininvitemail"></a>
 # **SendJoinInviteMail**
-> StringWrapper SendJoinInviteMail (AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = null)
+> StringWrapper SendJoinInviteMail (AdminMessageBaseSettingsRequestDto? adminMessageBaseSettingsRequestDto = null)
 
 Sends an invitation email with a join link to the address in the request - the self-registration the sign-in  page's register link performs. No token is needed. The portal has to publish a trusted-domain policy first,  saved with `POST api/2.0/settings/maildomainsettings`: without one there is nothing to join and every caller  alike is answered with 405 - the same condition `GET api/2.0/settings` reports as `enabledJoin`. `email` has  to be a real address written in ASCII rather than an internationalized one, must not already belong to a  portal member, and, when the policy names domains rather than accepting all of them, has to end with one of  them - each of those faults is refused with 400. `culture` picks the language of the letter. The invitation is  not an account: the invitee becomes a member only after following the link, and the role it grants, user or  room administrator, follows the trusted-domain settings and drops to user once the portal's paid places are  taken. Where the installation caps invitations, an accepted call spends one of those counted by  `invitationLimit`, and only about a dozen calls from one address in two minutes are accepted. What comes back  is a localized confirmation.
 
@@ -253,7 +255,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **adminMessageBaseSettingsRequestsDto** | [**AdminMessageBaseSettingsRequestsDto?**](AdminMessageBaseSettingsRequestsDto.md) | Who is invited to join the portal, and in which language the invitation is written. | [optional]  |
+| **adminMessageBaseSettingsRequestDto** | [**AdminMessageBaseSettingsRequestDto?**](AdminMessageBaseSettingsRequestDto.md) | Who is invited to join the portal, and in which language the invitation is written. | [optional]  |
 
 ### Return type
 
@@ -300,12 +302,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
-            var adminMessageBaseSettingsRequestsDto = new AdminMessageBaseSettingsRequestsDto?(); // AdminMessageBaseSettingsRequestsDto? | Who is invited to join the portal, and in which language the invitation is written. (optional) 
+            var adminMessageBaseSettingsRequestDto = new AdminMessageBaseSettingsRequestDto?(); // AdminMessageBaseSettingsRequestDto? | Who is invited to join the portal, and in which language the invitation is written. (optional) 
 
             try
             {
                 // Send an invitation email
-                StringWrapper result = apiInstance.SendJoinInviteMail(adminMessageBaseSettingsRequestsDto);
+                StringWrapper result = apiInstance.SendJoinInviteMail(adminMessageBaseSettingsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -326,7 +328,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Send an invitation email
-    ApiResponse<StringWrapper> response = apiInstance.SendJoinInviteMailWithHttpInfo(adminMessageBaseSettingsRequestsDto);
+    ApiResponse<StringWrapper> response = apiInstance.SendJoinInviteMailWithHttpInfo(adminMessageBaseSettingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -349,11 +351,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A localized message confirming that the invitation with the join link has been sent |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The email address is malformed or internationalized, lies outside the trusted domains, or already belongs to a member of the portal |  -  |
+| **400** | The request body cannot be read or has no `email`, the email address is malformed, internationalized or longer than 255 characters, lies outside the trusted domains, or already belongs to a member of the portal |  -  |
 | **403** | The portal is not accepting requests while it is being restored, transferred or encrypted |  -  |
 | **405** | The portal publishes no trusted-domain policy, so it has nothing to join |  -  |
-| **429** | Too many invitation requests came from the same network address |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
+| **500** | Eleven invitation requests from the same network address have already been counted, each less than two minutes after the one before |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

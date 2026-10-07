@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAssignmentsCascadeProfileDeleteRequest
     /// </summary>
-    [DataContract(Name = "aiAssignmentsCascadeProfileDelete_request")]
+    [DataContract(Name = "AiAssignmentsCascadeProfileDeleteRequest")]
     public partial class AiAssignmentsCascadeProfileDeleteRequest : IValidatableObject
     {
     

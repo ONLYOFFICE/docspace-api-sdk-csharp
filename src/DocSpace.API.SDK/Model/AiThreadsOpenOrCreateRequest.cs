@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsOpenOrCreateRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsOpenOrCreate_request")]
+    [DataContract(Name = "AiThreadsOpenOrCreateRequest")]
     public partial class AiThreadsOpenOrCreateRequest : IValidatableObject
     {
     

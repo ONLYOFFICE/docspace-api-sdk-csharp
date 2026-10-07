@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.TenantDevToolsAccessSettingsWrapper
-The successful API response containing the TenantDevToolsAccessSettings object.
+The successful API response containing the TenantDevToolsAccessSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**TenantDevToolsAccessSettings**](TenantDevToolsAccessSettings.md) | The TenantDevToolsAccessSettings object returned by the operation. | [optional] 
+**Response** | [**TenantDevToolsAccessSettingsDto**](TenantDevToolsAccessSettingsDto.md) | The TenantDevToolsAccessSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.DocsCloudUsageWrapper
-The successful API response containing the DocsCloudUsage object.
+The successful API response containing the DocsCloudUsageDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**DocsCloudUsage**](DocsCloudUsage.md) | The DocsCloudUsage object returned by the operation. | [optional] 
+**Response** | [**DocsCloudUsageDto**](DocsCloudUsageDto.md) | The DocsCloudUsageDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

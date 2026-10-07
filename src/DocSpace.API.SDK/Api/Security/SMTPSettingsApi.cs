@@ -38,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>SmtpOperationStatusRequestsWrapper</returns>
-        SmtpOperationStatusRequestsWrapper GetSmtpOperationStatus();
+        /// <returns>SmtpOperationStatusWrapper</returns>
+        SmtpOperationStatusWrapper GetSmtpOperationStatus();
 
         /// <summary>
         /// Get SMTP test status
@@ -49,8 +49,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
-        ApiResponse<SmtpOperationStatusRequestsWrapper> GetSmtpOperationStatusWithHttpInfo();
+        /// <returns>ApiResponse of SmtpOperationStatusWrapper</returns>
+        ApiResponse<SmtpOperationStatusWrapper> GetSmtpOperationStatusWithHttpInfo();
         /// <summary>
         /// Get SMTP settings
         /// </summary>
@@ -124,8 +124,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>SmtpOperationStatusRequestsWrapper</returns>
-        SmtpOperationStatusRequestsWrapper TestSmtpSettings();
+        /// <returns>SmtpOperationStatusWrapper</returns>
+        SmtpOperationStatusWrapper TestSmtpSettings();
 
         /// <summary>
         /// Test SMTP settings
@@ -135,8 +135,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
-        ApiResponse<SmtpOperationStatusRequestsWrapper> TestSmtpSettingsWithHttpInfo();
+        /// <returns>ApiResponse of SmtpOperationStatusWrapper</returns>
+        ApiResponse<SmtpOperationStatusWrapper> TestSmtpSettingsWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -155,8 +155,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
-        Task<SmtpOperationStatusRequestsWrapper> GetSmtpOperationStatusAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of SmtpOperationStatusWrapper</returns>
+        Task<SmtpOperationStatusWrapper> GetSmtpOperationStatusAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get SMTP test status
@@ -167,8 +167,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>
-        Task<ApiResponse<SmtpOperationStatusRequestsWrapper>> GetSmtpOperationStatusWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SmtpOperationStatusWrapper)</returns>
+        Task<ApiResponse<SmtpOperationStatusWrapper>> GetSmtpOperationStatusWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get SMTP settings
         /// </summary>
@@ -249,8 +249,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
-        Task<SmtpOperationStatusRequestsWrapper> TestSmtpSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of SmtpOperationStatusWrapper</returns>
+        Task<SmtpOperationStatusWrapper> TestSmtpSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Test SMTP settings
@@ -261,8 +261,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>
-        Task<ApiResponse<SmtpOperationStatusRequestsWrapper>> TestSmtpSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SmtpOperationStatusWrapper)</returns>
+        Task<ApiResponse<SmtpOperationStatusWrapper>> TestSmtpSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -486,8 +486,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>SmtpOperationStatusRequestsWrapper</returns>
-        public SmtpOperationStatusRequestsWrapper GetSmtpOperationStatus()
+        /// <returns>SmtpOperationStatusWrapper</returns>
+        public SmtpOperationStatusWrapper GetSmtpOperationStatus()
         {
             var localVarResponse = GetSmtpOperationStatusWithHttpInfo();
             return localVarResponse.Data;
@@ -501,8 +501,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
-        public ApiResponse<SmtpOperationStatusRequestsWrapper> GetSmtpOperationStatusWithHttpInfo()
+        /// <returns>ApiResponse of SmtpOperationStatusWrapper</returns>
+        public ApiResponse<SmtpOperationStatusWrapper> GetSmtpOperationStatusWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -550,7 +550,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<SmtpOperationStatusRequestsWrapper>("/api/2.0/smtpsettings/smtp/test/status", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<SmtpOperationStatusWrapper>("/api/2.0/smtpsettings/smtp/test/status", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -573,8 +573,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
-        public async Task<SmtpOperationStatusRequestsWrapper> GetSmtpOperationStatusAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of SmtpOperationStatusWrapper</returns>
+        public async Task<SmtpOperationStatusWrapper> GetSmtpOperationStatusAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSmtpOperationStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -589,8 +589,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-smtp-operation-status/">REST API Reference for GetSmtpOperationStatus Operation</seealso>
-        /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>
-        public async Task<ApiResponse<SmtpOperationStatusRequestsWrapper>> GetSmtpOperationStatusWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SmtpOperationStatusWrapper)</returns>
+        public async Task<ApiResponse<SmtpOperationStatusWrapper>> GetSmtpOperationStatusWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -640,7 +640,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<SmtpOperationStatusRequestsWrapper>("/api/2.0/smtpsettings/smtp/test/status", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SmtpOperationStatusWrapper>("/api/2.0/smtpsettings/smtp/test/status", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1196,8 +1196,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>SmtpOperationStatusRequestsWrapper</returns>
-        public SmtpOperationStatusRequestsWrapper TestSmtpSettings()
+        /// <returns>SmtpOperationStatusWrapper</returns>
+        public SmtpOperationStatusWrapper TestSmtpSettings()
         {
             var localVarResponse = TestSmtpSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -1211,8 +1211,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>ApiResponse of SmtpOperationStatusRequestsWrapper</returns>
-        public ApiResponse<SmtpOperationStatusRequestsWrapper> TestSmtpSettingsWithHttpInfo()
+        /// <returns>ApiResponse of SmtpOperationStatusWrapper</returns>
+        public ApiResponse<SmtpOperationStatusWrapper> TestSmtpSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1260,7 +1260,7 @@ namespace DocSpace.API.SDK.Api.Security
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<SmtpOperationStatusRequestsWrapper>("/api/2.0/smtpsettings/smtp/test", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<SmtpOperationStatusWrapper>("/api/2.0/smtpsettings/smtp/test", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1283,8 +1283,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>Task of SmtpOperationStatusRequestsWrapper</returns>
-        public async Task<SmtpOperationStatusRequestsWrapper> TestSmtpSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of SmtpOperationStatusWrapper</returns>
+        public async Task<SmtpOperationStatusWrapper> TestSmtpSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await TestSmtpSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1299,8 +1299,8 @@ namespace DocSpace.API.SDK.Api.Security
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-smtp-settings/">REST API Reference for TestSmtpSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (SmtpOperationStatusRequestsWrapper)</returns>
-        public async Task<ApiResponse<SmtpOperationStatusRequestsWrapper>> TestSmtpSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SmtpOperationStatusWrapper)</returns>
+        public async Task<ApiResponse<SmtpOperationStatusWrapper>> TestSmtpSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1350,7 +1350,7 @@ namespace DocSpace.API.SDK.Api.Security
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<SmtpOperationStatusRequestsWrapper>("/api/2.0/smtpsettings/smtp/test", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SmtpOperationStatusWrapper>("/api/2.0/smtpsettings/smtp/test", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

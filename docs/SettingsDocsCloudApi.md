@@ -125,7 +125,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The cost of switching to Docs Connect Dev Pack for the requested quantity, or an empty result if the billing service could not price it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The quantity is below the allowed minimum, the portal has no active Docs Connect subscription, or it already has a Docs Connect Dev Pack subscription |  -  |
+| **400** | The request body cannot be read, the quantity is below the allowed minimum, the portal has no active Docs Connect subscription, or it already has a Docs Connect Dev Pack subscription |  -  |
 | **402** | The portal tariff is delayed or not paid, so the switch cannot be priced |  -  |
 | **403** | The caller is not a DocSpace administrator, or the billing service is not configured |  -  |
 | **404** | The portal is not registered as a billing customer, or the Docs Connect and Docs Connect Dev Pack wallet products are not configured on this installation |  -  |
@@ -240,7 +240,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The initial state of the queued report generation job, with zero progress and an uncompleted status |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -357,10 +357,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Docs Connect tenant of the portal, or an empty result if no Docs Connect tenant is assigned to it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
+| **500** | The Docs Connect service is not configured on this installation, is unreachable, or answered with an error other than not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -476,10 +476,10 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The configuration of the Docs Connect tenant of the portal, with its security, server, WOPI and IP filter settings |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The portal has no activated Docs Connect tenant, so there is no configuration to return |  -  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
+| **500** | The Docs Connect service is not configured on this installation, is unreachable, or answered with an error other than not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -594,10 +594,10 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The Docs Connect license and server information of the portal, with the user limits of the license and the usage statistics for the current period |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The portal has no activated Docs Connect tenant, so there is no license information to return |  -  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
+| **500** | The Docs Connect service is not configured on this installation, is unreachable, or answered with an error other than not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -712,10 +712,10 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The editor and viewer users of the Docs Connect tenant of the portal, with the expiration date of each entry |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The portal has no activated Docs Connect tenant, so there is no user quota to return |  -  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
+| **500** | The Docs Connect service is not configured on this installation, is unreachable, or answered with an error other than not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -824,7 +824,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The state of the Docs Connect quota report job of the caller, or an empty result if there is no such job |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -942,10 +942,10 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The number of active Docs Connect users of the portal and the date the count starts from |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The portal has no activated Docs Connect tenant, so there is no usage information to return |  -  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
+| **500** | The Docs Connect service is not configured on this installation, is unreachable, or answered with an error other than not found |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1056,11 +1056,11 @@ catch (ApiException e)
 | **200** | Boolean value: true if the trial subscription is activated, false if the billing service declines it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The portal already has a Docs Connect trial, Docs Connect or Docs Connect Dev Pack subscription |  -  |
 | **402** | The portal tariff is delayed or not paid, so the trial cannot be started |  -  |
-| **403** | The caller is not allowed to edit the portal settings, or the billing service is not configured |  -  |
+| **403** | The caller has no portal-settings right, the billing service is not configured, or the trial was granted but the address of the assigned Docs Connect server would push the Content Security Policy header over its size limit |  -  |
 | **404** | The Docs Connect trial quota is not available on this installation |  -  |
+| **500** | The trial was granted, but reading the Docs Connect tenant afterwards failed: the Docs Connect service is not configured on this installation, has no tenant for the portal yet, is unreachable, or answered with an error |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1174,7 +1174,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the subscription is switched to Docs Connect Dev Pack, false if the billing service declines it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The quantity is below the allowed minimum, the portal has no active Docs Connect subscription, or it already has a Docs Connect Dev Pack subscription |  -  |
+| **400** | The request body cannot be read, the quantity is below the allowed minimum, the portal has no active Docs Connect subscription, or it already has a Docs Connect Dev Pack subscription |  -  |
 | **402** | The portal tariff is delayed or not paid, so the subscription cannot be switched |  -  |
 | **403** | The caller is not a DocSpace administrator, or the billing service is not configured |  -  |
 | **404** | The portal is not registered as a billing customer, or the Docs Connect and Docs Connect Dev Pack wallet products are not configured on this installation |  -  |
@@ -1285,7 +1285,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The termination request has been queued for the report worker; the response has no body |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1296,7 +1296,7 @@ catch (ApiException e)
 
 <a id="updatetenantconfig"></a>
 # **UpdateTenantConfig**
-> DocsCloudConfigWrapper UpdateTenantConfig (DocsCloudConfig? docsCloudConfig = null)
+> DocsCloudConfigWrapper UpdateTenantConfig (DocsCloudConfigRequestDto? docsCloudConfigRequestDto = null)
 
 Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
 
@@ -1306,7 +1306,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **docsCloudConfig** | [**DocsCloudConfig?**](DocsCloudConfig.md) | Represents the configuration of a Docs Connect tenant. | [optional]  |
+| **docsCloudConfigRequestDto** | [**DocsCloudConfigRequestDto?**](DocsCloudConfigRequestDto.md) | Represents the configuration of a Docs Connect tenant. | [optional]  |
 
 ### Return type
 
@@ -1353,12 +1353,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new DocsCloudApi(httpClient, config, httpClientHandler);
-            var docsCloudConfig = new DocsCloudConfig?(); // DocsCloudConfig? | Represents the configuration of a Docs Connect tenant. (optional) 
+            var docsCloudConfigRequestDto = new DocsCloudConfigRequestDto?(); // DocsCloudConfigRequestDto? | Represents the configuration of a Docs Connect tenant. (optional) 
 
             try
             {
                 // Update the Docs Connect tenant configuration
-                DocsCloudConfigWrapper result = apiInstance.UpdateTenantConfig(docsCloudConfig);
+                DocsCloudConfigWrapper result = apiInstance.UpdateTenantConfig(docsCloudConfigRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1379,7 +1379,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update the Docs Connect tenant configuration
-    ApiResponse<DocsCloudConfigWrapper> response = apiInstance.UpdateTenantConfigWithHttpInfo(docsCloudConfig);
+    ApiResponse<DocsCloudConfigWrapper> response = apiInstance.UpdateTenantConfigWithHttpInfo(docsCloudConfigRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1402,11 +1402,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The configuration of the Docs Connect tenant as Docs Connect stored it after the update |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | A text field is longer than 255 characters, the file size limit is outside 0-209715200 bytes, or the portal has no activated Docs Connect tenant |  -  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **400** | The request body cannot be read, a text field is longer than 255 characters, the file size limit is outside 0-209715200 bytes, or the portal has no activated Docs Connect tenant |  -  |
+| **403** | The caller has no portal-settings right |  -  |
+| **500** | The Docs Connect service is not configured on this installation, is unreachable, or answered with an error other than not found, including a rejection of the new values |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

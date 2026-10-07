@@ -118,8 +118,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The installed web plugin, enabled, with the `url` its script is served from |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The uploaded package is missing, of the wrong type, too large, or its manifest is rejected |  -  |
-| **403** | Web plugins or plugin uploads are switched off for the installation, or `system` was requested outside a standalone installation |  -  |
+| **400** | The uploaded package is missing, more than one file was sent, the package is of the wrong type, empty or too large, the archive or its manifest is rejected, or the portal already holds the maximum number of plugins |  -  |
+| **403** | The caller has no portal-settings right, the request is not a form, web plugins or plugin uploads are switched off for the installation, `system` was requested outside a standalone installation, or the domains the plugin declares would push the Content Security Policy header over its size limit |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -232,7 +232,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The web plugin and the files of its package are removed from the portal |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | Web plugins or plugin deletion are switched off, the caller may not edit the portal settings, or the plugin is installation-wide outside a standalone installation |  -  |
+| **403** | Web plugins or plugin deletion are switched off, the caller has no portal-settings right, or the plugin is installation-wide outside a standalone installation |  -  |
+| **404** | No web plugin with this manifest name is available in the portal, or the files of its package are missing from storage |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -351,6 +352,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The requested web plugin with the state the portal stored for it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Web plugins are switched off for the installation |  -  |
+| **404** | No web plugin with this manifest name is available in the portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -480,7 +482,7 @@ catch (ApiException e)
 
 <a id="updatewebplugin"></a>
 # **UpdateWebPlugin**
-> void UpdateWebPlugin (string name, WebPluginRequests webPluginRequests)
+> void UpdateWebPlugin (string name, WebPluginRequest webPluginRequest)
 
 Switches a web plugin of the current portal on or off and stores the settings string the portal keeps for it.  The plugin has to be installed already, so upload its package with `POST api/2.0/settings/webplugins` first,  and `name` is its manifest name as published by `GET api/2.0/settings/webplugins`, matched without regard to  case. Editing the portal settings is required, so a portal owner or administrator, and the installation has to  have web plugins enabled in its configuration. The body replaces the stored state instead of merging into it,  which makes the call idempotent; `settings` is required, so send `{}` when there is nothing to keep, and it is  limited to 255 characters and stored encrypted for this portal alone. Switching the plugin on adds the domains  its manifest declares to the portal Content Security Policy and switching it off takes them away again, and  the connected clients are notified of the new state. Nothing is returned on success. A name that is not  installed is rejected as not found, and 403 means web plugins are switched off or the caller may not edit the  portal settings.
 
@@ -491,7 +493,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **name** | **string** | The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404. |  |
-| **webPluginRequests** | [**WebPluginRequests**](WebPluginRequests.md) | The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time. |  |
+| **webPluginRequest** | [**WebPluginRequest**](WebPluginRequest.md) | The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time. |  |
 
 ### Return type
 
@@ -539,12 +541,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
             var name = example-plugin;  // string | The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.
-            var webPluginRequests = new WebPluginRequests(); // WebPluginRequests | The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.
+            var webPluginRequest = new WebPluginRequest(); // WebPluginRequest | The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.
 
             try
             {
                 // Update a web plugin
-                apiInstance.UpdateWebPlugin(name, webPluginRequests);
+                apiInstance.UpdateWebPlugin(name, webPluginRequest);
             }
             catch (ApiException  e)
             {
@@ -564,7 +566,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update a web plugin
-    apiInstance.UpdateWebPluginWithHttpInfo(name, webPluginRequests);
+    apiInstance.UpdateWebPluginWithHttpInfo(name, webPluginRequest);
 }
 catch (ApiException e)
 {
@@ -584,11 +586,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The state and the settings of the web plugin are saved for the portal |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | Web plugins are switched off for the installation, or the caller may not edit the portal settings |  -  |
+| **400** | The request body cannot be read or has no `settings`, or `settings` is longer than 255 characters |  -  |
+| **403** | The caller has no portal-settings right, web plugins are switched off for the installation, or switching the plugin on would push the Content Security Policy header over its size limit |  -  |
+| **404** | No web plugin with this manifest name is available in the portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

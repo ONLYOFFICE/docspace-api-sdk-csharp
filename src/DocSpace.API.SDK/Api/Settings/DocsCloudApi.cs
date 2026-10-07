@@ -282,10 +282,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>DocsCloudConfigWrapper</returns>
-        DocsCloudConfigWrapper UpdateTenantConfig(DocsCloudConfig? docsCloudConfig = default);
+        DocsCloudConfigWrapper UpdateTenantConfig(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default);
 
         /// <summary>
         /// Update the Docs Connect tenant configuration
@@ -294,10 +294,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>ApiResponse of DocsCloudConfigWrapper</returns>
-        ApiResponse<DocsCloudConfigWrapper> UpdateTenantConfigWithHttpInfo(DocsCloudConfig? docsCloudConfig = default);
+        ApiResponse<DocsCloudConfigWrapper> UpdateTenantConfigWithHttpInfo(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -581,11 +581,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>Task of DocsCloudConfigWrapper</returns>
-        Task<DocsCloudConfigWrapper> UpdateTenantConfigAsync(DocsCloudConfig? docsCloudConfig = default, CancellationToken cancellationToken = default);
+        Task<DocsCloudConfigWrapper> UpdateTenantConfigAsync(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the Docs Connect tenant configuration
@@ -594,11 +594,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudConfigWrapper)</returns>
-        Task<ApiResponse<DocsCloudConfigWrapper>> UpdateTenantConfigWithHttpInfoAsync(DocsCloudConfig? docsCloudConfig = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<DocsCloudConfigWrapper>> UpdateTenantConfigWithHttpInfoAsync(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -2827,12 +2827,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>DocsCloudConfigWrapper</returns>
-        public DocsCloudConfigWrapper UpdateTenantConfig(DocsCloudConfig? docsCloudConfig = default)
+        public DocsCloudConfigWrapper UpdateTenantConfig(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default)
         {
-            var localVarResponse = UpdateTenantConfigWithHttpInfo(docsCloudConfig);
+            var localVarResponse = UpdateTenantConfigWithHttpInfo(docsCloudConfigRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2843,10 +2843,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>ApiResponse of DocsCloudConfigWrapper</returns>
-        public ApiResponse<DocsCloudConfigWrapper> UpdateTenantConfigWithHttpInfo(DocsCloudConfig? docsCloudConfig = default)
+        public ApiResponse<DocsCloudConfigWrapper> UpdateTenantConfigWithHttpInfo(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2861,7 +2861,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (docsCloudConfig != null) localVarRequestOptions.Data = docsCloudConfig;
+            if (docsCloudConfigRequestDto != null) localVarRequestOptions.Data = docsCloudConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2916,13 +2916,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>Task of DocsCloudConfigWrapper</returns>
-        public async Task<DocsCloudConfigWrapper> UpdateTenantConfigAsync(DocsCloudConfig? docsCloudConfig = default, CancellationToken cancellationToken = default)
+        public async Task<DocsCloudConfigWrapper> UpdateTenantConfigAsync(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateTenantConfigWithHttpInfoAsync(docsCloudConfig, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateTenantConfigWithHttpInfoAsync(docsCloudConfigRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2933,11 +2933,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Replaces the configuration of the Docs Connect tenant of the current portal: its name, the security secret and  header name, the file size limit and anonymous access switch of the server, the WOPI switch and the IP filter  rules; it returns the configuration as Docs Connect stored it. The portal must have an activated Docs Connect tenant,  granted by `POST api/2.0/settings/docscloud/trial` or by a Docs Connect purchase: an empty result from  `GET api/2.0/settings/docscloud/tenant` means there is none and this call fails with 400. Read the current  values with `GET api/2.0/settings/docscloud/tenant/config` first and send back whole sections: the sections  left out of the request are not sent to Docs Connect at all, while a section that is present is sent with all of  its fields, so a field left unset inside it goes out as `0`, `false` or empty. The caller must be a portal  administrator allowed to edit the portal settings, on an installation where the Docs Connect service is  configured. The call is mutating,  synchronous and idempotent, it is recorded in the portal audit trail, and it drops the cached configuration  itself, so the next read returns the new values without `refresh=true`. The `tenantName`, `security.secret`,  `security.header` and every `ipFilter.rules` address are capped at 255 characters and `server.fileSizeLimit`  at 209715200 bytes (200 MB); a value outside those bounds is rejected with 400 before anything reaches  Docs Connect. It changes these settings only, never the subscription, the user quota or the license.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="docsCloudConfig">Represents the configuration of a Docs Connect tenant. (optional)</param>
+        /// <param name="docsCloudConfigRequestDto">Represents the configuration of a Docs Connect tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tenant-config/">REST API Reference for UpdateTenantConfig Operation</seealso>
         /// <returns>Task of ApiResponse (DocsCloudConfigWrapper)</returns>
-        public async Task<ApiResponse<DocsCloudConfigWrapper>> UpdateTenantConfigWithHttpInfoAsync(DocsCloudConfig? docsCloudConfig = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<DocsCloudConfigWrapper>> UpdateTenantConfigWithHttpInfoAsync(DocsCloudConfigRequestDto? docsCloudConfigRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2953,7 +2953,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (docsCloudConfig != null) localVarRequestOptions.Data = docsCloudConfig;
+            if (docsCloudConfigRequestDto != null) localVarRequestOptions.Data = docsCloudConfigRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

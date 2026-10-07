@@ -145,8 +145,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        STRINGArrayWrapper ListMigrations();
+        /// <returns>StringArrayWrapper</returns>
+        StringArrayWrapper ListMigrations();
 
         /// <summary>
         /// Get available migrators
@@ -156,8 +156,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        ApiResponse<STRINGArrayWrapper> ListMigrationsWithHttpInfo();
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        ApiResponse<StringArrayWrapper> ListMigrationsWithHttpInfo();
         /// <summary>
         /// Start migration
         /// </summary>
@@ -339,8 +339,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        Task<STRINGArrayWrapper> ListMigrationsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of StringArrayWrapper</returns>
+        Task<StringArrayWrapper> ListMigrationsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get available migrators
@@ -351,8 +351,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        Task<ApiResponse<STRINGArrayWrapper>> ListMigrationsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        Task<ApiResponse<StringArrayWrapper>> ListMigrationsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Start migration
         /// </summary>
@@ -1504,8 +1504,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        public STRINGArrayWrapper ListMigrations()
+        /// <returns>StringArrayWrapper</returns>
+        public StringArrayWrapper ListMigrations()
         {
             var localVarResponse = ListMigrationsWithHttpInfo();
             return localVarResponse.Data;
@@ -1519,8 +1519,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        public ApiResponse<STRINGArrayWrapper> ListMigrationsWithHttpInfo()
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        public ApiResponse<StringArrayWrapper> ListMigrationsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1568,7 +1568,7 @@ namespace DocSpace.API.SDK.Api.Migration
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<STRINGArrayWrapper>("/api/2.0/migration/list", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringArrayWrapper>("/api/2.0/migration/list", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1591,8 +1591,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        public async Task<STRINGArrayWrapper> ListMigrationsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of StringArrayWrapper</returns>
+        public async Task<StringArrayWrapper> ListMigrationsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ListMigrationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1607,8 +1607,8 @@ namespace DocSpace.API.SDK.Api.Migration
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/list-migrations/">REST API Reference for ListMigrations Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async Task<ApiResponse<STRINGArrayWrapper>> ListMigrationsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        public async Task<ApiResponse<StringArrayWrapper>> ListMigrationsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1658,7 +1658,7 @@ namespace DocSpace.API.SDK.Api.Migration
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<STRINGArrayWrapper>("/api/2.0/migration/list", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringArrayWrapper>("/api/2.0/migration/list", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -130,10 +130,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns></returns>
-        void UpdateWebPlugin(string name, WebPluginRequests webPluginRequests);
+        void UpdateWebPlugin(string name, WebPluginRequest webPluginRequest);
 
         /// <summary>
         /// Update a web plugin
@@ -143,10 +143,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequests webPluginRequests);
+        ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequest webPluginRequest);
         #endregion Synchronous Operations
     }
 
@@ -264,11 +264,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        Task UpdateWebPluginAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default);
+        Task UpdateWebPluginAsync(string name, WebPluginRequest webPluginRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a web plugin
@@ -278,11 +278,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequest webPluginRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1260,12 +1260,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns></returns>
-        public void UpdateWebPlugin(string name, WebPluginRequests webPluginRequests)
+        public void UpdateWebPlugin(string name, WebPluginRequest webPluginRequest)
         {
-            UpdateWebPluginWithHttpInfo(name, webPluginRequests);
+            UpdateWebPluginWithHttpInfo(name, webPluginRequest);
         }
 
         /// <summary>
@@ -1276,18 +1276,18 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequests webPluginRequests)
+        public ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequest webPluginRequest)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling WebpluginsApi->UpdateWebPlugin");
 
-            // verify the required parameter 'webPluginRequests' is set
-            if (webPluginRequests == null)
-                throw new ApiException(400, "Missing required parameter 'webPluginRequests' when calling WebpluginsApi->UpdateWebPlugin");
+            // verify the required parameter 'webPluginRequest' is set
+            if (webPluginRequest == null)
+                throw new ApiException(400, "Missing required parameter 'webPluginRequest' when calling WebpluginsApi->UpdateWebPlugin");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1303,7 +1303,7 @@ namespace DocSpace.API.SDK.Api.Settings
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("name", ClientUtils.ParameterToString(name)); // path parameter
-            if (webPluginRequests != null) localVarRequestOptions.Data = webPluginRequests;
+            if (webPluginRequest != null) localVarRequestOptions.Data = webPluginRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1359,13 +1359,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        public async Task UpdateWebPluginAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default)
+        public async Task UpdateWebPluginAsync(string name, WebPluginRequest webPluginRequest, CancellationToken cancellationToken = default)
         {
-            await UpdateWebPluginWithHttpInfoAsync(name, webPluginRequests, cancellationToken).ConfigureAwait(false);
+            await UpdateWebPluginWithHttpInfoAsync(name, webPluginRequest, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1376,19 +1376,19 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The plugin to change, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`, so it cannot be read off the interface; a name that is not installed answers 404.</param>
-        /// <param name="webPluginRequests">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
+        /// <param name="webPluginRequest">The whole state the plugin is to have afterwards. It replaces what was stored instead of merging into it, so  both the enabled flag and the settings have to be sent every time.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequest webPluginRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling WebpluginsApi->UpdateWebPlugin");
 
-            // verify the required parameter 'webPluginRequests' is set
-            if (webPluginRequests == null)
-                throw new ApiException(400, "Missing required parameter 'webPluginRequests' when calling WebpluginsApi->UpdateWebPlugin");
+            // verify the required parameter 'webPluginRequest' is set
+            if (webPluginRequest == null)
+                throw new ApiException(400, "Missing required parameter 'webPluginRequest' when calling WebpluginsApi->UpdateWebPlugin");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1405,7 +1405,7 @@ namespace DocSpace.API.SDK.Api.Settings
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("name", ClientUtils.ParameterToString(name)); // path parameter
-            if (webPluginRequests != null) localVarRequestOptions.Data = webPluginRequests;
+            if (webPluginRequest != null) localVarRequestOptions.Data = webPluginRequest;
 
             // authentication (Basic) required
             // http basic authentication required

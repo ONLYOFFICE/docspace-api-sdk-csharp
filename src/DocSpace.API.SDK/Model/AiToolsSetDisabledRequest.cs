@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiToolsSetDisabledRequest
     /// </summary>
-    [DataContract(Name = "aiToolsSetDisabled_request")]
+    [DataContract(Name = "AiToolsSetDisabledRequest")]
     public partial class AiToolsSetDisabledRequest : IValidatableObject
     {
     

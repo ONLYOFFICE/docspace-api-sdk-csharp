@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsRegenerateTitleRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsRegenerateTitle_request")]
+    [DataContract(Name = "AiThreadsRegenerateTitleRequest")]
     public partial class AiThreadsRegenerateTitleRequest : IValidatableObject
     {
     

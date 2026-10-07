@@ -334,6 +334,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The greeting title in force after the restore, or the localized default caption when the installation configures none |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -344,7 +345,7 @@ catch (ApiException e)
 
 <a id="savegreetingsettings"></a>
 # **SaveGreetingSettings**
-> StringWrapper SaveGreetingSettings (GreetingSettingsRequestsDto? greetingSettingsRequestsDto = null)
+> StringWrapper SaveGreetingSettings (GreetingSettingsRequestDto? greetingSettingsRequestDto = null)
 
 Replaces the greeting title of the current portal with the `title` from the request, storing it as the portal  name. The caller needs the portal-settings right of a DocSpace administrator, otherwise the call is refused.  The new caption takes effect at once for every user of the portal and the change is written to the audit  trail; repeating the call with the same title leaves the portal in the same state. A missing `title` or one  longer than 255 characters is rejected as an invalid request before the handler runs. On a cloud portal with a  free or trial plan the title is also matched against the character rule configured for the installation and a  title that breaks it is refused, while a paid cloud plan and a server installation apply no character check.  An empty `title` clears the greeting: the portal falls back to the built-in default caption and  `GET api/2.0/settings/greetingsettings/isdefault` starts answering `true`. What comes back is a localized  confirmation message, not the stored title - read the title with `GET api/2.0/settings/greetingsettings`.
 
@@ -354,7 +355,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **greetingSettingsRequestsDto** | [**GreetingSettingsRequestsDto?**](GreetingSettingsRequestsDto.md) | The greeting caption the portal shows its users. | [optional]  |
+| **greetingSettingsRequestDto** | [**GreetingSettingsRequestDto?**](GreetingSettingsRequestDto.md) | The greeting caption the portal shows its users. | [optional]  |
 
 ### Return type
 
@@ -401,12 +402,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GreetingSettingsApi(httpClient, config, httpClientHandler);
-            var greetingSettingsRequestsDto = new GreetingSettingsRequestsDto?(); // GreetingSettingsRequestsDto? | The greeting caption the portal shows its users. (optional) 
+            var greetingSettingsRequestDto = new GreetingSettingsRequestDto?(); // GreetingSettingsRequestDto? | The greeting caption the portal shows its users. (optional) 
 
             try
             {
                 // Save the greeting settings
-                StringWrapper result = apiInstance.SaveGreetingSettings(greetingSettingsRequestsDto);
+                StringWrapper result = apiInstance.SaveGreetingSettings(greetingSettingsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -427,7 +428,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Save the greeting settings
-    ApiResponse<StringWrapper> response = apiInstance.SaveGreetingSettingsWithHttpInfo(greetingSettingsRequestsDto);
+    ApiResponse<StringWrapper> response = apiInstance.SaveGreetingSettingsWithHttpInfo(greetingSettingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -450,10 +451,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A localized message confirming that the greeting title has been saved |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title`, the `title` is longer than 255 characters, or on a free or trial cloud plan it breaks the character rule of the installation |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

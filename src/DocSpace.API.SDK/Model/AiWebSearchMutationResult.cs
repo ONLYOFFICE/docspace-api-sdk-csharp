@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="success">True when the configuration was persisted. (required).</param>
         /// <param name="config">The persisted web-search configuration. Present on success..</param>
         /// <param name="error">Why the configuration was rejected. Present on failure..</param>
-        public AiWebSearchMutationResult(bool success = default, AiWebSearchConfig config = default, AiTErrorData error = default)
+        public AiWebSearchMutationResult(bool success = default, AiWebSearchConfig config = default, AiErrorData error = default)
         {
             this.Success = success;
             this.Config = config;
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /// Why the configuration was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

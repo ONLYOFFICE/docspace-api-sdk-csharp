@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
     /// Target folder id (int or string).
     /// </summary>
     [JsonConverter(typeof(AiExportTextToDocxRequestFolderIdJsonConverter))]
-    [DataContract(Name = "aiExportTextToDocx_request_folderId")]
+    [DataContract(Name = "AiExportTextToDocxRequest_folderId")]
     public partial class AiExportTextToDocxRequestFolderId : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>

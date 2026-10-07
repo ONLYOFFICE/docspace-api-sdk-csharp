@@ -6,7 +6,7 @@ Outcome of `AssignmentsEngine.assign` / `AssignmentsEngine.unassign`. Either a s
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Success** | **bool** | True when the assignment was persisted. | 
-**Error** | [**AiTErrorData**](AiTErrorData.md) | Why the assignment was rejected. Present on failure. | [optional] 
+**Error** | [**AiErrorData**](AiErrorData.md) | Why the assignment was rejected. Present on failure. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Whether AI functionality is available on the portal.
+    /// Whether AI functionality is switched on for the portal.
     /// </summary>
     [DataContract(Name = "TenantAiAccessSettingsDto")]
     public partial class TenantAiAccessSettingsDto : IValidatableObject
@@ -41,18 +41,27 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantAiAccessSettingsDto" /> class.
         /// </summary>
-        /// <param name="enabled">Whether AI is available on the portal at all - chat, agents and vectorization together. Switching it off  hides the AI Agents folder and makes every AI endpoint unreachable for all members at once, not only for the  caller, and the change is pushed to connected clients rather than waiting for their next request..</param>
-        public TenantAiAccessSettingsDto(bool enabled = default)
+        /// <param name="enabled">Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide..</param>
+        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
+        public TenantAiAccessSettingsDto(bool enabled = default, DateTime lastModified = default)
         {
             this.Enabled = enabled;
+            this.LastModified = lastModified;
         }
 
         /// <summary>
-        /// Whether AI is available on the portal at all - chat, agents and vectorization together. Switching it off  hides the AI Agents folder and makes every AI endpoint unreachable for all members at once, not only for the  caller, and the change is pushed to connected clients rather than waiting for their next request.
+        /// Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.
         /// </summary>
-        /// <example>false</example>
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
+
+        /// <summary>
+        /// The timestamp indicating when the settings were last modified.
+        /// </summary>
+        /// <example>1990-01-01T00:00:00Z</example>
+        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
+        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,6 +72,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class TenantAiAccessSettingsDto {\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

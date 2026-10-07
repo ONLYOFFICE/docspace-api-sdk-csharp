@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the ConnectionTestResult object.
+    /// The successful API response containing the ConnectionTestResultDto object.
     /// </summary>
     [DataContract(Name = "ConnectionTestResultWrapper")]
     public partial class ConnectionTestResultWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectionTestResultWrapper" /> class.
         /// </summary>
-        /// <param name="response">The ConnectionTestResult object returned by the operation..</param>
+        /// <param name="response">The ConnectionTestResultDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public ConnectionTestResultWrapper(ConnectionTestResult response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public ConnectionTestResultWrapper(ConnectionTestResultDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The ConnectionTestResult object returned by the operation.
+        /// The ConnectionTestResultDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public ConnectionTestResult Response { get; set; }
+        public ConnectionTestResultDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

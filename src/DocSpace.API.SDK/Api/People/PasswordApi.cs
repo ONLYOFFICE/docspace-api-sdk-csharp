@@ -37,11 +37,11 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        EmployeeFullWrapper ChangeUserPassword(Guid userid, ChangePasswordRequest changePasswordRequest);
+        EmployeeFullWrapper ChangeUserPassword(Guid userId, ChangePasswordRequest changePasswordRequest);
 
         /// <summary>
         /// Change a user password
@@ -50,16 +50,16 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userid, ChangePasswordRequest changePasswordRequest);
+        ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userId, ChangePasswordRequest changePasswordRequest);
         /// <summary>
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -94,12 +94,12 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userid, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default);
+        Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userId, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change a user password
@@ -108,17 +108,17 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userid, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userId, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -361,13 +361,13 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        public EmployeeFullWrapper ChangeUserPassword(Guid userid, ChangePasswordRequest changePasswordRequest)
+        public EmployeeFullWrapper ChangeUserPassword(Guid userId, ChangePasswordRequest changePasswordRequest)
         {
-            var localVarResponse = ChangeUserPasswordWithHttpInfo(userid, changePasswordRequest);
+            var localVarResponse = ChangeUserPasswordWithHttpInfo(userId, changePasswordRequest);
             return localVarResponse.Data;
         }
 
@@ -378,11 +378,11 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userid, ChangePasswordRequest changePasswordRequest)
+        public ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userId, ChangePasswordRequest changePasswordRequest)
         {
             // verify the required parameter 'changePasswordRequest' is set
             if (changePasswordRequest == null)
@@ -401,7 +401,7 @@ namespace DocSpace.API.SDK.Api.People
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
             if (changePasswordRequest != null) localVarRequestOptions.Data = changePasswordRequest;
 
             // authentication (Basic) required
@@ -436,7 +436,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<EmployeeFullWrapper>("/api/2.0/people/{userid}/password", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<EmployeeFullWrapper>("/api/2.0/people/{userId}/password", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -457,14 +457,14 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        public async Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userid, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userId, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await ChangeUserPasswordWithHttpInfoAsync(userid, changePasswordRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ChangeUserPasswordWithHttpInfoAsync(userId, changePasswordRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -475,12 +475,12 @@ namespace DocSpace.API.SDK.Api.People
         /// Sets a new password on an account, which is the step that completes a password change or a password  recovery.  The request has to carry the confirmation token from the emailed link rather than an ordinary session, and an  expired or already used token is answered with 401.  The account has to exist and be `Active`, so the password of a disabled account or of an open invitation  cannot be set, and only the portal owner may set the owner's own password.  Send either `passwordHash`, which is taken as it is, or a plain `password`, which is checked against the  portal password policy; sending neither, or a password the policy rejects, answers 400.  The change ends every other session of that account and emails it a notice that the password was changed.  The answer is the profile, which does not carry the password in any form.  To have the recovery link sent in the first place, use `POST api/2.0/people/password`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
+        /// <param name="userId">The ID of the account whose password is set, taken from the route. It has to match the account the  confirmation token was issued for, and the account has to be active.</param>
         /// <param name="changePasswordRequest">The new password, sent either in plain text or already hashed. Exactly one of the two fields is needed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userid, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userId, ChangePasswordRequest changePasswordRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'changePasswordRequest' is set
             if (changePasswordRequest == null)
@@ -500,7 +500,7 @@ namespace DocSpace.API.SDK.Api.People
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
             if (changePasswordRequest != null) localVarRequestOptions.Data = changePasswordRequest;
 
             // authentication (Basic) required
@@ -536,7 +536,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<EmployeeFullWrapper>("/api/2.0/people/{userid}/password", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<EmployeeFullWrapper>("/api/2.0/people/{userId}/password", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -554,7 +554,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -570,7 +570,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -643,7 +643,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -660,7 +660,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userid}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
+        /// Emails a password recovery link to an address, and is the entry point of the recovery flow rather than the  operation that changes anything.  It needs no authentication, which is how a person who cannot sign in uses it; when the portal has a CAPTCHA  configured, an unauthenticated request has to pass it and answers 403 if it does not.  An unauthenticated caller always gets the same success message, whether or not the address belongs to an  account, so the answer cannot be used to find out which addresses are registered.  An authenticated caller does get told: a failure is answered with 403, and asking for somebody else requires  DocSpace administrator rights, while the owner's password can be asked for by the owner alone and another  administrator's only by the owner.  The link that is sent leads to `PUT api/2.0/people/{userId}/password`, which is where the new password is  set; no password is ever sent by email despite the wording of the message.  Repeated calls are throttled.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>

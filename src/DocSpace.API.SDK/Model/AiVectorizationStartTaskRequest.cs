@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiVectorizationStartTaskRequest
     /// </summary>
-    [DataContract(Name = "aiVectorizationStartTask_request")]
+    [DataContract(Name = "AiVectorizationStartTaskRequest")]
     public partial class AiVectorizationStartTaskRequest : IValidatableObject
     {
     

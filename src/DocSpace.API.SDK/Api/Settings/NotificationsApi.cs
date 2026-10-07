@@ -102,10 +102,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>NotificationSettingsWrapper</returns>
-        NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default);
+        NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestDto? notificationSettingsRequestDto = default);
 
         /// <summary>
         /// Set notification status
@@ -114,10 +114,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
-        ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default);
+        ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestDto? notificationSettingsRequestDto = default);
         /// <summary>
         /// Mute or unmute a room
         /// </summary>
@@ -228,11 +228,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of NotificationSettingsWrapper</returns>
-        Task<NotificationSettingsWrapper> SetNotificationSettingsAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<NotificationSettingsWrapper> SetNotificationSettingsAsync(NotificationSettingsRequestDto? notificationSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set notification status
@@ -241,11 +241,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
-        Task<ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestDto? notificationSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Mute or unmute a room
         /// </summary>
@@ -1027,12 +1027,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>NotificationSettingsWrapper</returns>
-        public NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default)
+        public NotificationSettingsWrapper SetNotificationSettings(NotificationSettingsRequestDto? notificationSettingsRequestDto = default)
         {
-            var localVarResponse = SetNotificationSettingsWithHttpInfo(notificationSettingsRequestsDto);
+            var localVarResponse = SetNotificationSettingsWithHttpInfo(notificationSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1043,10 +1043,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>ApiResponse of NotificationSettingsWrapper</returns>
-        public ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default)
+        public ApiResponse<NotificationSettingsWrapper> SetNotificationSettingsWithHttpInfo(NotificationSettingsRequestDto? notificationSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1061,7 +1061,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (notificationSettingsRequestsDto != null) localVarRequestOptions.Data = notificationSettingsRequestsDto;
+            if (notificationSettingsRequestDto != null) localVarRequestOptions.Data = notificationSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1116,13 +1116,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of NotificationSettingsWrapper</returns>
-        public async Task<NotificationSettingsWrapper> SetNotificationSettingsAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<NotificationSettingsWrapper> SetNotificationSettingsAsync(NotificationSettingsRequestDto? notificationSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetNotificationSettingsWithHttpInfoAsync(notificationSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetNotificationSettingsWithHttpInfoAsync(notificationSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1133,11 +1133,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Switches one kind of notification on or off for the calling user: send the kind as `type` - 0 the new-item  badges, 1 the room activity letters, 2 the daily feed digest, 3 the periodic tips letters - together with  `isEnabled`. The change touches the caller's own account only, and repeating the call with the same pair  leaves the account as it is. Every signed-in member configures its own settings: the portal owner, a DocSpace  administrator, a room administrator, a user and a guest are all accepted, and no permission is demanded. With  0 switched off the Files responses report `new` as 0 and mark files as muted; with 1 switched off both the  hourly room digest and the letters a room sends at once, such as an editor mention, stop; with 2 switched off  the daily digest stops; with 3 switched off the tips letters stop. What comes back is an echo of the request  rather than a re-read of the stored state, and a `type` outside 0-3 is echoed as well while nothing is stored,  so confirm the result with `GET api/2.0/settings/notification/{type}`. To silence a single room instead of a  whole kind use `POST api/2.0/settings/notification/rooms`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationSettingsRequestsDto">Which kind of notification the calling user switches, and which way. (optional)</param>
+        /// <param name="notificationSettingsRequestDto">Which kind of notification the calling user switches, and which way. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-notification-settings/">REST API Reference for SetNotificationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (NotificationSettingsWrapper)</returns>
-        public async Task<ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestsDto? notificationSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<NotificationSettingsWrapper>> SetNotificationSettingsWithHttpInfoAsync(NotificationSettingsRequestDto? notificationSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1153,7 +1153,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (notificationSettingsRequestsDto != null) localVarRequestOptions.Data = notificationSettingsRequestsDto;
+            if (notificationSettingsRequestDto != null) localVarRequestOptions.Data = notificationSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

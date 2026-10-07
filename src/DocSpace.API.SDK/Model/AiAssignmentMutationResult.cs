@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="success">True when the assignment was persisted. (required).</param>
         /// <param name="error">Why the assignment was rejected. Present on failure..</param>
-        public AiAssignmentMutationResult(bool success = default, AiTErrorData error = default)
+        public AiAssignmentMutationResult(bool success = default, AiErrorData error = default)
         {
             this.Success = success;
             this.Error = error;
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// Why the assignment was rejected. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

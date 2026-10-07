@@ -8,7 +8,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**AddMembersTo**](#addmembersto) | **PUT** /api/2.0/group/{id}/members | Add group members |
 | [**DeleteGroup**](#deletegroup) | **DELETE** /api/2.0/group/{id} | Delete a group |
 | [**GetGroup**](#getgroup) | **GET** /api/2.0/group/{id} | Get a group |
-| [**GetGroupByUserId**](#getgroupbyuserid) | **GET** /api/2.0/group/user/{userid} | Get user groups |
+| [**GetGroupByUserId**](#getgroupbyuserid) | **GET** /api/2.0/group/user/{userId} | Get user groups |
 | [**GetGroups**](#getgroups) | **GET** /api/2.0/group | Get groups |
 | [**MoveMembersTo**](#movemembersto) | **PUT** /api/2.0/group/{fromId}/members/{toId} | Move group members |
 | [**RemoveMembersFrom**](#removemembersfrom) | **DELETE** /api/2.0/group/{id}/members | Remove group members |
@@ -124,7 +124,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The new group, with its members |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The group name is empty, or one of the listed accounts is a guest, is disabled or does not exist |  -  |
+| **400** | The request body cannot be read or has no `groupName`, the group name is `null`, blank or longer than 128 characters, or one of the listed members or the manager is a guest, is disabled or does not exist |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -493,7 +493,7 @@ catch (ApiException e)
 
 <a id="getgroupbyuserid"></a>
 # **GetGroupByUserId**
-> GroupSummaryArrayWrapper GetGroupByUserId (Guid userid)
+> GroupSummaryArrayWrapper GetGroupByUserId (Guid userId)
 
 Returns every group the account with the ID in the route belongs to, as a flat list of ID and name pairs.  The caller needs the permission to read groups.  The call is read-only, is not paged, and answers an empty list both for an account that belongs to no group  and for an ID that matches no account, so an empty answer does not prove the account exists.  The entries are summaries and carry neither the manager nor the members - read `GET api/2.0/group/{id}` for  the full picture of one of them.
 
@@ -503,7 +503,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **Guid** | The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404. |  |
+| **userId** | **Guid** | The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404. |  |
 
 ### Return type
 
@@ -550,12 +550,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the account whose groups are listed, taken from the route. An ID that matches no account yields an  empty list rather than 404.
 
             try
             {
                 // Get user groups
-                GroupSummaryArrayWrapper result = apiInstance.GetGroupByUserId(userid);
+                GroupSummaryArrayWrapper result = apiInstance.GetGroupByUserId(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -576,7 +576,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get user groups
-    ApiResponse<GroupSummaryArrayWrapper> response = apiInstance.GetGroupByUserIdWithHttpInfo(userid);
+    ApiResponse<GroupSummaryArrayWrapper> response = apiInstance.GetGroupByUserIdWithHttpInfo(userId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -613,7 +613,7 @@ catch (ApiException e)
 # **GetGroups**
 > GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userid}` to find the groups of a single account.
+Returns the groups of the portal, one page at a time, with the summary information about each of them - the  ID, the name and the manager - but without the member list.  The caller needs the permission to read groups.  The call is read-only, and the number of groups that match the filters is reported in the total count of the  response, so a client can page through them with `count` and `startIndex`.  Narrow the result with `filterValue` on the group name, with `userId` to keep only the groups that account  belongs to, and with `manager` set to true to keep only the groups it manages; order it with `sortBy` and  `sortOrder`, and an unknown `sortBy` falls back to sorting by title.  The entries carry no members - read `GET api/2.0/group/{id}` with `includeMembers` for one group, or  `GET api/2.0/group/user/{userId}` to find the groups of a single account.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/).
 
@@ -729,11 +729,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching groups, with their summary information |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1091,12 +1091,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The group with its new manager |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `userId` |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No group has the specified ID, or no account has the specified userId |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1212,7 +1212,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The group with the members it ends up with |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | None of the listed accounts can be a group member |  -  |
+| **400** | The request body cannot be read or has no `members` list, or none of the listed accounts can be a group member |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No group has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
@@ -1333,12 +1333,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The group as it is after the update |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or `groupName` is longer than 128 characters |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No group has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

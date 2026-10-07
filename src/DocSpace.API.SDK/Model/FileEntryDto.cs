@@ -55,7 +55,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="external">Set when the link being used was made for this very entry, and false when the entry is reached through a link  to the room around it. It is null when no link is involved..</param>
         /// <param name="expirationDate">When the link being used stops working, written with the offset of the portal&#39;s time zone. It is null for a  link that never expires and whenever no link is involved..</param>
         /// <param name="isLinkExpired">Set when the link being used has already passed its expiration date, which is why the entry cannot be opened  even though it is described here. It is null when no link is involved..</param>
-        public FileEntryDto(int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, AiFileEntryDtoAllOfShareSettings shareSettings = default, AiFileEntryDtoAllOfSecurity security = default, AiFileEntryDtoAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default)
+        /// <param name="assignedMetadataTemplates">The IDs of the metadata templates assigned to the file entry..</param>
+        public FileEntryDto(int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, AiFileEntryDtoAllOfShareSettings shareSettings = default, AiFileEntryDtoAllOfSecurity security = default, AiFileEntryDtoAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default, List<int> assignedMetadataTemplates = default)
         {
             this.Id = id;
             this.RootFolderId = rootFolderId;
@@ -71,6 +72,7 @@ namespace DocSpace.API.SDK.Model
             this.External = external;
             this.ExpirationDate = expirationDate;
             this.IsLinkExpired = isLinkExpired;
+            this.AssignedMetadataTemplates = assignedMetadataTemplates;
         }
 
         /// <summary>
@@ -168,6 +170,12 @@ namespace DocSpace.API.SDK.Model
         public bool? IsLinkExpired { get; set; }
 
         /// <summary>
+        /// The IDs of the metadata templates assigned to the file entry.
+        /// </summary>
+        [DataMember(Name = "assignedMetadataTemplates", EmitDefaultValue = true)]
+        public List<int> AssignedMetadataTemplates { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -189,6 +197,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  External: ").Append(External).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  IsLinkExpired: ").Append(IsLinkExpired).Append("\n");
+            sb.Append("  AssignedMetadataTemplates: ").Append(AssignedMetadataTemplates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

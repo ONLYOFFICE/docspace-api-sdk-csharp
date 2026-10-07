@@ -37,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper GetGuestSharingLink(Guid userid);
+        StringWrapper GetGuestSharingLink(Guid userId);
 
         /// <summary>
         /// Get a guest sharing link
@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> GetGuestSharingLinkWithHttpInfo(Guid userid);
+        ApiResponse<StringWrapper> GetGuestSharingLinkWithHttpInfo(Guid userId);
         #endregion Synchronous Operations
     }
 
@@ -69,11 +69,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> GetGuestSharingLinkAsync(Guid userid, CancellationToken cancellationToken = default);
+        Task<StringWrapper> GetGuestSharingLinkAsync(Guid userId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a guest sharing link
@@ -82,11 +82,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> GetGuestSharingLinkWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> GetGuestSharingLinkWithHttpInfoAsync(Guid userId, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -309,12 +309,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper GetGuestSharingLink(Guid userid)
+        public StringWrapper GetGuestSharingLink(Guid userId)
         {
-            var localVarResponse = GetGuestSharingLinkWithHttpInfo(userid);
+            var localVarResponse = GetGuestSharingLinkWithHttpInfo(userId);
             return localVarResponse.Data;
         }
 
@@ -325,10 +325,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> GetGuestSharingLinkWithHttpInfo(Guid userid)
+        public ApiResponse<StringWrapper> GetGuestSharingLinkWithHttpInfo(Guid userId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -343,7 +343,7 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -377,7 +377,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/people/guests/{userid}/share", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/people/guests/{userId}/share", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -398,13 +398,13 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> GetGuestSharingLinkAsync(Guid userid, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> GetGuestSharingLinkAsync(Guid userId, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetGuestSharingLinkWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetGuestSharingLinkWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -415,11 +415,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Builds a link that lets another member of the portal take over the caller's guest, so that the guest becomes  visible to them as well.  The account in the route has to exist and be a guest - any other type is rejected with 400 - and the caller  has to be able to see it and must not be a guest itself.  The call is read-only: it only mints the link and changes nothing, and it can be repeated as often as needed.  The answer is a shortened confirmation URL as plain text; hand it to the person who should get the guest, and  their client completes the hand-over with `POST api/2.0/people/guests/share/approve`.  The link carries a confirmation token and therefore expires, so mint it when it is about to be used rather  than storing it.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
+        /// <param name="userId">The ID of the guest to be handed over, taken from the route. The account has to exist, has to be a guest, and  has to be one the caller can see.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-guest-sharing-link/">REST API Reference for GetGuestSharingLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> GetGuestSharingLinkWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> GetGuestSharingLinkWithHttpInfoAsync(Guid userId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -435,7 +435,7 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -470,7 +470,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/people/guests/{userid}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/people/guests/{userId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

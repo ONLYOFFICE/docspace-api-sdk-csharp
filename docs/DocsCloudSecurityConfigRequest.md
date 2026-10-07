@@ -1,0 +1,12 @@
+# DocSpace.API.SDK.Model.DocsCloudSecurityConfigRequest
+Represents the security configuration of a Docs Connect tenant.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Secret** | **string** | The security secret. | [optional] 
+**Header** | **string** | The security header name. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

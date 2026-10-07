@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
     /// A DocSpace room id: an integer for native rooms, a string for third-party-backed ones.
     /// </summary>
     [JsonConverter(typeof(AiAgentsUpdateQuotaRequestRoomIdsInnerJsonConverter))]
-    [DataContract(Name = "aiAgentsUpdateQuota_request_roomIds_inner")]
+    [DataContract(Name = "AiAgentsUpdateQuotaRequest_roomIds_inner")]
     public partial class AiAgentsUpdateQuotaRequestRoomIdsInner : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>

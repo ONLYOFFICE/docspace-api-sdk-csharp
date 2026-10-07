@@ -110,6 +110,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The authentication session lifetime of the portal in minutes together with the flag that says whether that limit is applied |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -120,7 +121,7 @@ catch (ApiException e)
 
 <a id="updatecookiesettings"></a>
 # **UpdateCookieSettings**
-> StringWrapper UpdateCookieSettings (CookieSettingsRequestsDto? cookieSettingsRequestsDto = null)
+> StringWrapper UpdateCookieSettings (CookieSettingsRequestDto? cookieSettingsRequestDto = null)
 
 Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
 
@@ -130,7 +131,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **cookieSettingsRequestsDto** | [**CookieSettingsRequestsDto?**](CookieSettingsRequestsDto.md) | How long an authentication session of the portal stays valid, and whether that limit is applied. | [optional]  |
+| **cookieSettingsRequestDto** | [**CookieSettingsRequestDto?**](CookieSettingsRequestDto.md) | How long an authentication session of the portal stays valid, and whether that limit is applied. | [optional]  |
 
 ### Return type
 
@@ -177,12 +178,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CookiesApi(httpClient, config, httpClientHandler);
-            var cookieSettingsRequestsDto = new CookieSettingsRequestsDto?(); // CookieSettingsRequestsDto? | How long an authentication session of the portal stays valid, and whether that limit is applied. (optional) 
+            var cookieSettingsRequestDto = new CookieSettingsRequestDto?(); // CookieSettingsRequestDto? | How long an authentication session of the portal stays valid, and whether that limit is applied. (optional) 
 
             try
             {
                 // Update the cookie lifetime settings
-                StringWrapper result = apiInstance.UpdateCookieSettings(cookieSettingsRequestsDto);
+                StringWrapper result = apiInstance.UpdateCookieSettings(cookieSettingsRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -203,7 +204,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update the cookie lifetime settings
-    ApiResponse<StringWrapper> response = apiInstance.UpdateCookieSettingsWithHttpInfo(cookieSettingsRequestsDto);
+    ApiResponse<StringWrapper> response = apiInstance.UpdateCookieSettingsWithHttpInfo(cookieSettingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -227,6 +228,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | A localized message confirming that the session lifetime has been saved |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **402** | The installation hides the cookie lifetime section, or the portal's payment has lapsed |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

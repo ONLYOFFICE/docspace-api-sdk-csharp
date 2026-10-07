@@ -52,7 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="reasoning">Whether this model supports extended thinking / chain-of-thought reasoning..</param>
         /// <param name="reasoningSupport">What the model can do with extended thinking, when the provider&#39;s catalogue says so (OpenRouter and the ONLYOFFICE route report a per-model &#x60;reasoning&#x60; object). Copied onto the profile at save time; absent, the widget falls back to the provider&#39;s id-based table..</param>
         /// <param name="capabilities">Bitmask of model capabilities (Chat, Image, Vision, Tools, etc.). Used to filter models per &#x60;ActionType&#x60;..</param>
-        public AiModel(string id = default, string name = default, AiProviderType provider = default, bool reasoning = default, AiReasoningSupport reasoningSupport = default, decimal capabilities = default)
+        /// <param name="created">Release date as a Unix timestamp in **seconds**, when the provider&#39;s catalogue reports one (OpenAI-shaped &#x60;/models&#x60; responses and OpenRouter carry &#x60;created&#x60;; Anthropic carries an ISO &#x60;created_at&#x60;). The model picker sorts on it so the newest releases come first; entries without it fall back to alphabetical order..</param>
+        public AiModel(string id = default, string name = default, AiProviderType provider = default, bool reasoning = default, AiReasoningSupport reasoningSupport = default, decimal capabilities = default, decimal created = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -75,6 +76,7 @@ namespace DocSpace.API.SDK.Model
             this.Reasoning = reasoning;
             this.ReasoningSupport = reasoningSupport;
             this.Capabilities = capabilities;
+            this.Created = created;
         }
 
         /// <summary>
@@ -119,6 +121,12 @@ namespace DocSpace.API.SDK.Model
         public decimal Capabilities { get; set; }
 
         /// <summary>
+        /// Release date as a Unix timestamp in **seconds**, when the provider&#39;s catalogue reports one (OpenAI-shaped &#x60;/models&#x60; responses and OpenRouter carry &#x60;created&#x60;; Anthropic carries an ISO &#x60;created_at&#x60;). The model picker sorts on it so the newest releases come first; entries without it fall back to alphabetical order.
+        /// </summary>
+        [DataMember(Name = "created", EmitDefaultValue = false)]
+        public decimal Created { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +140,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Reasoning: ").Append(Reasoning).Append("\n");
             sb.Append("  ReasoningSupport: ").Append(ReasoningSupport).Append("\n");
             sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

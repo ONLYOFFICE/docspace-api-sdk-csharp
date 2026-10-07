@@ -1,0 +1,92 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// The modules switched on or off together, one entry per module.
+    /// </summary>
+    [DataContract(Name = "WebItemsSecurityRequestDto")]
+    public partial class WebItemsSecurityRequestDto : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebItemsSecurityRequestDto" /> class.
+        /// </summary>
+        /// <param name="items">The modules to switch, each entry pairing a module GUID as its &#x60;key&#x60; with the new enabled flag as its  &#x60;value&#x60;. A key that is not a GUID fails the whole request as invalid, and a module listed twice is applied  once, from its first entry. No allow-list travels here: switching a product module on restores the users and  groups it was last restricted to, and everything else is stored as a plain allow or deny for everyone..</param>
+        public WebItemsSecurityRequestDto(List<ItemKeyValuePairStringBoolean> items = default)
+        {
+            this.Items = items;
+        }
+
+        /// <summary>
+        /// The modules to switch, each entry pairing a module GUID as its &#x60;key&#x60; with the new enabled flag as its  &#x60;value&#x60;. A key that is not a GUID fails the whole request as invalid, and a module listed twice is applied  once, from its first entry. No allow-list travels here: switching a product module on restores the users and  groups it was last restricted to, and everything else is stored as a plain allow or deny for everyone.
+        /// </summary>
+        /// <example>[{"key":"00000000-0000-0000-0000-000000000000","value":true}]</example>
+        [DataMember(Name = "items", EmitDefaultValue = true)]
+        public List<ItemKeyValuePairStringBoolean> Items { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class WebItemsSecurityRequestDto {\n");
+            sb.Append("  Items: ").Append(Items).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

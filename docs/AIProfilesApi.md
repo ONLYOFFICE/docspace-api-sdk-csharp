@@ -122,7 +122,7 @@ catch (ApiException e)
 
 <a id="aiprofilesdelete"></a>
 # **AiProfilesDelete**
-> AiSuccessResponse AiProfilesDelete (string body)
+> AiSuccessResponse AiProfilesDelete (string aiProfilesDeleteRequest)
 
 Deletes an AI provider profile and cleans up every assignment pointing at it: the `Default` slot moves to the first remaining profile and the other slots are left unbound. The ID is required and may be sent in the body or as a query parameter. An unknown ID is not reported - the call answers success without deleting anything. Threads already bound to the profile keep the stored reference, so a round on such a thread falls back to whatever the scope resolves to.
 
@@ -132,7 +132,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The ID of the profile to delete, as a bare JSON string. |  |
+| **aiProfilesDeleteRequest** | **string** | The ID of the profile to delete, as a bare JSON string. |  |
 
 ### Return type
 
@@ -170,12 +170,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The ID of the profile to delete, as a bare JSON string.
+            var aiProfilesDeleteRequest = "aiProfilesDeleteRequest_example";  // string | The ID of the profile to delete, as a bare JSON string.
 
             try
             {
                 // Delete a provider profile
-                AiSuccessResponse result = apiInstance.AiProfilesDelete(body);
+                AiSuccessResponse result = apiInstance.AiProfilesDelete(aiProfilesDeleteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -196,7 +196,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a provider profile
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiProfilesDeleteWithHttpInfo(body);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiProfilesDeleteWithHttpInfo(aiProfilesDeleteRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -221,7 +221,7 @@ catch (ApiException e)
 | **200** | Confirms the request was accepted, whether or not a profile was deleted. |  -  |
 | **400** | The profile ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -328,7 +328,7 @@ catch (ApiException e)
 | **200** | The profile, with its key and headers stripped. |  -  |
 | **400** | The profile ID is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | No profile has this ID. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -429,7 +429,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The portal's profiles, with their keys and headers stripped. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -535,7 +535,7 @@ catch (ApiException e)
 | **200** | The models the profile's provider currently offers. |  -  |
 | **400** | `profileId` is missing, or the provider rejected the profile's API key. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 | **502** | The AI provider could not be reached, or answered with a failure of its own. |  -  |
 
@@ -642,7 +642,7 @@ catch (ApiException e)
 | **200** | The models the endpoint offers for the supplied credentials. |  -  |
 | **400** | `baseUrl` is missing, points at a private network address, or the provider rejected the supplied API key. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 | **502** | The AI provider could not be reached, or answered with a failure of its own. |  -  |
@@ -651,7 +651,7 @@ catch (ApiException e)
 
 <a id="aiprofilestestconnection"></a>
 # **AiProfilesTestConnection**
-> AiProfilesTestConnection200Response AiProfilesTestConnection (string body)
+> AiProfilesTestConnection200Response AiProfilesTestConnection (string aiProfilesTestConnectionRequest)
 
 Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
 
@@ -661,7 +661,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | The ID of the profile to probe, as a bare JSON string. |  |
+| **aiProfilesTestConnectionRequest** | **string** | The ID of the profile to probe, as a bare JSON string. |  |
 
 ### Return type
 
@@ -699,12 +699,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | The ID of the profile to probe, as a bare JSON string.
+            var aiProfilesTestConnectionRequest = "aiProfilesTestConnectionRequest_example";  // string | The ID of the profile to probe, as a bare JSON string.
 
             try
             {
                 // Test a profile's provider
-                AiProfilesTestConnection200Response result = apiInstance.AiProfilesTestConnection(body);
+                AiProfilesTestConnection200Response result = apiInstance.AiProfilesTestConnection(aiProfilesTestConnectionRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -725,7 +725,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Test a profile's provider
-    ApiResponse<AiProfilesTestConnection200Response> response = apiInstance.AiProfilesTestConnectionWithHttpInfo(body);
+    ApiResponse<AiProfilesTestConnection200Response> response = apiInstance.AiProfilesTestConnectionWithHttpInfo(aiProfilesTestConnectionRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -750,7 +750,7 @@ catch (ApiException e)
 | **200** | The outcome of the probe. A failed probe is reported here, not as a status. |  -  |
 | **400** | `profileId` is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="success">True when the profile was persisted. (required).</param>
         /// <param name="profile">The persisted profile. Present on success..</param>
         /// <param name="error">Why the profile was rejected - the name check or the provider credential check. Present on failure..</param>
-        public AiProfileMutationResult(bool success = default, AiProfile profile = default, AiTErrorData error = default)
+        public AiProfileMutationResult(bool success = default, AiProfile profile = default, AiErrorData error = default)
         {
             this.Success = success;
             this.Profile = profile;
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /// Why the profile was rejected - the name check or the provider credential check. Present on failure.
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

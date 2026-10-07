@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="url">The address the content of this revision is served from. It is meant for the editing service and carries its  own key, which is valid for a limited time. (required).</param>
         /// <param name="version">Echoes the revision that was asked for, so it reports 0 when the request named no version and the current  revision was taken. (required).</param>
         /// <param name="fileType">The format of the revision being shown, as an extension without the leading dot. (required).</param>
-        public EditHistoryDataDto(string changesUrl = default, string key = default, EditHistoryUrl previous = default, string token = default, string url = default, int version = default, string fileType = default)
+        public EditHistoryDataDto(string changesUrl = default, string key = default, EditHistoryUrlDto previous = default, string token = default, string url = default, int version = default, string fileType = default)
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /// The revision this one is compared against. It arrives together with &#x60;changesUrl&#x60;, and when the revision shown  is the first one the file ever had, it points at the blank template the file was created from instead of at an  earlier revision.
         /// </summary>
         [DataMember(Name = "previous", EmitDefaultValue = false)]
-        public EditHistoryUrl Previous { get; set; }
+        public EditHistoryUrlDto Previous { get; set; }
 
         /// <summary>
         /// The signature over the whole answer, as a JSON Web Token that the editing service verifies before it accepts  the addresses in it. Empty when the portal runs without a document-service secret.

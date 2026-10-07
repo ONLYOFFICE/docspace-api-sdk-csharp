@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="url">Where the editors fetch the content. It is addressed to the host the document service can reach, which is not  necessarily the address a browser should follow..</param>
         /// <param name="isForm">Whether the document is a fillable PDF form. A PDF that the portal has never classified is inspected while the  configuration is built, so the answer is trustworthy even for a freshly uploaded file..</param>
         /// <param name="options">Extra instructions for the editors, currently the watermark to draw over the document. It is empty when the  room sets no watermark..</param>
-        public DocumentConfigDto(string fileType = default, InfoConfigDto info = default, bool isLinkedForMe = default, string key = default, PermissionsConfig permissions = default, string sharedLinkParam = default, string sharedLinkKey = default, FileReferenceData referenceData = default, string title = default, string url = default, bool isForm = default, Options options = default)
+        public DocumentConfigDto(string fileType = default, InfoConfigDto info = default, bool isLinkedForMe = default, string key = default, PermissionsConfigDto permissions = default, string sharedLinkParam = default, string sharedLinkKey = default, FileReferenceDataDto referenceData = default, string title = default, string url = default, bool isForm = default, DocumentOptionsDto options = default)
         {
             this.FileType = fileType;
             this.Info = info;
@@ -100,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// What this caller may do inside the editor - edit, comment, review, fill, download, print, copy and chat.
         /// </summary>
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
-        public PermissionsConfig Permissions { get; set; }
+        public PermissionsConfigDto Permissions { get; set; }
 
         /// <summary>
         /// The name of the query parameter that carries the external share key. It is set only when the document was  opened through an external link.
@@ -120,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// How another spreadsheet names this document in a formula. Pass it to &#x60;POST api/2.0/files/file/referencedata&#x60;  to resolve such a reference.
         /// </summary>
         [DataMember(Name = "referenceData", EmitDefaultValue = false)]
-        public FileReferenceData ReferenceData { get; set; }
+        public FileReferenceDataDto ReferenceData { get; set; }
 
         /// <summary>
         /// The name the editors display. When a past version was opened, the moment that version was created is appended  to it in brackets.
@@ -147,7 +147,7 @@ namespace DocSpace.API.SDK.Model
         /// Extra instructions for the editors, currently the watermark to draw over the document. It is empty when the  room sets no watermark.
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = false)]
-        public Options Options { get; set; }
+        public DocumentOptionsDto Options { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

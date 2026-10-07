@@ -15,7 +15,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="aiwebsearchclear"></a>
 # **AiWebSearchClear**
-> AiSuccessResponse AiWebSearchClear (string body)
+> AiSuccessResponse AiWebSearchClear (string aiWebSearchClearRequest)
 
 Removes the portal's web-search configuration, after which web search is unavailable everywhere it was not configured separately. This is not scoped: it takes no `entityId` and any body sent with it is ignored, so it cannot be used to clear one room's configuration. Clearing an already-unconfigured portal is not an error and the call answers success either way. The stored provider key is destroyed with the configuration and has to be entered again.
 
@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room. |  |
+| **aiWebSearchClearRequest** | **string** | Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room. |  |
 
 ### Return type
 
@@ -63,12 +63,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var body = "body_example";  // string | Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.
+            var aiWebSearchClearRequest = "aiWebSearchClearRequest_example";  // string | Ignored. The operation always clears the portal-wide configuration, so send an empty body; a value here does not scope it to a room.
 
             try
             {
                 // Clear the web-search configuration
-                AiSuccessResponse result = apiInstance.AiWebSearchClear(body);
+                AiSuccessResponse result = apiInstance.AiWebSearchClear(aiWebSearchClearRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -89,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Clear the web-search configuration
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiWebSearchClearWithHttpInfo(body);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiWebSearchClearWithHttpInfo(aiWebSearchClearRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -113,7 +113,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Confirms the portal has no web-search configuration any more. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -217,11 +217,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Whether the configuration was stored, after the provider answered. |  -  |
-| **400** | The configuration is missing or malformed, or the provider URL points at a private network address. |  -  |
+| **200** | The stored configuration, after the provider accepted it. |  -  |
+| **400** | The configuration is missing or malformed, the provider URL points at a private network address, or the provider refused the configuration - the body then carries `success: false` and an `error` naming the field. Nothing is stored in any of these cases. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
-| **404** | The referenced object does not exist, or the caller cannot access it - the two are deliberately indistinguishable, so a room the caller may not open answers 404 rather than 403. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | The referenced object does not exist: an unknown or deleted room named by `entityId`, or an object the caller cannot read - for those the two cases are deliberately indistinguishable. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -328,8 +328,8 @@ catch (ApiException e)
 | **200** | The configuration in force for the scope, without the provider key, or an empty result when web search is not configured. |  -  |
 | **400** | `entityId` is not a string. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
-| **404** | The referenced object does not exist, or the caller cannot access it - the two are deliberately indistinguishable, so a room the caller may not open answers 404 rather than 403. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | The referenced object does not exist: an unknown or deleted room named by `entityId`, or an object the caller cannot read - for those the two cases are deliberately indistinguishable. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -435,15 +435,15 @@ catch (ApiException e)
 | **200** | Whether a web-search provider is stored for the scope. |  -  |
 | **400** | `entityId` is not a string. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
-| **404** | The referenced object does not exist, or the caller cannot access it - the two are deliberately indistinguishable, so a room the caller may not open answers 404 rather than 403. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | The referenced object does not exist: an unknown or deleted room named by `entityId`, or an object the caller cannot read - for those the two cases are deliberately indistinguishable. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="aiwebsearchpassthroughcontents"></a>
 # **AiWebSearchPassthroughContents**
-> Dictionary&lt;string, Object&gt; AiWebSearchPassthroughContents (Dictionary<string, Object> requestBody)
+> Dictionary&lt;string, Object&gt; AiWebSearchPassthroughContents (Dictionary<string, Object> aiWebSearchPassthroughContentsRequest)
 
 Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
 
@@ -453,7 +453,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration. |  |
+| **aiWebSearchPassthroughContentsRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration. |  |
 
 ### Return type
 
@@ -491,12 +491,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.
+            var aiWebSearchPassthroughContentsRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.
 
             try
             {
                 // Web page contents passthrough
-                Dictionary<string, Object> result = apiInstance.AiWebSearchPassthroughContents(requestBody);
+                Dictionary<string, Object> result = apiInstance.AiWebSearchPassthroughContents(aiWebSearchPassthroughContentsRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -517,7 +517,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Web page contents passthrough
-    ApiResponse<Dictionary<string, Object>> response = apiInstance.AiWebSearchPassthroughContentsWithHttpInfo(requestBody);
+    ApiResponse<Dictionary<string, Object>> response = apiInstance.AiWebSearchPassthroughContentsWithHttpInfo(aiWebSearchPassthroughContentsRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -541,7 +541,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The provider's own response, relayed verbatim with its status and content type. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | Web search is not configured for this portal. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **429** | Relayed verbatim from the AI provider, which is rate-limiting this portal's key. |  -  |
@@ -552,7 +552,7 @@ catch (ApiException e)
 
 <a id="aiwebsearchpassthroughsearch"></a>
 # **AiWebSearchPassthroughSearch**
-> Dictionary&lt;string, Object&gt; AiWebSearchPassthroughSearch (Dictionary<string, Object> requestBody)
+> Dictionary&lt;string, Object&gt; AiWebSearchPassthroughSearch (Dictionary<string, Object> aiWebSearchPassthroughSearchRequest)
 
 Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
 
@@ -562,7 +562,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here. |  |
+| **aiWebSearchPassthroughSearchRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here. |  |
 
 ### Return type
 
@@ -600,12 +600,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.
+            var aiWebSearchPassthroughSearchRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.
 
             try
             {
                 // Web search passthrough
-                Dictionary<string, Object> result = apiInstance.AiWebSearchPassthroughSearch(requestBody);
+                Dictionary<string, Object> result = apiInstance.AiWebSearchPassthroughSearch(aiWebSearchPassthroughSearchRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -626,7 +626,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Web search passthrough
-    ApiResponse<Dictionary<string, Object>> response = apiInstance.AiWebSearchPassthroughSearchWithHttpInfo(requestBody);
+    ApiResponse<Dictionary<string, Object>> response = apiInstance.AiWebSearchPassthroughSearchWithHttpInfo(aiWebSearchPassthroughSearchRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -650,7 +650,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The provider's own response, relayed verbatim with its status and content type. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | Web search is not configured for this portal. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **429** | Relayed verbatim from the AI provider, which is rate-limiting this portal's key. |  -  |
@@ -661,7 +661,7 @@ catch (ApiException e)
 
 <a id="aiwebsearchsetactiveconfig"></a>
 # **AiWebSearchSetActiveConfig**
-> AiSuccessResponse AiWebSearchSetActiveConfig (AiWebSearchConfigureRequest aiWebSearchConfigureRequest)
+> AiSuccessResponse AiWebSearchSetActiveConfig (AiWebSearchSetActiveConfigRequest aiWebSearchSetActiveConfigRequest)
 
 Stores a web-search configuration without contacting the provider first, for a form that has already validated its input or for restoring a known-good configuration. `entityId` scopes it to a room and has to name one the caller can open. A `baseUrl` pointing at a private network address is still refused, because that check is local. Nothing guarantees the stored provider works: follow up with `POST api/2.0/ai/web-search/test-connection`, or use `PUT api/2.0/ai/web-search/configure` to have the store gated on a live probe.
 
@@ -671,7 +671,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiWebSearchConfigureRequest** | [**AiWebSearchConfigureRequest**](AiWebSearchConfigureRequest.md) |  |  |
+| **aiWebSearchSetActiveConfigRequest** | [**AiWebSearchSetActiveConfigRequest**](AiWebSearchSetActiveConfigRequest.md) |  |  |
 
 ### Return type
 
@@ -709,12 +709,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var aiWebSearchConfigureRequest = new AiWebSearchConfigureRequest(); // AiWebSearchConfigureRequest | 
+            var aiWebSearchSetActiveConfigRequest = new AiWebSearchSetActiveConfigRequest(); // AiWebSearchSetActiveConfigRequest | 
 
             try
             {
                 // Set active config
-                AiSuccessResponse result = apiInstance.AiWebSearchSetActiveConfig(aiWebSearchConfigureRequest);
+                AiSuccessResponse result = apiInstance.AiWebSearchSetActiveConfig(aiWebSearchSetActiveConfigRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -735,7 +735,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Set active config
-    ApiResponse<AiSuccessResponse> response = apiInstance.AiWebSearchSetActiveConfigWithHttpInfo(aiWebSearchConfigureRequest);
+    ApiResponse<AiSuccessResponse> response = apiInstance.AiWebSearchSetActiveConfigWithHttpInfo(aiWebSearchSetActiveConfigRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -760,8 +760,8 @@ catch (ApiException e)
 | **200** | Confirms the configuration was stored, unverified. |  -  |
 | **400** | The configuration is missing or malformed, or the provider URL points at a private network address. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
-| **404** | The referenced object does not exist, or the caller cannot access it - the two are deliberately indistinguishable, so a room the caller may not open answers 404 rather than 403. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | The referenced object does not exist: an unknown or deleted room named by `entityId`, or an object the caller cannot read - for those the two cases are deliberately indistinguishable. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -868,7 +868,7 @@ catch (ApiException e)
 | **200** | The outcome of the probe. A failed probe is reported here, not as a status. |  -  |
 | **400** | The configuration is missing or malformed, or the provider URL points at a private network address. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
-| **403** | AI is disabled for this portal, or the caller is a guest. Relayed from the DocSpace AI service. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

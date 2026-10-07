@@ -359,7 +359,7 @@ catch (ApiException e)
 
 <a id="setenabled"></a>
 # **SetEnabled**
-> AppWrapper SetEnabled (string id, SetAppEnabledBody setAppEnabledBody)
+> AppWrapper SetEnabled (string id, SetAppEnabledRequest setAppEnabledRequest)
 
 Turns one portal application on or off for the current portal, and notifies the clients connected to the portal  so that they can show or hide it without being reloaded. The identifier must be an application declared in the  installation configuration, as listed by `GET api/2.0/apps`. The caller must be a portal administrator allowed  to edit the portal settings. The call is mutating and idempotent: it stores the flag for this portal, overriding  the default that the configuration gives the application, and repeating it with the same value changes nothing.  Disabling an application does not delete its settings document, which stays saved and applies again as soon as  the application is enabled. The response is the application in its new state, including that settings document.  Only the enabled flag is affected here: to change the settings document use `PUT api/2.0/apps/{id}/settings`.
 
@@ -370,7 +370,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything. |  |
-| **setAppEnabledBody** | [**SetAppEnabledBody**](SetAppEnabledBody.md) | The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. |  |
+| **setAppEnabledRequest** | [**SetAppEnabledRequest**](SetAppEnabledRequest.md) | The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`. |  |
 
 ### Return type
 
@@ -418,12 +418,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppsApi(httpClient, config, httpClientHandler);
             var id = ai-room;  // string | The application to switch, by the identifier `GET api/2.0/apps` reports. It has to be an application declared  in the installation configuration; an unknown identifier answers 404 rather than creating anything.
-            var setAppEnabledBody = new SetAppEnabledBody(); // SetAppEnabledBody | The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.
+            var setAppEnabledRequest = new SetAppEnabledRequest(); // SetAppEnabledRequest | The new state of the application. Only the enabled flag travels here; the settings document is changed  through `PUT api/2.0/apps/{id}/settings`.
 
             try
             {
                 // Enable or disable an app
-                AppWrapper result = apiInstance.SetEnabled(id, setAppEnabledBody);
+                AppWrapper result = apiInstance.SetEnabled(id, setAppEnabledRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -444,7 +444,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Enable or disable an app
-    ApiResponse<AppWrapper> response = apiInstance.SetEnabledWithHttpInfo(id, setAppEnabledBody);
+    ApiResponse<AppWrapper> response = apiInstance.SetEnabledWithHttpInfo(id, setAppEnabledRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -467,7 +467,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The application in its new state, with the saved settings document left untouched |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **404** | No application with this identifier is configured on this installation |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -480,7 +480,7 @@ catch (ApiException e)
 
 <a id="setsettings"></a>
 # **SetSettings**
-> AppWrapper SetSettings (string id, SetAppSettingsBody setAppSettingsBody)
+> AppWrapper SetSettings (string id, SetAppSettingsRequest setAppSettingsRequest)
 
 Stores the application-specific settings document of one portal application for the current portal. The  identifier must be an application declared in the installation configuration, as listed by `GET api/2.0/apps`.  The caller must be a portal administrator allowed to edit the portal settings. The call is mutating and  idempotent, and it replaces the whole document instead of merging into it: read the current one with  `GET api/2.0/apps/{id}/settings`, change it and send it back complete, or send `null` to drop the saved document  and let the application fall back to its own defaults. Any valid JSON value is accepted, since the content is  stored as it is and is interpreted by the application rather than by the portal, while a body that is not valid  JSON fails with 400 and stores nothing. The response is the application in its new state, with the stored  document echoed back. Unlike `PUT api/2.0/apps/{id}/enabled`, this operation sends no notification to the  connected clients, which pick the new settings up on their next read.
 
@@ -491,7 +491,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404. |  |
-| **setAppSettingsBody** | [**SetAppSettingsBody**](SetAppSettingsBody.md) | The configuration to store for this portal, replacing whatever was stored before. |  |
+| **setAppSettingsRequest** | [**SetAppSettingsRequest**](SetAppSettingsRequest.md) | The configuration to store for this portal, replacing whatever was stored before. |  |
 
 ### Return type
 
@@ -539,12 +539,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppsApi(httpClient, config, httpClientHandler);
             var id = ai-room;  // string | The application whose configuration is stored, by the identifier `GET api/2.0/apps` reports. An identifier  not declared in the installation configuration answers 404.
-            var setAppSettingsBody = new SetAppSettingsBody(); // SetAppSettingsBody | The configuration to store for this portal, replacing whatever was stored before.
+            var setAppSettingsRequest = new SetAppSettingsRequest(); // SetAppSettingsRequest | The configuration to store for this portal, replacing whatever was stored before.
 
             try
             {
                 // Save app settings
-                AppWrapper result = apiInstance.SetSettings(id, setAppSettingsBody);
+                AppWrapper result = apiInstance.SetSettings(id, setAppSettingsRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -565,7 +565,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Save app settings
-    ApiResponse<AppWrapper> response = apiInstance.SetSettingsWithHttpInfo(id, setAppSettingsBody);
+    ApiResponse<AppWrapper> response = apiInstance.SetSettingsWithHttpInfo(id, setAppSettingsRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -589,7 +589,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The application in its new state, with the stored settings document |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body is not a valid JSON document, so no settings are stored |  -  |
-| **403** | The caller is not allowed to edit the portal settings |  -  |
+| **403** | The caller has no portal-settings right |  -  |
 | **404** | No application with this identifier is configured on this installation |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

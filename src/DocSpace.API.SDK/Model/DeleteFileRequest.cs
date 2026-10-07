@@ -1,0 +1,102 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// The parameters of a single file deletion.
+    /// </summary>
+    [DataContract(Name = "DeleteFileRequest")]
+    public partial class DeleteFileRequest : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeleteFileRequest" /> class.
+        /// </summary>
+        /// <param name="deleteAfter">When to delete: &#x60;true&#x60; waits until the editing session on the file has ended, &#x60;false&#x60; deletes at once, pulling  the file away from whoever is working on it..</param>
+        /// <param name="immediately">Where the file goes: &#x60;false&#x60; moves it to Trash, from where it can be restored, &#x60;true&#x60; deletes it for good.  Inside a room, where there is no Trash, deletion is always final..</param>
+        public DeleteFileRequest(bool deleteAfter = default, bool immediately = default)
+        {
+            this.DeleteAfter = deleteAfter;
+            this.Immediately = immediately;
+        }
+
+        /// <summary>
+        /// When to delete: &#x60;true&#x60; waits until the editing session on the file has ended, &#x60;false&#x60; deletes at once, pulling  the file away from whoever is working on it.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
+        public bool DeleteAfter { get; set; }
+
+        /// <summary>
+        /// Where the file goes: &#x60;false&#x60; moves it to Trash, from where it can be restored, &#x60;true&#x60; deletes it for good.  Inside a room, where there is no Trash, deletion is always final.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "immediately", EmitDefaultValue = true)]
+        public bool Immediately { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class DeleteFileRequest {\n");
+            sb.Append("  DeleteAfter: ").Append(DeleteAfter).Append("\n");
+            sb.Append("  Immediately: ").Append(Immediately).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

@@ -1,0 +1,16 @@
+# DocSpace.API.SDK.Model.BalanceDto
+Represents a balance with an account number and a list of sub-accounts.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**AccountNumber** | **int** | The account number. | [optional] 
+**SubAccountNumber** | **int** | The sub-account number. | [optional] 
+**AccountName** | **string** | The account name. | [optional] 
+**AccountCurrency** | **string** | The account currency. | [optional] 
+**SubAccounts** | [**List&lt;SubAccountDto&gt;**](SubAccountDto.md) | A list of sub-accounts. | [optional] 
+**LastCredit** | [**TransactionInfoDto**](TransactionInfoDto.md) | The most recent credit transaction applied to the account. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

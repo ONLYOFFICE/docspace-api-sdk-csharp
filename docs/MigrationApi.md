@@ -333,11 +333,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The activation emails have been sent if they were asked for and the clean-up has been queued. The response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `isSendWelcomeEmail` |  -  |
 | **403** | The caller is not a DocSpace administrator |  -  |
+| **500** | `isSendWelcomeEmail` is true and the portal holds no import that has reached the user step: no job at all, only a parse pass, or an import still running or stopped before that step |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -566,7 +566,7 @@ catch (ApiException e)
 
 <a id="listmigrations"></a>
 # **ListMigrations**
-> STRINGArrayWrapper ListMigrations ()
+> StringArrayWrapper ListMigrations ()
 
 Lists the source products this installation can import a portal from, as the migrator names every other  operation in this group expects. Nothing has to be called first, a DocSpace administrator is required as  everywhere here, and the call is read-only and idempotent. The answer is a plain list of names such as  `GoogleWorkspace`, `Nextcloud` or `Workspace`, never localized and ordered as the migrators are registered;  pass one of them as `migratorName` to `POST api/2.0/migration/init/{migratorName}`, where the match ignores  case. The list depends on the installation rather than on the portal, so it does not change while the portal  runs, and a name that is not in it is not rejected by the operation that takes it - the queued job ends with  the failure reported in `error` of `GET api/2.0/migration/status`.
 
@@ -576,7 +576,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+[**StringArrayWrapper**](StringArrayWrapper.md)
 
 ### Authorization
 
@@ -623,7 +623,7 @@ namespace Example
             try
             {
                 // Get available migrators
-                STRINGArrayWrapper result = apiInstance.ListMigrations();
+                StringArrayWrapper result = apiInstance.ListMigrations();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -644,7 +644,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get available migrators
-    ApiResponse<STRINGArrayWrapper> response = apiInstance.ListMigrationsWithHttpInfo();
+    ApiResponse<StringArrayWrapper> response = apiInstance.ListMigrationsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -780,7 +780,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The import has been queued; the response carries no content and the progress is read from `GET api/2.0/migration/status` |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body is missing or could not be read as a parse result |  -  |
+| **400** | The request body is missing or could not be read as a parse result, including an unknown `userType` name, or a user in `users`, `withoutEmailUsers` or `existUsers` has an `email` that is empty or not a valid address |  -  |
 | **403** | The caller is not a DocSpace administrator, or is not the portal owner and asked to import a user as `DocSpaceAdmin` who is not an administrator of this portal yet |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |

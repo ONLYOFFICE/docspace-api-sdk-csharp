@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the BackupProgress object.
+    /// The successful API response containing the BackupProgressDto object.
     /// </summary>
     [DataContract(Name = "BackupProgressWrapper")]
     public partial class BackupProgressWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupProgressWrapper" /> class.
         /// </summary>
-        /// <param name="response">The BackupProgress object returned by the operation..</param>
+        /// <param name="response">The BackupProgressDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public BackupProgressWrapper(BackupProgress response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public BackupProgressWrapper(BackupProgressDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The BackupProgress object returned by the operation.
+        /// The BackupProgressDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public BackupProgress Response { get; set; }
+        public BackupProgressDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

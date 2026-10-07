@@ -38,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>TenantUserQuotaSettingsWrapper</returns>
-        TenantUserQuotaSettingsWrapper GetUserQuotaSettings();
+        /// <returns>EntityQuotaSettingsWrapper</returns>
+        EntityQuotaSettingsWrapper GetUserQuotaSettings();
 
         /// <summary>
         /// Get the user quota settings
@@ -49,8 +49,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantUserQuotaSettingsWrapper</returns>
-        ApiResponse<TenantUserQuotaSettingsWrapper> GetUserQuotaSettingsWithHttpInfo();
+        /// <returns>ApiResponse of EntityQuotaSettingsWrapper</returns>
+        ApiResponse<EntityQuotaSettingsWrapper> GetUserQuotaSettingsWithHttpInfo();
         /// <summary>
         /// Save the AI Agent quota settings
         /// </summary>
@@ -58,10 +58,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>TenantAiAgentQuotaSettingsWrapper</returns>
-        TenantAiAgentQuotaSettingsWrapper SaveAiAgentQuotaSettings(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default);
+        /// <returns>EntityQuotaSettingsWrapper</returns>
+        EntityQuotaSettingsWrapper SaveAiAgentQuotaSettings(QuotaSettingsRequestDto? quotaSettingsRequestDto = default);
 
         /// <summary>
         /// Save the AI Agent quota settings
@@ -70,10 +70,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAiAgentQuotaSettingsWrapper</returns>
-        ApiResponse<TenantAiAgentQuotaSettingsWrapper> SaveAiAgentQuotaSettingsWithHttpInfo(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default);
+        /// <returns>ApiResponse of EntityQuotaSettingsWrapper</returns>
+        ApiResponse<EntityQuotaSettingsWrapper> SaveAiAgentQuotaSettingsWithHttpInfo(QuotaSettingsRequestDto? quotaSettingsRequestDto = default);
         /// <summary>
         /// Save the room quota settings
         /// </summary>
@@ -81,10 +81,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>TenantRoomQuotaSettingsWrapper</returns>
-        TenantRoomQuotaSettingsWrapper SaveRoomQuotaSettings(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default);
+        /// <returns>EntityQuotaSettingsWrapper</returns>
+        EntityQuotaSettingsWrapper SaveRoomQuotaSettings(QuotaSettingsRequestDto? quotaSettingsRequestDto = default);
 
         /// <summary>
         /// Save the room quota settings
@@ -93,10 +93,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantRoomQuotaSettingsWrapper</returns>
-        ApiResponse<TenantRoomQuotaSettingsWrapper> SaveRoomQuotaSettingsWithHttpInfo(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default);
+        /// <returns>ApiResponse of EntityQuotaSettingsWrapper</returns>
+        ApiResponse<EntityQuotaSettingsWrapper> SaveRoomQuotaSettingsWithHttpInfo(QuotaSettingsRequestDto? quotaSettingsRequestDto = default);
         /// <summary>
         /// Save the tenant quota settings
         /// </summary>
@@ -104,10 +104,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>TenantQuotaSettingsWrapper</returns>
-        TenantQuotaSettingsWrapper SetTenantQuotaSettings(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default);
+        TenantQuotaSettingsWrapper SetTenantQuotaSettings(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default);
 
         /// <summary>
         /// Save the tenant quota settings
@@ -116,10 +116,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaSettingsWrapper</returns>
-        ApiResponse<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsWithHttpInfo(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default);
+        ApiResponse<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsWithHttpInfo(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -138,8 +138,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>Task of TenantUserQuotaSettingsWrapper</returns>
-        Task<TenantUserQuotaSettingsWrapper> GetUserQuotaSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of EntityQuotaSettingsWrapper</returns>
+        Task<EntityQuotaSettingsWrapper> GetUserQuotaSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the user quota settings
@@ -150,8 +150,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantUserQuotaSettingsWrapper)</returns>
-        Task<ApiResponse<TenantUserQuotaSettingsWrapper>> GetUserQuotaSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (EntityQuotaSettingsWrapper)</returns>
+        Task<ApiResponse<EntityQuotaSettingsWrapper>> GetUserQuotaSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the AI Agent quota settings
         /// </summary>
@@ -159,11 +159,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>Task of TenantAiAgentQuotaSettingsWrapper</returns>
-        Task<TenantAiAgentQuotaSettingsWrapper> SaveAiAgentQuotaSettingsAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of EntityQuotaSettingsWrapper</returns>
+        Task<EntityQuotaSettingsWrapper> SaveAiAgentQuotaSettingsAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the AI Agent quota settings
@@ -172,11 +172,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAiAgentQuotaSettingsWrapper)</returns>
-        Task<ApiResponse<TenantAiAgentQuotaSettingsWrapper>> SaveAiAgentQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (EntityQuotaSettingsWrapper)</returns>
+        Task<ApiResponse<EntityQuotaSettingsWrapper>> SaveAiAgentQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the room quota settings
         /// </summary>
@@ -184,11 +184,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>Task of TenantRoomQuotaSettingsWrapper</returns>
-        Task<TenantRoomQuotaSettingsWrapper> SaveRoomQuotaSettingsAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of EntityQuotaSettingsWrapper</returns>
+        Task<EntityQuotaSettingsWrapper> SaveRoomQuotaSettingsAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the room quota settings
@@ -197,11 +197,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantRoomQuotaSettingsWrapper)</returns>
-        Task<ApiResponse<TenantRoomQuotaSettingsWrapper>> SaveRoomQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (EntityQuotaSettingsWrapper)</returns>
+        Task<ApiResponse<EntityQuotaSettingsWrapper>> SaveRoomQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the tenant quota settings
         /// </summary>
@@ -209,11 +209,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of TenantQuotaSettingsWrapper</returns>
-        Task<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsAsync(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsAsync(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the tenant quota settings
@@ -222,11 +222,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaSettingsWrapper)</returns>
-        Task<ApiResponse<TenantQuotaSettingsWrapper>> SetTenantQuotaSettingsWithHttpInfoAsync(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<TenantQuotaSettingsWrapper>> SetTenantQuotaSettingsWithHttpInfoAsync(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -450,8 +450,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>TenantUserQuotaSettingsWrapper</returns>
-        public TenantUserQuotaSettingsWrapper GetUserQuotaSettings()
+        /// <returns>EntityQuotaSettingsWrapper</returns>
+        public EntityQuotaSettingsWrapper GetUserQuotaSettings()
         {
             var localVarResponse = GetUserQuotaSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -465,8 +465,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantUserQuotaSettingsWrapper</returns>
-        public ApiResponse<TenantUserQuotaSettingsWrapper> GetUserQuotaSettingsWithHttpInfo()
+        /// <returns>ApiResponse of EntityQuotaSettingsWrapper</returns>
+        public ApiResponse<EntityQuotaSettingsWrapper> GetUserQuotaSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -514,7 +514,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<TenantUserQuotaSettingsWrapper>("/api/2.0/settings/userquotasettings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<EntityQuotaSettingsWrapper>("/api/2.0/settings/userquotasettings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -537,8 +537,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>Task of TenantUserQuotaSettingsWrapper</returns>
-        public async Task<TenantUserQuotaSettingsWrapper> GetUserQuotaSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of EntityQuotaSettingsWrapper</returns>
+        public async Task<EntityQuotaSettingsWrapper> GetUserQuotaSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetUserQuotaSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -553,8 +553,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-quota-settings/">REST API Reference for GetUserQuotaSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantUserQuotaSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantUserQuotaSettingsWrapper>> GetUserQuotaSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (EntityQuotaSettingsWrapper)</returns>
+        public async Task<ApiResponse<EntityQuotaSettingsWrapper>> GetUserQuotaSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -604,7 +604,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<TenantUserQuotaSettingsWrapper>("/api/2.0/settings/userquotasettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<EntityQuotaSettingsWrapper>("/api/2.0/settings/userquotasettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -625,12 +625,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>TenantAiAgentQuotaSettingsWrapper</returns>
-        public TenantAiAgentQuotaSettingsWrapper SaveAiAgentQuotaSettings(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default)
+        /// <returns>EntityQuotaSettingsWrapper</returns>
+        public EntityQuotaSettingsWrapper SaveAiAgentQuotaSettings(QuotaSettingsRequestDto? quotaSettingsRequestDto = default)
         {
-            var localVarResponse = SaveAiAgentQuotaSettingsWithHttpInfo(quotaSettingsRequestsDto);
+            var localVarResponse = SaveAiAgentQuotaSettingsWithHttpInfo(quotaSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -641,10 +641,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantAiAgentQuotaSettingsWrapper</returns>
-        public ApiResponse<TenantAiAgentQuotaSettingsWrapper> SaveAiAgentQuotaSettingsWithHttpInfo(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default)
+        /// <returns>ApiResponse of EntityQuotaSettingsWrapper</returns>
+        public ApiResponse<EntityQuotaSettingsWrapper> SaveAiAgentQuotaSettingsWithHttpInfo(QuotaSettingsRequestDto? quotaSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -659,7 +659,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (quotaSettingsRequestsDto != null) localVarRequestOptions.Data = quotaSettingsRequestsDto;
+            if (quotaSettingsRequestDto != null) localVarRequestOptions.Data = quotaSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -693,7 +693,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<TenantAiAgentQuotaSettingsWrapper>("/api/2.0/settings/aiagentquotasettings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<EntityQuotaSettingsWrapper>("/api/2.0/settings/aiagentquotasettings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -714,13 +714,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>Task of TenantAiAgentQuotaSettingsWrapper</returns>
-        public async Task<TenantAiAgentQuotaSettingsWrapper> SaveAiAgentQuotaSettingsAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of EntityQuotaSettingsWrapper</returns>
+        public async Task<EntityQuotaSettingsWrapper> SaveAiAgentQuotaSettingsAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveAiAgentQuotaSettingsWithHttpInfoAsync(quotaSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveAiAgentQuotaSettingsWithHttpInfoAsync(quotaSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -731,11 +731,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default storage quota for AI agents, applied as the starting limit for newly created agents.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new agents. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not any agent's current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ai-agent-quota-settings/">REST API Reference for SaveAiAgentQuotaSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantAiAgentQuotaSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantAiAgentQuotaSettingsWrapper>> SaveAiAgentQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (EntityQuotaSettingsWrapper)</returns>
+        public async Task<ApiResponse<EntityQuotaSettingsWrapper>> SaveAiAgentQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -751,7 +751,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (quotaSettingsRequestsDto != null) localVarRequestOptions.Data = quotaSettingsRequestsDto;
+            if (quotaSettingsRequestDto != null) localVarRequestOptions.Data = quotaSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -786,7 +786,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<TenantAiAgentQuotaSettingsWrapper>("/api/2.0/settings/aiagentquotasettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<EntityQuotaSettingsWrapper>("/api/2.0/settings/aiagentquotasettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -807,12 +807,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>TenantRoomQuotaSettingsWrapper</returns>
-        public TenantRoomQuotaSettingsWrapper SaveRoomQuotaSettings(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default)
+        /// <returns>EntityQuotaSettingsWrapper</returns>
+        public EntityQuotaSettingsWrapper SaveRoomQuotaSettings(QuotaSettingsRequestDto? quotaSettingsRequestDto = default)
         {
-            var localVarResponse = SaveRoomQuotaSettingsWithHttpInfo(quotaSettingsRequestsDto);
+            var localVarResponse = SaveRoomQuotaSettingsWithHttpInfo(quotaSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -823,10 +823,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>ApiResponse of TenantRoomQuotaSettingsWrapper</returns>
-        public ApiResponse<TenantRoomQuotaSettingsWrapper> SaveRoomQuotaSettingsWithHttpInfo(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default)
+        /// <returns>ApiResponse of EntityQuotaSettingsWrapper</returns>
+        public ApiResponse<EntityQuotaSettingsWrapper> SaveRoomQuotaSettingsWithHttpInfo(QuotaSettingsRequestDto? quotaSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -841,7 +841,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (quotaSettingsRequestsDto != null) localVarRequestOptions.Data = quotaSettingsRequestsDto;
+            if (quotaSettingsRequestDto != null) localVarRequestOptions.Data = quotaSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -875,7 +875,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<TenantRoomQuotaSettingsWrapper>("/api/2.0/settings/roomquotasettings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<EntityQuotaSettingsWrapper>("/api/2.0/settings/roomquotasettings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -896,13 +896,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>Task of TenantRoomQuotaSettingsWrapper</returns>
-        public async Task<TenantRoomQuotaSettingsWrapper> SaveRoomQuotaSettingsAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of EntityQuotaSettingsWrapper</returns>
+        public async Task<EntityQuotaSettingsWrapper> SaveRoomQuotaSettingsAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveRoomQuotaSettingsWithHttpInfoAsync(quotaSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveRoomQuotaSettingsWithHttpInfoAsync(quotaSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -913,11 +913,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal's default per-room storage quota, applied to newly created rooms as their starting limit.  Requires Owner or DocSpaceAdmin (the EditPortalSettings permission), and on a paid SaaS tenant the portal's  plan must include the statistics feature, or the call is rejected as not covered by the plan. The requested  size cannot exceed the portal's own total storage quota, nor, on a Standalone install with a portal-wide quota  enabled, that quota's size. Disable enforcement by passing `enableQuota=false`; the size is then ignored for  new rooms. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved settings, not the individual rooms' current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="quotaSettingsRequestsDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
+        /// <param name="quotaSettingsRequestDto">The default storage limit given to newly created users, rooms or AI agents, and whether it is enforced. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-room-quota-settings/">REST API Reference for SaveRoomQuotaSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (TenantRoomQuotaSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantRoomQuotaSettingsWrapper>> SaveRoomQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestsDto? quotaSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (EntityQuotaSettingsWrapper)</returns>
+        public async Task<ApiResponse<EntityQuotaSettingsWrapper>> SaveRoomQuotaSettingsWithHttpInfoAsync(QuotaSettingsRequestDto? quotaSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -933,7 +933,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (quotaSettingsRequestsDto != null) localVarRequestOptions.Data = quotaSettingsRequestsDto;
+            if (quotaSettingsRequestDto != null) localVarRequestOptions.Data = quotaSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -968,7 +968,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<TenantRoomQuotaSettingsWrapper>("/api/2.0/settings/roomquotasettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<EntityQuotaSettingsWrapper>("/api/2.0/settings/roomquotasettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -989,12 +989,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>TenantQuotaSettingsWrapper</returns>
-        public TenantQuotaSettingsWrapper SetTenantQuotaSettings(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default)
+        public TenantQuotaSettingsWrapper SetTenantQuotaSettings(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default)
         {
-            var localVarResponse = SetTenantQuotaSettingsWithHttpInfo(tenantQuotaSettingsRequestsDto);
+            var localVarResponse = SetTenantQuotaSettingsWithHttpInfo(tenantQuotaSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1005,10 +1005,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>ApiResponse of TenantQuotaSettingsWrapper</returns>
-        public ApiResponse<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsWithHttpInfo(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default)
+        public ApiResponse<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsWithHttpInfo(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1023,7 +1023,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantQuotaSettingsRequestsDto != null) localVarRequestOptions.Data = tenantQuotaSettingsRequestsDto;
+            if (tenantQuotaSettingsRequestDto != null) localVarRequestOptions.Data = tenantQuotaSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1078,13 +1078,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of TenantQuotaSettingsWrapper</returns>
-        public async Task<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsAsync(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<TenantQuotaSettingsWrapper> SetTenantQuotaSettingsAsync(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetTenantQuotaSettingsWithHttpInfoAsync(tenantQuotaSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetTenantQuotaSettingsWithHttpInfoAsync(tenantQuotaSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1095,11 +1095,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets or removes the storage quota for a given tenant. Available only on a Standalone (self-hosted)  installation; on SaaS the call is always refused. Requires a DocSpace administrator, and the portal's plan  must include the statistics feature or the call is rejected as not covered by the plan. Pass a non-negative  `quota` in bytes to enable the limit for the tenant identified by `tenantId`, or a negative value to remove  any limit. This is a mutating, idempotent call: sending the same body again leaves the quota unchanged. It  returns the saved quota settings for that tenant, not its current usage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantQuotaSettingsRequestsDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
+        /// <param name="tenantQuotaSettingsRequestDto">The storage limit set on one tenant of a self-hosted installation. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-quota-settings/">REST API Reference for SetTenantQuotaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantQuotaSettingsWrapper)</returns>
-        public async Task<ApiResponse<TenantQuotaSettingsWrapper>> SetTenantQuotaSettingsWithHttpInfoAsync(TenantQuotaSettingsRequestsDto? tenantQuotaSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TenantQuotaSettingsWrapper>> SetTenantQuotaSettingsWithHttpInfoAsync(TenantQuotaSettingsRequestDto? tenantQuotaSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1115,7 +1115,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tenantQuotaSettingsRequestsDto != null) localVarRequestOptions.Data = tenantQuotaSettingsRequestsDto;
+            if (tenantQuotaSettingsRequestDto != null) localVarRequestOptions.Data = tenantQuotaSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

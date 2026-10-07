@@ -119,7 +119,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The new API key, with the full secret in the key field |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Requests remaining in the current 15-minute window. <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The permissions array is empty or contains a scope the portal does not know |  -  |
+| **400** | The request body cannot be read or has no `name`, the name is empty or longer than 30 characters, `expiresInDays` is outside 1-365, or the permissions array is empty or contains a scope the portal does not know |  -  |
 | **403** | The caller is a guest, or the portal limits developer tools to administrators |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying (5 req / 15 min limit per user/IP). <br>  |
@@ -238,9 +238,9 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | True if the key was removed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The key belongs to another member and the caller is not a DocSpace admin |  -  |
+| **500** | The portal has no key with this ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -249,7 +249,7 @@ catch (ApiException e)
 
 <a id="getallpermissions"></a>
 # **GetAllPermissions**
-> STRINGArrayWrapper GetAllPermissions ()
+> StringArrayWrapper GetAllPermissions ()
 
 Returns every scope value the portal accepts in the `permissions` array of an API key.  Read it before `POST api/2.0/keys` or `PUT api/2.0/keys/{keyId}`, because any other value is rejected with  400.  Any portal member except a guest may call it, and the call is read-only.  The answer is a flat list sorted alphabetically, holding the per-area scopes such as `accounts:read`,  `files:write` and `rooms:write`, the portal-wide `*:read` and `*:write`, and `*` which stands for a key  without scope restrictions.  The list is fixed for the portal and identical for every caller, so it can be cached by the client.
 
@@ -259,7 +259,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+[**StringArrayWrapper**](StringArrayWrapper.md)
 
 ### Authorization
 
@@ -306,7 +306,7 @@ namespace Example
             try
             {
                 // Get API key permissions
-                STRINGArrayWrapper result = apiInstance.GetAllPermissions();
+                StringArrayWrapper result = apiInstance.GetAllPermissions();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -327,7 +327,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get API key permissions
-    ApiResponse<STRINGArrayWrapper> response = apiInstance.GetAllPermissionsWithHttpInfo();
+    ApiResponse<StringArrayWrapper> response = apiInstance.GetAllPermissionsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -462,9 +462,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The API key that authenticated this request |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request has no Authorization header, as with a session authenticated by a cookie |  -  |
+| **500** | The Authorization header carries a token that is not an API key of this portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -692,11 +693,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | True if the key was changed, false if it was left untouched because it has already expired |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The permissions array is empty or contains a scope the portal does not know |  -  |
+| **400** | The request body cannot be read, the name is longer than 30 characters, or the permissions array is empty or contains a scope the portal does not know |  -  |
 | **403** | The key belongs to another member and the caller is not a DocSpace admin |  -  |
+| **500** | The portal has no key with this ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

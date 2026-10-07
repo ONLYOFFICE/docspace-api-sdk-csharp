@@ -83,10 +83,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>FileShareResponseArrayWrapper</returns>
-        FileShareResponseArrayWrapper ChangeDefaultAccessRights(List<int>? requestBody = default);
+        FileShareResponseArrayWrapper ChangeDefaultAccessRights(List<int>? defaultAccessRightsRequestDto = default);
 
         /// <summary>
         /// Change the default access rights
@@ -95,10 +95,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>ApiResponse of FileShareResponseArrayWrapper</returns>
-        ApiResponse<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? requestBody = default);
+        ApiResponse<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? defaultAccessRightsRequestDto = default);
         /// <summary>
         /// Ask for delete confirmation
         /// </summary>
@@ -776,11 +776,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>Task of FileShareResponseArrayWrapper</returns>
-        Task<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
+        Task<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? defaultAccessRightsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change the default access rights
@@ -789,11 +789,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareResponseArrayWrapper)</returns>
-        Task<ApiResponse<FileShareResponseArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareResponseArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? defaultAccessRightsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Ask for delete confirmation
         /// </summary>
@@ -2045,12 +2045,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>FileShareResponseArrayWrapper</returns>
-        public FileShareResponseArrayWrapper ChangeDefaultAccessRights(List<int>? requestBody = default)
+        public FileShareResponseArrayWrapper ChangeDefaultAccessRights(List<int>? defaultAccessRightsRequestDto = default)
         {
-            var localVarResponse = ChangeDefaultAccessRightsWithHttpInfo(requestBody);
+            var localVarResponse = ChangeDefaultAccessRightsWithHttpInfo(defaultAccessRightsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2061,10 +2061,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>ApiResponse of FileShareResponseArrayWrapper</returns>
-        public ApiResponse<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? requestBody = default)
+        public ApiResponse<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? defaultAccessRightsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2079,7 +2079,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (defaultAccessRightsRequestDto != null) localVarRequestOptions.Data = defaultAccessRightsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2134,13 +2134,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>Task of FileShareResponseArrayWrapper</returns>
-        public async Task<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default)
+        public async Task<FileShareResponseArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? defaultAccessRightsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await ChangeDefaultAccessRightsWithHttpInfoAsync(requestBody, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ChangeDefaultAccessRightsWithHttpInfoAsync(defaultAccessRightsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2151,11 +2151,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// Stores the access rights the sharing dialog offers the calling account by default, and returns the set that  was actually stored. The body is a bare array of access-right values, not an object. The portal normalises the  array instead of keeping it as sent: it keeps the fill-forms, custom-filter and review entries, then adds  read-and-write or comment - whichever is present, in that order - and stops there, and it falls back to read  alone when nothing else applies, so the response can be shorter than the request and its order can differ. An  empty array clears the setting, after which read alone is reported. A value outside the published list is  rejected as an invalid request. The set belongs to the calling account alone: every authenticated role down to  a guest may store its own, and an unauthenticated caller is refused. Nothing already shared is changed. The  stored set is published as `defaultSharingAccessRights` by `GET api/2.0/files/settings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="requestBody">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
+        /// <param name="defaultAccessRightsRequestDto">The access rights the sharing dialog should offer by default. The array is the whole request body rather than  a field of an object, and the portal stores a normalised subset of it instead of the array as sent, so read  the answer to learn what was kept. An empty array clears the setting, after which the portal reports read  access alone. A value outside the published list is rejected as an invalid request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareResponseArrayWrapper)</returns>
-        public async Task<ApiResponse<FileShareResponseArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareResponseArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? defaultAccessRightsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2171,7 +2171,7 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (requestBody != null) localVarRequestOptions.Data = requestBody;
+            if (defaultAccessRightsRequestDto != null) localVarRequestOptions.Data = defaultAccessRightsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -6973,8 +6973,8 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "FileExtension", fileExtension));
-            localVarRequestOptions.FileParameters.Add("File", file);
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fileExtension", fileExtension));
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7076,8 +7076,8 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "FileExtension", fileExtension));
-            localVarRequestOptions.FileParameters.Add("File", file);
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fileExtension", fileExtension));
+            localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (Basic) required
             // http basic authentication required

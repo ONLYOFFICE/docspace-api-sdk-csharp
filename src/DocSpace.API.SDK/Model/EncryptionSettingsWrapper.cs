@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the EncryptionSettings object.
+    /// The successful API response containing the EncryptionSettingsDto object.
     /// </summary>
     [DataContract(Name = "EncryptionSettingsWrapper")]
     public partial class EncryptionSettingsWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EncryptionSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">The EncryptionSettings object returned by the operation..</param>
+        /// <param name="response">The EncryptionSettingsDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public EncryptionSettingsWrapper(EncryptionSettings response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public EncryptionSettingsWrapper(EncryptionSettingsDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The EncryptionSettings object returned by the operation.
+        /// The EncryptionSettingsDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public EncryptionSettings Response { get; set; }
+        public EncryptionSettingsDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

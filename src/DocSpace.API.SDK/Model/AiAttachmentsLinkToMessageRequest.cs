@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAttachmentsLinkToMessageRequest
     /// </summary>
-    [DataContract(Name = "aiAttachmentsLinkToMessage_request")]
+    [DataContract(Name = "AiAttachmentsLinkToMessageRequest")]
     public partial class AiAttachmentsLinkToMessageRequest : IValidatableObject
     {
     

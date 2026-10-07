@@ -272,8 +272,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        GroupMemberSecurityArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
         /// Get file access of group members
@@ -288,8 +288,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
         /// Get file access of group members (third-party storage)
         /// </summary>
@@ -303,8 +303,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        GroupMemberSecurityArrayWrapper GetGroupsMembersWithFileSecurity(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
         /// Get file access of group members (third-party storage)
@@ -319,8 +319,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
         /// Get folder access of group members
         /// </summary>
@@ -334,8 +334,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        GroupMemberSecurityArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
         /// Get folder access of group members
@@ -350,8 +350,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
         /// Get folder access of group members (third-party storage)
         /// </summary>
@@ -365,8 +365,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        GroupMemberSecurityArrayWrapper GetGroupsMembersWithFolderSecurity(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
         /// Get folder access of group members (third-party storage)
@@ -381,8 +381,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
         /// Get sharing rights in batch
         /// </summary>
@@ -415,8 +415,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        MentionWrapperArrayWrapper GetSharedUsers(int fileId);
+        /// <returns>MentionArrayWrapper</returns>
+        MentionArrayWrapper GetSharedUsers(int fileId);
 
         /// <summary>
         /// Get users to mention in a file
@@ -427,8 +427,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId);
+        /// <returns>ApiResponse of MentionArrayWrapper</returns>
+        ApiResponse<MentionArrayWrapper> GetSharedUsersWithHttpInfo(int fileId);
         /// <summary>
         /// Get users to mention in a file (third-party storage)
         /// </summary>
@@ -438,8 +438,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        MentionWrapperArrayWrapper GetSharedUsers(string fileId);
+        /// <returns>MentionArrayWrapper</returns>
+        MentionArrayWrapper GetSharedUsers(string fileId);
 
         /// <summary>
         /// Get users to mention in a file (third-party storage)
@@ -450,8 +450,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(string fileId);
+        /// <returns>ApiResponse of MentionArrayWrapper</returns>
+        ApiResponse<MentionArrayWrapper> GetSharedUsersWithHttpInfo(string fileId);
         /// <summary>
         /// Remove sharing rights in batch
         /// </summary>
@@ -483,10 +483,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>AceShortWrapperArrayWrapper</returns>
-        AceShortWrapperArrayWrapper SendEditorNotify(int fileId, MentionMessageWrapper? mentionMessageWrapper = default);
+        /// <returns>AceShortArrayWrapper</returns>
+        AceShortArrayWrapper SendEditorNotify(int fileId, MentionMessageRequest? mentionMessageRequest = default);
 
         /// <summary>
         /// Notify mentioned users
@@ -496,10 +496,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
-        ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageWrapper? mentionMessageWrapper = default);
+        /// <returns>ApiResponse of AceShortArrayWrapper</returns>
+        ApiResponse<AceShortArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageRequest? mentionMessageRequest = default);
         /// <summary>
         /// Notify mentioned users (third-party storage)
         /// </summary>
@@ -508,10 +508,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>AceShortWrapperArrayWrapper</returns>
-        AceShortWrapperArrayWrapper SendEditorNotify(string fileId, MentionMessageWrapper? mentionMessageWrapper = default);
+        /// <returns>AceShortArrayWrapper</returns>
+        AceShortArrayWrapper SendEditorNotify(string fileId, MentionMessageRequest? mentionMessageRequest = default);
 
         /// <summary>
         /// Notify mentioned users (third-party storage)
@@ -521,10 +521,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
-        ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(string fileId, MentionMessageWrapper? mentionMessageWrapper = default);
+        /// <returns>ApiResponse of AceShortArrayWrapper</returns>
+        ApiResponse<AceShortArrayWrapper> SendEditorNotifyWithHttpInfo(string fileId, MentionMessageRequest? mentionMessageRequest = default);
         /// <summary>
         /// Share a file
         /// </summary>
@@ -918,8 +918,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get file access of group members
@@ -935,8 +935,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get file access of group members (third-party storage)
         /// </summary>
@@ -951,8 +951,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get file access of group members (third-party storage)
@@ -968,8 +968,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder access of group members
         /// </summary>
@@ -984,8 +984,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get folder access of group members
@@ -1001,8 +1001,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder access of group members (third-party storage)
         /// </summary>
@@ -1017,8 +1017,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get folder access of group members (third-party storage)
@@ -1034,8 +1034,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get sharing rights in batch
         /// </summary>
@@ -1071,8 +1071,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of MentionArrayWrapper</returns>
+        Task<MentionArrayWrapper> GetSharedUsersAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get users to mention in a file
@@ -1084,8 +1084,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        Task<ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (MentionArrayWrapper)</returns>
+        Task<ApiResponse<MentionArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get users to mention in a file (third-party storage)
         /// </summary>
@@ -1096,8 +1096,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(string fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of MentionArrayWrapper</returns>
+        Task<MentionArrayWrapper> GetSharedUsersAsync(string fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get users to mention in a file (third-party storage)
@@ -1109,8 +1109,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        Task<ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(string fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (MentionArrayWrapper)</returns>
+        Task<ApiResponse<MentionArrayWrapper>> GetSharedUsersWithHttpInfoAsync(string fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove sharing rights in batch
         /// </summary>
@@ -1144,11 +1144,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of AceShortWrapperArrayWrapper</returns>
-        Task<AceShortWrapperArrayWrapper> SendEditorNotifyAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AceShortArrayWrapper</returns>
+        Task<AceShortArrayWrapper> SendEditorNotifyAsync(int fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Notify mentioned users
@@ -1158,11 +1158,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
-        Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AceShortArrayWrapper)</returns>
+        Task<ApiResponse<AceShortArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Notify mentioned users (third-party storage)
         /// </summary>
@@ -1171,11 +1171,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of AceShortWrapperArrayWrapper</returns>
-        Task<AceShortWrapperArrayWrapper> SendEditorNotifyAsync(string fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of AceShortArrayWrapper</returns>
+        Task<AceShortArrayWrapper> SendEditorNotifyAsync(string fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Notify mentioned users (third-party storage)
@@ -1185,11 +1185,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
-        Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(string fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AceShortArrayWrapper)</returns>
+        Task<ApiResponse<AceShortArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(string fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Share a file
         /// </summary>
@@ -3363,8 +3363,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        public GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        public GroupMemberSecurityArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarResponse = GetGroupsMembersWithFileSecurityWithHttpInfo(fileId, groupId, count, startIndex, filterValue);
             return localVarResponse.Data;
@@ -3383,8 +3383,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        public ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        public ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3446,7 +3446,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<GroupMemberSecurityArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3474,8 +3474,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        public async Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        public async Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetGroupsMembersWithFileSecurityWithHttpInfoAsync(fileId, groupId, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3495,8 +3495,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        public async Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        public async Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3560,7 +3560,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3587,8 +3587,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        public GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        public GroupMemberSecurityArrayWrapper GetGroupsMembersWithFileSecurity(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarResponse = GetGroupsMembersWithFileSecurityWithHttpInfo(fileId, groupId, count, startIndex, filterValue);
             return localVarResponse.Data;
@@ -3607,8 +3607,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        public ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        public ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -3674,7 +3674,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<GroupMemberSecurityArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3702,8 +3702,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        public async Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        public async Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFileSecurityAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetGroupsMembersWithFileSecurityWithHttpInfoAsync(fileId, groupId, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3723,8 +3723,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        public async Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        public async Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(string fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -3792,7 +3792,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3819,8 +3819,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        public GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        public GroupMemberSecurityArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarResponse = GetGroupsMembersWithFolderSecurityWithHttpInfo(folderId, groupId, count, startIndex, filterValue);
             return localVarResponse.Data;
@@ -3839,8 +3839,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        public ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        public ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3902,7 +3902,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<GroupMemberSecurityArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3930,8 +3930,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        public async Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        public async Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(folderId, groupId, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3951,8 +3951,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        public async Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        public async Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4016,7 +4016,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4043,8 +4043,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
-        public GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>GroupMemberSecurityArrayWrapper</returns>
+        public GroupMemberSecurityArrayWrapper GetGroupsMembersWithFolderSecurity(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarResponse = GetGroupsMembersWithFolderSecurityWithHttpInfo(folderId, groupId, count, startIndex, filterValue);
             return localVarResponse.Data;
@@ -4063,8 +4063,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="startIndex">How many members to skip before answering, used together with `count` to page through a large group. (optional)</param>
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
-        public ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        /// <returns>ApiResponse of GroupMemberSecurityArrayWrapper</returns>
+        public ApiResponse<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4130,7 +4130,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<GroupMemberSecurityArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4158,8 +4158,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
-        public async Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of GroupMemberSecurityArrayWrapper</returns>
+        public async Task<GroupMemberSecurityArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(folderId, groupId, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4179,8 +4179,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="filterValue">Keeps only the members whose first name, last name or email contains this value. The value is matched in lower  case, so an uppercase one finds nothing. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
-        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
-        public async Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GroupMemberSecurityArrayWrapper)</returns>
+        public async Task<ApiResponse<GroupMemberSecurityArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(string folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'folderId' is set
             if (folderId == null)
@@ -4248,7 +4248,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4453,8 +4453,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        public MentionWrapperArrayWrapper GetSharedUsers(int fileId)
+        /// <returns>MentionArrayWrapper</returns>
+        public MentionArrayWrapper GetSharedUsers(int fileId)
         {
             var localVarResponse = GetSharedUsersWithHttpInfo(fileId);
             return localVarResponse.Data;
@@ -4469,8 +4469,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        public ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId)
+        /// <returns>ApiResponse of MentionArrayWrapper</returns>
+        public ApiResponse<MentionArrayWrapper> GetSharedUsersWithHttpInfo(int fileId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4519,7 +4519,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<MentionArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4543,8 +4543,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        public async Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of MentionArrayWrapper</returns>
+        public async Task<MentionArrayWrapper> GetSharedUsersAsync(int fileId, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSharedUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4560,8 +4560,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        public async Task<ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (MentionArrayWrapper)</returns>
+        public async Task<ApiResponse<MentionArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4612,7 +4612,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<MentionArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4635,8 +4635,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>MentionWrapperArrayWrapper</returns>
-        public MentionWrapperArrayWrapper GetSharedUsers(string fileId)
+        /// <returns>MentionArrayWrapper</returns>
+        public MentionArrayWrapper GetSharedUsers(string fileId)
         {
             var localVarResponse = GetSharedUsersWithHttpInfo(fileId);
             return localVarResponse.Data;
@@ -4651,8 +4651,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
-        public ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(string fileId)
+        /// <returns>ApiResponse of MentionArrayWrapper</returns>
+        public ApiResponse<MentionArrayWrapper> GetSharedUsersWithHttpInfo(string fileId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -4705,7 +4705,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<MentionArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4729,8 +4729,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of MentionWrapperArrayWrapper</returns>
-        public async Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(string fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of MentionArrayWrapper</returns>
+        public async Task<MentionArrayWrapper> GetSharedUsersAsync(string fileId, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSharedUsersWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4746,8 +4746,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file the operation addresses. Take the identifier from a listing such as `GET api/2.0/files/{folderId}`: a  file stored on the portal is numbered, while a file in a connected third-party account is named by an opaque  string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
-        /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
-        public async Task<ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(string fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (MentionArrayWrapper)</returns>
+        public async Task<ApiResponse<MentionArrayWrapper>> GetSharedUsersWithHttpInfoAsync(string fileId, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -4802,7 +4802,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<MentionArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -5006,12 +5006,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>AceShortWrapperArrayWrapper</returns>
-        public AceShortWrapperArrayWrapper SendEditorNotify(int fileId, MentionMessageWrapper? mentionMessageWrapper = default)
+        /// <returns>AceShortArrayWrapper</returns>
+        public AceShortArrayWrapper SendEditorNotify(int fileId, MentionMessageRequest? mentionMessageRequest = default)
         {
-            var localVarResponse = SendEditorNotifyWithHttpInfo(fileId, mentionMessageWrapper);
+            var localVarResponse = SendEditorNotifyWithHttpInfo(fileId, mentionMessageRequest);
             return localVarResponse.Data;
         }
 
@@ -5023,10 +5023,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
-        public ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageWrapper? mentionMessageWrapper = default)
+        /// <returns>ApiResponse of AceShortArrayWrapper</returns>
+        public ApiResponse<AceShortArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageRequest? mentionMessageRequest = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5042,7 +5042,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
+            if (mentionMessageRequest != null) localVarRequestOptions.Data = mentionMessageRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5076,7 +5076,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AceShortWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AceShortArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -5098,13 +5098,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of AceShortWrapperArrayWrapper</returns>
-        public async Task<AceShortWrapperArrayWrapper> SendEditorNotifyAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AceShortArrayWrapper</returns>
+        public async Task<AceShortArrayWrapper> SendEditorNotifyAsync(int fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SendEditorNotifyWithHttpInfoAsync(fileId, mentionMessageWrapper, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SendEditorNotifyWithHttpInfoAsync(fileId, mentionMessageRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5116,11 +5116,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
-        public async Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AceShortArrayWrapper)</returns>
+        public async Task<ApiResponse<AceShortArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5137,7 +5137,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
+            if (mentionMessageRequest != null) localVarRequestOptions.Data = mentionMessageRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5172,7 +5172,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AceShortWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AceShortArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -5194,12 +5194,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>AceShortWrapperArrayWrapper</returns>
-        public AceShortWrapperArrayWrapper SendEditorNotify(string fileId, MentionMessageWrapper? mentionMessageWrapper = default)
+        /// <returns>AceShortArrayWrapper</returns>
+        public AceShortArrayWrapper SendEditorNotify(string fileId, MentionMessageRequest? mentionMessageRequest = default)
         {
-            var localVarResponse = SendEditorNotifyWithHttpInfo(fileId, mentionMessageWrapper);
+            var localVarResponse = SendEditorNotifyWithHttpInfo(fileId, mentionMessageRequest);
             return localVarResponse.Data;
         }
 
@@ -5211,10 +5211,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
-        public ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(string fileId, MentionMessageWrapper? mentionMessageWrapper = default)
+        /// <returns>ApiResponse of AceShortArrayWrapper</returns>
+        public ApiResponse<AceShortArrayWrapper> SendEditorNotifyWithHttpInfo(string fileId, MentionMessageRequest? mentionMessageRequest = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -5234,7 +5234,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
+            if (mentionMessageRequest != null) localVarRequestOptions.Data = mentionMessageRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5268,7 +5268,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<AceShortWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<AceShortArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -5290,13 +5290,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of AceShortWrapperArrayWrapper</returns>
-        public async Task<AceShortWrapperArrayWrapper> SendEditorNotifyAsync(string fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of AceShortArrayWrapper</returns>
+        public async Task<AceShortArrayWrapper> SendEditorNotifyAsync(string fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SendEditorNotifyWithHttpInfoAsync(fileId, mentionMessageWrapper, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SendEditorNotifyWithHttpInfoAsync(fileId, mentionMessageRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5308,11 +5308,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file the mention was made in. A file stored on the portal is numbered, while a file in a connected  third-party account is named by an opaque string.</param>
-        /// <param name="mentionMessageWrapper">The notification to send. (optional)</param>
+        /// <param name="mentionMessageRequest">The notification to send. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
-        /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
-        public async Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(string fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AceShortArrayWrapper)</returns>
+        public async Task<ApiResponse<AceShortArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(string fileId, MentionMessageRequest? mentionMessageRequest = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -5333,7 +5333,7 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
-            if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
+            if (mentionMessageRequest != null) localVarRequestOptions.Data = mentionMessageRequest;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -5368,7 +5368,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<AceShortWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<AceShortArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

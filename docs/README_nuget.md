@@ -62,17 +62,17 @@ config.AccessToken = "YOUR_BEARER_TOKEN";
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
 var apiInstance = new AIAIApi(httpClient, config, httpClientHandler);
-var aiAiApproveToolCallRequest = new AiAiApproveToolCallRequest(); // AiAiApproveToolCallRequest | 
+var aiApproveToolCallRequest = new AiApproveToolCallRequest(); // AiApproveToolCallRequest | 
 
 try
 {
     // Approve tool call
-    AiChatEvent result = apiInstance.AiAiApproveToolCall(aiAiApproveToolCallRequest);
+    AiChatEvent result = apiInstance.AiApproveToolCall(aiApproveToolCallRequest);
     Debug.WriteLine(result);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AIAIApi.AiAiApproveToolCall: " + e.Message );
+    Debug.Print("Exception when calling AIAIApi.AiApproveToolCall: " + e.Message );
     Debug.Print("Status Code: "+ e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

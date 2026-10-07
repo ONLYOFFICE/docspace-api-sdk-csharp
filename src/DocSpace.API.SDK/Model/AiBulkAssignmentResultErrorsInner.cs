@@ -54,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="actionType">actionType (required).</param>
         /// <param name="error">error (required).</param>
-        public AiBulkAssignmentResultErrorsInner(AiActionType actionType = default, AiTErrorData error = default)
+        public AiBulkAssignmentResultErrorsInner(AiActionType actionType = default, AiErrorData error = default)
         {
             this.ActionType = actionType;
             // to ensure "error" is required (not null)
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Error
         /// </summary>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
-        public AiTErrorData Error { get; set; }
+        public AiErrorData Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

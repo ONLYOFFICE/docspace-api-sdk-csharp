@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiThreadsRenameRequest
     /// </summary>
-    [DataContract(Name = "aiThreadsRename_request")]
+    [DataContract(Name = "AiThreadsRenameRequest")]
     public partial class AiThreadsRenameRequest : IValidatableObject
     {
     

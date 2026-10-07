@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.BalanceWrapper
-The successful API response containing the Balance object.
+The successful API response containing the BalanceDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**Balance**](Balance.md) | The Balance object returned by the operation. | [optional] 
+**Response** | [**BalanceDto**](BalanceDto.md) | The BalanceDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The successful API response containing the TenantWalletServiceSettings object.
+    /// The successful API response containing the TenantWalletServiceSettingsDto object.
     /// </summary>
     [DataContract(Name = "TenantWalletServiceSettingsWrapper")]
     public partial class TenantWalletServiceSettingsWrapper : IValidatableObject
@@ -41,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantWalletServiceSettingsWrapper" /> class.
         /// </summary>
-        /// <param name="response">The TenantWalletServiceSettings object returned by the operation..</param>
+        /// <param name="response">The TenantWalletServiceSettingsDto object returned by the operation..</param>
         /// <param name="count">The total number of items in the response.</param>
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public TenantWalletServiceSettingsWrapper(TenantWalletServiceSettings response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public TenantWalletServiceSettingsWrapper(TenantWalletServiceSettingsDto response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -56,10 +56,10 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The TenantWalletServiceSettings object returned by the operation.
+        /// The TenantWalletServiceSettingsDto object returned by the operation.
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public TenantWalletServiceSettings Response { get; set; }
+        public TenantWalletServiceSettingsDto Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="properties">The settings the provider expects, each with its key, its localised label and the value the server  currently holds. For the entry marked &#x60;current&#x60; the values come from the portal&#39;s saved storage settings  and for the others from the installation configuration, so a setting nobody has configured comes back with  an empty value rather than being left out..</param>
         /// <param name="current">Whether the portal is using this provider right now. At most one entry of a listing has it set. (required).</param>
         /// <param name="isSet">Whether the provider&#39;s keys are already filled in on the server, so it could be switched to without  sending credentials. It says nothing about whether the credentials still work. (required).</param>
-        public StorageDto(string id = default, string title = default, List<AuthKey> properties = default, bool current = default, bool isSet = default)
+        public StorageDto(string id = default, string title = default, List<AuthKeyDto> properties = default, bool current = default, bool isSet = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>[{"name":"acesskey","value":"AKIAIOSFODNN7EXAMPLE","title":"Access key"}]</example>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
-        public List<AuthKey> Properties { get; set; }
+        public List<AuthKeyDto> Properties { get; set; }
 
         /// <summary>
         /// Whether the portal is using this provider right now. At most one entry of a listing has it set.

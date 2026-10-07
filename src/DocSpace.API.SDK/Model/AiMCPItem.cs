@@ -1,0 +1,171 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// Descriptor for a tool exposed by an MCP server.
+    /// </summary>
+    [DataContract(Name = "AiMCPItem")]
+    public partial class AiMCPItem : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AiMCPItem" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected AiMCPItem() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AiMCPItem" /> class.
+        /// </summary>
+        /// <param name="name">Tool name as registered on the MCP server (e.g. &#x60;web_search&#x60;, &#x60;insert_text&#x60;). (required).</param>
+        /// <param name="description">Human-readable description shown to the AI model and in the tools list UI. (required).</param>
+        /// <param name="inputSchema">JSON Schema describing the tool&#39;s input parameters. (required).</param>
+        /// <param name="enabled">Whether this tool is currently enabled. Disabled tools are hidden from the AI model..</param>
+        /// <param name="serverType">Server type (MCP server name / host tool group id) this tool belongs to — the key the persisted disabled map is stored under. Set by the source that enumerated the tool, so a caller-supplied tool can still be attributed to its group after being flattened into a single list: that is what lets the engine apply the disabled map to &#x60;actionArgs.tools&#x60; instead of trusting the caller to pre-filter. Wire-serializable, so it survives a remote (server-side) engine..</param>
+        /// <param name="requireApproval">Whether the consumer must show an approval dialog before this tool runs. Feeds the &#x60;autoAllow&#x60; flag on a &#x60;tool-call-pending&#x60; event together with the user&#39;s tool permission mode: &#x60;false&#x60; skips the dialog under the auto mode, the default (under ask only the persisted always-allow list does), &#x60;true&#x60; and &#x60;undefined&#x60; defer to that list; allow skips it for every tool. Host tools set it and default to &#x60;false&#x60;; MCP / custom-server tools leave it unset. Wire-serializable, so it survives a remote (server-side) engine..</param>
+        /// <param name="annotations">The MCP tool annotations as the server declared them in &#x60;tools/list&#x60; (kept verbatim on the descriptor; never sent to the model). The approval flow reads two of them under the auto permission mode: &#x60;readOnlyHint: true&#x60; and &#x60;destructiveHint: false&#x60; run without the dialog, a destructive or unannotated tool keeps asking — see &#x60;resolveAutoAllow&#x60;. Wire-serializable..</param>
+        public AiMCPItem(string name = default, string description = default, Object inputSchema = default, bool enabled = default, string serverType = default, bool requireApproval = default, AiToolAnnotations annotations = default)
+        {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for AiMCPItem and cannot be null");
+            }
+            this.Name = name;
+            // to ensure "description" is required (not null)
+            if (description == null)
+            {
+                throw new ArgumentNullException("description is a required property for AiMCPItem and cannot be null");
+            }
+            this.Description = description;
+            // to ensure "inputSchema" is required (not null)
+            if (inputSchema == null)
+            {
+                throw new ArgumentNullException("inputSchema is a required property for AiMCPItem and cannot be null");
+            }
+            this.InputSchema = inputSchema;
+            this.Enabled = enabled;
+            this.ServerType = serverType;
+            this.RequireApproval = requireApproval;
+            this.Annotations = annotations;
+        }
+
+        /// <summary>
+        /// Tool name as registered on the MCP server (e.g. &#x60;web_search&#x60;, &#x60;insert_text&#x60;).
+        /// </summary>
+        /// <example>docspace_get_folder</example>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Human-readable description shown to the AI model and in the tools list UI.
+        /// </summary>
+        /// <example>Read the contents of a DocSpace folder.</example>
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// JSON Schema describing the tool&#39;s input parameters.
+        /// </summary>
+        /// <example>{"type":"object","properties":{"folderId":{"type":"string"}},"required":["folderId"]}</example>
+        [DataMember(Name = "inputSchema", IsRequired = true, EmitDefaultValue = true)]
+        public Object InputSchema { get; set; }
+
+        /// <summary>
+        /// Whether this tool is currently enabled. Disabled tools are hidden from the AI model.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        public bool Enabled { get; set; }
+
+        /// <summary>
+        /// Server type (MCP server name / host tool group id) this tool belongs to — the key the persisted disabled map is stored under. Set by the source that enumerated the tool, so a caller-supplied tool can still be attributed to its group after being flattened into a single list: that is what lets the engine apply the disabled map to &#x60;actionArgs.tools&#x60; instead of trusting the caller to pre-filter. Wire-serializable, so it survives a remote (server-side) engine.
+        /// </summary>
+        /// <example>docspace</example>
+        [DataMember(Name = "serverType", EmitDefaultValue = false)]
+        public string ServerType { get; set; }
+
+        /// <summary>
+        /// Whether the consumer must show an approval dialog before this tool runs. Feeds the &#x60;autoAllow&#x60; flag on a &#x60;tool-call-pending&#x60; event together with the user&#39;s tool permission mode: &#x60;false&#x60; skips the dialog under the auto mode, the default (under ask only the persisted always-allow list does), &#x60;true&#x60; and &#x60;undefined&#x60; defer to that list; allow skips it for every tool. Host tools set it and default to &#x60;false&#x60;; MCP / custom-server tools leave it unset. Wire-serializable, so it survives a remote (server-side) engine.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "requireApproval", EmitDefaultValue = true)]
+        public bool RequireApproval { get; set; }
+
+        /// <summary>
+        /// The MCP tool annotations as the server declared them in &#x60;tools/list&#x60; (kept verbatim on the descriptor; never sent to the model). The approval flow reads two of them under the auto permission mode: &#x60;readOnlyHint: true&#x60; and &#x60;destructiveHint: false&#x60; run without the dialog, a destructive or unannotated tool keeps asking — see &#x60;resolveAutoAllow&#x60;. Wire-serializable.
+        /// </summary>
+        [DataMember(Name = "annotations", EmitDefaultValue = false)]
+        public AiToolAnnotations Annotations { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class AiMCPItem {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  InputSchema: ").Append(InputSchema).Append("\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  ServerType: ").Append(ServerType).Append("\n");
+            sb.Append("  RequireApproval: ").Append(RequireApproval).Append("\n");
+            sb.Append("  Annotations: ").Append(Annotations).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

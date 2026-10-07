@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiPreferencesSetDeepModeRequest
     /// </summary>
-    [DataContract(Name = "aiPreferencesSetDeepMode_request")]
+    [DataContract(Name = "AiPreferencesSetDeepModeRequest")]
     public partial class AiPreferencesSetDeepModeRequest : IValidatableObject
     {
     

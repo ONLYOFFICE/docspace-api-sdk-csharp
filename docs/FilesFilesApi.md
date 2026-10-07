@@ -201,12 +201,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file as it stands after the entry was recorded |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party file identifier refers to a storage account that is not connected |  -  |
 | **403** | The calling account cannot read this file |  -  |
 | **404** | No file answers to this identifier |  -  |
+| **500** | A third-party file identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -322,12 +322,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file as it stands after the entry was recorded |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A third-party file identifier refers to a storage account that is not connected |  -  |
 | **403** | The calling account cannot read this file |  -  |
 | **404** | No file answers to this identifier |  -  |
+| **500** | A third-party file identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -441,6 +441,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Always true: the request was understood, which does not mean that anything was added |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -452,7 +453,7 @@ catch (ApiException e)
 
 <a id="changeversionhistory"></a>
 # **ChangeVersionHistory**
-> FileArrayWrapper ChangeVersionHistory (int fileId, ChangeHistory changeHistory)
+> FileArrayWrapper ChangeVersionHistory (int fileId, ChangeHistoryRequest changeHistoryRequest)
 
 Closes or reopens a revision group in the version history of a file and answers with every stored version of  that file, newest first. With `continueVersion=false` the named version is completed: its content is stored  again as a fresh version that opens a new revision group, so the editing that follows no longer extends the  previous one. With `continueVersion=true` the last revision group is folded back into the group before it, so  the next save continues that revision instead of becoming a version of its own; a file that has only one group  is left as it is. A `version` of 0 means the current version. The caller needs the right to edit the history  of the file, which the room admin, a DocSpace admin acting as room manager and a member with content-creator  rights have; plain editing access is refused with 403, as are a guest and a member without access to the room.  The call is mutating and not idempotent. A file that is locked, lies in Trash, is open in an editing session  or is kept in a connected third-party storage is refused.
 
@@ -463,7 +464,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The file whose version history is changed. |  |
-| **changeHistory** | [**ChangeHistory**](ChangeHistory.md) | The change to make to the revision group. |  |
+| **changeHistoryRequest** | [**ChangeHistoryRequest**](ChangeHistoryRequest.md) | The change to make to the revision group. |  |
 
 ### Return type
 
@@ -511,12 +512,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file whose version history is changed.
-            var changeHistory = new ChangeHistory(); // ChangeHistory | The change to make to the revision group.
+            var changeHistoryRequest = new ChangeHistoryRequest(); // ChangeHistoryRequest | The change to make to the revision group.
 
             try
             {
                 // Change version history
-                FileArrayWrapper result = apiInstance.ChangeVersionHistory(fileId, changeHistory);
+                FileArrayWrapper result = apiInstance.ChangeVersionHistory(fileId, changeHistoryRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -537,7 +538,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Change version history
-    ApiResponse<FileArrayWrapper> response = apiInstance.ChangeVersionHistoryWithHttpInfo(fileId, changeHistory);
+    ApiResponse<FileArrayWrapper> response = apiInstance.ChangeVersionHistoryWithHttpInfo(fileId, changeHistoryRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -560,11 +561,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The versions of the file after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `version` |  -  |
+| **402** | Completing the current version needs more space than the room or user storage quota leaves |  -  |
 | **403** | The caller may not change the version history of the file |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
+| **500** | The file is locked by somebody else, or, when the current version is completed, the file is encrypted, another update of it is in progress, or storing the new version fails |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -572,7 +575,7 @@ catch (ApiException e)
 
 <a id="changeversionhistory-thirdparty"></a>
 # **ChangeVersionHistory** (third-party storage)
-> ThirdPartyFileArrayWrapper ChangeVersionHistory (string fileId, ChangeHistory changeHistory)
+> ThirdPartyFileArrayWrapper ChangeVersionHistory (string fileId, ChangeHistoryRequest changeHistoryRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -585,7 +588,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The file whose version history is changed. |  |
-| **changeHistory** | [**ChangeHistory**](ChangeHistory.md) | The change to make to the revision group. |  |
+| **changeHistoryRequest** | [**ChangeHistoryRequest**](ChangeHistoryRequest.md) | The change to make to the revision group. |  |
 
 ### Return type
 
@@ -633,12 +636,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The file whose version history is changed.
-            var changeHistory = new ChangeHistory(); // ChangeHistory | The change to make to the revision group.
+            var changeHistoryRequest = new ChangeHistoryRequest(); // ChangeHistoryRequest | The change to make to the revision group.
 
             try
             {
                 // Change version history (third-party storage)
-                ThirdPartyFileArrayWrapper result = apiInstance.ChangeVersionHistory(fileId, changeHistory);
+                ThirdPartyFileArrayWrapper result = apiInstance.ChangeVersionHistory(fileId, changeHistoryRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -659,7 +662,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Change version history (third-party storage)
-    ApiResponse<ThirdPartyFileArrayWrapper> response = apiInstance.ChangeVersionHistoryWithHttpInfo(fileId, changeHistory);
+    ApiResponse<ThirdPartyFileArrayWrapper> response = apiInstance.ChangeVersionHistoryWithHttpInfo(fileId, changeHistoryRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -682,11 +685,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The versions of the file after the change |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `version` |  -  |
+| **402** | Completing the current version needs more space than the room or user storage quota leaves |  -  |
 | **403** | The caller may not change the version history of the file |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
+| **500** | The file is locked by somebody else, or, when the current version is completed, the file is encrypted, another update of it is in progress, or storing the new version fails |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -694,7 +699,7 @@ catch (ApiException e)
 
 <a id="checkfillformdraft"></a>
 # **CheckFillFormDraft**
-> StringWrapper CheckFillFormDraft (int fileId, CheckFillFormDraft checkFillFormDraft)
+> StringWrapper CheckFillFormDraft (int fileId, CheckFillFormDraftRequest checkFillFormDraftRequest)
 
 Resolves the editor address the caller must open to fill out the given PDF form, and provisions the personal  draft that filling needs. The form has to live in a form-filling room and filling has to be started for it  with `PUT api/2.0/files/file/{fileId}/manageformfilling`; a caller who may edit the form, a form whose filling  has not started, and a request naming `view` or `embedded` as the action are all sent straight to the form  itself. Read access to the form is enough to get an address, fill-forms access is what puts the caller into  the filling flow, and a holder of an external link may call it without signing in, while a caller with neither  a session nor a link key is rejected. In the filling case the call is not read-only: it copies the form into  the room's in-progress folder under the caller's name, clears the new-item badge, closes the editing session  of the original, and answers with the address of that copy. A repeated call reuses that copy, and a call  naming an existing draft adds a discard notice when that draft is no longer valid. The answer is one URL  string that may carry a `#message/...` fragment the editor renders as a notice. For the full editor  configuration use `GET api/2.0/files/file/{fileId}/openedit`. A form the caller cannot open is refused with  403, and one that does not exist is answered as missing.
 
@@ -705,7 +710,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well. |  |
-| **checkFillFormDraft** | [**CheckFillFormDraft**](CheckFillFormDraft.md) | The revision of the form to open and what the caller intends to do with it. |  |
+| **checkFillFormDraftRequest** | [**CheckFillFormDraftRequest**](CheckFillFormDraftRequest.md) | The revision of the form to open and what the caller intends to do with it. |  |
 
 ### Return type
 
@@ -753,12 +758,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well.
-            var checkFillFormDraft = new CheckFillFormDraft(); // CheckFillFormDraft | The revision of the form to open and what the caller intends to do with it.
+            var checkFillFormDraftRequest = new CheckFillFormDraftRequest(); // CheckFillFormDraftRequest | The revision of the form to open and what the caller intends to do with it.
 
             try
             {
                 // Open a form draft for filling
-                StringWrapper result = apiInstance.CheckFillFormDraft(fileId, checkFillFormDraft);
+                StringWrapper result = apiInstance.CheckFillFormDraft(fileId, checkFillFormDraftRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -779,7 +784,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Open a form draft for filling
-    ApiResponse<StringWrapper> response = apiInstance.CheckFillFormDraftWithHttpInfo(fileId, checkFillFormDraft);
+    ApiResponse<StringWrapper> response = apiInstance.CheckFillFormDraftWithHttpInfo(fileId, checkFillFormDraftRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -802,10 +807,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The editor address to open, with an optional notice fragment |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot open the form, or asked for a past revision without history access |  -  |
+| **400** | The request body cannot be read or has no `version` |  -  |
+| **401** | An anonymous caller has no external link |  -  |
+| **402** | The personal draft does not fit into the storage quota of the portal or the room |  -  |
+| **403** | The caller cannot open the form, asked for a past revision without history access, the form is in Trash, or the caller may fill the form but not the folder it lies in |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -813,7 +822,7 @@ catch (ApiException e)
 
 <a id="checkfillformdraft-thirdparty"></a>
 # **CheckFillFormDraft** (third-party storage)
-> StringWrapper CheckFillFormDraft (string fileId, CheckFillFormDraft checkFillFormDraft)
+> StringWrapper CheckFillFormDraft (string fileId, CheckFillFormDraftRequest checkFillFormDraftRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -826,7 +835,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well. |  |
-| **checkFillFormDraft** | [**CheckFillFormDraft**](CheckFillFormDraft.md) | The revision of the form to open and what the caller intends to do with it. |  |
+| **checkFillFormDraftRequest** | [**CheckFillFormDraftRequest**](CheckFillFormDraftRequest.md) | The revision of the form to open and what the caller intends to do with it. |  |
 
 ### Return type
 
@@ -874,12 +883,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The identifier of the PDF form to open, as it is returned by a room listing such as  `GET api/2.0/files/{folderId}`. The identifier of an already created draft is accepted here as well.
-            var checkFillFormDraft = new CheckFillFormDraft(); // CheckFillFormDraft | The revision of the form to open and what the caller intends to do with it.
+            var checkFillFormDraftRequest = new CheckFillFormDraftRequest(); // CheckFillFormDraftRequest | The revision of the form to open and what the caller intends to do with it.
 
             try
             {
                 // Open a form draft for filling (third-party storage)
-                StringWrapper result = apiInstance.CheckFillFormDraft(fileId, checkFillFormDraft);
+                StringWrapper result = apiInstance.CheckFillFormDraft(fileId, checkFillFormDraftRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -900,7 +909,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Open a form draft for filling (third-party storage)
-    ApiResponse<StringWrapper> response = apiInstance.CheckFillFormDraftWithHttpInfo(fileId, checkFillFormDraft);
+    ApiResponse<StringWrapper> response = apiInstance.CheckFillFormDraftWithHttpInfo(fileId, checkFillFormDraftRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -923,10 +932,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The editor address to open, with an optional notice fragment |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot open the form, or asked for a past revision without history access |  -  |
+| **400** | The request body cannot be read or has no `version` |  -  |
+| **401** | An anonymous caller has no external link |  -  |
+| **402** | The personal draft does not fit into the storage quota of the portal or the room |  -  |
+| **403** | The caller cannot open the form, asked for a past revision without history access, the form is in Trash, or the caller may fill the form but not the folder it lies in |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -934,7 +947,7 @@ catch (ApiException e)
 
 <a id="copyfileas"></a>
 # **CopyFileAs**
-> FileEntryBaseWrapper CopyFileAs (int fileId, CopyAsJsonElement copyAsJsonElement)
+> FileEntryBaseWrapper CopyFileAs (int fileId, CopyAsRequest copyAsRequest)
 
 Copies one file into another folder under a new title, converting its content when the new title names a  different format, and answers with the copy that was created. The extension of `destTitle` decides what  happens: the same extension as the source copies the bytes as they are, a different one has the document  service convert them first, and `toForm=true` converts a document into a PDF form. `password` unlocks a source  file that is protected by one. `destFolderId` is read as a number for a folder inside the portal and as a  string for a folder in a connected third-party storage; anything else is answered with an empty body and  nothing is copied. The caller needs read access to the source file and the right to create files in the  destination folder, and is otherwise refused with 403; a missing file or folder is answered with 404, and a  format that cannot be converted with 400. The call is mutating and not idempotent - each call adds another  copy. To copy many items at once, and without converting, use `PUT api/2.0/files/fileops/copy`.
 
@@ -945,7 +958,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The file to copy. |  |
-| **copyAsJsonElement** | [**CopyAsJsonElement**](CopyAsJsonElement.md) | The title, the destination and the conversion options of the copy. |  |
+| **copyAsRequest** | [**CopyAsRequest**](CopyAsRequest.md) | The title, the destination and the conversion options of the copy. |  |
 
 ### Return type
 
@@ -993,12 +1006,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file to copy.
-            var copyAsJsonElement = new CopyAsJsonElement(); // CopyAsJsonElement | The title, the destination and the conversion options of the copy.
+            var copyAsRequest = new CopyAsRequest(); // CopyAsRequest | The title, the destination and the conversion options of the copy.
 
             try
             {
                 // Copy a file
-                FileEntryBaseWrapper result = apiInstance.CopyFileAs(fileId, copyAsJsonElement);
+                FileEntryBaseWrapper result = apiInstance.CopyFileAs(fileId, copyAsRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1019,7 +1032,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Copy a file
-    ApiResponse<FileEntryBaseWrapper> response = apiInstance.CopyFileAsWithHttpInfo(fileId, copyAsJsonElement);
+    ApiResponse<FileEntryBaseWrapper> response = apiInstance.CopyFileAsWithHttpInfo(fileId, copyAsRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1042,12 +1055,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The copy that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The content cannot be converted into the format of the new title |  -  |
-| **403** | The caller may not read the file or may not create files in the destination folder |  -  |
+| **400** | The request body cannot be read or has no `destTitle` or `destFolderId`, or the new title is empty while the source file has no extension |  -  |
+| **402** | The copy does not fit into the storage quota of the portal, the room or the user, or the converted content exceeds the maximum upload size |  -  |
+| **403** | The caller may not read the file, the destination folder does not exist, or the caller may not create files in it |  -  |
 | **404** | The file or the destination folder does not exist |  -  |
+| **415** | The installation filters uploads and does not accept the format of the new title |  -  |
+| **500** | The document service fails to convert the content, `destFolderId` is a fraction or outside the 32-bit range, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1055,7 +1070,7 @@ catch (ApiException e)
 
 <a id="copyfileas-thirdparty"></a>
 # **CopyFileAs** (third-party storage)
-> FileEntryBaseWrapper CopyFileAs (string fileId, CopyAsJsonElement copyAsJsonElement)
+> FileEntryBaseWrapper CopyFileAs (string fileId, CopyAsRequest copyAsRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1068,7 +1083,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The file to copy. |  |
-| **copyAsJsonElement** | [**CopyAsJsonElement**](CopyAsJsonElement.md) | The title, the destination and the conversion options of the copy. |  |
+| **copyAsRequest** | [**CopyAsRequest**](CopyAsRequest.md) | The title, the destination and the conversion options of the copy. |  |
 
 ### Return type
 
@@ -1116,12 +1131,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The file to copy.
-            var copyAsJsonElement = new CopyAsJsonElement(); // CopyAsJsonElement | The title, the destination and the conversion options of the copy.
+            var copyAsRequest = new CopyAsRequest(); // CopyAsRequest | The title, the destination and the conversion options of the copy.
 
             try
             {
                 // Copy a file (third-party storage)
-                FileEntryBaseWrapper result = apiInstance.CopyFileAs(fileId, copyAsJsonElement);
+                FileEntryBaseWrapper result = apiInstance.CopyFileAs(fileId, copyAsRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1142,7 +1157,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Copy a file (third-party storage)
-    ApiResponse<FileEntryBaseWrapper> response = apiInstance.CopyFileAsWithHttpInfo(fileId, copyAsJsonElement);
+    ApiResponse<FileEntryBaseWrapper> response = apiInstance.CopyFileAsWithHttpInfo(fileId, copyAsRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1165,12 +1180,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The copy that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The content cannot be converted into the format of the new title |  -  |
-| **403** | The caller may not read the file or may not create files in the destination folder |  -  |
+| **400** | The request body cannot be read or has no `destTitle` or `destFolderId`, or the new title is empty while the source file has no extension |  -  |
+| **402** | The copy does not fit into the storage quota of the portal, the room or the user, or the converted content exceeds the maximum upload size |  -  |
+| **403** | The caller may not read the file, the destination folder does not exist, or the caller may not create files in it |  -  |
 | **404** | The file or the destination folder does not exist |  -  |
+| **415** | The installation filters uploads and does not accept the format of the new title |  -  |
+| **500** | The document service fails to convert the content, `destFolderId` is a fraction or outside the 32-bit range, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1178,7 +1195,7 @@ catch (ApiException e)
 
 <a id="createeditsession"></a>
 # **CreateEditSession**
-> ChunkedUploadSessionResponseWrapperWrapper CreateEditSession (int fileId, long? fileSize = null)
+> ChunkedUploadSessionResultWrapper CreateEditSession (int fileId, long? fileSize = null)
 
 Opens a chunked session that replaces the content of an existing file, which is how WebDAV clients save over a  document. The answer carries the session id the later calls quote, the address of the standalone chunk  handler, the expiry and the reserved size, and nothing is written until the parts reach  `POST api/2.0/files/{folderId}/session/{sessionId}/upload` and the session is closed with  `PUT api/2.0/files/{folderId}/session/{sessionId}/finalize`, where `folderId` is the folder the file lives in.  Unlike an upload into a folder, the finished content does not become a new version: it overwrites the current  one, and the file loses its encrypted flag and its stored conversion result in the process. The caller must be  allowed to edit the file, as the owner, a room manager and a member invited with editing rights are; a reader  and a guest get 403. A file that does not exist is answered as missing, and a payload above the portal limit  for chunked uploads is refused before the session is created.
 
@@ -1193,7 +1210,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ChunkedUploadSessionResponseWrapperWrapper**](ChunkedUploadSessionResponseWrapperWrapper.md)
+[**ChunkedUploadSessionResultWrapper**](ChunkedUploadSessionResultWrapper.md)
 
 ### Authorization
 
@@ -1242,7 +1259,7 @@ namespace Example
             try
             {
                 // Create the editing session
-                ChunkedUploadSessionResponseWrapperWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
+                ChunkedUploadSessionResultWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1263,7 +1280,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create the editing session
-    ApiResponse<ChunkedUploadSessionResponseWrapperWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
+    ApiResponse<ChunkedUploadSessionResultWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1286,7 +1303,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created editing session, wrapped in the success envelope |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot edit this file |  -  |
+| **402** | The declared `fileSize` exceeds the portal limit for chunked uploads |  -  |
+| **403** | The caller cannot edit this file, or the file is locked, open in the editor, in the trash or encrypted |  -  |
+| **404** | No file with the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1298,7 +1317,7 @@ catch (ApiException e)
 
 <a id="createeditsession-thirdparty"></a>
 # **CreateEditSession** (third-party storage)
-> ThirdPartyChunkedUploadSessionResponseWrapperWrapper CreateEditSession (string fileId, long? fileSize = null)
+> ThirdPartyChunkedUploadSessionResultWrapper CreateEditSession (string fileId, long? fileSize = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1315,7 +1334,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ThirdPartyChunkedUploadSessionResponseWrapperWrapper**](ThirdPartyChunkedUploadSessionResponseWrapperWrapper.md)
+[**ThirdPartyChunkedUploadSessionResultWrapper**](ThirdPartyChunkedUploadSessionResultWrapper.md)
 
 ### Authorization
 
@@ -1364,7 +1383,7 @@ namespace Example
             try
             {
                 // Create the editing session (third-party storage)
-                ThirdPartyChunkedUploadSessionResponseWrapperWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
+                ThirdPartyChunkedUploadSessionResultWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1385,7 +1404,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create the editing session (third-party storage)
-    ApiResponse<ThirdPartyChunkedUploadSessionResponseWrapperWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
+    ApiResponse<ThirdPartyChunkedUploadSessionResultWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1408,7 +1427,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created editing session, wrapped in the success envelope |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot edit this file |  -  |
+| **402** | The declared `fileSize` exceeds the portal limit for chunked uploads |  -  |
+| **403** | The caller cannot edit this file, or the file is locked, open in the editor, in the trash or encrypted |  -  |
+| **404** | No file with the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1420,7 +1441,7 @@ catch (ApiException e)
 
 <a id="createfile"></a>
 # **CreateFile**
-> FileWrapper CreateFile (int folderId, CreateFileJsonElement createFileJsonElement)
+> FileWrapper CreateFile (int folderId, CreateFileRequest createFileRequest)
 
 Creates a file in the folder named in the route and answers with the stored file. The extension in the title  decides the format: an extension of a known text, spreadsheet or presentation format is rewritten to the  portal's own DOCX, XLSX or PPTX, a title with no extension at all gets DOCX added, while an unknown extension  and the few formats the portal keeps as they are stay untouched; `enableExternalExt=true` stores the title  verbatim and skips that rewriting. The content comes from one of three sources, tried in this order: `formId`  copies a ready form out of the form gallery, `templateId` copies an existing file the caller can read - a  number for a file in the portal, a string for one in a connected third-party storage - and with neither of  them the portal's blank template for that format and the caller's language is used. The caller needs the right  to create files in the folder, and the room roots, Archive and the template sections are refused even to an  admin. The call is mutating and not idempotent. To create the file in the caller's own section use  `POST api/2.0/files/@my/file`.
 
@@ -1431,7 +1452,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder the file is created in. |  |
-| **createFileJsonElement** | [**CreateFileJsonElement**](CreateFileJsonElement.md) | The title of the new file and the source of its content. |  |
+| **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md) | The title of the new file and the source of its content. |  |
 
 ### Return type
 
@@ -1479,12 +1500,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder the file is created in.
-            var createFileJsonElement = new CreateFileJsonElement(); // CreateFileJsonElement | The title of the new file and the source of its content.
+            var createFileRequest = new CreateFileRequest(); // CreateFileRequest | The title of the new file and the source of its content.
 
             try
             {
                 // Create a file
-                FileWrapper result = apiInstance.CreateFile(folderId, createFileJsonElement);
+                FileWrapper result = apiInstance.CreateFile(folderId, createFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1505,7 +1526,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a file
-    ApiResponse<FileWrapper> response = apiInstance.CreateFileWithHttpInfo(folderId, createFileJsonElement);
+    ApiResponse<FileWrapper> response = apiInstance.CreateFileWithHttpInfo(folderId, createFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1528,10 +1549,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file created in the folder: its id and the title the portal actually stored, whose extension may differ from the requested one; `thumbnailStatus` says whether the preview is already built |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title`, or the title is empty or longer than 165 characters |  -  |
+| **402** | The new file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller may not create files in the folder, the folder does not exist or is a section where files cannot be created, the template does not exist or cannot be read, or the form gallery has no file of the title's format |  -  |
+| **404** | The folder id or `templateId` is a string that is not the id of an item in a known third-party storage |  -  |
+| **500** | `templateId` is a fraction, a number outside the 32-bit range or a numeric string, the form gallery does not know `formId` or cannot be reached, or the folder id is 0 and the caller is a guest without My documents |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1539,7 +1563,7 @@ catch (ApiException e)
 
 <a id="createfile-thirdparty"></a>
 # **CreateFile** (third-party storage)
-> ThirdPartyFileWrapper CreateFile (string folderId, CreateFileJsonElement createFileJsonElement)
+> ThirdPartyFileWrapper CreateFile (string folderId, CreateFileRequest createFileRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1552,7 +1576,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **string** | The folder the file is created in. |  |
-| **createFileJsonElement** | [**CreateFileJsonElement**](CreateFileJsonElement.md) | The title of the new file and the source of its content. |  |
+| **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md) | The title of the new file and the source of its content. |  |
 
 ### Return type
 
@@ -1600,12 +1624,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var folderId = sbox-42;  // string | The folder the file is created in.
-            var createFileJsonElement = new CreateFileJsonElement(); // CreateFileJsonElement | The title of the new file and the source of its content.
+            var createFileRequest = new CreateFileRequest(); // CreateFileRequest | The title of the new file and the source of its content.
 
             try
             {
                 // Create a file (third-party storage)
-                ThirdPartyFileWrapper result = apiInstance.CreateFile(folderId, createFileJsonElement);
+                ThirdPartyFileWrapper result = apiInstance.CreateFile(folderId, createFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1626,7 +1650,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a file (third-party storage)
-    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.CreateFileWithHttpInfo(folderId, createFileJsonElement);
+    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.CreateFileWithHttpInfo(folderId, createFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1649,10 +1673,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file created in the folder: its id and the title the portal actually stored, whose extension may differ from the requested one; `thumbnailStatus` says whether the preview is already built |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title`, or the title is empty or longer than 165 characters |  -  |
+| **402** | The new file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller may not create files in the folder, the folder does not exist or is a section where files cannot be created, the template does not exist or cannot be read, or the form gallery has no file of the title's format |  -  |
+| **404** | The folder id or `templateId` is a string that is not the id of an item in a known third-party storage |  -  |
+| **500** | `templateId` is a fraction, a number outside the 32-bit range or a numeric string, the form gallery does not know `formId` or cannot be reached, or the folder id is 0 and the caller is a guest without My documents |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1660,7 +1687,7 @@ catch (ApiException e)
 
 <a id="createfileinmydocuments"></a>
 # **CreateFileInMyDocuments**
-> FileWrapper CreateFileInMyDocuments (CreateFileJsonElement? createFileJsonElement = null)
+> FileWrapper CreateFileInMyDocuments (CreateFileRequest? createFileRequest = null)
 
 Creates a file in the caller's own My documents section and answers with the stored file. The extension in  the title decides the format: an extension of a known text, spreadsheet or presentation format is rewritten to  the portal's own DOCX, XLSX or PPTX, a title with no extension at all gets DOCX added, while an unknown  extension and the few formats the portal keeps as they are stay untouched; `enableExternalExt=true` stores the  title verbatim and skips that rewriting. The content comes from one of three sources, tried in this order:  `formId` copies a ready form out of the form gallery, `templateId` copies an existing file the caller can read  - a number for a file in the portal, a string for one in a connected third-party storage - and with neither of  them the portal's blank template for that format and the caller's language is used. The call is mutating and  not idempotent: each call adds another file. A guest has no My documents section of their own, so a guest  cannot use this operation at all, and a template the caller cannot read is refused. To create a file in a  room or any other folder use  `POST api/2.0/files/{folderId}/file`.
 
@@ -1670,7 +1697,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createFileJsonElement** | [**CreateFileJsonElement?**](CreateFileJsonElement.md) | The parameters of a file that the portal creates from a template or a blank document. | [optional]  |
+| **createFileRequest** | [**CreateFileRequest?**](CreateFileRequest.md) | The parameters of a file that the portal creates from a template or a blank document. | [optional]  |
 
 ### Return type
 
@@ -1717,12 +1744,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var createFileJsonElement = new CreateFileJsonElement?(); // CreateFileJsonElement? | The parameters of a file that the portal creates from a template or a blank document. (optional) 
+            var createFileRequest = new CreateFileRequest?(); // CreateFileRequest? | The parameters of a file that the portal creates from a template or a blank document. (optional) 
 
             try
             {
                 // Create a file in My documents
-                FileWrapper result = apiInstance.CreateFileInMyDocuments(createFileJsonElement);
+                FileWrapper result = apiInstance.CreateFileInMyDocuments(createFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1743,7 +1770,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a file in My documents
-    ApiResponse<FileWrapper> response = apiInstance.CreateFileInMyDocumentsWithHttpInfo(createFileJsonElement);
+    ApiResponse<FileWrapper> response = apiInstance.CreateFileInMyDocumentsWithHttpInfo(createFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1766,10 +1793,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file created in My documents: its id and the title the portal actually stored, whose extension may differ from the requested one; `thumbnailStatus` says whether the preview is already built |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title`, or the title is empty or longer than 165 characters |  -  |
+| **402** | The new file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The template does not exist or cannot be read, or the form gallery has no file of the title's format |  -  |
+| **404** | `templateId` is a string that is not the id of a file in a known third-party storage |  -  |
+| **500** | `templateId` is a fraction, a number outside the 32-bit range or a numeric string, the form gallery does not know `formId` or cannot be reached, or the caller is a guest, who has no My documents |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1885,12 +1915,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not share the file |  -  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not share the file, the access level is not available for links to this file, the link limit is reached, or the admin restricts external links to public rooms |  -  |
 | **404** | The file does not exist, or its primary link was revoked |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2008,12 +2038,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not share the file |  -  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not share the file, the access level is not available for links to this file, the link limit is reached, or the admin restricts external links to public rooms |  -  |
 | **404** | The file does not exist, or its primary link was revoked |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2021,7 +2051,7 @@ catch (ApiException e)
 
 <a id="createhtmlfile"></a>
 # **CreateHtmlFile**
-> FileWrapper CreateHtmlFile (int folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
+> FileWrapper CreateHtmlFile (int folderId, CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest)
 
 Creates an HTML file in the folder named in the route out of the markup passed as the content, and answers  with the stored file. The `.html` extension is added to the title unless the title already ends with it, and a  request carrying no content is rejected as an invalid request. `createNewIfExist` acts the other way round  than its name reads: with `true` the file that already carries this title is updated, the markup replacing its  content and a version appearing in its history, while with `false`, which is also the default, another file is  created and its title made unique, as in Notes (1).html. Updating needs the existing file to be editable by  the caller, so one that is locked, open in an editing session, encrypted or in Trash is left alone and a new  file appears beside it instead. The caller needs the right to create files in the folder and is otherwise  refused with 403. The call is mutating. To create the file in the caller's own section use  `POST api/2.0/files/@my/html`.
 
@@ -2032,7 +2062,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder the file is created in. |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile**](CreateTextOrHtmlFile.md) | The title, the content and the collision behaviour of the new file. |  |
+| **createTextOrHtmlFileRequest** | [**CreateTextOrHtmlFileRequest**](CreateTextOrHtmlFileRequest.md) | The title, the content and the collision behaviour of the new file. |  |
 
 ### Return type
 
@@ -2080,12 +2110,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder the file is created in.
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | The title, the content and the collision behaviour of the new file.
+            var createTextOrHtmlFileRequest = new CreateTextOrHtmlFileRequest(); // CreateTextOrHtmlFileRequest | The title, the content and the collision behaviour of the new file.
 
             try
             {
                 // Create an HTML file
-                FileWrapper result = apiInstance.CreateHtmlFile(folderId, createTextOrHtmlFile);
+                FileWrapper result = apiInstance.CreateHtmlFile(folderId, createTextOrHtmlFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2106,7 +2136,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create an HTML file
-    ApiResponse<FileWrapper> response = apiInstance.CreateHtmlFileWithHttpInfo(folderId, createTextOrHtmlFile);
+    ApiResponse<FileWrapper> response = apiInstance.CreateHtmlFileWithHttpInfo(folderId, createTextOrHtmlFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2129,11 +2159,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created or updated HTML file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not create files in this folder |  -  |
+| **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
+| **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2141,7 +2173,7 @@ catch (ApiException e)
 
 <a id="createhtmlfile-thirdparty"></a>
 # **CreateHtmlFile** (third-party storage)
-> ThirdPartyFileWrapper CreateHtmlFile (string folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
+> ThirdPartyFileWrapper CreateHtmlFile (string folderId, CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -2154,7 +2186,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **string** | The folder the file is created in. |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile**](CreateTextOrHtmlFile.md) | The title, the content and the collision behaviour of the new file. |  |
+| **createTextOrHtmlFileRequest** | [**CreateTextOrHtmlFileRequest**](CreateTextOrHtmlFileRequest.md) | The title, the content and the collision behaviour of the new file. |  |
 
 ### Return type
 
@@ -2202,12 +2234,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var folderId = sbox-42;  // string | The folder the file is created in.
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | The title, the content and the collision behaviour of the new file.
+            var createTextOrHtmlFileRequest = new CreateTextOrHtmlFileRequest(); // CreateTextOrHtmlFileRequest | The title, the content and the collision behaviour of the new file.
 
             try
             {
                 // Create an HTML file (third-party storage)
-                ThirdPartyFileWrapper result = apiInstance.CreateHtmlFile(folderId, createTextOrHtmlFile);
+                ThirdPartyFileWrapper result = apiInstance.CreateHtmlFile(folderId, createTextOrHtmlFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2228,7 +2260,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create an HTML file (third-party storage)
-    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.CreateHtmlFileWithHttpInfo(folderId, createTextOrHtmlFile);
+    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.CreateHtmlFileWithHttpInfo(folderId, createTextOrHtmlFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2251,11 +2283,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created or updated HTML file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not create files in this folder |  -  |
+| **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
+| **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2263,7 +2297,7 @@ catch (ApiException e)
 
 <a id="createhtmlfileinmydocuments"></a>
 # **CreateHtmlFileInMyDocuments**
-> FileWrapper CreateHtmlFileInMyDocuments (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
+> FileWrapper CreateHtmlFileInMyDocuments (CreateTextOrHtmlFileRequest? createTextOrHtmlFileRequest = null)
 
 Creates an HTML file in the caller's own My documents section out of the markup passed as the content, and  answers with the stored file. The `.html` extension is added to the title unless the title already ends with  it, and a request carrying no content is rejected as invalid. `createNewIfExist` acts the other way round than  its name reads: with `true` the file that already carries this title is updated, the markup replacing its  content and a version appearing in its history, while with `false`, which is also the default, another file is  created and its title made unique, as in Notes (1).html. Updating needs the existing file to be editable by  the caller, so one that is locked, open in an editing session, encrypted or in Trash is left alone and a new  file appears beside it instead. The call is mutating: repeating it with `true` keeps a single file and grows  its history, repeating it with `false` fills the section with numbered copies. A guest has no My documents  section and is refused. To create the file in a room or another folder use  `POST api/2.0/files/{folderId}/html`.
 
@@ -2273,7 +2307,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile.md) | The parameters of a text or HTML file created from content sent in the request. | [optional]  |
+| **createTextOrHtmlFileRequest** | [**CreateTextOrHtmlFileRequest?**](CreateTextOrHtmlFileRequest.md) | The parameters of a text or HTML file created from content sent in the request. | [optional]  |
 
 ### Return type
 
@@ -2320,12 +2354,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | The parameters of a text or HTML file created from content sent in the request. (optional) 
+            var createTextOrHtmlFileRequest = new CreateTextOrHtmlFileRequest?(); // CreateTextOrHtmlFileRequest? | The parameters of a text or HTML file created from content sent in the request. (optional) 
 
             try
             {
                 // Create an HTML file in My documents
-                FileWrapper result = apiInstance.CreateHtmlFileInMyDocuments(createTextOrHtmlFile);
+                FileWrapper result = apiInstance.CreateHtmlFileInMyDocuments(createTextOrHtmlFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2346,7 +2380,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create an HTML file in My documents
-    ApiResponse<FileWrapper> response = apiInstance.CreateHtmlFileInMyDocumentsWithHttpInfo(createTextOrHtmlFile);
+    ApiResponse<FileWrapper> response = apiInstance.CreateHtmlFileInMyDocumentsWithHttpInfo(createTextOrHtmlFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2369,11 +2403,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created or updated HTML file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
+| **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
 | **403** | The caller may not create a file in this section |  -  |
+| **404** | The caller is a guest, who has no My documents |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2381,7 +2417,7 @@ catch (ApiException e)
 
 <a id="createtextfile"></a>
 # **CreateTextFile**
-> FileWrapper CreateTextFile (int folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
+> FileWrapper CreateTextFile (int folderId, CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest)
 
 Creates a text file in the folder named in the route out of the text passed as the content, and answers with  the stored file. The extension follows the content rather than the request: `.txt` normally, but `.html` as  soon as the text contains something shaped like an HTML tag, so a snippet of markup sent here ends up as an  HTML file; the extension is added to the title unless the title already ends with it. A request carrying no  content is rejected as an invalid request. `createNewIfExist` acts the other way round than its name reads:  with `true` the file that already carries this title is updated and a version appears in its history, while  with `false`, which is also the default, another file is created and its title made unique, as in Notes  (1).txt. A file that is locked, open in an editing session, encrypted or in Trash is not updated - a new file  appears beside it instead. The caller needs the right to create files in the folder. The call is mutating. To  create the file in the caller's own section use `POST api/2.0/files/@my/text`.
 
@@ -2392,7 +2428,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder the file is created in. |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile**](CreateTextOrHtmlFile.md) | The title, the content and the collision behaviour of the new file. |  |
+| **createTextOrHtmlFileRequest** | [**CreateTextOrHtmlFileRequest**](CreateTextOrHtmlFileRequest.md) | The title, the content and the collision behaviour of the new file. |  |
 
 ### Return type
 
@@ -2440,12 +2476,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder the file is created in.
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | The title, the content and the collision behaviour of the new file.
+            var createTextOrHtmlFileRequest = new CreateTextOrHtmlFileRequest(); // CreateTextOrHtmlFileRequest | The title, the content and the collision behaviour of the new file.
 
             try
             {
                 // Create a text file
-                FileWrapper result = apiInstance.CreateTextFile(folderId, createTextOrHtmlFile);
+                FileWrapper result = apiInstance.CreateTextFile(folderId, createTextOrHtmlFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2466,7 +2502,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a text file
-    ApiResponse<FileWrapper> response = apiInstance.CreateTextFileWithHttpInfo(folderId, createTextOrHtmlFile);
+    ApiResponse<FileWrapper> response = apiInstance.CreateTextFileWithHttpInfo(folderId, createTextOrHtmlFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2489,10 +2525,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created or updated text file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
+| **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2500,7 +2539,7 @@ catch (ApiException e)
 
 <a id="createtextfile-thirdparty"></a>
 # **CreateTextFile** (third-party storage)
-> ThirdPartyFileWrapper CreateTextFile (string folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
+> ThirdPartyFileWrapper CreateTextFile (string folderId, CreateTextOrHtmlFileRequest createTextOrHtmlFileRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -2513,7 +2552,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **string** | The folder the file is created in. |  |
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile**](CreateTextOrHtmlFile.md) | The title, the content and the collision behaviour of the new file. |  |
+| **createTextOrHtmlFileRequest** | [**CreateTextOrHtmlFileRequest**](CreateTextOrHtmlFileRequest.md) | The title, the content and the collision behaviour of the new file. |  |
 
 ### Return type
 
@@ -2561,12 +2600,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var folderId = sbox-42;  // string | The folder the file is created in.
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | The title, the content and the collision behaviour of the new file.
+            var createTextOrHtmlFileRequest = new CreateTextOrHtmlFileRequest(); // CreateTextOrHtmlFileRequest | The title, the content and the collision behaviour of the new file.
 
             try
             {
                 // Create a text file (third-party storage)
-                ThirdPartyFileWrapper result = apiInstance.CreateTextFile(folderId, createTextOrHtmlFile);
+                ThirdPartyFileWrapper result = apiInstance.CreateTextFile(folderId, createTextOrHtmlFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2587,7 +2626,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a text file (third-party storage)
-    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.CreateTextFileWithHttpInfo(folderId, createTextOrHtmlFile);
+    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.CreateTextFileWithHttpInfo(folderId, createTextOrHtmlFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2610,10 +2649,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created or updated text file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
+| **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller may not create files in this folder, or the folder is a section where files cannot be created |  -  |
+| **404** | The folder does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2621,7 +2663,7 @@ catch (ApiException e)
 
 <a id="createtextfileinmydocuments"></a>
 # **CreateTextFileInMyDocuments**
-> FileWrapper CreateTextFileInMyDocuments (CreateTextOrHtmlFile? createTextOrHtmlFile = null)
+> FileWrapper CreateTextFileInMyDocuments (CreateTextOrHtmlFileRequest? createTextOrHtmlFileRequest = null)
 
 Creates a text file in the caller's own My documents section out of the text passed as the content, and  answers with the stored file. The extension follows the content rather than the request: `.txt` normally, but  `.html` as soon as the text contains something shaped like an HTML tag, so a snippet of markup sent here ends  up as an HTML file; the extension is added to the title unless the title already ends with it. A request  carrying no content is rejected as invalid. `createNewIfExist` acts the other way round than its name reads:  with `true` the file that already carries this title is updated and a version appears in its history, while  with `false`, which is also the default, another file is created and its title made unique, as in  Notes (1).txt. A file that is locked, open in an editing session, encrypted or in Trash is not updated - a  new file appears beside it instead. The call is mutating. A guest has no My documents section and is  refused. To create the file in a room or another folder use `POST api/2.0/files/{folderId}/text`.
 
@@ -2631,7 +2673,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createTextOrHtmlFile** | [**CreateTextOrHtmlFile?**](CreateTextOrHtmlFile.md) | The parameters of a text or HTML file created from content sent in the request. | [optional]  |
+| **createTextOrHtmlFileRequest** | [**CreateTextOrHtmlFileRequest?**](CreateTextOrHtmlFileRequest.md) | The parameters of a text or HTML file created from content sent in the request. | [optional]  |
 
 ### Return type
 
@@ -2678,12 +2720,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var createTextOrHtmlFile = new CreateTextOrHtmlFile?(); // CreateTextOrHtmlFile? | The parameters of a text or HTML file created from content sent in the request. (optional) 
+            var createTextOrHtmlFileRequest = new CreateTextOrHtmlFileRequest?(); // CreateTextOrHtmlFileRequest? | The parameters of a text or HTML file created from content sent in the request. (optional) 
 
             try
             {
                 // Create a text file in My documents
-                FileWrapper result = apiInstance.CreateTextFileInMyDocuments(createTextOrHtmlFile);
+                FileWrapper result = apiInstance.CreateTextFileInMyDocuments(createTextOrHtmlFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2704,7 +2746,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a text file in My documents
-    ApiResponse<FileWrapper> response = apiInstance.CreateTextFileInMyDocumentsWithHttpInfo(createTextOrHtmlFile);
+    ApiResponse<FileWrapper> response = apiInstance.CreateTextFileInMyDocumentsWithHttpInfo(createTextOrHtmlFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2727,10 +2769,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The created or updated text file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `title` or `content`, or the title is empty, blank or longer than 165 characters |  -  |
+| **402** | The content exceeds the maximum upload size, or the file does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller may not create a file in this section |  -  |
+| **404** | The caller is a guest, who has no My documents |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2844,6 +2889,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file ids from the request, echoed back |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **401** | An anonymous caller has no external link |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -2854,7 +2900,7 @@ catch (ApiException e)
 
 <a id="deletefile"></a>
 # **DeleteFile**
-> FileOperationArrayWrapper DeleteFile (int fileId, Delete delete, bool? returnSingleOperation = null)
+> FileOperationArrayWrapper DeleteFile (int fileId, DeleteFileRequest deleteFileRequest, bool? returnSingleOperation = null)
 
 Queues the deletion of one file and answers with the caller's file operations, the one just created among  them. The file is not gone when the response arrives: poll `GET api/2.0/files/fileops` until the operation  reports `finished`, and read its `error` to learn whether the deletion succeeded. By default the file is moved  to Trash, from where it can be restored; `immediately=true` deletes it for good instead, and inside a room,  where there is no Trash, deletion is always final. `deleteAfter=true` postpones the deletion until the editing  session on the file has ended, so a file somebody is working on is not pulled away.  `returnSingleOperation=true` narrows the answer to this deletion instead of listing every active operation of  the caller. The caller needs the right to delete the file, which the room admin, a DocSpace admin acting as  room manager and a content creator acting on their own file have; editing access alone, read access, a guest  and a member without access to the room are all refused. The call is destructive. To delete several items at  once use `PUT api/2.0/files/fileops/delete`.
 
@@ -2865,7 +2911,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The file to delete. |  |
-| **delete** | [**Delete**](Delete.md) | When and how the file is deleted. |  |
+| **deleteFileRequest** | [**DeleteFileRequest**](DeleteFileRequest.md) | When and how the file is deleted. |  |
 | **returnSingleOperation** | **bool?** | Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. | [optional]  |
 
 ### Return type
@@ -2914,13 +2960,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file to delete.
-            var delete = new Delete(); // Delete | When and how the file is deleted.
+            var deleteFileRequest = new DeleteFileRequest(); // DeleteFileRequest | When and how the file is deleted.
             var returnSingleOperation = false;  // bool? | Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional) 
 
             try
             {
                 // Delete a file
-                FileOperationArrayWrapper result = apiInstance.DeleteFile(fileId, delete, returnSingleOperation);
+                FileOperationArrayWrapper result = apiInstance.DeleteFile(fileId, deleteFileRequest, returnSingleOperation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2941,7 +2987,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a file
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFileWithHttpInfo(fileId, delete, returnSingleOperation);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFileWithHttpInfo(fileId, deleteFileRequest, returnSingleOperation);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2964,6 +3010,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file operations of the caller, including the deletion just queued |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not delete the file, or the file is locked by somebody else or open in an editing session |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2975,7 +3023,7 @@ catch (ApiException e)
 
 <a id="deletefile-thirdparty"></a>
 # **DeleteFile** (third-party storage)
-> FileOperationArrayWrapper DeleteFile (string fileId, Delete delete, bool? returnSingleOperation = null)
+> FileOperationArrayWrapper DeleteFile (string fileId, DeleteFileRequest deleteFileRequest, bool? returnSingleOperation = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -2988,7 +3036,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The file to delete. |  |
-| **delete** | [**Delete**](Delete.md) | When and how the file is deleted. |  |
+| **deleteFileRequest** | [**DeleteFileRequest**](DeleteFileRequest.md) | When and how the file is deleted. |  |
 | **returnSingleOperation** | **bool?** | Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. | [optional]  |
 
 ### Return type
@@ -3037,13 +3085,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The file to delete.
-            var delete = new Delete(); // Delete | When and how the file is deleted.
+            var deleteFileRequest = new DeleteFileRequest(); // DeleteFileRequest | When and how the file is deleted.
             var returnSingleOperation = false;  // bool? | Which operations the answer carries: `true` returns the operation this call started and nothing else, `false`  returns every operation of the same kind that the caller has running or unread. When nothing was queued, which  happens for an empty selection, `true` falls back to the full list. (optional) 
 
             try
             {
                 // Delete a file (third-party storage)
-                FileOperationArrayWrapper result = apiInstance.DeleteFile(fileId, delete, returnSingleOperation);
+                FileOperationArrayWrapper result = apiInstance.DeleteFile(fileId, deleteFileRequest, returnSingleOperation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3064,7 +3112,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a file (third-party storage)
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFileWithHttpInfo(fileId, delete, returnSingleOperation);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFileWithHttpInfo(fileId, deleteFileRequest, returnSingleOperation);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3087,6 +3135,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file operations of the caller, including the deletion just queued |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not delete the file, or the file is locked by somebody else or open in an editing session |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -3200,10 +3250,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Empty answer: the listed entries no longer appear in the Recent section |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or a third-party folder identifier refers to a storage account that is not connected |  -  |
+| **404** | A third-party folder identifier names a storage type the portal does not know |  -  |
+| **500** | An id is a number that is not a 32-bit integer, or a third-party folder identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -3211,7 +3262,7 @@ catch (ApiException e)
 
 <a id="deletetemplates"></a>
 # **DeleteTemplates**
-> BooleanWrapper DeleteTemplates (List<int>? requestBody = null)
+> BooleanWrapper DeleteTemplates (List<int>? deleteTemplateFilesRequestDto = null)
 
 Takes the listed files off the personal template list of the calling account, leaving the files themselves  untouched: only the template mark is dropped. The body of this request is a bare JSON array of numeric file  ids rather than an object with a field, and a request that carries no array at all is rejected as an invalid  request. Every authenticated member type may manage their own list, a guest is refused, and read access to a  file is required for its mark to be dropped. The answer is `true` whenever the array was understood, which an  empty array, an id that does not exist and a file that was never a template all achieve, so it confirms  nothing about what was removed. Repeating the call is safe. Use `POST api/2.0/files/templates` to put a file  back on the list; that operation expects an object with a `fileIds` field, so the two bodies are not  interchangeable.
 
@@ -3221,7 +3272,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestBody** | [**List&lt;int&gt;?**](int.md) | The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. | [optional]  |
+| **deleteTemplateFilesRequestDto** | [**List&lt;int&gt;?**](int.md) | The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. | [optional]  |
 
 ### Return type
 
@@ -3268,12 +3319,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var requestBody = new List<int>?(); // List<int>? | The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. (optional) 
+            var deleteTemplateFilesRequestDto = new List<int>?(); // List<int>? | The files to take off the template list, by id; this array is the whole request body. Only a file stored in  the portal itself can be a template, which is why an id here is always numeric. (optional) 
 
             try
             {
                 // Delete template files
-                BooleanWrapper result = apiInstance.DeleteTemplates(requestBody);
+                BooleanWrapper result = apiInstance.DeleteTemplates(deleteTemplateFilesRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3294,7 +3345,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete template files
-    ApiResponse<BooleanWrapper> response = apiInstance.DeleteTemplatesWithHttpInfo(requestBody);
+    ApiResponse<BooleanWrapper> response = apiInstance.DeleteTemplatesWithHttpInfo(deleteTemplateFilesRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3317,6 +3368,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Always true: the files named in the array are no longer templates of the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -3553,7 +3605,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The roles of the form with the state of each |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller has no read access to the form |  -  |
+| **403** | The caller has no read access to the form, or the file is not a PDF |  -  |
 | **404** | No file with this identifier exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -3674,7 +3726,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The roles of the form with the state of each |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller has no read access to the form |  -  |
+| **403** | The caller has no read access to the form, or the file is not a PDF |  -  |
 | **404** | No file with this identifier exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -3795,6 +3847,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The addresses and keys the editor needs to show the changes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not read the history of the file, as with an anonymous caller, read-only or commenting access, or a file in a third-party storage |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -3915,6 +3969,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The addresses and keys the editor needs to show the changes |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not read the history of the file, as with an anonymous caller, read-only or commenting access, or a file in a third-party storage |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -4031,6 +4087,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The editing revisions of the file, oldest first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not read the history of the file, as with an anonymous caller, read-only or commenting access, or a file in a third-party storage |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -4149,6 +4207,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The editing revisions of the file, oldest first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not read the history of the file, as with an anonymous caller, read-only or commenting access, or a file in a third-party storage |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -4266,7 +4326,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The key pairs of the caller and the file keys issued to them |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The file cannot carry encryption keys |  -  |
-| **403** | The caller has no read access to the file |  -  |
+| **403** | The file does not exist, or the caller has no read access to it |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -4387,7 +4447,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The key pairs of the caller and the file keys issued to them |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The file cannot carry encryption keys |  -  |
-| **403** | The caller has no read access to the file |  -  |
+| **403** | The file does not exist, or the caller has no read access to it |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -4513,12 +4573,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The activity entries of the file, newest first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or `fromDate` or `toDate` is not a date and time ending in `Z` or a UTC offset |  -  |
 | **403** | The caller has no read access to the file |  -  |
 | **404** | No file with this identifier exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4634,6 +4694,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file as it is stored, with the state it has for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **401** | An anonymous caller has no external link |  -  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -4754,6 +4817,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file as it is stored, with the state it has for the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **401** | An anonymous caller has no external link |  -  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -4874,10 +4940,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The external links of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -4997,10 +5065,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The external links of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5118,11 +5188,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **401** | An anonymous caller has no external link |  -  |
 | **403** | The caller may not share the file |  -  |
 | **404** | The file does not exist, or its primary link was revoked |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5242,11 +5313,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The primary external link of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
+| **401** | An anonymous caller has no external link |  -  |
 | **403** | The caller may not share the file |  -  |
 | **404** | The file does not exist, or its primary link was revoked |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5360,6 +5432,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Every stored version of the file, newest first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not read the history of the file, or the file id resolves to nothing |  -  |
+| **404** | The file id is neither a number nor the id of a file in a known third-party storage |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -5478,6 +5552,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Every stored version of the file, newest first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not read the history of the file, or the file id resolves to nothing |  -  |
+| **404** | The file id is neither a number nor the id of a file in a known third-party storage |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -5594,9 +5670,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The result of the completed form-filling session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The `fillingSessionId` is missing or empty |  -  |
+| **404** | No completed form-filling session with this identifier is remembered |  -  |
+| **500** | The original form of the filled copy has been deleted |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -5710,7 +5787,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The submissions collected for the form, with the description of its fields |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller has no read access to the form |  -  |
+| **403** | The form does not exist or is not a PDF, the caller has no read access to it, its filling has not started, it is a copy rather than the original form, or it lies outside the room its filling was started in |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -5828,6 +5905,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The download address of the file with its signature token |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -5947,6 +6026,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The download address of the file with its signature token |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -6064,10 +6145,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The download address of the current file version |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The file is a PDF form in a form-filling room whose filling has not started, and the caller may only fill forms there |  -  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -6183,10 +6266,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The download address of the current file version |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The file is a PDF form in a form-filling room whose filling has not started, and the caller may only fill forms there |  -  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -6194,7 +6279,7 @@ catch (ApiException e)
 
 <a id="getprotectedfileusers"></a>
 # **GetProtectedFileUsers**
-> MentionWrapperArrayWrapper GetProtectedFileUsers (int fileId)
+> MentionArrayWrapper GetProtectedFileUsers (int fileId)
 
 Lists the users the file is shared with, which is what a client offers when the author protects a document and  picks who may still edit it. The list is built from the whole access list of the file: every entry that is not  an explicit denial, with groups expanded into their members, the caller themselves and deleted accounts left  out, ordered by display name. Access inherited from the room counts, so a member who never received a share on  the file itself is listed too. A file kept in the legacy project storage always answers with an empty list  rather than with its team. The call only reads. A guest is refused, an anonymous caller is answered with  nothing, and a file id that resolves to nothing is refused as well instead of being reported as missing. For  the readers to offer as mentions inside the editor use `GET api/2.0/files/file/{fileId}/sharedusers`.
 
@@ -6208,7 +6293,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
+[**MentionArrayWrapper**](MentionArrayWrapper.md)
 
 ### Authorization
 
@@ -6256,7 +6341,7 @@ namespace Example
             try
             {
                 // Get users for document protection
-                MentionWrapperArrayWrapper result = apiInstance.GetProtectedFileUsers(fileId);
+                MentionArrayWrapper result = apiInstance.GetProtectedFileUsers(fileId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6277,7 +6362,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get users for document protection
-    ApiResponse<MentionWrapperArrayWrapper> response = apiInstance.GetProtectedFileUsersWithHttpInfo(fileId);
+    ApiResponse<MentionArrayWrapper> response = apiInstance.GetProtectedFileUsersWithHttpInfo(fileId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -6300,6 +6385,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The users the file is shared with, ordered by display name |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a guest, or the file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -6311,7 +6397,7 @@ catch (ApiException e)
 
 <a id="getprotectedfileusers-thirdparty"></a>
 # **GetProtectedFileUsers** (third-party storage)
-> MentionWrapperArrayWrapper GetProtectedFileUsers (string fileId)
+> MentionArrayWrapper GetProtectedFileUsers (string fileId)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -6327,7 +6413,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**MentionWrapperArrayWrapper**](MentionWrapperArrayWrapper.md)
+[**MentionArrayWrapper**](MentionArrayWrapper.md)
 
 ### Authorization
 
@@ -6375,7 +6461,7 @@ namespace Example
             try
             {
                 // Get users for document protection (third-party storage)
-                MentionWrapperArrayWrapper result = apiInstance.GetProtectedFileUsers(fileId);
+                MentionArrayWrapper result = apiInstance.GetProtectedFileUsers(fileId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6396,7 +6482,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get users for document protection (third-party storage)
-    ApiResponse<MentionWrapperArrayWrapper> response = apiInstance.GetProtectedFileUsersWithHttpInfo(fileId);
+    ApiResponse<MentionArrayWrapper> response = apiInstance.GetProtectedFileUsersWithHttpInfo(fileId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -6419,6 +6505,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The users the file is shared with, ordered by display name |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller is a guest, or the file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -6536,10 +6623,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The reference descriptor, or the same object with the error text set when nothing resolved |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `fileKey` or `instanceId` |  -  |
+| **403** | The caller cannot read the source file, its folder or the referenced file |  -  |
+| **500** | `fileKey` is empty or not a number while `instanceId` names this portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -6770,9 +6858,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | True when the file is a PDF form made in the editors, false otherwise |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **500** | The file is a PDF form in a form-filling room whose filling has not started, and the caller may only fill forms there |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -6889,9 +6979,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | True when the file is a PDF form made in the editors, false otherwise |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller cannot read the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **500** | The file is a PDF form in a form-filling room whose filling has not started, and the caller may only fill forms there |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -6900,7 +6992,7 @@ catch (ApiException e)
 
 <a id="lockfile"></a>
 # **LockFile**
-> FileWrapper LockFile (int fileId, LockFileParameters lockFileParameters)
+> FileWrapper LockFile (int fileId, LockFileRequest lockFileRequest)
 
 Locks a file so that nobody else can change it, or releases that lock, and answers with the file as it now  stands. With `lockFile=true` the lock is put on the file and everybody else who is editing it at that moment  is dropped out of the session, the caller excepted; the lock then blocks editing, renaming and deleting for  everybody but the account that set it and the room admins. With `lockFile=false` the lock is removed and a  note about the unlocking is appended to the current version comment, unless the file lives in a connected  third-party storage. Locking a file that is already locked, or unlocking one that is not, changes nothing and  still answers with the file, so the call is idempotent in effect while remaining a mutating one. The caller  needs the right to lock the file, which the room admin, a DocSpace admin acting as room manager and a member  with content-creator rights have; a member without access to the room and a guest are refused, and so is a  file in Trash. A lock set by somebody else can only be released by a room manager.
 
@@ -6911,7 +7003,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The file to lock or unlock. |  |
-| **lockFileParameters** | [**LockFileParameters**](LockFileParameters.md) | The lock state to reach. |  |
+| **lockFileRequest** | [**LockFileRequest**](LockFileRequest.md) | The lock state to reach. |  |
 
 ### Return type
 
@@ -6959,12 +7051,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file to lock or unlock.
-            var lockFileParameters = new LockFileParameters(); // LockFileParameters | The lock state to reach.
+            var lockFileRequest = new LockFileRequest(); // LockFileRequest | The lock state to reach.
 
             try
             {
                 // Lock a file
-                FileWrapper result = apiInstance.LockFile(fileId, lockFileParameters);
+                FileWrapper result = apiInstance.LockFile(fileId, lockFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6985,7 +7077,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Lock a file
-    ApiResponse<FileWrapper> response = apiInstance.LockFileWithHttpInfo(fileId, lockFileParameters);
+    ApiResponse<FileWrapper> response = apiInstance.LockFileWithHttpInfo(fileId, lockFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -7008,6 +7100,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file with its lock state as it now stands |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not lock or unlock the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -7019,7 +7113,7 @@ catch (ApiException e)
 
 <a id="lockfile-thirdparty"></a>
 # **LockFile** (third-party storage)
-> ThirdPartyFileWrapper LockFile (string fileId, LockFileParameters lockFileParameters)
+> ThirdPartyFileWrapper LockFile (string fileId, LockFileRequest lockFileRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -7032,7 +7126,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The file to lock or unlock. |  |
-| **lockFileParameters** | [**LockFileParameters**](LockFileParameters.md) | The lock state to reach. |  |
+| **lockFileRequest** | [**LockFileRequest**](LockFileRequest.md) | The lock state to reach. |  |
 
 ### Return type
 
@@ -7080,12 +7174,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The file to lock or unlock.
-            var lockFileParameters = new LockFileParameters(); // LockFileParameters | The lock state to reach.
+            var lockFileRequest = new LockFileRequest(); // LockFileRequest | The lock state to reach.
 
             try
             {
                 // Lock a file (third-party storage)
-                ThirdPartyFileWrapper result = apiInstance.LockFile(fileId, lockFileParameters);
+                ThirdPartyFileWrapper result = apiInstance.LockFile(fileId, lockFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7106,7 +7200,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Lock a file (third-party storage)
-    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.LockFileWithHttpInfo(fileId, lockFileParameters);
+    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.LockFileWithHttpInfo(fileId, lockFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -7129,6 +7223,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file with its lock state as it now stands |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller may not lock or unlock the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -7244,11 +7340,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The action was applied to the form |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not start, stop or resume the filling of this form |  -  |
+| **400** | The request body cannot be read or has no `formId` |  -  |
+| **403** | The form does not exist, is not a PDF or lies outside a room, the caller may not start or stop its filling, or `action` is not one of the known values |  -  |
+| **500** | The form has no filling properties yet, as when a filling that was never started is resumed, or the form lies in a third-party storage |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -7372,9 +7468,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The editor configuration for the requested file and mode |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot read the file, or asked for a past version without access to the file history |  -  |
+| **403** | The caller cannot read the file, asked for a past version without access to the file history, or the file is in Trash |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -7501,9 +7599,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The editor configuration for the requested file and mode |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot read the file, or asked for a past version without access to the file history |  -  |
+| **403** | The caller cannot read the file, asked for a past version without access to the file history, or the file is in Trash |  -  |
+| **404** | The file id, or the requested version of it, resolves to nothing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -7623,9 +7723,11 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The editing revisions of the file after the restore |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The version is missing or is already the current one |  -  |
-| **403** | The caller may not change the version history of the file |  -  |
+| **402** | The restored content does not fit into the storage quota |  -  |
+| **403** | The caller may not change the version history of the file, or, with `url`, may not edit the file or the file is locked by somebody else or being edited |  -  |
+| **404** | Without `url`, the file id or the requested version resolves to nothing |  -  |
+| **500** | The file is locked by somebody else or being edited, another restore of it is in progress, or storing the new version fails; with `url`, also when the file or the version does not exist or the address cannot be fetched |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -7746,9 +7848,11 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The editing revisions of the file after the restore |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The version is missing or is already the current one |  -  |
-| **403** | The caller may not change the version history of the file |  -  |
+| **402** | The restored content does not fit into the storage quota |  -  |
+| **403** | The caller may not change the version history of the file, or, with `url`, may not edit the file or the file is locked by somebody else or being edited |  -  |
+| **404** | Without `url`, the file id or the requested version resolves to nothing |  -  |
+| **500** | The file is locked by somebody else or being edited, another restore of it is in progress, or storing the new version fails; with `url`, also when the file or the version does not exist or the address cannot be fetched |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -7871,10 +7975,12 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The file is saved and the stored version is returned |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The file id cannot be resolved to a storage that could accept the content |  -  |
+| **402** | The content does not fit into the portal's storage quota, even with the overshoot allowed for editor saves |  -  |
 | **403** | The caller cannot edit the file, or it is locked, in Trash, or open in somebody else's editing session |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **500** | The file lies in a third-party storage in another format and the document service fails to convert the content |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -7999,10 +8105,12 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The file is saved and the stored version is returned |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The file id cannot be resolved to a storage that could accept the content |  -  |
+| **402** | The content does not fit into the portal's storage quota, even with the overshoot allowed for editor saves |  -  |
 | **403** | The caller cannot edit the file, or it is locked, in Trash, or open in somebody else's editing session |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **500** | The file lies in a third-party storage in another format and the document service fails to convert the content |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -8010,7 +8118,7 @@ catch (ApiException e)
 
 <a id="savefileaspdf"></a>
 # **SaveFileAsPdf**
-> FileWrapper SaveFileAsPdf (int id, SaveAsPdf saveAsPdf)
+> FileWrapper SaveFileAsPdf (int id, SaveAsPdfRequest saveAsPdfRequest)
 
 Converts a file into a PDF, stores that PDF as a new file in the folder named in the body, and answers with  the file that was created. The source is left untouched, so the two files then live side by side. `title`  names the result without an extension - the `.pdf` extension is added to it - and an empty title reuses the  name of the source with its extension replaced. The conversion is done by the document service while the  request waits, so the call takes as long as the document needs and answers with the finished file rather than  with a queue entry. The caller needs read access to the source file and the right to create files in the  destination folder, and is otherwise refused; a source file or a destination folder that does not exist is  answered with 404. The call is mutating and not idempotent: each call adds another PDF, its title made unique  when one of that name is already there. The result is marked as new for the room, and for a form the portal  recognises it is stored as a PDF form. To convert in place instead use  `PUT api/2.0/files/file/{fileId}/checkconversion`.
 
@@ -8021,7 +8129,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **int** | The file to convert; it is left untouched. |  |
-| **saveAsPdf** | [**SaveAsPdf**](SaveAsPdf.md) | The destination folder and the name of the PDF. |  |
+| **saveAsPdfRequest** | [**SaveAsPdfRequest**](SaveAsPdfRequest.md) | The destination folder and the name of the PDF. |  |
 
 ### Return type
 
@@ -8069,12 +8177,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var id = 1;  // int | The file to convert; it is left untouched.
-            var saveAsPdf = new SaveAsPdf(); // SaveAsPdf | The destination folder and the name of the PDF.
+            var saveAsPdfRequest = new SaveAsPdfRequest(); // SaveAsPdfRequest | The destination folder and the name of the PDF.
 
             try
             {
                 // Save a file as PDF
-                FileWrapper result = apiInstance.SaveFileAsPdf(id, saveAsPdf);
+                FileWrapper result = apiInstance.SaveFileAsPdf(id, saveAsPdfRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8095,7 +8203,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Save a file as PDF
-    ApiResponse<FileWrapper> response = apiInstance.SaveFileAsPdfWithHttpInfo(id, saveAsPdf);
+    ApiResponse<FileWrapper> response = apiInstance.SaveFileAsPdfWithHttpInfo(id, saveAsPdfRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -8118,11 +8226,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The PDF file that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `folderId` or `title` |  -  |
+| **402** | The PDF does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller cannot read the source file or may not create files in the destination folder |  -  |
 | **404** | The source file or the destination folder does not exist |  -  |
+| **500** | The document service fails to convert the file to PDF, or the converted file cannot be downloaded |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -8130,7 +8240,7 @@ catch (ApiException e)
 
 <a id="savefileaspdf-thirdparty"></a>
 # **SaveFileAsPdf** (third-party storage)
-> ThirdPartyFileWrapper SaveFileAsPdf (string id, ThirdPartySaveAsPdf thirdPartySaveAsPdf)
+> ThirdPartyFileWrapper SaveFileAsPdf (string id, ThirdPartySaveAsPdfRequest thirdPartySaveAsPdfRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -8143,7 +8253,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | The file to convert; it is left untouched. |  |
-| **thirdPartySaveAsPdf** | [**ThirdPartySaveAsPdf**](ThirdPartySaveAsPdf.md) | The destination folder and the name of the PDF. |  |
+| **thirdPartySaveAsPdfRequest** | [**ThirdPartySaveAsPdfRequest**](ThirdPartySaveAsPdfRequest.md) | The destination folder and the name of the PDF. |  |
 
 ### Return type
 
@@ -8191,12 +8301,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var id = sbox-42-L1JlcG9ydC5kb2N4;  // string | The file to convert; it is left untouched.
-            var thirdPartySaveAsPdf = new ThirdPartySaveAsPdf(); // ThirdPartySaveAsPdf | The destination folder and the name of the PDF.
+            var thirdPartySaveAsPdfRequest = new ThirdPartySaveAsPdfRequest(); // ThirdPartySaveAsPdfRequest | The destination folder and the name of the PDF.
 
             try
             {
                 // Save a file as PDF (third-party storage)
-                ThirdPartyFileWrapper result = apiInstance.SaveFileAsPdf(id, thirdPartySaveAsPdf);
+                ThirdPartyFileWrapper result = apiInstance.SaveFileAsPdf(id, thirdPartySaveAsPdfRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8217,7 +8327,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Save a file as PDF (third-party storage)
-    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.SaveFileAsPdfWithHttpInfo(id, thirdPartySaveAsPdf);
+    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.SaveFileAsPdfWithHttpInfo(id, thirdPartySaveAsPdfRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -8240,11 +8350,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The PDF file that was created |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `folderId` or `title` |  -  |
+| **402** | The PDF does not fit into the storage quota of the portal, the room or the user |  -  |
+| **403** | The caller cannot read the source file or may not create files in the destination folder |  -  |
 | **404** | The source file or the destination folder does not exist |  -  |
+| **500** | The document service fails to convert the file to PDF, or the converted file cannot be downloaded |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -8356,11 +8468,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The roles were stored and the filling was started or reset |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not start or reset the filling of this form |  -  |
+| **400** | The request body cannot be read or has no `formId` or `roles`, or `roles` is null |  -  |
+| **403** | The caller may not start or reset the filling of this form, or the file is not a PDF or lies outside a room |  -  |
+| **500** | No file with the `formId` exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -8368,7 +8480,7 @@ catch (ApiException e)
 
 <a id="setcustomfiltertag"></a>
 # **SetCustomFilterTag**
-> FileWrapper SetCustomFilterTag (int fileId, CustomFilterParameters customFilterParameters)
+> FileWrapper SetCustomFilterTag (int fileId, CustomFilterRequest customFilterRequest)
 
 Turns the Custom Filter editing mode of a spreadsheet on or off and answers with the file as it now stands. In  that mode the sorting and filtering one person applies to the sheet is visible to that person alone, so that  several people can work on the same data without moving the rows under each other; with the mode off,  filtering is shared again, as everywhere else. Turning it on also drops everybody else out of the running  editing session, the caller excepted, because the mode has to be established before the sheet is opened. Only  formats that support the mode are accepted; anything else is rejected as an invalid request. The caller needs  the right to use the mode in the room, which the room admin and a DocSpace admin acting as room manager have;  read-only access, a member without access to the room and an anonymous caller are refused. Once the mode has  been switched on by one person, only that person, a room manager or a DocSpace admin can switch it off again.  The call is mutating and, called twice with the same value, changes nothing the second time.
 
@@ -8379,7 +8491,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The spreadsheet whose Custom Filter mode is switched. |  |
-| **customFilterParameters** | [**CustomFilterParameters**](CustomFilterParameters.md) | The Custom Filter state to reach. |  |
+| **customFilterRequest** | [**CustomFilterRequest**](CustomFilterRequest.md) | The Custom Filter state to reach. |  |
 
 ### Return type
 
@@ -8427,12 +8539,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The spreadsheet whose Custom Filter mode is switched.
-            var customFilterParameters = new CustomFilterParameters(); // CustomFilterParameters | The Custom Filter state to reach.
+            var customFilterRequest = new CustomFilterRequest(); // CustomFilterRequest | The Custom Filter state to reach.
 
             try
             {
                 // Set the Custom Filter editing mode
-                FileWrapper result = apiInstance.SetCustomFilterTag(fileId, customFilterParameters);
+                FileWrapper result = apiInstance.SetCustomFilterTag(fileId, customFilterRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8453,7 +8565,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Set the Custom Filter editing mode
-    ApiResponse<FileWrapper> response = apiInstance.SetCustomFilterTagWithHttpInfo(fileId, customFilterParameters);
+    ApiResponse<FileWrapper> response = apiInstance.SetCustomFilterTagWithHttpInfo(fileId, customFilterRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -8476,10 +8588,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The spreadsheet with its Custom Filter state as it now stands |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The file is not in a format that supports the Custom Filter mode |  -  |
+| **403** | The caller may not use the Custom Filter mode on the file, or somebody else switched the mode on and the caller is neither a room manager nor a DocSpace admin |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -8487,7 +8601,7 @@ catch (ApiException e)
 
 <a id="setcustomfiltertag-thirdparty"></a>
 # **SetCustomFilterTag** (third-party storage)
-> ThirdPartyFileWrapper SetCustomFilterTag (string fileId, CustomFilterParameters customFilterParameters)
+> ThirdPartyFileWrapper SetCustomFilterTag (string fileId, CustomFilterRequest customFilterRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -8500,7 +8614,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The spreadsheet whose Custom Filter mode is switched. |  |
-| **customFilterParameters** | [**CustomFilterParameters**](CustomFilterParameters.md) | The Custom Filter state to reach. |  |
+| **customFilterRequest** | [**CustomFilterRequest**](CustomFilterRequest.md) | The Custom Filter state to reach. |  |
 
 ### Return type
 
@@ -8548,12 +8662,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The spreadsheet whose Custom Filter mode is switched.
-            var customFilterParameters = new CustomFilterParameters(); // CustomFilterParameters | The Custom Filter state to reach.
+            var customFilterRequest = new CustomFilterRequest(); // CustomFilterRequest | The Custom Filter state to reach.
 
             try
             {
                 // Set the Custom Filter editing mode (third-party storage)
-                ThirdPartyFileWrapper result = apiInstance.SetCustomFilterTag(fileId, customFilterParameters);
+                ThirdPartyFileWrapper result = apiInstance.SetCustomFilterTag(fileId, customFilterRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8574,7 +8688,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Set the Custom Filter editing mode (third-party storage)
-    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.SetCustomFilterTagWithHttpInfo(fileId, customFilterParameters);
+    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.SetCustomFilterTagWithHttpInfo(fileId, customFilterRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -8597,10 +8711,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The spreadsheet with its Custom Filter state as it now stands |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The file is not in a format that supports the Custom Filter mode |  -  |
+| **403** | The caller may not use the Custom Filter mode on the file, or somebody else switched the mode on and the caller is neither a room manager nor a DocSpace admin |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -8712,7 +8828,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file keys were stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not issue keys for this file, or the file is not in a private room |  -  |
+| **403** | The file does not exist, the caller may not issue keys for it, the file is not in a private room, or a recipient has no read access to it |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -8831,7 +8947,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file keys were stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not issue keys for this file, or the file is not in a private room |  -  |
+| **403** | The file does not exist, the caller may not issue keys for it, the file is not in a private room, or a recipient has no read access to it |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -8952,10 +9068,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The link as it now stands, or nothing when it was revoked |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not share the file, the access level is not available for links to this file, the link limit is reached, or the admin's restriction on external links forbids the change |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -9073,10 +9191,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The link as it now stands, or nothing when it was revoked |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The title or password is longer than 255 characters, the password does not meet the portal password policy, or `expirationDate` lies more than 10 years ahead |  -  |
+| **403** | The caller may not share the file, the access level is not available for links to this file, the link limit is reached, or the admin's restriction on external links forbids the change |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -9192,12 +9312,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file with the position it now holds |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or `order` is below 1 or is neither a number nor a dotted path ending in one |  -  |
 | **403** | The caller may not reorder this file |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -9315,12 +9435,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file with the position it now holds |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, or `order` is below 1 or is neither a number nor a dotted path ending in one |  -  |
 | **403** | The caller may not reorder this file |  -  |
 | **404** | The file does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -9434,10 +9554,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The files and folders that were moved, with the positions they now hold |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `items`, an item has no `entryId` or `entryType`, or an `order` is below 1 or is neither a number nor a dotted path ending in one |  -  |
+| **403** | The caller may not administer the room of an entry, or an entry lies outside any room |  -  |
+| **404** | An entry does not exist or is sent with the wrong `entryType` |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -9445,7 +9567,7 @@ catch (ApiException e)
 
 <a id="starteditfile"></a>
 # **StartEditFile**
-> StringWrapper StartEditFile (int fileId, StartEdit startEdit)
+> StringWrapper StartEditFile (int fileId, StartEditRequest startEditRequest)
 
 Opens an editing session on the file and answers with the document key that identifies it, the value an editor  client passes to the document service in order to join the co-editing session for that exact revision. The  file is marked as being edited for as long as the session lasts, which keeps it from being deleted or moved.  With `editingAlone=false` the portal builds the editor configuration, requires write mode plus at least one of  the edit, review, comment, form-filling or filter permissions, and asks the document service to start tracking  the document. With `editingAlone=true` the caller claims the file for itself, and the call is refused with 403  when anybody is already editing it. The caller needs edit access: a member with read access, a guest and an  anonymous caller whose external link does not grant editing are all refused. The call is mutating and not  idempotent. Keep the session alive with `GET api/2.0/files/file/{fileId}/trackeditfile`, and end it by calling  that operation with `isFinish=true`.
 
@@ -9456,7 +9578,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The file to open the editing session on. The caller needs edit access to it. |  |
-| **startEdit** | [**StartEdit**](StartEdit.md) | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. |  |
+| **startEditRequest** | [**StartEditRequest**](StartEditRequest.md) | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. |  |
 
 ### Return type
 
@@ -9504,12 +9626,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file to open the editing session on. The caller needs edit access to it.
-            var startEdit = new StartEdit(); // StartEdit | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session.
+            var startEditRequest = new StartEditRequest(); // StartEditRequest | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session.
 
             try
             {
                 // Open an editing session
-                StringWrapper result = apiInstance.StartEditFile(fileId, startEdit);
+                StringWrapper result = apiInstance.StartEditFile(fileId, startEditRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9530,7 +9652,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Open an editing session
-    ApiResponse<StringWrapper> response = apiInstance.StartEditFileWithHttpInfo(fileId, startEdit);
+    ApiResponse<StringWrapper> response = apiInstance.StartEditFileWithHttpInfo(fileId, startEditRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -9553,9 +9675,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The document key of the editing session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot edit the file, or the file is already being edited and the session was claimed alone |  -  |
+| **401** | An anonymous caller who may not edit the file claims the session with `editingAlone=true` |  -  |
+| **403** | The caller cannot edit the file, the file is locked or in Trash, somebody is already editing it and the session was claimed alone, or the document service did not accept the tracking request |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it, or, with `editingAlone=true`, the file is locked by somebody else or lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -9564,7 +9689,7 @@ catch (ApiException e)
 
 <a id="starteditfile-thirdparty"></a>
 # **StartEditFile** (third-party storage)
-> StringWrapper StartEditFile (string fileId, StartEdit startEdit)
+> StringWrapper StartEditFile (string fileId, StartEditRequest startEditRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -9577,7 +9702,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The file to open the editing session on. The caller needs edit access to it. |  |
-| **startEdit** | [**StartEdit**](StartEdit.md) | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. |  |
+| **startEditRequest** | [**StartEditRequest**](StartEditRequest.md) | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session. |  |
 
 ### Return type
 
@@ -9625,12 +9750,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The file to open the editing session on. The caller needs edit access to it.
-            var startEdit = new StartEdit(); // StartEdit | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session.
+            var startEditRequest = new StartEditRequest(); // StartEditRequest | The session options. The body is required even when it only carries the default, so send an empty object to  open an ordinary co-editing session.
 
             try
             {
                 // Open an editing session (third-party storage)
-                StringWrapper result = apiInstance.StartEditFile(fileId, startEdit);
+                StringWrapper result = apiInstance.StartEditFile(fileId, startEditRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9651,7 +9776,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Open an editing session (third-party storage)
-    ApiResponse<StringWrapper> response = apiInstance.StartEditFileWithHttpInfo(fileId, startEdit);
+    ApiResponse<StringWrapper> response = apiInstance.StartEditFileWithHttpInfo(fileId, startEditRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -9674,9 +9799,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The document key of the editing session |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller cannot edit the file, or the file is already being edited and the session was claimed alone |  -  |
+| **401** | An anonymous caller who may not edit the file claims the session with `editingAlone=true` |  -  |
+| **403** | The caller cannot edit the file, the file is locked or in Trash, somebody is already editing it and the session was claimed alone, or the document service did not accept the tracking request |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **415** | The file is in a format the editors can neither edit nor open for viewing |  -  |
+| **500** | The file lies in a third-party storage that cannot deliver it, or, with `editingAlone=true`, the file is locked by somebody else or lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -9792,6 +9920,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The form file, with the filling properties now stored on it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller holds only form-filling access on the room, or no access to it at all |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -9912,6 +10041,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The form file, with the filling properties now stored on it |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The caller holds only form-filling access on the room, or no access to it at all |  -  |
+| **404** | The file id resolves to nothing |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -10031,11 +10161,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Echo of the requested state, which does not prove that the mark was changed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or a third-party file identifier refers to a storage account that is not connected |  -  |
 | **403** | Changing the favorite mark is refused for the caller |  -  |
+| **404** | A third-party file identifier names a storage type the portal does not know |  -  |
+| **500** | A third-party file identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -10153,11 +10284,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Echo of the requested state, which does not prove that the mark was changed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or a third-party file identifier refers to a storage account that is not connected |  -  |
 | **403** | Changing the favorite mark is refused for the caller |  -  |
+| **404** | A third-party file identifier names a storage type the portal does not know |  -  |
+| **500** | A third-party file identifier carries a storage account number beyond the 32-bit range |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -10277,9 +10409,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The session was refreshed or closed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The document key does not match the revision being edited |  -  |
+| **401** | An anonymous caller has no external link, or refreshes the session through a link that does not grant editing |  -  |
+| **403** | The document key does not match the revision being edited, or the caller has none of the editing rights on the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **500** | The session is refreshed while the file is locked by somebody else or lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -10402,9 +10536,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The session was refreshed or closed |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The document key does not match the revision being edited |  -  |
+| **401** | An anonymous caller has no external link, or refreshes the session through a link that does not grant editing |  -  |
+| **403** | The document key does not match the revision being edited, or the caller has none of the editing rights on the file |  -  |
+| **404** | The file id resolves to nothing |  -  |
+| **500** | The session is refreshed while the file is locked by somebody else or lies in Trash |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
@@ -10413,7 +10549,7 @@ catch (ApiException e)
 
 <a id="updatefile"></a>
 # **UpdateFile**
-> FileWrapper UpdateFile (int fileId, UpdateFile updateFile)
+> FileWrapper UpdateFile (int fileId, UpdateFileRequest updateFileRequest)
 
 Renames a file, restores one of its versions, or both at once, and answers with the file as it now stands. A  non-empty `title` renames the file, keeping the stored extension whatever the new title says, so a rename  cannot change the format; an empty or missing title leaves the name alone. A `lastVersion` above 0 restores  that version the way `POST api/2.0/files/file/{fileId}/restoreversion` does, storing its content again on top  of the history, while 0 or less leaves the versions untouched and answers with the file as it is - which makes  this operation a read of the file when both fields are left out. The caller needs edit access, and renaming  somebody else's file additionally needs room-manager rights: a member or room admin with plain editing access,  read-only access, a guest and a DocSpace admin who is not a member of the room are all refused with 403, while  a content creator may rename a file of their own. The call is mutating. Renaming marks the file as new for  everybody else who can read it.
 
@@ -10424,7 +10560,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The file to update. |  |
-| **updateFile** | [**UpdateFile**](UpdateFile.md) | The new title and the version to restore. |  |
+| **updateFileRequest** | [**UpdateFileRequest**](UpdateFileRequest.md) | The new title and the version to restore. |  |
 
 ### Return type
 
@@ -10472,12 +10608,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file to update.
-            var updateFile = new UpdateFile(); // UpdateFile | The new title and the version to restore.
+            var updateFileRequest = new UpdateFileRequest(); // UpdateFileRequest | The new title and the version to restore.
 
             try
             {
                 // Update a file
-                FileWrapper result = apiInstance.UpdateFile(fileId, updateFile);
+                FileWrapper result = apiInstance.UpdateFile(fileId, updateFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10498,7 +10634,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update a file
-    ApiResponse<FileWrapper> response = apiInstance.UpdateFileWithHttpInfo(fileId, updateFile);
+    ApiResponse<FileWrapper> response = apiInstance.UpdateFileWithHttpInfo(fileId, updateFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -10521,10 +10657,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file after the rename, the restore, or both |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not rename the file or change its version |  -  |
+| **400** | The title is longer than 165 characters, or `lastVersion` is the current version |  -  |
+| **401** | An anonymous caller has no external link |  -  |
+| **402** | Restoring `lastVersion` needs more space than the room or user storage quota leaves |  -  |
+| **403** | The caller may not read or rename the file or change its version |  -  |
+| **404** | The file id, or `lastVersion` of it, resolves to nothing, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
+| **500** | The file is locked by somebody else, a third-party file is renamed while it is being edited, or restoring `lastVersion` fails because the file is being edited, another update of it is in progress or the new version cannot be stored |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -10532,7 +10671,7 @@ catch (ApiException e)
 
 <a id="updatefile-thirdparty"></a>
 # **UpdateFile** (third-party storage)
-> ThirdPartyFileWrapper UpdateFile (string fileId, UpdateFile updateFile)
+> ThirdPartyFileWrapper UpdateFile (string fileId, UpdateFileRequest updateFileRequest)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -10545,7 +10684,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | The file to update. |  |
-| **updateFile** | [**UpdateFile**](UpdateFile.md) | The new title and the version to restore. |  |
+| **updateFileRequest** | [**UpdateFileRequest**](UpdateFileRequest.md) | The new title and the version to restore. |  |
 
 ### Return type
 
@@ -10593,12 +10732,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = sbox-42-L1JlcG9ydC5kb2N4;  // string | The file to update.
-            var updateFile = new UpdateFile(); // UpdateFile | The new title and the version to restore.
+            var updateFileRequest = new UpdateFileRequest(); // UpdateFileRequest | The new title and the version to restore.
 
             try
             {
                 // Update a file (third-party storage)
-                ThirdPartyFileWrapper result = apiInstance.UpdateFile(fileId, updateFile);
+                ThirdPartyFileWrapper result = apiInstance.UpdateFile(fileId, updateFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10619,7 +10758,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update a file (third-party storage)
-    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.UpdateFileWithHttpInfo(fileId, updateFile);
+    ApiResponse<ThirdPartyFileWrapper> response = apiInstance.UpdateFileWithHttpInfo(fileId, updateFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -10642,10 +10781,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The file after the rename, the restore, or both |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | The caller may not rename the file or change its version |  -  |
+| **400** | The title is longer than 165 characters, or `lastVersion` is the current version |  -  |
+| **401** | An anonymous caller has no external link |  -  |
+| **402** | Restoring `lastVersion` needs more space than the room or user storage quota leaves |  -  |
+| **403** | The caller may not read or rename the file or change its version |  -  |
+| **404** | The file id, or `lastVersion` of it, resolves to nothing, or the file is a PDF form in a form-filling room whose filling has not started and the caller may only fill forms there |  -  |
+| **500** | The file is locked by somebody else, a third-party file is renamed while it is being edited, or restoring `lastVersion` fails because the file is being edited, another update of it is in progress or the new version cannot be stored |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

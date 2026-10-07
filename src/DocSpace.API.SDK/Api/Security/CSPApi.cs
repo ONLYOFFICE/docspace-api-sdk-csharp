@@ -37,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>CspWrapper</returns>
-        CspWrapper ConfigureCsp(CspRequestsDto? cspRequestsDto = default);
+        CspWrapper ConfigureCsp(CspRequestDto? cspRequestDto = default);
 
         /// <summary>
         /// Configure CSP settings
@@ -49,10 +49,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>ApiResponse of CspWrapper</returns>
-        ApiResponse<CspWrapper> ConfigureCspWithHttpInfo(CspRequestsDto? cspRequestsDto = default);
+        ApiResponse<CspWrapper> ConfigureCspWithHttpInfo(CspRequestDto? cspRequestDto = default);
         /// <summary>
         /// Get CSP settings
         /// </summary>
@@ -90,11 +90,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>Task of CspWrapper</returns>
-        Task<CspWrapper> ConfigureCspAsync(CspRequestsDto? cspRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<CspWrapper> ConfigureCspAsync(CspRequestDto? cspRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Configure CSP settings
@@ -103,11 +103,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>Task of ApiResponse (CspWrapper)</returns>
-        Task<ApiResponse<CspWrapper>> ConfigureCspWithHttpInfoAsync(CspRequestsDto? cspRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<CspWrapper>> ConfigureCspWithHttpInfoAsync(CspRequestDto? cspRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get CSP settings
         /// </summary>
@@ -353,12 +353,12 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>CspWrapper</returns>
-        public CspWrapper ConfigureCsp(CspRequestsDto? cspRequestsDto = default)
+        public CspWrapper ConfigureCsp(CspRequestDto? cspRequestDto = default)
         {
-            var localVarResponse = ConfigureCspWithHttpInfo(cspRequestsDto);
+            var localVarResponse = ConfigureCspWithHttpInfo(cspRequestDto);
             return localVarResponse.Data;
         }
 
@@ -369,10 +369,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>ApiResponse of CspWrapper</returns>
-        public ApiResponse<CspWrapper> ConfigureCspWithHttpInfo(CspRequestsDto? cspRequestsDto = default)
+        public ApiResponse<CspWrapper> ConfigureCspWithHttpInfo(CspRequestDto? cspRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -387,7 +387,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (cspRequestsDto != null) localVarRequestOptions.Data = cspRequestsDto;
+            if (cspRequestDto != null) localVarRequestOptions.Data = cspRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -442,13 +442,13 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>Task of CspWrapper</returns>
-        public async Task<CspWrapper> ConfigureCspAsync(CspRequestsDto? cspRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<CspWrapper> ConfigureCspAsync(CspRequestDto? cspRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await ConfigureCspWithHttpInfoAsync(cspRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ConfigureCspWithHttpInfoAsync(cspRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -459,11 +459,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// Replaces the list of external domains the portal's Content Security Policy trusts and returns the policy  header the portal serves to browsers from that moment on. The list in `domains` replaces the stored one, so an  omitted or empty list falls back to the portal's built-in policy, and every entry that is sent becomes an  allowed source for scripts, styles, images, fonts, frames, media and connections at once. An entry may be a  host, a host with a scheme, or a wildcard host such as `*.example.com`; it has to form a valid absolute  address and may contain ASCII characters only, and an entry that does not is refused with 400 before anything  is saved. The caller needs the portal-settings right of a DocSpace administrator, and the request is also  refused with 403 when the header built from the list grows past the size configured for the installation, 15  KB by default. The change applies to the whole portal at once and is idempotent. Read the current state with  `GET api/2.0/security/csp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cspRequestsDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
+        /// <param name="cspRequestDto">The external sources the portal Content Security Policy is to trust. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-csp/">REST API Reference for ConfigureCsp Operation</seealso>
         /// <returns>Task of ApiResponse (CspWrapper)</returns>
-        public async Task<ApiResponse<CspWrapper>> ConfigureCspWithHttpInfoAsync(CspRequestsDto? cspRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CspWrapper>> ConfigureCspWithHttpInfoAsync(CspRequestDto? cspRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -479,7 +479,7 @@ namespace DocSpace.API.SDK.Api.Security
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (cspRequestsDto != null) localVarRequestOptions.Data = cspRequestsDto;
+            if (cspRequestDto != null) localVarRequestOptions.Data = cspRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

@@ -24,7 +24,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="getaccountsentrieswithfilesshared"></a>
 # **GetAccountsEntriesWithFilesShared**
-> IAccountEntryArrayWrapper GetAccountsEntriesWithFilesShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> AccountEntryArrayWrapper GetAccountsEntriesWithFilesShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Searches the portal users and groups that can be given access to the file with the ID given in the route, and  reports for each of them whether it already has access to that file.  The caller has to be allowed to manage the access of that file, and the ID has to belong to an existing file,  so the operation answers 403 for a file the caller cannot share and 404 for an ID that matches nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -41,7 +41,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional]  |
@@ -50,7 +50,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional) 
@@ -110,7 +110,7 @@ namespace Example
             try
             {
                 // Search accounts for a file
-                IAccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                AccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -131,7 +131,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search accounts for a file
-    ApiResponse<IAccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    ApiResponse<AccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -154,12 +154,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -167,7 +167,7 @@ catch (ApiException e)
 
 <a id="getaccountsentrieswithfilesshared-thirdparty"></a>
 # **GetAccountsEntriesWithFilesShared** (third-party storage)
-> IAccountEntryArrayWrapper GetAccountsEntriesWithFilesShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> AccountEntryArrayWrapper GetAccountsEntriesWithFilesShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -186,7 +186,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional]  |
@@ -195,7 +195,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional) 
@@ -255,7 +255,7 @@ namespace Example
             try
             {
                 // Search accounts for a file (third-party storage)
-                IAccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                AccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -276,7 +276,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search accounts for a file (third-party storage)
-    ApiResponse<IAccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    ApiResponse<AccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -299,12 +299,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -312,7 +312,7 @@ catch (ApiException e)
 
 <a id="getaccountsentrieswithfoldersshared"></a>
 # **GetAccountsEntriesWithFoldersShared**
-> IAccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> AccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Searches the portal users and groups that can be given access to the folder with the ID given in the route,  and reports for each of them whether it already has access to that folder.  The caller has to be allowed to manage the access of that folder, and the ID has to belong to an existing  folder, so the operation answers 403 for a folder the caller cannot share and 404 for an ID that matches  nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -329,7 +329,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional]  |
@@ -338,7 +338,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional) 
@@ -398,7 +398,7 @@ namespace Example
             try
             {
                 // Search accounts for a folder
-                IAccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                AccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -419,7 +419,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search accounts for a folder
-    ApiResponse<IAccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    ApiResponse<AccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -442,12 +442,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -455,7 +455,7 @@ catch (ApiException e)
 
 <a id="getaccountsentrieswithfoldersshared-thirdparty"></a>
 # **GetAccountsEntriesWithFoldersShared** (third-party storage)
-> IAccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> AccountEntryArrayWrapper GetAccountsEntriesWithFoldersShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -474,7 +474,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional]  |
@@ -483,7 +483,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -533,7 +533,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional) 
@@ -543,7 +543,7 @@ namespace Example
             try
             {
                 // Search accounts for a folder (third-party storage)
-                IAccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                AccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -564,7 +564,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search accounts for a folder (third-party storage)
-    ApiResponse<IAccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    ApiResponse<AccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -587,12 +587,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -600,7 +600,7 @@ catch (ApiException e)
 
 <a id="getaccountsentrieswithroomsshared"></a>
 # **GetAccountsEntriesWithRoomsShared**
-> IAccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> AccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Searches the portal users and groups that can be given access to the room with the ID given in the route, and  reports for each of them whether it already has access to that room.  The caller has to be allowed to manage the access of that room, and the ID has to belong to an existing room,  so the operation answers 403 for a room the caller cannot share and 404 for an ID that matches nothing.  The search is read-only and needs `filterValue`: while it is empty the operation returns an empty list and a  total of 0 instead of every account, so it cannot be used to enumerate the portal.  `filterValue` is matched case-insensitively against the first name, the last name and the email; without  `filterSeparator` it is split on spaces and every term has to match, and with a separator it is split on that  separator and any term may match.  Matching groups are streamed first and users after them, both paged together by `count` and `startIndex`,  while the number of matches is reported in the total count of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.
 
@@ -617,7 +617,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional]  |
@@ -626,7 +626,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -676,7 +676,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional) 
@@ -686,7 +686,7 @@ namespace Example
             try
             {
                 // Search accounts for a room
-                IAccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                AccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -707,7 +707,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search accounts for a room
-    ApiResponse<IAccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    ApiResponse<AccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -730,12 +730,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -743,7 +743,7 @@ catch (ApiException e)
 
 <a id="getaccountsentrieswithroomsshared-thirdparty"></a>
 # **GetAccountsEntriesWithRoomsShared** (third-party storage)
-> IAccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> AccountEntryArrayWrapper GetAccountsEntriesWithRoomsShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -762,7 +762,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. | [optional]  |
@@ -771,7 +771,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**IAccountEntryArrayWrapper**](IAccountEntryArrayWrapper.md)
+[**AccountEntryArrayWrapper**](AccountEntryArrayWrapper.md)
 
 ### Authorization
 
@@ -821,7 +821,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when  `excludeShared` is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the users invited by the caller when true, and only the users invited by somebody else when false.  Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the users invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the users of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page, counting groups and users together. It defaults to 100, which is also the largest value  the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts, counted over the groups and users together. It defaults  to 0, and the total number of matches is reported in the total count of the response. (optional) 
@@ -831,7 +831,7 @@ namespace Example
             try
             {
                 // Search accounts for a room (third-party storage)
-                IAccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                AccountEntryArrayWrapper result = apiInstance.GetAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -852,7 +852,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search accounts for a room (third-party storage)
-    ApiResponse<IAccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    ApiResponse<AccountEntryArrayWrapper> response = apiInstance.GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -875,12 +875,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching users and groups, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1010,7 +1010,7 @@ catch (ApiException e)
 
 <a id="getsimplebyfilter"></a>
 # **GetSimpleByFilter**
-> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns a page of portal accounts selected by the full set of account filters, with the short profile of each  of them - the identifying fields, the avatar and the display name, without the contacts, the groups or the  quota.  The caller has to be a room admin, a DocSpace admin or a People module admin; a member or a guest gets 403.  The call is read-only, paged by `count` and `startIndex`, ordered by `sortBy` and `sortOrder`, and reports  the number of matches in the total count of the response.  It accepts exactly the same filters as `GET api/2.0/people/filter` and differs only in how much of each  profile comes back, so prefer this one for pickers, mentions and any list that shows names, and switch to the  other only when the full profile is needed.  Filters combine as conditions that all have to hold, and the same interactions apply: `withoutGroup` makes  `groupId` irrelevant, `employeeType` wins over `employeeTypes`, and `area` cancels the type filters that  contradict it.
 
@@ -1033,7 +1033,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **excludeGroup** | **bool?** | Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
 | **sortBy** | **string?** | What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`. | [optional]  |
@@ -1099,7 +1099,7 @@ namespace Example
             var excludeGroup = false;  // bool? | Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
             var sortBy = DisplayName;  // string? | What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`. (optional) 
@@ -1154,11 +1154,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A page of matching accounts, with their short profiles |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a member or a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1166,7 +1166,7 @@ catch (ApiException e)
 
 <a id="getuserswithfilesshared"></a>
 # **GetUsersWithFilesShared**
-> EmployeeFullArrayWrapper GetUsersWithFilesShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper GetUsersWithFilesShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns the accounts that are relevant to the file with the ID given in the route, and reports for each of  them whether it already has access to that file.  The caller only needs read access to the file, not the right to manage its access, but a guest may not call  it at all; an ID that matches no file answers 404.  The call is read-only, works without a filter - leaving `filterValue` empty returns every matching account  rather than nothing - and is paged by `count` and `startIndex`, with the number of matches in the total count  of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.  A DocSpace administrator additionally sees the guests that are not related to the caller.  To search users and groups together, or to build an access dialog that needs the right to manage sharing, use  `GET api/2.0/accounts/file/{id}/search` instead.
 
@@ -1183,7 +1183,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
@@ -1242,7 +1242,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
@@ -1296,12 +1296,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the file |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1309,7 +1309,7 @@ catch (ApiException e)
 
 <a id="getuserswithfilesshared-thirdparty"></a>
 # **GetUsersWithFilesShared** (third-party storage)
-> EmployeeFullArrayWrapper GetUsersWithFilesShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper GetUsersWithFilesShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1328,7 +1328,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
@@ -1387,7 +1387,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
@@ -1441,12 +1441,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the file |  -  |
 | **404** | No file has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1454,7 +1454,7 @@ catch (ApiException e)
 
 <a id="getuserswithfoldersshared"></a>
 # **GetUsersWithFoldersShared**
-> EmployeeFullArrayWrapper GetUsersWithFoldersShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper GetUsersWithFoldersShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns the accounts that are relevant to the folder with the ID given in the route, and reports for each of  them whether it already has access to that folder.  The caller only needs read access to the folder, not the right to manage its access, but a guest may not call  it at all; an ID that matches no folder answers 404.  The call is read-only, works without a filter - leaving `filterValue` empty returns every matching account  rather than nothing - and is paged by `count` and `startIndex`, with the number of matches in the total count  of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.  A DocSpace administrator additionally sees the guests that are not related to the caller.  To search users and groups together, or to build an access dialog that needs the right to manage sharing, use  `GET api/2.0/accounts/folder/{id}/search` instead.
 
@@ -1471,7 +1471,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
@@ -1530,7 +1530,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
@@ -1584,12 +1584,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the folder |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1597,7 +1597,7 @@ catch (ApiException e)
 
 <a id="getuserswithfoldersshared-thirdparty"></a>
 # **GetUsersWithFoldersShared** (third-party storage)
-> EmployeeFullArrayWrapper GetUsersWithFoldersShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper GetUsersWithFoldersShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1616,7 +1616,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
@@ -1675,7 +1675,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
@@ -1729,12 +1729,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the folder |  -  |
 | **404** | No folder has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1742,7 +1742,7 @@ catch (ApiException e)
 
 <a id="getuserswithroomshared"></a>
 # **GetUsersWithRoomShared**
-> EmployeeFullArrayWrapper GetUsersWithRoomShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper GetUsersWithRoomShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns the accounts that are relevant to the room with the ID given in the route, and reports for each of  them whether it already has access to that room.  The caller only needs read access to the room, not the right to manage its access, but a guest may not call  it at all; an ID that matches no room answers 404.  The call is read-only, works without a filter - leaving `filterValue` empty returns every matching account  rather than nothing - and is paged by `count` and `startIndex`, with the number of matches in the total count  of the response.  Pass `excludeShared` to keep only the accounts that have no access yet, `includeShared` to keep only those  that already have it, and neither to get both kinds with the `shared` field telling them apart.  A DocSpace administrator additionally sees the guests that are not related to the caller.  To search users and groups together, or to build an access dialog that needs the right to manage sharing, use  `GET api/2.0/accounts/room/{id}/search` instead.
 
@@ -1759,7 +1759,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
@@ -1818,7 +1818,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
@@ -1872,12 +1872,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the room |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -1885,7 +1885,7 @@ catch (ApiException e)
 
 <a id="getuserswithroomshared-thirdparty"></a>
 # **GetUsersWithRoomShared** (third-party storage)
-> EmployeeFullArrayWrapper GetUsersWithRoomShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper GetUsersWithRoomShared (string id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1904,7 +1904,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **includeShared** | **bool?** | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. | [optional]  |
 | **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
@@ -1963,7 +1963,7 @@ namespace Example
             var includeShared = false;  // bool? | Keeps only the accounts that already have access to the entry, which is the set to offer when changing or  revoking access. Every returned entry has `shared` set to true, and the flag is ignored when `excludeShared`  is also set. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only - and for a caller who is not a DocSpace  administrator, only the guests that caller is related to. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | Keeps only the accounts of the listed types, combined as alternatives. An empty list, which is the default,  searches every type. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
@@ -2017,12 +2017,12 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The matching accounts, each with its access state for the room |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a guest or cannot read the room |  -  |
 | **404** | No room has the specified ID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2030,7 +2030,7 @@ catch (ApiException e)
 
 <a id="searchusersbyextendedfilter"></a>
 # **SearchUsersByExtendedFilter**
-> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
+> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, AccountSearchArea? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns a page of portal accounts selected by the full set of account filters, with the complete profile of  each of them.  The caller has to be a room admin, a DocSpace admin or a People module admin; a member or a guest gets 403,  and a DocSpace admin additionally sees the accounts an ordinary admin does not.  The call is read-only, paged by `count` and `startIndex`, ordered by `sortBy` and `sortOrder`, and reports  the number of matches in the total count of the response.  Filters combine as conditions that all have to hold, with three interactions worth knowing: `withoutGroup`  makes `groupId` irrelevant, `employeeType` wins over `employeeTypes` when both are sent, and `area` set to  `Guests` or `People` cancels the type filters that contradict it.  `GET api/2.0/people/simple/filter` accepts exactly the same filters and returns the short profile instead, so  use that one for pickers and lists and this one when the full profile is really needed.  It is available on an unpaid portal.
 
@@ -2053,7 +2053,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **excludeGroup** | **bool?** | Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`. | [optional]  |
 | **invitedByMe** | **bool?** | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. | [optional]  |
 | **inviterId** | **Guid?** | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. | [optional]  |
-| **area** | [**Area?**](Area.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional]  |
+| **area** | [**AccountSearchArea?**](AccountSearchArea.md) | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. | [optional]  |
 | **count** | **int?** | The size of the page. It defaults to 100, which is also the largest value the operation accepts. | [optional]  |
 | **startIndex** | **int?** | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. | [optional]  |
 | **sortBy** | **string?** | What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`. | [optional]  |
@@ -2119,7 +2119,7 @@ namespace Example
             var excludeGroup = false;  // bool? | Inverts `groupId`: with true the members of that group are left out instead of being the only ones kept. It  has no effect without `groupId`. (optional) 
             var invitedByMe = false;  // bool? | Keeps only the accounts invited by the caller when true, and only those invited by somebody else when  false. Omit it to search regardless of who sent the invitation. (optional) 
             var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | Keeps only the accounts invited by the account with this ID. Omit it to search regardless of who sent the  invitation. (optional) 
-            var area = new Area?(); // Area? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. (optional) 
+            var area = new AccountSearchArea?(); // AccountSearchArea? | The part of the portal to search in: `All`, the default, searches members and guests together, `People`  leaves the guests out, and `Guests` returns guests only. It also cancels the type filters that contradict  it. (optional) 
             var count = 25;  // int? | The size of the page. It defaults to 100, which is also the largest value the operation accepts. (optional) 
             var startIndex = 0;  // int? | The number of matches to skip before the page starts. It defaults to 0, and the total number of matches is  reported in the total count of the response. (optional) 
             var sortBy = DisplayName;  // string? | What to order the accounts by, compared without regard to case: `FirstName`, `LastName`, `DisplayName`,  `Type`, `Email`, `Department`, `UsedSpace`, `CreatedBy` or `RegistrationDate`. (optional) 
@@ -2174,11 +2174,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A page of matching accounts, with their full profiles |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or the `count` is outside its allowed range |  -  |
 | **403** | The caller is a member or a guest |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -2416,11 +2416,11 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The full profiles of the matching accounts |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | A parameter has the wrong type, or `query` is missing |  -  |
 | **403** | The caller is not a DocSpace administrator |  -  |
+| **500** | The `filterBy` is `group` and the `filterValue` is not a GUID |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
-| **500** | Internal Server Error. |  -  |
-| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

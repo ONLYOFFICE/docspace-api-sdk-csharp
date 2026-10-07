@@ -84,8 +84,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        STRINGArrayWrapper GetAllPermissions();
+        /// <returns>StringArrayWrapper</returns>
+        StringArrayWrapper GetAllPermissions();
 
         /// <summary>
         /// Get API key permissions
@@ -95,8 +95,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        ApiResponse<STRINGArrayWrapper> GetAllPermissionsWithHttpInfo();
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        ApiResponse<StringArrayWrapper> GetAllPermissionsWithHttpInfo();
         /// <summary>
         /// Get the current API key
         /// </summary>
@@ -232,8 +232,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        Task<STRINGArrayWrapper> GetAllPermissionsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of StringArrayWrapper</returns>
+        Task<StringArrayWrapper> GetAllPermissionsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get API key permissions
@@ -244,8 +244,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        Task<ApiResponse<STRINGArrayWrapper>> GetAllPermissionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        Task<ApiResponse<StringArrayWrapper>> GetAllPermissionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the current API key
         /// </summary>
@@ -906,8 +906,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>STRINGArrayWrapper</returns>
-        public STRINGArrayWrapper GetAllPermissions()
+        /// <returns>StringArrayWrapper</returns>
+        public StringArrayWrapper GetAllPermissions()
         {
             var localVarResponse = GetAllPermissionsWithHttpInfo();
             return localVarResponse.Data;
@@ -921,8 +921,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        public ApiResponse<STRINGArrayWrapper> GetAllPermissionsWithHttpInfo()
+        /// <returns>ApiResponse of StringArrayWrapper</returns>
+        public ApiResponse<StringArrayWrapper> GetAllPermissionsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -970,7 +970,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<STRINGArrayWrapper>("/api/2.0/keys/permissions", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringArrayWrapper>("/api/2.0/keys/permissions", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -993,8 +993,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>Task of STRINGArrayWrapper</returns>
-        public async Task<STRINGArrayWrapper> GetAllPermissionsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of StringArrayWrapper</returns>
+        public async Task<StringArrayWrapper> GetAllPermissionsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAllPermissionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1009,8 +1009,8 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-permissions/">REST API Reference for GetAllPermissions Operation</seealso>
-        /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async Task<ApiResponse<STRINGArrayWrapper>> GetAllPermissionsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringArrayWrapper)</returns>
+        public async Task<ApiResponse<StringArrayWrapper>> GetAllPermissionsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1060,7 +1060,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<STRINGArrayWrapper>("/api/2.0/keys/permissions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringArrayWrapper>("/api/2.0/keys/permissions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

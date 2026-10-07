@@ -38,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>AuthServiceRequestsArrayWrapper</returns>
-        AuthServiceRequestsArrayWrapper GetAuthServices();
+        /// <returns>AuthServiceArrayWrapper</returns>
+        AuthServiceArrayWrapper GetAuthServices();
 
         /// <summary>
         /// Get the authorization services
@@ -49,8 +49,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>ApiResponse of AuthServiceRequestsArrayWrapper</returns>
-        ApiResponse<AuthServiceRequestsArrayWrapper> GetAuthServicesWithHttpInfo();
+        /// <returns>ApiResponse of AuthServiceArrayWrapper</returns>
+        ApiResponse<AuthServiceArrayWrapper> GetAuthServicesWithHttpInfo();
         /// <summary>
         /// Save the authorization keys
         /// </summary>
@@ -58,10 +58,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        BooleanWrapper SaveAuthKeys(AuthServiceRequestsDto? authServiceRequestsDto = default);
+        BooleanWrapper SaveAuthKeys(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default);
 
         /// <summary>
         /// Save the authorization keys
@@ -70,10 +70,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(AuthServiceRequestsDto? authServiceRequestsDto = default);
+        ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default);
         /// <summary>
         /// Test external database connection
         /// </summary>
@@ -81,10 +81,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ConnectionTestResultWrapper</returns>
-        ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseSettings? externalDatabaseSettings = default);
+        ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default);
 
         /// <summary>
         /// Test external database connection
@@ -93,10 +93,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ApiResponse of ConnectionTestResultWrapper</returns>
-        ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseSettings? externalDatabaseSettings = default);
+        ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -115,8 +115,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>Task of AuthServiceRequestsArrayWrapper</returns>
-        Task<AuthServiceRequestsArrayWrapper> GetAuthServicesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of AuthServiceArrayWrapper</returns>
+        Task<AuthServiceArrayWrapper> GetAuthServicesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the authorization services
@@ -127,8 +127,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>Task of ApiResponse (AuthServiceRequestsArrayWrapper)</returns>
-        Task<ApiResponse<AuthServiceRequestsArrayWrapper>> GetAuthServicesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (AuthServiceArrayWrapper)</returns>
+        Task<ApiResponse<AuthServiceArrayWrapper>> GetAuthServicesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the authorization keys
         /// </summary>
@@ -136,11 +136,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        Task<BooleanWrapper> SaveAuthKeysAsync(AuthServiceRequestsDto? authServiceRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<BooleanWrapper> SaveAuthKeysAsync(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the authorization keys
@@ -149,11 +149,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        Task<ApiResponse<BooleanWrapper>> SaveAuthKeysWithHttpInfoAsync(AuthServiceRequestsDto? authServiceRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<BooleanWrapper>> SaveAuthKeysWithHttpInfoAsync(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Test external database connection
         /// </summary>
@@ -161,11 +161,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ConnectionTestResultWrapper</returns>
-        Task<ConnectionTestResultWrapper> TestExternalDatabaseConnectionAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default);
+        Task<ConnectionTestResultWrapper> TestExternalDatabaseConnectionAsync(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Test external database connection
@@ -174,11 +174,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ApiResponse (ConnectionTestResultWrapper)</returns>
-        Task<ApiResponse<ConnectionTestResultWrapper>> TestExternalDatabaseConnectionWithHttpInfoAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ConnectionTestResultWrapper>> TestExternalDatabaseConnectionWithHttpInfoAsync(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -402,8 +402,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>AuthServiceRequestsArrayWrapper</returns>
-        public AuthServiceRequestsArrayWrapper GetAuthServices()
+        /// <returns>AuthServiceArrayWrapper</returns>
+        public AuthServiceArrayWrapper GetAuthServices()
         {
             var localVarResponse = GetAuthServicesWithHttpInfo();
             return localVarResponse.Data;
@@ -417,8 +417,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>ApiResponse of AuthServiceRequestsArrayWrapper</returns>
-        public ApiResponse<AuthServiceRequestsArrayWrapper> GetAuthServicesWithHttpInfo()
+        /// <returns>ApiResponse of AuthServiceArrayWrapper</returns>
+        public ApiResponse<AuthServiceArrayWrapper> GetAuthServicesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -466,7 +466,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<AuthServiceRequestsArrayWrapper>("/api/2.0/settings/authservice", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<AuthServiceArrayWrapper>("/api/2.0/settings/authservice", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -489,8 +489,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>Task of AuthServiceRequestsArrayWrapper</returns>
-        public async Task<AuthServiceRequestsArrayWrapper> GetAuthServicesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of AuthServiceArrayWrapper</returns>
+        public async Task<AuthServiceArrayWrapper> GetAuthServicesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuthServicesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -505,8 +505,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-auth-services/">REST API Reference for GetAuthServices Operation</seealso>
-        /// <returns>Task of ApiResponse (AuthServiceRequestsArrayWrapper)</returns>
-        public async Task<ApiResponse<AuthServiceRequestsArrayWrapper>> GetAuthServicesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (AuthServiceArrayWrapper)</returns>
+        public async Task<ApiResponse<AuthServiceArrayWrapper>> GetAuthServicesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -556,7 +556,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<AuthServiceRequestsArrayWrapper>("/api/2.0/settings/authservice", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<AuthServiceArrayWrapper>("/api/2.0/settings/authservice", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -577,12 +577,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper SaveAuthKeys(AuthServiceRequestsDto? authServiceRequestsDto = default)
+        public BooleanWrapper SaveAuthKeys(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default)
         {
-            var localVarResponse = SaveAuthKeysWithHttpInfo(authServiceRequestsDto);
+            var localVarResponse = SaveAuthKeysWithHttpInfo(saveAuthKeysRequestDto);
             return localVarResponse.Data;
         }
 
@@ -593,10 +593,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(AuthServiceRequestsDto? authServiceRequestsDto = default)
+        public ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -611,7 +611,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (authServiceRequestsDto != null) localVarRequestOptions.Data = authServiceRequestsDto;
+            if (saveAuthKeysRequestDto != null) localVarRequestOptions.Data = saveAuthKeysRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -666,13 +666,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        public async Task<BooleanWrapper> SaveAuthKeysAsync(AuthServiceRequestsDto? authServiceRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<BooleanWrapper> SaveAuthKeysAsync(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveAuthKeysWithHttpInfoAsync(authServiceRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveAuthKeysWithHttpInfoAsync(saveAuthKeysRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -683,11 +683,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Saves the authorization keys for one third-party storage or authorization provider, identified by name, or  clears them when every submitted key is left empty. Requires Owner or DocSpaceAdmin (the EditPortalSettings  permission); a provider that does not allow its keys to be changed from the API rejects the call outright. A  provider that is only available on a paid plan additionally requires the portal's tariff to include  third-party storage, or Standalone licensing, before the call is accepted. Keys that fail the provider's own  validation are cleared and the call is rejected rather than left partially applied. This is a mutating,  idempotent call: resaving identical keys succeeds and reports no change. It returns whether the keys actually  changed, not the keys themselves; connecting Telegram or an external database through this call also triggers  the matching real-time connection update.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authServiceRequestsDto">One third-party authorization or storage provider and the keys the portal connects to it with. (optional)</param>
+        /// <param name="saveAuthKeysRequestDto">The keys to store for one third-party authorization or storage provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async Task<ApiResponse<BooleanWrapper>> SaveAuthKeysWithHttpInfoAsync(AuthServiceRequestsDto? authServiceRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<BooleanWrapper>> SaveAuthKeysWithHttpInfoAsync(SaveAuthKeysRequestDto? saveAuthKeysRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -703,7 +703,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (authServiceRequestsDto != null) localVarRequestOptions.Data = authServiceRequestsDto;
+            if (saveAuthKeysRequestDto != null) localVarRequestOptions.Data = saveAuthKeysRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -759,12 +759,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ConnectionTestResultWrapper</returns>
-        public ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseSettings? externalDatabaseSettings = default)
+        public ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default)
         {
-            var localVarResponse = TestExternalDatabaseConnectionWithHttpInfo(externalDatabaseSettings);
+            var localVarResponse = TestExternalDatabaseConnectionWithHttpInfo(externalDatabaseConnectionRequestDto);
             return localVarResponse.Data;
         }
 
@@ -775,10 +775,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>ApiResponse of ConnectionTestResultWrapper</returns>
-        public ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseSettings? externalDatabaseSettings = default)
+        public ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -793,7 +793,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (externalDatabaseSettings != null) localVarRequestOptions.Data = externalDatabaseSettings;
+            if (externalDatabaseConnectionRequestDto != null) localVarRequestOptions.Data = externalDatabaseConnectionRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -848,13 +848,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ConnectionTestResultWrapper</returns>
-        public async Task<ConnectionTestResultWrapper> TestExternalDatabaseConnectionAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default)
+        public async Task<ConnectionTestResultWrapper> TestExternalDatabaseConnectionAsync(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await TestExternalDatabaseConnectionWithHttpInfoAsync(externalDatabaseSettings, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TestExternalDatabaseConnectionWithHttpInfoAsync(externalDatabaseConnectionRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -865,11 +865,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Probes connectivity to an external database using the settings supplied in the request, without saving them or  affecting the portal's own configuration. Requires Owner or DocSpaceAdmin (the EditPortalSettings permission).  SQLite is only accepted as a target on a Standalone (self-hosted) installation; requesting it on SaaS is  reported as a failed connection rather than an error. This is a read-only call, safe to retry. A failed  connection is not an HTTP error: the response always comes back as a normal success with `success=false` and  an `error` message describing what went wrong.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="externalDatabaseSettings">The connection parameters of an external database. (optional)</param>
+        /// <param name="externalDatabaseConnectionRequestDto">The connection parameters of an external database to test. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
         /// <returns>Task of ApiResponse (ConnectionTestResultWrapper)</returns>
-        public async Task<ApiResponse<ConnectionTestResultWrapper>> TestExternalDatabaseConnectionWithHttpInfoAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ConnectionTestResultWrapper>> TestExternalDatabaseConnectionWithHttpInfoAsync(ExternalDatabaseConnectionRequestDto? externalDatabaseConnectionRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -885,7 +885,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (externalDatabaseSettings != null) localVarRequestOptions.Data = externalDatabaseSettings;
+            if (externalDatabaseConnectionRequestDto != null) localVarRequestOptions.Data = externalDatabaseConnectionRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAssignmentsAssignRequest
     /// </summary>
-    [DataContract(Name = "aiAssignmentsAssign_request")]
+    [DataContract(Name = "AiAssignmentsAssignRequest")]
     public partial class AiAssignmentsAssignRequest : IValidatableObject
     {
 

@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateMemberRequestDto" /> class.
         /// </summary>
-        /// <param name="userId">The account the change applies to. It is read from this body by &#x60;POST api/2.0/people/email&#x60;, while  &#x60;PUT api/2.0/people/{userid}&#x60; takes the account from the route and ignores this field..</param>
+        /// <param name="userId">The account the change applies to. It is read from this body by &#x60;POST api/2.0/people/email&#x60;, while  &#x60;PUT api/2.0/people/{userId}&#x60; takes the account from the route and ignores this field..</param>
         /// <param name="disable">Set it to true to give the account the &#x60;Terminated&#x60; status and end every session it has, and to false to  bring it back. It is applied only when the caller edits somebody else, and omitting it keeps the current  status..</param>
-        /// <param name="email">The new email address, up to 255 characters. It is read only by &#x60;POST api/2.0/people/email&#x60;, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  &#x60;PUT api/2.0/people/{userid}&#x60; ignores it..</param>
+        /// <param name="email">The new email address, up to 255 characters. It is read only by &#x60;POST api/2.0/people/email&#x60;, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  &#x60;PUT api/2.0/people/{userId}&#x60; ignores it..</param>
         /// <param name="isUser">Set it to true to turn the account into a guest and to false to turn it back into a member. Either direction  takes a seat and can answer 402, it is applied only when the caller edits somebody else, and a request to  make the portal owner, a DocSpace administrator or a module administrator a guest is ignored..</param>
         /// <param name="firstName">The new first name, up to 255 characters. It is applied only to the caller&#39;s own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400..</param>
         /// <param name="lastName">The new last name, up to 255 characters. It is applied only to the caller&#39;s own profile, is left alone on an  LDAP or SSO account, and a pair the portal does not accept as a name answers 400..</param>
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The account the change applies to. It is read from this body by &#x60;POST api/2.0/people/email&#x60;, while  &#x60;PUT api/2.0/people/{userid}&#x60; takes the account from the route and ignores this field.
+        /// The account the change applies to. It is read from this body by &#x60;POST api/2.0/people/email&#x60;, while  &#x60;PUT api/2.0/people/{userId}&#x60; takes the account from the route and ignores this field.
         /// </summary>
         /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "userId", EmitDefaultValue = true)]
@@ -84,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         public bool? Disable { get; set; }
 
         /// <summary>
-        /// The new email address, up to 255 characters. It is read only by &#x60;POST api/2.0/people/email&#x60;, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  &#x60;PUT api/2.0/people/{userid}&#x60; ignores it.
+        /// The new email address, up to 255 characters. It is read only by &#x60;POST api/2.0/people/email&#x60;, which either  mails a confirmation letter or, for an administrator acting on somebody else, applies the address at once;  &#x60;PUT api/2.0/people/{userId}&#x60; ignores it.
         /// </summary>
         /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", EmitDefaultValue = true)]

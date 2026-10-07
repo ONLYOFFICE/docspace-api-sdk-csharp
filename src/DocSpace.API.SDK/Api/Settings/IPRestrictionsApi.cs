@@ -38,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>IPRestrictionArrayWrapper</returns>
-        IPRestrictionArrayWrapper GetIpRestrictions();
+        /// <returns>IpRestrictionArrayWrapper</returns>
+        IpRestrictionArrayWrapper GetIpRestrictions();
 
         /// <summary>
         /// Get IP restrictions
@@ -49,8 +49,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>ApiResponse of IPRestrictionArrayWrapper</returns>
-        ApiResponse<IPRestrictionArrayWrapper> GetIpRestrictionsWithHttpInfo();
+        /// <returns>ApiResponse of IpRestrictionArrayWrapper</returns>
+        ApiResponse<IpRestrictionArrayWrapper> GetIpRestrictionsWithHttpInfo();
         /// <summary>
         /// Get IP restriction settings
         /// </summary>
@@ -59,8 +59,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>IPRestrictionsSettingsWrapper</returns>
-        IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings();
+        /// <returns>IpRestrictionsSettingsWrapper</returns>
+        IpRestrictionsSettingsWrapper ReadIpRestrictionsSettings();
 
         /// <summary>
         /// Get IP restriction settings
@@ -70,8 +70,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>ApiResponse of IPRestrictionsSettingsWrapper</returns>
-        ApiResponse<IPRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsWithHttpInfo();
+        /// <returns>ApiResponse of IpRestrictionsSettingsWrapper</returns>
+        ApiResponse<IpRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsWithHttpInfo();
         /// <summary>
         /// Save IP restrictions
         /// </summary>
@@ -136,8 +136,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>Task of IPRestrictionArrayWrapper</returns>
-        Task<IPRestrictionArrayWrapper> GetIpRestrictionsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of IpRestrictionArrayWrapper</returns>
+        Task<IpRestrictionArrayWrapper> GetIpRestrictionsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get IP restrictions
@@ -148,8 +148,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>Task of ApiResponse (IPRestrictionArrayWrapper)</returns>
-        Task<ApiResponse<IPRestrictionArrayWrapper>> GetIpRestrictionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (IpRestrictionArrayWrapper)</returns>
+        Task<ApiResponse<IpRestrictionArrayWrapper>> GetIpRestrictionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get IP restriction settings
         /// </summary>
@@ -159,8 +159,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>Task of IPRestrictionsSettingsWrapper</returns>
-        Task<IPRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of IpRestrictionsSettingsWrapper</returns>
+        Task<IpRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get IP restriction settings
@@ -171,8 +171,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (IPRestrictionsSettingsWrapper)</returns>
-        Task<ApiResponse<IPRestrictionsSettingsWrapper>> ReadIpRestrictionsSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (IpRestrictionsSettingsWrapper)</returns>
+        Task<ApiResponse<IpRestrictionsSettingsWrapper>> ReadIpRestrictionsSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Save IP restrictions
         /// </summary>
@@ -446,8 +446,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>IPRestrictionArrayWrapper</returns>
-        public IPRestrictionArrayWrapper GetIpRestrictions()
+        /// <returns>IpRestrictionArrayWrapper</returns>
+        public IpRestrictionArrayWrapper GetIpRestrictions()
         {
             var localVarResponse = GetIpRestrictionsWithHttpInfo();
             return localVarResponse.Data;
@@ -461,8 +461,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>ApiResponse of IPRestrictionArrayWrapper</returns>
-        public ApiResponse<IPRestrictionArrayWrapper> GetIpRestrictionsWithHttpInfo()
+        /// <returns>ApiResponse of IpRestrictionArrayWrapper</returns>
+        public ApiResponse<IpRestrictionArrayWrapper> GetIpRestrictionsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -510,7 +510,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IPRestrictionArrayWrapper>("/api/2.0/settings/iprestrictions", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<IpRestrictionArrayWrapper>("/api/2.0/settings/iprestrictions", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -533,8 +533,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>Task of IPRestrictionArrayWrapper</returns>
-        public async Task<IPRestrictionArrayWrapper> GetIpRestrictionsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of IpRestrictionArrayWrapper</returns>
+        public async Task<IpRestrictionArrayWrapper> GetIpRestrictionsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetIpRestrictionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -549,8 +549,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/">REST API Reference for GetIpRestrictions Operation</seealso>
-        /// <returns>Task of ApiResponse (IPRestrictionArrayWrapper)</returns>
-        public async Task<ApiResponse<IPRestrictionArrayWrapper>> GetIpRestrictionsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (IpRestrictionArrayWrapper)</returns>
+        public async Task<ApiResponse<IpRestrictionArrayWrapper>> GetIpRestrictionsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -600,7 +600,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IPRestrictionArrayWrapper>("/api/2.0/settings/iprestrictions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<IpRestrictionArrayWrapper>("/api/2.0/settings/iprestrictions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -622,8 +622,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>IPRestrictionsSettingsWrapper</returns>
-        public IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings()
+        /// <returns>IpRestrictionsSettingsWrapper</returns>
+        public IpRestrictionsSettingsWrapper ReadIpRestrictionsSettings()
         {
             var localVarResponse = ReadIpRestrictionsSettingsWithHttpInfo();
             return localVarResponse.Data;
@@ -637,8 +637,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>ApiResponse of IPRestrictionsSettingsWrapper</returns>
-        public ApiResponse<IPRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsWithHttpInfo()
+        /// <returns>ApiResponse of IpRestrictionsSettingsWrapper</returns>
+        public ApiResponse<IpRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -686,7 +686,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<IPRestrictionsSettingsWrapper>("/api/2.0/settings/iprestrictions/settings", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<IpRestrictionsSettingsWrapper>("/api/2.0/settings/iprestrictions/settings", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -709,8 +709,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>Task of IPRestrictionsSettingsWrapper</returns>
-        public async Task<IPRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of IpRestrictionsSettingsWrapper</returns>
+        public async Task<IpRestrictionsSettingsWrapper> ReadIpRestrictionsSettingsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ReadIpRestrictionsSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -725,8 +725,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/">REST API Reference for ReadIpRestrictionsSettings Operation</seealso>
-        /// <returns>Task of ApiResponse (IPRestrictionsSettingsWrapper)</returns>
-        public async Task<ApiResponse<IPRestrictionsSettingsWrapper>> ReadIpRestrictionsSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (IpRestrictionsSettingsWrapper)</returns>
+        public async Task<ApiResponse<IpRestrictionsSettingsWrapper>> ReadIpRestrictionsSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -776,7 +776,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<IPRestrictionsSettingsWrapper>("/api/2.0/settings/iprestrictions/settings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<IpRestrictionsSettingsWrapper>("/api/2.0/settings/iprestrictions/settings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiAgentsDeleteRequest
     /// </summary>
-    [DataContract(Name = "aiAgentsDelete_request")]
+    [DataContract(Name = "AiAgentsDeleteRequest")]
     public partial class AiAgentsDeleteRequest : IValidatableObject
     {
     

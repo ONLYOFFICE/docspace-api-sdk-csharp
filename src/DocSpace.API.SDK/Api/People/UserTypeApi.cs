@@ -37,10 +37,10 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
-        TaskProgressResponseWrapper GetUserTypeUpdateProgress(Guid userid);
+        TaskProgressResponseWrapper GetUserTypeUpdateProgress(Guid userId);
 
         /// <summary>
         /// Get the user type change progress
@@ -49,15 +49,15 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        ApiResponse<TaskProgressResponseWrapper> GetUserTypeUpdateProgressWithHttpInfo(Guid userid);
+        ApiResponse<TaskProgressResponseWrapper> GetUserTypeUpdateProgressWithHttpInfo(Guid userId);
         /// <summary>
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
@@ -140,11 +140,11 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        Task<TaskProgressResponseWrapper> GetUserTypeUpdateProgressAsync(Guid userid, CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> GetUserTypeUpdateProgressAsync(Guid userId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the user type change progress
@@ -153,16 +153,16 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        Task<ApiResponse<TaskProgressResponseWrapper>> GetUserTypeUpdateProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> GetUserTypeUpdateProgressWithHttpInfoAsync(Guid userId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
@@ -175,7 +175,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
@@ -457,12 +457,12 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
-        public TaskProgressResponseWrapper GetUserTypeUpdateProgress(Guid userid)
+        public TaskProgressResponseWrapper GetUserTypeUpdateProgress(Guid userId)
         {
-            var localVarResponse = GetUserTypeUpdateProgressWithHttpInfo(userid);
+            var localVarResponse = GetUserTypeUpdateProgressWithHttpInfo(userId);
             return localVarResponse.Data;
         }
 
@@ -473,10 +473,10 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        public ApiResponse<TaskProgressResponseWrapper> GetUserTypeUpdateProgressWithHttpInfo(Guid userid)
+        public ApiResponse<TaskProgressResponseWrapper> GetUserTypeUpdateProgressWithHttpInfo(Guid userId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -491,7 +491,7 @@ namespace DocSpace.API.SDK.Api.People
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -525,7 +525,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/type/progress/{userid}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TaskProgressResponseWrapper>("/api/2.0/people/type/progress/{userId}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -546,13 +546,13 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async Task<TaskProgressResponseWrapper> GetUserTypeUpdateProgressAsync(Guid userid, CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> GetUserTypeUpdateProgressAsync(Guid userId, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetUserTypeUpdateProgressWithHttpInfoAsync(userid, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUserTypeUpdateProgressWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -563,11 +563,11 @@ namespace DocSpace.API.SDK.Api.People
         /// Returns the current state of the user type change queued for the user with the ID specified in the request.  A conversion must have been queued by `POST api/2.0/people/type` first: when nothing is queued for that user  the operation answers 200 with an empty body.  The caller needs the permission to add and remove users.  The call is read-only and is the polling operation of this flow - repeat it until `isCompleted` is true,  reading `percentage` for the 0 to 100 progress and `error` for the message left by a failed job.  Use `PUT api/2.0/people/type/terminate` to cancel a conversion that is still running.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
+        /// <param name="userId">The ID of the user the operation applies to, taken from the route. For a progress operation it has to be the  same ID that was passed when the job was started.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-type-update-progress/">REST API Reference for GetUserTypeUpdateProgress Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async Task<ApiResponse<TaskProgressResponseWrapper>> GetUserTypeUpdateProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> GetUserTypeUpdateProgressWithHttpInfoAsync(Guid userId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -583,7 +583,7 @@ namespace DocSpace.API.SDK.Api.People
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -618,7 +618,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/type/progress/{userid}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TaskProgressResponseWrapper>("/api/2.0/people/type/progress/{userId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -636,7 +636,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
@@ -652,7 +652,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
@@ -725,7 +725,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
@@ -742,7 +742,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Start updating user type
         /// </summary>
         /// <remarks>
-        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userid}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
+        /// Queues an asynchronous job that converts one account to `Guest` or `User` and, in the same job, hands the  rooms and the shared files of that account over to another administrator.  Only `Guest` and `User` are accepted here, because they are the types that cannot own rooms; for any other  type use `PUT api/2.0/people/type/{type}`, which converts immediately and transfers nothing.  The caller needs the permission to add and remove users of the requested type, has to be the portal owner to  convert a DocSpace administrator, and converting to `Guest` also requires the portal to allow inviting guests.  The account being converted has to be active and cannot be the caller, and the recipient - `reassignUserId`,  or the caller when it is omitted - has to be an active room admin or DocSpace admin other than that account.  The conversion does not finish within this call: poll `GET api/2.0/people/type/progress/{userId}` with the  converted user ID until `isCompleted` is true, and cancel it through `PUT api/2.0/people/type/terminate`.  A failure inside the running job is reported in the `error` field of the progress, not as a status code here.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>

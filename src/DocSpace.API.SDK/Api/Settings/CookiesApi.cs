@@ -58,10 +58,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper UpdateCookieSettings(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default);
+        StringWrapper UpdateCookieSettings(CookieSettingsRequestDto? cookieSettingsRequestDto = default);
 
         /// <summary>
         /// Update the cookie lifetime settings
@@ -70,10 +70,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> UpdateCookieSettingsWithHttpInfo(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default);
+        ApiResponse<StringWrapper> UpdateCookieSettingsWithHttpInfo(CookieSettingsRequestDto? cookieSettingsRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -113,11 +113,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> UpdateCookieSettingsAsync(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> UpdateCookieSettingsAsync(CookieSettingsRequestDto? cookieSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the cookie lifetime settings
@@ -126,11 +126,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> UpdateCookieSettingsWithHttpInfoAsync(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> UpdateCookieSettingsWithHttpInfoAsync(CookieSettingsRequestDto? cookieSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -529,12 +529,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper UpdateCookieSettings(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default)
+        public StringWrapper UpdateCookieSettings(CookieSettingsRequestDto? cookieSettingsRequestDto = default)
         {
-            var localVarResponse = UpdateCookieSettingsWithHttpInfo(cookieSettingsRequestsDto);
+            var localVarResponse = UpdateCookieSettingsWithHttpInfo(cookieSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -545,10 +545,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> UpdateCookieSettingsWithHttpInfo(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default)
+        public ApiResponse<StringWrapper> UpdateCookieSettingsWithHttpInfo(CookieSettingsRequestDto? cookieSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -563,7 +563,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (cookieSettingsRequestsDto != null) localVarRequestOptions.Data = cookieSettingsRequestsDto;
+            if (cookieSettingsRequestDto != null) localVarRequestOptions.Data = cookieSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -618,13 +618,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> UpdateCookieSettingsAsync(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> UpdateCookieSettingsAsync(CookieSettingsRequestDto? cookieSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateCookieSettingsWithHttpInfoAsync(cookieSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateCookieSettingsWithHttpInfoAsync(cookieSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -635,11 +635,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Stores how long an authentication session of this portal stays valid: `lifeTime` in minutes together with the  `enabled` flag that switches the limit on. The caller needs the portal-settings right of a DocSpace  administrator - the portal owner and a DocSpace administrator qualify, any other member is refused - and on an  installation whose configuration hides the cookie section nothing is stored and the call is answered with 402.  A `lifeTime` above 9999 minutes is not rejected but clamped to 9999, while 0 or less clears the number  instead, which with `enabled` true leaves sessions that never expire on their own. Any positive `lifeTime`  raises the session version of the portal: every session issued before the call stops being accepted, and with  `enabled` true the connections behind them are dropped as well. The caller is signed in again inside the same  call and gets a fresh session cookie in the response, so a client that keeps sending the token it held before  this call is the one locked out. The change is recorded in the audit trail. What comes back is a localized  confirmation message; read the stored pair with `GET api/2.0/settings/cookiesettings`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cookieSettingsRequestsDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
+        /// <param name="cookieSettingsRequestDto">How long an authentication session of the portal stays valid, and whether that limit is applied. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-cookie-settings/">REST API Reference for UpdateCookieSettings Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> UpdateCookieSettingsWithHttpInfoAsync(CookieSettingsRequestsDto? cookieSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> UpdateCookieSettingsWithHttpInfoAsync(CookieSettingsRequestDto? cookieSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -655,7 +655,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (cookieSettingsRequestsDto != null) localVarRequestOptions.Data = cookieSettingsRequestsDto;
+            if (cookieSettingsRequestDto != null) localVarRequestOptions.Data = cookieSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required

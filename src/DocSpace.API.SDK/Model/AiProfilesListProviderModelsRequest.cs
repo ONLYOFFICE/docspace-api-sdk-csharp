@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// AiProfilesListProviderModelsRequest
     /// </summary>
-    [DataContract(Name = "aiProfilesListProviderModels_request")]
+    [DataContract(Name = "AiProfilesListProviderModelsRequest")]
     public partial class AiProfilesListProviderModelsRequest : IValidatableObject
     {
     

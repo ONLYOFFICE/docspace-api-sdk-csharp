@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>AiFolderMutationResult</returns>
-        AiFolderMutationResult AiPromptsCreateFolder(string body);
+        AiFolderMutationResult AiPromptsCreateFolder(string aiPromptsCreateFolderRequest);
 
         /// <summary>
         /// Create folder
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>ApiResponse of AiFolderMutationResult</returns>
-        ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string body);
+        ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string aiPromptsCreateFolderRequest);
         /// <summary>
         /// Delete a saved prompt
         /// </summary>
@@ -83,10 +83,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiPromptsDelete(string body);
+        AiSuccessResponse AiPromptsDelete(string aiPromptsDeleteRequest);
 
         /// <summary>
         /// Delete a saved prompt
@@ -95,10 +95,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string aiPromptsDeleteRequest);
         /// <summary>
         /// Delete folder
         /// </summary>
@@ -106,10 +106,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        AiSuccessResponse AiPromptsDeleteFolder(string body);
+        AiSuccessResponse AiPromptsDeleteFolder(string aiPromptsDeleteFolderRequest);
 
         /// <summary>
         /// Delete folder
@@ -118,10 +118,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string body);
+        ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string aiPromptsDeleteFolderRequest);
         /// <summary>
         /// Export the prompt library
         /// </summary>
@@ -366,11 +366,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of AiFolderMutationResult</returns>
-        Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create folder
@@ -379,11 +379,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderMutationResult)</returns>
-        Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a saved prompt
         /// </summary>
@@ -391,11 +391,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiPromptsDeleteAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiPromptsDeleteAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a saved prompt
@@ -404,11 +404,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete folder
         /// </summary>
@@ -416,11 +416,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string body, CancellationToken cancellationToken = default);
+        Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete folder
@@ -429,11 +429,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Export the prompt library
         /// </summary>
@@ -1031,12 +1031,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>AiFolderMutationResult</returns>
-        public AiFolderMutationResult AiPromptsCreateFolder(string body)
+        public AiFolderMutationResult AiPromptsCreateFolder(string aiPromptsCreateFolderRequest)
         {
-            var localVarResponse = AiPromptsCreateFolderWithHttpInfo(body);
+            var localVarResponse = AiPromptsCreateFolderWithHttpInfo(aiPromptsCreateFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -1047,14 +1047,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>ApiResponse of AiFolderMutationResult</returns>
-        public ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string body)
+        public ApiResponse<AiFolderMutationResult> AiPromptsCreateFolderWithHttpInfo(string aiPromptsCreateFolderRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsCreateFolder");
+            // verify the required parameter 'aiPromptsCreateFolderRequest' is set
+            if (aiPromptsCreateFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsCreateFolderRequest' when calling PromptsApi->AiPromptsCreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1069,7 +1069,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsCreateFolderRequest != null) localVarRequestOptions.Data = aiPromptsCreateFolderRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1106,13 +1106,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of AiFolderMutationResult</returns>
-        public async Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiFolderMutationResult> AiPromptsCreateFolderAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiPromptsCreateFolderWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiPromptsCreateFolderWithHttpInfoAsync(aiPromptsCreateFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1123,15 +1123,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The name of the folder to create, as a bare JSON string.</param>
+        /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-create-folder/">REST API Reference for AiPromptsCreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiFolderMutationResult)</returns>
-        public async Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiFolderMutationResult>> AiPromptsCreateFolderWithHttpInfoAsync(string aiPromptsCreateFolderRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsCreateFolder");
+            // verify the required parameter 'aiPromptsCreateFolderRequest' is set
+            if (aiPromptsCreateFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsCreateFolderRequest' when calling PromptsApi->AiPromptsCreateFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1147,7 +1147,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsCreateFolderRequest != null) localVarRequestOptions.Data = aiPromptsCreateFolderRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1185,12 +1185,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiPromptsDelete(string body)
+        public AiSuccessResponse AiPromptsDelete(string aiPromptsDeleteRequest)
         {
-            var localVarResponse = AiPromptsDeleteWithHttpInfo(body);
+            var localVarResponse = AiPromptsDeleteWithHttpInfo(aiPromptsDeleteRequest);
             return localVarResponse.Data;
         }
 
@@ -1201,14 +1201,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiPromptsDeleteWithHttpInfo(string aiPromptsDeleteRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDelete");
+            // verify the required parameter 'aiPromptsDeleteRequest' is set
+            if (aiPromptsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteRequest' when calling PromptsApi->AiPromptsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1223,7 +1223,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteRequest != null) localVarRequestOptions.Data = aiPromptsDeleteRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1260,13 +1260,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiPromptsDeleteAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiPromptsDeleteAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiPromptsDeleteWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiPromptsDeleteWithHttpInfoAsync(aiPromptsDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1277,15 +1277,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes one saved prompt from the caller's library. The ID may be sent in the body or as a query parameter, and it is required. An ID that does not exist, or that belongs to another user, is not reported: the call answers success without deleting anything. The deletion is permanent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the prompt to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteRequest">The ID of the prompt to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete/">REST API Reference for AiPromptsDelete Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteWithHttpInfoAsync(string aiPromptsDeleteRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDelete");
+            // verify the required parameter 'aiPromptsDeleteRequest' is set
+            if (aiPromptsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteRequest' when calling PromptsApi->AiPromptsDelete");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1301,7 +1301,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteRequest != null) localVarRequestOptions.Data = aiPromptsDeleteRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1339,12 +1339,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>AiSuccessResponse</returns>
-        public AiSuccessResponse AiPromptsDeleteFolder(string body)
+        public AiSuccessResponse AiPromptsDeleteFolder(string aiPromptsDeleteFolderRequest)
         {
-            var localVarResponse = AiPromptsDeleteFolderWithHttpInfo(body);
+            var localVarResponse = AiPromptsDeleteFolderWithHttpInfo(aiPromptsDeleteFolderRequest);
             return localVarResponse.Data;
         }
 
@@ -1355,14 +1355,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>ApiResponse of AiSuccessResponse</returns>
-        public ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string body)
+        public ApiResponse<AiSuccessResponse> AiPromptsDeleteFolderWithHttpInfo(string aiPromptsDeleteFolderRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDeleteFolder");
+            // verify the required parameter 'aiPromptsDeleteFolderRequest' is set
+            if (aiPromptsDeleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteFolderRequest' when calling PromptsApi->AiPromptsDeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1377,7 +1377,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteFolderRequest != null) localVarRequestOptions.Data = aiPromptsDeleteFolderRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support
@@ -1414,13 +1414,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of AiSuccessResponse</returns>
-        public async Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<AiSuccessResponse> AiPromptsDeleteFolderAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AiPromptsDeleteFolderWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AiPromptsDeleteFolderWithHttpInfoAsync(aiPromptsDeleteFolderRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1431,15 +1431,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// Deletes a folder together with every prompt inside it, permanently. The ID is required and may be sent in the body or as a query parameter. Unlike deleting a prompt, this checks first: a folder that does not exist, and one that belongs to another user, both answer 404 - the two cases are deliberately indistinguishable, so a foreign folder cannot be probed. Move the prompts out with `PUT api/2.0/ai/prompts/move` first if they should survive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">The ID of the folder to delete, as a bare JSON string.</param>
+        /// <param name="aiPromptsDeleteFolderRequest">The ID of the folder to delete, as a bare JSON string.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-prompts-delete-folder/">REST API Reference for AiPromptsDeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
-        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string body, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AiSuccessResponse>> AiPromptsDeleteFolderWithHttpInfoAsync(string aiPromptsDeleteFolderRequest, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling PromptsApi->AiPromptsDeleteFolder");
+            // verify the required parameter 'aiPromptsDeleteFolderRequest' is set
+            if (aiPromptsDeleteFolderRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiPromptsDeleteFolderRequest' when calling PromptsApi->AiPromptsDeleteFolder");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1455,7 +1455,7 @@ namespace DocSpace.API.SDK.Api.AI
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (body != null) localVarRequestOptions.Data = body;
+            if (aiPromptsDeleteFolderRequest != null) localVarRequestOptions.Data = aiPromptsDeleteFolderRequest;
 
             // authentication (cookieAuth) required
             // cookie parameter support

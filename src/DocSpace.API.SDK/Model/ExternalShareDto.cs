@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// How validating the link went. It is the first field to read: a refused link is reported here with the answer  still arriving as a success. A link that resolved describes both the entry and the link, one that is waiting  for its password describes only the entry, and one that failed outright leaves the rest of the object empty.
         /// </summary>
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public Status Status { get; set; }
+        public ExternalShareStatus Status { get; set; }
 
         /// <summary>
         /// Whether the link points at a folder - a room counts as one - or at a single file. It is null when the link  could not be resolved.
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="linkId">The link the token belongs to, which is also the subject under which the link appears among the sharing rights  of the entry. It is an empty identifier when the link did not resolve. (required).</param>
         /// <param name="isAuthenticated">Whether the request carried a signed-in account. It says nothing about that account&#39;s rights on the entry, so  it must not be read as permission - it is false for every anonymous visitor and true for any member, even one  who is a stranger to the room. (required).</param>
         /// <param name="isRoomMember">Whether the signed-in caller already has rights of their own on the room that holds the entry, as opposed to  reaching it through this link. It is false for an anonymous visitor and for a member who has never been  invited..</param>
-        public ExternalShareDto(Status status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
+        public ExternalShareDto(ExternalShareStatus status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
         {
             this.Status = status;
             this.TenantId = tenantId;

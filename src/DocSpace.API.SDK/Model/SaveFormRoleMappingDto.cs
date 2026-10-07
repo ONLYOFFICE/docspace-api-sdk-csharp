@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="formId">The PDF form the roles belong to. This is the value the operation reads, rather than the identifier in its  route, and the two are to be sent the same. (required).</param>
         /// <param name="roles">The roles with the account taking each of them and the sequence number that decides the turn: the same number  means the roles may be filled in parallel, different ones make a queue. The whole set is replaced on every  call, and an empty set resets the filling. (required).</param>
-        public SaveFormRoleMappingDto(int formId = default, List<FormRole> roles = default)
+        public SaveFormRoleMappingDto(int formId = default, List<FormRoleRequest> roles = default)
         {
             this.FormId = formId;
             // to ensure "roles" is required (not null)
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>[{"roleName":"Approver","userId":"00000000-0000-0000-0000-000000000000"}]</example>
         [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = true)]
-        public List<FormRole> Roles { get; set; }
+        public List<FormRoleRequest> Roles { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

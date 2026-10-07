@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
@@ -108,7 +108,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
@@ -121,10 +121,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        BooleanWrapper TfaValidateAuthCode(TfaValidateRequestsDto? tfaValidateRequestsDto = default);
+        BooleanWrapper TfaValidateAuthCode(TfaValidateRequestDto? tfaValidateRequestDto = default);
 
         /// <summary>
         /// Validate the TFA code
@@ -133,38 +133,38 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestsDto? tfaValidateRequestsDto = default);
+        ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestDto? tfaValidateRequestDto = default);
         /// <summary>
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper UnlinkTfaApp(TfaRequestsDto? tfaRequestsDto = default);
+        StringWrapper UnlinkTfaApp(TfaRequestDto? tfaRequestDto = default);
 
         /// <summary>
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
+        ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestDto? tfaRequestDto = default);
         /// <summary>
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
@@ -175,7 +175,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
@@ -188,10 +188,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        BooleanWrapper UpdateTfaSettings(TfaRequestsDto? tfaRequestsDto = default);
+        BooleanWrapper UpdateTfaSettings(TfaRequestDto? tfaRequestDto = default);
 
         /// <summary>
         /// Update the TFA settings
@@ -200,10 +200,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
+        ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestDto? tfaRequestDto = default);
         /// <summary>
         /// Update TFA settings with a link
         /// </summary>
@@ -211,10 +211,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper UpdateTfaSettingsLink(TfaRequestsDto? tfaRequestsDto = default);
+        StringWrapper UpdateTfaSettingsLink(TfaRequestDto? tfaRequestDto = default);
 
         /// <summary>
         /// Update TFA settings with a link
@@ -223,10 +223,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
+        ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestDto? tfaRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -240,7 +240,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -252,7 +252,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -309,7 +309,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -321,7 +321,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -335,11 +335,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        Task<BooleanWrapper> TfaValidateAuthCodeAsync(TfaValidateRequestsDto? tfaValidateRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<BooleanWrapper> TfaValidateAuthCodeAsync(TfaValidateRequestDto? tfaValidateRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Validate the TFA code
@@ -348,41 +348,41 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        Task<ApiResponse<BooleanWrapper>> TfaValidateAuthCodeWithHttpInfoAsync(TfaValidateRequestsDto? tfaValidateRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<BooleanWrapper>> TfaValidateAuthCodeWithHttpInfoAsync(TfaValidateRequestDto? tfaValidateRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> UnlinkTfaAppAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> UnlinkTfaAppAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> UnlinkTfaAppWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> UnlinkTfaAppWithHttpInfoAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -394,7 +394,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -408,11 +408,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        Task<BooleanWrapper> UpdateTfaSettingsAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<BooleanWrapper> UpdateTfaSettingsAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the TFA settings
@@ -421,11 +421,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        Task<ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update TFA settings with a link
         /// </summary>
@@ -433,11 +433,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> UpdateTfaSettingsLinkAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> UpdateTfaSettingsLinkAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update TFA settings with a link
@@ -446,11 +446,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> UpdateTfaSettingsLinkWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> UpdateTfaSettingsLinkWithHttpInfoAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -670,7 +670,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
@@ -685,7 +685,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
@@ -756,7 +756,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -772,7 +772,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. Accounts flagged as  outsiders are refused. This is a read-only, idempotent call: the codes are generated once, when the  application is first linked, and the whole set is replaced by `PUT api/2.0/settings/tfaappnewcodes`. The  default configuration issues five codes of six characters, and a portal may be configured for a different  number and length.
+        /// Returns the one-time backup codes of the current user's authenticator-application credential, each with the  flag that says whether it has been spent. A backup code is accepted in place of a code from the application  when signing in, and every code works exactly once, so this list is what a member falls back on after losing  access to their authenticator. Any authenticated member may call it, always for their own account: there is no  way to read someone else's codes. The authenticator method has to be enabled on the portal and an application  has to be linked to the account already, otherwise the call answers 405; link one through  `GET api/2.0/settings/tfaapp/confirm` and `POST api/2.0/settings/tfaapp/validate`. This is a read-only,  idempotent call: the codes are generated once, when the application is first linked, and the whole set is  replaced by `PUT api/2.0/settings/tfaappnewcodes`. The default configuration issues five codes of six  characters, and a portal may be configured for a different number and length.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1198,7 +1198,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
@@ -1213,7 +1213,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-app-generate-setup-code/">REST API Reference for TfaAppGenerateSetupCode Operation</seealso>
@@ -1284,7 +1284,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1300,7 +1300,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Generate the TFA setup code
         /// </summary>
         /// <remarks>
-        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Accounts flagged as outsiders are refused. Repeating the call is safe and  hands back the same secret for the account, so the QR code and the manual key always describe one and the same  credential. `qrCodeSetupImageUrl` is a base64 `data:` URL of a PNG image, and `account` is the label the  application will show. Finish the setup by sending a code from the application to  `POST api/2.0/settings/tfaapp/validate`.
+        /// Issues the secret the current user has to enter in an authenticator application before the  authenticator-application method can be used, both as a scannable QR-code image and as a key for manual entry.  The call is reachable only with a confirmation token carrying the `TfaActivation` role, obtained from  `GET api/2.0/settings/tfaapp/confirm` or from the login flow; an ordinary bearer token is refused. The  authenticator method has to be enabled on the portal and be its current policy, and the account must have no  application linked yet: for an already-linked account the call answers 405, so reset the credential first with  `PUT api/2.0/settings/tfaappnewapp`. Repeating the call is safe and hands back the same secret for the  account, so the QR code and the manual key always describe one and the same credential. `qrCodeSetupImageUrl`  is a base64 `data:` URL of a PNG image, and `account` is the label the application will show. Finish the setup  by sending a code from the application to `POST api/2.0/settings/tfaapp/validate`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1377,12 +1377,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper TfaValidateAuthCode(TfaValidateRequestsDto? tfaValidateRequestsDto = default)
+        public BooleanWrapper TfaValidateAuthCode(TfaValidateRequestDto? tfaValidateRequestDto = default)
         {
-            var localVarResponse = TfaValidateAuthCodeWithHttpInfo(tfaValidateRequestsDto);
+            var localVarResponse = TfaValidateAuthCodeWithHttpInfo(tfaValidateRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1393,10 +1393,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestsDto? tfaValidateRequestsDto = default)
+        public ApiResponse<BooleanWrapper> TfaValidateAuthCodeWithHttpInfo(TfaValidateRequestDto? tfaValidateRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1411,7 +1411,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaValidateRequestsDto != null) localVarRequestOptions.Data = tfaValidateRequestsDto;
+            if (tfaValidateRequestDto != null) localVarRequestOptions.Data = tfaValidateRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1466,13 +1466,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        public async Task<BooleanWrapper> TfaValidateAuthCodeAsync(TfaValidateRequestsDto? tfaValidateRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<BooleanWrapper> TfaValidateAuthCodeAsync(TfaValidateRequestDto? tfaValidateRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await TfaValidateAuthCodeWithHttpInfoAsync(tfaValidateRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TfaValidateAuthCodeWithHttpInfoAsync(tfaValidateRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1483,11 +1483,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Verifies a two-factor authentication code for the account named in the confirmation link being used, and  completes that account's pending TFA step. The call is reachable only with a confirmation token carrying the  `TfaActivation` or `TfaAuth` role, issued by `GET api/2.0/settings/tfaapp/confirm` or by the login flow; an  ordinary bearer token is refused. Both a code from the authenticator application and one of the account's  unused backup codes are accepted, and a backup code is spent by the check. The call mutates state: it signs  the account in, clears the confirmation cookie so the link cannot be replayed, and on the very first  activation it generates the backup codes later returned by `GET api/2.0/settings/tfaappcodes`. Pass  `session=true` to keep that sign-in for the browser session only instead of a persistent one. It answers  `true` only for that first activation and `false` when an application was already linked. A wrong code is  rejected as an invalid request, and further attempts are refused once the portal's login attempt limit is  reached. The call also works while the portal's payment is overdue.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaValidateRequestsDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
+        /// <param name="tfaValidateRequestDto">The one-time code that completes a pending two-factor step, and how long the resulting sign-in lasts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/tfa-validate-auth-code/">REST API Reference for TfaValidateAuthCode Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async Task<ApiResponse<BooleanWrapper>> TfaValidateAuthCodeWithHttpInfoAsync(TfaValidateRequestsDto? tfaValidateRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<BooleanWrapper>> TfaValidateAuthCodeWithHttpInfoAsync(TfaValidateRequestDto? tfaValidateRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1503,7 +1503,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaValidateRequestsDto != null) localVarRequestOptions.Data = tfaValidateRequestsDto;
+            if (tfaValidateRequestDto != null) localVarRequestOptions.Data = tfaValidateRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1556,15 +1556,15 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper UnlinkTfaApp(TfaRequestsDto? tfaRequestsDto = default)
+        public StringWrapper UnlinkTfaApp(TfaRequestDto? tfaRequestDto = default)
         {
-            var localVarResponse = UnlinkTfaAppWithHttpInfo(tfaRequestsDto);
+            var localVarResponse = UnlinkTfaAppWithHttpInfo(tfaRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1572,13 +1572,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
+        public ApiResponse<StringWrapper> UnlinkTfaAppWithHttpInfo(TfaRequestDto? tfaRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1593,7 +1593,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestDto != null) localVarRequestOptions.Data = tfaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1645,16 +1645,16 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> UnlinkTfaAppAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> UnlinkTfaAppAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UnlinkTfaAppWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UnlinkTfaAppWithHttpInfoAsync(tfaRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1662,14 +1662,14 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Unlink the TFA application
         /// </summary>
         /// <remarks>
-        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405. The call is destructive: the account's backup codes are  dropped together with the credential and all of its sessions are signed out. For another member the portal  also emails them that their TFA was reset, and the answer is then an empty string. The portal-wide policy is  not touched, so TFA stays required and the account sets up an application again through  `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with `PUT api/2.0/settings/tfaapp`.
+        /// Detaches the authenticator application from an account, so that the account has to link a new one before it  can sign in again. `id` has to name an existing account: an empty or unknown value is refused. Passing the  caller's own ID resets their own credential and returns the activation link they should follow next; passing  another member's ID is allowed for the portal owner only, and every other caller, a DocSpace administrator  included, is refused. The account has to have an application linked and the authenticator method has to be  enabled on the portal, otherwise the call answers 405, and a terminated account is refused. The call is  destructive: the account's backup codes are dropped together with the credential and all of its sessions are  signed out. For another member the portal also emails them that their TFA was reset, and the answer is then an  empty string. The portal-wide policy is not touched, so TFA stays required and the account sets up an  application again through `GET api/2.0/settings/tfaapp/confirm`; lift the requirement for everyone with  `PUT api/2.0/settings/tfaapp`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unlink-tfa-app/">REST API Reference for UnlinkTfaApp Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> UnlinkTfaAppWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> UnlinkTfaAppWithHttpInfoAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1685,7 +1685,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestDto != null) localVarRequestOptions.Data = tfaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1738,7 +1738,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
@@ -1753,7 +1753,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
@@ -1824,7 +1824,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1840,7 +1840,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Regenerate the TFA backup codes
         /// </summary>
         /// <remarks>
-        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405, and accounts flagged as outsiders are refused.  The call mutates state and is not idempotent: every invocation issues another set and discards the one before  it, so a retry after a timeout returns codes different from those the first attempt generated. The codes come  back unused, five of them of six characters with the default configuration, and a portal may be configured for  a different number and length. Read the current set without changing it through  `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is untouched, so the linked application  keeps working.
+        /// Replaces the current user's one-time backup codes with a freshly generated set and returns it. Use it once the  previous codes have been spent or may have leaked: the whole old set stops being accepted the moment this call  succeeds, so store the new codes before leaving the response. Any authenticated member may call it, always for  their own account. The authenticator method has to be enabled on the portal and an application has to be  linked to the account already, otherwise the call answers 405. The call mutates state and is not idempotent:  every invocation issues another set and discards the one before it, so a retry after a timeout returns codes  different from those the first attempt generated. The codes come back unused, five of them of six characters  with the default configuration, and a portal may be configured for a different number and length. Read the  current set without changing it through `GET api/2.0/settings/tfaappcodes`. The authenticator secret itself is  untouched, so the linked application keeps working.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1917,12 +1917,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper UpdateTfaSettings(TfaRequestsDto? tfaRequestsDto = default)
+        public BooleanWrapper UpdateTfaSettings(TfaRequestDto? tfaRequestDto = default)
         {
-            var localVarResponse = UpdateTfaSettingsWithHttpInfo(tfaRequestsDto);
+            var localVarResponse = UpdateTfaSettingsWithHttpInfo(tfaRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1933,10 +1933,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
+        public ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestDto? tfaRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1951,7 +1951,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestDto != null) localVarRequestOptions.Data = tfaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2006,13 +2006,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        public async Task<BooleanWrapper> UpdateTfaSettingsAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<BooleanWrapper> UpdateTfaSettingsAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateTfaSettingsWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateTfaSettingsWithHttpInfoAsync(tfaRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2023,11 +2023,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Sets the portal-wide two-factor authentication policy: `type` `1` switches on the SMS method, `2` switches on  the authenticator application, and `0` turns TFA off, as does any unknown value. The two methods are mutually  exclusive, so switching one on switches the other off. The caller has to be the portal owner or a DocSpace  administrator; other members are refused, and a request that names the owner's account in `id` or in  `mandatoryUsers` is refused unless `id` carries the caller's own account. `trustedIps` takes single addresses,  inclusive ranges and CIDR blocks, and an unparseable entry is rejected as an invalid request; accounts listed  in `mandatoryUsers` or `mandatoryGroups` still have to pass the challenge even from a trusted address.  Switching a method on is disruptive: it resets the portal's authentication cookies, so every session on the  portal, the caller's own included, has to sign in again. The answer is `true` when a method was switched on  and `false` when TFA was turned off. Use `PUT api/2.0/settings/tfaappwithlink` instead to receive the caller's  own confirmation link in the same step.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings/">REST API Reference for UpdateTfaSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async Task<ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2043,7 +2043,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestDto != null) localVarRequestOptions.Data = tfaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2099,12 +2099,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper UpdateTfaSettingsLink(TfaRequestsDto? tfaRequestsDto = default)
+        public StringWrapper UpdateTfaSettingsLink(TfaRequestDto? tfaRequestDto = default)
         {
-            var localVarResponse = UpdateTfaSettingsLinkWithHttpInfo(tfaRequestsDto);
+            var localVarResponse = UpdateTfaSettingsLinkWithHttpInfo(tfaRequestDto);
             return localVarResponse.Data;
         }
 
@@ -2115,10 +2115,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default)
+        public ApiResponse<StringWrapper> UpdateTfaSettingsLinkWithHttpInfo(TfaRequestDto? tfaRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2133,7 +2133,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestDto != null) localVarRequestOptions.Data = tfaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -2188,13 +2188,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> UpdateTfaSettingsLinkAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> UpdateTfaSettingsLinkAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UpdateTfaSettingsLinkWithHttpInfoAsync(tfaRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateTfaSettingsLinkWithHttpInfoAsync(tfaRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2205,11 +2205,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Applies the same portal-wide two-factor authentication change as `PUT api/2.0/settings/tfaapp` and  additionally returns the confirmation link the caller needs to pass the new challenge, so an administrator who  has just switched TFA on can go straight to setting it up for themselves. The caller has to be the portal  owner or a DocSpace administrator, and a request that names the owner's account in `id` or in `mandatoryUsers`  is refused unless `id` carries the caller's own account. Every effect of the plain call applies here too: the  methods are mutually exclusive, `type` `0` turns TFA off, `trustedIps` and the two mandatory lists behave the  same way, and switching a method on resets the portal's authentication cookies, so all sessions have to sign  in again. The answer is an empty string whenever there is no link to hand out: when the request turned TFA  off, and when the caller is exempt from the challenge, most often because their own address is in the  `trustedIps` list of that very request. The cookie the link depends on is not returned here, read it with  `GET api/2.0/settings/tfaapp/confirm`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tfaRequestsDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
+        /// <param name="tfaRequestDto">The portal two-factor policy: which method is in force, who must pass it, and from where it is waived. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/">REST API Reference for UpdateTfaSettingsLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> UpdateTfaSettingsLinkWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> UpdateTfaSettingsLinkWithHttpInfoAsync(TfaRequestDto? tfaRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2225,7 +2225,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (tfaRequestsDto != null) localVarRequestOptions.Data = tfaRequestsDto;
+            if (tfaRequestDto != null) localVarRequestOptions.Data = tfaRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
