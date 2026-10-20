@@ -1277,7 +1277,7 @@ catch (ApiException e)
 
 <a id="getfavoritesfolder"></a>
 # **GetFavoritesFolder**
-> FolderContentWrapper GetFavoritesFolder (int? metadataTemplateId = null, string? metadataFilters = null, Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentWrapper GetFavoritesFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
 
 Returns the caller's own Favorites section: the files and folders this account has marked as favorite,  together with the section folder itself. Favorites are per-account, so the entries another member marked are  not listed here, and a guest sees only their own, usually empty, list. Mark a single file with  `GET api/2.0/files/favorites/{fileId}`, or add and remove batches of files and folders with  `POST api/2.0/files/favorites` and `DELETE api/2.0/files/favorites`. Nothing in the section is modified,  though passing `sortBy` saves the requested order as the default order for this account. Entries the caller  can no longer read, and entries that have been moved to the Trash section, drop out of the listing even  though their favorite mark stays, so the section can shrink without an explicit unmark. `folders` and `files`  hold one page of the section, `total` counts the entries matching the request before `count` and `startIndex`  are applied, and `current` describes the section folder itself.
 
@@ -1287,8 +1287,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **metadataTemplateId** | **int?** | The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. | [optional]  |
-| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
 | **userIdOrGroupId** | **Guid?** | Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. | [optional]  |
 | **filterType** | [**FilterType?**](FilterType.md) | Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. | [optional]  |
 | **count** | **int?** | The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. | [optional]  |
@@ -1296,6 +1294,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. | [optional]  |
 | **filterValue** | **string?** | The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
 
 ### Return type
 
@@ -1342,8 +1343,6 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var metadataTemplateId = 1;  // int? | The ID of the metadata template the favorite entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional) 
-            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
             var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | Restricts the listing to the entries authored by this portal member, or by the members of this group; the same  parameter accepts either kind of identifier. Omit it to list everything the caller can read. (optional) 
             var filterType = new FilterType?(); // FilterType? | Narrows the listing to a single kind of entry, such as documents, images or one type of room. Omit it to list  every kind the section holds. (optional) 
             var count = 25;  // int? | The size of one page of section content. Pair it with `startIndex` to walk the listing, and compare the two  with `total` in the response to see when the last page has been read. (optional) 
@@ -1351,11 +1350,14 @@ namespace Example
             var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional) 
             var filterValue = My Document;  // string? | The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
 
             try
             {
                 // Get the Favorites section
-                FolderContentWrapper result = apiInstance.GetFavoritesFolder(metadataTemplateId, metadataFilters, userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentWrapper result = apiInstance.GetFavoritesFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1376,7 +1378,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Favorites section
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetFavoritesFolderWithHttpInfo(metadataTemplateId, metadataFilters, userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetFavoritesFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1640,7 +1642,7 @@ catch (ApiException e)
 
 <a id="getfolderbyfolderid"></a>
 # **GetFolderByFolderId**
-> FolderContentWrapper GetFolderByFolderId (int folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, int? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, RequestLocation? location = null, int? metadataTemplateId = null, string? metadataFilters = null)
+> FolderContentWrapper GetFolderByFolderId (int folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, int? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, RequestLocation? location = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
 
 Returns one page of the contents of a folder - its subfolders in `folders`, its files in `files`, the folder  itself in `current` and the chain of parents in `pathParts` - and is the operation a client browses the file  tree with. `filterType`, `filterValue`, `extension`, `userIdOrGroupId`, `sharedBy` and `folderType` narrow  what is listed, `applyFilterOption` decides whether those filters bite on the files, on the folders or on  both, and `withSubFolders`, which is on unless it is switched off, lets a narrowed request descend through the  whole subtree instead of the top level alone. `filterValue` is matched against titles and against indexed  document content, and indexing is asynchronous, so a file uploaded a moment ago can be missing from a search  for a short while. `count` and `startIndex` page through the result while `total` counts everything that  matches, and `sortBy` with `sortOrder` both order the page and are saved as the default order of the account.  Reading a room or an ordinary folder clears its new-item marks for the caller. A caller who may not read the  folder is answered with 403, and a folder that does not exist with 404.
 
@@ -1670,7 +1672,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **filterValue** | **string?** | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. | [optional]  |
 | **location** | [**RequestLocation?**](RequestLocation.md) | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. | [optional]  |
 | **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. | [optional]  |
-| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
 
 ### Return type
 
@@ -1737,12 +1740,13 @@ namespace Example
             var filterValue = My Document;  // string? | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional) 
             var location = new RequestLocation?(); // RequestLocation? | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional) 
             var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional) 
-            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
 
             try
             {
                 // Get a folder by ID
-                FolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
+                FolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, includeHiddenMetadata);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1763,7 +1767,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a folder by ID
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, includeHiddenMetadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1798,7 +1802,7 @@ catch (ApiException e)
 
 <a id="getfolderbyfolderid-thirdparty"></a>
 # **GetFolderByFolderId** (third-party storage)
-> ThirdPartyFolderContentWrapper GetFolderByFolderId (string folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, string? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, RequestLocation? location = null, int? metadataTemplateId = null, string? metadataFilters = null)
+> ThirdPartyFolderContentWrapper GetFolderByFolderId (string folderId, Guid? userIdOrGroupId = null, Guid? sharedBy = null, FilterType? filterType = null, string? roomId = null, List<int>? folderType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, bool? withSubFolders = null, string? extension = null, SearchArea? searchArea = null, string? formsItemKey = null, string? formsItemType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, RequestLocation? location = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
 
 The overload for an entry in a connected third-party storage: the identifier is a string such as `sbox-42`, and the answer carries string identifiers as well.
 
@@ -1830,7 +1834,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **filterValue** | **string?** | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. | [optional]  |
 | **location** | [**RequestLocation?**](RequestLocation.md) | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. | [optional]  |
 | **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. | [optional]  |
-| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
 
 ### Return type
 
@@ -1897,12 +1902,13 @@ namespace Example
             var filterValue = My Document;  // string? | The search string the listing is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the folder unfiltered. (optional) 
             var location = new RequestLocation?(); // RequestLocation? | Where the entries of a tag-based listing have to live to be kept: `Room` keeps what lies in a room,  `Documents` what lies in a personal section, and `Link` what was reached through an external link that is  still valid. It shapes the Favorites and Recent listings and does nothing in an ordinary folder. (optional) 
             var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  Supported for the rooms, the trash, the regular folders and the Shared with me, Recent and Favorites sections  (the third-party entries never carry metadata and are left out); the Templates and Private sections reject it with 400. (optional) 
-            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day, so to:2026-06-30 includes the values stored on 30 June.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq (the whole value) or contains (a part of it); a number or a date field takes range with inclusive bounds,  or gt, gte, lt, lte with the single bound in value; a choice field takes in. A date-only bound covers the whole day,  so to:2026-06-30 includes the values stored on 30 June and gt:2026-06-30 starts after it.  A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}.  The same filter is taken as a typed request body by POST api/2.0/files/{folderId}/search. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
 
             try
             {
                 // Get a folder by ID (third-party storage)
-                ThirdPartyFolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
+                ThirdPartyFolderContentWrapper result = apiInstance.GetFolderByFolderId(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, includeHiddenMetadata);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1923,7 +1929,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a folder by ID (third-party storage)
-    ApiResponse<ThirdPartyFolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters);
+    ApiResponse<ThirdPartyFolderContentWrapper> response = apiInstance.GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, folderType, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, metadataTemplateId, metadataFilters, includeHiddenMetadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3291,9 +3297,9 @@ catch (ApiException e)
 
 <a id="getformsfolder"></a>
 # **GetFormsFolder**
-> FolderContentWrapper GetFormsFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentWrapper GetFormsFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
 
-Returns the Forms section: the flat list of form-filling rooms the caller may read. Such rooms are stored  under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of the active  area and lists them when `searchArea` names the forms area instead. The section is not expanded into room  content, so `folders` carries the rooms while `files` comes back empty; to read what is inside one of them,  call `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy`  saves the requested order as the default order for this account. `filterType`, `filterValue`,  `userIdOrGroupId` and the sorting parameters narrow and order the room list, `count` and `startIndex` page  through it, `total` reports how many rooms match the request in full, and `current` describes the section  folder itself.
+Returns the Forms section: the flat list of form-filling rooms the caller may read. Such rooms are stored  under the Rooms tree but are surfaced only here, so `GET api/2.0/files/rooms` leaves them out of the active  area and lists them when `searchArea` names the forms area instead. The section is not expanded into room  content, so `folders` carries the rooms while `files` comes back empty; to read what is inside one of them,  call `GET api/2.0/files/{folderId}` with the room identifier. Nothing is modified, though passing `sortBy`  saves the requested order as the default order for this account. `filterType`, `filterValue`,  `userIdOrGroupId` and the sorting parameters narrow and order the room list, `metadataTemplateId` and  `metadataFilters` keep only the rooms carrying the template and matching the conditions (an unknown template  or field, or a malformed condition, is refused with 400), `count` and `startIndex` page through it, `total`  reports how many rooms match the request in full, and `current` describes the section folder itself.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-forms-folder/).
 
@@ -3308,6 +3314,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. | [optional]  |
 | **filterValue** | **string?** | The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
 
 ### Return type
 
@@ -3361,11 +3370,14 @@ namespace Example
             var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional) 
             var filterValue = My Document;  // string? | The search string the section is filtered by: it is matched as a substring of entry titles and, for files,  against the indexed document content as well. Omit it to list the section unfiltered. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
 
             try
             {
                 // Get the Forms section
-                FolderContentWrapper result = apiInstance.GetFormsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentWrapper result = apiInstance.GetFormsFolder(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3386,7 +3398,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Forms section
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetFormsFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetFormsFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3409,7 +3421,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Forms section with one page of the form-filling rooms available to the caller |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, the `startIndex` is negative, or the metadata filter names an unknown template or field |  -  |
 | **403** | The caller is not allowed to read the Forms section |  -  |
 | **404** | The Forms section could not be resolved for this account |  -  |
 | **401** | Unauthorized |  -  |
@@ -3422,9 +3434,9 @@ catch (ApiException e)
 
 <a id="getmyfolder"></a>
 # **GetMyFolder**
-> FolderContentWrapper GetMyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentWrapper GetMyFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
 
-Returns the contents of the caller's My documents section, the personal storage that belongs to this account  alone and stays invisible to other members until something in it is shared explicitly. Any authenticated  member that has a personal section can read it; guest accounts are not given one, and the call then answers  404. Nothing in the section is modified, though passing `sortBy` saves the requested order as the default  order for this account. Without a filter only the top level of the section is listed; as soon as `filterType`,  `userIdOrGroupId` or `filterValue` narrows the request, the search descends through the whole subtree.  `filterValue` is matched against titles and against indexed document content, and the index is written  asynchronously, so a file uploaded a moment ago can be missing from a search for a short while. `folders` and  `files` hold one page of the result, `total` counts everything that matches before `count` and `startIndex`  are applied, and `current` describes the section folder. To open a folder inside the section, call  `GET api/2.0/files/{folderId}` with its identifier.
+Returns the contents of the caller's My documents section, the personal storage that belongs to this account  alone and stays invisible to other members until something in it is shared explicitly. Any authenticated  member that has a personal section can read it; guest accounts are not given one, and the call then answers  404. Nothing in the section is modified, though passing `sortBy` saves the requested order as the default  order for this account. Without a filter only the top level of the section is listed; as soon as `filterType`,  `userIdOrGroupId`, `filterValue` or a metadata filter narrows the request, the search descends through the whole  subtree. `filterValue` is matched against titles and against indexed document content, and the index is written  asynchronously, so a file uploaded a moment ago can be missing from a search for a short while.  `metadataTemplateId` and `metadataFilters` keep only the entries carrying the template and matching the  conditions, the same way `GET api/2.0/files/{folderId}` does; an unknown template or field, or a malformed  condition, is refused with 400. `folders` and `files` hold one page of the result, `total` counts everything  that matches before `count` and `startIndex` are applied, and `current` describes the section folder. To open  a folder inside the section, call `GET api/2.0/files/{folderId}` with its identifier.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/).
 
@@ -3440,6 +3452,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. | [optional]  |
 | **filterValue** | **string?** | The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
 
 ### Return type
 
@@ -3494,11 +3509,14 @@ namespace Example
             var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional) 
             var filterValue = My Document;  // string? | The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
 
             try
             {
                 // Get the My documents section
-                FolderContentWrapper result = apiInstance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentWrapper result = apiInstance.GetMyFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3519,7 +3537,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the My documents section
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3542,7 +3560,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The My documents section with one page of its contents |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, the `startIndex` is negative, or the metadata filter names an unknown template or field |  -  |
 | **403** | The caller is not allowed to read the My documents section |  -  |
 | **404** | This account has no personal section |  -  |
 | **401** | Unauthorized |  -  |
@@ -3795,7 +3813,7 @@ catch (ApiException e)
 
 <a id="getrecentfolder"></a>
 # **GetRecentFolder**
-> FolderContentWrapper GetRecentFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, SearchArea? searchArea = null, List<string>? extension = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null)
+> FolderContentWrapper GetRecentFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, SearchArea? searchArea = null, List<string>? extension = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
 
 Returns the Recent section: the files the calling account has opened lately. The section holds files only,  so `folders` comes back empty, and it is personal, so another member's history is not visible here. A file is  added when it is opened and can also be added explicitly with `POST api/2.0/files/file/{fileId}/recent`;  `DELETE api/2.0/files/recent` clears the whole history, and `PUT api/2.0/files/displayrecent` switches the  section on and off for the account, which also decides whether `GET api/2.0/files/@root` includes it. Nothing  in the section is modified, though passing `sortBy` saves the requested order as the default order for this  account. The listing is ordered by the moment the caller last opened each file, newest first, and `sortBy` and  `sortOrder` do not change that order. `files` holds one page, `total` counts the files matching the request  before `count` and `startIndex` are applied, and `current` describes the section folder itself.
 
@@ -3817,7 +3835,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. | [optional]  |
 | **filterValue** | **string?** | The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. | [optional]  |
 | **metadataTemplateId** | **int?** | The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. | [optional]  |
-| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
 
 ### Return type
 
@@ -3876,12 +3895,13 @@ namespace Example
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. The Recent section keeps its own newest-first order, so the value does not reorder this  listing. (optional) 
             var filterValue = My Document;  // string? | The search string the history is filtered by: it is matched as a substring of file titles and against the  indexed document content as well. Omit it to list the whole history. (optional) 
             var metadataTemplateId = 1;  // int? | The ID of the metadata template the recent files must be assigned to. On its own it narrows the listing to the files  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party files never carry metadata and are left out when the filter is set. (optional) 
-            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:eq,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  The range bounds are inclusive; a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
 
             try
             {
                 // Get the Recent section
-                FolderContentWrapper result = apiInstance.GetRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters);
+                FolderContentWrapper result = apiInstance.GetRecentFolder(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3902,7 +3922,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Recent section
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4191,9 +4211,9 @@ catch (ApiException e)
 
 <a id="gettrashfolder"></a>
 # **GetTrashFolder**
-> FolderContentWrapper GetTrashFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentWrapper GetTrashFolder (Guid? userIdOrGroupId = null, FilterType? filterType = null, ApplyFilterOption? applyFilterOption = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? metadataTemplateId = null, string? metadataFilters = null, bool? includeHiddenMetadata = null)
 
-Returns the caller's Trash section: the files and folders this account has deleted, kept there until they  are restored or discarded. Each member has a Trash of their own and sees only what they deleted themselves.  Restore an entry by moving it back with `PUT api/2.0/files/fileops/move`, or discard the whole section with  `PUT api/2.0/files/fileops/emptytrash`; both start a background operation that is polled through  `GET api/2.0/files/fileops`. This call itself modifies nothing, though passing `sortBy` saves the requested  order as the default order for this account. Only the top level of the section is listed, so the contents of a  deleted folder are not expanded into it, and `filterValue` is matched against titles alone here rather than  against document content. `folders` and `files` hold one page of the result, `total` counts everything that  matches before `count` and `startIndex` are applied, and `current` describes the section folder. An account  that is given no Trash of its own, an outsider for instance, receives 404.
+Returns the caller's Trash section: the files and folders this account has deleted, kept there until they  are restored or discarded. Each member has a Trash of their own and sees only what they deleted themselves.  Restore an entry by moving it back with `PUT api/2.0/files/fileops/move`, or discard the whole section with  `PUT api/2.0/files/fileops/emptytrash`; both start a background operation that is polled through  `GET api/2.0/files/fileops`. This call itself modifies nothing, though passing `sortBy` saves the requested  order as the default order for this account. Only the top level of the section is listed, so the contents of a  deleted folder are not expanded into it, and `filterValue` is matched against titles alone here rather than  against document content. `metadataTemplateId` and `metadataFilters` keep only the deleted entries carrying the  template and matching the conditions, the same way `GET api/2.0/files/{folderId}` does; an unknown template or  field, or a malformed condition, is refused with 400. `folders` and `files` hold one page of the result,  `total` counts everything that matches before `count` and `startIndex` are applied, and `current` describes  the section folder. An account that is given no Trash of its own, an outsider for instance, receives 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/).
 
@@ -4209,6 +4229,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. | [optional]  |
 | **filterValue** | **string?** | The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. | [optional]  |
+| **metadataTemplateId** | **int?** | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. | [optional]  |
+| **metadataFilters** | **string?** | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. | [optional]  |
+| **includeHiddenMetadata** | **bool?** | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. | [optional]  |
 
 ### Return type
 
@@ -4263,11 +4286,14 @@ namespace Example
             var sortBy = DateAndTime;  // string? | The name of the field the entries are ordered by, matched case-insensitively against the file sort fields:  `DateAndTime`, `AZ`, `Size`, `Author`, `Type`, `New`, `DateAndTimeCreation`, `RoomType`, `Tags`, `Room`,  `CustomOrder`, `LastOpened` and `UsedSpace`. A recognized value is also saved as the default order of the  account and reused by later listings that omit the parameter, while a value matching none of the fields leaves  that saved order in place. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The direction in which the `sortBy` field is ordered. It is saved together with `sortBy` as the default order  of the account. (optional) 
             var filterValue = My Document;  // string? | The search string the section is filtered by, matched as a substring of entry titles. Omit it to list the  section unfiltered. (optional) 
+            var metadataTemplateId = 1;  // int? | The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the metadata filters it also pins the template the filtered fields belong to.  The third-party entries never carry metadata and are left out when the filter is set. (optional) 
+            var metadataFilters = [{"fieldId":1,"op":"eq","value":"ACME"}];  // string? | The URL-encoded JSON array of the metadata filter conditions,  e.g. [{fieldId:1,op:contains,value:ACME},{fieldId:2,op:range,from:2026-01-01,to:2026-06-30},{fieldId:3,op:in,optionIds:[...]}].  A string field takes eq or contains; a number or a date field takes range with inclusive bounds, or gt, gte, lt, lte with the bound in value;  a date-only bound covers the whole day. A custom field is addressed by its name instead of the fieldId: {name:Client,op:eq,value:ACME}. (optional) 
+            var includeHiddenMetadata = false;  // bool? | Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way. (optional) 
 
             try
             {
                 // Get the Trash section
-                FolderContentWrapper result = apiInstance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentWrapper result = apiInstance.GetTrashFolder(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4288,7 +4314,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Trash section
-    ApiResponse<FolderContentWrapper> response = apiInstance.GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentWrapper> response = apiInstance.GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, metadataTemplateId, metadataFilters, includeHiddenMetadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4311,7 +4337,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Trash section with one page of the entries the caller deleted |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | A parameter has the wrong type, the `count` is outside its allowed range, or the `startIndex` is negative |  -  |
+| **400** | A parameter has the wrong type, the `count` is outside its allowed range, the `startIndex` is negative, or the metadata filter names an unknown template or field |  -  |
 | **403** | The caller is not allowed to read the Trash section |  -  |
 | **404** | This account has no Trash section |  -  |
 | **401** | Unauthorized |  -  |

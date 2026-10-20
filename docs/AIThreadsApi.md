@@ -23,7 +23,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **AiThreadsAppendUserMessage**
 > AiThreadsAppendUserMessage200Response AiThreadsAppendUserMessage (AiThreadsAppendUserMessageRequest aiThreadsAppendUserMessageRequest)
 
-Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-append-user-message/).
 
@@ -118,7 +118,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored message, with the ID storage assigned to it. |  -  |
-| **400** | The message is longer than the limit allows. |  -  |
+| **400** | `threadId` is missing, the message is empty or does not carry `role: user`, or it carries more attachments than the limit allows. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
@@ -666,7 +666,7 @@ catch (ApiException e)
 # **AiThreadsGetMessageById**
 > AiThreadMessageLike AiThreadsGetMessageById (string messageId)
 
-Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-get-message-by-id/).
 
@@ -760,10 +760,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The message, or an empty body when no message has that ID. |  -  |
+| **200** | The message. |  -  |
 | **400** | `messageId` is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | No message has this ID. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -990,7 +991,7 @@ catch (ApiException e)
 # **AiThreadsReadMessages**
 > List&lt;AiThreadMessageLike&gt; AiThreadsReadMessages (string threadId, int? count = null, string? cursor = null, string? direction = null)
 
-Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-read-messages/).
 
@@ -1090,7 +1091,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The thread's messages, oldest first unless `direction` reversed them. An empty list also means the request carried no thread ID. |  -  |
+| **200** | The thread's messages, oldest first unless `direction` reversed them. |  -  |
+| **400** | `threadId` is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
@@ -1421,7 +1423,7 @@ catch (ApiException e)
 # **AiThreadsUpdateMessage**
 > AiSuccessResponse AiThreadsUpdateMessage (AiThreadsUpdateMessageRequest aiThreadsUpdateMessageRequest)
 
-Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-threads-update-message/).
 
@@ -1516,8 +1518,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Confirms the replacement was stored. |  -  |
+| **400** | `messageId` is missing, the message is empty or has an unknown role, or its role differs from the stored message's. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | No message has this ID. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 

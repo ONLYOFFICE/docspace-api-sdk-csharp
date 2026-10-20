@@ -8,6 +8,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**DeleteWebPlugin**](#deletewebplugin) | **DELETE** /api/2.0/settings/webplugins/{name} | Delete a web plugin |
 | [**GetWebPlugin**](#getwebplugin) | **GET** /api/2.0/settings/webplugins/{name} | Get a web plugin by name |
 | [**GetWebPlugins**](#getwebplugins) | **GET** /api/2.0/settings/webplugins | Get web plugins |
+| [**RefreshWebPlugin**](#refreshwebplugin) | **PUT** /api/2.0/settings/webplugins/{name}/refresh | Refresh a web plugin |
 | [**UpdateWebPlugin**](#updatewebplugin) | **PUT** /api/2.0/settings/webplugins/{name} | Update a web plugin |
 
 <a id="addwebpluginfromfile"></a>
@@ -471,6 +472,125 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The web plugins available in the portal, the installation-wide ones first |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | Web plugins are switched off for the installation |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="refreshwebplugin"></a>
+# **RefreshWebPlugin**
+> WebPluginWrapper RefreshWebPlugin (string name)
+
+Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **name** | **string** | The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404. |  |
+
+### Return type
+
+[**WebPluginWrapper**](WebPluginWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class RefreshWebPluginExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
+            var name = example-plugin;  // string | The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.
+
+            try
+            {
+                // Refresh a web plugin
+                WebPluginWrapper result = apiInstance.RefreshWebPlugin(name);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling WebpluginsApi.RefreshWebPlugin: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RefreshWebPluginWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Refresh a web plugin
+    ApiResponse<WebPluginWrapper> response = apiInstance.RefreshWebPluginWithHttpInfo(name);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WebpluginsApi.RefreshWebPluginWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The web plugin as served after the version check |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller has no portal-settings right, or web plugins are switched off for the installation |  -  |
+| **404** | No web plugin with this manifest name is available in the portal after the check |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

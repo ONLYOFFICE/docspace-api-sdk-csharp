@@ -123,6 +123,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <returns>ApiResponse of WebPluginArrayWrapper</returns>
         ApiResponse<WebPluginArrayWrapper> GetWebPluginsWithHttpInfo(bool? enabled = default);
         /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>WebPluginWrapper</returns>
+        WebPluginWrapper RefreshWebPlugin(string name);
+
+        /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>ApiResponse of WebPluginWrapper</returns>
+        ApiResponse<WebPluginWrapper> RefreshWebPluginWithHttpInfo(string name);
+        /// <summary>
         /// Update a web plugin
         /// </summary>
         /// <remarks>
@@ -256,6 +279,31 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-plugins/">REST API Reference for GetWebPlugins Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginArrayWrapper)</returns>
         Task<ApiResponse<WebPluginArrayWrapper>> GetWebPluginsWithHttpInfoAsync(bool? enabled = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>Task of WebPluginWrapper</returns>
+        Task<WebPluginWrapper> RefreshWebPluginAsync(string name, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>
+        Task<ApiResponse<WebPluginWrapper>> RefreshWebPluginWithHttpInfoAsync(string name, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a web plugin
         /// </summary>
@@ -1243,6 +1291,196 @@ namespace DocSpace.API.SDK.Api.Settings
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetWebPlugins", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>WebPluginWrapper</returns>
+        public WebPluginWrapper RefreshWebPlugin(string name)
+        {
+            var localVarResponse = RefreshWebPluginWithHttpInfo(name);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>ApiResponse of WebPluginWrapper</returns>
+        public ApiResponse<WebPluginWrapper> RefreshWebPluginWithHttpInfo(string name)
+        {
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling WebpluginsApi->RefreshWebPlugin");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("name", ClientUtils.ParameterToString(name)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<WebPluginWrapper>("/api/2.0/settings/webplugins/{name}/refresh", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("RefreshWebPlugin", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>Task of WebPluginWrapper</returns>
+        public async Task<WebPluginWrapper> RefreshWebPluginAsync(string name, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await RefreshWebPluginWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Refresh a web plugin
+        /// </summary>
+        /// <remarks>
+        /// Picks up a web plugin whose files were replaced in storage without an upload, for example a new version of an  installation-wide plugin put in place during a deployment. The `name` is the manifest name published by  `GET api/2.0/settings/webplugins`, matched without regard to case. Editing the portal settings is required, so  a portal owner or administrator, and the installation has to have web plugins enabled in its configuration.  The server compares the version of the plugin it serves with the `version` of the manifest in storage and,  only when they differ or the plugin appeared in or vanished from storage, re-reads the plugin list on every  server: for all portals when the plugin is installation-wide, for this portal alone otherwise, and notifies  the connected clients of this portal. The call is idempotent: with matching versions nothing changes, so a  repeat is safe. The response is the plugin as served after the check. The stored state, the settings and the  Content Security Policy of the portal are left as they are. To install a new version use  `POST api/2.0/settings/webplugins` instead.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">The plugin to act on, by the manifest name `GET api/2.0/settings/webplugins` publishes as `name`, matched  without regard to case. It is neither the localized display name nor the JavaScript object name in  `pluginName`; a name that is not installed answers 404.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/refresh-web-plugin/">REST API Reference for RefreshWebPlugin Operation</seealso>
+        /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>
+        public async Task<ApiResponse<WebPluginWrapper>> RefreshWebPluginWithHttpInfoAsync(string name, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'name' is set
+            if (name == null)
+                throw new ApiException(400, "Missing required parameter 'name' when calling WebpluginsApi->RefreshWebPlugin");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("name", ClientUtils.ParameterToString(name)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<WebPluginWrapper>("/api/2.0/settings/webplugins/{name}/refresh", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("RefreshWebPlugin", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

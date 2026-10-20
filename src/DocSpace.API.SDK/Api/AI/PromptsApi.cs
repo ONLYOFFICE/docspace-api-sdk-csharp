@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -193,7 +193,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -205,7 +205,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -260,7 +260,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -272,7 +272,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -283,7 +283,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -295,7 +295,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -306,7 +306,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -318,7 +318,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -338,7 +338,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -351,7 +351,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -363,7 +363,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -376,7 +376,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -511,7 +511,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -524,7 +524,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -584,7 +584,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -597,7 +597,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -609,7 +609,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -622,7 +622,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -634,7 +634,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -647,7 +647,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -874,7 +874,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -890,7 +890,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -949,7 +949,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -966,7 +966,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Save a prompt
         /// </summary>
         /// <remarks>
-        /// Saves a new prompt in the caller's own prompt library and returns it. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
+        /// Saves a new prompt in the caller's own prompt library and returns it. `name` and `text` have to be strings and `folderId`, when sent, a string or null, or the call answers 400 before the library is touched. The name has to be non-empty and unique inside its folder, and `folderId` has to name an existing folder - omit it to save the prompt at the root. A refusal keeps the `{ success: false, error }` body but answers 400 for an empty value, 404 for an unknown folder and 409 for a name already in use. Prompts are per-user: another user's library is never visible here, and no permission beyond having AI enabled is needed. The answer carries the stored prompt including the ID to use with the update, move and delete operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiCreatePromptInput">Input for creating a prompt — the engine generates `id`/`createdAt`/`updatedAt`.</param>
@@ -1028,7 +1028,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -1044,7 +1044,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -1103,7 +1103,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -1120,7 +1120,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Create folder
         /// </summary>
         /// <remarks>
-        /// Creates a folder in the caller's prompt library and returns it. The name has to be non-empty and unique across that library. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
+        /// Creates a folder in the caller's prompt library and returns it. The name has to be a non-empty string and unique across that library - a non-string or empty one answers 400, a name in use 409, both with the `{ success: false, error }` body. Folders do not nest: there is one flat level, so a folder cannot be created inside another. The answer carries the folder ID to use as `folderId` when saving or moving prompts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsCreateFolderRequest">The name of the folder to create, as a bare JSON string.</param>
@@ -1938,7 +1938,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -1954,7 +1954,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -2013,7 +2013,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -2030,7 +2030,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Import bundle
         /// </summary>
         /// <remarks>
-        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The folder references inside the bundle are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway. `replace` is destructive and cannot be undone - export first if the current library matters.
+        /// Writes a bundle produced by `GET api/2.0/ai/prompts/export` back into the caller's library. `mode` decides how: `replace` deletes the current prompts and folders before writing, and `merge` writes the bundle on top of what is already there. The bundle's shape - version 1, `folders` and `prompts` arrays of objects with string ids, names and texts - and the folder references inside it are validated before anything is written, so a corrupt bundle is rejected whole rather than applied halfway: 400 with the refusals in `errors`, or 409 when every refusal is a name that already exists in the library. `replace` is destructive and cannot be undone - export first if the current library matters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsImportBundleRequest"></param>
@@ -2384,7 +2384,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -2400,7 +2400,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -2459,7 +2459,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -2476,7 +2476,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Move a prompt to a folder
         /// </summary>
         /// <remarks>
-        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
+        /// Moves a saved prompt into another folder, or to the root when `folderId` is omitted or null. The name is re-validated in the target folder, so the move fails with 409 when a prompt of that name already sits there - rename it first with `PUT api/2.0/ai/prompts/update`; an unknown prompt or folder answers 404. Nothing about the prompt other than its folder changes. The answer carries the moved prompt.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsMoveRequest"></param>
@@ -2538,7 +2538,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -2554,7 +2554,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -2613,7 +2613,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -2630,7 +2630,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Rename folder
         /// </summary>
         /// <remarks>
-        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected.
+        /// Renames a folder in the caller's prompt library, validating the new name against the folders already there. The prompts inside it are untouched and keep their IDs. The answer carries the renamed folder. A name that another folder already uses is rejected with 409, an unknown folder with 404 and a non-string or empty name with 400, always with the `{ success: false, error }` body.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsRenameFolderRequest"></param>
@@ -2692,7 +2692,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -2708,7 +2708,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -2767,7 +2767,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>
@@ -2784,7 +2784,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update a saved prompt
         /// </summary>
         /// <remarks>
-        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
+        /// Changes a saved prompt and returns the stored result. Only the fields present in `updates` are written, so a partial object leaves the rest of the prompt alone. The name and the folder reference are re-validated whenever either changes, which means an update can fail on a name another prompt in the same folder already uses - that answers 409, an unknown prompt or folder 404, an empty or non-string value 400, always with the `{ success: false, error }` body. Use `PUT api/2.0/ai/prompts/move` to change only the folder.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiPromptsUpdateRequest"></param>

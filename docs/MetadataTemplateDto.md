@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Id** | **int** | The template ID. | [optional] 
 **Name** | **string** | The template name. | [optional] 
 **Visible** | **bool** | Specifies if the template is visible in the UI pickers. | [optional] 
-**CreateBy** | **Guid** | The user who created the template. | [optional] 
+**CreateBy** | [**EmployeeDto**](EmployeeDto.md) | The user who created the template. A user who has since left the portal comes back as the lost user placeholder. | [optional] 
 **CreateOn** | [**ApiDateTime**](ApiDateTime.md) | The template creation date. | [optional] 
-**ModifiedBy** | **Guid** | The user who modified the template last. | [optional] 
+**ModifiedBy** | [**EmployeeDto**](EmployeeDto.md) | The user who changed the template itself last: its name or its visibility. The creator until somebody changes  it; a change of a field is recorded on the field, not here. | [optional] 
 **ModifiedOn** | [**ApiDateTime**](ApiDateTime.md) | The date when the template was modified last. | [optional] 
 **Fields** | [**List&lt;MetadataFieldDto&gt;**](MetadataFieldDto.md) | The template metadata fields. | [optional] 
 

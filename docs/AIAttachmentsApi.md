@@ -752,7 +752,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The stored draft, whose ID links it to a message later. |  -  |
-| **400** | The attachment payload is malformed. |  -  |
+| **400** | The attachment payload is malformed, or `input.path` is missing or empty. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |

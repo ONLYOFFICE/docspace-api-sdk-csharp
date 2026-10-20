@@ -445,7 +445,7 @@ catch (ApiException e)
 # **AiWebSearchPassthroughContents**
 > Dictionary&lt;string, Object&gt; AiWebSearchPassthroughContents (Dictionary<string, Object> aiWebSearchPassthroughContentsRequest)
 
-Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. The provider's status, body and content type are relayed verbatim, so its 429 and its failures surface unchanged. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
+Fetches the contents of web pages on behalf of the document editor's AI plugin, against the portal's active web-search provider, exactly as the search passthrough does — including the `entityId` / `entityKind` billing attribution. The portal-wide configuration is used and a portal without one answers 404. `urls` has to be a non-empty array of strings, or the call answers 400 naming the field. The provider's 4xx status, body and content type are relayed, so its 429 surfaces unchanged, while a 5xx is replaced by a fixed 502 with the detail kept in the server log. This is the follow-up to `POST api/2.0/ai/websearch/v1/search`, which returns the results whose contents this operation retrieves.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-contents/).
 
@@ -453,7 +453,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiWebSearchPassthroughContentsRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration. |  |
+| **aiWebSearchPassthroughContentsRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration. |  |
 
 ### Return type
 
@@ -491,7 +491,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var aiWebSearchPassthroughContentsRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration.
+            var aiWebSearchPassthroughContentsRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | A page-contents request in the shape the portal's active web-search provider expects, forwarded to it once `urls` passes a type check. The endpoint and the key come from the stored configuration.
 
             try
             {
@@ -540,13 +540,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The provider's own response, relayed verbatim with its status and content type. |  -  |
+| **400** | `urls` is missing or not a non-empty array of strings; `field` names the input. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | Web search is not configured for this portal. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **429** | Relayed verbatim from the AI provider, which is rate-limiting this portal's key. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
-| **502** | The AI provider could not be reached, or answered with a failure of its own. |  -  |
+| **502** | The provider, or the hop in front of it, failed or answered a 5xx; the detail is in the server log. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -554,7 +555,7 @@ catch (ApiException e)
 # **AiWebSearchPassthroughSearch**
 > Dictionary&lt;string, Object&gt; AiWebSearchPassthroughSearch (Dictionary<string, Object> aiWebSearchPassthroughSearchRequest)
 
-Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. The provider's own status, body and content type are relayed as they stand, so a provider that rate-limits answers 429 and one that is unreachable answers 502. Closing the connection aborts the upstream request.
+Runs a web search on behalf of the document editor's AI plugin, which holds only a placeholder configuration - the portal's active provider and its key are resolved here, so neither ever reaches the browser. The portal-wide configuration is used, and a portal without one answers 404. The `entityId` and `entityKind` query parameters name the document the search is billed to; with the ONLYOFFICE provider the entry is resolved under the caller's credentials and sent to the gateway as the request `metadata` (`source_id` / `source_type` / `source_title`), and an entry the caller cannot open sends none. `query` has to be a non-empty string and `numResults`, when sent, a positive integer; a body failing that answers 400 naming the field, before anything is sent on. The provider's own 4xx status, body and content type are relayed as they stand, so a provider that rate-limits answers 429; a 5xx from the provider or from the hop in front of it is not relayed, its detail stays in the server log and the call answers a fixed 502, which is also what an unreachable provider answers. Closing the connection aborts the upstream request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-web-search-passthrough-search/).
 
@@ -562,7 +563,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **aiWebSearchPassthroughSearchRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here. |  |
+| **aiWebSearchPassthroughSearchRequest** | [**Dictionary&lt;string, Object&gt;**](Object.md) | A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here. |  |
 
 ### Return type
 
@@ -600,7 +601,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebSearchApi(httpClient, config, httpClientHandler);
-            var aiWebSearchPassthroughSearchRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | A search request in the shape the portal's active web-search provider expects, forwarded to it unchanged. The endpoint and the key come from the stored configuration and must not be sent here.
+            var aiWebSearchPassthroughSearchRequest = new Dictionary<string, Object>(); // Dictionary<string, Object> | A search request in the shape the portal's active web-search provider expects, forwarded to it once `query` and `numResults` pass a type check. The endpoint and the key come from the stored configuration and must not be sent here.
 
             try
             {
@@ -649,13 +650,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The provider's own response, relayed verbatim with its status and content type. |  -  |
+| **400** | `query` is missing or empty, or `numResults` is not a positive integer; `field` names the input. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **404** | Web search is not configured for this portal. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **429** | Relayed verbatim from the AI provider, which is rate-limiting this portal's key. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
-| **502** | The AI provider could not be reached, or answered with a failure of its own. |  -  |
+| **502** | The provider, or the hop in front of it, failed or answered a 5xx; the detail is in the server log. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

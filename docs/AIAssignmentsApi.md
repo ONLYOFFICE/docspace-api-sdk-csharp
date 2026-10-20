@@ -550,7 +550,7 @@ catch (ApiException e)
 # **AiAssignmentsResolveForAction**
 > AiResolvedAssignment AiAssignmentsResolveForAction (string actionType, string? entityId = null)
 
-Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room, and a room with no assignment of its own degrades to the portal-wide one. This fails when neither slot is set or the bound profile is gone, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
+Returns the profile that will serve one AI action, falling back to the `Default` slot when the action has no profile of its own. `actionType` is required and has to be one of the known actions - an unknown or misspelled value is rejected rather than resolved to the default. `entityId` narrows the lookup to a room and has to name one the caller can open - an unknown room answers 404 rather than quietly resolving portal-wide - while an accessible room with no assignment of its own degrades to the portal-wide one. When neither slot is set, the slot names a profile that no longer exists, or the `Default` profile cannot serve the action, the call answers 404, so use `GET api/2.0/ai/assignments/try-resolve-for-action` when an unconfigured portal should answer empty instead.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-resolve-for-action/).
 
@@ -647,9 +647,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The profile that will serve the action. |  -  |
-| **400** | `actionType` is missing. |  -  |
+| **400** | `actionType` is missing or unknown. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | No profile can serve the action, or `entityId` names a room that does not exist. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -658,7 +659,7 @@ catch (ApiException e)
 # **AiAssignmentsTryResolveForAction**
 > AiResolvedAssignment AiAssignmentsTryResolveForAction (string actionType, string? entityId = null)
 
-Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
+Returns the profile that will serve one AI action, exactly as `GET api/2.0/ai/assignments/resolve-for-action` does, but answers with an empty result rather than failing when nothing is configured. `actionType` is required and is validated the same way, and `entityId` narrows the lookup to a room the caller can open - an unknown one answers 404 here as well. This is the operation to call when the absence of a profile is a normal state to render - a settings screen, or a feature that hides itself. Both operations are read-only.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-assignments-try-resolve-for-action/).
 
@@ -755,9 +756,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The profile that will serve the action, or an empty result when none is configured. |  -  |
-| **400** | `actionType` is missing. |  -  |
+| **400** | `actionType` is missing or unknown. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | `entityId` names a room that does not exist. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

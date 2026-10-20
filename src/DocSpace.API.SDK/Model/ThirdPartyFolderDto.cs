@@ -60,8 +60,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ThirdPartyFolderDto" /> class.
         /// </summary>
         /// <param name="parentId">The folder this one is listed in. For a room it is the root of the section the room lives in, and for an entry  opened through a sharing link whose real parent the caller may not read it is the root of the section with the  entries shared with them..</param>
-        /// <param name="filesCount">How many files lie directly in the folder, without counting the subfolders. The roots of the &#x60;Rooms&#x60;, room  templates and default templates sections always report 0, because the number is not collected for them..</param>
-        /// <param name="foldersCount">How many subfolders lie directly in the folder. For an AI room the two service subfolders it always holds are  subtracted, so the number matches what a listing of it shows, and the roots of the &#x60;Rooms&#x60; and templates  sections report 0..</param>
+        /// <param name="filesCount">How many files lie directly in the folder, without counting the subfolders. The roots of the &#x60;Rooms&#x60;, room  templates, default templates and AI agents sections always report 0, because the number is not collected for  them..</param>
+        /// <param name="foldersCount">How many subfolders lie directly in the folder. For an AI room the two service subfolders it always holds are  subtracted, so the number matches what a listing of it shows, and the roots of the &#x60;Rooms&#x60;, templates and AI  agents sections report 0..</param>
         /// <param name="isShareable">Whether the caller may hand out access to the folder. It is filled in only for the folder a folder-contents  answer is about, and is null in every other answer, so null says nothing about the sharing rights..</param>
         /// <param name="new">How many entries inside the folder the caller has not opened yet, the number drawn as the badge on it. An  account that turned the badges off in its own settings always reads 0 here, so 0 alone does not prove that  everything has been seen..</param>
         /// <param name="mute">Whether the caller silenced the notifications of this room: true means no message about its activity reaches  them. The choice belongs to the reading account rather than to the room, so two members of one room read  different values..</param>
@@ -125,14 +125,14 @@ namespace DocSpace.API.SDK.Model
         public string ParentId { get; set; }
 
         /// <summary>
-        /// How many files lie directly in the folder, without counting the subfolders. The roots of the &#x60;Rooms&#x60;, room  templates and default templates sections always report 0, because the number is not collected for them.
+        /// How many files lie directly in the folder, without counting the subfolders. The roots of the &#x60;Rooms&#x60;, room  templates, default templates and AI agents sections always report 0, because the number is not collected for  them.
         /// </summary>
         /// <example>5</example>
         [DataMember(Name = "filesCount", EmitDefaultValue = false)]
         public int FilesCount { get; set; }
 
         /// <summary>
-        /// How many subfolders lie directly in the folder. For an AI room the two service subfolders it always holds are  subtracted, so the number matches what a listing of it shows, and the roots of the &#x60;Rooms&#x60; and templates  sections report 0.
+        /// How many subfolders lie directly in the folder. For an AI room the two service subfolders it always holds are  subtracted, so the number matches what a listing of it shows, and the roots of the &#x60;Rooms&#x60;, templates and AI  agents sections report 0.
         /// </summary>
         /// <example>7</example>
         [DataMember(Name = "foldersCount", EmitDefaultValue = false)]

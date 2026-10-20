@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Move, 1 - Copy, 2 - Delete, 3 - Download, 4 - MarkAsRead, 5 - Import, 6 - Convert, 7 - Duplicate]
+    /// [0 - Move, 1 - Copy, 2 - Delete, 3 - Download, 4 - MarkAsRead, 5 - Import, 6 - Convert, 7 - Duplicate, 8 - Build]
     /// </summary>
     public enum AiFileOperationType
     {
@@ -74,7 +74,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Duplicate for value: 7
         /// </summary>
-        Duplicate = 7
+        Duplicate = 7,
+
+        /// <summary>
+        /// Enum Build for value: 8
+        /// </summary>
+        Build = 8
     }
 
 }

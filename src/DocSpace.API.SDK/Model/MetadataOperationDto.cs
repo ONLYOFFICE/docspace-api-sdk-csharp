@@ -45,12 +45,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="progress">The operation progress percentage..</param>
         /// <param name="isCompleted">Specifies if the operation is completed..</param>
         /// <param name="error">The operation error message..</param>
-        public MetadataOperationDto(string id = default, double progress = default, bool isCompleted = default, string error = default)
+        /// <param name="templateIds">The IDs of the metadata templates the operation propagates to the subtree. Empty when there is no operation to  report, so the answer describes nothing in progress..</param>
+        public MetadataOperationDto(string id = default, double progress = default, bool isCompleted = default, string error = default, List<int> templateIds = default)
         {
             this.Id = id;
             this.Progress = progress;
             this.IsCompleted = isCompleted;
             this.Error = error;
+            this.TemplateIds = templateIds;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace DocSpace.API.SDK.Model
         public string Error { get; set; }
 
         /// <summary>
+        /// The IDs of the metadata templates the operation propagates to the subtree. Empty when there is no operation to  report, so the answer describes nothing in progress.
+        /// </summary>
+        /// <example>[3]</example>
+        [DataMember(Name = "templateIds", EmitDefaultValue = true)]
+        public List<int> TemplateIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  IsCompleted: ").Append(IsCompleted).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  TemplateIds: ").Append(TemplateIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

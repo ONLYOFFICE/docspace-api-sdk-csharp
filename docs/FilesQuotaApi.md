@@ -116,7 +116,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The rooms as they are after the default limit was restored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The storage quota for rooms (for an AI agent, for agents) is turned off, or the caller may not edit a listed room or it lies in Trash or in the archive |  -  |
-| **500** | A listed room does not exist, or an id is a number that is not a 32-bit integer |  -  |
+| **500** | An id is a number that is not a 32-bit integer |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |
@@ -234,7 +234,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The rooms as they are after the new limit was applied |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | The storage quota for rooms (for an AI agent, for agents) is turned off, `quota` exceeds the storage limit of the portal, or the caller may not edit a listed room or it lies in Trash or in the archive |  -  |
-| **500** | A listed room does not exist, or an id is a number that is not a 32-bit integer |  -  |
+| **500** | An id is a number that is not a 32-bit integer |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **400** | Bad Request. |  -  |

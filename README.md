@@ -1031,6 +1031,33 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 </details>
 <details>
+  <summary>Docs</summary>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>Method</th>
+        <th>HTTP request</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center;"><strong>DocsApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/DocsApi.md#convertfile"><strong>ConvertFile</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/docs/converter</td>
+        <td>Convert a file</td>
+      </tr>
+      <tr>
+        <td><a href="docs/DocsApi.md#runbuilderscript"><strong>RunBuilderScript</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/docs/builder</td>
+        <td>Run a document builder script</td>
+      </tr>
+    </tbody>
+  </table>
+
+</details>
+<details>
   <summary>Files</summary>
 
   <table>
@@ -1558,6 +1585,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesMetadataApi.md#updatefield"><strong>UpdateField</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/metadata/templates/{templateId}/fields/{fieldId}</td>
         <td>Update a metadata field</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesMetadataApi.md#updatefoldertemplate"><strong>UpdateFolderTemplate</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/metadata/folder/{folderId}/templates/{templateId}</td>
+        <td>Update a template assignment on a folder</td>
       </tr>
       <tr>
         <td><a href="docs/FilesMetadataApi.md#updatetemplate"><strong>UpdateTemplate</strong></a></td>
@@ -2885,6 +2917,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/PortalSettingsApi.md#suspendportal"><strong>SuspendPortal</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/portal/suspend</td>
         <td>Deactivate a portal</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalSettingsApi.md#unblockportal"><strong>UnblockPortal</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/portal/unblock</td>
+        <td>Unblock a portal</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>UsersApi</strong></td>
@@ -4215,6 +4252,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get web plugins</td>
       </tr>
       <tr>
+        <td><a href="docs/SettingsWebpluginsApi.md#refreshwebplugin"><strong>RefreshWebPlugin</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/settings/webplugins/{name}/refresh</td>
+        <td>Refresh a web plugin</td>
+      </tr>
+      <tr>
         <td><a href="docs/SettingsWebpluginsApi.md#updatewebplugin"><strong>UpdateWebPlugin</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/settings/webplugins/{name}</td>
         <td>Update a web plugin</td>
@@ -4304,6 +4346,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiChatPriceDto](docs/AiChatPriceDto.md)
  - [Model.AiChatSettingsDto](docs/AiChatSettingsDto.md)
  - [Model.AiChatToolPermissionMode](docs/AiChatToolPermissionMode.md)
+ - [Model.AiChatToolPrefsScope](docs/AiChatToolPrefsScope.md)
  - [Model.AiConfigDto](docs/AiConfigDto.md)
  - [Model.AiCreateProfileInput](docs/AiCreateProfileInput.md)
  - [Model.AiCreatePromptInput](docs/AiCreatePromptInput.md)
@@ -4319,6 +4362,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiEntryPricingDtoAiEmbeddingPriceDto](docs/AiEntryPricingDtoAiEmbeddingPriceDto.md)
  - [Model.AiEntryPricingDtoAiImagePriceDto](docs/AiEntryPricingDtoAiImagePriceDto.md)
  - [Model.AiEntryPricingDtoDecimal](docs/AiEntryPricingDtoDecimal.md)
+ - [Model.AiErrorCode](docs/AiErrorCode.md)
  - [Model.AiErrorData](docs/AiErrorData.md)
  - [Model.AiErrorResponse](docs/AiErrorResponse.md)
  - [Model.AiExportTextToDocx202Response](docs/AiExportTextToDocx202Response.md)
@@ -4349,6 +4393,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiLogoCoverDto](docs/AiLogoCoverDto.md)
  - [Model.AiLogoDto](docs/AiLogoDto.md)
  - [Model.AiMCPItem](docs/AiMCPItem.md)
+ - [Model.AiMetadataMatchDto](docs/AiMetadataMatchDto.md)
  - [Model.AiModel](docs/AiModel.md)
  - [Model.AiNewItemsAgentNewItemsArrayWrapper](docs/AiNewItemsAgentNewItemsArrayWrapper.md)
  - [Model.AiNewItemsDtoAgentNewItemsDto](docs/AiNewItemsDtoAgentNewItemsDto.md)
@@ -4364,6 +4409,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiOpenOrCreateResult](docs/AiOpenOrCreateResult.md)
  - [Model.AiOpenaiChatCompletions403Response](docs/AiOpenaiChatCompletions403Response.md)
  - [Model.AiOpenaiChatCompletions403ResponseError](docs/AiOpenaiChatCompletions403ResponseError.md)
+ - [Model.AiOpenaiImagesGenerations403Response](docs/AiOpenaiImagesGenerations403Response.md)
+ - [Model.AiOpenaiImagesGenerations403ResponseError](docs/AiOpenaiImagesGenerations403ResponseError.md)
  - [Model.AiPreferencesSetDeepModeRequest](docs/AiPreferencesSetDeepModeRequest.md)
  - [Model.AiPreferencesSetReasoningLevelRequest](docs/AiPreferencesSetReasoningLevelRequest.md)
  - [Model.AiPreferencesSetToolPermissionModeRequest](docs/AiPreferencesSetToolPermissionModeRequest.md)
@@ -4372,6 +4419,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiPricesWrapper](docs/AiPricesWrapper.md)
  - [Model.AiProfile](docs/AiProfile.md)
  - [Model.AiProfileMutationResult](docs/AiProfileMutationResult.md)
+ - [Model.AiProfilesCreate400Response](docs/AiProfilesCreate400Response.md)
  - [Model.AiProfilesGetById200Response](docs/AiProfilesGetById200Response.md)
  - [Model.AiProfilesListProviderModels400Response](docs/AiProfilesListProviderModels400Response.md)
  - [Model.AiProfilesListProviderModels400ResponseAnyOf](docs/AiProfilesListProviderModels400ResponseAnyOf.md)
@@ -4441,6 +4489,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiWatermarkAdditions](docs/AiWatermarkAdditions.md)
  - [Model.AiWatermarkDto](docs/AiWatermarkDto.md)
  - [Model.AiWebSearchConfig](docs/AiWebSearchConfig.md)
+ - [Model.AiWebSearchConfigure400Response](docs/AiWebSearchConfigure400Response.md)
  - [Model.AiWebSearchConfigureRequest](docs/AiWebSearchConfigureRequest.md)
  - [Model.AiWebSearchMutationResult](docs/AiWebSearchMutationResult.md)
  - [Model.AiWebSearchSetActiveConfigRequest](docs/AiWebSearchSetActiveConfigRequest.md)
@@ -4546,6 +4595,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.Contact](docs/Contact.md)
  - [Model.ConversationResultArrayWrapper](docs/ConversationResultArrayWrapper.md)
  - [Model.ConversationResultDto](docs/ConversationResultDto.md)
+ - [Model.ConvertDocumentLayoutRequest](docs/ConvertDocumentLayoutRequest.md)
+ - [Model.ConvertDocumentRendererRequest](docs/ConvertDocumentRendererRequest.md)
+ - [Model.ConvertFileRequestDto](docs/ConvertFileRequestDto.md)
+ - [Model.ConvertPdfRequest](docs/ConvertPdfRequest.md)
+ - [Model.ConvertSpreadsheetLayoutRequest](docs/ConvertSpreadsheetLayoutRequest.md)
+ - [Model.ConvertSpreadsheetMarginsRequest](docs/ConvertSpreadsheetMarginsRequest.md)
+ - [Model.ConvertSpreadsheetPageSizeRequest](docs/ConvertSpreadsheetPageSizeRequest.md)
+ - [Model.ConvertThumbnailRequest](docs/ConvertThumbnailRequest.md)
  - [Model.CookieSettingsDto](docs/CookieSettingsDto.md)
  - [Model.CookieSettingsRequestDto](docs/CookieSettingsRequestDto.md)
  - [Model.CookieSettingsWrapper](docs/CookieSettingsWrapper.md)
@@ -4888,6 +4945,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.MetadataFieldType](docs/MetadataFieldType.md)
  - [Model.MetadataFieldWrapper](docs/MetadataFieldWrapper.md)
  - [Model.MetadataFilterConditionRequest](docs/MetadataFilterConditionRequest.md)
+ - [Model.MetadataMatchDto](docs/MetadataMatchDto.md)
  - [Model.MetadataOperationDto](docs/MetadataOperationDto.md)
  - [Model.MetadataOperationWrapper](docs/MetadataOperationWrapper.md)
  - [Model.MetadataTemplateArrayWrapper](docs/MetadataTemplateArrayWrapper.md)
@@ -5003,6 +5061,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.RoomsNotificationSettingsDto](docs/RoomsNotificationSettingsDto.md)
  - [Model.RoomsNotificationSettingsWrapper](docs/RoomsNotificationSettingsWrapper.md)
  - [Model.RoomsNotificationsSettingsRequestDto](docs/RoomsNotificationsSettingsRequestDto.md)
+ - [Model.RunBuilderScriptOutputRequest](docs/RunBuilderScriptOutputRequest.md)
+ - [Model.RunBuilderScriptRequestDto](docs/RunBuilderScriptRequestDto.md)
+ - [Model.RunBuilderScriptRequestDtoArgument](docs/RunBuilderScriptRequestDtoArgument.md)
  - [Model.SalesRequestDto](docs/SalesRequestDto.md)
  - [Model.SaveAdditionalResourcesRequest](docs/SaveAdditionalResourcesRequest.md)
  - [Model.SaveAsPdfRequest](docs/SaveAsPdfRequest.md)
@@ -5180,6 +5241,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.UpdateClientRequest](docs/UpdateClientRequest.md)
  - [Model.UpdateCommentRequest](docs/UpdateCommentRequest.md)
  - [Model.UpdateFileRequest](docs/UpdateFileRequest.md)
+ - [Model.UpdateFolderMetadataTemplateRequest](docs/UpdateFolderMetadataTemplateRequest.md)
  - [Model.UpdateGroupRequest](docs/UpdateGroupRequest.md)
  - [Model.UpdateMemberCultureRequest](docs/UpdateMemberCultureRequest.md)
  - [Model.UpdateMemberRequestDto](docs/UpdateMemberRequestDto.md)

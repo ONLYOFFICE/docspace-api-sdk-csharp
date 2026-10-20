@@ -55,17 +55,19 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="metadataTemplateId">The ID of the metadata template the entries must be assigned to. On its own it narrows the listing to the entries  carrying the template; together with the conditions it also pins the template the filtered fields belong to..</param>
         /// <param name="metadataFilters">The metadata filter conditions, combined with AND. A custom field is addressed by its name instead of the field ID..</param>
-        /// <param name="filterValue">The text to search for in the titles and in the custom fields..</param>
+        /// <param name="includeHiddenMetadata">Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way..</param>
+        /// <param name="filterValue">The text to search for in the titles and in the string metadata values of the entries, the custom fields and the  template fields alike; an entry found by its metadata says where in metadataMatches..</param>
         /// <param name="withSubFolders">Specifies whether to search the whole subtree of the folder (the default) or its direct children only..</param>
         /// <param name="filterType">The filter type..</param>
         /// <param name="count">The number of entries to return, from 1 to 100..</param>
         /// <param name="startIndex">The zero-based index of the first entry to return..</param>
         /// <param name="sortBy">The field to sort by, a name of the SortedByType values..</param>
         /// <param name="sortOrder">The sort order..</param>
-        public FolderMetadataSearch(int? metadataTemplateId = default, List<MetadataFilterConditionRequest> metadataFilters = default, string filterValue = default, bool? withSubFolders = default, FilterType? filterType = default, int count = default, int startIndex = default, string sortBy = default, SortOrder? sortOrder = default)
+        public FolderMetadataSearch(int? metadataTemplateId = default, List<MetadataFilterConditionRequest> metadataFilters = default, bool? includeHiddenMetadata = default, string filterValue = default, bool? withSubFolders = default, FilterType? filterType = default, int count = default, int startIndex = default, string sortBy = default, SortOrder? sortOrder = default)
         {
             this.MetadataTemplateId = metadataTemplateId;
             this.MetadataFilters = metadataFilters;
+            this.IncludeHiddenMetadata = includeHiddenMetadata;
             this.FilterValue = filterValue;
             this.WithSubFolders = withSubFolders;
             this.FilterType = filterType;
@@ -90,7 +92,14 @@ namespace DocSpace.API.SDK.Model
         public List<MetadataFilterConditionRequest> MetadataFilters { get; set; }
 
         /// <summary>
-        /// The text to search for in the titles and in the custom fields.
+        /// Whether the text search, and the metadataMatches it reports, also look at the values of the hidden metadata  templates (created with visible false for the metadata a service keeps for itself, which the web client never  shows). False, the default, leaves them out, so an entry is not found by such a value; true takes them in.  metadataTemplateId and metadataFilters are not concerned: a hidden template or field named there is searched  either way.
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "includeHiddenMetadata", EmitDefaultValue = true)]
+        public bool? IncludeHiddenMetadata { get; set; }
+
+        /// <summary>
+        /// The text to search for in the titles and in the string metadata values of the entries, the custom fields and the  template fields alike; an entry found by its metadata says where in metadataMatches.
         /// </summary>
         /// <example>ACME</example>
         [DataMember(Name = "filterValue", EmitDefaultValue = true)]
@@ -134,6 +143,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class FolderMetadataSearch {\n");
             sb.Append("  MetadataTemplateId: ").Append(MetadataTemplateId).Append("\n");
             sb.Append("  MetadataFilters: ").Append(MetadataFilters).Append("\n");
+            sb.Append("  IncludeHiddenMetadata: ").Append(IncludeHiddenMetadata).Append("\n");
             sb.Append("  FilterValue: ").Append(FilterValue).Append("\n");
             sb.Append("  WithSubFolders: ").Append(WithSubFolders).Append("\n");
             sb.Append("  FilterType: ").Append(FilterType).Append("\n");

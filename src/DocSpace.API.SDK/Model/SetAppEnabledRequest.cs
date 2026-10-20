@@ -41,17 +41,22 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetAppEnabledRequest" /> class.
         /// </summary>
-        /// <param name="enabled">Whether the application is available in this portal. Switching it off leaves its settings document stored, so  switching it back on restores the configuration it had; connected clients are told of the new state without a  reload..</param>
+        [JsonConstructorAttribute]
+        protected SetAppEnabledRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SetAppEnabledRequest" /> class.
+        /// </summary>
+        /// <param name="enabled">Whether the application is available in this portal. Switching it off leaves its settings document stored, so  switching it back on restores the configuration it had; connected clients are told of the new state without a  reload. The field is mandatory: a body without it is rejected with 400 and leaves the application as it was. (required).</param>
         public SetAppEnabledRequest(bool enabled = default)
         {
             this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Whether the application is available in this portal. Switching it off leaves its settings document stored, so  switching it back on restores the configuration it had; connected clients are told of the new state without a  reload.
+        /// Whether the application is available in this portal. Switching it off leaves its settings document stored, so  switching it back on restores the configuration it had; connected clients are told of the new state without a  reload. The field is mandatory: a body without it is rejected with 400 and leaves the application as it was.
         /// </summary>
         /// <example>true</example>
-        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>

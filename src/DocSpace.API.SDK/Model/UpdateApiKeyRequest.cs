@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateApiKeyRequest" /> class.
         /// </summary>
-        /// <param name="name">The new label of the key, up to 30 characters. Omit it to keep the current name..</param>
+        /// <param name="name">The new label of the key, up to 30 characters, neither empty nor made of whitespace only. Omit it to keep the  current name..</param>
         /// <param name="permissions">The scopes that replace the current ones. Every value has to come from &#x60;GET api/2.0/keys/permissions&#x60;, an  unknown value or an empty array is rejected, and omitting the field keeps the current scopes..</param>
         /// <param name="isActive">Whether the key may authenticate requests. Set it to false to stop the key without deleting it and to true to  let it work again; omit it to keep the current state..</param>
         public UpdateApiKeyRequest(string name = default, List<string> permissions = default, bool? isActive = default)
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The new label of the key, up to 30 characters. Omit it to keep the current name.
+        /// The new label of the key, up to 30 characters, neither empty nor made of whitespace only. Omit it to keep the  current name.
         /// </summary>
         /// <example>Updated API Key</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
@@ -110,9 +110,18 @@ namespace DocSpace.API.SDK.Model
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 0)
+            if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
+            if (this.Name != null) {
+                // Name (string) pattern
+                                Regex regexName = new Regex(@"[\s\S]*\S[\s\S]*", RegexOptions.CultureInvariant);
+                                if (!regexName.Match(this.Name).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
+                                }
             }
 
             yield break;

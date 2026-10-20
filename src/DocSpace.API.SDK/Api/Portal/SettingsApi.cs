@@ -179,6 +179,27 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SuspendPortalWithHttpInfo();
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns></returns>
+        void UnblockPortal();
+
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UnblockPortalWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -351,6 +372,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/suspend-portal/">REST API Reference for SuspendPortal Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SuspendPortalWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns>Task of void</returns>
+        Task UnblockPortalAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> UnblockPortalWithHttpInfoAsync(CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1793,6 +1837,180 @@ namespace DocSpace.API.SDK.Api.Portal
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SuspendPortal", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns></returns>
+        public void UnblockPortal()
+        {
+            UnblockPortalWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UnblockPortalWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<Object>("/api/2.0/portal/unblock", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UnblockPortal", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns>Task of void</returns>
+        public async Task UnblockPortalAsync(CancellationToken cancellationToken = default)
+        {
+            await UnblockPortalWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Unblock a portal
+        /// </summary>
+        /// <remarks>
+        /// Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/">REST API Reference for UnblockPortal Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> UnblockPortalWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/portal/unblock", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UnblockPortal", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

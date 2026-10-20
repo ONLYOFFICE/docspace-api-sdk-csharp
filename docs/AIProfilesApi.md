@@ -112,7 +112,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Whether the profile was created, with it in `profile`. A refusal is reported in `error` rather than as a status. |  -  |
-| **400** | The provider URL is missing, malformed, or points at a private network address. |  -  |
+| **400** | The provider URL is missing, malformed, or points at a private network address, or the key holds characters that cannot travel in an HTTP header - that one answers with the profile result shape, `success: false` and an `error` naming the `key` field. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI profiles are read-only on this portal because they are managed by the AI gateway. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
@@ -338,7 +338,7 @@ catch (ApiException e)
 # **AiProfilesList**
 > List&lt;AiProfile&gt; AiProfilesList ()
 
-Lists the portal's AI provider profiles with their secrets stripped, the same way the single-profile read does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
+Lists the portal's AI provider profiles. A portal administrator receives each profile in full, `key` and `headers` included, because the settings page edits them; every other caller gets them with those secrets stripped, as the single-profile read always does. It takes no parameters and is not paginated, because a portal holds few profiles. On a portal running the AI gateway the answer is synthesised from the gateway's own catalogue rather than from stored records. The IDs in the answer are what the assignment operations and every round's `profileId` accept.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list/).
 
@@ -438,7 +438,7 @@ catch (ApiException e)
 # **AiProfilesListModels**
 > List&lt;AiModel&gt; AiProfilesListModels (string profileId)
 
-Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a missing profile or a caller without access keeps the status the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
+Lists the models a stored profile's provider currently offers, asking the provider itself rather than reading a cached list. `profileId` is required and is read from the query. A failure is reported with the provider's own verdict: an unusable key comes back as 400 and a provider that is unreachable or broken as 502, while a profile the caller cannot see answers 404 before the provider is asked and a caller without access keeps the 403 the portal gave it. Use `POST api/2.0/ai/profiles/list-provider-models` to probe an endpoint that has no profile yet.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-models/).
 
@@ -536,6 +536,7 @@ catch (ApiException e)
 | **400** | `profileId` is missing, or the provider rejected the profile's API key. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | No profile with this identifier exists for the caller. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 | **502** | The AI provider could not be reached, or answered with a failure of its own. |  -  |
 
@@ -545,7 +546,7 @@ catch (ApiException e)
 # **AiProfilesListProviderModels**
 > List&lt;AiModel&gt; AiProfilesListProviderModels (AiProfilesListProviderModelsRequest aiProfilesListProviderModelsRequest)
 
-Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
+Lists the models an endpoint offers for credentials supplied in the request, before any profile exists - this is what a provider-setup form calls to fill its model picker. `providerType` and `baseUrl` are both required, and a 400 for either names the offending input in a `field` member so the form can highlight it; a `baseUrl` pointing at a private network address is refused as well, and so is an `apiKey` with characters that cannot travel in an HTTP header (anything outside printable ASCII), since no provider could ever accept it. For `providerType: onlyoffice` the answer comes from the portal gateway's catalogue, which carries richer capability data than the provider's own listing and matches what `GET api/2.0/ai/profiles/list` reports; a portal without that gateway falls back to asking the provider. A provider that is unreachable or broken is reported as 502, and one that rejects the key as 400.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-list-provider-models/).
 
@@ -640,7 +641,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The models the endpoint offers for the supplied credentials. |  -  |
-| **400** | `baseUrl` is missing, points at a private network address, or the provider rejected the supplied API key. |  -  |
+| **400** | `baseUrl` is missing, points at a private network address, `apiKey` holds characters that cannot travel in an HTTP header, or the provider rejected the supplied API key. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
@@ -653,7 +654,7 @@ catch (ApiException e)
 # **AiProfilesTestConnection**
 > AiProfilesTestConnection200Response AiProfilesTestConnection (string aiProfilesTestConnectionRequest)
 
-Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter. The result is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
+Probes a stored profile's credentials against its provider and reports the outcome in the answer, writing nothing - this is what a Test button calls so that a failure does not commit anything. `profileId` is required and may be sent in the body or as a query parameter, and a profile the caller cannot see answers 404 before anything is probed. The result of the probe itself is carried in the body rather than in the status, so a failed probe still answers 200 and the caller has to read the payload. To validate credentials that are not stored yet, use `POST api/2.0/ai/profiles/list-provider-models`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-profiles-test-connection/).
 
@@ -751,6 +752,7 @@ catch (ApiException e)
 | **400** | `profileId` is missing. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **404** | No profile with this identifier exists for the caller. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
 | **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
@@ -855,7 +857,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Whether the profile was updated, with the stored profile in `profile`. |  -  |
-| **400** | The provider URL is missing, malformed, or points at a private network address. |  -  |
+| **400** | The provider URL is missing, malformed, or points at a private network address, or the key holds characters that cannot travel in an HTTP header - that one answers with the profile result shape, `success: false` and an `error` naming the `key` field. |  -  |
 | **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
 | **403** | AI profiles are read-only on this portal because they are managed by the AI gateway. |  -  |
 | **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |

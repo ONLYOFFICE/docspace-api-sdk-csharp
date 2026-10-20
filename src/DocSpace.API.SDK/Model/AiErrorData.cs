@@ -59,7 +59,13 @@ namespace DocSpace.API.SDK.Model
             /// Enum Name for value: name
             /// </summary>
             [EnumMember(Value = "name")]
-            Name
+            Name,
+
+            /// <summary>
+            /// Enum Text for value: text
+            /// </summary>
+            [EnumMember(Value = "text")]
+            Text
         }
 
         /// <summary>
@@ -67,6 +73,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "field", IsRequired = true, EmitDefaultValue = true)]
         public FieldEnum Field { get; set; }
+
+        /// <summary>
+        /// Optional: producers that know the reason set it (the prompts engine does).
+        /// </summary>
+        [DataMember(Name = "code", EmitDefaultValue = false)]
+        public AiErrorCode? Code { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiErrorData" /> class.
@@ -78,7 +90,8 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="field">The rejected field. (required).</param>
         /// <param name="message">The human-readable reason the field was rejected. (required).</param>
-        public AiErrorData(FieldEnum field = default, string message = default)
+        /// <param name="code">Optional: producers that know the reason set it (the prompts engine does)..</param>
+        public AiErrorData(FieldEnum field = default, string message = default, AiErrorCode? code = default)
         {
             this.Field = field;
             // to ensure "message" is required (not null)
@@ -87,6 +100,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("message is a required property for AiErrorData and cannot be null");
             }
             this.Message = message;
+            this.Code = code;
         }
 
         /// <summary>
@@ -105,6 +119,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class AiErrorData {\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -3697,7 +3697,7 @@ catch (ApiException e)
 # **SetRestrictedAiModels**
 > RestrictedAiModelsWrapper SetRestrictedAiModels (SetRestrictedAiModelsRequestDto? setRestrictedAiModelsRequestDto = null)
 
-Replaces the whole set of AI chat models barred on this portal: the body is the complete set that is to hold,  so adding one restriction means sending the new model together with the ones already restricted, lifting one  means leaving it out, and an empty set lifts them all. Read the current set from  `GET api/2.0/portal/payment/ai-model/restrictions` and the model identifiers from  `GET api/2.0/portal/payment/ai-prices` before calling. The installation needs a billing service and the AI  gateway configured, the portal needs a billing customer, and the caller needs the permission to edit the  portal settings as well as DocSpace administrator rights. The call is mutating and idempotent - sending the  same set twice leaves the same state - and it is written to the portal audit trail. It takes effect on the  next AI request, so a conversation already open on a model that has just been barred cannot go on with it. The  stored set comes back in the answer.
+Replaces the whole set of AI chat models barred on this portal: the body is the complete set that is to hold,  so adding one restriction means sending the new model together with the ones already restricted, lifting one  means leaving it out, and an empty set lifts them all. Read the current set from  `GET api/2.0/portal/payment/ai-model/restrictions` and the model identifiers from  `GET api/2.0/portal/payment/ai-prices` before calling. The installation needs a billing service and the AI  gateway configured, the portal needs a billing customer and the AI tools wallet service switched on with  `POST api/2.0/portal/payment/servicestate`, and the caller needs the permission to edit the portal settings as  well as DocSpace administrator rights. The call is mutating and idempotent - sending the same set twice leaves  the same state - and it is written to the portal audit trail. It takes effect on the next AI request, so a  conversation already open on a model that has just been barred cannot go on with it. The stored set comes  back in the answer. While AI tools is off the call is refused with 403 instead of being stored, because the  read reports an empty set then and nothing written could be read back.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-restricted-ai-models/).
 
@@ -3801,8 +3801,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The set of barred AI chat models as it was stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read, or `models` is missing or `null` |  -  |
-| **403** | The caller has no portal-settings right or is not a DocSpace administrator, or the installation has no billing service or no AI gateway configured |  -  |
+| **400** | The request body cannot be read, or `models` is missing, `null` or holds a `null` entry |  -  |
+| **403** | The caller has no portal-settings right or is not a DocSpace administrator, the installation has no billing service or no AI gateway configured, or the AI tools wallet service is off for the portal |  -  |
 | **404** | This portal has no billing customer yet |  -  |
 | **500** | The AI gateway answers with an error or cannot be reached |  -  |
 | **401** | Unauthorized |  -  |
@@ -3816,7 +3816,7 @@ catch (ApiException e)
 # **SetTenantWalletSettings**
 > TenantWalletSettingsWrapper SetTenantWalletSettings (TenantWalletSettingsRequestDto? tenantWalletSettingsRequestDto = null)
 
-Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
+Switches the portal's automatic wallet top-up on or off and sets its thresholds: while it is on, the payment  method on file is charged whenever the wallet balance falls below `minBalance`, enough to bring it up to  `upToBalance`, in `currency`. The portal needs a billing customer whose wallet balance exists - a portal that  has never had one answers 404, so top the wallet up once with `POST api/2.0/portal/payment/deposit` first -  and only the payer may change the settings. The body replaces the stored settings as a whole and an omitted  body resets them to the defaults; `minBalance` is accepted between 5 and 1000 and `upToBalance` between 6 and  5000, and `upToBalance` has to be greater than `minBalance`, so that a top-up lifts the wallet above the balance  that triggers it. The low-balance warning state (`lowBalanceThreshold`, `lowBalanceNotified`) and `lastModified` may be  sent for compatibility but are ignored: the portal keeps the values it had. The call is mutating and  idempotent, it charges nothing by itself, it is written to the portal audit trail, and switching the top-up on also re-arms the low-balance warning. The settings as they were stored come  back in the answer.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/).
 
@@ -3920,7 +3920,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The automatic top-up settings as they were stored |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **400** | The request body cannot be read, or `settings` is sent with `minBalance` outside 5-1000 or `upToBalance` outside 6-5000, including when either of them is left out |  -  |
+| **400** | The request body cannot be read, or `settings` is sent with `minBalance` outside 5-1000 or `upToBalance` outside 6-5000, including when either of them is left out, or with `upToBalance` not greater than `minBalance` |  -  |
 | **403** | The caller is not the payer of this portal, or the portal has no billing service configured |  -  |
 | **404** | This portal has no billing customer, or its wallet has no balance yet |  -  |
 | **401** | Unauthorized |  -  |

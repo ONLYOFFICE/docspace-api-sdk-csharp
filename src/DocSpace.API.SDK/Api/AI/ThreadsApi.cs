@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -172,7 +172,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -184,7 +184,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -247,7 +247,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -262,7 +262,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -345,7 +345,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -357,7 +357,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -377,7 +377,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -390,7 +390,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -527,7 +527,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -540,7 +540,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -608,7 +608,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -624,7 +624,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -714,7 +714,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -727,7 +727,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -967,7 +967,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -983,7 +983,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -1042,7 +1042,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -1059,7 +1059,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Append user message
         /// </summary>
         /// <remarks>
-        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
+        /// Stores a user message in a thread and bumps its last-edit date so the thread resurfaces at the top of the list. `threadId` is required, the message has to carry `role: user` and a content that is a non-blank string or a part list with at least one real part - text, a file or image attachment - so an empty or role-less body is rejected rather than stored. The per-kind attachment cap of the composer is enforced here as well, so a direct API call cannot exceed what the UI allows. Passing `profileId` rebinds the thread to another model, which is how a mid-conversation model switch is recorded. The answer carries the new message's ID; the message is stored as sent and no reply is generated - run a round with `POST api/2.0/ai/ai/send-with-stream` for that.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsAppendUserMessageRequest"></param>
@@ -1891,7 +1891,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -1907,7 +1907,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -1966,7 +1966,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -1983,7 +1983,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get one chat message
         /// </summary>
         /// <remarks>
-        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required. Unlike `GET api/2.0/ai/threads/get-by-id` an unknown ID is not reported as 404: the answer is an empty body with status 200, so a client has to treat a missing payload as no such message. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
+        /// Returns one message by its ID, wherever it sits, without needing the thread it belongs to. `messageId` is required and, as with `GET api/2.0/ai/threads/get-by-id`, an unknown or deleted ID answers 404, so the result is never an empty body. Message IDs come from the thread history or from the answer of `POST api/2.0/ai/threads/append-user-message`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">The globally unique chat message identifier.</param>
@@ -2391,7 +2391,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -2410,7 +2410,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -2488,7 +2488,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -2508,7 +2508,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Read messages
         /// </summary>
         /// <remarks>
-        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. Omitting `threadId` is not an error: the call answers 200 with an empty list, so an empty result does not distinguish a thread with no messages from a request that forgot the ID. A malformed cursor is ignored and the read starts from the beginning.
+        /// Reads the messages of one thread, oldest first, with the same string-encoded JSON cursor as the thread list. `direction` turns the read around, and only the exact value `desc` does so - anything else, including a misspelling, reads forward. `threadId` is required and a missing one answers 400, so an empty list always means a thread with no messages. A malformed cursor is ignored and the read starts from the beginning.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threadId">The chat thread identifier.</param>
@@ -3047,7 +3047,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -3063,7 +3063,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -3122,7 +3122,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>
@@ -3139,7 +3139,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update message
         /// </summary>
         /// <remarks>
-        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object. Neither the ID nor the payload is validated here, so a malformed request surfaces as an error relayed from storage rather than as a 400. The answer only confirms the write.
+        /// Replaces the content of one stored message, which is how the edit and regenerate flows change a message outside the streaming lifecycle. The whole message is overwritten by the one supplied rather than merged, so send a complete object with a known `role` and a content that is a non-blank string or a part list with at least one real part - a tool-call-only assistant message counts, an empty list does not. The role has to match the stored message's: a user message cannot be turned into an assistant one. An unknown `messageId` answers 404. The answer only confirms the write.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="aiThreadsUpdateMessageRequest"></param>

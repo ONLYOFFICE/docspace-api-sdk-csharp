@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="period">How often the backup runs: &#x60;EveryDay&#x60;, &#x60;EveryWeek&#x60; or &#x60;EveryMonth&#x60;. It defaults to &#x60;EveryDay&#x60;..</param>
         /// <param name="hour">The hour of the day the backup starts at, from 0 to 23. Minutes cannot be chosen - it always starts  on the hour..</param>
-        /// <param name="day">The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for &#x60;EveryWeek&#x60;, and the  day of the month from 1 to 31 for &#x60;EveryMonth&#x60;. Leave it out for &#x60;EveryDay&#x60; only - an omitted value is  stored as 0, which neither of the other two periods accepts, so a weekly or monthly schedule sent  without it fails..</param>
+        /// <param name="day">The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for &#x60;EveryWeek&#x60;, and the  day of the month from 1 to 31 for &#x60;EveryMonth&#x60;. Leave it out for &#x60;EveryDay&#x60; only - a weekly or monthly  schedule sent without it is rejected..</param>
         public BackupCronRequest(BackupPeriod? period = default, int hour = default, int? day = default)
         {
             this.Period = period;
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         public int Hour { get; set; }
 
         /// <summary>
-        /// The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for &#x60;EveryWeek&#x60;, and the  day of the month from 1 to 31 for &#x60;EveryMonth&#x60;. Leave it out for &#x60;EveryDay&#x60; only - an omitted value is  stored as 0, which neither of the other two periods accepts, so a weekly or monthly schedule sent  without it fails.
+        /// The day the backup runs on: the day of the week from 1 to 7, Sunday being 1, for &#x60;EveryWeek&#x60;, and the  day of the month from 1 to 31 for &#x60;EveryMonth&#x60;. Leave it out for &#x60;EveryDay&#x60; only - a weekly or monthly  schedule sent without it is rejected.
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "day", EmitDefaultValue = true)]

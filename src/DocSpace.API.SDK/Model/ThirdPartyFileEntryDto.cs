@@ -56,7 +56,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="expirationDate">When the link being used stops working, written with the offset of the portal&#39;s time zone. It is null for a  link that never expires and whenever no link is involved..</param>
         /// <param name="isLinkExpired">Set when the link being used has already passed its expiration date, which is why the entry cannot be opened  even though it is described here. It is null when no link is involved..</param>
         /// <param name="assignedMetadataTemplates">The IDs of the metadata templates assigned to the file entry..</param>
-        public ThirdPartyFileEntryDto(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, AiFileEntryDtoAllOfShareSettings shareSettings = default, AiFileEntryDtoAllOfSecurity security = default, AiFileEntryDtoAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default, List<int> assignedMetadataTemplates = default)
+        /// <param name="metadataMatches">Where the search text of the listing was met in the metadata of the entry: one item per string value holding  the text, in the order of the fields. Present only in a listing filtered by text, and only for the entries whose  metadata contain it; an entry found by its title alone carries nothing here..</param>
+        public ThirdPartyFileEntryDto(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, AiFileEntryDtoAllOfShareSettings shareSettings = default, AiFileEntryDtoAllOfSecurity security = default, AiFileEntryDtoAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default, List<int> assignedMetadataTemplates = default, List<MetadataMatchDto> metadataMatches = default)
         {
             this.Id = id;
             this.RootFolderId = rootFolderId;
@@ -73,6 +74,7 @@ namespace DocSpace.API.SDK.Model
             this.ExpirationDate = expirationDate;
             this.IsLinkExpired = isLinkExpired;
             this.AssignedMetadataTemplates = assignedMetadataTemplates;
+            this.MetadataMatches = metadataMatches;
         }
 
         /// <summary>
@@ -176,6 +178,12 @@ namespace DocSpace.API.SDK.Model
         public List<int> AssignedMetadataTemplates { get; set; }
 
         /// <summary>
+        /// Where the search text of the listing was met in the metadata of the entry: one item per string value holding  the text, in the order of the fields. Present only in a listing filtered by text, and only for the entries whose  metadata contain it; an entry found by its title alone carries nothing here.
+        /// </summary>
+        [DataMember(Name = "metadataMatches", EmitDefaultValue = true)]
+        public List<MetadataMatchDto> MetadataMatches { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -198,6 +206,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  IsLinkExpired: ").Append(IsLinkExpired).Append("\n");
             sb.Append("  AssignedMetadataTemplates: ").Append(AssignedMetadataTemplates).Append("\n");
+            sb.Append("  MetadataMatches: ").Append(MetadataMatches).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

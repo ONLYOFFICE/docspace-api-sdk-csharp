@@ -22,6 +22,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**UnassignFileTemplate**](#unassignfiletemplate) | **DELETE** /api/2.0/files/metadata/file/{fileId}/templates/{templateId} | Unassign a template from a file |
 | [**UnassignFolderTemplate**](#unassignfoldertemplate) | **DELETE** /api/2.0/files/metadata/folder/{folderId}/templates/{templateId} | Unassign a template from a folder |
 | [**UpdateField**](#updatefield) | **PUT** /api/2.0/files/metadata/templates/{templateId}/fields/{fieldId} | Update a metadata field |
+| [**UpdateFolderTemplate**](#updatefoldertemplate) | **PUT** /api/2.0/files/metadata/folder/{folderId}/templates/{templateId} | Update a template assignment on a folder |
 | [**UpdateTemplate**](#updatetemplate) | **PUT** /api/2.0/files/metadata/templates/{templateId} | Update a metadata template |
 
 <a id="assignfiletemplates"></a>
@@ -129,7 +130,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The templates are assigned to the file, the ones it already carried are skipped; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `templateIds` |  -  |
 | **403** | The caller cannot edit the file |  -  |
 | **404** | The file or one of the templates does not exist |  -  |
@@ -145,7 +146,7 @@ catch (ApiException e)
 # **AssignFolderTemplates**
 > MetadataOperationWrapper AssignFolderTemplates (int folderId, AssignMetadataTemplates assignMetadataTemplates)
 
-Assigns one or more metadata templates to a folder or a room and, with `cascade` set, propagates them to every  folder and file below it. The caller needs the right to edit the folder; for a room that is its manager. The  assignment of the folder itself finishes in the request and writes no values. The cascade is asynchronous: a pass is  queued that assigns the templates to the whole subtree and copies the values the folder holds for their fields, and  the answer is the status of that pass. Poll `GET api/2.0/files/metadata/folder/{folderId}/templates/progress`  until `isCompleted` is true; a failed pass reports its `error` there. The `conflictResolveType` decides what happens  to a value an entry already holds: `Skip` keeps it, `Overwrite` replaces it with the folder's value. A folder inside  the subtree that cascades the same template keeps its own values for its content. Entries created in or moved into  the folder later inherit the templates and the values on their own. Without a cascade the answer is a completed  operation without an identifier. A folder the caller cannot edit is answered with 403; a folder, or a template, that  does not exist with 404.
+Assigns one or more metadata templates to a folder or a room and, with `cascade` set, propagates them to every  folder and file below it. The caller needs the right to create in the folder (a room manager or a content  creator); for a room that is its manager. The assignment itself finishes in the request and writes no values. The  cascade is asynchronous: a pass is queued that assigns the templates to the whole subtree and copies the values the  folder holds, and the answer is that pass with the `templateIds` it propagates. Poll  `GET api/2.0/files/metadata/folder/{folderId}/templates/progress` until `isCompleted` is true; a failed pass  reports its `error` there. The `conflictResolveType` decides what happens to a value an entry already holds: `Skip`  keeps it, `Overwrite` replaces it with the folder's value. A folder inside the subtree that cascades the same  template keeps its own values for its content. Without a cascade the answer is a completed operation without an identifier;  a template that already cascades keeps cascading, it is turned off with  `PUT api/2.0/files/metadata/folder/{folderId}/templates/{templateId}`. A caller without the right to create in the  folder is answered with 403; a folder, or a template, that does not exist with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/assign-folder-templates/).
 
@@ -252,7 +253,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Cascade operation status; a completed operation without an ID when no cascade is requested |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | The request body cannot be read or has no `templateIds` |  -  |
-| **403** | The caller cannot edit the folder |  -  |
+| **403** | The caller cannot create in the folder, or is not the manager of the room |  -  |
 | **404** | The folder or one of the templates does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -371,10 +372,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | New metadata field |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The created field with the generated identifiers of its options |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid field: an empty, repeated or too long name, an unknown type, options on a non-choice field or a choice field without options |  -  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | Template not found |  -  |
+| **404** | No metadata template with this identifier exists on the portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -490,7 +491,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | New metadata template |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The created template with its fields and the generated identifiers of their options |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | An invalid template or field: a name in use, reserved or too long, an unknown field type, duplicate field names or wrong options |  -  |
 | **403** | The caller is not a DocSpace admin |  -  |
 | **401** | Unauthorized |  -  |
@@ -606,9 +607,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The field and every value written for it are deleted; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | Field not found |  -  |
+| **404** | The template does not exist, or it has no field with this identifier |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -721,9 +722,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The template, its fields, its assignments and their values are deleted; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | Template not found |  -  |
+| **404** | No metadata template with this identifier exists on the portal, or it was already deleted |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -737,7 +738,7 @@ catch (ApiException e)
 # **GetCascadeProgress**
 > MetadataOperationWrapper GetCascadeProgress (int folderId)
 
-Reports the cascade pass of a folder started by `PUT api/2.0/files/metadata/folder/{folderId}/templates`: the  running one, otherwise the most recent one. The caller needs read access to the folder, the call is read-only.  `progress` is the share of the subtree processed, `isCompleted` tells the pass is over and `error` carries the reason  of a failed one; a completed pass without an error has written every template and value it was asked for. A folder  that never cascaded, or whose passes were already dropped, is answered with a completed operation without an  identifier rather than with an error. A folder that does not exist is answered with 404.
+Reports the cascade pass of a folder started by `PUT api/2.0/files/metadata/folder/{folderId}/templates` or by  `PUT api/2.0/files/metadata/folder/{folderId}/templates/{templateId}`: the running one, otherwise the most recent  one. The caller needs read access to the folder, the call is read-only. `templateIds` names the templates the pass  propagates, so a client can show the progress next to the right template; `progress` is the share of the subtree  processed, `isCompleted` tells the pass is over and `error` carries the reason of a failed one; a completed pass  without an error has written every template and value it was asked for. A folder that never cascaded, or whose  passes were already dropped, is answered with a completed operation without an identifier and with empty  `templateIds` rather than with an error. A folder that does not exist is answered with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-cascade-progress/).
 
@@ -841,7 +842,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Cascade operation status; a completed operation without an ID when the folder has no cascade to report |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **404** | Folder not found |  -  |
+| **404** | No folder or room with this identifier exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -855,7 +856,7 @@ catch (ApiException e)
 # **GetFileMetadata**
 > EntryMetadataWrapper GetFileMetadata (int fileId)
 
-Returns the metadata of a file: the templates assigned to it, directly or inherited from a cascading folder above  it, each with its fields, and the custom text fields set on the file. The caller needs read access to the file: a  member of the portal, or an anonymous caller through an external link that grants access to the file or to a  folder above it, with the link key in the `Request-Token` header or in the `share` query parameter. The call is  read-only. A field carries its value inside it; a field the file holds no value for comes without a `value`.  The custom fields are name and value pairs and are not part of any template. A file without metadata is answered with  empty lists, not with an error. The same shape is returned by `PUT api/2.0/files/metadata/file/{fileId}/values`  after a write. A request with neither a session nor a link key is answered with 401; a file the caller cannot read  with 403, a file that does not exist with 404.
+Returns the metadata of a file: the templates assigned to it, directly or inherited from a cascading folder above  it, each with its fields, and the custom text fields set on the file. The caller needs read access to the file: a  member of the portal, or an anonymous caller through an external link that grants access to the file or to a  folder above it, with the link key in the `Request-Token` header or in the `share` query parameter. The call is  read-only. A field carries its value inside it; a field the file holds no value for comes without a `value`.  A file never cascades, so every template reports `cascade` false and no `conflictResolveType`; whether it was  inherited from a folder above is not told apart from a direct assignment. The custom fields are name and value  pairs and are not part of any template. A file without metadata is answered with empty lists, not with an error.  The same shape is returned by `PUT api/2.0/files/metadata/file/{fileId}/values` after a write. A request with  neither a session nor a link key is answered with 401; a file the caller cannot read with 403, a file that does  not exist with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-metadata/).
 
@@ -958,10 +959,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | File metadata |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The templates assigned to the file with their fields and values, and the custom fields of the file |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | The caller has neither a session nor an external link key |  -  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | File not found |  -  |
+| **404** | No file with this identifier exists |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -974,7 +975,7 @@ catch (ApiException e)
 # **GetFolderMetadata**
 > EntryMetadataWrapper GetFolderMetadata (int folderId)
 
-Returns the metadata of a folder or a room: the templates assigned to it, directly or inherited from a cascading  folder above it, each with its fields, and the custom text fields set on it. The caller needs read access to the  folder: a member of the portal, or an anonymous caller through an external link that grants access to the folder  or to a folder above it, with the link key in the `Request-Token` header or in the `share` query parameter. The  call is read-only. A field carries its value inside it; a field the folder holds no value for comes without a  `value`. The custom fields are name and value pairs and are not part of any template. A folder without metadata is  answered with empty lists, not with an error. Whether a template cascades from this folder to its content is not  reported here. A request with neither a session nor a link key is answered with 401; a folder the caller cannot  read with 403, a folder that does not exist with 404.
+Returns the metadata of a folder or a room: the templates assigned to it, directly or inherited from a cascading  folder above it, each with its fields, and the custom text fields set on it. The caller needs read access to the  folder: a member of the portal, or an anonymous caller through an external link to the folder or to a folder  above it, with the link key in the `Request-Token` header or in the `share` query parameter. The call is  read-only. A field carries its value inside it; a field without a value on the folder comes without `value`. Each  template reports whether this folder cascades it to its content in `cascade`, with the rule of that cascade in  `conflictResolveType`, absent while it does not; an inherited template reports false unless this folder cascades it  on its own. The custom fields are name and value pairs outside any template. A folder without metadata is answered  with empty lists. The cascade is changed with `PUT api/2.0/files/metadata/folder/{folderId}/templates/{templateId}`.  A request with neither a session nor a link key is answered with 401; a folder the caller cannot read with 403, a  folder that does not exist with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-metadata/).
 
@@ -1077,10 +1078,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder metadata |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The templates assigned to the folder with their fields, values and cascade state, and the custom fields of the folder |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | The caller has neither a session nor an external link key |  -  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | Folder not found |  -  |
+| **404** | No folder or room with this identifier exists |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
 | **400** | Bad Request. |  -  |
@@ -1196,8 +1197,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Metadata template |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **404** | Template not found |  -  |
+| **200** | The template with its fields in display order and the options of its choice fields |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **404** | No metadata template with this identifier exists on the portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1211,7 +1212,7 @@ catch (ApiException e)
 # **GetTemplates**
 > MetadataTemplateArrayWrapper GetTemplates (bool? visible = null)
 
-Lists the metadata templates of the portal with their fields, the dictionary a file, a folder or a room is described  with. Any member of the portal can read it, the list is the same for everyone. The call is read-only. The templates  come back ordered by their creation, each with its fields in their display order and the choice options of the choice  fields; the `visible` parameter narrows the list to the templates shown in the pickers or to the hidden ones, without  it both are returned. An empty list means the portal has no templates yet. The custom text fields set on the entries  are not templates and are not listed here: read them on the entry with `GET api/2.0/files/metadata/file/{fileId}`.
+Lists the metadata templates of the portal with their fields, the dictionary a file, a folder or a room is described  with. Any member of the portal can read it, the list is the same for everyone. The call is read-only. The templates  come back ordered by their creation, each with its fields in their display order and the choice options of the choice  fields; the `visible` parameter narrows the list to the templates shown in the pickers or to the hidden ones, without  it both are returned. The author and the last editor of a template come as user objects with the display name and  the avatar, so a list needs no lookup of its own per author. An empty list means the portal has no templates yet.  The custom text fields set on the entries are not templates and are not listed here: read them on the entry with  `GET api/2.0/files/metadata/file/{fileId}`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-templates/).
 
@@ -1436,7 +1437,7 @@ catch (ApiException e)
 | **200** | The custom fields of the file with their values |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid custom fields or too many of them |  -  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | File not found |  -  |
+| **404** | No file with this identifier exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1570,7 +1571,7 @@ catch (ApiException e)
 # **SetFolderCustomFields**
 > CustomFieldValueArrayWrapper SetFolderCustomFields (int folderId, SetCustomFields setCustomFields)
 
-Sets the custom text fields of a folder or a room: free-form name and value pairs that need no template. The  caller needs the right to edit the folder; for a room that is its manager. A field is addressed by its name  regardless of case: a listed name gets the value, a null or empty value removes the field, the names not listed  are left alone. A name the portal has not seen yet creates the field for the whole portal, and a name no entry  holds a value for any more is dropped. A name is at most 255 characters, a value at most  8000, a name may be listed once and a folder holds at most 50 custom fields. The custom fields never cascade to the  content of the folder. The write finishes in the request; the values take part in the free text search and in the  `metadataFilters` of the listings. The answer is the custom fields of the folder after the write. An empty list, a  blank, repeated or over-long name, an over-long value or more than 50 fields is answered with 400; a folder the  caller cannot edit with 403; a folder that does not exist with 404.
+Sets the custom text fields of a folder or a room: free-form name and value pairs that need no template. The  caller needs the right to create in the folder (a room manager or a content creator); for a room that is its  manager. A field is addressed by its name regardless of case: a listed name gets the value, a null or empty value  removes the field, the names not listed are left alone. A new name creates the field for the whole portal, and a  name no entry holds a value for any more is dropped. A name is at most 255 characters, a value at most 8000, a name  may be listed once and a folder holds at most 50 custom fields. The custom fields never cascade to the content of  the folder. The write finishes in the request. The answer is the custom fields of the folder after the write. An empty list, a  blank, repeated or over-long name, an over-long value or more than 50 fields is answered with 400; a caller  without the right to create in the folder with 403; a folder that does not exist with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-custom-fields/).
 
@@ -1677,8 +1678,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The custom fields of the folder with their values |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid custom fields or too many of them |  -  |
-| **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | Folder not found |  -  |
+| **403** | The caller cannot create in the folder, or is not the manager of the room |  -  |
+| **404** | No folder or room with this identifier exists |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -1691,7 +1692,7 @@ catch (ApiException e)
 # **SetFolderValues**
 > EntryMetadataWrapper SetFolderValues (int folderId, SetMetadataValues setMetadataValues)
 
-Writes the values of metadata fields on a folder or a room. The caller needs the right to edit the folder; for a  room that is its manager. Every field must belong to a template the folder carries, assigned with  `PUT api/2.0/files/metadata/folder/{folderId}/templates` or inherited from a cascading folder, and a field may be  listed once. A value carries exactly the member of its type: `stringValue` for a text field of at most 8000  characters, `numberValue` for a number, `dateValue` for a date, `optionIds` for a choice field; an empty value  clears the field. A date without a time zone offset is read as UTC. The write  finishes in the request and touches the folder only: to push the new values down a cascading folder run the  cascade again with `Overwrite`, while entries created or moved in later take them on their own. The custom text  fields are written with `PUT api/2.0/files/metadata/folder/{folderId}/customFields` instead. The answer is the  whole metadata of the folder after the write. A value of the wrong type, a field listed twice, a custom field or a  field of a template the folder does not carry is answered with 400; a folder the caller cannot edit with 403; a  folder or a field that does not exist with 404.
+Writes the values of metadata fields on a folder or a room. The caller needs the right to create in the folder (a  room manager or a content creator); for a room that is its manager. Every field must belong to a template the  folder carries, assigned with `PUT api/2.0/files/metadata/folder/{folderId}/templates` or inherited from a  cascading folder, and a field may be listed once. A value carries exactly the member of its type: `stringValue` for  a text field of at most 8000 characters, `numberValue` for a number, `dateValue` for a date, `optionIds` for a  choice field; an empty value clears the field. The write finishes in the request and touches the folder only: to  push the new values down a cascading folder run the cascade again with `Overwrite`. The custom text fields are written with  `PUT api/2.0/files/metadata/folder/{folderId}/customFields`. The answer is the whole metadata of the folder after  the write. A value of the wrong type, a field listed twice, a custom field or a field of a template the folder  does not carry is answered with 400; a caller without the right to create in the folder with 403; a folder or a  field that does not exist with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-values/).
 
@@ -1798,7 +1799,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | The metadata of the folder after the write: the assigned templates with the values of their fields, and the custom fields |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | A value does not match the field type, a field is listed twice or is a custom field, or the field belongs to a template the folder does not have |  -  |
-| **403** | You don't have enough permission to perform the operation |  -  |
+| **403** | The caller cannot create in the folder, or is not the manager of the room |  -  |
 | **404** | The folder or a field does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -1913,7 +1914,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The template and the values of its fields are removed from the file; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The file or the template does not exist |  -  |
 | **401** | Unauthorized |  -  |
@@ -1929,7 +1930,7 @@ catch (ApiException e)
 # **UnassignFolderTemplate**
 > void UnassignFolderTemplate (int folderId, int templateId)
 
-Removes a metadata template from a folder or a room together with the values of its fields. The caller needs the  right to edit the folder; for a room that is its manager. When the template was cascaded from this folder, the  cascade stops here: the folders and files below keep the template and their values as a direct assignment of their  own, and there is no bulk rollback. To take the template off them as well, remove it entry by entry with  `DELETE api/2.0/files/metadata/file/{fileId}/templates/{templateId}`. A pass of the cascade still running is stopped  for this template. A folder the caller cannot edit is answered with 403; a folder, or a template, that does not exist  with 404.
+Removes a metadata template from a folder or a room together with the values of its fields. The caller needs the  right to create content in the folder, that is a room manager or a content creator; for a room that is its  manager. When the template was cascaded from this folder, the  cascade stops here: the folders and files below keep the template and their values as a direct assignment of their  own, and there is no bulk rollback. To take the template off them as well, remove it entry by entry with  `DELETE api/2.0/files/metadata/file/{fileId}/templates/{templateId}`. A pass of the cascade still running is stopped  for this template. To stop the cascade and keep the template and its values on the folder use  `PUT api/2.0/files/metadata/folder/{folderId}/templates/{templateId}` with `cascade` false instead. A caller  without the right to create in the folder is answered with 403; a folder, or a template, that does not exist with 404.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/unassign-folder-template/).
 
@@ -2030,8 +2031,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
-| **403** | You don't have enough permission to perform the operation |  -  |
+| **200** | The template and its values are removed from the folder, and a cascade of it from this folder stops; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller cannot create in the folder, or is not the manager of the room |  -  |
 | **404** | The folder or the template does not exist |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
@@ -2153,10 +2154,133 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated metadata field |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The field after the change, with a generated identifier for every new option |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid field, a name another field of the template has, a type change on a field with values or the removal of an option in use |  -  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | Field not found |  -  |
+| **404** | The template does not exist, or it has no field with this identifier |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updatefoldertemplate"></a>
+# **UpdateFolderTemplate**
+> MetadataOperationWrapper UpdateFolderTemplate (int folderId, int templateId, UpdateFolderMetadataTemplateRequest updateFolderMetadataTemplateRequest)
+
+Turns the cascade of a metadata template the folder or the room already carries on or off, without taking the  template off the folder. The template must be assigned first, with `PUT api/2.0/files/metadata/folder/{folderId}/templates`  or inherited from a folder above. The caller needs the right to create in the folder (a room manager  or a content creator); for a room that is its manager. With `cascade` true the template is marked as cascading with  the given `conflictResolveType`, an inherited assignment becomes the folder's own, and the pass the assignment runs  is queued, also when the cascade was already on: the answer is that pass, poll  `GET api/2.0/files/metadata/folder/{folderId}/templates/progress` until `isCompleted` is true. With `cascade` false  the folder keeps the template and its values, the entries below keep them as their own, entries created later no  longer inherit the template from this folder, a running pass stops at its next batch, and the answer is a completed  operation without an identifier; `conflictResolveType` is ignored and a cascade already off stays so. A caller  without the right to create in the folder is answered with 403; a folder or a template that does not exist, or a  template the folder does not carry, with 404.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-folder-template/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **folderId** | **int** | The folder ID. |  |
+| **templateId** | **int** | The ID of a template the folder already carries. |  |
+| **updateFolderMetadataTemplateRequest** | [**UpdateFolderMetadataTemplateRequest**](UpdateFolderMetadataTemplateRequest.md) | The new state of the assignment. |  |
+
+### Return type
+
+[**MetadataOperationWrapper**](MetadataOperationWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class UpdateFolderTemplateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MetadataApi(httpClient, config, httpClientHandler);
+            var folderId = 1;  // int | The folder ID.
+            var templateId = 1;  // int | The ID of a template the folder already carries.
+            var updateFolderMetadataTemplateRequest = new UpdateFolderMetadataTemplateRequest(); // UpdateFolderMetadataTemplateRequest | The new state of the assignment.
+
+            try
+            {
+                // Update a template assignment on a folder
+                MetadataOperationWrapper result = apiInstance.UpdateFolderTemplate(folderId, templateId, updateFolderMetadataTemplateRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MetadataApi.UpdateFolderTemplate: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateFolderTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update a template assignment on a folder
+    ApiResponse<MetadataOperationWrapper> response = apiInstance.UpdateFolderTemplateWithHttpInfo(folderId, templateId, updateFolderMetadataTemplateRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MetadataApi.UpdateFolderTemplateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Cascade operation status; a completed operation without an ID when the cascade was turned off |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read |  -  |
+| **403** | The caller cannot create in the folder, or is not the manager of the room |  -  |
+| **404** | The folder or the template does not exist, or the template is not assigned to the folder |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |
@@ -2274,10 +2398,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated metadata template |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | The whole template after the change, with its fields as they were |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | A template with this name already exists, or the name is too long |  -  |
 | **403** | You don't have enough permission to perform the operation |  -  |
-| **404** | Template not found |  -  |
+| **404** | No metadata template with this identifier exists on the portal |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **500** | Internal Server Error. |  -  |

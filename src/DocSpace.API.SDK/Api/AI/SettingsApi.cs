@@ -141,10 +141,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>AiUserSettingsWrapper</returns>
         AiUserSettingsWrapper AiSettingsSetUser(Dictionary<string, Object> aiSettingsSetUserRequest);
@@ -153,10 +153,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>ApiResponse of AiUserSettingsWrapper</returns>
         ApiResponse<AiUserSettingsWrapper> AiSettingsSetUserWithHttpInfo(Dictionary<string, Object> aiSettingsSetUserRequest);
@@ -313,10 +313,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of AiUserSettingsWrapper</returns>
@@ -326,10 +326,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of ApiResponse (AiUserSettingsWrapper)</returns>
@@ -1292,10 +1292,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>AiUserSettingsWrapper</returns>
         public AiUserSettingsWrapper AiSettingsSetUser(Dictionary<string, Object> aiSettingsSetUserRequest)
@@ -1308,10 +1308,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>ApiResponse of AiUserSettingsWrapper</returns>
         public ApiResponse<AiUserSettingsWrapper> AiSettingsSetUserWithHttpInfo(Dictionary<string, Object> aiSettingsSetUserRequest)
@@ -1367,10 +1367,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of AiUserSettingsWrapper</returns>
@@ -1384,10 +1384,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user AI settings
         /// </summary>
         /// <remarks>
-        /// Replaces the AI settings of the calling user and returns the stored result. The body is proxied unchanged to the DocSpace AI service, which validates it, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
+        /// Replaces the AI settings of the calling user and returns the stored result. `chatRecommendedModelVisible` is required and has to be a real boolean - a body the JSON parser cannot read, such as one sent as text/plain, used to arrive empty and answer 200 having stored nothing. The body is then proxied to the DocSpace AI service, which validates the rest, so a rejected value comes back with that service's verdict. Only the caller's own settings can be written. Portal-wide configuration is not touched by this operation.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="aiSettingsSetUserRequest">The user's AI settings, proxied unchanged to the DocSpace AI service, which owns and validates the shape. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
+        /// <param name="aiSettingsSetUserRequest">The user's AI settings: `chatRecommendedModelVisible` as a boolean, required. Read the current one with `GET api/2.0/ai/config/user` and send it back changed.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-settings-set-user/">REST API Reference for AiSettingsSetUser Operation</seealso>
         /// <returns>Task of ApiResponse (AiUserSettingsWrapper)</returns>

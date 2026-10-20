@@ -11,6 +11,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**SendDeleteInstructions**](#senddeleteinstructions) | **POST** /api/2.0/portal/delete | Send removal instructions |
 | [**SendSuspendInstructions**](#sendsuspendinstructions) | **POST** /api/2.0/portal/suspend | Send suspension instructions |
 | [**SuspendPortal**](#suspendportal) | **PUT** /api/2.0/portal/suspend | Deactivate a portal |
+| [**UnblockPortal**](#unblockportal) | **PUT** /api/2.0/portal/unblock | Unblock a portal |
 
 <a id="continueportal"></a>
 # **ContinuePortal**
@@ -778,6 +779,114 @@ catch (ApiException e)
 | **500** | On a server installation every other space has limited access, so the last remaining space cannot be deactivated |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="unblockportal"></a>
+# **UnblockPortal**
+> void UnblockPortal ()
+
+Unblocks this portal, blocked by the retention policy after a long period without use, so its users can sign in  again. The portal must be blocked. The call is authorized only by the unblocking link the retention letters send  to the owner; it works for the current block only. The call is mutating: it makes the portal active, records the  unblocking in the audit trail, refreshes its Content Security Policy and restarts the retention count. Nothing  is returned in the body; to check the status, read `tenantStatus` from `GET api/2.0/settings`, which a blocked  portal still answers. A lapsed paid tariff stays unpaid after the unblocking, so renewing it is the next step.  The letters of a free portal carry no such link: support unblocks it. The call does not bring back a portal  deleted at the end of its retention period, or one its owner deactivated, which `PUT api/2.0/portal/continue`  brings back. An invalid link, a link of an earlier block, or a portal that is no longer blocked, a repeated call  included, is refused with 401; an ordinary sign-in token instead of the link is refused with 403.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/unblock-portal/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class UnblockPortalExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Unblock a portal
+                apiInstance.UnblockPortal();
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsApi.UnblockPortal: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UnblockPortalWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Unblock a portal
+    apiInstance.UnblockPortalWithHttpInfo();
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsApi.UnblockPortalWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The portal is active again and its users can sign in; the response carries no content |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **401** | The unblocking link is invalid, was mailed for an earlier block, or the portal is not blocked |  -  |
+| **403** | The call carries an ordinary sign-in token instead of the unblocking link |  -  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

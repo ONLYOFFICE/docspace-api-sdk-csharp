@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="storageType">The storage the scheduled archives are written to. It defaults to &#x60;Documents&#x60;, and it decides which  keys &#x60;storageParams&#x60; has to carry..</param>
         /// <param name="storageParams">The settings of the chosen storage, as an array of key and value pairs. &#x60;Documents&#x60; and  &#x60;ThridpartyDocuments&#x60; need &#x60;folderId&#x60;, &#x60;Local&#x60; needs &#x60;filePath&#x60;, &#x60;ThirdPartyConsumer&#x60; needs &#x60;module&#x60;  plus the settings of that consumer, and &#x60;DataStore&#x60; needs none..</param>
         /// <param name="backupsStored">The number of scheduled copies to keep, from 1 to 30. It defaults to 1, and only the copies this  schedule creates are counted and removed - archives started by hand are left alone..</param>
-        /// <param name="cronParams">When the backup runs. It is required: a request without it fails rather than falling back to a  default..</param>
+        /// <param name="cronParams">When the backup runs. It is required: a request without it is rejected rather than falling back to  a default..</param>
         /// <param name="dump">Schedules a backup of the whole server rather than of this one portal. It requires the space access  permission and works on a standalone installation only..</param>
         public CreateBackupScheduleRequestDto(BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, int? backupsStored = default, BackupCronRequest cronParams = default, bool dump = default)
         {
@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         public int? BackupsStored { get; set; }
 
         /// <summary>
-        /// When the backup runs. It is required: a request without it fails rather than falling back to a  default.
+        /// When the backup runs. It is required: a request without it is rejected rather than falling back to  a default.
         /// </summary>
         [DataMember(Name = "cronParams", EmitDefaultValue = false)]
         public BackupCronRequest CronParams { get; set; }

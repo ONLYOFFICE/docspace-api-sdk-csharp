@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.FileOperationType
-[0 - Move, 1 - Copy, 2 - Delete, 3 - Download, 4 - MarkAsRead, 5 - Import, 6 - Convert, 7 - Duplicate]
+[0 - Move, 1 - Copy, 2 - Delete, 3 - Download, 4 - MarkAsRead, 5 - Import, 6 - Convert, 7 - Duplicate, 8 - Build]
 
 ## Properties
 

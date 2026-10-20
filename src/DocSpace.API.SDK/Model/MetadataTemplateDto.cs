@@ -44,12 +44,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The template ID..</param>
         /// <param name="name">The template name..</param>
         /// <param name="visible">Specifies if the template is visible in the UI pickers..</param>
-        /// <param name="createBy">The user who created the template..</param>
+        /// <param name="createBy">The user who created the template. A user who has since left the portal comes back as the lost user placeholder..</param>
         /// <param name="createOn">The template creation date..</param>
-        /// <param name="modifiedBy">The user who modified the template last..</param>
+        /// <param name="modifiedBy">The user who changed the template itself last: its name or its visibility. The creator until somebody changes  it; a change of a field is recorded on the field, not here..</param>
         /// <param name="modifiedOn">The date when the template was modified last..</param>
         /// <param name="fields">The template metadata fields..</param>
-        public MetadataTemplateDto(int id = default, string name = default, bool visible = default, Guid createBy = default, ApiDateTime createOn = default, Guid modifiedBy = default, ApiDateTime modifiedOn = default, List<MetadataFieldDto> fields = default)
+        public MetadataTemplateDto(int id = default, string name = default, bool visible = default, EmployeeDto createBy = default, ApiDateTime createOn = default, EmployeeDto modifiedBy = default, ApiDateTime modifiedOn = default, List<MetadataFieldDto> fields = default)
         {
             this.Id = id;
             this.Name = name;
@@ -83,11 +83,10 @@ namespace DocSpace.API.SDK.Model
         public bool Visible { get; set; }
 
         /// <summary>
-        /// The user who created the template.
+        /// The user who created the template. A user who has since left the portal comes back as the lost user placeholder.
         /// </summary>
-        /// <example>9a7d5f3e-1c2b-4e8a-9f60-3b7c2d1e5a44</example>
         [DataMember(Name = "createBy", EmitDefaultValue = false)]
-        public Guid CreateBy { get; set; }
+        public EmployeeDto CreateBy { get; set; }
 
         /// <summary>
         /// The template creation date.
@@ -96,11 +95,10 @@ namespace DocSpace.API.SDK.Model
         public ApiDateTime CreateOn { get; set; }
 
         /// <summary>
-        /// The user who modified the template last.
+        /// The user who changed the template itself last: its name or its visibility. The creator until somebody changes  it; a change of a field is recorded on the field, not here.
         /// </summary>
-        /// <example>9a7d5f3e-1c2b-4e8a-9f60-3b7c2d1e5a44</example>
         [DataMember(Name = "modifiedBy", EmitDefaultValue = false)]
-        public Guid ModifiedBy { get; set; }
+        public EmployeeDto ModifiedBy { get; set; }
 
         /// <summary>
         /// The date when the template was modified last.

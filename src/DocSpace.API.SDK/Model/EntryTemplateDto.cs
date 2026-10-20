@@ -37,6 +37,12 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "EntryTemplateDto")]
     public partial class EntryTemplateDto : IValidatableObject
     {
+
+        /// <summary>
+        /// How the cascade of this entry treats a value an entry below already holds. Null while the template does not  cascade from this entry.
+        /// </summary>
+        [DataMember(Name = "conflictResolveType", EmitDefaultValue = false)]
+        public MetadataConflictResolveType? ConflictResolveType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="EntryTemplateDto" /> class.
@@ -44,12 +50,16 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The template ID..</param>
         /// <param name="name">The template name..</param>
         /// <param name="visible">Specifies if the template is visible in the UI pickers..</param>
+        /// <param name="cascade">Whether the template cascades from this entry to the folders and files below it. Only a folder or a room can  cascade; on a file the value is always false..</param>
+        /// <param name="conflictResolveType">How the cascade of this entry treats a value an entry below already holds. Null while the template does not  cascade from this entry..</param>
         /// <param name="fields">The template fields with their values on the entry..</param>
-        public EntryTemplateDto(int id = default, string name = default, bool visible = default, List<EntryFieldDto> fields = default)
+        public EntryTemplateDto(int id = default, string name = default, bool visible = default, bool cascade = default, MetadataConflictResolveType? conflictResolveType = default, List<EntryFieldDto> fields = default)
         {
             this.Id = id;
             this.Name = name;
             this.Visible = visible;
+            this.Cascade = cascade;
+            this.ConflictResolveType = conflictResolveType;
             this.Fields = fields;
         }
 
@@ -75,6 +85,13 @@ namespace DocSpace.API.SDK.Model
         public bool Visible { get; set; }
 
         /// <summary>
+        /// Whether the template cascades from this entry to the folders and files below it. Only a folder or a room can  cascade; on a file the value is always false.
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "cascade", EmitDefaultValue = true)]
+        public bool Cascade { get; set; }
+
+        /// <summary>
         /// The template fields with their values on the entry.
         /// </summary>
         /// <example>[{"id":9,"name":"Customer","type":0,"order":0,"value":{"stringValue":"ACME Corp"}}]</example>
@@ -92,6 +109,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
+            sb.Append("  Cascade: ").Append(Cascade).Append("\n");
+            sb.Append("  ConflictResolveType: ").Append(ConflictResolveType).Append("\n");
             sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

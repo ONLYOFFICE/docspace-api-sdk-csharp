@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         public RecaptchaType? RecaptchaType { get; set; }
 
         /// <summary>
-        /// The lifecycle state of the portal. Anything other than active means most operations are refused for the  moment, because the portal is being transferred, restored, encrypted or removed.
+        /// The lifecycle state of the portal. Anything other than active means most operations are refused: the  portal is being transferred, restored, encrypted or removed, its owner has deactivated it, or the  retention policy has blocked it after a long period without use.
         /// </summary>
         [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
         public TenantStatus? TenantStatus { get; set; }
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="recaptchaPublicKey">The site key for the CAPTCHA named by &#x60;recaptchaType&#x60;, safe to embed in a page. It is empty when the  installation configures no CAPTCHA, in which case the login form asks for none..</param>
         /// <param name="debugInfo">Whether the client may collect and send diagnostic information. Filled in for a signed-in caller only, and  &#x60;false&#x60; unless the installation switched it on..</param>
         /// <param name="socketUrl">The address of the socket service that pushes live updates to a client. It is filled in for a signed-in  caller and for an anonymous one who arrives with an external sharing link, and is empty when the  installation runs no socket service - a client then has to poll..</param>
-        /// <param name="tenantStatus">The lifecycle state of the portal. Anything other than active means most operations are refused for the  moment, because the portal is being transferred, restored, encrypted or removed..</param>
+        /// <param name="tenantStatus">The lifecycle state of the portal. Anything other than active means most operations are refused: the  portal is being transferred, restored, encrypted or removed, its owner has deactivated it, or the  retention policy has blocked it after a long period without use..</param>
         /// <param name="tenantAlias">The portal&#39;s own name within the installation, which together with &#x60;baseDomain&#x60; forms the address it is  reached at. &#x60;PUT api/2.0/portal/portalrename&#x60; changes it..</param>
         /// <param name="displayAbout">Whether the interface may show the About page. A cloud portal always may; a server installation may unless  its plan includes branding and the vendor details hide the page..</param>
         /// <param name="domainValidator">The rules a portal name is checked against - its length limits and the pattern it has to match - so a  client can validate a rename before sending it. Filled in for a signed-in caller only..</param>

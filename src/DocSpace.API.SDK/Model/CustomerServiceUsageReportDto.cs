@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="totalQuantity">How many services match the filters in total, across every page - services, not charges..</param>
         /// <param name="totalPage">How many pages those entries come to at the current &#x60;limit&#x60;..</param>
         /// <param name="currentPage">Which of those pages this one is, as the billing service numbers them. Page through by advancing &#x60;offset&#x60;  rather than this value, which nothing accepts as an argument..</param>
-        public CustomerServiceUsageReportDto(List<CustomerServiceUsageDto> collection = default, int offset = default, int limit = default, long totalQuantity = default, int totalPage = default, int currentPage = default)
+        public CustomerServiceUsageReportDto(List<CustomerServiceUsageDto> collection = default, int offset = default, int limit = default, int totalQuantity = default, int totalPage = default, int currentPage = default)
         {
             this.Collection = collection;
             this.Offset = offset;
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <example>1</example>
         [DataMember(Name = "totalQuantity", EmitDefaultValue = false)]
-        public long TotalQuantity { get; set; }
+        public int TotalQuantity { get; set; }
 
         /// <summary>
         /// How many pages those entries come to at the current &#x60;limit&#x60;.
