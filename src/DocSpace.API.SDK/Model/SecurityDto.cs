@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The security information.
+    /// How access to one portal module is configured: whether it is restricted, and who is let in.
     /// </summary>
     [DataContract(Name = "SecurityDto")]
     public partial class SecurityDto : IValidatableObject
@@ -41,11 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SecurityDto" /> class.
         /// </summary>
-        /// <param name="webItemId">The module ID..</param>
-        /// <param name="users">The list of users with the access to the module..</param>
-        /// <param name="groups">The list of groups with the access to the module..</param>
-        /// <param name="enabled">Specifies if the security settings are enabled or not..</param>
-        /// <param name="isSubItem">Specifies if the module is a subitem or not..</param>
+        /// <param name="webItemId">The module this entry is about, echoed from the identifier that was asked about. When several identifiers  are asked about at once, entries come back one per identifier and in the order they were sent, so they can  also be matched by position..</param>
+        /// <param name="users">The individual members the rule was stored for. Members the caller is not allowed to see are left out, so  the same module can come back with different lists for different callers and an empty list does not prove  that nobody was granted access..</param>
+        /// <param name="groups">The groups the rule was stored for, listed in full - unlike &#x60;users&#x60;, nothing is filtered out of it..</param>
+        /// <param name="enabled">Whether access to the module is restricted to the subjects listed here. It is &#x60;false&#x60; for a module nobody  has ever configured, in which case the two lists say nothing about who may open it..</param>
+        /// <param name="isSubItem">Whether the module hangs under another one rather than standing on its own. A sub-module is never returned  by &#x60;GET api/2.0/settings/security/modules&#x60;, which lists top-level modules only..</param>
         public SecurityDto(string webItemId = default, List<EmployeeDto> users = default, List<GroupSummaryDto> groups = default, bool enabled = default, bool isSubItem = default)
         {
             this.WebItemId = webItemId;
@@ -56,52 +56,37 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The module ID.
+        /// The module this entry is about, echoed from the identifier that was asked about. When several identifiers  are asked about at once, entries come back one per identifier and in the order they were sent, so they can  also be matched by position.
         /// </summary>
-        /// <value>The module ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>00000000-0000-0000-0000-000000000000</example>
         [DataMember(Name = "webItemId", EmitDefaultValue = true)]
         public string WebItemId { get; set; }
 
         /// <summary>
-        /// The list of users with the access to the module.
+        /// The individual members the rule was stored for. Members the caller is not allowed to see are left out, so  the same module can come back with different lists for different callers and an empty list does not prove  that nobody was granted access.
         /// </summary>
-        /// <value>The list of users with the access to the module.</value>
-        /*
-        <example>[{"displayName":"John Doe"}]</example>
-        */
+        /// <example>[{"displayName":"John Doe"}]</example>
         [DataMember(Name = "users", EmitDefaultValue = true)]
         public List<EmployeeDto> Users { get; set; }
 
         /// <summary>
-        /// The list of groups with the access to the module.
+        /// The groups the rule was stored for, listed in full - unlike &#x60;users&#x60;, nothing is filtered out of it.
         /// </summary>
-        /// <value>The list of groups with the access to the module.</value>
-        /*
-        <example>[{"id":"00000000-0000-0000-0000-000000000000","name":"Administrators"}]</example>
-        */
+        /// <example>[{"id":"00000000-0000-0000-0000-000000000000","name":"Administrators"}]</example>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }
 
         /// <summary>
-        /// Specifies if the security settings are enabled or not.
+        /// Whether access to the module is restricted to the subjects listed here. It is &#x60;false&#x60; for a module nobody  has ever configured, in which case the two lists say nothing about who may open it.
         /// </summary>
-        /// <value>Specifies if the security settings are enabled or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Specifies if the module is a subitem or not.
+        /// Whether the module hangs under another one rather than standing on its own. A sub-module is never returned  by &#x60;GET api/2.0/settings/security/modules&#x60;, which lists top-level modules only.
         /// </summary>
-        /// <value>Specifies if the module is a subitem or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isSubItem", EmitDefaultValue = true)]
         public bool IsSubItem { get; set; }
 

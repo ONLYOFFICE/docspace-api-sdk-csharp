@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [Skip - Skip, Overwrite - Overwrite, Duplicate - Duplicate]
     /// </summary>
-    /// <value>[Skip - Skip, Overwrite - Overwrite, Duplicate - Duplicate]</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum FileConflictResolveType
     {

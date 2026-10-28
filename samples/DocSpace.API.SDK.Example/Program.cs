@@ -24,7 +24,7 @@ public class Program
         {
             BasePath = "https://your-docspace.onlyoffice.com"
         };
-        var authSettings = new AuthRequestsDto
+        var authSettings = new AuthRequestDto
         {
             UserName = "example@onlyoffice.com",
             Password = "11111111"
@@ -43,7 +43,7 @@ public class Program
 
             var folderMyId = getFolderMy.Response.Current.Id;
 
-            var folderSettings = new CreateFolder("Folder"){};
+            var folderSettings = new CreateFolderRequest("Folder"){};
             var createFolder = await folderInstance.CreateFolderAsync(folderMyId, folderSettings);
             var createdFolderId = createFolder.Response.Id;
             Console.WriteLine(createdFolderId);
@@ -51,7 +51,7 @@ public class Program
             var getFolderInfo = await folderInstance.GetFolderByFolderIdAsync(createdFolderId);
 
             Console.WriteLine(getFolderInfo.StatusCode);
-            var updatedFolderSettings = new CreateFolder("UpdatedTitle") { };
+            var updatedFolderSettings = new CreateFolderRequest("UpdatedTitle") { };
 
             var renameFolder = await folderInstance.RenameFolderAsync(createdFolderId, updatedFolderSettings);
             var titleNew = renameFolder.Response.Title;
@@ -60,7 +60,7 @@ public class Program
                 Console.WriteLine("Success");
             }
 
-            var deleteRequestSettings = new DeleteFolder
+            var deleteRequestSettings = new DeleteFolderRequest
             {
                 DeleteAfter = true,
                 Immediately = true
@@ -72,13 +72,13 @@ public class Program
 
             var sort = SortedByType.DateAndTime;
 
-            var getRoom = await roomInstance.WithFields("current.security,folders.id").GetRoomsFolderAsync(null, null, 0, null, null, null, null, null, null, null, 100, null, sort.ToString(), SortOrder.Descending, null);
+            var getRoom = await roomInstance.WithFields("current.security,folders.id").GetRoomsFolderAsync(count: 100, startIndex: 0, sortBy: sort.ToString(), sortOrder: SortOrder.Descending);
 
             Console.WriteLine(getRoom.Response);
 
             var backupInstance = new DocSpace.API.SDK.Api.Backup.BackupApi(config);
 
-            var startBackupSettings = new BackupDto
+            var startBackupSettings = new StartBackupRequestDto
             {
                 Dump = false,
                 StorageParams = null,

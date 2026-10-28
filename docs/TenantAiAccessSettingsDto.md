@@ -1,11 +1,12 @@
 # DocSpace.API.SDK.Model.TenantAiAccessSettingsDto
-The request parameters for managing the tenant-level AI access settings.
+Whether AI functionality is switched on for the portal.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **bool** | Specifies whether AI functionality is enabled for the tenant.  Set to `true` to enable all AI features or `false` to disable them tenant-wide. | [optional] 
+**Enabled** | **bool** | Specifies whether AI functionality is enabled for the tenant.  When set to `false`, all AI features (chat, agents, vectorization) are disabled tenant-wide. | [optional] 
+**LastModified** | **DateTime** | The timestamp indicating when the settings were last modified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,32 +32,32 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The file entry information.
+    /// What every file and folder in an answer has in common; the concrete shape is a file or a folder, told apart by the  entry type.
     /// </summary>
     [DataContract(Name = "FileEntryBaseDto")]
     public partial class FileEntryBaseDto : IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets Access
+        /// The level the calling account holds on this entry, resolved from its own rights, the groups it belongs to and  any link it came in through. It is the level itself, not what the account may do with it - the action flags  below answer that.
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
 
         /// <summary>
-        /// Gets or Sets RootFolderType
+        /// The section the entry ultimately belongs to, which is what tells a personal document from one inside a room,  from a template and from something in the trash or the archive.
         /// </summary>
         [DataMember(Name = "rootFolderType", EmitDefaultValue = false)]
         public FolderType? RootFolderType { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParentRoomType
+        /// The kind of room the entry lies in, which decides what the room allows - filling forms, public links,  indexing. It is null for an entry that is not inside a room at all.
         /// </summary>
         [DataMember(Name = "parentRoomType", EmitDefaultValue = false)]
         public FolderType? ParentRoomType { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileEntryType
+        /// Tells a folder from a file, and so which of the two shapes the rest of the object has. A room is reported as a  folder here.
         /// </summary>
         [DataMember(Name = "fileEntryType", EmitDefaultValue = false)]
         public FileEntryType? FileEntryType { get; set; }
@@ -65,28 +65,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileEntryBaseDto" /> class.
         /// </summary>
-        /// <param name="title">The file entry title..</param>
-        /// <param name="access">access.</param>
-        /// <param name="sharedBy">sharedBy.</param>
-        /// <param name="ownedBy">ownedBy.</param>
-        /// <param name="shared">Specifies if the file entry is shared via link or not..</param>
-        /// <param name="sharedForUser">Specifies if the file entry is shared for user or not..</param>
-        /// <param name="sharedExternal">Specifies if the file entry is shared via a public (non-internal) external link..</param>
-        /// <param name="parentShared">Indicates whether the parent entity is shared..</param>
-        /// <param name="shortWebUrl">The short Web URL..</param>
-        /// <param name="created">created.</param>
-        /// <param name="createdBy">createdBy.</param>
-        /// <param name="updated">updated.</param>
-        /// <param name="autoDelete">autoDelete.</param>
-        /// <param name="rootFolderType">rootFolderType.</param>
-        /// <param name="parentRoomType">parentRoomType.</param>
-        /// <param name="updatedBy">updatedBy.</param>
-        /// <param name="providerItem">Specifies if the file entry provider is specified or not..</param>
-        /// <param name="providerKey">The provider key of the file entry..</param>
-        /// <param name="providerId">The provider ID of the file entry..</param>
-        /// <param name="order">The order of the file entry..</param>
-        /// <param name="isFavorite">Specifies if the file is a favorite or not..</param>
-        /// <param name="fileEntryType">fileEntryType.</param>
+        /// <param name="title">The name shown for the entry. For a file it carries the extension, which is how the format is recognised, and  for a room it is the room name..</param>
+        /// <param name="access">The level the calling account holds on this entry, resolved from its own rights, the groups it belongs to and  any link it came in through. It is the level itself, not what the account may do with it - the action flags  below answer that..</param>
+        /// <param name="sharedBy">Who gave the calling account the access it is using. It is filled in only while the entry is being read  through a share, and never for a caller without an account..</param>
+        /// <param name="ownedBy">Who owns the place the entry is shared from - the creator of the room it lies in, or of the personal section  that holds it. It is filled in only while the entry is being read through a share, and never for a caller  without an account..</param>
+        /// <param name="shared">Whether at least one external link exists for the entry, whichever kind. It says nothing about accounts and  groups - those are counted by the flag for members below..</param>
+        /// <param name="sharedForUser">Whether at least one account or group has been given rights on the entry directly, as opposed to reaching it  through a link or through the room around it..</param>
+        /// <param name="sharedExternal">Whether one of the entry&#39;s links is open to people outside the portal, as opposed to a link that only its own  members can follow. This is the flag to watch when the concern is who can reach the content from outside..</param>
+        /// <param name="parentShared">Whether the entry is reachable because the room or folder around it is shared, rather than through rights of  its own. A copy or a move takes the entry out of that scope..</param>
+        /// <param name="shortWebUrl">A shortened address that opens the entry through the link it is being read with. It is an empty string  whenever no link applies, which is the usual case for a member browsing their own rooms..</param>
+        /// <param name="created">When the entry was created, written with the offset of the portal&#39;s time zone. For a file restored from an  older version this is still the moment the file first appeared..</param>
+        /// <param name="createdBy">Who created the entry. It is null for a caller without an account, who is told nothing about the portal&#39;s  members..</param>
+        /// <param name="updated">When the entry last changed, written with the offset of the portal&#39;s time zone. It is never reported as  earlier than the creation moment, so the two can be compared safely..</param>
+        /// <param name="autoDelete">When the entry will disappear on its own, written with the offset of the portal&#39;s time zone. It is filled in  only where a removal is actually scheduled - something in the trash while the portal cleans it up  automatically, or a guest&#39;s own documents - so a null means nothing is scheduled rather than that the entry is  permanent..</param>
+        /// <param name="rootFolderType">The section the entry ultimately belongs to, which is what tells a personal document from one inside a room,  from a template and from something in the trash or the archive..</param>
+        /// <param name="parentRoomType">The kind of room the entry lies in, which decides what the room allows - filling forms, public links,  indexing. It is null for an entry that is not inside a room at all..</param>
+        /// <param name="updatedBy">Who changed the entry last. It is null for a caller without an account..</param>
+        /// <param name="providerItem">Set when the entry is stored on a connected third-party account rather than on the portal, and null when it is  stored on the portal. Such an entry is identified by a string rather than a number, and some operations skip  it..</param>
+        /// <param name="providerKey">Which third-party service holds the entry, matching the keys accepted by the third-party operations. It is  null for an entry stored on the portal..</param>
+        /// <param name="providerId">The connected account the entry comes from, for telling apart two connections to the same service. It is null  for an entry stored on the portal..</param>
+        /// <param name="order">The place of the entry in a room where the members arrange the content themselves, given as the position of  the entry preceded by the positions of the folders leading to it, separated by dots. It is empty when nothing  has been arranged..</param>
+        /// <param name="isFavorite">Set when the calling account has marked the entry as a favorite, which is what puts it into the favorites  listing. For a file that is not marked it is null rather than false..</param>
+        /// <param name="fileEntryType">Tells a folder from a file, and so which of the two shapes the rest of the object has. A room is reported as a  folder here..</param>
         public FileEntryBaseDto(string title = default, FileShare? access = default, EmployeeDto sharedBy = default, EmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool sharedExternal = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
@@ -114,154 +114,121 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The file entry title.
+        /// The name shown for the entry. For a file it carries the extension, which is how the format is recognised, and  for a room it is the room name.
         /// </summary>
-        /// <value>The file entry title.</value>
-        /*
-        <example>Some title.txt</example>
-        */
+        /// <example>Some title.txt</example>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets SharedBy
+        /// Who gave the calling account the access it is using. It is filled in only while the entry is being read  through a share, and never for a caller without an account.
         /// </summary>
         [DataMember(Name = "sharedBy", EmitDefaultValue = false)]
         public EmployeeDto SharedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets OwnedBy
+        /// Who owns the place the entry is shared from - the creator of the room it lies in, or of the personal section  that holds it. It is filled in only while the entry is being read through a share, and never for a caller  without an account.
         /// </summary>
         [DataMember(Name = "ownedBy", EmitDefaultValue = false)]
         public EmployeeDto OwnedBy { get; set; }
 
         /// <summary>
-        /// Specifies if the file entry is shared via link or not.
+        /// Whether at least one external link exists for the entry, whichever kind. It says nothing about accounts and  groups - those are counted by the flag for members below.
         /// </summary>
-        /// <value>Specifies if the file entry is shared via link or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool Shared { get; set; }
 
         /// <summary>
-        /// Specifies if the file entry is shared for user or not.
+        /// Whether at least one account or group has been given rights on the entry directly, as opposed to reaching it  through a link or through the room around it.
         /// </summary>
-        /// <value>Specifies if the file entry is shared for user or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "sharedForUser", EmitDefaultValue = true)]
         public bool SharedForUser { get; set; }
 
         /// <summary>
-        /// Specifies if the file entry is shared via a public (non-internal) external link.
+        /// Whether one of the entry&#39;s links is open to people outside the portal, as opposed to a link that only its own  members can follow. This is the flag to watch when the concern is who can reach the content from outside.
         /// </summary>
-        /// <value>Specifies if the file entry is shared via a public (non-internal) external link.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "sharedExternal", EmitDefaultValue = true)]
         public bool SharedExternal { get; set; }
 
         /// <summary>
-        /// Indicates whether the parent entity is shared.
+        /// Whether the entry is reachable because the room or folder around it is shared, rather than through rights of  its own. A copy or a move takes the entry out of that scope.
         /// </summary>
-        /// <value>Indicates whether the parent entity is shared.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "parentShared", EmitDefaultValue = true)]
         public bool ParentShared { get; set; }
 
         /// <summary>
-        /// The short Web URL.
+        /// A shortened address that opens the entry through the link it is being read with. It is an empty string  whenever no link applies, which is the usual case for a member browsing their own rooms.
         /// </summary>
-        /// <value>The short Web URL.</value>
-        /*
-        <example>http://localhost/s/abc123</example>
-        */
+        /// <example>http://localhost/s/abc123</example>
         [DataMember(Name = "shortWebUrl", EmitDefaultValue = true)]
         public string ShortWebUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// When the entry was created, written with the offset of the portal&#39;s time zone. For a file restored from an  older version this is still the moment the file first appeared.
         /// </summary>
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public ApiDateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedBy
+        /// Who created the entry. It is null for a caller without an account, who is told nothing about the portal&#39;s  members.
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
         public EmployeeDto CreatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets Updated
+        /// When the entry last changed, written with the offset of the portal&#39;s time zone. It is never reported as  earlier than the creation moment, so the two can be compared safely.
         /// </summary>
         [DataMember(Name = "updated", EmitDefaultValue = false)]
         public ApiDateTime Updated { get; set; }
 
         /// <summary>
-        /// Gets or Sets AutoDelete
+        /// When the entry will disappear on its own, written with the offset of the portal&#39;s time zone. It is filled in  only where a removal is actually scheduled - something in the trash while the portal cleans it up  automatically, or a guest&#39;s own documents - so a null means nothing is scheduled rather than that the entry is  permanent.
         /// </summary>
         [DataMember(Name = "autoDelete", EmitDefaultValue = false)]
         public ApiDateTime AutoDelete { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpdatedBy
+        /// Who changed the entry last. It is null for a caller without an account.
         /// </summary>
         [DataMember(Name = "updatedBy", EmitDefaultValue = false)]
         public EmployeeDto UpdatedBy { get; set; }
 
         /// <summary>
-        /// Specifies if the file entry provider is specified or not.
+        /// Set when the entry is stored on a connected third-party account rather than on the portal, and null when it is  stored on the portal. Such an entry is identified by a string rather than a number, and some operations skip  it.
         /// </summary>
-        /// <value>Specifies if the file entry provider is specified or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
         public bool? ProviderItem { get; set; }
 
         /// <summary>
-        /// The provider key of the file entry.
+        /// Which third-party service holds the entry, matching the keys accepted by the third-party operations. It is  null for an entry stored on the portal.
         /// </summary>
-        /// <value>The provider key of the file entry.</value>
-        /*
-        <example>google-drive</example>
-        */
+        /// <example>google-drive</example>
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>
-        /// The provider ID of the file entry.
+        /// The connected account the entry comes from, for telling apart two connections to the same service. It is null  for an entry stored on the portal.
         /// </summary>
-        /// <value>The provider ID of the file entry.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1</example>
         [DataMember(Name = "providerId", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
 
         /// <summary>
-        /// The order of the file entry.
+        /// The place of the entry in a room where the members arrange the content themselves, given as the position of  the entry preceded by the positions of the folders leading to it, separated by dots. It is empty when nothing  has been arranged.
         /// </summary>
-        /// <value>The order of the file entry.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>1.3.2</example>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public string Order { get; set; }
 
         /// <summary>
-        /// Specifies if the file is a favorite or not.
+        /// Set when the calling account has marked the entry as a favorite, which is what puts it into the favorites  listing. For a file that is not marked it is null rather than false.
         /// </summary>
-        /// <value>Specifies if the file is a favorite or not.</value>
-        /*
-        <example>false</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "isFavorite", EmitDefaultValue = true)]
         public bool? IsFavorite { get; set; }
 

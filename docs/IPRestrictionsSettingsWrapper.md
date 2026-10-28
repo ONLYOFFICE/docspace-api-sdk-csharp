@@ -1,10 +1,11 @@
-# DocSpace.API.SDK.Model.IPRestrictionsSettingsWrapper
+# DocSpace.API.SDK.Model.IpRestrictionsSettingsWrapper
+The successful API response containing the IpRestrictionsSettingsDto object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**IPRestrictionsSettings**](IPRestrictionsSettings.md) |  | [optional] 
+**Response** | [**IpRestrictionsSettingsDto**](IpRestrictionsSettingsDto.md) | The IpRestrictionsSettingsDto object returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

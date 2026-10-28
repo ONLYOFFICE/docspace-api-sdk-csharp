@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for the payment URL configuration with quantity information.
+    /// The plan being bought and the two pages the hosted checkout returns the buyer to.
     /// </summary>
     [DataContract(Name = "PaymentUrlRequestDto")]
     public partial class PaymentUrlRequestDto : IValidatableObject
@@ -46,9 +46,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentUrlRequestDto" /> class.
         /// </summary>
-        /// <param name="backUrl">The URL where the user will be redirected after payment cancellation. (required).</param>
-        /// <param name="successUrl">The URL where the user will be redirected after successful payment. (required).</param>
-        /// <param name="quantity">The payment quantity..</param>
+        /// <param name="backUrl">The absolute address the hosted checkout page sends the buyer back to when the purchase is abandoned. It has  to be a well-formed URL and is carried into the checkout page as it is given, so it must be reachable by the  buyer rather than by the portal. (required).</param>
+        /// <param name="successUrl">The absolute address the hosted checkout page sends the buyer to once the payment provider accepts the  purchase. Reaching it says the provider took the money, not that the portal has already been switched to the  new plan, so a client that lands here reads the plan back rather than assuming it. (required).</param>
+        /// <param name="quantity">The plan being bought, as a single pair of the plan name and the number of units of it. The key is the &#x60;name&#x60;  of a monthly, non-wallet quota from &#x60;GET api/2.0/portal/payment/quotas&#x60;, and the value is how many  administrators the plan is to cover, which has to be greater than zero. Exactly one pair is accepted; yearly  and wallet products are refused with 400, and wallet services are bought through  &#x60;PUT api/2.0/portal/payment/updatewallet&#x60; instead. (required).</param>
         public PaymentUrlRequestDto(string backUrl = default, string successUrl = default, Dictionary<string, int> quantity = default)
         {
             // to ensure "backUrl" is required (not null)
@@ -63,34 +63,33 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("successUrl is a required property for PaymentUrlRequestDto and cannot be null");
             }
             this.SuccessUrl = successUrl;
+            // to ensure "quantity" is required (not null)
+            if (quantity == null)
+            {
+                throw new ArgumentNullException("quantity is a required property for PaymentUrlRequestDto and cannot be null");
+            }
             this.Quantity = quantity;
         }
 
         /// <summary>
-        /// The URL where the user will be redirected after payment cancellation.
+        /// The absolute address the hosted checkout page sends the buyer back to when the purchase is abandoned. It has  to be a well-formed URL and is carried into the checkout page as it is given, so it must be reachable by the  buyer rather than by the portal.
         /// </summary>
-        /// <value>The URL where the user will be redirected after payment cancellation.</value>
-        /*
-        <example>https://example.com/payment/back</example>
-        */
+        /// <example>https://example.com/payment/back</example>
         [DataMember(Name = "backUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BackUrl { get; set; }
 
         /// <summary>
-        /// The URL where the user will be redirected after successful payment.
+        /// The absolute address the hosted checkout page sends the buyer to once the payment provider accepts the  purchase. Reaching it says the provider took the money, not that the portal has already been switched to the  new plan, so a client that lands here reads the plan back rather than assuming it.
         /// </summary>
-        /// <value>The URL where the user will be redirected after successful payment.</value>
-        /*
-        <example>https://example.com/payment/success</example>
-        */
+        /// <example>https://example.com/payment/success</example>
         [DataMember(Name = "successUrl", IsRequired = true, EmitDefaultValue = true)]
         public string SuccessUrl { get; set; }
 
         /// <summary>
-        /// The payment quantity.
+        /// The plan being bought, as a single pair of the plan name and the number of units of it. The key is the &#x60;name&#x60;  of a monthly, non-wallet quota from &#x60;GET api/2.0/portal/payment/quotas&#x60;, and the value is how many  administrators the plan is to cover, which has to be greater than zero. Exactly one pair is accepted; yearly  and wallet products are refused with 400, and wallet services are bought through  &#x60;PUT api/2.0/portal/payment/updatewallet&#x60; instead.
         /// </summary>
-        /// <value>The payment quantity.</value>
-        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        /// <example>{"admin":1}</example>
+        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, int> Quantity { get; set; }
 
         /// <summary>

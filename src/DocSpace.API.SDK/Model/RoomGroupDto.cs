@@ -32,84 +32,77 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room security parameters.
+    /// A personal collection of rooms: the name and icon it was given, the account that owns it, and the rooms it gathers  at the moment it was read.
     /// </summary>
     [DataContract(Name = "RoomGroupDto")]
     public partial class RoomGroupDto : IValidatableObject
     {
+
+        /// <summary>
+        /// The section the group belongs to, which categorizes it within the application&#39;s structure. This property determines  which area of the interface the group is associated with and affects how its rooms are filtered and displayed.  Common values include Active for standard rooms, Forms for form-based rooms, Archive for archived content, and  Templates for template rooms. The search area ensures that when retrieving a group, only rooms that belong to  the specified section are included in the results, maintaining proper organizational boundaries within the system.
+        /// </summary>
+        [DataMember(Name = "searchArea", EmitDefaultValue = false)]
+        public SearchArea? SearchArea { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomGroupDto" /> class.
         /// </summary>
-        /// <param name="id">The group ID..</param>
-        /// <param name="name">Group name.</param>
-        /// <param name="icon">icon.</param>
-        /// <param name="userId">The user ID..</param>
-        /// <param name="rooms">The list of rooms in the group..</param>
-        /// <param name="totalRooms">Total number of rooms in the group..</param>
-        public RoomGroupDto(int id = default, string name = default, MultiSizeLogoCover icon = default, Guid userId = default, List<FileEntryBaseDto> rooms = default, int totalRooms = default)
+        /// <param name="id">The identifier of the group, which addresses it in every other group operation and is kept for as long as the  group exists..</param>
+        /// <param name="name">The name its owner gave the group, stored trimmed of surrounding spaces. Names are not unique, so two groups  of the same account can be told apart only by their identifier..</param>
+        /// <param name="icon">The built-in cover chosen for the group, carrying the cover identifier and its rendering in each available  size. Null when the group has no icon, either because it was never given one or because the icon was cleared  by setting it to an empty value..</param>
+        /// <param name="userId">The account that created the group and the only one able to read, change or delete it; for any other member of  the portal the group does not exist..</param>
+        /// <param name="searchArea">The section the group belongs to, which categorizes it within the application&#39;s structure. This property determines  which area of the interface the group is associated with and affects how its rooms are filtered and displayed.  Common values include Active for standard rooms, Forms for form-based rooms, Archive for archived content, and  Templates for template rooms. The search area ensures that when retrieving a group, only rooms that belong to  the specified section are included in the results, maintaining proper organizational boundaries within the system..</param>
+        /// <param name="rooms">The rooms the group gathers, those stored in the portal first and those on connected third-party accounts  after them. Null when the group was asked for without its members, and an empty array when the group holds no  room the caller can still see. A room moved to the archive is left out until it is taken out of the archive..</param>
+        /// <param name="totalRooms">How many rooms the group shows: the same rooms &#x60;rooms&#x60; lists, so archived ones are not counted either. It is  filled even when the rooms themselves were not asked for, which makes it the cheap way to tell an empty group  from a populated one..</param>
+        public RoomGroupDto(int id = default, string name = default, MultiSizeLogoCoverDto icon = default, Guid userId = default, SearchArea? searchArea = default, List<FileEntryBaseDto> rooms = default, int totalRooms = default)
         {
             this.Id = id;
             this.Name = name;
             this.Icon = icon;
             this.UserId = userId;
+            this.SearchArea = searchArea;
             this.Rooms = rooms;
             this.TotalRooms = totalRooms;
         }
 
         /// <summary>
-        /// The group ID.
+        /// The identifier of the group, which addresses it in every other group operation and is kept for as long as the  group exists.
         /// </summary>
-        /// <value>The group ID.</value>
-        /*
-        <example>1</example>
-        */
+        /// <example>42</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Group name
+        /// The name its owner gave the group, stored trimmed of surrounding spaces. Names are not unique, so two groups  of the same account can be told apart only by their identifier.
         /// </summary>
-        /// <value>Group name</value>
-        /*
-        <example>My Group</example>
-        */
+        /// <example>Client projects</example>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Icon
+        /// The built-in cover chosen for the group, carrying the cover identifier and its rendering in each available  size. Null when the group has no icon, either because it was never given one or because the icon was cleared  by setting it to an empty value.
         /// </summary>
         [DataMember(Name = "icon", EmitDefaultValue = false)]
-        public MultiSizeLogoCover Icon { get; set; }
+        public MultiSizeLogoCoverDto Icon { get; set; }
 
         /// <summary>
-        /// The user ID.
+        /// The account that created the group and the only one able to read, change or delete it; for any other member of  the portal the group does not exist.
         /// </summary>
-        /// <value>The user ID.</value>
-        /*
-        <example>00000000-0000-0000-0000-000000000000</example>
-        */
+        /// <example>9a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9</example>
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
-        /// The list of rooms in the group.
+        /// The rooms the group gathers, those stored in the portal first and those on connected third-party accounts  after them. Null when the group was asked for without its members, and an empty array when the group holds no  room the caller can still see. A room moved to the archive is left out until it is taken out of the archive.
         /// </summary>
-        /// <value>The list of rooms in the group.</value>
-        /*
-        <example>[{"id":1,"title":"Room 1"},{"id":2,"title":"Room 2"}]</example>
-        */
+        /// <example>[{"title":"Client onboarding","fileEntryType":1}]</example>
         [DataMember(Name = "rooms", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Rooms { get; set; }
 
         /// <summary>
-        /// Total number of rooms in the group.
+        /// How many rooms the group shows: the same rooms &#x60;rooms&#x60; lists, so archived ones are not counted either. It is  filled even when the rooms themselves were not asked for, which makes it the cheap way to tell an empty group  from a populated one.
         /// </summary>
-        /// <value>Total number of rooms in the group.</value>
-        /*
-        <example>2</example>
-        */
+        /// <example>2</example>
         [DataMember(Name = "totalRooms", EmitDefaultValue = false)]
         public int TotalRooms { get; set; }
 
@@ -125,6 +118,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Icon: ").Append(Icon).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  SearchArea: ").Append(SearchArea).Append("\n");
             sb.Append("  Rooms: ").Append(Rooms).Append("\n");
             sb.Append("  TotalRooms: ").Append(TotalRooms).Append("\n");
             sb.Append("}\n");

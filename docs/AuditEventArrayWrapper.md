@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.AuditEventArrayWrapper
+The successful API response containing the list of AuditEventDto objects.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;AuditEventDto&gt;**](AuditEventDto.md) |  | [optional] 
+**Response** | [**List&lt;AuditEventDto&gt;**](AuditEventDto.md) | The list of AuditEventDto objects returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

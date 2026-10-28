@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [1 - Folder, 2 - File]
     /// </summary>
-    /// <value>[1 - Folder, 2 - File]</value>
     public enum FileEntryType
     {
         /// <summary>

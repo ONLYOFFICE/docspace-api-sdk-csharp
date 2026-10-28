@@ -4,36 +4,36 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateAgent**](#createagent) | **POST** /api/2.0/ai/agents | Create an ai agent |
-| [**DeleteAgent**](#deleteagent) | **DELETE** /api/2.0/ai/agents/{id} | Remove an ai agent |
-| [**GetAgentInfo**](#getagentinfo) | **GET** /api/2.0/ai/agents/{id} | Return an ai agent |
-| [**GetAgents**](#getagents) | **GET** /api/2.0/ai/agents | Get ai agents |
-| [**GetAgentsNewItems**](#getagentsnewitems) | **GET** /api/2.0/ai/agents/news | Get the room new items |
-| [**ResetAgentsQuota**](#resetagentsquota) | **PUT** /api/2.0/ai/agents/resetquota | Reset the AI agents quota limit |
-| [**UpdateAgent**](#updateagent) | **PUT** /api/2.0/ai/agents/{id} | Update an ai agent |
-| [**UpdateAgentsQuota**](#updateagentsquota) | **PUT** /api/2.0/ai/agents/agentquota | Change the AI agent quota limit |
+| [**AiAgentsCreate**](#aiagentscreate) | **POST** /api/2.0/ai/agents | Create an agent |
+| [**AiAgentsDelete**](#aiagentsdelete) | **DELETE** /api/2.0/ai/agents/{id} | Delete an agent |
+| [**AiAgentsGet**](#aiagentsget) | **GET** /api/2.0/ai/agents/{id} | Get an agent |
+| [**AiAgentsList**](#aiagentslist) | **GET** /api/2.0/ai/agents | List agents |
+| [**AiAgentsNews**](#aiagentsnews) | **GET** /api/2.0/ai/agents/news | List agent news items |
+| [**AiAgentsResetQuota**](#aiagentsresetquota) | **PUT** /api/2.0/ai/agents/resetquota | Reset agents' quota |
+| [**AiAgentsUpdate**](#aiagentsupdate) | **PUT** /api/2.0/ai/agents/{id} | Update an agent |
+| [**AiAgentsUpdateQuota**](#aiagentsupdatequota) | **PUT** /api/2.0/ai/agents/agentquota | Update agents' quota |
 
-<a id="createagent"></a>
-# **CreateAgent**
-> FolderIntegerWrapper CreateAgent (CreateAgentRequestDto? createAgentRequestDto = null)
+<a id="aiagentscreate"></a>
+# **AiAgentsCreate**
+> AiFolderWrapper AiAgentsCreate (AiAgentsCreateRequest aiAgentsCreateRequest)
 
-Creates an ai agent.
+Creates an AI agent room and binds a model to it, in that order. `profileId` is required, has to be a UUID, has to name an existing profile, and that profile has to support chat - an image-only model is refused here rather than failing on every later request. `prompt` is required and is stored on the room as its standing instruction with any markup stripped, so it cannot round-trip HTML into another user's reply. The two steps are not atomic: when the room is created but the model binding fails, the call reports an error and the room is left behind, so re-bind it with `PUT api/2.0/ai/agents/{id}` rather than creating a second one.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-create/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createAgentRequestDto** | [**CreateAgentRequestDto?**](CreateAgentRequestDto.md) | Request to create a new AI agent room. | [optional]  |
+| **aiAgentsCreateRequest** | [**AiAgentsCreateRequest**](AiAgentsCreateRequest.md) |  |  |
 
 ### Return type
 
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+[**AiFolderWrapper**](AiFolderWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -46,43 +46,34 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class CreateAgentExample
+    public class AiAgentsCreateExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
+            var aiAgentsCreateRequest = new AiAgentsCreateRequest(); // AiAgentsCreateRequest | 
 
             try
             {
-                // Create an ai agent
-                FolderIntegerWrapper result = apiInstance.CreateAgent(createAgentRequestDto);
+                // Create an agent
+                AiFolderWrapper result = apiInstance.AiAgentsCreate(aiAgentsCreateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.CreateAgent: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsCreate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -91,21 +82,21 @@ namespace Example
 }
 ```
 
-#### Using the CreateAgentWithHttpInfo variant
+#### Using the AiAgentsCreateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Create an ai agent
-    ApiResponse<FolderIntegerWrapper> response = apiInstance.CreateAgentWithHttpInfo(createAgentRequestDto);
+    // Create an agent
+    ApiResponse<AiFolderWrapper> response = apiInstance.AiAgentsCreateWithHttpInfo(aiAgentsCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.CreateAgentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsCreateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -120,36 +111,37 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Agent information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The created agent room, with the model already bound to it. |  -  |
+| **400** | `profileId` is missing, is not a UUID, names no existing profile, or names one that does not support chat; or `prompt` is missing. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="deleteagent"></a>
-# **DeleteAgent**
-> FileOperationWrapper DeleteAgent (int id, DeleteRoomRequest deleteRoomRequest)
+<a id="aiagentsdelete"></a>
+# **AiAgentsDelete**
+> AiFileOperationWrapper AiAgentsDelete (string id, AiAgentsDeleteRequest aiAgentsDeleteRequest)
 
-Removes an ai agent.
+Deletes an AI agent room. The ID has to be the room's integer identifier, and the body is forwarded to the DocSpace AI service unchanged, so it accepts the same options as deleting an ordinary room - `deleteAfter` among them. Deletion is asynchronous there: the answer is a file-operation payload to poll, not a completed result. The agent's model binding is deliberately left behind, because the upstream assignment API has no per-entry delete, so an orphaned assignment row survives the room.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-agent/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-delete/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **deleteRoomRequest** | [**DeleteRoomRequest**](DeleteRoomRequest.md) | The parameters for deleting a room. |  |
+| **id** | **string** | The agent identifier. |  |
+| **aiAgentsDeleteRequest** | [**AiAgentsDeleteRequest**](AiAgentsDeleteRequest.md) |  |  |
 
 ### Return type
 
-[**FileOperationWrapper**](FileOperationWrapper.md)
+[**AiFileOperationWrapper**](AiFileOperationWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -162,44 +154,35 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class DeleteAgentExample
+    public class AiAgentsDeleteExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = 10;  // int | The room ID.
-            var deleteRoomRequest = new DeleteRoomRequest(); // DeleteRoomRequest | The parameters for deleting a room.
+            var id = 1234;  // string | The agent identifier.
+            var aiAgentsDeleteRequest = new AiAgentsDeleteRequest(); // AiAgentsDeleteRequest | 
 
             try
             {
-                // Remove an ai agent
-                FileOperationWrapper result = apiInstance.DeleteAgent(id, deleteRoomRequest);
+                // Delete an agent
+                AiFileOperationWrapper result = apiInstance.AiAgentsDelete(id, aiAgentsDeleteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.DeleteAgent: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsDelete: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -208,21 +191,21 @@ namespace Example
 }
 ```
 
-#### Using the DeleteAgentWithHttpInfo variant
+#### Using the AiAgentsDeleteWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Remove an ai agent
-    ApiResponse<FileOperationWrapper> response = apiInstance.DeleteAgentWithHttpInfo(id, deleteRoomRequest);
+    // Delete an agent
+    ApiResponse<AiFileOperationWrapper> response = apiInstance.AiAgentsDeleteWithHttpInfo(id, aiAgentsDeleteRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.DeleteAgentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsDeleteWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -237,35 +220,36 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | File operation |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The queued file operation. Deletion runs asynchronously, so poll DocSpace for its outcome. |  -  |
+| **400** | The agent ID is not a positive integer. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getagentinfo"></a>
-# **GetAgentInfo**
-> FolderIntegerWrapper GetAgentInfo (int id)
+<a id="aiagentsget"></a>
+# **AiAgentsGet**
+> AiAgentsGet200Response AiAgentsGet (string id)
 
-Returns an ai agent.
+Returns one AI agent room, enriched with the `profileId` currently bound to it so an edit form can prefill its model selector. The ID is the room's integer identifier, and a non-integer value is refused rather than passed on to fail opaquely upstream. The binding lives in an assignment rather than on the room, so it is looked up separately: a missing or unreadable assignment simply leaves `profileId` out of the answer instead of failing the call. The standing instruction comes back on the room as `chatSettings.prompt`.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agent-info/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-get/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
+| **id** | **string** | The agent identifier. |  |
 
 ### Return type
 
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+[**AiAgentsGet200Response**](AiAgentsGet200Response.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -278,43 +262,34 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetAgentInfoExample
+    public class AiAgentsGetExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The room ID.
+            var id = 1234;  // string | The agent identifier.
 
             try
             {
-                // Return an ai agent
-                FolderIntegerWrapper result = apiInstance.GetAgentInfo(id);
+                // Get an agent
+                AiAgentsGet200Response result = apiInstance.AiAgentsGet(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.GetAgentInfo: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsGet: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -323,21 +298,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAgentInfoWithHttpInfo variant
+#### Using the AiAgentsGetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Return an ai agent
-    ApiResponse<FolderIntegerWrapper> response = apiInstance.GetAgentInfoWithHttpInfo(id);
+    // Get an agent
+    ApiResponse<AiAgentsGet200Response> response = apiInstance.AiAgentsGetWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.GetAgentInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsGetWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -352,46 +327,45 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Agent information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The agent room, with `profileId` added when a model is bound to it. |  -  |
+| **400** | The agent ID is not a positive integer. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getagents"></a>
-# **GetAgents**
-> FolderContentIntegerWrapper GetAgents (string? subjectId = null, string? subjectOwnerId = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+<a id="aiagentslist"></a>
+# **AiAgentsList**
+> AiFolderContentWrapper AiAgentsList (string? subjectId = null, string? subjectOwnerId = null, bool? excludeSubject = null, string? tags = null, bool? withoutTags = null, int? quotaFilter = null, string? filterValue = null, string? sortBy = null, string? sortOrder = null, int? startIndex = null, int? count = null)
 
-Get ai agents
+Lists the portal's AI agent rooms. The query is forwarded unchanged to the DocSpace AI service, so it takes the same paging, sorting and filtering parameters as an ordinary room listing, and the answer is that service's folder-content payload rather than a shape of this API's own. Array and object query values are dropped rather than guessed at, so send flat strings. The profile bound to each agent is not included here - read one agent with `GET api/2.0/ai/agents/{id}` for that.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-list/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **subjectId** | **string?** | The filter by user ID. | [optional]  |
-| **subjectOwnerId** | **string?** | The filter by room owner ID. | [optional]  |
-| **withoutTags** | **bool?** | Specifies whether to search by tags or not. | [optional]  |
-| **tags** | **string?** | The tags in the serialized format. | [optional]  |
-| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
-| **subjectFilter** | [**SubjectFilter?**](SubjectFilter.md) | The filter by user (Owner - 0, Member - 1). | [optional]  |
-| **quotaFilter** | [**QuotaFilter?**](QuotaFilter.md) | The filter by quota (All - 0, Default - 1, Custom - 2). | [optional]  |
-| **count** | **int?** | Specifies the maximum number of items to retrieve. | [optional]  |
-| **startIndex** | **int?** | The index from which to start retrieving the room content. | [optional]  |
-| **sortBy** | **string?** | Specifies the field by which the room content should be sorted. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text filter value used to refine search or query operations. | [optional]  |
+| **subjectId** | **string?** | Show only the agent rooms this user takes part in. | [optional]  |
+| **subjectOwnerId** | **string?** | Show only the agent rooms owned by this user. | [optional]  |
+| **excludeSubject** | **bool?** | Invert the user filter: leave out what `subjectId` selects instead of keeping it. | [optional]  |
+| **tags** | **string?** | Show only the agent rooms carrying these tags, comma-separated. | [optional]  |
+| **withoutTags** | **bool?** | Show only the agent rooms that carry no tags at all. | [optional]  |
+| **quotaFilter** | **int?** | Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. | [optional]  |
+| **filterValue** | **string?** | Show only the agent rooms whose title matches this text. | [optional]  |
+| **sortBy** | **string?** | Field to sort by, for example `DateAndTime`. | [optional]  |
+| **sortOrder** | **string?** | Sort direction, `ascending` or `descending`. | [optional]  |
+| **startIndex** | **int?** | Index of the first entry to return; 0 starts at the beginning. | [optional]  |
+| **count** | **int?** | How many entries to return. The internal service applies its own default. | [optional]  |
 
 ### Return type
 
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+[**AiFolderContentWrapper**](AiFolderContentWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -404,54 +378,44 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetAgentsExample
+    public class AiAgentsListExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var subjectId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by user ID. (optional) 
-            var subjectOwnerId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by room owner ID. (optional) 
-            var withoutTags = false;  // bool? | Specifies whether to search by tags or not. (optional) 
-            var tags = ai,assistant;  // string? | The tags in the serialized format. (optional) 
-            var excludeSubject = false;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
-            var subjectFilter = new SubjectFilter?(); // SubjectFilter? | The filter by user (Owner - 0, Member - 1). (optional) 
-            var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The filter by quota (All - 0, Default - 1, Custom - 2). (optional) 
-            var count = 25;  // int? | Specifies the maximum number of items to retrieve. (optional) 
-            var startIndex = 0;  // int? | The index from which to start retrieving the room content. (optional) 
-            var sortBy = DateAndTime;  // string? | Specifies the field by which the room content should be sorted. (optional) 
-            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = my agent;  // string? | The text filter value used to refine search or query operations. (optional) 
+            var subjectId = 00000000-0000-0000-0000-000000000000;  // string? | Show only the agent rooms this user takes part in. (optional) 
+            var subjectOwnerId = 00000000-0000-0000-0000-000000000000;  // string? | Show only the agent rooms owned by this user. (optional) 
+            var excludeSubject = false;  // bool? | Invert the user filter: leave out what `subjectId` selects instead of keeping it. (optional) 
+            var tags = ai,assistant;  // string? | Show only the agent rooms carrying these tags, comma-separated. (optional) 
+            var withoutTags = false;  // bool? | Show only the agent rooms that carry no tags at all. (optional) 
+            var quotaFilter = 0;  // int? | Filter by quota kind: 0 for all, 1 for the default quota, 2 for a custom one. (optional) 
+            var filterValue = assistant;  // string? | Show only the agent rooms whose title matches this text. (optional) 
+            var sortBy = DateAndTime;  // string? | Field to sort by, for example `DateAndTime`. (optional) 
+            var sortOrder = descending;  // string? | Sort direction, `ascending` or `descending`. (optional) 
+            var startIndex = 0;  // int? | Index of the first entry to return; 0 starts at the beginning. (optional) 
+            var count = 25;  // int? | How many entries to return. The internal service applies its own default. (optional) 
 
             try
             {
-                // Get ai agents
-                FolderContentIntegerWrapper result = apiInstance.GetAgents(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
+                // List agents
+                AiFolderContentWrapper result = apiInstance.AiAgentsList(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.GetAgents: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsList: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -460,21 +424,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAgentsWithHttpInfo variant
+#### Using the AiAgentsListWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get ai agents
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetAgentsWithHttpInfo(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
+    // List agents
+    ApiResponse<AiFolderContentWrapper> response = apiInstance.AiAgentsListWithHttpInfo(subjectId, subjectOwnerId, excludeSubject, tags, withoutTags, quotaFilter, filterValue, sortBy, sortOrder, startIndex, count);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.GetAgentsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsListWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -489,31 +453,30 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Agent information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The agent rooms, in the DocSpace AI service's folder-content envelope. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getagentsnewitems"></a>
-# **GetAgentsNewItems**
-> NewItemsAgentNewItemsArrayWrapper GetAgentsNewItems ()
+<a id="aiagentsnews"></a>
+# **AiAgentsNews**
+> AiNewItemsAgentNewItemsArrayWrapper AiAgentsNews ()
 
-Returns the room new items.
+Lists the unread items across the caller's AI agent rooms, so a badge can be rendered without walking each room. It takes no parameters and is scoped to the caller by the DocSpace AI service. The answer is that service's new-items payload. This is a read-only operation and does not mark anything as seen.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents-new-items/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-news/).
 
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
 
-[**NewItemsAgentNewItemsArrayWrapper**](NewItemsAgentNewItemsArrayWrapper.md)
+[**AiNewItemsAgentNewItemsArrayWrapper**](AiNewItemsAgentNewItemsArrayWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -526,26 +489,17 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetAgentsNewItemsExample
+    public class AiAgentsNewsExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
@@ -555,13 +509,13 @@ namespace Example
 
             try
             {
-                // Get the room new items
-                NewItemsAgentNewItemsArrayWrapper result = apiInstance.GetAgentsNewItems();
+                // List agent news items
+                AiNewItemsAgentNewItemsArrayWrapper result = apiInstance.AiAgentsNews();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.GetAgentsNewItems: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsNews: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -570,21 +524,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAgentsNewItemsWithHttpInfo variant
+#### Using the AiAgentsNewsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get the room new items
-    ApiResponse<NewItemsAgentNewItemsArrayWrapper> response = apiInstance.GetAgentsNewItemsWithHttpInfo();
+    // List agent news items
+    ApiResponse<AiNewItemsAgentNewItemsArrayWrapper> response = apiInstance.AiAgentsNewsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.GetAgentsNewItemsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsNewsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -599,35 +553,34 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of new items |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The unread items of the caller's agent rooms. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="resetagentsquota"></a>
-# **ResetAgentsQuota**
-> FolderIntegerArrayWrapper ResetAgentsQuota (UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = null)
+<a id="aiagentsresetquota"></a>
+# **AiAgentsResetQuota**
+> AiFolderArrayWrapper AiAgentsResetQuota (AiAgentsResetQuotaRequest aiAgentsResetQuotaRequest)
 
-Resets the quota limit for the AI agents with the IDs specified in the request.
+Returns the listed AI agent rooms to the portal's default storage quota, forwarding `roomIds` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. This is the counterpart of `PUT api/2.0/ai/agents/agentquota` and takes no quota value of its own. Rooms already on the default are unaffected.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-agents-quota/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-reset-quota/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **updateRoomsRoomIdsRequestDtoInteger** | [**UpdateRoomsRoomIdsRequestDtoInteger?**](UpdateRoomsRoomIdsRequestDtoInteger.md) | The request parameters for updating the rooms. | [optional]  |
+| **aiAgentsResetQuotaRequest** | [**AiAgentsResetQuotaRequest**](AiAgentsResetQuotaRequest.md) |  |  |
 
 ### Return type
 
-[**FolderIntegerArrayWrapper**](FolderIntegerArrayWrapper.md)
+[**AiFolderArrayWrapper**](AiFolderArrayWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -640,43 +593,34 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class ResetAgentsQuotaExample
+    public class AiAgentsResetQuotaExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var updateRoomsRoomIdsRequestDtoInteger = new UpdateRoomsRoomIdsRequestDtoInteger?(); // UpdateRoomsRoomIdsRequestDtoInteger? | The request parameters for updating the rooms. (optional) 
+            var aiAgentsResetQuotaRequest = new AiAgentsResetQuotaRequest(); // AiAgentsResetQuotaRequest | 
 
             try
             {
-                // Reset the AI agents quota limit
-                FolderIntegerArrayWrapper result = apiInstance.ResetAgentsQuota(updateRoomsRoomIdsRequestDtoInteger);
+                // Reset agents' quota
+                AiFolderArrayWrapper result = apiInstance.AiAgentsResetQuota(aiAgentsResetQuotaRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.ResetAgentsQuota: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsResetQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -685,21 +629,21 @@ namespace Example
 }
 ```
 
-#### Using the ResetAgentsQuotaWithHttpInfo variant
+#### Using the AiAgentsResetQuotaWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Reset the AI agents quota limit
-    ApiResponse<FolderIntegerArrayWrapper> response = apiInstance.ResetAgentsQuotaWithHttpInfo(updateRoomsRoomIdsRequestDtoInteger);
+    // Reset agents' quota
+    ApiResponse<AiFolderArrayWrapper> response = apiInstance.AiAgentsResetQuotaWithHttpInfo(aiAgentsResetQuotaRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.ResetAgentsQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsResetQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -714,36 +658,36 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of AI agents with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The updated agent rooms, one entry each. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updateagent"></a>
-# **UpdateAgent**
-> FolderIntegerWrapper UpdateAgent (int id, UpdateRoomRequest updateRoomRequest)
+<a id="aiagentsupdate"></a>
+# **AiAgentsUpdate**
+> AiFolderWrapper AiAgentsUpdate (string id, AiAgentsUpdateRequest aiAgentsUpdateRequest)
 
-Updates an ai agent.
+Changes an AI agent room - its title, tags or standing instruction - and optionally rebinds its model. The ID has to be the room's integer identifier. `profileId` is not part of the room contract: it is taken out of the forwarded body and applied afterwards as the agent's assignment, and it has to be a UUID naming an existing chat-capable profile. An instruction sent as `chatSettings.prompt` has its markup stripped, as on create; note that when `chatSettings` is present the upstream service still requires the rest of that object to be valid, so send it whole.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agent/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID. |  |
-| **updateRoomRequest** | [**UpdateRoomRequest**](UpdateRoomRequest.md) | The request parameters for updating a room. |  |
+| **id** | **string** | The agent identifier. |  |
+| **aiAgentsUpdateRequest** | [**AiAgentsUpdateRequest**](AiAgentsUpdateRequest.md) |  |  |
 
 ### Return type
 
-[**FolderIntegerWrapper**](FolderIntegerWrapper.md)
+[**AiFolderWrapper**](AiFolderWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -756,44 +700,35 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class UpdateAgentExample
+    public class AiAgentsUpdateExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | The room ID.
-            var updateRoomRequest = new UpdateRoomRequest(); // UpdateRoomRequest | The request parameters for updating a room.
+            var id = 1234;  // string | The agent identifier.
+            var aiAgentsUpdateRequest = new AiAgentsUpdateRequest(); // AiAgentsUpdateRequest | 
 
             try
             {
-                // Update an ai agent
-                FolderIntegerWrapper result = apiInstance.UpdateAgent(id, updateRoomRequest);
+                // Update an agent
+                AiFolderWrapper result = apiInstance.AiAgentsUpdate(id, aiAgentsUpdateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.UpdateAgent: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsUpdate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -802,21 +737,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateAgentWithHttpInfo variant
+#### Using the AiAgentsUpdateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Update an ai agent
-    ApiResponse<FolderIntegerWrapper> response = apiInstance.UpdateAgentWithHttpInfo(id, updateRoomRequest);
+    // Update an agent
+    ApiResponse<AiFolderWrapper> response = apiInstance.AiAgentsUpdateWithHttpInfo(id, aiAgentsUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.UpdateAgentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsUpdateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -831,35 +766,36 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Updated agent information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The updated agent room. |  -  |
+| **400** | The agent ID is not a positive integer, or `profileId` is not a UUID, names no existing profile, or names one that does not support chat. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updateagentsquota"></a>
-# **UpdateAgentsQuota**
-> FolderIntegerArrayWrapper UpdateAgentsQuota (UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = null)
+<a id="aiagentsupdatequota"></a>
+# **AiAgentsUpdateQuota**
+> AiFolderArrayWrapper AiAgentsUpdateQuota (AiAgentsUpdateQuotaRequest aiAgentsUpdateQuotaRequest)
 
-Changes the quota limit for the AI agents with the IDs specified in the request.
+Sets the storage quota of the listed AI agent rooms in one call, forwarding `roomIds` and `quota` to the DocSpace AI service unchanged. The answer is that service's payload, one updated room per entry. A quota applies to the room's stored files, not to the model usage of its chats. Use `PUT api/2.0/ai/agents/resetquota` to return rooms to the portal default instead of naming a number.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-agents-quota/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-agents-update-quota/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **updateRoomsQuotaRequestDtoInteger** | [**UpdateRoomsQuotaRequestDtoInteger?**](UpdateRoomsQuotaRequestDtoInteger.md) | The request parameters for updating the room quota. | [optional]  |
+| **aiAgentsUpdateQuotaRequest** | [**AiAgentsUpdateQuotaRequest**](AiAgentsUpdateQuotaRequest.md) |  |  |
 
 ### Return type
 
-[**FolderIntegerArrayWrapper**](FolderIntegerArrayWrapper.md)
+[**AiFolderArrayWrapper**](AiFolderArrayWrapper.md)
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+[cookieAuth](../README.md#cookieAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### Example
 ```csharp
@@ -872,43 +808,34 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class UpdateAgentsQuotaExample
+    public class AiAgentsUpdateQuotaExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
+            // Configure API key authorization: cookieAuth
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
+            // Configure Bearer token for authorization: bearerAuth
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var updateRoomsQuotaRequestDtoInteger = new UpdateRoomsQuotaRequestDtoInteger?(); // UpdateRoomsQuotaRequestDtoInteger? | The request parameters for updating the room quota. (optional) 
+            var aiAgentsUpdateQuotaRequest = new AiAgentsUpdateQuotaRequest(); // AiAgentsUpdateQuotaRequest | 
 
             try
             {
-                // Change the AI agent quota limit
-                FolderIntegerArrayWrapper result = apiInstance.UpdateAgentsQuota(updateRoomsQuotaRequestDtoInteger);
+                // Update agents' quota
+                AiFolderArrayWrapper result = apiInstance.AiAgentsUpdateQuota(aiAgentsUpdateQuotaRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AgentsApi.UpdateAgentsQuota: " + e.Message);
+                Debug.Print("Exception when calling AgentsApi.AiAgentsUpdateQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -917,21 +844,21 @@ namespace Example
 }
 ```
 
-#### Using the UpdateAgentsQuotaWithHttpInfo variant
+#### Using the AiAgentsUpdateQuotaWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Change the AI agent quota limit
-    ApiResponse<FolderIntegerArrayWrapper> response = apiInstance.UpdateAgentsQuotaWithHttpInfo(updateRoomsQuotaRequestDtoInteger);
+    // Update agents' quota
+    ApiResponse<AiFolderArrayWrapper> response = apiInstance.AiAgentsUpdateQuotaWithHttpInfo(aiAgentsUpdateQuotaRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AgentsApi.UpdateAgentsQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AgentsApi.AiAgentsUpdateQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -946,11 +873,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of AI agents with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
-| **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
-| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
-| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **200** | The updated agent rooms, one entry each. |  -  |
+| **401** | Missing `asc_auth_key` cookie or `Authorization` header. |  -  |
+| **403** | AI is disabled for this portal, the caller is a guest, or the room named by `entityId` is one the caller cannot open. Relayed from the DocSpace AI service or the Files API. |  -  |
+| **413** | The request body is larger than 100 KB, the JSON parser's limit on this route. |  -  |
+| **500** | Unhandled failure. The reason is logged server-side and never echoed back. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

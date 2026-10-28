@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExchangeToken200Response" /> class.
         /// </summary>
-        /// <param name="accessToken">The access token issued by the authorization server..</param>
-        /// <param name="tokenType">The type of token issued, typically &#39;Bearer&#39;..</param>
-        /// <param name="expiresIn">The number of seconds until the access token expires..</param>
-        /// <param name="refreshToken">The token used to obtain a new access token when the current one expires..</param>
+        /// <param name="accessToken">The token to send as a Bearer credential when calling the portal on the user behalf..</param>
+        /// <param name="tokenType">How the access token is to be presented. It is always Bearer..</param>
+        /// <param name="expiresIn">How many seconds the access token stays valid, counted from the moment it was issued..</param>
+        /// <param name="refreshToken">The token that buys a new access token once the current one expires. It is present only when the client is registered for the refresh token grant..</param>
         public ExchangeToken200Response(string accessToken = default, string tokenType = default, int expiresIn = default, string refreshToken = default)
         {
             this.AccessToken = accessToken;
@@ -54,42 +54,30 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The access token issued by the authorization server.
+        /// The token to send as a Bearer credential when calling the portal on the user behalf.
         /// </summary>
-        /// <value>The access token issued by the authorization server.</value>
-        /*
-        <example>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</example>
-        */
+        /// <example>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</example>
         [DataMember(Name = "access_token", EmitDefaultValue = false)]
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// The type of token issued, typically &#39;Bearer&#39;.
+        /// How the access token is to be presented. It is always Bearer.
         /// </summary>
-        /// <value>The type of token issued, typically &#39;Bearer&#39;.</value>
-        /*
-        <example>Bearer</example>
-        */
+        /// <example>Bearer</example>
         [DataMember(Name = "token_type", EmitDefaultValue = false)]
         public string TokenType { get; set; }
 
         /// <summary>
-        /// The number of seconds until the access token expires.
+        /// How many seconds the access token stays valid, counted from the moment it was issued.
         /// </summary>
-        /// <value>The number of seconds until the access token expires.</value>
-        /*
-        <example>3600</example>
-        */
+        /// <example>3600</example>
         [DataMember(Name = "expires_in", EmitDefaultValue = false)]
         public int ExpiresIn { get; set; }
 
         /// <summary>
-        /// The token used to obtain a new access token when the current one expires.
+        /// The token that buys a new access token once the current one expires. It is present only when the client is registered for the refresh token grant.
         /// </summary>
-        /// <value>The token used to obtain a new access token when the current one expires.</value>
-        /*
-        <example>def502...</example>
-        */
+        /// <example>def502...</example>
         [DataMember(Name = "refresh_token", EmitDefaultValue = false)]
         public string RefreshToken { get; set; }
 

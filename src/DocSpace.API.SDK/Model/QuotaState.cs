@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Active, 1 - Overdue]
     /// </summary>
-    /// <value>[0 - Active, 1 - Overdue]</value>
     public enum QuotaState
     {
         /// <summary>

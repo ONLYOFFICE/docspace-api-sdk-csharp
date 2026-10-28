@@ -1,0 +1,18 @@
+# DocSpace.API.SDK.Model.CheckConfirmRequestDto
+The confirmation link parameters to check.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Key** | **string** | The email validation key. | [optional] 
+**EmplType** | **EmployeeType** | The user type. | [optional] 
+**Email** | **string** | The email address. | [optional] 
+**EncEmail** | **string** | The encrypted email address. | [optional] 
+**UiD** | **Guid?** | The user ID. | [optional] 
+**Type** | **ConfirmType** | The confirmation email type. | [optional] 
+**First** | **string** | Specifies whether it is the first time account access or not. | [optional] 
+**RoomId** | **string** | The room ID. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

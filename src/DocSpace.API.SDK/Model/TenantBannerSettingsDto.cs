@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the visibility settings of the promotional banners for the current tenant.
+    /// Whether the portal hides its promotional banners.
     /// </summary>
     [DataContract(Name = "TenantBannerSettingsDto")]
     public partial class TenantBannerSettingsDto : IValidatableObject
@@ -42,20 +42,26 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="TenantBannerSettingsDto" /> class.
         /// </summary>
         /// <param name="hidden">The banners visibility flag..</param>
-        public TenantBannerSettingsDto(bool hidden = default)
+        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
+        public TenantBannerSettingsDto(bool hidden = default, DateTime lastModified = default)
         {
             this.Hidden = hidden;
+            this.LastModified = lastModified;
         }
 
         /// <summary>
         /// The banners visibility flag.
         /// </summary>
-        /// <value>The banners visibility flag.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>false</example>
         [DataMember(Name = "hidden", EmitDefaultValue = true)]
         public bool Hidden { get; set; }
+
+        /// <summary>
+        /// The timestamp indicating when the settings were last modified.
+        /// </summary>
+        /// <example>1990-01-01T00:00:00Z</example>
+        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
+        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,6 +72,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class TenantBannerSettingsDto {\n");
             sb.Append("  Hidden: ").Append(Hidden).Append("\n");
+            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -5,19 +5,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**DeleteThirdParty**](#deletethirdparty) | **DELETE** /api/2.0/files/thirdparty/{providerId} | Remove a third-party account |
-| [**GetAllProviders**](#getallproviders) | **GET** /api/2.0/files/thirdparty/providers | Get all providers |
-| [**GetBackupThirdPartyAccount**](#getbackupthirdpartyaccount) | **GET** /api/2.0/files/thirdparty/backup | Get a third-party account backup |
-| [**GetCapabilities**](#getcapabilities) | **GET** /api/2.0/files/thirdparty/capabilities | Get providers |
-| [**GetCommonThirdPartyFolders**](#getcommonthirdpartyfolders) | **GET** /api/2.0/files/thirdparty/common | Get the common third-party services |
+| [**GetAllProviders**](#getallproviders) | **GET** /api/2.0/files/thirdparty/providers | Get all third-party providers |
+| [**GetBackupThirdPartyAccount**](#getbackupthirdpartyaccount) | **GET** /api/2.0/files/thirdparty/backup | Get the third-party backup folder |
+| [**GetCapabilities**](#getcapabilities) | **GET** /api/2.0/files/thirdparty/capabilities | Get third-party provider capabilities |
+| [**GetCommonThirdPartyFolders**](#getcommonthirdpartyfolders) | **GET** /api/2.0/files/thirdparty/common | Get common third-party folders |
 | [**GetThirdPartyAccounts**](#getthirdpartyaccounts) | **GET** /api/2.0/files/thirdparty | Get the third-party accounts |
-| [**SaveThirdParty**](#savethirdparty) | **POST** /api/2.0/files/thirdparty | Save a third-party account |
-| [**SaveThirdPartyBackup**](#savethirdpartybackup) | **POST** /api/2.0/files/thirdparty/backup | Save a third-party account backup |
+| [**SaveThirdParty**](#savethirdparty) | **POST** /api/2.0/files/thirdparty | Connect a third-party account |
+| [**SaveThirdPartyBackup**](#savethirdpartybackup) | **POST** /api/2.0/files/thirdparty/backup | Connect the third-party backup storage |
 
 <a id="deletethirdparty"></a>
 # **DeleteThirdParty**
 > StringWrapper DeleteThirdParty (int providerId)
 
-Removes the third-party storage service account with the ID specified in the request.
+Disconnects a third-party storage account from the portal and returns the ID of the folder that stood for it,  in the `provider-accountId` form the Files operations use for third-party entries. Take `providerId` from  `GET api/2.0/files/thirdparty`: it is the numeric account ID, not that composed folder ID. The member who  connected the account can remove it; another member's request is refused unless they hold delete rights on the  folder it stands for. Nothing is deleted at the storage service: the files stay with the provider, and what  goes away is the portal's link to them together with the stored credentials, the sharing records and the tags  kept for its entries. An account a room was created on is refused with 403 while the room exists: delete the  room instead, which disconnects the account along with it. When the account being  removed is the one connected for backups by `POST api/2.0/files/thirdparty/backup`, its backup schedule is  deleted as well. The removal cannot be repeated: once the account is gone the same ID is refused rather than  confirmed, so treat the first successful answer as the record of it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/).
 
@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **providerId** | **int** | The provider ID. |  |
+| **providerId** | **int** | The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`. |  |
 
 ### Return type
 
@@ -72,7 +72,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var providerId = 1;  // int | The provider ID.
+            var providerId = 12;  // int | The ID of the connected third-party storage account, as `providerId` of `GET api/2.0/files/thirdparty`.
 
             try
             {
@@ -120,9 +120,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Third-party folder ID |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The ID of the folder that stood for the removed account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **403** | The caller neither connected the account nor has the right to delete the folder it stands for |  -  |
+| **404** | No third-party account with this ID exists on the portal |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -132,7 +136,7 @@ catch (ApiException e)
 # **GetAllProviders**
 > ProviderArrayWrapper GetAllProviders (bool? excludewebdav = null)
 
-Returns a list of all providers.
+Lists the third-party storage services this portal can connect, with everything a connection form needs: the  display name, the key to send as `providerKey`, whether the service authenticates through OAuth 2.0, the OAuth  client ID and redirect URL where it does, and whether the caller has to supply the server address. Several  WebDAV presets share the key `WebDav` and are told apart by their names, so keep the name the caller chose  next to the key when building the request. Pass `excludewebdav=true` to drop the whole WebDAV family,  including the kDrive and Yandex presets, and keep only the OAuth services. The call is read-only. An empty  array is a normal answer: it is what a guest gets, and what everyone gets while the portal-wide third-party  switch is off (`PUT api/2.0/files/thirdparty`). The `connected` flag of an element says the service is  available on this portal, not that an account of it exists - the caller's own accounts are listed by  `GET api/2.0/files/thirdparty`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/).
 
@@ -140,7 +144,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **excludewebdav** | **bool?** | Specifies whether WebDAV resources should be excluded from the result.. | [optional]  |
+| **excludewebdav** | **bool?** | Set to true to leave out the whole WebDAV family, the kDrive and Yandex presets included, and keep only the  services that authenticate through OAuth 2.0; false lists all of them. | [optional]  |
 
 ### Return type
 
@@ -187,11 +191,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var excludewebdav = false;  // bool? | Specifies whether WebDAV resources should be excluded from the result.. (optional) 
+            var excludewebdav = false;  // bool? | Set to true to leave out the whole WebDAV family, the kDrive and Yandex presets included, and keep only the  services that authenticate through OAuth 2.0; false lists all of them. (optional) 
 
             try
             {
-                // Get all providers
+                // Get all third-party providers
                 ProviderArrayWrapper result = apiInstance.GetAllProviders(excludewebdav);
                 Debug.WriteLine(result);
             }
@@ -212,7 +216,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get all providers
+    // Get all third-party providers
     ApiResponse<ProviderArrayWrapper> response = apiInstance.GetAllProvidersWithHttpInfo(excludewebdav);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -235,9 +239,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of provider |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The storage services this portal can connect |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
+| **400** | Bad Request. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -245,9 +251,9 @@ catch (ApiException e)
 
 <a id="getbackupthirdpartyaccount"></a>
 # **GetBackupThirdPartyAccount**
-> FolderStringWrapper GetBackupThirdPartyAccount ()
+> ThirdPartyFolderWrapper GetBackupThirdPartyAccount ()
 
-Returns a backup of the connected third-party account.
+Returns the folder of the third-party storage account the portal keeps for backups, so a caller can check  where scheduled and manual backups are written. There is at most one such account per portal, connected by an  administrator through `POST api/2.0/files/thirdparty/backup`, and it is deliberately kept out of the personal  list of `GET api/2.0/files/thirdparty`. Any authenticated member may ask, and the call is read-only. The body  is `null`, with a successful status, in two situations the answer does not distinguish: no backup account has  been connected, and the caller has no read access to the folder of the one that is. When a folder does come  back, its `id` is the string ID of a third-party folder and can be used with the folder operations that accept  one, and its `title` is the title the account was saved under. Connecting a different account through the  backup operation replaces this one rather than adding a second, and  `DELETE api/2.0/files/thirdparty/{providerId}` removes it.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/).
 
@@ -255,7 +261,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**FolderStringWrapper**](FolderStringWrapper.md)
+[**ThirdPartyFolderWrapper**](ThirdPartyFolderWrapper.md)
 
 ### Authorization
 
@@ -301,8 +307,8 @@ namespace Example
 
             try
             {
-                // Get a third-party account backup
-                FolderStringWrapper result = apiInstance.GetBackupThirdPartyAccount();
+                // Get the third-party backup folder
+                ThirdPartyFolderWrapper result = apiInstance.GetBackupThirdPartyAccount();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -322,8 +328,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get a third-party account backup
-    ApiResponse<FolderStringWrapper> response = apiInstance.GetBackupThirdPartyAccountWithHttpInfo();
+    // Get the third-party backup folder
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.GetBackupThirdPartyAccountWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -345,9 +351,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder for the third-party account backup |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The root folder of the backup storage account, or null when none is connected |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -357,7 +364,7 @@ catch (ApiException e)
 # **GetCapabilities**
 > ArrayArrayWrapper GetCapabilities ()
 
-Returns the list of the available providers.
+Lists the third-party storage services this portal is able to connect, in the compact form a connection dialog  needs. Every element is itself an array whose first item is the provider key accepted as `providerKey` by  `POST api/2.0/files/thirdparty`. For the services that authenticate through OAuth 2.0 (`Box`, `DropboxV2`,  `GoogleDrive`, `OneDrive`) the second and third items are the OAuth client ID and the redirect URL this portal  is registered with, so the caller can build the consent screen URL itself; the services that authenticate by  login and password (`SharePoint`, `WebDav`, `kDrive`, `Yandex`) contribute a single-item array. Only the  services enabled in the portal configuration are listed, and an OAuth service whose application is not  configured is left out. The call is read-only. An empty array is a normal answer rather than a failure: it is  what a guest gets, and what everyone gets while the portal-wide third-party switch is off  (`PUT api/2.0/files/thirdparty`). For display names, the WebDAV presets and the flags a connection form needs,  use `GET api/2.0/files/thirdparty/providers` instead.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/).
 
@@ -411,7 +418,7 @@ namespace Example
 
             try
             {
-                // Get providers
+                // Get third-party provider capabilities
                 ArrayArrayWrapper result = apiInstance.GetCapabilities();
                 Debug.WriteLine(result);
             }
@@ -432,7 +439,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get providers
+    // Get third-party provider capabilities
     ApiResponse<ArrayArrayWrapper> response = apiInstance.GetCapabilitiesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -455,9 +462,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of provider keys |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The provider keys, each with the OAuth client ID and redirect URL where the service uses OAuth |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -465,9 +473,9 @@ catch (ApiException e)
 
 <a id="getcommonthirdpartyfolders"></a>
 # **GetCommonThirdPartyFolders**
-> FolderStringArrayWrapper GetCommonThirdPartyFolders ()
+> ThirdPartyFolderArrayWrapper GetCommonThirdPartyFolders ()
 
-Returns a list of the third-party services connected to the Common section.
+Lists the third-party storage accounts attached to the legacy Common section, as folder entries that can be  browsed with the usual folder operations. Each entry stands for a whole connected account: its title is the  account title, and `providerId` and `providerKey` identify the account behind it. Only accounts whose owner  the caller may read are included, so the answer differs from one member to another. The call is read-only and  returns a plain array with no paging. An empty array is the expected answer in most portals and does not mean  an error: accounts connected by `POST api/2.0/files/thirdparty` are attached to the Rooms section, not to  Common, so only accounts inherited from an older portal appear here. The list is also empty while the  portal-wide third-party switch is off (`PUT api/2.0/files/thirdparty`) and when no storage service is  configured. For the accounts the caller owns, regardless of where they are attached, use  `GET api/2.0/files/thirdparty`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/).
 
@@ -475,7 +483,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**FolderStringArrayWrapper**](FolderStringArrayWrapper.md)
+[**ThirdPartyFolderArrayWrapper**](ThirdPartyFolderArrayWrapper.md)
 
 ### Authorization
 
@@ -521,8 +529,8 @@ namespace Example
 
             try
             {
-                // Get the common third-party services
-                FolderStringArrayWrapper result = apiInstance.GetCommonThirdPartyFolders();
+                // Get common third-party folders
+                ThirdPartyFolderArrayWrapper result = apiInstance.GetCommonThirdPartyFolders();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -542,8 +550,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the common third-party services
-    ApiResponse<FolderStringArrayWrapper> response = apiInstance.GetCommonThirdPartyFoldersWithHttpInfo();
+    // Get common third-party folders
+    ApiResponse<ThirdPartyFolderArrayWrapper> response = apiInstance.GetCommonThirdPartyFoldersWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -565,9 +573,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of common third-party folderst |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The third-party accounts attached to the Common section, as folder entries |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -575,9 +584,9 @@ catch (ApiException e)
 
 <a id="getthirdpartyaccounts"></a>
 # **GetThirdPartyAccounts**
-> ThirdPartyParamsArrayWrapper GetThirdPartyAccounts ()
+> ThirdPartyAccountArrayWrapper GetThirdPartyAccounts ()
 
-Returns a list of all the connected third-party accounts.
+Lists the third-party storage accounts the caller has connected, one element per account, with the title it  was saved under, the storage service behind it and the portal section it is attached to. Accounts connected by  other members are not included, and neither is the portal backup account of  `GET api/2.0/files/thirdparty/backup`, even for an administrator. The `providerId` of an element is the value  to send to `DELETE api/2.0/files/thirdparty/{providerId}` and, as `providerId` in  `POST api/2.0/files/thirdparty`, the way to re-authenticate that same account instead of connecting a new one.  Credentials are never disclosed: `auth_data` comes back empty for every element. An element with  `roomsStorage` set is available as storage for a room, while `corporate` marks an account inherited from the  legacy Common section. The call is read-only, returns a plain array with no paging and no contractual  ordering, and answers with an empty array when the caller has connected nothing. To browse the content of an  account, take the folder ID from the answer of the operation that connected it or from  `GET api/2.0/files/@root`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/).
 
@@ -585,7 +594,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ThirdPartyParamsArrayWrapper**](ThirdPartyParamsArrayWrapper.md)
+[**ThirdPartyAccountArrayWrapper**](ThirdPartyAccountArrayWrapper.md)
 
 ### Authorization
 
@@ -632,7 +641,7 @@ namespace Example
             try
             {
                 // Get the third-party accounts
-                ThirdPartyParamsArrayWrapper result = apiInstance.GetThirdPartyAccounts();
+                ThirdPartyAccountArrayWrapper result = apiInstance.GetThirdPartyAccounts();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -653,7 +662,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the third-party accounts
-    ApiResponse<ThirdPartyParamsArrayWrapper> response = apiInstance.GetThirdPartyAccountsWithHttpInfo();
+    ApiResponse<ThirdPartyAccountArrayWrapper> response = apiInstance.GetThirdPartyAccountsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -675,9 +684,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of connected providers information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The third-party accounts the caller has connected |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
+| **500** | Internal Server Error. |  -  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -685,9 +695,9 @@ catch (ApiException e)
 
 <a id="savethirdparty"></a>
 # **SaveThirdParty**
-> FolderStringWrapper SaveThirdParty (ThirdPartyRequestDto? thirdPartyRequestDto = null)
+> ThirdPartyFolderWrapper SaveThirdParty (ThirdPartyRequestDto? thirdPartyRequestDto = null)
 
-Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
+Connects an account at a third-party storage service to the portal, or re-authenticates one that is already  connected, and returns the folder that now stands for its root. Send `providerId` to update an existing  account and omit it to connect a new one; the accepted `providerKey` values come from  `GET api/2.0/files/thirdparty/providers`. The credentials to send depend on the service: the OAuth services  take `token`, which is the authorization code from their consent screen and not an access token, while the  WebDAV family and SharePoint take `login` with `password`, plus `url` where the server address is not fixed.  Credentials are verified against the service before anything is stored, so a wrong password is refused and  nothing is saved. The caller needs the rights to create rooms, and the portal-wide third-party switch has to  be on, otherwise the call is refused. A new account is attached to the Rooms section and becomes available as  room storage for `POST api/2.0/files/rooms/thirdparty/{id}`. Connecting twice with the same title creates two  separate accounts.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/).
 
@@ -695,11 +705,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **thirdPartyRequestDto** | [**ThirdPartyRequestDto?**](ThirdPartyRequestDto.md) | The third-party request parameters. | [optional]  |
+| **thirdPartyRequestDto** | [**ThirdPartyRequestDto?**](ThirdPartyRequestDto.md) | The credentials and the title of a third-party storage account to connect or to re-authenticate. | [optional]  |
 
 ### Return type
 
-[**FolderStringWrapper**](FolderStringWrapper.md)
+[**ThirdPartyFolderWrapper**](ThirdPartyFolderWrapper.md)
 
 ### Authorization
 
@@ -742,12 +752,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var thirdPartyRequestDto = new ThirdPartyRequestDto?(); // ThirdPartyRequestDto? | The third-party request parameters. (optional) 
+            var thirdPartyRequestDto = new ThirdPartyRequestDto?(); // ThirdPartyRequestDto? | The credentials and the title of a third-party storage account to connect or to re-authenticate. (optional) 
 
             try
             {
-                // Save a third-party account
-                FolderStringWrapper result = apiInstance.SaveThirdParty(thirdPartyRequestDto);
+                // Connect a third-party account
+                ThirdPartyFolderWrapper result = apiInstance.SaveThirdParty(thirdPartyRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -767,8 +777,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Save a third-party account
-    ApiResponse<FolderStringWrapper> response = apiInstance.SaveThirdPartyWithHttpInfo(thirdPartyRequestDto);
+    // Connect a third-party account
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.SaveThirdPartyWithHttpInfo(thirdPartyRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -790,9 +800,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Connected provider folder |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The root folder of the connected account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read or has no `customerTitle` or `providerKey`, `providerId` is neither a number nor a numeric string, or, for a new account, `providerKey` names no known storage service or the `token` or `password` the service needs is missing |  -  |
+| **403** | The caller cannot create rooms, the portal-wide third-party switch is off or no storage service is enabled, the title of a new account is empty once invalid characters are removed, the service rejects the credentials, or `providerId` names an account connected by another member |  -  |
+| **404** | `providerId` names no third-party account on the portal |  -  |
+| **500** | The storage service cannot be reached or fails while the credentials are checked |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
@@ -800,9 +814,9 @@ catch (ApiException e)
 
 <a id="savethirdpartybackup"></a>
 # **SaveThirdPartyBackup**
-> FolderStringWrapper SaveThirdPartyBackup (ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = null)
+> ThirdPartyFolderWrapper SaveThirdPartyBackup (ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = null)
 
-Saves a backup of the connected third-party account.
+Connects the third-party storage account the portal writes its backups to, and returns the folder that stands  for its root. Only a portal administrator may call it, and the portal-wide third-party switch has to be on;  other callers are refused. The account is portal-wide and single: a second call does not add another one but  re-authenticates and retitles the existing one, which makes the operation safe to repeat with the same body.  The credentials follow the same rules as in `POST api/2.0/files/thirdparty` - an authorization code in `token`  for the OAuth services, `login` with `password` and, where the server address is not fixed, `url` for the  WebDAV family and SharePoint - and are verified against the service before anything is stored, so a wrong  password leaves the previous account untouched. The account is deliberately absent from  `GET api/2.0/files/thirdparty`; read it back with `GET api/2.0/files/thirdparty/backup` and remove it with  `DELETE api/2.0/files/thirdparty/{providerId}`.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/).
 
@@ -810,11 +824,11 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **thirdPartyBackupRequestDto** | [**ThirdPartyBackupRequestDto?**](ThirdPartyBackupRequestDto.md) | The third-party backup request parameters. | [optional]  |
+| **thirdPartyBackupRequestDto** | [**ThirdPartyBackupRequestDto?**](ThirdPartyBackupRequestDto.md) | The credentials and the title of the third-party storage account the portal writes its backups to. | [optional]  |
 
 ### Return type
 
-[**FolderStringWrapper**](FolderStringWrapper.md)
+[**ThirdPartyFolderWrapper**](ThirdPartyFolderWrapper.md)
 
 ### Authorization
 
@@ -857,12 +871,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var thirdPartyBackupRequestDto = new ThirdPartyBackupRequestDto?(); // ThirdPartyBackupRequestDto? | The third-party backup request parameters. (optional) 
+            var thirdPartyBackupRequestDto = new ThirdPartyBackupRequestDto?(); // ThirdPartyBackupRequestDto? | The credentials and the title of the third-party storage account the portal writes its backups to. (optional) 
 
             try
             {
-                // Save a third-party account backup
-                FolderStringWrapper result = apiInstance.SaveThirdPartyBackup(thirdPartyBackupRequestDto);
+                // Connect the third-party backup storage
+                ThirdPartyFolderWrapper result = apiInstance.SaveThirdPartyBackup(thirdPartyBackupRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -882,8 +896,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Save a third-party account backup
-    ApiResponse<FolderStringWrapper> response = apiInstance.SaveThirdPartyBackupWithHttpInfo(thirdPartyBackupRequestDto);
+    // Connect the third-party backup storage
+    ApiResponse<ThirdPartyFolderWrapper> response = apiInstance.SaveThirdPartyBackupWithHttpInfo(thirdPartyBackupRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -905,9 +919,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Folder for the third-party account backup |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **200** | The root folder of the backup storage account |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **400** | The request body cannot be read, `providerKey` names no known storage service, or, while no backup account is connected yet, the `token` or `password` the service needs is missing |  -  |
+| **403** | The caller is not a DocSpace administrator, the portal-wide third-party switch is off or no storage service is enabled, the service rejects the credentials, or, while no backup account is connected yet, the title is empty once invalid characters are removed |  -  |
+| **500** | The storage service cannot be reached or fails while the credentials are checked |  -  |
 | **401** | Unauthorized |  -  |
-| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **429** | Too Many Requests. |  * Retry-After -  <br>  |
 | **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 | **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 

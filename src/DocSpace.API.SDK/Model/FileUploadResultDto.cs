@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileUploadResultDto" /> class.
         /// </summary>
-        /// <param name="success">Specifies if the upload operation is successful or not..</param>
-        /// <param name="data">The file upload result data..</param>
-        /// <param name="message">The file upload result message..</param>
+        /// <param name="success">Whether the upload succeeded. This is the field to check: the operation answers 200 even when it fails, and  reports the reason in &#x60;message&#x60; instead of in the status code..</param>
+        /// <param name="data">data.</param>
+        /// <param name="message">The reason the upload failed, ready to be shown to a person. It is empty for a successful upload, and it is  the only place where a failure is described, because the status code stays 200..</param>
         public FileUploadResultDto(bool success = default, Object data = default, string message = default)
         {
             this.Success = success;
@@ -52,32 +52,22 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the upload operation is successful or not.
+        /// Whether the upload succeeded. This is the field to check: the operation answers 200 even when it fails, and  reports the reason in &#x60;message&#x60; instead of in the status code.
         /// </summary>
-        /// <value>Specifies if the upload operation is successful or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// The file upload result data.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The file upload result data.</value>
-        /*
-        <example>{"fileId":"123","fileName":"photo.jpg"}</example>
-        */
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }
 
         /// <summary>
-        /// The file upload result message.
+        /// The reason the upload failed, ready to be shown to a person. It is empty for a successful upload, and it is  the only place where a failure is described, because the status code stays 200.
         /// </summary>
-        /// <value>The file upload result message.</value>
-        /*
-        <example>File uploaded successfully</example>
-        */
+        /// <example>The image size is too large</example>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 

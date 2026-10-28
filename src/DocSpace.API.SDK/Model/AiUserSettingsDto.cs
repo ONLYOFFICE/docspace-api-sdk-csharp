@@ -37,23 +37,28 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "AiUserSettingsDto")]
     public partial class AiUserSettingsDto : IValidatableObject
     {
+
+        /// <summary>
+        /// How tool calls made by the model are approved for the current user. The default applies while the user has stored nothing.
+        /// </summary>
+        [DataMember(Name = "toolPermissionMode", EmitDefaultValue = false)]
+        public AiToolPermissionMode? ToolPermissionMode { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiUserSettingsDto" /> class.
         /// </summary>
         /// <param name="chatRecommendedModelVisible">Indicates whether the recommended model banner is visible in the AI chat for the current user..</param>
-        public AiUserSettingsDto(bool chatRecommendedModelVisible = default)
+        /// <param name="toolPermissionMode">How tool calls made by the model are approved for the current user. The default applies while the user has stored nothing..</param>
+        public AiUserSettingsDto(bool chatRecommendedModelVisible = default, AiToolPermissionMode? toolPermissionMode = default)
         {
             this.ChatRecommendedModelVisible = chatRecommendedModelVisible;
+            this.ToolPermissionMode = toolPermissionMode;
         }
 
         /// <summary>
         /// Indicates whether the recommended model banner is visible in the AI chat for the current user.
         /// </summary>
-        /// <value>Indicates whether the recommended model banner is visible in the AI chat for the current user.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "chatRecommendedModelVisible", EmitDefaultValue = true)]
         public bool ChatRecommendedModelVisible { get; set; }
 
@@ -66,6 +71,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class AiUserSettingsDto {\n");
             sb.Append("  ChatRecommendedModelVisible: ").Append(ChatRecommendedModelVisible).Append("\n");
+            sb.Append("  ToolPermissionMode: ").Append(ToolPermissionMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

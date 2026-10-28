@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Backup, 1 - Restore, 2 - Transfer]
     /// </summary>
-    /// <value>[0 - Backup, 1 - Restore, 2 - Transfer]</value>
     public enum BackupProgressEnum
     {
         /// <summary>

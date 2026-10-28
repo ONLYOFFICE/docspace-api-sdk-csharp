@@ -1,0 +1,102 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// The keys the calling account needs in order to open one file of an end-to-end encrypted private room.
+    /// </summary>
+    [DataContract(Name = "FileEncryptionInfoDto")]
+    public partial class FileEncryptionInfoDto : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FileEncryptionInfoDto" /> class.
+        /// </summary>
+        /// <param name="userKeys">The key pairs of the calling account, never those of the other people in the room. The private half of each  pair is stored encrypted with that person&#39;s own password and has to be decrypted on the client. An empty list  means the account has generated no key pair yet, and until it does no file key can be issued to it..</param>
+        /// <param name="fileKeys">The keys of this file that were issued to the calling account, each naming the public key it was encrypted for  so that the client can pick the matching private half. An empty list means the file has not been shared with  this account rather than that the file is unencrypted..</param>
+        public FileEncryptionInfoDto(List<EncryptionKeyDto> userKeys = default, List<FileKeysDto> fileKeys = default)
+        {
+            this.UserKeys = userKeys;
+            this.FileKeys = fileKeys;
+        }
+
+        /// <summary>
+        /// The key pairs of the calling account, never those of the other people in the room. The private half of each  pair is stored encrypted with that person&#39;s own password and has to be decrypted on the client. An empty list  means the account has generated no key pair yet, and until it does no file key can be issued to it.
+        /// </summary>
+        /// <example>[{"id":"9924256B-447C-4F19-9dbd-8ad8c39e8ff5","userId":"9924256B-447C-4F19-9dbd-8ad8c39e8ff5","date":"2025-01-01T00:00:00","publicKey":"-----BEGIN PUBLIC KEY-----\nMIIBIjANBg...","privateKeyEnc":"U2FsdGVkX1+Lm3s...","cryptoEngineId":"defaultCryptoEngine"}]</example>
+        [DataMember(Name = "userKeys", EmitDefaultValue = true)]
+        public List<EncryptionKeyDto> UserKeys { get; set; }
+
+        /// <summary>
+        /// The keys of this file that were issued to the calling account, each naming the public key it was encrypted for  so that the client can pick the matching private half. An empty list means the file has not been shared with  this account rather than that the file is unencrypted.
+        /// </summary>
+        /// <example>[{"userId":"9924256B-447C-4F19-9dbd-8ad8c39e8ff5","publicKeyId":"9924256B-447C-4F19-9dbd-8ad8c39e8ff5","privateKeyEnc":"U2FsdGVkX1+Lm3s...","tenantId":1,"fileId":9846,"createOn":"2025-01-01T00:00:00"}]</example>
+        [DataMember(Name = "fileKeys", EmitDefaultValue = true)]
+        public List<FileKeysDto> FileKeys { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class FileEncryptionInfoDto {\n");
+            sb.Append("  UserKeys: ").Append(UserKeys).Append("\n");
+            sb.Append("  FileKeys: ").Append(FileKeys).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+
+
+}

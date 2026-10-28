@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Paid, 1 - Free]
     /// </summary>
-    /// <value>[0 - Paid, 1 - Free]</value>
     public enum Payments
     {
         /// <summary>

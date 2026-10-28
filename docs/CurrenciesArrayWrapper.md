@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.CurrenciesArrayWrapper
+The successful API response containing the list of CurrenciesDto objects.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;CurrenciesDto&gt;**](CurrenciesDto.md) |  | [optional] 
+**Response** | [**List&lt;CurrenciesDto&gt;**](CurrenciesDto.md) | The list of CurrenciesDto objects returned by the operation. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

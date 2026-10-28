@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// [0 - Descending, 1 - Ascending]
     /// </summary>
-    /// <value>[0 - Descending, 1 - Ascending]</value>
     public enum OperationOrderType
     {
         /// <summary>

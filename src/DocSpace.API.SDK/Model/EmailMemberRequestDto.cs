@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets RecaptchaType
+        /// Which CAPTCHA the &#x60;recaptchaResponse&#x60; comes from: &#x60;Default&#x60; for the web reCAPTCHA, &#x60;AndroidV2&#x60; or &#x60;iOSV2&#x60; for  the mobile ones, and &#x60;hCaptcha&#x60; when the portal is configured with hCaptcha. It matters only for an  unauthenticated request on a portal that has a CAPTCHA.
         /// </summary>
         [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
         public RecaptchaType? RecaptchaType { get; set; }
@@ -52,8 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailMemberRequestDto" /> class.
         /// </summary>
-        /// <param name="email">The user email address. (required).</param>
-        /// <param name="recaptchaType">recaptchaType.</param>
+        /// <param name="email">The address to send the password recovery link to. It is required and validated even by  &#x60;POST api/2.0/people/guests/share/approve&#x60;, which then ignores its value and takes the account from the  confirmation token instead. (required).</param>
+        /// <param name="recaptchaType">Which CAPTCHA the &#x60;recaptchaResponse&#x60; comes from: &#x60;Default&#x60; for the web reCAPTCHA, &#x60;AndroidV2&#x60; or &#x60;iOSV2&#x60; for  the mobile ones, and &#x60;hCaptcha&#x60; when the portal is configured with hCaptcha. It matters only for an  unauthenticated request on a portal that has a CAPTCHA..</param>
         /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
         public EmailMemberRequestDto(string email = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default)
         {
@@ -68,22 +68,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user email address.
+        /// The address to send the password recovery link to. It is required and validated even by  &#x60;POST api/2.0/people/guests/share/approve&#x60;, which then ignores its value and takes the account from the  confirmation token instead.
         /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>john.doe@example.com</example>
-        */
+        /// <example>john.doe@example.com</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The user&#39;s response to the CAPTCHA challenge.
         /// </summary>
-        /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
-        /*
-        <example>03AGdBq27...</example>
-        */
+        /// <example>03AGdBq27...</example>
         [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
         public string RecaptchaResponse { get; set; }
 

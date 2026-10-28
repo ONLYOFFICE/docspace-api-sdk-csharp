@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The internal file formats.
+    /// The extension the portal creates for each kind of document, keyed by that kind. This is what a new empty  document gets when no extension is asked for.
     /// </summary>
     [DataContract(Name = "FilesSettingsDto_internalFormats")]
     public partial class FilesSettingsDtoInternalFormats : IValidatableObject

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The upload result parameters.
+    /// The outcome of storing an image in temporary storage before it is used as a room logo.
     /// </summary>
     [DataContract(Name = "UploadResultDto")]
     public partial class UploadResultDto : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UploadResultDto" /> class.
         /// </summary>
-        /// <param name="success">Specifies if the upload operation is successful or not..</param>
-        /// <param name="data">The uploaded data..</param>
-        /// <param name="message">The message sent after the successful upload operation..</param>
+        /// <param name="success">True when the image was stored and its path is in the data field. A rejected image is reported with an error  response rather than with a false here, so this field is true in every answer that carries a body..</param>
+        /// <param name="data">data.</param>
+        /// <param name="message">Left empty by this operation: nothing is reported here, and a refused image comes back as an error response  instead..</param>
         public UploadResultDto(bool success = default, Object data = default, string message = default)
         {
             this.Success = success;
@@ -52,32 +52,21 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies if the upload operation is successful or not.
+        /// True when the image was stored and its path is in the data field. A rejected image is reported with an error  response rather than with a false here, so this field is true in every answer that carries a body.
         /// </summary>
-        /// <value>Specifies if the upload operation is successful or not.</value>
-        /*
-        <example>true</example>
-        */
+        /// <example>true</example>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public bool Success { get; set; }
 
         /// <summary>
-        /// The uploaded data.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The uploaded data.</value>
-        /*
-        <example>{"id":10,"title":"document.docx"}</example>
-        */
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }
 
         /// <summary>
-        /// The message sent after the successful upload operation.
+        /// Left empty by this operation: nothing is reported here, and a refused image comes back as an error response  instead.
         /// </summary>
-        /// <value>The message sent after the successful upload operation.</value>
-        /*
-        <example>File uploaded successfully</example>
-        */
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 

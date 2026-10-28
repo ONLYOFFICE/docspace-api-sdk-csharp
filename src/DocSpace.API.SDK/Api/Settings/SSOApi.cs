@@ -34,109 +34,109 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        SsoSettingsV2Wrapper GetDefaultSsoSettingsV2();
+        /// <returns>SsoSettingsWrapper</returns>
+        SsoSettingsWrapper GetDefaultSsoSettingsV2();
 
         /// <summary>
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        ApiResponse<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2WithHttpInfo();
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        ApiResponse<SsoSettingsWrapper> GetDefaultSsoSettingsV2WithHttpInfo();
         /// <summary>
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        SsoSettingsV2Wrapper GetSsoSettingsV2();
+        /// <returns>SsoSettingsWrapper</returns>
+        SsoSettingsWrapper GetSsoSettingsV2();
 
         /// <summary>
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        ApiResponse<SsoSettingsV2Wrapper> GetSsoSettingsV2WithHttpInfo();
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        ApiResponse<SsoSettingsWrapper> GetSsoSettingsV2WithHttpInfo();
         /// <summary>
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetSsoSettingsV2Constants();
+        /// <returns>SsoSettingsConstantsWrapper</returns>
+        SsoSettingsConstantsWrapper GetSsoSettingsV2Constants();
 
         /// <summary>
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo();
+        /// <returns>ApiResponse of SsoSettingsConstantsWrapper</returns>
+        ApiResponse<SsoSettingsConstantsWrapper> GetSsoSettingsV2ConstantsWithHttpInfo();
         /// <summary>
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        SsoSettingsV2Wrapper ResetSsoSettingsV2();
+        /// <returns>SsoSettingsWrapper</returns>
+        SsoSettingsWrapper ResetSsoSettingsV2();
 
         /// <summary>
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        ApiResponse<SsoSettingsV2Wrapper> ResetSsoSettingsV2WithHttpInfo();
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        ApiResponse<SsoSettingsWrapper> ResetSsoSettingsV2WithHttpInfo();
         /// <summary>
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        SsoSettingsV2Wrapper SaveSsoSettingsV2(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default);
+        /// <returns>SsoSettingsWrapper</returns>
+        SsoSettingsWrapper SaveSsoSettingsV2(SsoSettingsRequestDto? ssoSettingsRequestDto = default);
 
         /// <summary>
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        ApiResponse<SsoSettingsV2Wrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default);
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        ApiResponse<SsoSettingsWrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestDto? ssoSettingsRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -150,119 +150,119 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        Task<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2Async(CancellationToken cancellationToken = default);
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        Task<SsoSettingsWrapper> GetDefaultSsoSettingsV2Async(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        Task<ApiResponse<SsoSettingsV2Wrapper>> GetDefaultSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        Task<ApiResponse<SsoSettingsWrapper>> GetDefaultSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        Task<SsoSettingsV2Wrapper> GetSsoSettingsV2Async(CancellationToken cancellationToken = default);
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        Task<SsoSettingsWrapper> GetSsoSettingsV2Async(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        Task<ApiResponse<SsoSettingsV2Wrapper>> GetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        Task<ApiResponse<SsoSettingsWrapper>> GetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of SsoSettingsConstantsWrapper</returns>
+        Task<SsoSettingsConstantsWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SsoSettingsConstantsWrapper)</returns>
+        Task<ApiResponse<SsoSettingsConstantsWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        Task<SsoSettingsV2Wrapper> ResetSsoSettingsV2Async(CancellationToken cancellationToken = default);
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        Task<SsoSettingsWrapper> ResetSsoSettingsV2Async(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        Task<ApiResponse<SsoSettingsV2Wrapper>> ResetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        Task<ApiResponse<SsoSettingsWrapper>> ResetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        Task<SsoSettingsV2Wrapper> SaveSsoSettingsV2Async(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        Task<SsoSettingsWrapper> SaveSsoSettingsV2Async(SsoSettingsRequestDto? ssoSettingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        Task<ApiResponse<SsoSettingsV2Wrapper>> SaveSsoSettingsV2WithHttpInfoAsync(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        Task<ApiResponse<SsoSettingsWrapper>> SaveSsoSettingsV2WithHttpInfoAsync(SsoSettingsRequestDto? ssoSettingsRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -482,12 +482,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        public SsoSettingsV2Wrapper GetDefaultSsoSettingsV2()
+        /// <returns>SsoSettingsWrapper</returns>
+        public SsoSettingsWrapper GetDefaultSsoSettingsV2()
         {
             var localVarResponse = GetDefaultSsoSettingsV2WithHttpInfo();
             return localVarResponse.Data;
@@ -497,12 +497,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public ApiResponse<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2WithHttpInfo()
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        public ApiResponse<SsoSettingsWrapper> GetDefaultSsoSettingsV2WithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -550,7 +550,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2/default", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<SsoSettingsWrapper>("/api/2.0/settings/ssov2/default", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -568,13 +568,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        public async Task<SsoSettingsV2Wrapper> GetDefaultSsoSettingsV2Async(CancellationToken cancellationToken = default)
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        public async Task<SsoSettingsWrapper> GetDefaultSsoSettingsV2Async(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetDefaultSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -584,13 +584,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the default SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the default portal SSO settings.
+        /// Returns the built-in SSO configuration a portal starts from: empty identity provider and service provider  sections with the stock SAML settings already filled in (HTTP-POST binding, transient name ID format, RSA-SHA1  signing, AES-128 encryption), the default attribute mapping of `givenName`, `sn` and `mail`, the  `Single Sign-on` login label, new accounts typed as user, and SSO switched off. Use it as the template for a  new configuration: fill in the identity provider entity ID, sign-in URL and certificates, then send the result  to `POST api/2.0/settings/ssov2`. The values are the same for every portal and do not depend on what is  currently saved, nothing is written, and the call is safe to repeat. The caller needs the permission to edit  portal settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to  include Single Sign-On. This operation changes nothing by itself: to actually discard the configuration in  use, call `DELETE api/2.0/settings/ssov2`, and to read what is configured now, call  `GET api/2.0/settings/ssov2`.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-sso-settings-v2/">REST API Reference for GetDefaultSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async Task<ApiResponse<SsoSettingsV2Wrapper>> GetDefaultSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        public async Task<ApiResponse<SsoSettingsWrapper>> GetDefaultSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -640,7 +640,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2/default", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SsoSettingsWrapper>("/api/2.0/settings/ssov2/default", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -658,12 +658,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        public SsoSettingsV2Wrapper GetSsoSettingsV2()
+        /// <returns>SsoSettingsWrapper</returns>
+        public SsoSettingsWrapper GetSsoSettingsV2()
         {
             var localVarResponse = GetSsoSettingsV2WithHttpInfo();
             return localVarResponse.Data;
@@ -673,12 +673,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public ApiResponse<SsoSettingsV2Wrapper> GetSsoSettingsV2WithHttpInfo()
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        public ApiResponse<SsoSettingsWrapper> GetSsoSettingsV2WithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -694,9 +694,39 @@ namespace DocSpace.API.SDK.Api.Settings
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<SsoSettingsWrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -714,13 +744,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        public async Task<SsoSettingsV2Wrapper> GetSsoSettingsV2Async(CancellationToken cancellationToken = default)
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        public async Task<SsoSettingsWrapper> GetSsoSettingsV2Async(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -730,13 +760,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings
         /// </summary>
         /// <remarks>
-        /// Returns the current portal SSO settings.
+        /// Returns the SAML Single Sign-On configuration of the current portal: the identity provider endpoints and  certificates, the service provider certificates, the attribute mapping, the login button label and the user  type new SSO accounts get. Anonymous callers are accepted, but an unauthenticated one receives only  `hideAuthPage`, which tells the sign-in page whether the built-in login form has to be hidden; every other  field stays empty, so read the full configuration with an authenticated request. An authenticated caller needs  the permission to edit portal settings, which in practice means the portal owner or a DocSpace admin, and the  portal plan has to include Single Sign-On, otherwise the call is refused. The operation only reads and is safe  to repeat. When the login label was never set, the response carries the built-in `Single Sign-on` instead of  an empty string, and `enableSso` is null until the settings are saved for the first time. Use  `GET api/2.0/settings/ssov2/default` for a blank configuration to start from, and  `GET api/2.0/settings/ssov2/constants` for the values the SAML fields accept.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2/">REST API Reference for GetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async Task<ApiResponse<SsoSettingsV2Wrapper>> GetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        public async Task<ApiResponse<SsoSettingsWrapper>> GetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -753,10 +783,40 @@ namespace DocSpace.API.SDK.Api.Settings
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SsoSettingsWrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -774,12 +834,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetSsoSettingsV2Constants()
+        /// <returns>SsoSettingsConstantsWrapper</returns>
+        public SsoSettingsConstantsWrapper GetSsoSettingsV2Constants()
         {
             var localVarResponse = GetSsoSettingsV2ConstantsWithHttpInfo();
             return localVarResponse.Data;
@@ -789,12 +849,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetSsoSettingsV2ConstantsWithHttpInfo()
+        /// <returns>ApiResponse of SsoSettingsConstantsWrapper</returns>
+        public ApiResponse<SsoSettingsConstantsWrapper> GetSsoSettingsV2ConstantsWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -842,7 +902,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<SsoSettingsConstantsWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -860,13 +920,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of SsoSettingsConstantsWrapper</returns>
+        public async Task<SsoSettingsConstantsWrapper> GetSsoSettingsV2ConstantsAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetSsoSettingsV2ConstantsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -876,13 +936,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get the SSO settings constants
         /// </summary>
         /// <remarks>
-        /// Returns the SSO settings constants.
+        /// Returns every literal value the SAML fields of the SSO configuration accept, grouped by the field it belongs  to: name ID formats, request bindings, signing and encryption algorithms, and what a service provider or  identity provider certificate can be used for. The values are the SAML URNs and algorithm URIs themselves, so  they can be written into the configuration exactly as they come back; picking one from the matching group is  the point, because `POST api/2.0/settings/ssov2` stores these fields as they are given and a misspelled value  therefore surfaces only later, as a failing sign-in. The list is a fixed part of the product: it is the same  for every portal, does not depend on the saved settings and does not change between calls within a release, so  it can be cached. The operation only reads, is safe to repeat and needs nothing beyond an authenticated  caller. Use it together with `GET api/2.0/settings/ssov2/default`, which already has the usual values set.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-sso-settings-v2constants/">REST API Reference for GetSsoSettingsV2Constants Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SsoSettingsConstantsWrapper)</returns>
+        public async Task<ApiResponse<SsoSettingsConstantsWrapper>> GetSsoSettingsV2ConstantsWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -932,7 +992,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<SsoSettingsConstantsWrapper>("/api/2.0/settings/ssov2/constants", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -950,12 +1010,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        public SsoSettingsV2Wrapper ResetSsoSettingsV2()
+        /// <returns>SsoSettingsWrapper</returns>
+        public SsoSettingsWrapper ResetSsoSettingsV2()
         {
             var localVarResponse = ResetSsoSettingsV2WithHttpInfo();
             return localVarResponse.Data;
@@ -965,12 +1025,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public ApiResponse<SsoSettingsV2Wrapper> ResetSsoSettingsV2WithHttpInfo()
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        public ApiResponse<SsoSettingsWrapper> ResetSsoSettingsV2WithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1018,7 +1078,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<SsoSettingsWrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1036,13 +1096,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        public async Task<SsoSettingsV2Wrapper> ResetSsoSettingsV2Async(CancellationToken cancellationToken = default)
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        public async Task<SsoSettingsWrapper> ResetSsoSettingsV2Async(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ResetSsoSettingsV2WithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1052,13 +1112,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Reset the SSO settings
         /// </summary>
         /// <remarks>
-        /// Resets the SSO settings of the current portal.
+        /// Discards the SAML Single Sign-On configuration of the current portal, stores the built-in default one in its  place and returns what was stored, which is the same content as `GET api/2.0/settings/ssov2/default`. This is  destructive and cannot be undone through the API: the identity provider addresses, both certificate sets, the  attribute mapping and the login label are gone and SSO is left switched off, so keep a copy of  `GET api/2.0/settings/ssov2` first if the configuration may be needed again. Every account that signed in  through SSO is unlinked and becomes an ordinary account that keeps its data but authenticates with portal  credentials from then on, and its external contacts are converted the same way. Repeating the call is  harmless, as the second one stores the same defaults again. The caller needs the permission to edit portal  settings, which in practice means the portal owner or a DocSpace admin, and the portal plan has to include  Single Sign-On, otherwise the call is refused. To switch SSO off while keeping the configuration, send it back  to `POST api/2.0/settings/ssov2` with SSO disabled instead. The reset is recorded in the audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-sso-settings-v2/">REST API Reference for ResetSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async Task<ApiResponse<SsoSettingsV2Wrapper>> ResetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        public async Task<ApiResponse<SsoSettingsWrapper>> ResetSsoSettingsV2WithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1108,7 +1168,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<SsoSettingsWrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -1126,15 +1186,15 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>SsoSettingsV2Wrapper</returns>
-        public SsoSettingsV2Wrapper SaveSsoSettingsV2(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default)
+        /// <returns>SsoSettingsWrapper</returns>
+        public SsoSettingsWrapper SaveSsoSettingsV2(SsoSettingsRequestDto? ssoSettingsRequestDto = default)
         {
-            var localVarResponse = SaveSsoSettingsV2WithHttpInfo(ssoSettingsRequestsDto);
+            var localVarResponse = SaveSsoSettingsV2WithHttpInfo(ssoSettingsRequestDto);
             return localVarResponse.Data;
         }
 
@@ -1142,13 +1202,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>ApiResponse of SsoSettingsV2Wrapper</returns>
-        public ApiResponse<SsoSettingsV2Wrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default)
+        /// <returns>ApiResponse of SsoSettingsWrapper</returns>
+        public ApiResponse<SsoSettingsWrapper> SaveSsoSettingsV2WithHttpInfo(SsoSettingsRequestDto? ssoSettingsRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1163,7 +1223,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (ssoSettingsRequestsDto != null) localVarRequestOptions.Data = ssoSettingsRequestsDto;
+            if (ssoSettingsRequestDto != null) localVarRequestOptions.Data = ssoSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1197,7 +1257,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<SsoSettingsWrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1215,16 +1275,16 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of SsoSettingsV2Wrapper</returns>
-        public async Task<SsoSettingsV2Wrapper> SaveSsoSettingsV2Async(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of SsoSettingsWrapper</returns>
+        public async Task<SsoSettingsWrapper> SaveSsoSettingsV2Async(SsoSettingsRequestDto? ssoSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveSsoSettingsV2WithHttpInfoAsync(ssoSettingsRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveSsoSettingsV2WithHttpInfoAsync(ssoSettingsRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1232,14 +1292,14 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Save the SSO settings
         /// </summary>
         /// <remarks>
-        /// Saves the SSO settings for the current portal.
+        /// Replaces the whole SAML Single Sign-On configuration of the current portal with the one passed as a JSON  object in `serializeSettings`, and returns the configuration as it was stored. The payload is a complete  configuration rather than a patch: fields left out are stored empty, so send back a changed copy of  `GET api/2.0/settings/ssov2`, or start from `GET api/2.0/settings/ssov2/default`. The identity provider entity  ID and sign-in URL are required, the sign-in and sign-out URLs have to be absolute http or https addresses,  and the attribute mapping has to name the fields for first name, last name and email; otherwise nothing is  saved. The caller has to be allowed to edit portal settings (portal owner or DocSpace admin), and the portal  plan has to include Single Sign-On. Some values are normalised on the way in: a `usersType` other than 1 (room  admin), 3 (DocSpace admin) or 4 (user) becomes 4, an empty login label becomes `Single Sign-on`, and a longer  one is cut to 100 characters. Saving with SSO switched off unlinks every existing SSO account and turns it  into an ordinary one; switching SSO back on later does not restore those links. The change is recorded in the  audit trail.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ssoSettingsRequestsDto">The request parameters for the Single Sign-On (SSO) configuration settings. (optional)</param>
+        /// <param name="ssoSettingsRequestDto">The whole SAML Single Sign-On configuration of the portal, carried as a serialised JSON object. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-sso-settings-v2/">REST API Reference for SaveSsoSettingsV2 Operation</seealso>
-        /// <returns>Task of ApiResponse (SsoSettingsV2Wrapper)</returns>
-        public async Task<ApiResponse<SsoSettingsV2Wrapper>> SaveSsoSettingsV2WithHttpInfoAsync(SsoSettingsRequestsDto? ssoSettingsRequestsDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SsoSettingsWrapper)</returns>
+        public async Task<ApiResponse<SsoSettingsWrapper>> SaveSsoSettingsV2WithHttpInfoAsync(SsoSettingsRequestDto? ssoSettingsRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1255,7 +1315,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (ssoSettingsRequestsDto != null) localVarRequestOptions.Data = ssoSettingsRequestsDto;
+            if (ssoSettingsRequestDto != null) localVarRequestOptions.Data = ssoSettingsRequestDto;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1290,7 +1350,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<SsoSettingsV2Wrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<SsoSettingsWrapper>("/api/2.0/settings/ssov2", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -1,10 +1,11 @@
 # DocSpace.API.SDK.Model.ObjectArrayWrapper
+The successful API response.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | **List&lt;Object&gt;** |  | [optional] 
+**Response** | **List&lt;Object&gt;** | The response payload. | [optional] 
 **Count** | **int** | The total number of items in the response | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) | List of links related to the response | [optional] 
 **Status** | **int** | HTTP status code of the response | [optional] 

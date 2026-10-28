@@ -1,0 +1,1859 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+namespace DocSpace.API.SDK.Api.AI
+{
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public interface IAttachmentsApiSync : IApiAccessor
+    {
+        #region Synchronous Operations
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiAttachmentsDelete(string aiAttachmentsDeleteRequest);
+
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        ApiResponse<AiSuccessResponse> AiAttachmentsDeleteWithHttpInfo(string aiAttachmentsDeleteRequest);
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiAttachmentsDeleteMany(List<string> aiAttachmentsDeleteManyRequest);
+
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        ApiResponse<AiSuccessResponse> AiAttachmentsDeleteManyWithHttpInfo(List<string> aiAttachmentsDeleteManyRequest);
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>AiAttachment</returns>
+        AiAttachment AiAttachmentsGet(string aiAttachmentsGetRequest);
+
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>ApiResponse of AiAttachment</returns>
+        ApiResponse<AiAttachment> AiAttachmentsGetWithHttpInfo(string aiAttachmentsGetRequest);
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>List&lt;AiAttachment&gt;</returns>
+        List<AiAttachment> AiAttachmentsGetMany(List<string> aiAttachmentsGetManyRequest);
+
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>ApiResponse of List&lt;AiAttachment&gt;</returns>
+        ApiResponse<List<AiAttachment>> AiAttachmentsGetManyWithHttpInfo(List<string> aiAttachmentsGetManyRequest);
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiAttachmentsGetSuggestedQuestions(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest);
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        ApiResponse<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsWithHttpInfo(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest);
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        AiSuccessResponse AiAttachmentsLinkToMessage(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest);
+
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        ApiResponse<AiSuccessResponse> AiAttachmentsLinkToMessageWithHttpInfo(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest);
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>AiAttachment</returns>
+        AiAttachment AiAttachmentsSaveFile(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest);
+
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>ApiResponse of AiAttachment</returns>
+        ApiResponse<AiAttachment> AiAttachmentsSaveFileWithHttpInfo(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest);
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>List&lt;AiAttachment&gt;</returns>
+        List<AiAttachment> AiAttachmentsSaveFilesMany(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest);
+
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>ApiResponse of List&lt;AiAttachment&gt;</returns>
+        ApiResponse<List<AiAttachment>> AiAttachmentsSaveFilesManyWithHttpInfo(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest);
+        #endregion Synchronous Operations
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public interface IAttachmentsApiAsync : IApiAccessor
+    {
+        #region Asynchronous Operations
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        Task<AiSuccessResponse> AiAttachmentsDeleteAsync(string aiAttachmentsDeleteRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        Task<ApiResponse<AiSuccessResponse>> AiAttachmentsDeleteWithHttpInfoAsync(string aiAttachmentsDeleteRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        Task<AiSuccessResponse> AiAttachmentsDeleteManyAsync(List<string> aiAttachmentsDeleteManyRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        Task<ApiResponse<AiSuccessResponse>> AiAttachmentsDeleteManyWithHttpInfoAsync(List<string> aiAttachmentsDeleteManyRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>Task of AiAttachment</returns>
+        Task<AiAttachment> AiAttachmentsGetAsync(string aiAttachmentsGetRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAttachment)</returns>
+        Task<ApiResponse<AiAttachment>> AiAttachmentsGetWithHttpInfoAsync(string aiAttachmentsGetRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>Task of List&lt;AiAttachment&gt;</returns>
+        Task<List<AiAttachment>> AiAttachmentsGetManyAsync(List<string> aiAttachmentsGetManyRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>Task of ApiResponse (List&lt;AiAttachment&gt;)</returns>
+        Task<ApiResponse<List<AiAttachment>>> AiAttachmentsGetManyWithHttpInfoAsync(List<string> aiAttachmentsGetManyRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        Task<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsAsync(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        Task<ApiResponse<AiSuccessResponse>> AiAttachmentsGetSuggestedQuestionsWithHttpInfoAsync(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        Task<AiSuccessResponse> AiAttachmentsLinkToMessageAsync(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        Task<ApiResponse<AiSuccessResponse>> AiAttachmentsLinkToMessageWithHttpInfoAsync(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>Task of AiAttachment</returns>
+        Task<AiAttachment> AiAttachmentsSaveFileAsync(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAttachment)</returns>
+        Task<ApiResponse<AiAttachment>> AiAttachmentsSaveFileWithHttpInfoAsync(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>Task of List&lt;AiAttachment&gt;</returns>
+        Task<List<AiAttachment>> AiAttachmentsSaveFilesManyAsync(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>Task of ApiResponse (List&lt;AiAttachment&gt;)</returns>
+        Task<ApiResponse<List<AiAttachment>>> AiAttachmentsSaveFilesManyWithHttpInfoAsync(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest, CancellationToken cancellationToken = default);
+        #endregion Asynchronous Operations
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public interface IAttachmentsApi : IAttachmentsApiSync, IAttachmentsApiAsync
+    {
+
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public class AttachmentsApi : IDisposable, IAttachmentsApi
+    {
+        private ExceptionFactory _exceptionFactory = (_, _) => null;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AttachmentsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
+        /// </summary>
+        /// <returns></returns>
+        public AttachmentsApi() : this((string)null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AttachmentsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
+        /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        public AttachmentsApi(string basePath)
+        {
+            Configuration = DocSpace.API.SDK.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
+            );
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.API.SDK.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AttachmentsApi"/> class using a Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
+        /// </summary>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        public AttachmentsApi(Configuration configuration)
+        {
+            ArgumentNullException.ThrowIfNull(configuration);
+
+            Configuration = DocSpace.API.SDK.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
+                configuration
+            );
+            ApiClient = new ApiClient(Configuration.BasePath);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.API.SDK.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AttachmentsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public AttachmentsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AttachmentsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public AttachmentsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            ArgumentNullException.ThrowIfNull(client);
+
+            Configuration = DocSpace.API.SDK.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
+                new Configuration { BasePath = basePath }
+            );
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client =  ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.API.SDK.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AttachmentsApi"/> class using a Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public AttachmentsApi(HttpClient client, Configuration configuration, HttpClientHandler handler = null)
+        {
+            ArgumentNullException.ThrowIfNull(configuration);
+            ArgumentNullException.ThrowIfNull(client);
+
+            Configuration = DocSpace.API.SDK.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
+                configuration
+            );
+            ApiClient = new ApiClient(client, Configuration.BasePath, handler);
+            Client = ApiClient;
+            AsynchronousClient = ApiClient;
+            ExceptionFactory = DocSpace.API.SDK.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AttachmentsApi"/> class
+        /// using a Configuration object and client instance.
+        /// </summary>
+        /// <param name="client">The client interface for synchronous API access.</param>
+        /// <param name="asyncClient">The client interface for asynchronous API access.</param>
+        /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public AttachmentsApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        {
+            ArgumentNullException.ThrowIfNull(client);
+            ArgumentNullException.ThrowIfNull(asyncClient);
+            ArgumentNullException.ThrowIfNull(configuration);
+
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = DocSpace.API.SDK.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            ApiClient.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public ApiClient ApiClient { get; set; }
+
+        /// <summary>
+        /// The client for accessing this underlying API asynchronously.
+        /// </summary>
+        public IAsynchronousClient AsynchronousClient { get; set; }
+
+        /// <summary>
+        /// The client for accessing this underlying API synchronously.
+        /// </summary>
+        public ISynchronousClient Client { get; set; }
+
+        /// <summary>
+        /// Gets the base path of the API client.
+        /// </summary>
+        /// <value>The base path</value>
+        public string GetBasePath()
+        {
+            return Configuration.BasePath;
+        }
+
+        /// <summary>
+        /// Gets or sets the configuration object
+        /// </summary>
+        /// <value>An instance of the Configuration</value>
+        public IReadableConfiguration Configuration { get; set; }
+
+        /// <summary>
+        /// Provides a factory method hook for the creation of exceptions.
+        /// </summary>
+        public ExceptionFactory ExceptionFactory
+        {
+            get
+            {
+                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
+                {
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                }
+                return _exceptionFactory;
+            }
+            set => _exceptionFactory = value; 
+        }
+
+
+        
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        public AiSuccessResponse AiAttachmentsDelete(string aiAttachmentsDeleteRequest)
+        {
+            var localVarResponse = AiAttachmentsDeleteWithHttpInfo(aiAttachmentsDeleteRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        public ApiResponse<AiSuccessResponse> AiAttachmentsDeleteWithHttpInfo(string aiAttachmentsDeleteRequest)
+        {
+            // verify the required parameter 'aiAttachmentsDeleteRequest' is set
+            if (aiAttachmentsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsDeleteRequest' when calling AttachmentsApi->AiAttachmentsDelete");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsDeleteRequest != null) localVarRequestOptions.Data = aiAttachmentsDeleteRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/attachments/delete", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsDelete", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        public async Task<AiSuccessResponse> AiAttachmentsDeleteAsync(string aiAttachmentsDeleteRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsDeleteWithHttpInfoAsync(aiAttachmentsDeleteRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete one attachment
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes one attachment, whether it is still a draft or already bound to a message. The ID is not validated here, so a malformed one surfaces as an error relayed from storage rather than as a 400, and an ID that does not exist answers success without deleting anything. Deleting a bound attachment leaves the message in place without it. The deletion cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteRequest">The ID of the attachment to delete, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete/">REST API Reference for AiAttachmentsDelete Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        public async Task<ApiResponse<AiSuccessResponse>> AiAttachmentsDeleteWithHttpInfoAsync(string aiAttachmentsDeleteRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsDeleteRequest' is set
+            if (aiAttachmentsDeleteRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsDeleteRequest' when calling AttachmentsApi->AiAttachmentsDelete");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsDeleteRequest != null) localVarRequestOptions.Data = aiAttachmentsDeleteRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<AiSuccessResponse>("/api/2.0/ai/attachments/delete", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsDelete", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        public AiSuccessResponse AiAttachmentsDeleteMany(List<string> aiAttachmentsDeleteManyRequest)
+        {
+            var localVarResponse = AiAttachmentsDeleteManyWithHttpInfo(aiAttachmentsDeleteManyRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        public ApiResponse<AiSuccessResponse> AiAttachmentsDeleteManyWithHttpInfo(List<string> aiAttachmentsDeleteManyRequest)
+        {
+            // verify the required parameter 'aiAttachmentsDeleteManyRequest' is set
+            if (aiAttachmentsDeleteManyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsDeleteManyRequest' when calling AttachmentsApi->AiAttachmentsDeleteMany");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsDeleteManyRequest != null) localVarRequestOptions.Data = aiAttachmentsDeleteManyRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<AiSuccessResponse>("/api/2.0/ai/attachments/delete-many", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsDeleteMany", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        public async Task<AiSuccessResponse> AiAttachmentsDeleteManyAsync(List<string> aiAttachmentsDeleteManyRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsDeleteManyWithHttpInfoAsync(aiAttachmentsDeleteManyRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete many
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes several attachments in one round trip. `ids` is optional and an absent value is treated as an empty list, so a malformed request quietly deletes nothing instead of failing. IDs that do not exist are skipped without being reported, so the answer confirms only that the call was accepted. The deletions cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsDeleteManyRequest">The IDs of the attachments to delete, as a bare JSON array of strings.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-delete-many/">REST API Reference for AiAttachmentsDeleteMany Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        public async Task<ApiResponse<AiSuccessResponse>> AiAttachmentsDeleteManyWithHttpInfoAsync(List<string> aiAttachmentsDeleteManyRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsDeleteManyRequest' is set
+            if (aiAttachmentsDeleteManyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsDeleteManyRequest' when calling AttachmentsApi->AiAttachmentsDeleteMany");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsDeleteManyRequest != null) localVarRequestOptions.Data = aiAttachmentsDeleteManyRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<AiSuccessResponse>("/api/2.0/ai/attachments/delete-many", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsDeleteMany", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>AiAttachment</returns>
+        public AiAttachment AiAttachmentsGet(string aiAttachmentsGetRequest)
+        {
+            var localVarResponse = AiAttachmentsGetWithHttpInfo(aiAttachmentsGetRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>ApiResponse of AiAttachment</returns>
+        public ApiResponse<AiAttachment> AiAttachmentsGetWithHttpInfo(string aiAttachmentsGetRequest)
+        {
+            // verify the required parameter 'aiAttachmentsGetRequest' is set
+            if (aiAttachmentsGetRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsGetRequest' when calling AttachmentsApi->AiAttachmentsGet");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsGetRequest != null) localVarRequestOptions.Data = aiAttachmentsGetRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<AiAttachment>("/api/2.0/ai/attachments/get", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGet", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>Task of AiAttachment</returns>
+        public async Task<AiAttachment> AiAttachmentsGetAsync(string aiAttachmentsGetRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsGetWithHttpInfoAsync(aiAttachmentsGetRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get one attachment
+        /// </summary>
+        /// <remarks>
+        /// Returns one attachment by its ID, whether it is still a draft or already bound to a message. The ID is required and has to be a non-empty string. An ID that no longer exists is not reported as 404: the answer is a null body with status 200, so treat a missing payload as no such attachment. Use `POST api/2.0/ai/attachments/get-many` to read several at once.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetRequest">The ID of the attachment to read, as a bare JSON string.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get/">REST API Reference for AiAttachmentsGet Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAttachment)</returns>
+        public async Task<ApiResponse<AiAttachment>> AiAttachmentsGetWithHttpInfoAsync(string aiAttachmentsGetRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsGetRequest' is set
+            if (aiAttachmentsGetRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsGetRequest' when calling AttachmentsApi->AiAttachmentsGet");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsGetRequest != null) localVarRequestOptions.Data = aiAttachmentsGetRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<AiAttachment>("/api/2.0/ai/attachments/get", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGet", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>List&lt;AiAttachment&gt;</returns>
+        public List<AiAttachment> AiAttachmentsGetMany(List<string> aiAttachmentsGetManyRequest)
+        {
+            var localVarResponse = AiAttachmentsGetManyWithHttpInfo(aiAttachmentsGetManyRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>ApiResponse of List&lt;AiAttachment&gt;</returns>
+        public ApiResponse<List<AiAttachment>> AiAttachmentsGetManyWithHttpInfo(List<string> aiAttachmentsGetManyRequest)
+        {
+            // verify the required parameter 'aiAttachmentsGetManyRequest' is set
+            if (aiAttachmentsGetManyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsGetManyRequest' when calling AttachmentsApi->AiAttachmentsGetMany");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsGetManyRequest != null) localVarRequestOptions.Data = aiAttachmentsGetManyRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<List<AiAttachment>>("/api/2.0/ai/attachments/get-many", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGetMany", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>Task of List&lt;AiAttachment&gt;</returns>
+        public async Task<List<AiAttachment>> AiAttachmentsGetManyAsync(List<string> aiAttachmentsGetManyRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsGetManyWithHttpInfoAsync(aiAttachmentsGetManyRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get many
+        /// </summary>
+        /// <remarks>
+        /// Returns several attachments in one call, aligned by position with the `ids` that were sent, so the answer can be zipped straight onto the request. An ID that no longer exists leaves its slot empty rather than shortening the list, which is how a caller tells which of them are gone. `ids` has to be present and non-empty - an empty batch is rejected rather than answered with an empty list. Nothing is changed by the call.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetManyRequest">The IDs of the attachments to read, as a bare JSON array of strings. The answer is aligned with this array by position.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-many/">REST API Reference for AiAttachmentsGetMany Operation</seealso>
+        /// <returns>Task of ApiResponse (List&lt;AiAttachment&gt;)</returns>
+        public async Task<ApiResponse<List<AiAttachment>>> AiAttachmentsGetManyWithHttpInfoAsync(List<string> aiAttachmentsGetManyRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsGetManyRequest' is set
+            if (aiAttachmentsGetManyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsGetManyRequest' when calling AttachmentsApi->AiAttachmentsGetMany");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsGetManyRequest != null) localVarRequestOptions.Data = aiAttachmentsGetManyRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<List<AiAttachment>>("/api/2.0/ai/attachments/get-many", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGetMany", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        public AiSuccessResponse AiAttachmentsGetSuggestedQuestions(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest)
+        {
+            var localVarResponse = AiAttachmentsGetSuggestedQuestionsWithHttpInfo(aiAttachmentsGetSuggestedQuestionsRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        public ApiResponse<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsWithHttpInfo(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest)
+        {
+            // verify the required parameter 'aiAttachmentsGetSuggestedQuestionsRequest' is set
+            if (aiAttachmentsGetSuggestedQuestionsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsGetSuggestedQuestionsRequest' when calling AttachmentsApi->AiAttachmentsGetSuggestedQuestions");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsGetSuggestedQuestionsRequest != null) localVarRequestOptions.Data = aiAttachmentsGetSuggestedQuestionsRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/attachments/suggested-questions", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGetSuggestedQuestions", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        public async Task<AiSuccessResponse> AiAttachmentsGetSuggestedQuestionsAsync(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsGetSuggestedQuestionsWithHttpInfoAsync(aiAttachmentsGetSuggestedQuestionsRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get suggested questions
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsGetSuggestedQuestionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-get-suggested-questions/">REST API Reference for AiAttachmentsGetSuggestedQuestions Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        public async Task<ApiResponse<AiSuccessResponse>> AiAttachmentsGetSuggestedQuestionsWithHttpInfoAsync(Dictionary<string, Object> aiAttachmentsGetSuggestedQuestionsRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsGetSuggestedQuestionsRequest' is set
+            if (aiAttachmentsGetSuggestedQuestionsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsGetSuggestedQuestionsRequest' when calling AttachmentsApi->AiAttachmentsGetSuggestedQuestions");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsGetSuggestedQuestionsRequest != null) localVarRequestOptions.Data = aiAttachmentsGetSuggestedQuestionsRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/attachments/suggested-questions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsGetSuggestedQuestions", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>AiSuccessResponse</returns>
+        public AiSuccessResponse AiAttachmentsLinkToMessage(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest)
+        {
+            var localVarResponse = AiAttachmentsLinkToMessageWithHttpInfo(aiAttachmentsLinkToMessageRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>ApiResponse of AiSuccessResponse</returns>
+        public ApiResponse<AiSuccessResponse> AiAttachmentsLinkToMessageWithHttpInfo(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest)
+        {
+            // verify the required parameter 'aiAttachmentsLinkToMessageRequest' is set
+            if (aiAttachmentsLinkToMessageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsLinkToMessageRequest' when calling AttachmentsApi->AiAttachmentsLinkToMessage");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsLinkToMessageRequest != null) localVarRequestOptions.Data = aiAttachmentsLinkToMessageRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<AiSuccessResponse>("/api/2.0/ai/attachments/link-to-message", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsLinkToMessage", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>Task of AiSuccessResponse</returns>
+        public async Task<AiSuccessResponse> AiAttachmentsLinkToMessageAsync(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsLinkToMessageWithHttpInfoAsync(aiAttachmentsLinkToMessageRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Link to message
+        /// </summary>
+        /// <remarks>
+        /// Binds draft attachments to the chat message that owns them, after that message has been persisted, so that deleting the message removes them too. All three of `ids`, `messageId` and `threadId` are required, and the references are verified rather than trusted: an unknown message answers 404, a message that belongs to a different thread answers 400, and attachments that no longer exist answer 404 naming each missing ID. That verification exists because the underlying binding call skips unknown IDs silently, which used to report success for a link that had not happened. Drafts stay unbound until this succeeds.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsLinkToMessageRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-link-to-message/">REST API Reference for AiAttachmentsLinkToMessage Operation</seealso>
+        /// <returns>Task of ApiResponse (AiSuccessResponse)</returns>
+        public async Task<ApiResponse<AiSuccessResponse>> AiAttachmentsLinkToMessageWithHttpInfoAsync(AiAttachmentsLinkToMessageRequest aiAttachmentsLinkToMessageRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsLinkToMessageRequest' is set
+            if (aiAttachmentsLinkToMessageRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsLinkToMessageRequest' when calling AttachmentsApi->AiAttachmentsLinkToMessage");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsLinkToMessageRequest != null) localVarRequestOptions.Data = aiAttachmentsLinkToMessageRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<AiSuccessResponse>("/api/2.0/ai/attachments/link-to-message", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsLinkToMessage", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>AiAttachment</returns>
+        public AiAttachment AiAttachmentsSaveFile(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest)
+        {
+            var localVarResponse = AiAttachmentsSaveFileWithHttpInfo(aiAttachmentsSaveFileRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>ApiResponse of AiAttachment</returns>
+        public ApiResponse<AiAttachment> AiAttachmentsSaveFileWithHttpInfo(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest)
+        {
+            // verify the required parameter 'aiAttachmentsSaveFileRequest' is set
+            if (aiAttachmentsSaveFileRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsSaveFileRequest' when calling AttachmentsApi->AiAttachmentsSaveFile");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsSaveFileRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFileRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<AiAttachment>("/api/2.0/ai/attachments/save-file", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsSaveFile", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>Task of AiAttachment</returns>
+        public async Task<AiAttachment> AiAttachmentsSaveFileAsync(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsSaveFileWithHttpInfoAsync(aiAttachmentsSaveFileRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save file
+        /// </summary>
+        /// <remarks>
+        /// Stores one file attachment as a draft and returns it, so its ID can be attached to a message later. `input` carries the host `path` - the DocSpace entry ID the AI backend resolves server-side - the text `content` already extracted from that file, the ONLYOFFICE numeric file `type`, and optionally a `title`; the text is what the model reads, so this operation does not open the file itself. Archives are refused outright, whatever their declared name says. Drafts are not bound to a conversation until `POST api/2.0/ai/attachments/link-to-message` is called, so an unlinked draft outlives the round that created it.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFileRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-file/">REST API Reference for AiAttachmentsSaveFile Operation</seealso>
+        /// <returns>Task of ApiResponse (AiAttachment)</returns>
+        public async Task<ApiResponse<AiAttachment>> AiAttachmentsSaveFileWithHttpInfoAsync(AiAttachmentsSaveFileRequest aiAttachmentsSaveFileRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsSaveFileRequest' is set
+            if (aiAttachmentsSaveFileRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsSaveFileRequest' when calling AttachmentsApi->AiAttachmentsSaveFile");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsSaveFileRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFileRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<AiAttachment>("/api/2.0/ai/attachments/save-file", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsSaveFile", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>List&lt;AiAttachment&gt;</returns>
+        public List<AiAttachment> AiAttachmentsSaveFilesMany(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest)
+        {
+            var localVarResponse = AiAttachmentsSaveFilesManyWithHttpInfo(aiAttachmentsSaveFilesManyRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>ApiResponse of List&lt;AiAttachment&gt;</returns>
+        public ApiResponse<List<AiAttachment>> AiAttachmentsSaveFilesManyWithHttpInfo(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest)
+        {
+            // verify the required parameter 'aiAttachmentsSaveFilesManyRequest' is set
+            if (aiAttachmentsSaveFilesManyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsSaveFilesManyRequest' when calling AttachmentsApi->AiAttachmentsSaveFilesMany");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsSaveFilesManyRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFilesManyRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<List<AiAttachment>>("/api/2.0/ai/attachments/save-files-many", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsSaveFilesMany", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>Task of List&lt;AiAttachment&gt;</returns>
+        public async Task<List<AiAttachment>> AiAttachmentsSaveFilesManyAsync(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AiAttachmentsSaveFilesManyWithHttpInfoAsync(aiAttachmentsSaveFilesManyRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save files many
+        /// </summary>
+        /// <remarks>
+        /// Stores several file attachments as drafts in one round trip and returns them in the order they were sent. Each entry is validated exactly as the single-file operation validates its `input`, and the first bad one rejects the whole batch with its index named in the message - nothing is stored. `inputs` has to be present and an array: an absent or null value is a malformed request rather than an empty batch, and only an explicit empty array means no files. Follow up with `POST api/2.0/ai/attachments/link-to-message` to bind the drafts to a message.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="aiAttachmentsSaveFilesManyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/ai-attachments-save-files-many/">REST API Reference for AiAttachmentsSaveFilesMany Operation</seealso>
+        /// <returns>Task of ApiResponse (List&lt;AiAttachment&gt;)</returns>
+        public async Task<ApiResponse<List<AiAttachment>>> AiAttachmentsSaveFilesManyWithHttpInfoAsync(AiAttachmentsSaveFilesManyRequest aiAttachmentsSaveFilesManyRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'aiAttachmentsSaveFilesManyRequest' is set
+            if (aiAttachmentsSaveFilesManyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'aiAttachmentsSaveFilesManyRequest' when calling AttachmentsApi->AiAttachmentsSaveFilesMany");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (aiAttachmentsSaveFilesManyRequest != null) localVarRequestOptions.Data = aiAttachmentsSaveFilesManyRequest;
+
+            // authentication (cookieAuth) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (bearerAuth) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<List<AiAttachment>>("/api/2.0/ai/attachments/save-files-many", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AiAttachmentsSaveFilesMany", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+    }
+}

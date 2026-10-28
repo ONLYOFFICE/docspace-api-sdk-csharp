@@ -52,20 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// The time in UTC format.
         /// </summary>
-        /// <value>The time in UTC format.</value>
-        /*
-        <example>2018-01-01T00:00Z</example>
-        */
+        /// <example>2018-01-01T00:00:00.0000000Z</example>
         [DataMember(Name = "utcTime", EmitDefaultValue = false)]
         public DateTime UtcTime { get; set; }
 
         /// <summary>
         /// The time zone offset.
         /// </summary>
-        /// <value>The time zone offset.</value>
-        /*
-        <example>00:00:00</example>
-        */
+        /// <example>00:00:00</example>
         [DataMember(Name = "timeZoneOffset", EmitDefaultValue = false)]
         public string TimeZoneOffset { get; set; }
 
